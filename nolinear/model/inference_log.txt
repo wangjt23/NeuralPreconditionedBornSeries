@@ -1,0 +1,12 @@
+Sun 15 Mar 2026 19:57:19 INFO Starting inference with arguments: Namespace(model_path='/afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/FNO_solver2026-03-15 19:44:31.339501.pt', data_path='./data/newton_method_iterations_5.pt', batch_size=1, max_iter=200, tol=0.0001)
+Sun 15 Mar 2026 19:57:19 INFO Using device: cuda
+Sun 15 Mar 2026 19:57:19 INFO Loading model from /afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/FNO_solver2026-03-15 19:44:31.339501.pt
+Sun 15 Mar 2026 19:57:20 INFO Model loaded successfully.
+Sun 15 Mar 2026 19:57:20 INFO Loading test dataset...
+Sun 15 Mar 2026 19:57:24 INFO Test data loaded. Number of samples: 100
+Sun 15 Mar 2026 19:57:29 INFO ---------- Inference Finished ----------
+Sun 15 Mar 2026 19:57:29 INFO Number of test samples: 100
+Sun 15 Mar 2026 19:57:29 INFO Average relative residual: 9.0402e-05
+Sun 15 Mar 2026 19:57:29 INFO Average number of iterations to converge: 30.78
+Sun 15 Mar 2026 19:57:29 INFO Convergence rate (residual < 1.0e-04): 97.00%
+Sun 15 Mar 2026 19:57:29 INFO ------------------------------------

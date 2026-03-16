@@ -1,0 +1,20 @@
+2026-02-10 22:00:26 INFO Starting Newton inference with arguments: Namespace(model_path='/afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-10 20:26:11.785565.pt', data_path='./data/newton_method_iterations_7_solution.pt', sample_index=5001, max_newton_iter=10, newton_tol=0.0001, linear_solver_max_iter=100, linear_solver_tol=0.0001)
+2026-02-10 22:00:26 INFO Using device: cuda
+2026-02-10 22:00:26 INFO Loading model from /afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-10 20:26:11.785565.pt
+2026-02-10 22:00:26 INFO Model loaded successfully.
+2026-02-10 22:00:26 INFO Loading data from ./data/newton_method_iterations_7_solution.pt
+2026-02-10 22:00:32 INFO Solving for sample index: 5001
+2026-02-10 22:00:32 INFO Initial guess shape: torch.Size([1, 1, 64, 64])
+2026-02-10 22:00:32 INFO Newton Iter 1/10 | PDE Residual Norm: 7.433e-01
+2026-02-10 22:00:33 INFO   -> Linear solver finished in 23 iterations. Final relative residual: 8.483e-05
+2026-02-10 22:00:33 INFO Newton Iter 2/10 | PDE Residual Norm: 7.834e-02
+2026-02-10 22:00:33 INFO   -> Linear solver finished in 20 iterations. Final relative residual: 8.975e-05
+2026-02-10 22:00:33 INFO Newton Iter 3/10 | PDE Residual Norm: 1.077e-02
+2026-02-10 22:00:33 INFO   -> Linear solver finished in 18 iterations. Final relative residual: 9.834e-05
+2026-02-10 22:00:34 INFO Newton Iter 4/10 | PDE Residual Norm: 3.592e-05
+2026-02-10 22:00:34 INFO Newton method converged after 3 iterations.
+2026-02-10 22:00:34 INFO ---------- Newton Inference Finished ----------
+2026-02-10 22:00:34 INFO Newton iterations taken: 3
+2026-02-10 22:00:34 INFO Final PDE residual norm: 3.5920e-05
+2026-02-10 22:00:34 INFO ---------------------------------------------
+2026-02-10 22:00:34 INFO Saved result plot to /afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/newton_result_sample_5001.png
