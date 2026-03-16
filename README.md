@@ -5,8 +5,8 @@ This repository contains implementations of Born-Series-Inspired Residual Metric
 ## Structure
 
 ```
+├── helmholtz/    # Helmholtz equation
 ├── cdr/          # Convection-Diffusion-Reaction equation
-├── helmholtz/    # Helmholtz equation (PAFNO)
 └── nolinear/     # Nonlinear Poisson equation
 ```
 
