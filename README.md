@@ -1,4 +1,4 @@
-# Preconditioned Neural PDE Solvers
+# Neural Preconditioned Born Series
 
 This repository contains implementations of Born-Series-Inspired Residual Metric for Learning-based Preconditioners.
 
