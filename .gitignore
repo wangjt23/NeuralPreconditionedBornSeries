@@ -48,3 +48,9 @@ env/
 
 # mypy
 .mypy_cache/
+
+*.json
+
+# Ignored directories
+repos/
+nolinear/model/

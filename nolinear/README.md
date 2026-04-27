@@ -28,7 +28,7 @@ python newton.py --model_type FNO_solver_precond \
 ```
 ## inference: linearized newton system
 ```bash
-python inference_innerloop.py --model_path "/afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-20 01:32:13.228650.pt" \
+python inference_innerloop.py --model_path "/afs/L202500118/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-20 01:32:13.228650.pt" \
                     --batch_size 1 \
                     --max_iter 100 \
                     --tol 1e-4
@@ -36,7 +36,7 @@ python inference_innerloop.py --model_path "/afs/jiajiwei-folder/wangjt/work/pre
 ```
 ## inference: newton step
 ```bash
-python inference_newton.py --model_path "/afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-10 20:26:11.785565.pt" \
+python inference_newton.py --model_path "/afs/L202500118/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-10 20:26:11.785565.pt" \
                            --sample_index 5001 \
                            --max_newton_iter 10 \
                            --newton_tol 1e-4\

@@ -244,11 +244,12 @@ class SpectralPDELoss(nn.Module):
         
         return loss.mean()
 class FNO_solver(nn.Module):
-    def __init__(self, N=63, dx=1/128, num_features=16, wavenumber=[40,40],padding=4, device='cpu', dtype=torch.float32, use_precond_res=True):
+    def __init__(self, N=63, dx=1/128, num_features=16, wavenumber=[40,40],padding=4, device='cpu', dtype=torch.float32, use_precond_res=True, use_precond_loss=True):
         super().__init__()
         # torch.set_default_dtype(torch.float32)
         self.dtype = dtype
         self.use_precond_res = use_precond_res
+        self.use_precond_loss = use_precond_loss
         self.precond = Fourier_precond(N=N[0], num_features=num_features, wavenumber=wavenumber, padding=padding)
         self.pdeloss = SpectralPDELoss(N=N,dx=dx, device=device)
 
@@ -272,11 +273,8 @@ class FNO_solver(nn.Module):
         out = self.precond(a, rhs)
         return out
     def loss_fn(self, u, coeffs, rhs):
-        coeffs[:,3:4, ...] = rhs
-        if self.use_precond_res:
-            return self.pdeloss(u, coeffs, use_pre=True)
-        else:
-            return self.pdeloss(u, coeffs, use_pre=False)
+        coeffs[:, 3:4, ...] = rhs
+        return self.pdeloss(u, coeffs, use_pre=self.use_precond_loss)
 
 
 
@@ -303,7 +301,7 @@ class FNO_solver(nn.Module):
                 # 打印每一次迭代信息 (可选)
                 print(f"Iter: {i+1}, error: {res_norm}")
                 loss_his.append(res_norm)
-                if res_norm < tol:
+                if res_norm < tol or res_norm > 100:
                     break
             
             # 返回最终解，最终残差范数，以及所用迭代次数

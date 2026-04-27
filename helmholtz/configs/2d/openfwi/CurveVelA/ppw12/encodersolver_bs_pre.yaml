@@ -1,0 +1,30 @@
+## train
+train:
+  num_epochs: 200
+  val_steps: 10
+  log_steps: 25
+  batch_size: 30
+  save_dir: "./outputs/2d/openfwi/CurveVel_A/ppw12/encodersolver_bs_pre"
+  lr: 1e-3
+  lr_gamma: 0.8
+  lr_step_size: 10
+  num_train: 3000
+  num_test: 100
+  val_point: 4000
+
+model:
+  boundary_width: 32
+  boundary_type: pbl
+  name: encodersolver_bs
+  data_type: 'openfwi_CurveVel_A'
+  loss_type: 3   # 1: residual loss  2: G-precond residual loss  3: G-precond loss
+  implicit: true # use FFT-based ImplicitStep at UNet bottleneck
+  linear: true   # rhs path is strictly linear: P(αr1+βr2)=αP(r1)+βP(r2)
+
+inference:
+  fdtype: float64
+  print_step: 50
+  max_num_iters: 2500
+  test_point: 4000
+  num_test: 10
+  tol: 1e-6

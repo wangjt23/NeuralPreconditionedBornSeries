@@ -522,12 +522,12 @@ def objective(dataOpt, modelOpt, optimizerScheduler_args,
     #     # model = FNO2d(modes1=12, modes2=12, width=80, normalizer=y_normalizer).to(device)
     #     model = SpectralDecoder(lift=1, normalizer=y_normalizer, modes=12, num_spectral_layers=5, width=64, init_scale=2).to(device)
     elif model_type == "FNO_solver":
-        model = FNO_solver(N=64, s=1600., num_features=20, wavenumber=[40, 40], padding=64).to(device)
+        model = FNO_solver(N=64, s=1600., num_features=25, wavenumber=[20, 20], padding=8).to(device)
     elif model_type == "FNO_solver_precond_bs_l_2":
-        model = FNO_solver(N=64, s=1600., num_features=20, wavenumber=[40, 40], padding=64,
+        model = FNO_solver(N=64, s=1600., num_features=25, wavenumber=[20, 20], padding=8,
                            use_precond_res=True,use_l2_loss=True).to(device)
     elif model_type == "FNO_solver_precond_bs_R_eta":
-        model = FNO_solver(N=64, s=1600., num_features=20, wavenumber=[40, 40], padding=64,
+        model = FNO_solver(N=64, s=1600., num_features=25, wavenumber=[20, 20], padding=8,
                            use_precond_res=True,use_l2_loss=False).to(device)
     else:
         raise NameError('invalid model_type')
@@ -842,7 +842,9 @@ if __name__ == "__main__":
     parser.add_argument(
             "--lr", type=float, default=2e-4, help="learning rate")
     parser.add_argument(
-            "--final_div_factor", type=float, default=10, help="final_div_factor")
+            "--step_size", type=int, default=50, help="StepLR step size")
+    parser.add_argument(
+            "--gamma", type=float, default=0.5, help="StepLR gamma")
     parser.add_argument(
             "--weight_decay", type=float, default=1e-4, help="weight decay")
     parser.add_argument(
@@ -926,8 +928,8 @@ if __name__ == "__main__":
     optimizerScheduler_args['lr'] = args['lr']
     optimizerScheduler_args['weight_decay'] = args['weight_decay']
     optimizerScheduler_args['epochs'] = args['epochs']
-    optimizerScheduler_args['final_div_factor'] = args['final_div_factor']
-    optimizerScheduler_args['div_factor'] = 2
+    optimizerScheduler_args['step_size'] = args['step_size']
+    optimizerScheduler_args['gamma'] = args['gamma']
 
     newton.objective(dataOpt, modelOpt, optimizerScheduler_args, model_type=args['model_type'],
     validate=False, tqdm_disable=True, log_if=True, 

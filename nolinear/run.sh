@@ -32,7 +32,7 @@ python newton.py --model_type FNO_solver_precond_bs_R_eta \
 #                  --epochs 500 \
 #                  --loss_type solver
 
-# python inference_innerloop.py --model_path "/afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/FNO_solverns_merge2026-02-10 14:55:20.022450.pt" \
+# python inference_innerloop.py --model_path "/afs/L202500118/wangjt/work/precond_loss/nolinear/model/FNO_solverns_merge2026-02-10 14:55:20.022450.pt" \
 #                     --batch_size 1 \
 #                     --max_iter 100 \
 #                     --tol 1e-3
@@ -51,7 +51,7 @@ python newton.py --model_type FNO_solver_precond_bs_R_eta \
 
 
 
-# python inference_newton.py --model_path "/afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/FNO_solverns_merge2026-02-10 20:04:23.369095.pt" \
+# python inference_newton.py --model_path "/afs/L202500118/wangjt/work/precond_loss/nolinear/model/FNO_solverns_merge2026-02-10 20:04:23.369095.pt" \
 #                            --sample_index 5025 \
 #                            --max_newton_iter 3 \
 #                            --newton_tol 1e-4\
@@ -61,17 +61,17 @@ python newton.py --model_type FNO_solver_precond_bs_R_eta \
 
 
 
-# python inference_innerloop.py --model_path "/afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-19 21:20:13.597794.pt" \
+# python inference_innerloop.py --model_path "/afs/L202500118/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-19 21:20:13.597794.pt" \
 #                     --batch_size 1 \
 #                     --max_iter 100 \
 #                     --tol 1e-4
 
-# python inference_innerloop.py --model_path "/afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-19 21:28:22.942075.pt" \
+# python inference_innerloop.py --model_path "/afs/L202500118/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-19 21:28:22.942075.pt" \
 #                     --batch_size 1 \
 #                     --max_iter 100 \
 #                     --tol 1e-4
 
-# python inference_newton.py --model_path "/afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-10 20:26:11.785565.pt" \
+# python inference_newton.py --model_path "/afs/L202500118/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-10 20:26:11.785565.pt" \
 #                            --sample_index 5001 \
 #                            --max_newton_iter 10 \
 #                            --newton_tol 1e-4\

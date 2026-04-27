@@ -109,11 +109,10 @@ def main(args):
             )
             
             # 检查是否收敛
-            total_iterations += len(iter_his) - 1
             if final_res_norm < args.tol:
                 solved_count += 1
+                total_iterations += len(iter_his) - 1
                 print(f"solve done! relative residual: {final_res_norm:.3e} ")
-
                 total_rel_pde_error += final_res_norm
                 # import matplotlib.pyplot as plt
                 # plt.imshow(u_initial[0][0].cpu())
@@ -143,8 +142,8 @@ def main(args):
         avg_rel_pde_error = total_rel_pde_error / solved_count
     else:
         avg_rel_pde_error = 0
-    if num_test_samples != 0:
-        avg_iterations = total_iterations / num_test_samples
+    if solved_count != 0:
+        avg_iterations = total_iterations / solved_count
     else:
         avg_iterations = 0
     convergence_rate = (solved_count / num_test_samples) * 100

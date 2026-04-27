@@ -1,6 +1,6 @@
-2026-02-10 22:00:26 INFO Starting Newton inference with arguments: Namespace(model_path='/afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-10 20:26:11.785565.pt', data_path='./data/newton_method_iterations_7_solution.pt', sample_index=5001, max_newton_iter=10, newton_tol=0.0001, linear_solver_max_iter=100, linear_solver_tol=0.0001)
+2026-02-10 22:00:26 INFO Starting Newton inference with arguments: Namespace(model_path='/afs/L202500118/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-10 20:26:11.785565.pt', data_path='./data/newton_method_iterations_7_solution.pt', sample_index=5001, max_newton_iter=10, newton_tol=0.0001, linear_solver_max_iter=100, linear_solver_tol=0.0001)
 2026-02-10 22:00:26 INFO Using device: cuda
-2026-02-10 22:00:26 INFO Loading model from /afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-10 20:26:11.785565.pt
+2026-02-10 22:00:26 INFO Loading model from /afs/L202500118/wangjt/work/precond_loss/nolinear/model/FNO_solver_precondns_merge2026-02-10 20:26:11.785565.pt
 2026-02-10 22:00:26 INFO Model loaded successfully.
 2026-02-10 22:00:26 INFO Loading data from ./data/newton_method_iterations_7_solution.pt
 2026-02-10 22:00:32 INFO Solving for sample index: 5001
@@ -17,4 +17,4 @@
 2026-02-10 22:00:34 INFO Newton iterations taken: 3
 2026-02-10 22:00:34 INFO Final PDE residual norm: 3.5920e-05
 2026-02-10 22:00:34 INFO ---------------------------------------------
-2026-02-10 22:00:34 INFO Saved result plot to /afs/jiajiwei-folder/wangjt/work/precond_loss/nolinear/model/newton_result_sample_5001.png
+2026-02-10 22:00:34 INFO Saved result plot to /afs/L202500118/wangjt/work/precond_loss/nolinear/model/newton_result_sample_5001.png

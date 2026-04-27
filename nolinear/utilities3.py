@@ -1662,7 +1662,7 @@ def getNavierDataSet3(opt, device, return_normalizer=False, GN=False, normalizer
 
 
 def getOptimizerScheduler(parameters, epochs, optimizer_type='adam', lr=0.001,
- weight_decay=1e-4, final_div_factor=1e1, div_factor=1e1):
+ weight_decay=1e-4, step_size=50, gamma=0.5, **kwargs):
     if optimizer_type == 'sgd':
         optimizer =  torch.optim.SGD(parameters, lr=lr, weight_decay=weight_decay)
     elif optimizer_type == 'rmsprop':
@@ -1677,13 +1677,8 @@ def getOptimizerScheduler(parameters, epochs, optimizer_type='adam', lr=0.001,
         optimizer =  torch.optim.AdamW(parameters, lr=lr, weight_decay=weight_decay)
     else:
         raise Exception("Unsupported optimizer: {}".format(optimizer_type))
-    
-    scheduler = torch.optim.lr_scheduler.OneCycleLR(optimizer, max_lr=lr, 
-                               div_factor=div_factor, 
-                               final_div_factor=final_div_factor,
-                               pct_start=0.1,
-                               steps_per_epoch=1, 
-                               epochs=epochs)
+
+    scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size, gamma=gamma)
     return optimizer, scheduler
         
 
