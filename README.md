@@ -39,6 +39,7 @@ The Helmholtz experiments use two datasets(CurveVel_A, CurveFault_B) from [OpenF
 | `MGNO_BS` | MgNO (`MGNO_precond`) |
 | `UNet_BS` | U-Net (`UNet_precond`) |
 | `EncoderSolver_BS` | Encoder-solver (`EncoderSolverPrecond`) |
+| `ShiftedLaplacianVcycle2d` | Classical shifted-Laplacian geometric V-cycle |
 
 The reference solver `ConvergentBornSeries2d` (and `3d`) in `models/cbs.py` implements the classical CBS iteration:
 
@@ -47,6 +48,28 @@ u ← u − γ (u − G(V·u + b/dx²))
 ```
 
 where `G` is the reference Green operator applied via FFT, `V` is the scattering potential, and `γ` is the CBS preconditioner coefficient.
+
+The baseline shifted-Laplacian preconditioner in `models/shifted_laplacian.py` uses the same padded Helmholtz discretization and ABC/PBL setup as CBS, then applies a standard geometric V-cycle to the complex-shifted operator. Example FGMRES configs are available at:
+
+```bash
+cd helmholtz
+python inference2d.py --config configs/2d/openfwi/CurveFaultB/sl_vcycle_gmres.yaml
+python inference2d.py --config configs/2d/openfwi/CurveVelA/sl_vcycle_gmres.yaml
+```
+
+For a dataset-independent check, `verify_shifted_laplacian.py` generates a smooth moderate-contrast squared-slowness field `κ = 1/c²` and verifies FGMRES convergence with the V-cycle preconditioner:
+
+```bash
+cd helmholtz
+python verify_shifted_laplacian.py
+```
+
+To reproduce a small CBS-vs-shifted-Laplacian wall-time and convergence comparison with plots:
+
+```bash
+cd helmholtz
+python compare_cbs_shifted_laplacian.py
+```
 
 ### Loss types (`loss_type` in YAML)
 

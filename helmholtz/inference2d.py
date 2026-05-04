@@ -7,6 +7,12 @@ from torch.utils.data import DataLoader
 from dataloader import unspvd_sos_Dataset, Dataconfig
 from utils import Logger, Timer, plot_result_one_method
 from models.cbs import ConvergentBornSeries2d
+from models.shifted_laplacian import (
+    FiniteDifferenceShiftedLaplacianVcycle2d,
+    MatrixFreeShiftedLaplacian2d,
+    ShiftedLaplacianVcycle2d,
+    SparseShiftedLaplacian2d,
+)
 from models.model2d import MPMG,MPMG_BS,MPMG_nopost,PAFNO_BS,MGCFNN_BS,DeepONet_BS,EncoderSolver_BS,MGNO_BS,UNet_BS
 from models.gmres import fgmres
 torch.backends.cudnn.benchmark = True    
@@ -63,6 +69,95 @@ def main(args):
                                         fdtype=fdtype,
                                         device=device
                                         )
+    elif save_name in ("sl_vcycle", "shifted_laplacian_vcycle"):
+        boundary_type = model_cfg.get("boundary_layer", model_cfg.get("boundary_type", "pbl"))
+        model = ShiftedLaplacianVcycle2d(
+            freq=data_cfg.freq,
+            N=[data_cfg.size] * 2,
+            dx=data_cfg.dx,
+            boundary_width=[model_cfg["boundary_width"]] * 2,
+            boundary_type=boundary_type,
+            shift=model_cfg.get("shift", 0.5),
+            precond_discretization=model_cfg.get("precond_discretization", "fft"),
+            num_levels=model_cfg.get("num_levels", None),
+            min_coarse_size=model_cfg.get("min_coarse_size", 10),
+            pre_smooth=model_cfg.get("pre_smooth", 2),
+            post_smooth=model_cfg.get("post_smooth", 2),
+            coarse_smooth=model_cfg.get("coarse_smooth", 30),
+            direct_coarse=model_cfg.get("direct_coarse", True),
+            smoother=model_cfg.get("smoother", "jacobi"),
+            vanka_patch_size=model_cfg.get("vanka_patch_size", 2),
+            vanka_stride=model_cfg.get("vanka_stride", 1),
+            vanka_weight=model_cfg.get("vanka_weight", 0.7),
+            jacobi_weight=model_cfg.get("jacobi_weight", 0.6),
+            num_cycles=model_cfg.get("num_cycles", 1),
+            fdtype=fdtype,
+            device=device,
+        )
+    elif save_name in ("fd_sl_vcycle", "finite_difference_shifted_laplacian_vcycle"):
+        boundary_type = model_cfg.get("boundary_layer", model_cfg.get("boundary_type", "pbl"))
+        model = FiniteDifferenceShiftedLaplacianVcycle2d(
+            freq=data_cfg.freq,
+            N=[data_cfg.size] * 2,
+            dx=data_cfg.dx,
+            boundary_width=[model_cfg["boundary_width"]] * 2,
+            boundary_type=boundary_type,
+            shift=model_cfg.get("shift", 1.0),
+            num_levels=model_cfg.get("num_levels", None),
+            min_coarse_size=model_cfg.get("min_coarse_size", 7),
+            pre_smooth=model_cfg.get("pre_smooth", 4),
+            post_smooth=model_cfg.get("post_smooth", 4),
+            coarse_smooth=model_cfg.get("coarse_smooth", 100),
+            direct_coarse=model_cfg.get("direct_coarse", True),
+            smoother=model_cfg.get("smoother", "jacobi"),
+            vanka_patch_size=model_cfg.get("vanka_patch_size", 2),
+            vanka_stride=model_cfg.get("vanka_stride", 2),
+            vanka_weight=model_cfg.get("vanka_weight", 0.8),
+            jacobi_weight=model_cfg.get("jacobi_weight", 0.6),
+            num_cycles=model_cfg.get("num_cycles", 3),
+            fdtype=fdtype,
+            device=device,
+        )
+    elif save_name in ("fd_sl_matrix_free", "finite_difference_shifted_laplacian_matrix_free"):
+        boundary_type = model_cfg.get("boundary_layer", model_cfg.get("boundary_type", "pbl"))
+        model = MatrixFreeShiftedLaplacian2d(
+            freq=data_cfg.freq,
+            N=[data_cfg.size] * 2,
+            dx=data_cfg.dx,
+            boundary_width=[model_cfg["boundary_width"]] * 2,
+            boundary_type=boundary_type,
+            shift=model_cfg.get("shift", 0.25),
+            num_levels=model_cfg.get("num_levels", None),
+            min_coarse_size=model_cfg.get("min_coarse_size", 7),
+            pre_smooth=model_cfg.get("pre_smooth", 4),
+            post_smooth=model_cfg.get("post_smooth", 4),
+            coarse_smooth=model_cfg.get("coarse_smooth", 100),
+            direct_coarse=model_cfg.get("direct_coarse", False),
+            smoother=model_cfg.get("smoother", "jacobi"),
+            vanka_patch_size=model_cfg.get("vanka_patch_size", 2),
+            vanka_stride=model_cfg.get("vanka_stride", 2),
+            vanka_weight=model_cfg.get("vanka_weight", 0.8),
+            jacobi_weight=model_cfg.get("jacobi_weight", 0.6),
+            num_cycles=model_cfg.get("num_cycles", 3),
+            inner_maxiter=model_cfg.get("inner_maxiter", 12),
+            inner_preconditioner=model_cfg.get("inner_preconditioner", "jacobi"),
+            inner_jacobi_sweeps=model_cfg.get("inner_jacobi_sweeps", 1),
+            inner_vcycles=model_cfg.get("inner_vcycles", 1),
+            fdtype=fdtype,
+            device=device,
+        )
+    elif save_name in ("fd_sl_sparse", "finite_difference_shifted_laplacian_sparse"):
+        boundary_type = model_cfg.get("boundary_layer", model_cfg.get("boundary_type", "pbl"))
+        model = SparseShiftedLaplacian2d(
+            freq=data_cfg.freq,
+            N=[data_cfg.size] * 2,
+            dx=data_cfg.dx,
+            boundary_width=[model_cfg["boundary_width"]] * 2,
+            boundary_type=boundary_type,
+            shift=model_cfg.get("shift", 0.25),
+            fdtype=fdtype,
+            device=device,
+        )
         
     elif save_name == 'mpmg':
         model = MPMG(freq=data_cfg.freq,
@@ -295,16 +390,24 @@ def main(args):
     loss_type = model_cfg.get('loss_type', None)
     has_precond = hasattr(model, 'precond')
     has_cbs_kernel_precond = (save_name == "cbs")
+    has_sl_vcycle_precond = hasattr(model, "apply_preconditioner")
 
     if use_krylov:
         if loss_type in (2, 3) and (not has_precond or not hasattr(model, 'G') or not hasattr(model, 'dx')):
             raise ValueError("krylov solver with loss_type 2/3 requires model.G and model.dx")
         if has_cbs_kernel_precond and (not hasattr(model, 'G') or not hasattr(model, 'dx')):
             raise ValueError("cbs krylov kernel requires model.G and model.dx")
+        if has_sl_vcycle_precond:
+            precond_name = "shifted_laplacian_vcycle"
+        elif has_precond:
+            precond_name = "model.precond"
+        elif has_cbs_kernel_precond:
+            precond_name = "cbs_kernel"
+        else:
+            precond_name = "identity"
         lprint(
             "krylov config: "
-            f"preconditioner="
-            f"{'model.precond' if has_precond else ('cbs_kernel' if has_cbs_kernel_precond else 'identity')}, "
+            f"preconditioner={precond_name}, "
             f"loss_type={loss_type}, "
             f"maxiter={krylov_maxiter}, restart={krylov_restart}, "
             f"max_restarts={krylov_max_restarts}, log_step={krylov_log_step}, "
@@ -312,6 +415,9 @@ def main(args):
         )
 
         def _precondition_residual(r):
+            if has_sl_vcycle_precond:
+                return model.apply_preconditioner(r).to(cdtype)
+
             if has_cbs_kernel_precond:
                 if not hasattr(model, 'gamma') or not hasattr(model, 'g0_tilde'):
                     raise RuntimeError("cbs kernel preconditioner is not ready; call model.setup(...) first")
@@ -334,6 +440,8 @@ def main(args):
                 return z.to(cdtype)
             z = torch.view_as_complex(z.permute(0, 2, 3, 1).contiguous()).unsqueeze(1)
             return z.to(cdtype)
+    elif has_sl_vcycle_precond:
+        raise ValueError("sl_vcycle is a Krylov preconditioner; set inference.solver_type: krylov")
 
     iter_num_list = []
     iter_time_list = []
