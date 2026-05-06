@@ -38,8 +38,8 @@ model:
   loss_type: 3 # L2 loss 1, L2 precond loss 2, R precond loss 3
 inference:
   fdtype: float64
-  print_step: 50
+  print_step: 100
   max_num_iters: 2500
   test_point: 6000 # Starting point index for test data
-  num_test: 20
+  num_test: 50
   tol: 1e-6

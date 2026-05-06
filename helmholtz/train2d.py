@@ -7,7 +7,7 @@ import torch.optim as optim
 from torch.utils.data import DataLoader
 from utils import Logger,Timer,trainable_params_size,save_loss_history
 from dataloader import Dataconfig, unspvd_sos_Dataset
-from models.model2d import MPMG, MPMG_BS,MPMG_nopost,PAFNO_BS,MGCFNN_BS,DeepONet_BS,EncoderSolver_BS,MGNO_BS,UNet_BS
+from models.model2d import MPMG_BS,PAFNO_BS,MGCFNN_BS,DeepONet_BS,EncoderSolver_BS,MGNO_BS,UNet_BS
 
 
 def main(args):
@@ -35,23 +35,7 @@ def main(args):
 
     # Build model
     model_type = model_cfg['name']
-    if model_type == "mpmg":
-        model = MPMG(freq=data_cfg.freq,
-                     sos_mean=data_cfg.sos_mean,
-                     sos_max=data_cfg.sos_max,
-                     sos_min=data_cfg.sos_min,
-                     N=data_cfg.size,
-                     dx=data_cfg.dx,
-                     boundary_width=model_cfg['boundary_width'],
-                     abc_factor=model_cfg['abc_factor'],
-                     helm_type=model_cfg['helm_type'],
-                     u_channels_list=model_cfg['u_channels_list'],
-                     a_channels_list=model_cfg['a_channels_list'],
-                     mg_levels=model_cfg['mg_sweeps_lvls'],
-                     fdtype=torch.float32,
-                     device=device)
-        # model.precond = torch.compile(model.precond, mode="max-autotune")
-    elif model_type == 'mpmg_bs':
+    if model_type == 'mpmg_bs':
         model = MPMG_BS(freq=data_cfg.freq,
                         sos_mean=data_cfg.sos_mean,
                         sos_max=data_cfg.sos_max,

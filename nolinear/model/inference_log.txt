@@ -1,12 +1,12 @@
-Mon 20 Apr 2026 03:21:33 INFO Starting inference with arguments: Namespace(model_path='/afs/L202500118/wangjt/work/precond_loss/nolinear2/model/FNO_solver2026-04-20 03:02:10.038697.pt', data_path='./data/newton_method_iterations_5.pt', batch_size=1, max_iter=200, tol=0.0001)
-Mon 20 Apr 2026 03:21:33 INFO Using device: cuda
-Mon 20 Apr 2026 03:21:33 INFO Loading model from /afs/L202500118/wangjt/work/precond_loss/nolinear2/model/FNO_solver2026-04-20 03:02:10.038697.pt
-Mon 20 Apr 2026 03:21:34 INFO Model loaded successfully.
-Mon 20 Apr 2026 03:21:34 INFO Loading test dataset...
-Mon 20 Apr 2026 03:21:38 INFO Test data loaded. Number of samples: 100
-Mon 20 Apr 2026 03:21:43 INFO ---------- Inference Finished ----------
-Mon 20 Apr 2026 03:21:43 INFO Number of test samples: 100
-Mon 20 Apr 2026 03:21:43 INFO Average relative residual: 8.9811e-05
-Mon 20 Apr 2026 03:21:43 INFO Average number of iterations to converge: 25.78
-Mon 20 Apr 2026 03:21:43 INFO Convergence rate (residual < 1.0e-04): 98.00%
-Mon 20 Apr 2026 03:21:43 INFO ------------------------------------
+Sat 02 May 2026 03:10:07 INFO Starting inference with arguments: Namespace(model_path='/afs/L202500118/wangjt/work/precond_loss/nolinear/model/FNO_solver_precond_bs_R_eta2026-04-20 03:02:10.773620.pt', data_path='./data/newton_method_iterations_5.pt', batch_size=1, max_iter=200, tol=0.0001)
+Sat 02 May 2026 03:10:07 INFO Using device: cuda
+Sat 02 May 2026 03:10:07 INFO Loading model from /afs/L202500118/wangjt/work/precond_loss/nolinear/model/FNO_solver_precond_bs_R_eta2026-04-20 03:02:10.773620.pt
+Sat 02 May 2026 03:10:08 INFO Model loaded successfully.
+Sat 02 May 2026 03:10:08 INFO Loading test dataset...
+Sat 02 May 2026 03:10:10 INFO Test data loaded. Number of samples: 100
+Sat 02 May 2026 03:10:14 INFO ---------- Inference Finished ----------
+Sat 02 May 2026 03:10:14 INFO Number of test samples: 100
+Sat 02 May 2026 03:10:14 INFO Average relative residual: 6.7591e-05
+Sat 02 May 2026 03:10:14 INFO Average number of iterations to converge: 9.91
+Sat 02 May 2026 03:10:14 INFO Convergence rate (residual < 1.0e-04): 98.00%
+Sat 02 May 2026 03:10:14 INFO ------------------------------------

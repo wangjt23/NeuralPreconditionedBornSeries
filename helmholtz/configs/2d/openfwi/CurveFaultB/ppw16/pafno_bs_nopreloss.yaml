@@ -36,12 +36,11 @@ model:
   mg_sweeps_lvls: [1, 2, 4, 8, 8]
   data_type: 'openfwi_CurveFault_B16'
   loss_type: 2 # L2 loss 1, L2 precond loss 2, R precond loss 3
-
 inference:
   fdtype: float64
-  print_step: 50
+  print_step: 100
   max_num_iters: 2500
   test_point: 6000 # Starting point index for test data
-  num_test: 10
+  num_test: 50
   tol: 1e-6
 

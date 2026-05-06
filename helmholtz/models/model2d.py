@@ -700,6 +700,7 @@ class MGNO_precond(nn.Module):
     """
     def __init__(self, num_channel_u=32, num_iteration=None, activation='gelu'):
         super().__init__()
+        torch.set_default_dtype(torch.float32)
         if num_iteration is None:
             num_iteration = [[2, 2], [2, 2], [2, 2], [2, 2]]
         num_levels = len(num_iteration)

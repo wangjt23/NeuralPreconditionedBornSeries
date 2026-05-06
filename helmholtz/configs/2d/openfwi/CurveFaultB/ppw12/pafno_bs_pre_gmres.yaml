@@ -40,7 +40,7 @@ model:
 inference:
   fdtype: float64
   print_step: 50
-  max_num_iters: 2500
+  max_num_iters: 2000
   test_point: 6000 # Starting point index for test data
   num_test: 20
   tol: 1e-6

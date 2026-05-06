@@ -26,5 +26,6 @@ inference:
   print_step: 50
   max_num_iters: 2500
   test_point: 6000
-  num_test: 10
+  num_test: 50
   tol: 1e-6
+

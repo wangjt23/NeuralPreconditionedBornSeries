@@ -13,7 +13,7 @@ from models.shifted_laplacian import (
     ShiftedLaplacianVcycle2d,
     SparseShiftedLaplacian2d,
 )
-from models.model2d import MPMG,MPMG_BS,MPMG_nopost,PAFNO_BS,MGCFNN_BS,DeepONet_BS,EncoderSolver_BS,MGNO_BS,UNet_BS
+from models.model2d import MPMG_BS,PAFNO_BS,MGCFNN_BS,DeepONet_BS,EncoderSolver_BS,MGNO_BS,UNet_BS
 from models.gmres import fgmres
 torch.backends.cudnn.benchmark = True    
 torch.backends.cuda.matmul.allow_tf32 = True
@@ -158,52 +158,6 @@ def main(args):
             fdtype=fdtype,
             device=device,
         )
-        
-    elif save_name == 'mpmg':
-        model = MPMG(freq=data_cfg.freq,
-                     sos_mean=data_cfg.sos_mean,
-                     sos_max=data_cfg.sos_max,
-                     sos_min=data_cfg.sos_min,
-                     N=data_cfg.size,
-                     dx=data_cfg.dx,
-                     boundary_width=model_cfg['boundary_width'],
-                     abc_factor=model_cfg['abc_factor'],
-                     helm_type=model_cfg['helm_type'],
-                     u_channels_list=model_cfg['u_channels_list'],
-                     a_channels_list=model_cfg['a_channels_list'],
-                     mg_levels=model_cfg['mg_sweeps_lvls'],
-                     fdtype=fdtype,
-                     device=device)
-        mg_path = os.path.join(dir_path, f"{save_name}_{weights_suffix}.pth")
-        ckpoint = torch.load(mg_path, weights_only=False)
-        model.load_state_dict(ckpoint)
-        model.eval()
-        if args.optimize:
-            model.precond = torch.compile(model.precond, mode="max-autotune")
-    elif save_name == 'mpmg_nopost':
-        model = MPMG_nopost(freq=data_cfg.freq,
-                     sos_mean=data_cfg.sos_mean,
-                     sos_max=data_cfg.sos_max,
-                     sos_min=data_cfg.sos_min,
-                     N=data_cfg.size,
-                     dx=data_cfg.dx,
-                     boundary_width=model_cfg['boundary_width'],
-                     abc_factor=model_cfg['abc_factor'],
-                     helm_type=model_cfg['helm_type'],
-                     u_channels_list=model_cfg['u_channels_list'],
-                     a_channels_list=model_cfg['a_channels_list'],
-                     mg_levels=model_cfg['mg_sweeps_lvls'],
-                     fdtype=fdtype,
-                     device=device)
-        mg_path = os.path.join(dir_path, f"{save_name}_{weights_suffix}.pth")
-        ckpoint = torch.load(mg_path, weights_only=False)
-        model.load_state_dict(ckpoint)
-        model.eval()
-        if args.optimize:
-            model.precond = torch.compile(model.precond, mode="max-autotune")
-        # model.precond = torch.compile(model.precond, mode="reduce-overhead")
-        # model.precond = torch.compile(model.precond, mode="max-autotune-no-cudagraphs")
-        # model.precond = torch.compile(model.precond, mode="default")
     elif save_name == 'mpmg_bs':
         model = MPMG_BS(freq=data_cfg.freq,
                         sos_mean=data_cfg.sos_mean,
