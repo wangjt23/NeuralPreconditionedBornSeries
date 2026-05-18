@@ -1,0 +1,1356 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,amsthm,bm}
+\usepackage{booktabs}
+\usepackage{hyperref}
+
+\newtheorem{proposition}{Proposition}
+\newtheorem{remark}{Remark}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert_2}
+
+\title{Improving NPBS and Extending the Residual-Metric Idea to Radiative Transfer}
+\author{Repository audit note}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+NPBS is best understood as a residual-correction framework tied to a chosen
+left preconditioner.  The original Helmholtz construction uses the
+constant-coefficient damped Green operator from the Convergent Born Series
+(CBS), but the same logic applies to any computable map \(B_h\) that turns a
+physical residual \(r=f-A_hu\) into a better-scaled residual coordinate
+\(B_hr\).  This note gives the self-contained algebra, lists concrete
+Helmholtz improvements, and develops a radiative-transfer-equation (RTE)
+extension using both a transport resolvent and a transport-plus-diffusion
+synthetic acceleration preconditioner.
+\end{abstract}
+
+\section{Purpose}
+
+This note records concrete mathematical and algorithmic improvements suggested by
+the repository audit of the Neural Preconditioned Born Series (NPBS) framework.
+It also proposes and implements a first radiative-transfer-equation (RTE)
+generalization. Here RTE means the steady-state monoenergetic radiative transfer
+equation discretized by discrete ordinates.  All operators below are discrete
+operators; continuum notation is used only to explain their origin.
+
+\section{Sharper Mathematical Framing}
+
+The main idea should be stated as a preconditioner-induced residual geometry
+principle, not only as a CBS-specific construction. Let
+\[
+  A_h u = f
+\]
+be a discrete linear PDE system and let \(B_h\) be a computationally cheap
+left-preconditioning map. The preconditioned residual is
+\[
+  z = B_h(f-A_h u),
+\]
+and the natural residual seminorm induced by \(B_h\) is
+\[
+  \|r\|_{B_h} := \|B_h r\|_2 .
+\]
+CBS/FFT Green preconditioning corresponds to a particular \(B_h\); classical
+shifted-Laplacian multigrid, diffusion synthetic acceleration, and transport
+synthetic acceleration are other possible choices.
+If \(B_h\) is injective on the residual space, this seminorm is a norm.
+Otherwise it is still a valid coordinate objective, but convergence in
+\(\|B_hr\|_2\) must be supplemented by a lower bound relating \(B_hr\) to the
+physical residual \(r\).
+
+Given a correction model \(P_\theta\), the metric-matched one-step training
+objective associated with \(B_h\) is
+\[
+  \mathcal{L}_{B_h}(\theta)
+  =
+  \mathbb{E}_{r}
+  \frac{\|B_h(A_hP_\theta(B_hr)-r)\|_2}{\|B_hr\|_2}.
+\]
+The learned solver is then
+\[
+  u_{m+1}=u_m+P_\theta B_h(f-A_hu_m).
+\]
+Thus the choice of \(B_h\) fixes both the inference coordinates and the residual
+geometry used in training.
+
+\subsection{Discrete CBS Identity}
+
+For Helmholtz, the paper identity should be stated at the level of the chosen
+discrete split. Let
+\[
+  A_h = L_{\eta,h} - V_{\eta,h}, \qquad G_{\eta,h} = L_{\eta,h}^{-1}.
+\]
+In the repository scaling, \(A_h\) includes a factor of \(dx^2\), so the
+Born-coordinate preconditioner is
+\[
+  B_{\eta,h} r := G_{\eta,h}\left(\frac{r}{dx^2}\right).
+\]
+Then
+\[
+  B_{\eta,h} A_h
+  =
+  I - G_{\eta,h} V_{\eta,h}.
+\]
+This is the exact algebraic statement behind the implementation. It should not
+be conflated with every shifted-Laplacian preconditioner. In particular:
+\[
+  B_G r = G_{\eta,h}(r/dx^2)
+\]
+is the pure Born/constant-reference shifted Helmholtz map, while implemented CBS
+uses
+\[
+  B_{\mathrm{CBS}} r = \Gamma_{\eta,h} B_G r,
+  \qquad
+  \Gamma_{\eta,h} = \ii V_{\eta,h}/\epsilon .
+\]
+Classical variable-coefficient shifted-Laplacian V-cycles use a different
+operator \(M_\beta^{-1}\).
+
+\subsection{Residual-Propagator Theorem}
+
+The most useful theorem for NPBS is the residual-propagator identity.
+
+\begin{proposition}[NPBS residual propagation]
+Let \(B_h\) be a fixed linear left preconditioning map and define
+\[
+  z_m := B_h(f-A_h u_m).
+\]
+Consider the learned iteration
+\[
+  u_{m+1} = u_m + P_\theta z_m .
+\]
+Then
+\[
+  z_{m+1}
+  =
+  (I - B_h A_h P_\theta) z_m .
+\]
+Consequently, if the residual-coordinate map
+\[
+  F_\theta(z):=z-B_hA_hP_\theta(z)
+\]
+satisfies
+\[
+  \|F_\theta(z)\|_2\le \rho\|z\|_2,\qquad \rho<1,
+\]
+on a trajectory-invariant residual-coordinate set, then
+\[
+  \|z_m\|_2 \le \rho^m \|z_0\|_2 .
+\]
+If \(P_\theta\) is linear, this condition reduces to
+\[
+  \|I-B_hA_hP_\theta\|_{\mathcal{Z}}\le \rho .
+\]
+\end{proposition}
+
+\begin{proof}
+By the update rule,
+\[
+  f-A_h u_{m+1}
+  =
+  f-A_h u_m - A_h P_\theta z_m .
+\]
+Applying \(B_h\) and using \(z_m=B_h(f-A_hu_m)\) gives
+\[
+  z_{m+1}
+  =
+  z_m - B_h A_h P_\theta z_m
+  =
+  (I-B_hA_hP_\theta)z_m.
+\]
+\end{proof}
+
+This theorem explains why the training target should not merely approximate
+\(A_h^{-1}\), but should make \(B_h A_h P_\theta\) close to the identity on the
+solver's residual trajectory.
+
+\section{Immediate Improvements for Helmholtz NPBS}
+
+\begin{enumerate}
+\item \textbf{Separate operators in all tables.}
+Report \(B_G\), \(B_{\mathrm{CBS}}\), and variable-coefficient shifted
+Laplacian as separate algorithms.
+
+\item \textbf{Formalize the damping policy.}
+Use
+\[
+  k_0(a)=\omega/\operatorname{mean}(c_a), \qquad
+  \eta(a)=\alpha\|\omega^2/c_a^2-k_0(a)^2\|_\infty,
+\]
+with \(\alpha\) selected by validation and fixed consistently between training
+and inference.
+
+\item \textbf{Train on solver-state residuals.}
+Replace purely iid Gaussian probes by a mixture of Gaussian probes, point-source
+probes, band-limited probes, and replay residuals collected after
+\(1,2,4,8\) CBS/NPBS/FGMRES steps.
+
+\item \textbf{Make FGMRES a first-class target.}
+Report matrix-vector calls, preconditioner calls, restart length, convergence
+rate, and wall time. Include CBS inner solves and both \(B_G\) and
+\(B_{\mathrm{CBS}}\).
+
+\item \textbf{Audit complex linearity.}
+For a learned map \(P_\theta\), measure
+\[
+  \frac{\|P_\theta(\ii r)-\ii P_\theta(r)\|_2}{\|P_\theta(r)\|_2}.
+\]
+If this defect is large, either use FGMRES only in flexible mode or constrain
+the architecture.
+
+\item \textbf{Separate discretization claims.}
+Pseudo-spectral CBS/NPBS, finite-difference shifted Laplacian, sparse shifted
+LU, and direct finite-difference LU should be separate comparison regimes.
+\end{enumerate}
+
+\section{Helmholtz Implementation Audit}
+
+The Helmholtz code uses the scaled discrete system
+\[
+  A_hu=b,\qquad
+  A_hu = dx^2\left(G_{\eta,h}^{-1}u - V_{\eta,h}u\right).
+\]
+Consequently the Born-coordinate residual used in training and inference is
+\[
+  B_G r = G_{\eta,h}(r/dx^2).
+\]
+This is exactly what the repository implements in the CBS and learned-NPBS
+paths.  In the file \texttt{models/cbs.py}, the stationary CBS update is
+\[
+  u^{m+1}
+  =
+  u^m-\Gamma_{\eta,h}\left[
+    u^m-G_{\eta,h}\left(V_{\eta,h}u^m+b/dx^2\right)
+  \right],
+  \qquad
+  \Gamma_{\eta,h}=\ii V_{\eta,h}/\epsilon.
+\]
+The implemented residual operator is
+\[
+  A_hu = dx^2(G_{\eta,h}^{-1}u-V_{\eta,h}u),
+\]
+so the identity
+\[
+  G_{\eta,h}\left(V_{\eta,h}u+b/dx^2\right)-u
+  =
+  G_{\eta,h}\left((b-A_hu)/dx^2\right)
+\]
+is algebraically correct.  The local verifier
+\[
+  \texttt{helmholtz/verify\_operator\_identities.py}
+\]
+checks this identity and, in double precision, gives a relative error of order
+\(10^{-15}\) on the tested case.
+
+The learned NPBS models in \texttt{models/model2d.py} use three related
+training modes:
+\[
+\begin{array}{ccl}
+\text{loss type 1} &:& \text{input }r,\quad
+  \|r-A_hP_\theta(r)\|_2/\|r\|_2,\\[2mm]
+\text{loss type 2} &:& \text{input }B_Gr,\quad
+  \|r-A_hP_\theta(B_Gr)\|_2/\|r\|_2,\\[2mm]
+\text{loss type 3} &:& \text{input }B_Gr,\quad
+  \|B_G(r-A_hP_\theta(B_Gr))\|_2/\|B_Gr\|_2.
+\end{array}
+\]
+Loss type 3 is the metric-matched NPBS objective.  The Krylov inference path
+keeps the same coordinate convention: for loss types 2 and 3 it applies
+\(G_{\eta,h}(r/dx^2)\) before calling the learned preconditioner.  This is the
+correct right-preconditioning map for flexible GMRES.
+
+The implementation is therefore algebraically consistent, but it is not
+perfect.  The main limitations are:
+\begin{enumerate}
+\item The Euclidean residual norms are not quadrature weighted.  On a fixed
+grid this is harmless for relative comparisons, but a continuum-consistent
+norm should include spatial weights and, when appropriate, source scaling.
+\item Point sources are inserted as grid entries.  A physical Dirac
+approximation would require dimension-dependent scaling, for example
+\(1/dx^2\) in two dimensions before the repository's \(dx^2\)-scaled operator
+is formed.
+\item The CBS damping parameter \(\epsilon\) has no explicit positive floor.
+With the default absorbing boundary this is usually nonzero, but constant
+media with zero boundary width can make \(\epsilon=0\).
+\item The two-dimensional CBS class does not initialize a zero right-hand side
+when setup is called without a source and then followed by a stationary solve.
+The training code bypasses this by calling the learned preconditioner directly,
+but the solver API should still define \(\texttt{b}\) robustly.
+\item Constructors call \(\texttt{torch.set\_default\_dtype}\), which is a
+global side effect.  A cleaner implementation would keep dtype local to tensors.
+\item The absorbing-boundary formulas are implementation approximations, and
+the ABC/PBL code paths in \texttt{models/cbs.py} and
+\texttt{models/model2d.py} should be harmonized.  The verified identity is for
+the operator actually assembled by the code, not for an independent physical
+boundary discretization.
+\item Learned updates are not forced to be contractive.  Some architectures are
+not exactly complex-linear in the residual input, so flexible GMRES is the
+appropriate Krylov wrapper when these maps are used as preconditioners.
+\item Training with iid Gaussian right-hand sides tests an operator-learning
+problem, but it does not fully match residuals produced along CBS, NPBS, or
+FGMRES trajectories.  Replay residuals should be included for a stricter solver
+benchmark.
+\end{enumerate}
+
+Thus the Helmholtz NPBS implementation is a coherent and useful prototype of
+the paper's algebra.  It should not be described as a perfect production solver
+without the robustness and benchmarking improvements above.
+
+\section{RTE Generalization}
+
+\subsection{Discrete-Ordinates RTE}
+
+Consider the steady-state RTE
+\[
+  \Omega\cdot\nabla_x \psi(x,\Omega)
+  + \sigma_t(x)\psi(x,\Omega)
+  - \sigma_s(x)\int_{\mathbb{S}^{d-1}}p(\Omega,\Omega')\psi(x,\Omega')
+    \,\dd \Omega'
+  =
+  q(x,\Omega).
+\]
+For discrete ordinates \(\{\Omega_\ell,w_\ell\}_{\ell=1}^{N_\Omega}\) and
+isotropic scattering,
+\[
+  (A\psi)_\ell
+  =
+  \Omega_\ell\cdot\nabla \psi_\ell
+  + \sigma_t \psi_\ell
+  - \sigma_s \phi,
+  \qquad
+  \phi = \sum_m w_m\psi_m .
+\]
+
+\subsection{Transport Resolvent Coordinates}
+
+Choose a constant reference attenuation \(\sigma_0+\eta>0\) and define
+\[
+  (L_{\eta}\psi)_\ell
+  =
+  \Omega_\ell\cdot\nabla \psi_\ell
+  +(\sigma_0+\eta)\psi_\ell .
+\]
+On a periodic spatial grid, \(L_\eta\) is diagonal in Fourier space:
+\[
+  \widehat{(G_\eta r)}_\ell(\xi)
+  =
+  \frac{\hat r_\ell(\xi)}
+  {\ii \Omega_\ell\cdot\xi + \sigma_0+\eta}.
+\]
+Define
+\[
+  V_\eta := L_\eta - A .
+\]
+For isotropic scattering,
+\[
+  (V_\eta\psi)_\ell
+  =
+  (\sigma_0+\eta-\sigma_t)\psi_\ell
+  + \sigma_s \phi .
+\]
+Then the same identity holds:
+\[
+  I-G_\eta V_\eta = G_\eta A.
+\]
+Therefore the RTE has the same NPBS structure:
+\[
+  \psi^{m+1}
+  =
+  \psi^m + P_\theta\!\left(G_\eta(q-A\psi^m)\right),
+\]
+with the metric-matched loss
+\[
+  \mathcal{L}^{R_\eta}_{\mathrm{RTE}}(\theta)
+  =
+  \mathbb{E}_{r}
+  \frac{
+    \|G_\eta(A P_\theta(G_\eta r)-r)\|_2
+  }{
+    \|G_\eta r\|_2
+  }.
+\]
+
+\subsection{General Synthetic Acceleration as Preconditioner}
+
+The pure transport inverse \(G_\eta\) damps streaming-dominated modes but can be
+weak in highly scattering regimes, where the slow error is mostly a scalar-flux
+mode.  Classical diffusion synthetic acceleration (DSA) addresses this by
+adding a low-order diffusion correction.
+
+Write
+\[
+  T\psi := \Omega\cdot\nabla\psi+\sigma_t\psi,\qquad
+  S\psi := \sigma_s\phi,\qquad
+  A=T-S.
+\]
+Let \(B_T\) denote a transport preconditioner.  It may be the periodic
+constant-reference inverse \(G_\eta\), one upwind transport sweep, several
+transport sweeps, or a sparse/block transport preconditioner.  Given an angular
+residual \(r\), first compute a transport correction
+\[
+  \delta\psi_T = B_T r.
+\]
+The residual left after that correction is
+\[
+  e_T = r-A\delta\psi_T.
+\]
+Synthetic acceleration constructs an additional correction from a reduced
+model of this defect.  Let
+\[
+  R_{\rm lo}: \hbox{angular residuals}\to \hbox{low-order variables}
+\]
+be a restriction, let \(A_{\rm lo}\) be a low-order operator, and let
+\[
+  P_{\rm lo}: \hbox{low-order variables}\to \hbox{angular fluxes}
+\]
+be a prolongation or lift.  The one-shot synthetic-acceleration preconditioner
+is
+\[
+  B_{\rm SA} r
+  =
+  B_T r
+  +
+  P_{\rm lo}A_{\rm lo}^{-1}R_{\rm lo}(I-AB_T)r .
+\]
+This formula is the most useful way to define the preconditioner \(B_h\) for
+NPBS:
+\[
+  B_h = B_{\rm SA}.
+\]
+It is a residual-to-correction map.  It does not need to be an exact Green
+operator and usually does not satisfy an exact Born identity
+\(I-GV=GA\).
+
+\subsection{DSA as a Special Case}
+
+For isotropic scattering, the slow part of \(e_T\) is well represented by its
+angular moment
+\[
+  m_T = \sum_\ell w_\ell (e_T)_\ell.
+\]
+The constant-coefficient diffusion-augmentation approximation solves
+\[
+  \left(-D_0\Delta+\sigma_{a,0}\right)\delta\phi = m_T,
+  \qquad
+  D_0=\frac{1}{2\sigma_{t,0}},\qquad
+  \sigma_{a,0}=\sigma_{t,0}-\sigma_{s,0},
+\]
+where the factor \(2\) is the spatial dimension of the periodic prototype.  On
+a periodic grid, this diffusion equation is diagonal in Fourier variables:
+\[
+  \widehat{\delta\phi}(\xi)
+  =
+  \frac{\widehat{m_T}(\xi)}
+  {D_0|\xi|^2+\sigma_{a,0}}.
+\]
+Let \(\mathcal{I}\delta\phi\) be the isotropic lift satisfying
+\[
+  \sum_\ell w_\ell(\mathcal{I}\delta\phi)_\ell=\delta\phi .
+\]
+The DSA-style transport-plus-diffusion preconditioner is then
+\[
+  B_{\mathrm{TD}}r
+  :=
+  \delta\psi_T+\mathcal{I}\delta\phi .
+\]
+Equivalently,
+\[
+  B_{\mathrm{TD}}
+  =
+  B_T
+  +
+  \mathcal{I}
+  \left(-D_0\Delta+\sigma_{a,0}\right)^{-1}
+  \Phi(I-AB_T),
+\]
+where \(\Phi r=\sum_\ell w_\ell r_\ell\).  In the repository prototype,
+\[
+  B_T=G_\eta,\qquad
+  D_0 = 1/(2\sigma_{t,0}),\qquad
+  \sigma_{a,0}=\sigma_{t,0}-\sigma_{s,0},
+\]
+and all operators use periodic pseudo-spectral derivatives.  This is a
+constant-coefficient periodic DSA-style prototype, not a full transport
+discretization with boundary-consistent DSA.
+
+\subsection{TSA-Style Preconditioner}
+
+Transport synthetic acceleration (TSA) replaces the diffusion low-order solve
+by a transport-like low-order solve.  It is useful when the diffusion
+approximation is too crude, for example in optically thin regions, anisotropic
+media, strongly heterogeneous media, or problems where angular structure
+matters.
+
+The abstract TSA construction keeps the same two-stage residual correction:
+\[
+  \delta\psi_T = B_T r,\qquad
+  e_T=(I-AB_T)r.
+\]
+Instead of taking only the scalar flux moment, choose a transport restriction
+\[
+  R_{\rm TSA}e_T = e_{\rm lo},
+\]
+where \(e_{\rm lo}\) may contain a coarser angular quadrature, selected angular
+moments, a lower-order \(P_N\) or \(S_N\) representation, or a coarser spatial
+transport grid.  Let \(A_{\rm TSA}\) be the corresponding low-order transport
+operator and let \(P_{\rm TSA}\) lift the low-order correction back to the
+full angular grid.  A TSA-style preconditioner is
+\[
+  B_{\rm TSA}r
+  =
+  B_T r
+  +
+  P_{\rm TSA}A_{\rm TSA}^{-1}R_{\rm TSA}(I-AB_T)r .
+\]
+Examples of \(A_{\rm TSA}\) include:
+\[
+\begin{array}{ll}
+\text{coarse angular transport:}
+&
+  \Omega_j^{\rm lo}\cdot\nabla \chi_j
+  +\sigma_t\chi_j
+  -\sigma_s\sum_k w_k^{\rm lo}\chi_k,
+\\[1mm]
+\text{coarse-grid transport:}
+&
+  A_{\rm TSA}=R_x A_{\rm transport} P_x
+  \quad\text{on a coarser spatial mesh},
+\\[1mm]
+\text{moment transport:}
+&
+  A_{\rm TSA}\text{ is a closed low-order moment or quasidiffusion system}.
+\end{array}
+\]
+The inverse \(A_{\rm TSA}^{-1}\) may itself be approximate.  With \(\nu\)
+inner low-order iterations,
+\[
+  c_0=0,\qquad
+  c_{j+1}=c_j+\widetilde B_{\rm lo}
+  \left(R_{\rm TSA}e_T-A_{\rm TSA}c_j\right),
+  \qquad j=0,\ldots,\nu-1,
+\]
+and
+\[
+  B_{\rm TSA}^{(\nu)}r = B_T r + P_{\rm TSA}c_\nu .
+\]
+This is the precise meaning of ``TSA-style \(B_h\)'' in the NPBS framework:
+\(B_h\) is the full composite synthetic-acceleration map
+\[
+  r
+  \mapsto
+  B_T r
+  +
+  P_{\rm TSA}A_{\rm TSA}^{-1}R_{\rm TSA}(r-AB_T r),
+\]
+not merely the raw transport Green operator \(G_\eta\).
+
+\begin{remark}
+Unlike the pure transport resolvent \(G_\eta\), \(B_{\mathrm{TD}}\) and
+\(B_{\rm TSA}\) are not presented as exact Born splits \(I-GV=GA\).  They are
+synthetic-acceleration preconditioners.  The residual-propagator theorem still
+applies with \(B_h=B_{\mathrm{TD}}\) or \(B_h=B_{\rm TSA}\), and the
+metric-matched objective becomes
+\[
+  \mathcal{L}_{B_{\mathrm{TD}}}(\theta)
+  =
+  \mathbb{E}_{r}
+  \frac{
+    \|B_{\mathrm{TD}}(A P_\theta(B_{\mathrm{TD}}r)-r)\|_2
+  }{
+    \|B_{\mathrm{TD}}r\|_2
+  }.
+\]
+This is the appropriate way to generalize NPBS beyond exact CBS-style Green
+coordinates.  The implementation should be read as a periodic
+constant-coefficient diffusion synthetic preconditioner prototype, not as a
+boundary-compatible production DSA or TSA discretization.
+\end{remark}
+
+\subsection{Why This Is Promising}
+
+The RTE already has a classical source-iteration/synthetic-acceleration
+ecosystem. Classical source iteration is a Neumann iteration driven by a
+variable-coefficient transport sweep and the scattering perturbation; DSA and
+other synthetic accelerations are preconditioned residual corrections. NPBS can
+generalize this by replacing a hand-designed low-order correction with a
+learned correction trained in the metric induced by the chosen transport or
+synthetic-acceleration preconditioner.
+
+The most promising RTE version is not a direct end-to-end intensity predictor.
+It is a learned residual corrector used inside source iteration or FGMRES:
+\[
+  B_h \in \{G_{\eta,\mathrm{transport}},\; B_{\mathrm{DSA}},\;
+  B_{\mathrm{SA}},\; \hbox{hybrids}\}.
+\]
+This also suggests a useful RTE experiment: compare source iteration, DSA,
+FGMRES+DSA, NPBS with transport \(G_\eta\), and NPBS with DSA-induced metric on
+scattering-dominated media.
+
+\begin{remark}
+This repository implementation is a prototype, not a production RTE solver. It
+uses periodic pseudo-spectral streaming, uniform directions on
+\(\mathbb{S}^1\), normalized isotropic scattering, and a constant-coefficient
+periodic diffusion augmentation. The experimental extension below also includes
+a constant-anisotropy phase matrix and a Fourier-space reference
+transport-scattering TSA prototype. It does not model upwind sweeps or physical
+inflow, vacuum, and reflecting boundaries. It also does not model positivity
+preservation, spatially varying anisotropy, general phase functions, or
+transport-consistent boundary-compatible DSA/TSA. Its purpose is to test the
+algebraic NPBS extension and the role of alternative \(B_h\) choices.
+\end{remark}
+
+\section{Hard RTE Regimes and Synthetic-Acceleration Experiments}
+
+\subsection{Why the Hard Cases Are Hard}
+
+Write the discrete-ordinates RTE as
+\[
+  A\psi=(T-S)\psi=q,
+  \qquad
+  (T\psi)_\ell=\Omega_\ell\cdot\nabla\psi_\ell+\sigma_t\psi_\ell,
+  \qquad
+  (S\psi)_\ell=\sigma_s\sum_m w_m p_{\ell m}\psi_m .
+\]
+Classical source iteration is
+\[
+  \psi^{n+1}=T^{-1}(S\psi^n+q),
+  \qquad
+  e^{n+1}=T^{-1}Se^n .
+\]
+The periodic transport-Born prototype replaces \(T^{-1}\) by a constant
+reference resolvent \(G_\eta=L_\eta^{-1}\), so
+\[
+  e^{n+1}=G_\eta V_\eta e^n,\qquad V_\eta=L_\eta-A .
+\]
+Thus raw transport Born iteration is a Neumann iteration. It becomes slow or
+unstable when the scattering and coefficient-mismatch perturbation
+\(V_\eta\) is large in the \(G_\eta\)-metric.
+
+In a homogeneous isotropic medium, a low-frequency scalar-flux error has the
+source-iteration amplification
+\[
+  \lambda_{\rm SI}(\xi)
+  =
+  \sigma_s\sum_\ell
+  \frac{w_\ell}{\sigma_t+\ii\Omega_\ell\cdot\xi}.
+\]
+For small \(|\xi|\),
+\[
+  1-\lambda_{\rm SI}(\xi)
+  =
+  \frac{\sigma_a+D|\xi|^2}{\sigma_t}
+  +O\!\left(\frac{|\xi|^4}{\sigma_t^4}\right),
+  \qquad
+  \sigma_a=\sigma_t-\sigma_s,\qquad
+  D\simeq\frac{1}{d\sigma_t}.
+\]
+In optically thick high-albedo scaling, \(\sigma_t=O(\varepsilon^{-1})\) and
+\(\sigma_a=O(\varepsilon)\), so \(1-\lambda_{\rm SI}=O(\varepsilon^2)\).
+The iteration count grows like \(O(\varepsilon^{-2})\). The slow error is a
+smooth, nearly isotropic scalar-flux mode.
+
+For anisotropic scattering, the phase matrix has angular eigenvalues
+\(\beta_j\). At zero spatial frequency the angular-mode amplification is
+approximately
+\[
+  \lambda_j(0)=c\,\beta_j,\qquad c=\sigma_s/\sigma_t .
+\]
+Forward-peaked scattering makes several \(\beta_j\) close to one. Then the
+slow subspace includes current and higher angular moments, not only scalar
+flux. Scalar DSA can remove the \(j=0\) diffusion mode while leaving these
+angular modes poorly corrected.
+
+For heterogeneous and mixed-regime media, the constant-reference Born
+perturbation contains
+\[
+  (V_\eta\psi)_\ell
+  =
+  (\sigma_{\rm ref}+\eta-\sigma_t(x))\psi_\ell
+  +S\psi_\ell .
+\]
+A crude local contraction indicator is
+\[
+  \frac{
+    |\sigma_{\rm ref}+\eta-\sigma_t(x)|+\sigma_s(x)
+  }{
+    \sigma_{\rm ref}+\eta
+  } .
+\]
+Sharp contrast, near-void channels, high local albedo, and thin/thick
+interfaces can drive this ratio close to or above one. Increasing \(\eta\) can
+damp the iteration, but it also changes the residual geometry and over-smooths
+the correction that must be learned or accelerated.
+
+\subsection{Experimental Setup}
+
+The hard-case experiments use the same periodic pseudo-spectral RTE prototype
+as the verifier. The angular phase matrix is the normalized circular
+Poisson-kernel model
+\[
+  p_{\ell m}(g)
+  \propto
+  \frac{1-g^2}{1-2g\cos(\theta_\ell-\theta_m)+g^2},
+  \qquad
+  \sum_m w_m p_{\ell m}(g)=1 .
+\]
+The test grid is \(32\times32\), with \(24\) directions and \(dx=1/32\).
+The source is either an isotropic Gaussian
+\[
+  q_\ell(x,y)=\exp[-100((x-0.32)^2+(y-0.47)^2)]
+\]
+or the same Gaussian multiplied by a beamed angular factor proportional to
+\(\exp(2\cos\theta_\ell)\). The methods are:
+\[
+\begin{array}{ll}
+\text{Born} & B_h=G_\eta,\\[1mm]
+\text{periodic scalar DSA} &
+  B_h=G_\eta+\mathcal I(-D_0\Delta+\sigma_{a,0})^{-1}
+  \Phi(I-AG_\eta),\\[1mm]
+\text{RHS-projected reference TSA-H2} &
+  B_h=G_\eta+A_{\rm ref}^{-1}\Pi_{|j|\le2}(I-AG_\eta),\\[1mm]
+\text{full reference transport-scattering SA} &
+  B_h=G_\eta+A_{\rm ref}^{-1}(I-AG_\eta).
+\end{array}
+\]
+Here \(A_{\rm ref}\) is the constant-coefficient reference
+transport-scattering operator
+\[
+  (A_{\rm ref}\psi)_\ell
+  =
+  \Omega_\ell\cdot\nabla\psi_\ell
+  +(\sigma_{\rm ref}+\eta)\psi_\ell
+  -\sigma_{s,\rm ref}\sum_m w_m p_{\ell m}(g)\psi_m ,
+\]
+inverted in Fourier space.  The projection \(\Pi_{|j|\le2}\) is applied to the
+post-transport residual before the full reference inverse is used.  Therefore
+TSA-H2 is an RHS-projected reference diagnostic, not a fully discretized
+reduced angular transport system \(P_{\rm lo}A_{\rm lo}^{-1}R_{\rm lo}\);
+streaming can regenerate higher angular modes after the projected residual is
+inverted.  The full reference transport-scattering SA is also not a variational
+upper bound or production TSA method. It is a diagnostic for the benefit of a
+more transport-like synthetic correction. The scalar DSA baseline is
+intentionally simple: it uses a constant isotropic diffusion coefficient and
+does not use the anisotropic transport cross section
+\(\sigma_{\rm tr}=\sigma_t-\sigma_s\beta_1\).
+
+For stationary iteration,
+\[
+  \psi^{m+1}=\psi^m+\omega B_h(q-A\psi^m),
+\]
+the relaxation \(\omega\) is selected from
+\(\{0.2,0.4,0.6,0.8,1.0\}\), with a limit of \(120\) iterations and tolerance
+\(10^{-6}\).  The Krylov experiment uses right-preconditioned flexible GMRES
+with the same \(B_h\), restart length \(30\), maximum \(45\) iterations, and
+the same tolerance.  The script is
+\[
+  \texttt{rte/run\_hard\_case\_experiments.py}.
+\]
+
+The four hard cases are:
+\begin{enumerate}
+\item \textbf{Diffusive:}
+\(\sigma_t=20\), \(c=0.99\), \(g=0\). This tests the scalar
+diffusion-limit mode.
+\item \textbf{Heterogeneous:}
+\(\sigma_t=1+9b(x,y)+2.5{\bf 1}_{\sin(2\pi y)>0.35}\),
+\(c\in[0.82,0.97]\), \(g=0\). This tests constant-reference mismatch.
+\item \textbf{Anisotropic:}
+\(\sigma_t=5\), \(c=0.96\), \(g=0.85\). This tests forward-peaked angular
+modes.
+\item \textbf{Mixed:}
+\(\sigma_t\approx0.35\) in a thin streaming region and
+\(\sigma_t\approx16\) in a thick scattering region, with \(c=0.20/0.985\) and
+\(g=0.65\). This tests thin/thick coupling.
+\end{enumerate}
+The bump \(b(x,y)=\exp[-70((x-0.58)^2+(y-0.50)^2)]\).
+
+\begin{table}[t]
+\centering
+\scriptsize
+\begin{tabular}{llrrrrrr}
+\toprule
+Case & Method & \(\omega\) & Stat. it. & Stat. final & Stat. fac. & FGMRES it. & FGMRES final\\
+\midrule
+Diffusive & Born & 1.0 & 120 & \(8.4{\times}10^{-2}\) & 0.980 & 24 & \(7.6{\times}10^{-7}\)\\
+Diffusive & DSA & 1.0 & 13 & \(7.0{\times}10^{-7}\) & 0.336 & 8 & \(4.9{\times}10^{-7}\)\\
+Diffusive & Ref-H2 & 1.0 & 119 & \(1.0{\times}10^{-6}\) & 0.890 & 10 & \(8.8{\times}10^{-8}\)\\
+Diffusive & Ref-full & 1.0 & 119 & \(1.0{\times}10^{-6}\) & 0.890 & 9 & \(8.1{\times}10^{-7}\)\\
+Heterogeneous & Born & 1.0 & 120 & \(9.2{\times}10^{-7}\) & 0.891 & 23 & \(6.7{\times}10^{-7}\)\\
+Heterogeneous & DSA & 1.0 & 35 & \(8.9{\times}10^{-7}\) & 0.672 & 19 & \(6.5{\times}10^{-7}\)\\
+Heterogeneous & Ref-H2 & 1.0 & 42 & \(8.2{\times}10^{-7}\) & 0.716 & 18 & \(9.0{\times}10^{-7}\)\\
+Heterogeneous & Ref-full & 1.0 & 40 & \(8.6{\times}10^{-7}\) & 0.705 & 13 & \(3.7{\times}10^{-7}\)\\
+Anisotropic & Born & 1.0 & 120 & \(2.0{\times}10^{-3}\) & 0.949 & 23 & \(5.0{\times}10^{-7}\)\\
+Anisotropic & DSA & 1.0 & 69 & \(9.9{\times}10^{-7}\) & 0.818 & 20 & \(6.0{\times}10^{-7}\)\\
+Anisotropic & Ref-H2 & 1.0 & 33 & \(7.5{\times}10^{-7}\) & 0.652 & 13 & \(4.0{\times}10^{-7}\)\\
+Anisotropic & Ref-full & 1.0 & 33 & \(7.5{\times}10^{-7}\) & 0.652 & 8 & \(5.6{\times}10^{-8}\)\\
+Mixed & Born & 1.0 & 120 & \(3.3{\times}10^{-3}\) & 0.953 & 45 & \(4.1{\times}10^{-4}\)\\
+Mixed & DSA & 1.0 & 120 & \(4.9{\times}10^{-4}\) & 0.938 & 45 & \(3.1{\times}10^{-4}\)\\
+Mixed & Ref-H2 & 1.0 & 120 & \(2.7{\times}10^{-4}\) & 0.934 & 45 & \(9.6{\times}10^{-5}\)\\
+Mixed & Ref-full & 1.0 & 120 & \(6.3{\times}10^{-6}\) & 0.905 & 45 & \(8.5{\times}10^{-7}\)\\
+\bottomrule
+\end{tabular}
+\caption{Hard-regime RTE benchmark. ``Stat. fac.'' is the measured geometric
+factor over the stationary history. FGMRES uses the same method as a right
+preconditioner.}
+\label{tab:rte-hard-cases}
+\end{table}
+
+\subsection{Interpretation of the Results}
+
+The diffusive case shows the classical pathology: raw Born/source iteration
+has a factor \(0.98\) and remains at \(8.4\times10^{-2}\) after \(120\)
+steps. DSA converges in \(13\) stationary steps and gives the best GMRES
+preconditioner. This is exactly the scalar diffusion-limit mode predicted by
+the expansion of \(\lambda_{\rm SI}(\xi)\). The reference transport-scattering
+correction is not superior here because the missing low-order physics is scalar
+diffusion, and the DSA correction is the right asymptotic model.
+
+The heterogeneous case shows moderate reference mismatch. Raw Born eventually
+reaches tolerance but slowly. DSA reduces the stationary iteration count from
+\(120\) to \(35\), while the full reference correction gives the best FGMRES
+iteration count. The
+deep reason is that the constant transport Green operator sees the whole
+coefficient variation as a perturbation. DSA corrects the smooth scalar part,
+but a transport-like correction better captures interface and angular
+transmission effects inside Krylov.
+
+The anisotropic case exposes the scalar nature of DSA. Raw Born stalls at
+\(2.0\times10^{-3}\). DSA helps, but still needs \(69\) stationary steps.  The
+RHS-projected and full reference transport-scattering corrections converge in
+\(33\) stationary steps, and the full reference correction reduces FGMRES to
+\(8\) iterations. The reason is spectral: with forward-peaked scattering,
+angular eigenvalues \(\beta_j\) for \(j\ge1\) remain close to one. Scalar DSA
+only attacks the \(j=0\) moment. A transport-scattering synthetic correction
+can address angular transport modes left in \(\ker\Phi\).
+
+The mixed case is the hardest. Born, DSA, and the RHS-projected reference
+correction all stagnate in stationary
+iteration and fail to reach GMRES tolerance within \(45\) Krylov iterations.
+The full reference correction reaches \(8.5\times10^{-7}\) in FGMRES, but its
+stationary iteration still
+has a slow factor \(0.905\). This case combines thin streaming, thick
+diffusion, an interface layer, and anisotropy. A scalar diffusion correction
+over-smooths the thin region and under-represents angular interface defects.
+The RHS-projected angular diagnostic helps, but the full reference correction
+is needed to provide a robust Krylov preconditioner under this iteration
+budget. This is a budgeted experiment, not a proof that the other methods
+cannot converge with more FGMRES iterations or better parameters.
+
+\subsection{Why a Learned Component Can Help}
+
+Learning should not replace the known transport sweep or DSA/TSA correction
+blindly. The experiments show that the classical preconditioner removes a
+specific analytically understood subspace, while the failures are residual
+defects caused by coefficient mismatch, anisotropy, interfaces, and mixed
+regime coupling. This suggests a learned \emph{defect corrector}:
+\[
+  M_\theta r
+  =
+  B_h r
+  +
+  C_\theta\!\left(
+    B_h(I-AB_h)r,\,
+    \sigma_t,\sigma_s,\,
+    c=\sigma_s/\sigma_t,\,
+    g,\,
+    \tau_{\rm loc}
+  \right),
+\]
+where \(B_h\) is DSA or TSA and \(\tau_{\rm loc}\) denotes local optical
+thickness features. The network sees the residual left after the classical
+synthetic accelerator, not the original full solution map.
+
+The metric-matched training objective is
+\[
+  \mathcal L_{\rm defect}(\theta)
+  =
+  \mathbb E_r
+  \frac{
+    \|B_h(A M_\theta r-r)\|_2
+  }{
+    \|B_h r\|_2
+  }.
+\]
+This trains exactly the residual propagator used in the solver. If the learned
+map makes \(B_hAM_\theta\) closer to the identity on rollout residuals, then
+the residual-propagator theorem gives contraction in the \(B_h\)-metric.
+
+There are three concrete learnable components worth prioritizing:
+\begin{enumerate}
+\item \textbf{Learned DSA closure.} Replace the constant diffusion operator by
+a coefficient-conditioned low-order operator
+\[
+  -\nabla\cdot(D_\theta(x)\nabla\phi)
+  +b_\theta(x)\cdot\nabla\phi+\sigma_{a,\theta}(x)\phi .
+\]
+This targets heterogeneous and interface errors while preserving the DSA
+structure.
+
+\item \textbf{Learned TSA restriction and lift.} Learn \(R_\theta\) and
+\(P_\theta\), or learn a local angular basis, so that the synthetic transport
+space includes exactly the angular moments that remain slow for the local
+phase function and optical thickness. This targets the anisotropic case.
+
+\item \textbf{Learned local blending.} Use a small gating model to combine
+transport, DSA, and TSA corrections:
+\[
+  B_{\theta}r
+  =
+  \alpha_T(x)B_T r
+  +\alpha_D(x)B_{\rm DSA}r
+  +\alpha_S(x)B_{\rm TSA}r .
+\]
+The gate should depend on local albedo, optical thickness, anisotropy, and
+coefficient gradients. This targets the mixed thin/thick case.
+\end{enumerate}
+
+The hard-case results explain why learning is plausible but also why it must
+be constrained. DSA already cures the homogeneous diffusion-limit pathology,
+so learning should not waste capacity relearning diffusion. TSA already cures
+some angular defects, so learning should focus on the missing reduced space,
+the low-order coefficients, and the local blending. Training data should
+include rollout residuals from raw Born, DSA/TSA stationary iteration, and
+FGMRES, because random probes do not reproduce the nonnormal residual
+trajectories seen in the mixed case.
+
+\section{Per-Sample Learned RTE Preconditioners}
+
+\subsection{Architecture Design}
+
+The first learned RTE experiment deliberately avoids cross-sample
+generalization.  Each hard case has one fixed coefficient field, one fixed
+source family, and one trained preconditioner.  This isolates whether learning
+can improve the residual propagator at all before asking whether a network can
+generalize across media.
+It also means the experiment is in-sample: the rollout residuals used for
+training include residuals from the same source trajectory used in evaluation.
+The result is therefore not a generalization claim.
+
+Two architecture families are natural.
+
+\paragraph{Coefficient-conditioned defect CNN.}
+This is closest in spirit to the Helmholtz NPBS neural solvers.  Given a base
+synthetic preconditioner \(B_h\), form
+\[
+  z_0=B_h r,\qquad r_1=r-Az_0,\qquad z_1=B_h r_1 .
+\]
+A convolutional network then predicts
+\[
+  M_\theta r
+  =
+  z_0+C_\theta(z_1,\sigma_t,\sigma_s,c,g,\nabla\sigma_t,\ldots).
+\]
+For a periodic pseudo-spectral RTE benchmark, \(C_\theta\) can use circular
+spatial convolutions, angular-channel mixing, or Fourier layers.  This is the
+right architecture for eventual generalization.  It can learn interface
+corrections, angular high-moment corrections, and local blending between
+transport, DSA, and TSA.  Its drawback is that it has many parameters and
+requires a careful residual dataset.
+
+\paragraph{Residual-polynomial defect network.}
+For the first per-sample experiment, the repository implements a much smaller
+network.  Let \(B_h\) be DSA or reduced TSA.  Define
+\[
+  h_0=B_h r,\qquad e_0=r-Ah_0,
+\]
+and recursively
+\[
+  h_j=B_h e_{j-1},\qquad e_j=e_{j-1}-Ah_j,
+  \qquad j=1,\ldots,p.
+\]
+The learned preconditioner is
+\[
+  M_\theta r=\sum_{j=0}^{p}\alpha_j h_j ,
+\]
+where the complex scalars \(\{\alpha_j\}\) are trainable.  This is a tiny
+unrolled learned preconditioner: it learns a residual polynomial in the base
+error propagator
+\[
+  E_h=I-AB_h.
+\]
+If \(\alpha_j=1\) for all \(j\), it is simply \(p+1\) inner Richardson
+corrections.  Training chooses a better polynomial for the observed residual
+subspace.  This architecture is not meant to be the final generalizing model,
+and it is not a neural operator in the usual sense. It is a diagnostic that
+tests whether learned residual-polynomial correction can reduce the hard modes
+left by the chosen base preconditioner.
+
+\subsection{Training Objective}
+
+For a residual training set \(\mathcal R\), the learned polynomial minimizes
+the same metric-matched objective:
+\[
+  \min_{\alpha_0,\ldots,\alpha_p}
+  \frac{1}{|\mathcal R|}
+  \sum_{r\in\mathcal R}
+  \left(
+  \frac{\|B_h(A M_\theta r-r)\|_2}{\|B_h r\|_2}
+  \right)^2 .
+\]
+The residual set contains rollout residuals from the base stationary method
+and smooth random operator probes of the form \(r=A v\).  In the experiments
+below \(p=3\), so each learned preconditioner uses four applications of the
+base \(B_h\).  The script is
+\[
+  \texttt{rte/train\_learned\_hard\_cases.py}.
+\]
+Strictly speaking, the polynomial experiment consumes the raw residual \(r\),
+not only the coordinate \(z=B_hr\).  Therefore the direct contraction statement
+should be read as a condition on the actual residual map
+\[
+  r\mapsto B_h(r-AM_\theta r),
+\]
+unless \(M_\theta\) is explicitly reparameterized as a function of \(B_hr\)
+alone.
+
+\begin{table}[t]
+\centering
+\scriptsize
+\begin{tabular}{llrrrrrrrr}
+\toprule
+Case & Model & Inner & Stat. it. & Stat. \(B_h\) & Stat. final & FGMRES it. & FGMRES \(B_h\) & FGMRES final\\
+\midrule
+Diffusive & Poly-DSA & 4 & 4 & 16 & \(2.0{\times}10^{-8}\) & 3 & 12 & \(1.4{\times}10^{-8}\)\\
+Diffusive & Poly-Ref-H2 & 4 & 16 & 64 & \(6.7{\times}10^{-7}\) & 7 & 28 & \(2.6{\times}10^{-7}\)\\
+Heterogeneous & Poly-DSA & 4 & 8 & 32 & \(4.3{\times}10^{-7}\) & 6 & 24 & \(7.8{\times}10^{-8}\)\\
+Heterogeneous & Poly-Ref-H2 & 4 & 9 & 36 & \(2.2{\times}10^{-7}\) & 7 & 28 & \(2.4{\times}10^{-7}\)\\
+Anisotropic & Poly-DSA & 4 & 12 & 48 & \(4.1{\times}10^{-7}\) & 7 & 28 & \(3.7{\times}10^{-7}\)\\
+Anisotropic & Poly-Ref-H2 & 4 & 7 & 28 & \(1.8{\times}10^{-7}\) & 5 & 20 & \(4.7{\times}10^{-7}\)\\
+Mixed & Poly-DSA & 4 & 89 & 356 & \(9.4{\times}10^{-7}\) & 27 & 108 & \(7.3{\times}10^{-7}\)\\
+Mixed & Poly-Ref-H2 & 4 & 120 & 480 & \(2.8{\times}10^{4}\) & 23 & 92 & \(7.8{\times}10^{-7}\)\\
+\bottomrule
+\end{tabular}
+\caption{Per-sample learned residual-polynomial defect preconditioners.  The
+``Inner'' column is the number of base \(B_h\) applications per learned
+preconditioner call; the \(B_h\)-columns count effective base-preconditioner
+applications.}
+\label{tab:rte-learned-hard-cases}
+\end{table}
+
+\subsection{Learned Experiment Interpretation}
+
+The learned polynomial confirms the main hypothesis.  In the diffusive case,
+DSA alone already converges in \(13\) stationary steps; Poly-DSA reduces this
+to \(4\) outer steps and reduces FGMRES from \(8\) to \(3\) iterations.  This
+does not discover new physics; it learns a residual polynomial for the already
+correct DSA mode.
+
+In the heterogeneous case, Poly-DSA reduces the stationary count from \(35\) to
+\(8\), and Poly-Ref-H2 reduces it to \(9\).  The learned coefficients are
+compensating for constant-reference mismatch and for the fact that one
+synthetic correction is not enough near sharp coefficient variation.
+
+In the forward-peaked anisotropic case, Poly-Ref-H2 is best: it reaches
+stationary tolerance in \(7\) steps and FGMRES tolerance in \(5\) iterations.
+This matches the angular-mode explanation.  DSA can help, but the reference
+transport-scattering correction sees
+the slow angular modes that scalar diffusion misses.
+
+The mixed case is the stress test.  Base DSA and Ref-H2 failed to reach
+stationary tolerance in \(120\) iterations.  Poly-DSA reaches tolerance in
+\(89\) steps and makes FGMRES converge in \(27\) iterations.  Poly-Ref-H2 is
+effective as a flexible-GMRES preconditioner but unstable as a stationary
+iteration, with the residual diverging.  This is an important warning: a
+learned preconditioner can be useful inside FGMRES even if the stationary map
+\(I-AM_\theta\) is not contractive.  For production use, one should either
+add a contraction/stability penalty during training or use the learned map only
+inside flexible GMRES.
+
+These results should be read as proof of mechanism, not yet as a fair
+wall-time win.  Each Poly-DSA or Poly-Ref-H2 application uses four base
+preconditioner applications.  For example, diffusive DSA takes \(13\) base
+applications, while diffusive Poly-DSA takes \(4\times4=16\) base applications
+as a stationary solver and \(3\times4=12\) base applications inside FGMRES.
+The learned polynomial improves the residual propagator and sometimes reduces
+effective base calls, but a cost-normalized conclusion requires reporting
+base-preconditioner calls, wall time, memory, and stability together.  The
+most reliable conclusion is that learning can reshape the residual polynomial
+on hard residual subspaces; it is not yet evidence that this tiny learned
+model is uniformly faster than optimized classical DSA/TSA.
+
+The experiments use true physical residual norms, but they do not yet compare
+against an independently computed reference solution error.  For the linear
+systems tested here, residual reduction is the right solver criterion; however,
+a complete numerical study should also report scalar-flux error, angular-flux
+error, current error, and positivity/undershoot diagnostics against a direct or
+high-accuracy Krylov solve.
+
+\section{Audit Findings and Reliability of the Evidence}
+
+An independent audit of the mathematics and code gives the following
+conservative interpretation.
+
+\begin{enumerate}
+\item \textbf{The algebraic framework is sound.}
+Using a fixed linear residual-to-correction map \(B_h\), whether it is a Green
+operator, scalar DSA, or a synthetic transport correction, is consistent with
+the residual-propagator formulation of NPBS.  The verifier confirms the
+transport Born identity and the generic residual-coordinate propagation
+identity to roundoff for the operators actually implemented.
+
+\item \textbf{The current RTE code is a periodic Fourier prototype.}
+The raw transport baseline is not classical variable-coefficient source
+iteration with an upwind sweep.  The DSA baseline is not production DSA with
+physical boundary conditions, variable coefficients, or anisotropic transport
+cross sections.  The reference transport-scattering correction is not a
+production TSA discretization.  Conclusions about production RTE solvers require
+upwind \(S_N\), physical boundary conditions, and transport-consistent
+DSA/TSA.
+
+\item \textbf{RHS-projected Ref-H2 is not a closed low-order angular solve.}
+The implementation projects the post-transport residual to angular modes
+\(|j|\le2\), then applies the full angular reference inverse.  Because
+\(\Omega\cdot\nabla\) couples angular Fourier content at nonzero spatial
+frequency, the correction can regenerate higher angular modes.  A true reduced
+TSA comparison should implement
+\[
+  P_K(P_KA_{\rm ref}P_K)^{-1}P_K r
+\]
+or a genuine coarse-ordinate/moment transport solve.
+
+\item \textbf{The learned experiment is in-sample.}
+Training residuals include rollout residuals from the same coefficient field,
+source, and zero-initialized trajectory used in evaluation.  The learned
+polynomial results show that per-instance residual-polynomial shaping can help;
+they do not show cross-source, cross-coefficient, or cross-grid
+generalization.
+
+\item \textbf{Iteration counts are insufficient without cost.}
+The learned polynomial uses four base-preconditioner applications per outer
+call.  Reference transport-scattering corrections store and apply dense
+per-Fourier-mode angular inverses.  A fair solver comparison must report
+operator calls, preconditioner calls, setup time, solve time, memory, and
+residual-versus-time curves.
+
+\item \textbf{The present metrics are solver metrics, not full transport
+diagnostics.}
+Relative residuals are useful, but future experiments should also report
+quadrature-weighted residuals, scalar-flux error, angular-flux error, current
+error, conservation defects, positivity/undershoot, and comparison with an
+independent direct or high-accuracy Krylov reference.
+
+\item \textbf{The strongest current conclusion is narrow but promising.}
+For the periodic Fourier toy problems, scalar DSA cures the homogeneous
+diffusion-limit mode; reference transport-scattering correction helps angular
+and mixed-regime defects; and learned residual polynomials can reshape hard
+residual subspaces.  This supports the direction of learned
+synthetic-acceleration defect correction, but it is not yet a demonstration of
+a general learned RTE preconditioner.
+\end{enumerate}
+
+\subsection{Next Steps}
+
+The next steps should be ordered by what they de-risk.
+
+\begin{enumerate}
+\item \textbf{Add independent validation.}
+Assemble the discrete operator matrix on tiny grids and compare
+\(\texttt{A\_op}\), \(G_\eta\), DSA, and reference transport-scattering
+corrections against explicit matrix products.  Add manufactured periodic
+solutions and direct-solve reference errors.
+
+\item \textbf{Make the reduced transport correction mathematically closed.}
+Implement \(P_K(P_KA_{\rm ref}P_K)^{-1}P_K\), coarse ordinate solves, or moment
+transport solves, and compare them with the current RHS-projected diagnostic.
+
+\item \textbf{Run parameter sweeps.}
+Vary grid size, angular order, albedo, anisotropy \(g\), \(\eta\), source
+shape, and coefficient contrast.  Report mean, worst-case, and failure cases,
+not only one representative run.
+
+\item \textbf{Use held-out learning tests.}
+Train on some sources/rollout residuals and evaluate on held-out sources,
+held-out residual trajectories, and eventually randomized media.  Compare the
+learned polynomial with nonlearned equal-cost baselines:
+\(\alpha_j=1\), least-squares polynomial, Chebyshev/minimax polynomial, and
+extra inner DSA/reference-correction iterations.
+
+\item \textbf{Move from polynomial fitting to local learned defect models.}
+After the equal-cost polynomial baselines are understood, train the
+coefficient-conditioned defect CNN.  It should predict the correction to
+DSA or the chosen reference transport correction, not replace the entire solver,
+and it should be evaluated primarily as
+a flexible-GMRES preconditioner until a contraction penalty makes stationary
+use reliable.
+
+\item \textbf{Approach production transport gradually.}
+Introduce upwind \(S_N\) streaming, vacuum/inflow/reflecting boundary
+conditions, transport-consistent DSA, and anisotropic DSA based on
+\(\sigma_{\rm tr}\).  Only after those baselines are stable should claims be
+made about RTE solver performance beyond the periodic Fourier prototype.
+\end{enumerate}
+
+\subsection{Next Network to Train}
+
+The polynomial network proves that learning can improve the residual
+propagator, but it only learns global scalar coefficients.  The next useful
+network is the coefficient-conditioned defect CNN
+\[
+  M_\theta r
+  =
+  z_0+z_1
+  +
+  s\,C_\theta\!\left(z_0,z_1,\sigma_t,\sigma_s,c,g\right),
+  \qquad
+  z_0=B_hr,\quad z_1=B_h(r-Az_0),
+\]
+with periodic spatial convolutions and angular-channel mixing.  A conservative
+design is:
+\[
+\begin{array}{ll}
+\text{input channels:} &
+  \Re z_0,\Im z_0,\Re z_1,\Im z_1,
+  \sigma_t,\sigma_s,c,g,\|\nabla\sigma_t\|,\\
+\text{body:} &
+  4\text{--}6 circular residual convolution blocks with angular-channel mixing,\\
+\text{optional global branch:} &
+  low angular Fourier modes and low spatial Fourier modes,\\
+\text{output:} &
+  \Re \delta\psi,\Im \delta\psi,\\
+\text{solver map:} &
+  M_\theta r=z_0+z_1+s\delta\psi .
+\end{array}
+\]
+This model should be trained first per sample, then across randomized media.
+For stationary use, include a rollout loss
+\[
+  \|B_h(f-A(u+M_\theta r))\|_2/\|B_h r\|_2
+\]
+and a stability penalty that discourages growth of consecutive residuals.  For
+Krylov-only use, train the metric loss and evaluate inside flexible GMRES.
+
+\subsection{Laptop-Scale Defect CNN Test}
+
+The repository now includes a first small-scale implementation of this network
+in
+\[
+  \texttt{rte/train\_defect\_cnn\_small.py}.
+\]
+The goal is not to claim a trained general-purpose RTE preconditioner, but to
+test whether the coefficient-conditioned defect idea is numerically sane on a
+problem small enough for a laptop.
+
+The base map is the scalar DSA-style preconditioner \(B_h=B_{\rm DSA}\).  The
+network uses the fair two-application baseline as its initialization:
+\[
+  z_0=B_hr,\qquad z_1=B_h(r-Az_0),\qquad
+  M_\theta r=z_0+z_1+s\,C_\theta(z_0,z_1,\chi),
+\]
+where \(s=0.05\) in the test below and
+\[
+  \chi=(\widehat{\sigma_t},\sigma_s/\sigma_t,
+  \|\nabla_h\sigma_t\|/\overline{\sigma_t},g).
+\]
+The real and imaginary parts of \(z_0\) and \(z_1\) are used as residual
+features.  The coefficient features gate circular convolution blocks, while the
+final projection is initialized to zero.  Hence before training the learned
+preconditioner is exactly DSA2, not an unfairly stronger learned map.
+
+The loss is the metric-matched defect objective with a small physical residual
+term:
+\[
+  \frac{\|B_h(AM_\theta r-r)\|_2^2}{\|B_hr\|_2^2}
+  +0.2\frac{\|AM_\theta r-r\|_2^2}{\|r\|_2^2}
+  +10^{-5}\frac{\|M_\theta r\|_2^2}{\|B_hr\|_2^2}.
+\]
+Training residuals are five DSA rollout residuals from the source trajectory
+plus five smooth random operator probes \(r=Av\).  The laptop run used a
+\(20\times20\) periodic grid, \(12\) angles, two residual convolution blocks,
+width \(16\), Adam for \(80\) steps with learning rate \(2\times10^{-3}\), and
+\(\eta\)-scale \(0.1\).  Evaluation used the training source and one held-out
+source with a different position/angular profile.  DSA2 means two inner DSA
+defect-correction applications; CNN-DSA2 has the same two \(B_h\) calls plus
+the small CNN correction.
+
+\begin{table}[t]
+\centering
+\scriptsize
+\begin{tabular}{lllrrrr}
+\toprule
+Case & Split & Method & Stat. it. & Stat. \(B_h\) & Stat. final & FGMRES final\\
+\midrule
+Diffusive & train & DSA & 60 & 60 & \(5.5{\times}10^{-6}\) & \(4.9{\times}10^{-6}\)\\
+Diffusive & train & DSA2 & 60 & 120 & \(5.3{\times}10^{-6}\) & \(5.0{\times}10^{-6}\)\\
+Diffusive & train & CNN-DSA2 & 60 & 120 & \(4.9{\times}10^{-6}\) & \(5.3{\times}10^{-6}\)\\
+Diffusive & heldout & DSA & 60 & 60 & \(5.0{\times}10^{-6}\) & \(4.7{\times}10^{-6}\)\\
+Diffusive & heldout & DSA2 & 60 & 120 & \(4.8{\times}10^{-6}\) & \(4.5{\times}10^{-6}\)\\
+Diffusive & heldout & CNN-DSA2 & 60 & 120 & \(4.8{\times}10^{-6}\) & \(4.6{\times}10^{-6}\)\\
+Anisotropic & train & DSA & 60 & 60 & \(3.4{\times}10^{-5}\) & \(1.9{\times}10^{-5}\)\\
+Anisotropic & train & DSA2 & 60 & 120 & \(3.1{\times}10^{-6}\) & \(3.2{\times}10^{-6}\)\\
+Anisotropic & train & CNN-DSA2 & 60 & 120 & \(3.0{\times}10^{-6}\) & \(3.0{\times}10^{-6}\)\\
+Anisotropic & heldout & DSA & 60 & 60 & \(3.4{\times}10^{-5}\) & \(2.1{\times}10^{-5}\)\\
+Anisotropic & heldout & DSA2 & 60 & 120 & \(3.0{\times}10^{-6}\) & \(3.2{\times}10^{-6}\)\\
+Anisotropic & heldout & CNN-DSA2 & 60 & 120 & \(3.3{\times}10^{-6}\) & \(3.3{\times}10^{-6}\)\\
+Mixed & train & DSA & 60 & 60 & \(5.1{\times}10^{-3}\) & \(5.0{\times}10^{-3}\)\\
+Mixed & train & DSA2 & 60 & 120 & \(7.2{\times}10^{-4}\) & \(3.4{\times}10^{-4}\)\\
+Mixed & train & CNN-DSA2 & 60 & 120 & \(9.4{\times}10^{-4}\) & \(2.6{\times}10^{-4}\)\\
+Mixed & heldout & DSA & 60 & 60 & \(5.2{\times}10^{-3}\) & \(4.7{\times}10^{-3}\)\\
+Mixed & heldout & DSA2 & 60 & 120 & \(7.3{\times}10^{-4}\) & \(2.9{\times}10^{-4}\)\\
+Mixed & heldout & CNN-DSA2 & 60 & 120 & \(1.0{\times}10^{-3}\) & \(2.3{\times}10^{-4}\)\\
+\bottomrule
+\end{tabular}
+\caption{Laptop-scale coefficient-conditioned defect CNN test.  All FGMRES
+runs used \(25\) iterations, so the final residual is the more informative
+quantity here.}
+\label{tab:defect-cnn-small}
+\end{table}
+
+The small CNN is stable under the DSA2 initialization and scaled correction.
+The training loss decreased from \(6.5\times10^{-3}\) to \(4.1\times10^{-4}\)
+in the diffusive case, from \(1.4\times10^{-1}\) to \(4.7\times10^{-2}\) in the
+anisotropic case, and from \(2.1\times10^{-1}\) to \(5.8\times10^{-2}\) in the
+mixed case.  The solver impact is modest.  It slightly improves the
+training-source DSA2 result for the anisotropic case and improves FGMRES in the
+mixed case, including on the held-out source.  It does not uniformly improve
+stationary iteration; in the mixed case the stationary residual is worse than
+DSA2 even though FGMRES is better.
+
+The conclusion is therefore specific: the coefficient-conditioned defect CNN is
+a promising flexible-GMRES preconditioner component, but at this small scale it
+is not yet a robust replacement for equal-cost extra DSA steps.  The next
+technical improvements should be a contraction penalty for stationary use,
+training on multiple held-out residual trajectories, coefficient batches rather
+than one medium at a time, and a true reduced TSA/anisotropic-DSA base
+preconditioner for the angular hard modes.
+
+\section{Implementation Added}
+
+The repository now contains a minimal RTE generalization in
+\(\texttt{rte/models.py}\). It implements a periodic two-dimensional
+discrete-ordinates operator and its constant-coefficient transport Green
+operator. It also implements a
+transport-plus-diffusion synthetic preconditioner, a constant-reference
+transport-scattering TSA-style preconditioner, the Born residual identity for
+the transport reference, and preconditioned Richardson solve logic. The verifier
+\[
+  \texttt{rte/verify\_rte\_npbs.py}
+\]
+checks the identity
+\[
+  G_\eta(V_\eta\psi+q)-\psi
+  =
+  G_\eta(q-A\psi)
+\]
+and verifies residual decay for both the raw transport preconditioner and the
+transport-plus-diffusion and transport-plus-TSA preconditioners on a
+moderate-scattering case. For synthetic preconditioners it verifies the generic
+residual-coordinate propagation identity rather than claiming a Born split.
+The hard-regime experiment script is
+\[
+  \texttt{rte/run\_hard\_case\_experiments.py}.
+\]
+The per-sample learned-preconditioner experiment script is
+\[
+  \texttt{rte/train\_learned\_hard\_cases.py}.
+\]
+The laptop-scale coefficient-conditioned defect CNN experiment script is
+\[
+  \texttt{rte/train\_defect\_cnn\_small.py}.
+\]
+
+\end{document}
