@@ -15,7 +15,6 @@ from rte.train_defect_cnn_small import make_source, smooth_random_like
 
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(ROOT / "helmholtz" / "models"))
-from gmres import fgmres  # noqa: E402
 
 
 def circular_pad_conv(in_channels, out_channels, kernel_size=3, stride=1, groups=1, bias=False):
@@ -372,6 +371,140 @@ def inner_base_apply(rte, residual, depth=1, kind="transport_dsa", tsa_harmonics
     return out
 
 
+def tol_key(tol):
+    return f"{float(tol):.0e}".replace("+", "")
+
+
+def tolerance_snapshot(history, elapsed_history, base_calls_history, tol):
+    target = float(tol)
+    for idx, value in enumerate(history):
+        if float(value) <= target:
+            return {
+                "iters_to_tol": int(idx),
+                "time_to_tol": float(elapsed_history[idx]),
+                "base_calls_to_tol": float(base_calls_history[idx]),
+                "hit_tol": True,
+            }
+    return {
+        "iters_to_tol": len(history) - 1,
+        "time_to_tol": float("nan"),
+        "base_calls_to_tol": float("nan"),
+        "hit_tol": False,
+    }
+
+
+def fgmres_with_trace(
+    A,
+    b,
+    M,
+    tol=1e-6,
+    maxiter=100,
+    restart=None,
+    max_restarts=None,
+):
+    """
+    Flexible GMRES variant that returns true residual, elapsed-time, and
+    preconditioner-call traces for residual-vs-time and residual-vs-work curves.
+    """
+    eps = 1e-30
+    if maxiter < 1:
+        raise ValueError("maxiter must be >= 1")
+
+    if restart is not None:
+        restart = min(max(1, int(restart)), int(maxiter))
+    if max_restarts is not None:
+        max_restarts = int(max_restarts)
+        if max_restarts < 0:
+            raise ValueError("max_restarts must be >= 0")
+
+    x = torch.zeros_like(b)
+    b_norm = torch.clamp(torch.norm(b), min=eps)
+    start = time.perf_counter()
+    precond_calls = 0
+
+    def elapsed():
+        return float(time.perf_counter() - start)
+
+    def run_cycle(x0, inner_maxiter):
+        nonlocal precond_calls
+        r0 = b - A(x0)
+        beta = torch.norm(r0)
+        rel0 = float(beta / b_norm)
+        cycle_history = [rel0]
+        cycle_elapsed = [elapsed()]
+        cycle_calls = [precond_calls]
+        if rel0 < tol:
+            return x0, cycle_history, cycle_elapsed, cycle_calls, True, False
+
+        V = [r0 / torch.clamp(beta, min=eps)]
+        Z = []
+        H = torch.zeros((inner_maxiter + 1, inner_maxiter), dtype=b.dtype, device=b.device)
+        x_cur = x0
+        converged = False
+        breakdown = False
+        breakdown_tol = 1e-14
+        for j in range(inner_maxiter):
+            z_j = M(V[j])
+            precond_calls += 1
+            Z.append(z_j)
+            w = A(z_j)
+            for i in range(j + 1):
+                H[i, j] = torch.sum(w * V[i].conj())
+                w = w - H[i, j] * V[i]
+            H[j + 1, j] = torch.norm(w)
+            h_next = torch.abs(H[j + 1, j]).item()
+            if h_next > breakdown_tol:
+                V.append(w / H[j + 1, j])
+            H_j = H[: j + 2, : j + 1]
+            e1 = torch.zeros(j + 2, dtype=b.dtype, device=b.device)
+            e1[0] = beta
+            y = torch.linalg.lstsq(H_j, e1).solution
+            Z_tensor = torch.stack(Z, dim=0)
+            y_shape = [j + 1] + [1] * (Z_tensor.ndim - 1)
+            x_cur = x0 + torch.sum(Z_tensor * y[: j + 1].reshape(y_shape), dim=0)
+            true_relres = float(torch.norm(b - A(x_cur)) / b_norm)
+            cycle_history.append(true_relres)
+            cycle_elapsed.append(elapsed())
+            cycle_calls.append(precond_calls)
+            if true_relres < tol:
+                converged = True
+                break
+            if h_next <= breakdown_tol:
+                breakdown = True
+                break
+        return x_cur, cycle_history, cycle_elapsed, cycle_calls, converged, breakdown
+
+    if restart is None:
+        x, history, elapsed_history, call_history, _, _ = run_cycle(x, int(maxiter))
+        return x, history, elapsed_history, call_history
+
+    history = []
+    elapsed_history = []
+    call_history = []
+    total_iters = 0
+    restarts_used = 0
+    while total_iters < int(maxiter):
+        inner_maxiter = min(int(restart), int(maxiter) - total_iters)
+        x, cyc_h, cyc_t, cyc_c, converged, breakdown = run_cycle(x, inner_maxiter)
+        if not history:
+            history.extend(cyc_h)
+            elapsed_history.extend(cyc_t)
+            call_history.extend(cyc_c)
+        else:
+            history.extend(cyc_h[1:])
+            elapsed_history.extend(cyc_t[1:])
+            call_history.extend(cyc_c[1:])
+        cycle_iters = len(cyc_h) - 1
+        total_iters += cycle_iters
+        if converged or breakdown or cycle_iters == 0:
+            break
+        if max_restarts is not None and restarts_used >= max_restarts:
+            break
+        restarts_used += 1
+
+    return x, history, elapsed_history, call_history
+
+
 def metric_loss(model, residuals, physical_weight=0.5, correction_weight=1e-6):
     residual_batch = ensure_residual_batch(residuals)
     correction = model(residual_batch)
@@ -396,6 +529,8 @@ def objective_loss(
     rollout_decay=1.0,
     stability_weight=0.0,
     contraction_target=0.98,
+    teacher_fn=None,
+    teacher_weight=0.0,
 ):
     metric_ratio, physical_ratio, correction_ratio, residual_after = metric_loss(
         model,
@@ -426,6 +561,14 @@ def objective_loss(
         target = float(contraction_target)
         stability_terms = [(torch.relu(entry - target).square()).mean() for entry in metric_history]
         loss = loss + stability_weight * torch.stack(stability_terms).mean()
+    if teacher_fn is not None and teacher_weight > 0.0:
+        residual_batch = ensure_residual_batch(residuals)
+        with torch.no_grad():
+            teacher_correction = teacher_fn(residual_batch)
+        student_correction = model(residual_batch)
+        denom = torch.clamp(batch_l2_norm(teacher_correction), min=1e-30)
+        imitation = batch_l2_norm(student_correction - teacher_correction) / denom
+        loss = loss + float(teacher_weight) * (imitation.square()).mean()
     return loss
 
 
@@ -447,6 +590,8 @@ def train_model(
     rollout_decay=1.0,
     stability_weight=0.0,
     contraction_target=0.98,
+    teacher_fn=None,
+    teacher_weight=0.0,
 ):
     optimizer = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
     scheduler = None
@@ -477,6 +622,8 @@ def train_model(
             rollout_decay=rollout_decay,
             stability_weight=stability_weight,
             contraction_target=contraction_target,
+            teacher_fn=teacher_fn,
+            teacher_weight=teacher_weight,
         )
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
@@ -518,20 +665,28 @@ def solve_stationary(rte, source, preconditioner, maxiter, tol):
         psi = torch.zeros_like(rte.source)
         source_norm = torch.clamp(torch.linalg.norm(rte.source), min=1e-30)
         history = []
+        elapsed_history = []
+        preconditioner_calls = []
         start = time.perf_counter()
         with torch.no_grad():
+            calls = 0
             for _ in range(maxiter):
                 residual = rte.source - rte.A_op(psi)
                 relres = float(torch.linalg.norm(residual) / source_norm)
                 history.append(relres)
+                elapsed_history.append(float(time.perf_counter() - start))
+                preconditioner_calls.append(calls)
                 if relres < tol:
                     break
                 psi = psi + preconditioner(residual)
+                calls += 1
             residual = rte.source - rte.A_op(psi)
             history.append(float(torch.linalg.norm(residual) / source_norm))
+            elapsed_history.append(float(time.perf_counter() - start))
+            preconditioner_calls.append(calls)
     finally:
         rte.source = old_source
-    return len(history) - 1, history[-1], contraction(history), time.perf_counter() - start
+    return len(history) - 1, history[-1], contraction(history), time.perf_counter() - start, history, elapsed_history, preconditioner_calls
 
 
 def solve_fgmres(rte, source, preconditioner, maxiter, tol):
@@ -546,9 +701,8 @@ def solve_fgmres(rte, source, preconditioner, maxiter, tol):
             with torch.no_grad():
                 return preconditioner(r)
 
-        start = time.perf_counter()
         with torch.no_grad():
-            _, history = fgmres(
+            _, history, elapsed_history, preconditioner_calls = fgmres_with_trace(
                 A=A,
                 b=rte.source,
                 M=M,
@@ -556,11 +710,18 @@ def solve_fgmres(rte, source, preconditioner, maxiter, tol):
                 maxiter=maxiter,
                 restart=min(20, maxiter),
                 max_restarts=2,
-                verbose=False,
             )
     finally:
         rte.source = old_source
-    return len(history) - 1, history[-1], contraction(history), time.perf_counter() - start
+    return (
+        len(history) - 1,
+        history[-1],
+        contraction(history),
+        elapsed_history[-1],
+        history,
+        elapsed_history,
+        preconditioner_calls,
+    )
 
 
 def write_report(rows, path, settings):
@@ -638,14 +799,20 @@ def main():
     parser.add_argument("--rollout-decay", type=float, default=1.0)
     parser.add_argument("--stability-weight", type=float, default=0.0)
     parser.add_argument("--contraction-target", type=float, default=0.98)
+    parser.add_argument("--teacher-depth", type=int, default=0)
+    parser.add_argument("--teacher-relaxation", type=float, default=1.0)
+    parser.add_argument("--teacher-kind", default="")
+    parser.add_argument("--teacher-weight", type=float, default=0.0)
     parser.add_argument("--maxiter", type=int, default=60)
     parser.add_argument("--fgmres-maxiter", type=int, default=25)
     parser.add_argument("--tol", type=float, default=1e-6)
+    parser.add_argument("--tol-grid", nargs="+", type=float, default=[])
     parser.add_argument("--seed", type=int, default=20260519)
     parser.add_argument("--device", default="cuda:0" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--allow-tf32", action="store_true")
     parser.add_argument("--output-init", choices=["zero", "small"], default="zero")
     parser.add_argument("--output-csv", default="rte/npbs_unet_ablation_results.csv")
+    parser.add_argument("--trace-csv", default="")
     parser.add_argument("--output-md", default="rte/NPBS_UNET_ABLATION_REPORT.md")
     args = parser.parse_args()
 
@@ -658,7 +825,9 @@ def main():
         torch.backends.cudnn.benchmark = True
         if args.allow_tf32:
             torch.set_float32_matmul_precision("high")
+    tol_grid = list(dict.fromkeys([float(args.tol)] + [float(t) for t in args.tol_grid]))
     rows = []
+    trace_rows = []
     for size in args.sizes:
         for case in args.cases:
             rte, _ = make_case(case, size, args.n_angles, dtype, args.eta_scale, device=device)
@@ -723,6 +892,18 @@ def main():
                 for form in args.forms:
                     relaxations = args.defect_relaxations if form == "defect2" else [1.0]
                     for relaxation in relaxations:
+                        teacher_kind = args.teacher_kind if args.teacher_kind else base_kind
+
+                        def teacher_fn(residual_batch, kind=teacher_kind):
+                            return inner_base_apply(
+                                rte,
+                                residual_batch,
+                                depth=args.teacher_depth,
+                                kind=kind,
+                                tsa_harmonics=args.tsa_harmonics,
+                                relaxation=args.teacher_relaxation,
+                            )
+
                         model = NPBSUNetPreconditioner(
                             rte,
                             form=form,
@@ -751,6 +932,8 @@ def main():
                             rollout_decay=args.rollout_decay,
                             stability_weight=args.stability_weight,
                             contraction_target=args.contraction_target,
+                            teacher_fn=teacher_fn if args.teacher_depth > 0 else None,
+                            teacher_weight=args.teacher_weight,
                         )
                         trained_models.append((f"UNet-{form}-w{relaxation:g}", model, history, residual_info))
                         print(
@@ -785,8 +968,45 @@ def main():
                             base_kind,
                             tsa_harmonics=args.tsa_harmonics,
                         )
-                        si, sf, sc, st = solve_stationary(rte, source, precond, args.maxiter, args.tol)
-                        gi, gf, gc, gt = solve_fgmres(rte, source, precond, args.fgmres_maxiter, args.tol)
+                        si, sf, sc, st, s_hist, s_times, s_calls = solve_stationary(
+                            rte,
+                            source,
+                            precond,
+                            args.maxiter,
+                            args.tol,
+                        )
+                        fi, ff, fc, ft, f_hist, f_times, f_calls = solve_fgmres(
+                            rte,
+                            source,
+                            precond,
+                            args.fgmres_maxiter,
+                            args.tol,
+                        )
+
+                        s_base_calls = [c * calls for c in s_calls]
+                        f_base_calls = [c * calls for c in f_calls]
+
+                        s_tol = tolerance_snapshot(s_hist, s_times, s_base_calls, args.tol)
+                        f_tol = tolerance_snapshot(f_hist, f_times, f_base_calls, args.tol)
+
+                        tol_metrics = {
+                            "stationary_hit_tol": s_tol["hit_tol"],
+                            "stationary_time_to_tol": s_tol["time_to_tol"],
+                            "stationary_base_calls_to_tol": s_tol["base_calls_to_tol"],
+                            "fgmres_hit_tol": f_tol["hit_tol"],
+                            "fgmres_time_to_tol": f_tol["time_to_tol"],
+                            "fgmres_base_calls_to_tol": f_tol["base_calls_to_tol"],
+                        }
+                        for tol_val in tol_grid:
+                            key = tol_key(tol_val)
+                            s_snap = tolerance_snapshot(s_hist, s_times, s_base_calls, tol_val)
+                            f_snap = tolerance_snapshot(f_hist, f_times, f_base_calls, tol_val)
+                            tol_metrics[f"stationary_hit_{key}"] = s_snap["hit_tol"]
+                            tol_metrics[f"stationary_time_{key}"] = s_snap["time_to_tol"]
+                            tol_metrics[f"stationary_base_calls_{key}"] = s_snap["base_calls_to_tol"]
+                            tol_metrics[f"fgmres_hit_{key}"] = f_snap["hit_tol"]
+                            tol_metrics[f"fgmres_time_{key}"] = f_snap["time_to_tol"]
+                            tol_metrics[f"fgmres_base_calls_{key}"] = f_snap["base_calls_to_tol"]
                         row = {
                             "size": size,
                             "case": case,
@@ -802,10 +1022,10 @@ def main():
                             "stationary_final": sf,
                             "stationary_factor": sc,
                             "stationary_time": st,
-                            "fgmres_iters": gi,
-                            "fgmres_final": gf,
-                            "fgmres_factor": gc,
-                            "fgmres_time": gt,
+                            "fgmres_iters": fi,
+                            "fgmres_final": ff,
+                            "fgmres_factor": fc,
+                            "fgmres_time": ft,
                             "train_loss_initial": loss0,
                             "train_loss_final": loss1,
                             "train_lr_initial": lr0,
@@ -828,11 +1048,53 @@ def main():
                             "rollout_decay": args.rollout_decay,
                             "stability_weight": args.stability_weight,
                             "contraction_target": args.contraction_target,
+                            "teacher_depth": args.teacher_depth,
+                            "teacher_kind": (args.teacher_kind if args.teacher_kind else base_kind) if args.teacher_depth > 0 else "",
+                            "teacher_relaxation": args.teacher_relaxation if args.teacher_depth > 0 else "",
+                            "teacher_weight": args.teacher_weight,
                         }
+                        row.update(tol_metrics)
                         rows.append(row)
+
+                        for idx, relres in enumerate(s_hist):
+                            trace_rows.append(
+                                {
+                                    "size": size,
+                                    "case": case,
+                                    "split": split,
+                                    "base_kind": base_kind,
+                                    "method": label,
+                                    "solver": "stationary",
+                                    "iter": idx,
+                                    "relres": relres,
+                                    "elapsed": s_times[idx],
+                                    "preconditioner_calls": s_calls[idx],
+                                    "base_calls": s_base_calls[idx],
+                                    "tol": args.tol,
+                                    "hit_tol": relres <= args.tol,
+                                }
+                            )
+                        for idx, relres in enumerate(f_hist):
+                            trace_rows.append(
+                                {
+                                    "size": size,
+                                    "case": case,
+                                    "split": split,
+                                    "base_kind": base_kind,
+                                    "method": label,
+                                    "solver": "fgmres",
+                                    "iter": idx,
+                                    "relres": relres,
+                                    "elapsed": f_times[idx],
+                                    "preconditioner_calls": f_calls[idx],
+                                    "base_calls": f_base_calls[idx],
+                                    "tol": args.tol,
+                                    "hit_tol": relres <= args.tol,
+                                }
+                            )
                         print(
                             f"  {split:7s} {label:18s} one={one_true:.2e} "
-                            f"stat={si:3d}/{sf:.2e} fgmres={gi:3d}/{gf:.2e}"
+                            f"stat={si:3d}/{sf:.2e} fgmres={fi:3d}/{ff:.2e}"
                         )
 
     csv_path = ROOT / args.output_csv
@@ -842,6 +1104,16 @@ def main():
         writer = csv.DictWriter(f, fieldnames=list(rows[0].keys()))
         writer.writeheader()
         writer.writerows(rows)
+
+    if args.trace_csv:
+        trace_path = ROOT / args.trace_csv
+        trace_path.parent.mkdir(parents=True, exist_ok=True)
+        with trace_path.open("w", newline="", encoding="utf-8") as f:
+            writer = csv.DictWriter(f, fieldnames=list(trace_rows[0].keys()))
+            writer.writeheader()
+            writer.writerows(trace_rows)
+        print(f"wrote {trace_path}")
+
     write_report(rows, md_path, vars(args))
     print(f"wrote {csv_path}")
     print(f"wrote {md_path}")

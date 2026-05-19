@@ -642,3 +642,108 @@ In short,
 current best results come from stronger classical TSA/DSA stacks rather than
 from the learned wrapper.}}
 \]
+
+## Work-Budget Extension To Size 64+
+
+To match the requested protocol update, the same equal-cost DSA/TSA comparison
+was extended to size 64 and size 80 with explicit residual traces, base-call
+traces, and tolerance-to-solution summaries.
+
+New outputs:
+
+- `rte/npbs_unet_ablation_dsa_size64plus_cheap_teacher1000.csv`
+- `rte/npbs_unet_ablation_dsa_size64plus_cheap_teacher1000_traces.csv`
+- `rte/npbs_unet_ablation_tsafull_size64_large_teacher1200.csv`
+- `rte/npbs_unet_ablation_tsafull_size64_large_teacher1200_traces.csv`
+
+New curve figures:
+
+- `rte/curve_plots_dsa_size64plus_cheap_teacher1000/`
+- `rte/curve_plots_tsafull_size64_large_teacher1200/`
+
+These figures are generated from traces using:
+
+```bash
+python rte/plot_solver_curves.py --trace-csv <trace.csv> --output-dir <plot_dir>
+```
+
+### 1) Cheap Learned Correction (Reduced U-Net Overhead)
+
+Configuration:
+
+- base: `transport_dsa`
+- sizes: 64, 80
+- case: mixed
+- learned model: `width=8, levels=2` (cheap)
+- training steps: 1000
+- teacher target: DSA4 (`teacher_depth=4`, weight `0.3`)
+
+Held-out (size 64):
+
+- `dsa2`: one `5.507e-01`, stat `1.467e-04`, fgmres `1.184e-05`
+- `dsa4`: one `2.312e-01`, stat `7.735e-06`, fgmres `7.607e-06`
+- `UNet-defect2`: one `3.412e-01`, stat `5.703e-05`, fgmres `1.344e-05`
+
+Held-out (size 80):
+
+- `dsa2`: one `5.486e-01`, stat `1.408e-04`, fgmres `1.305e-05`
+- `dsa4`: one `2.296e-01`, stat `1.037e-05`, fgmres `9.943e-06`
+- `UNet-defect2`: one `3.363e-01`, stat `6.559e-05`, fgmres `7.396e-05`
+
+Interpretation: the cheaper learned correction is still useful versus `dsa2`
+for one-step and stationary behavior, but it remains behind `dsa4` in both
+accuracy and tolerance speed on mixed at size 64+.
+
+### 2) Larger Learned Model Against TSA-Full (Capacity Test)
+
+Configuration:
+
+- base: `transport_tsa` (full)
+- size: 64
+- case: mixed
+- learned model: `width=40, levels=5` (large)
+- training steps: 1200
+- teacher target: TSA4 (`teacher_depth=4`, weight `0.25`)
+
+Held-out:
+
+- `tsa2`: one `1.789e-01`, stat `7.429e-06`, fgmres `7.356e-06`
+- `tsa4`: one `1.147e-01`, stat `7.415e-06`, fgmres `7.456e-06`
+- `UNet-defect2`: one `1.741e-01`, stat `7.551e-06`, fgmres `7.355e-06`
+
+Interpretation: increasing model capacity and training length narrows some
+gaps, but the learned map still does not beat `tsa4` on one-step quality in the
+mixed regime.
+
+## Tolerance-To-Solution Comparison
+
+The updated runner now records `time_to_tol` and `base_calls_to_tol` for both
+stationary and FGMRES, at the main tolerance and optional grids (`1e-4`,
+`1e-5`, `1e-6` in these runs).
+
+Key held-out observations:
+
+1. At `1e-5`, `dsa4` is the best-time method on size-64/80 mixed in both
+   stationary and FGMRES traces.
+2. At `1e-4`, the cheap learned model can use fewer base calls than deep
+   classical stacks, but its wall-time is still not the best due to learned
+   overhead.
+3. On the TSA-full run, `tsa4` is best-time at `1e-4` and `1e-5`; the learned
+   model can be competitive in base-call count but not in time-to-tolerance.
+4. None of the tested methods reached `1e-6` within the current `80/40`
+   iteration caps on these size-64+ mixed runs, so comparing `1e-6` requires
+   higher iteration budgets.
+
+## Updated Practical Direction
+
+With the new curves and tolerance metrics included, the recommendation becomes:
+
+1. Use `time_to_tol` and `base_calls_to_tol` as primary solver metrics for
+   fair work-budget claims.
+2. Keep learned defect2 as a compression target (replace shallow stacks), not a
+   replacement for best deep stacks yet.
+3. For mixed size-64+ runs, deep classical (`dsa4` or `tsa4`) remains the
+   current wall-clock leader.
+4. If the learned route is pursued, prioritize cheaper architectures with
+   stronger teacher losses and explicit latency penalties, since raw residual
+   improvements are not enough for wall-clock competitiveness.
