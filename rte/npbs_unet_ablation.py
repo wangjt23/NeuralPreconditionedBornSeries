@@ -100,7 +100,7 @@ class LinearGatedUNet(nn.Module):
     activation-free; nonlinearity enters only through coefficient gates.
     """
 
-    def __init__(self, in_channels, out_channels, width=16, levels=3, gate_scale=0.1):
+    def __init__(self, in_channels, out_channels, width=16, levels=3, gate_scale=0.1, output_init="zero"):
         super().__init__()
         self.levels = int(levels)
         self.gate_scale = float(gate_scale)
@@ -115,7 +115,12 @@ class LinearGatedUNet(nn.Module):
         self.dec_gate = nn.ModuleList([circular_pad_conv(width, width, kernel_size=1, bias=True) for _ in range(levels - 1)])
         self.dec_mix2 = nn.ModuleList([circular_pad_conv(width, width, bias=False) for _ in range(levels - 1)])
         self.proj = circular_pad_conv(width, out_channels, kernel_size=1, bias=False)
-        nn.init.zeros_(self.proj.conv.weight)
+        if output_init == "zero":
+            nn.init.zeros_(self.proj.conv.weight)
+        elif output_init == "small":
+            nn.init.normal_(self.proj.conv.weight, mean=0.0, std=1e-3)
+        else:
+            raise ValueError("output_init must be 'zero' or 'small'")
 
     @staticmethod
     def resize_like(x, reference):
@@ -165,6 +170,7 @@ class NPBSUNetPreconditioner(nn.Module):
         gate_scale=0.1,
         delta_scale=1.0,
         defect_relaxation=1.0,
+        output_init="zero",
     ):
         super().__init__()
         if form not in {"residual", "defect2"}:
@@ -178,7 +184,14 @@ class NPBSUNetPreconditioner(nn.Module):
         self.defect_relaxation = float(defect_relaxation)
         in_channels = 2 * self.n_angles if form == "residual" else 4 * self.n_angles
         self.coeff_encoder = CoeffEncoder(coeff_channels=4, width=width, levels=levels)
-        self.unet = LinearGatedUNet(in_channels, 2 * self.n_angles, width=width, levels=levels, gate_scale=gate_scale)
+        self.unet = LinearGatedUNet(
+            in_channels,
+            2 * self.n_angles,
+            width=width,
+            levels=levels,
+            gate_scale=gate_scale,
+            output_init=output_init,
+        )
 
     def base(self, residual):
         return self.rte.apply_preconditioner(residual, kind=self.base_kind, tsa_harmonics=self.tsa_harmonics)
@@ -360,15 +373,15 @@ def inner_base_apply(rte, residual, depth=1, kind="transport_dsa", tsa_harmonics
 def metric_loss(model, residuals, physical_weight=0.5, correction_weight=1e-6):
     residual_batch = ensure_residual_batch(residuals)
     correction = model(residual_batch)
-    error = model.rte.A_op(correction) - residual_batch
-    metric_error = model.base(error)
+    next_residual = residual_batch - model.rte.A_op(correction)
+    metric_error = model.base(next_residual)
     denom_metric = torch.clamp(batch_l2_norm(model.base(residual_batch)), min=1e-30)
     denom_phys = torch.clamp(batch_l2_norm(residual_batch), min=1e-30)
     correction_norm = batch_l2_norm(correction)
     metric_ratio = batch_l2_norm(metric_error) / denom_metric
-    physical_ratio = batch_l2_norm(error) / denom_phys
+    physical_ratio = batch_l2_norm(next_residual) / denom_phys
     correction_ratio = correction_norm / denom_metric
-    return metric_ratio, physical_ratio, correction_ratio, error
+    return metric_ratio, physical_ratio, correction_ratio, next_residual
 
 
 def objective_loss(
@@ -478,62 +491,73 @@ def train_model(
     return history
 
 
-def one_step_quality(rte, preconditioner, residual):
+def one_step_quality(rte, preconditioner, residual, base_kind, tsa_harmonics=None):
     with torch.no_grad():
         correction = preconditioner(residual)
-        error = rte.A_op(correction) - residual
-        true_rel = float(torch.linalg.norm(error) / torch.clamp(torch.linalg.norm(residual), min=1e-30))
-        metric_error = rte.apply_preconditioner(error, kind="transport")
-        metric_ref = rte.apply_preconditioner(residual, kind="transport")
-        metric_rel = float(torch.linalg.norm(metric_error) / torch.clamp(torch.linalg.norm(metric_ref), min=1e-30))
-    return true_rel, metric_rel
+        next_residual = residual - rte.A_op(correction)
+        true_rel = float(torch.linalg.norm(next_residual) / torch.clamp(torch.linalg.norm(residual), min=1e-30))
+        born_metric_error = rte.apply_preconditioner(next_residual, kind="transport")
+        born_metric_ref = rte.apply_preconditioner(residual, kind="transport")
+        born_metric_rel = float(
+            torch.linalg.norm(born_metric_error) / torch.clamp(torch.linalg.norm(born_metric_ref), min=1e-30)
+        )
+        base_metric_error = rte.apply_preconditioner(next_residual, kind=base_kind, tsa_harmonics=tsa_harmonics)
+        base_metric_ref = rte.apply_preconditioner(residual, kind=base_kind, tsa_harmonics=tsa_harmonics)
+        base_metric_rel = float(
+            torch.linalg.norm(base_metric_error) / torch.clamp(torch.linalg.norm(base_metric_ref), min=1e-30)
+        )
+    return true_rel, born_metric_rel, base_metric_rel
 
 
 def solve_stationary(rte, source, preconditioner, maxiter, tol):
     old_source = rte.source
-    rte.source = source.to(device=rte.sigma_t.device, dtype=rte.complex_dtype)
-    psi = torch.zeros_like(rte.source)
-    source_norm = torch.clamp(torch.linalg.norm(rte.source), min=1e-30)
-    history = []
-    start = time.perf_counter()
-    with torch.no_grad():
-        for _ in range(maxiter):
+    try:
+        rte.source = source.to(device=rte.sigma_t.device, dtype=rte.complex_dtype)
+        psi = torch.zeros_like(rte.source)
+        source_norm = torch.clamp(torch.linalg.norm(rte.source), min=1e-30)
+        history = []
+        start = time.perf_counter()
+        with torch.no_grad():
+            for _ in range(maxiter):
+                residual = rte.source - rte.A_op(psi)
+                relres = float(torch.linalg.norm(residual) / source_norm)
+                history.append(relres)
+                if relres < tol:
+                    break
+                psi = psi + preconditioner(residual)
             residual = rte.source - rte.A_op(psi)
-            relres = float(torch.linalg.norm(residual) / source_norm)
-            history.append(relres)
-            if relres < tol:
-                break
-            psi = psi + preconditioner(residual)
-        residual = rte.source - rte.A_op(psi)
-        history.append(float(torch.linalg.norm(residual) / source_norm))
-    rte.source = old_source
+            history.append(float(torch.linalg.norm(residual) / source_norm))
+    finally:
+        rte.source = old_source
     return len(history) - 1, history[-1], contraction(history), time.perf_counter() - start
 
 
 def solve_fgmres(rte, source, preconditioner, maxiter, tol):
     old_source = rte.source
-    rte.source = source.to(device=rte.sigma_t.device, dtype=rte.complex_dtype)
+    try:
+        rte.source = source.to(device=rte.sigma_t.device, dtype=rte.complex_dtype)
 
-    def A(x):
-        return rte.A_op(x)
+        def A(x):
+            return rte.A_op(x)
 
-    def M(r):
+        def M(r):
+            with torch.no_grad():
+                return preconditioner(r)
+
+        start = time.perf_counter()
         with torch.no_grad():
-            return preconditioner(r)
-
-    start = time.perf_counter()
-    with torch.no_grad():
-        _, history = fgmres(
-            A=A,
-            b=rte.source,
-            M=M,
-            tol=tol,
-            maxiter=maxiter,
-            restart=min(20, maxiter),
-            max_restarts=2,
-            verbose=False,
-        )
-    rte.source = old_source
+            _, history = fgmres(
+                A=A,
+                b=rte.source,
+                M=M,
+                tol=tol,
+                maxiter=maxiter,
+                restart=min(20, maxiter),
+                max_restarts=2,
+                verbose=False,
+            )
+    finally:
+        rte.source = old_source
     return len(history) - 1, history[-1], contraction(history), time.perf_counter() - start
 
 
@@ -550,12 +574,12 @@ def write_report(rows, path, settings):
         lines.append(f"- `{key}`: `{value}`")
     lines.extend(["", "## Results", ""])
     lines.append(
-        "| Size | Base | Case | Split | Method | one-step true | one-step Born metric | stat final | FGMRES final | loss0 | loss1 |"
+        "| Size | Base | Case | Split | Method | one-step true | one-step Born metric | one-step base metric | stat final | FGMRES final | loss0 | loss1 |"
     )
-    lines.append("|---:|---|---|---|---|---:|---:|---:|---:|---:|---:|")
+    lines.append("|---:|---|---|---|---|---:|---:|---:|---:|---:|---:|---:|")
     for row in rows:
         lines.append(
-            "| {size} | {base_kind} | {case} | {split} | {method} | {one_step_true:.3e} | {one_step_metric:.3e} | "
+            "| {size} | {base_kind} | {case} | {split} | {method} | {one_step_true:.3e} | {one_step_born_metric:.3e} | {one_step_base_metric:.3e} | "
             "{stationary_final:.3e} | {fgmres_final:.3e} | {train_loss_initial} | {train_loss_final} |".format(**row)
         )
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
@@ -567,8 +591,11 @@ def main():
     parser.add_argument("--sizes", nargs="+", type=int, default=[24])
     parser.add_argument("--n-angles", type=int, default=12)
     parser.add_argument("--base-kinds", nargs="+", default=["transport_dsa"])
+    parser.add_argument("--tsa-harmonics", type=int, default=None)
     parser.add_argument("--forms", nargs="+", default=["residual", "defect2"])
     parser.add_argument("--defect-relaxations", nargs="+", type=float, default=[1.0])
+    parser.add_argument("--baseline-depths", nargs="+", type=int, default=[1, 2])
+    parser.add_argument("--baseline-relaxations", nargs="+", type=float, default=[1.0])
     parser.add_argument("--eta-scale", type=float, default=0.1)
     parser.add_argument("--width", type=int, default=16)
     parser.add_argument("--levels", type=int, default=3)
@@ -600,6 +627,7 @@ def main():
     parser.add_argument("--seed", type=int, default=20260519)
     parser.add_argument("--device", default="cuda:0" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--allow-tf32", action="store_true")
+    parser.add_argument("--output-init", choices=["zero", "small"], default="zero")
     parser.add_argument("--output-csv", default="rte/npbs_unet_ablation_results.csv")
     parser.add_argument("--output-md", default="rte/NPBS_UNET_ABLATION_REPORT.md")
     args = parser.parse_args()
@@ -626,6 +654,7 @@ def main():
                 device=device,
                 num_aux_sources=args.aux_sources,
             )
+            training_sources[0] = train_source.clone()
             heldout_source = make_source(
                 size,
                 args.n_angles,
@@ -638,6 +667,7 @@ def main():
                     residuals = collect_residuals_from_sources(
                         rte,
                         base_kind,
+                        tsa_harmonics=args.tsa_harmonics,
                         sources=training_sources,
                         n_rollout=args.n_rollout,
                         n_random=args.n_random,
@@ -648,6 +678,7 @@ def main():
                     residuals, residual_info = make_residual_sampler(
                         rte,
                         base_kind,
+                        tsa_harmonics=args.tsa_harmonics,
                         sources=training_sources,
                         n_rollout=args.n_rollout,
                         residuals_per_step=args.residuals_per_step,
@@ -656,12 +687,20 @@ def main():
                         seed=args.seed,
                     )
                 base_label = base_kind.replace("transport_", "")
+                baseline_methods = []
+                for depth in args.baseline_depths:
+                    for relaxation in args.baseline_relaxations:
+                        if depth < 1 or relaxation <= 0.0:
+                            continue
 
-                def base1(residual, kind=base_kind):
-                    return inner_base_apply(rte, residual, depth=1, kind=kind)
+                        def base_apply(residual, d=depth, w=relaxation, kind=base_kind, tsa_h=args.tsa_harmonics):
+                            return inner_base_apply(rte, residual, depth=d, kind=kind, tsa_harmonics=tsa_h, relaxation=w)
 
-                def base2(residual, kind=base_kind):
-                    return inner_base_apply(rte, residual, depth=2, kind=kind)
+                        if abs(float(relaxation) - 1.0) < 1e-12:
+                            label = f"{base_label}{int(depth)}"
+                        else:
+                            label = f"{base_label}{int(depth)}-w{float(relaxation):g}"
+                        baseline_methods.append((label, base_apply, int(depth), "", "", "", "", "", ""))
 
                 trained_models = []
                 for form in args.forms:
@@ -671,9 +710,11 @@ def main():
                             rte,
                             form=form,
                             base_kind=base_kind,
+                            tsa_harmonics=args.tsa_harmonics,
                             width=args.width,
                             levels=args.levels,
                             defect_relaxation=relaxation,
+                            output_init=args.output_init,
                         ).to(device)
                         history = train_model(
                             model,
@@ -701,7 +742,7 @@ def main():
                             f"loss={history['loss'][0]:.3e}->{history['loss'][-1]:.3e}"
                         )
 
-                methods = [(f"{base_label}1", base1, 1, "", ""), (f"{base_label}2", base2, 2, "", "")]
+                methods = []
                 for label, model, history, info in trained_models:
                     methods.append(
                         (
@@ -717,12 +758,16 @@ def main():
                         )
                     )
 
-                baseline_methods = [(f"{base_label}1", base1, 1, "", "", "", "", "", ""), (f"{base_label}2", base2, 2, "", "", "", "", "", "")]
-
                 for split, source in (("train", train_source), ("heldout", heldout_source)):
                     residual = source.to(dtype=rte.complex_dtype) - rte.A_op(torch.zeros_like(rte.source))
-                    for label, precond, calls, loss0, loss1, lr0, lr1, residuals_per_step, rollout_bank_size in baseline_methods + methods[2:]:
-                        one_true, one_metric = one_step_quality(rte, precond, residual)
+                    for label, precond, calls, loss0, loss1, lr0, lr1, residuals_per_step, rollout_bank_size in baseline_methods + methods:
+                        one_true, one_born_metric, one_base_metric = one_step_quality(
+                            rte,
+                            precond,
+                            residual,
+                            base_kind,
+                            tsa_harmonics=args.tsa_harmonics,
+                        )
                         si, sf, sc, st = solve_stationary(rte, source, precond, args.maxiter, args.tol)
                         gi, gf, gc, gt = solve_fgmres(rte, source, precond, args.fgmres_maxiter, args.tol)
                         row = {
@@ -730,10 +775,12 @@ def main():
                             "case": case,
                             "split": split,
                             "base_kind": base_kind,
+                            "tsa_harmonics": args.tsa_harmonics,
                             "method": label,
                             "base_calls_per_apply": calls,
                             "one_step_true": one_true,
-                            "one_step_metric": one_metric,
+                            "one_step_born_metric": one_born_metric,
+                            "one_step_base_metric": one_base_metric,
                             "stationary_iters": si,
                             "stationary_final": sf,
                             "stationary_factor": sc,

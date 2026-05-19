@@ -277,6 +277,12 @@ class PeriodicRTE2D(nn.Module):
         rhs_hat = torch.fft.fftn(rhs, dim=(-2, -1), norm="backward")
         rhs_vec = rhs_hat.permute(0, 2, 3, 1).unsqueeze(-1)
         inv = self.reference_transport_inverse.to(dtype=rhs.dtype, device=rhs.device)
+        if inv.shape[0] == 1 and rhs.shape[0] > 1:
+            inv = inv.expand(rhs.shape[0], -1, -1, -1, -1)
+        elif inv.shape[0] != rhs.shape[0]:
+            raise ValueError(
+                f"reference transport inverse batch ({inv.shape[0]}) does not match rhs batch ({rhs.shape[0]})"
+            )
         sol_hat = torch.matmul(
             inv.reshape(-1, self.n_angles, self.n_angles),
             rhs_vec.reshape(-1, self.n_angles, 1),

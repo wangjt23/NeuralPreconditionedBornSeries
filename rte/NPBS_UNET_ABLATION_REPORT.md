@@ -5,6 +5,33 @@ All results here use the repository's matrix-free periodic RTE NPBS operator in
 `rte/models.py`, with explicit calls to the discrete operator `A_op` and to the
 chosen base preconditioner `B_h`.  No ATFPS discretization is used.
 
+## Status And Scope
+
+The updated evidence supports `transport_dsa + defect2 U-Net` as a strong
+prototype direction, but not yet as a settled publication-level result.
+
+What is strong now:
+
+1. Across larger NPBS runs, held-out one-step residuals are consistently better
+   than plain DSA2 for defect2 U-Net in the hard regimes.
+2. The mixed regime repeatedly shows solver-level gains for learned defect2.
+3. Residual-form U-Net remains risky: it can improve one-step metrics while
+   degrading stationary/FGMRES behavior.
+
+What remains unresolved:
+
+1. "Heldout" here means held-out source, not held-out coefficient field, so
+   cross-medium generalization is still unproven.
+2. Most studies are single-seed and single held-out-source per case, so there
+   are no confidence intervals.
+3. In easy regimes with residual floors near `1e-6` to `1e-5`, small FGMRES
+   winner gaps are not statistically meaningful.
+4. Learned defect2 has higher per-application cost than DSA2; any solver claim
+   should include residual-vs-wall-time and residual-vs-base-call views.
+5. `transport_dsa` in `rte/models.py` is a simple periodic synthetic
+   correction, not a full production variable-coefficient,
+   boundary-compatible DSA discretization.
+
 ## Model
 
 The learned module is `NPBSUNetPreconditioner` in
@@ -423,4 +450,150 @@ In short,
 \boxed{\text{For NPBS, larger-scale training confirms defect2+DSA as the main
 path; rollout helps stationary robustness, but residual-form is still only an
 ablation.}}
+\]
+
+## Targeted Checks: Q7 and Q8
+
+Two follow-up ablations were run specifically for:
+
+7. Does zero initialization beat small initialization?
+8. Do larger training steps still improve performance?
+
+Setup:
+
+- cases: anisotropic, mixed
+- size: 32, angles: 12
+- base: `transport_dsa`
+- form: `defect2`, \(\omega=1\)
+- schedule: step decay
+- residual mode: resample with rollout/stability loss
+
+Outputs:
+
+- `rte/npbs_unet_ablation_q7q8_zero_steps150.csv`
+- `rte/npbs_unet_ablation_q7q8_zero_steps300.csv`
+- `rte/npbs_unet_ablation_q7q8_zero_steps600.csv`
+- `rte/npbs_unet_ablation_q7q8_small_steps300.csv`
+
+### Q7: Zero vs Small Initialization (300 steps)
+
+Held-out averages across anisotropic+mixed:
+
+| Init | one-step true | stationary final | FGMRES final |
+|---|---:|---:|---:|
+| zero | 3.402e-01 | 1.532e-04 | 9.486e-05 |
+| small | 2.829e-01 | 1.254e-04 | 7.272e-05 |
+
+For this specific two-case, one-seed test, small initialization was slightly
+better than exact-zero at 300 steps.  This does not invalidate zero-init as a
+stability baseline; it says zero-init is not automatically optimal once longer
+training and rollout penalties are used.
+
+### Q8: Step Scaling (zero init)
+
+Held-out averages across anisotropic+mixed:
+
+| Steps | one-step true | stationary final | FGMRES final |
+|---:|---:|---:|---:|
+| 150 | 2.832e-01 | 3.416e-04 | 1.064e-04 |
+| 300 | 3.402e-01 | 1.532e-04 | 9.486e-05 |
+| 600 | 2.316e-01 | 1.744e-05 | 2.864e-05 |
+
+Larger training steps can still help substantially, but not monotonically in
+every metric at intermediate step counts.  The 600-step run is the strongest in
+this targeted test, especially for mixed-case solver residuals.
+
+## Recommended Follow-Up Trials
+
+The next recommended trials were then run explicitly:
+
+1. Equal-cost DSA baselines with depths 1, 2, 3, 4 and relaxed variants.
+2. TSA-H2 and TSA-full equal-cost baselines with the same depth sweep.
+3. A heavier size-64 DSA run with larger angles, wider network, more residuals,
+   more auxiliary sources, and a longer rollout bank.
+
+Outputs:
+
+- `rte/npbs_unet_ablation_dsa_equalcost_steps900.csv`
+- `rte/npbs_unet_ablation_tsa_h2_equalcost_steps900.csv`
+- `rte/npbs_unet_ablation_tsa_full_equalcost_steps900.csv`
+- `rte/npbs_unet_ablation_dsa_size64_heavy_steps600.csv`
+
+### Equal-Cost DSA, Size 32, 900 Steps
+
+Held-out summary on anisotropic and mixed:
+
+| Case | Best one-step | Best stationary | Best FGMRES | U-Net defect2 |
+|---|---|---|---|---|
+| anisotropic | `dsa4` (`1.932e-01`) | `dsa3-w0.5` (`5.608e-06`) | `dsa3` (`5.799e-06`) | one `2.044e-01`, stat `6.258e-06`, fgmres `5.859e-06` |
+| mixed | `dsa4` (`2.327e-01`) | `U-Net defect2` (`1.119e-05`) | `dsa4` (`3.776e-06`) | one `2.821e-01`, stat `1.119e-05`, fgmres `2.076e-05` |
+
+Interpretation: the learned defect2 model still beats shallow `dsa2`, but once
+equal-cost deeper DSA baselines are included, the classical stack is stronger on
+one-step quality and usually on Krylov performance.
+
+### Equal-Cost TSA-H2 and TSA-Full, Size 32, 900 Steps
+
+Held-out best one-step residuals:
+
+| Base | Anisotropic | Mixed |
+|---|---:|---:|
+| TSA-H2 `tsa4` | 5.131e-02 | 1.427e-01 |
+| TSA-full `tsa4` | 3.645e-02 | 1.143e-01 |
+| U-Net defect2 over TSA-H2 | 1.197e-01 | 1.805e-01 |
+| U-Net defect2 over TSA-full | 8.680e-02 | 1.482e-01 |
+
+On these hard size-32 cases, TSA-full is the strongest base tested so far.
+Learned defect2 over TSA improves over shallow TSA baselines, but it does not
+beat the deeper classical TSA stacks.
+
+### Heavier DSA Run, Size 64, 24 Angles, 600 Steps
+
+Held-out summary:
+
+| Case | DSA2 | DSA4 | U-Net defect2 |
+|---|---|---|---|
+| anisotropic one-step | 3.845e-01 | 1.413e-01 | 2.862e-01 |
+| anisotropic stationary | 1.324e-05 | 1.325e-05 | 1.295e-05 |
+| anisotropic FGMRES | 1.244e-05 | 1.300e-05 | 1.397e-05 |
+| mixed one-step | 5.514e-01 | 2.312e-01 | 2.763e-01 |
+| mixed stationary | 5.180e-04 | 1.385e-05 | 3.068e-05 |
+| mixed FGMRES | 4.169e-04 | 8.410e-06 | 8.597e-05 |
+
+The larger-resolution run keeps the same ordering.  Learned defect2 still gives
+a meaningful improvement over `dsa2` on mixed, but it does not recover the lead
+against `dsa4` at higher scale.
+
+## Superseding Recommendation
+
+The earlier recommendation in this report that `transport_dsa + defect2` is the
+main NPBS path should now be treated as superseded by the equal-cost results.
+
+The current evidence supports a more precise ranking:
+
+1. `transport_tsa` is the strongest base family tested so far, especially in
+   TSA-full form.
+2. Deep classical stacks (`dsa4`, `tsa3`, `tsa4`) are the hardest baselines to
+   beat and currently outperform the learned defect2 wrapper on the hard held-out
+   cases tested here.
+3. Learned defect2 remains a promising compression direction because it still
+   improves materially over shallow baselines like `dsa2`, especially on mixed
+   problems, but it is no longer the best overall method in this report.
+
+So the updated practical recommendation is:
+
+```text
+best current base to invest in:   transport_tsa (full if affordable)
+best classical equal-cost option: depth-4 TSA or DSA stack, case-dependent
+best learned direction:           defect2 wrapper as a compression/approximation
+                                  candidate to replace shallow stacks, not yet to
+                                  replace the best deep stacks
+```
+
+In short,
+
+\[
+\boxed{\text{Larger-scale NPBS trials keep learned defect2 promising, but the
+current best results come from stronger classical TSA/DSA stacks rather than
+from the learned wrapper.}}
 \]
