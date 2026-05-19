@@ -747,3 +747,22 @@ With the new curves and tolerance metrics included, the recommendation becomes:
 4. If the learned route is pursued, prioritize cheaper architectures with
    stronger teacher losses and explicit latency penalties, since raw residual
    improvements are not enough for wall-clock competitiveness.
+
+## Pure Step Scaling Check
+
+To isolate the effect of training length alone, a stabilized cheap learned model
+was rerun at 2200 steps with the same size-64 mixed setup used in the 1600-step
+stable run.
+
+Held-out comparison against the earlier stabilized 1600-step run:
+
+| Run | one-step true | stationary final | FGMRES final |
+|---|---:|---:|---:|
+| 1600-step stable | 4.067e-01 | 9.227e-06 | 7.900e-06 |
+| 2200-step stable | 3.766e-01 | 7.116e-04 | 7.462e-06 |
+
+The longer run did improve the one-step true residual a bit, but it worsened
+stationary behavior badly and did not produce a wall-clock win. This is the
+strongest evidence in the current set that “just train longer” is not enough by
+itself for learned RTE competitiveness; optimization must also be made more
+stable and more aligned with the actual solver metric.

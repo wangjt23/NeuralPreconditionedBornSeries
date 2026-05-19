@@ -364,10 +364,11 @@ def make_residual_sampler(
 def inner_base_apply(rte, residual, depth=1, kind="transport_dsa", tsa_harmonics=None, relaxation=1.0):
     out = torch.zeros_like(residual)
     defect = residual
-    for _ in range(depth):
+    for step_idx in range(depth):
         correction = rte.apply_preconditioner(defect, kind=kind, tsa_harmonics=tsa_harmonics)
         out = out + float(relaxation) * correction
-        defect = defect - rte.A_op(float(relaxation) * correction)
+        if step_idx + 1 < depth:
+            defect = defect - rte.A_op(float(relaxation) * correction)
     return out
 
 
@@ -391,6 +392,135 @@ def tolerance_snapshot(history, elapsed_history, base_calls_history, tol):
         "base_calls_to_tol": float("nan"),
         "hit_tol": False,
     }
+
+
+def pack_real_imag(x):
+    return torch.cat([x.real, x.imag], dim=1).to(torch.float32)
+
+
+def unpack_real_imag(x, dtype):
+    real, imag = torch.chunk(x, 2, dim=1)
+    return torch.complex(real, imag).to(dtype=dtype)
+
+
+def fgmres_with_trace_real(
+    A,
+    b,
+    M,
+    tol=1e-6,
+    maxiter=100,
+    restart=None,
+    max_restarts=None,
+):
+    """Real-stacked FGMRES for learned or classical preconditioners."""
+    eps = 1e-30
+    if maxiter < 1:
+        raise ValueError("maxiter must be >= 1")
+    if restart is not None:
+        restart = min(max(1, int(restart)), int(maxiter))
+    if max_restarts is not None:
+        max_restarts = int(max_restarts)
+        if max_restarts < 0:
+            raise ValueError("max_restarts must be >= 0")
+
+    b_real = pack_real_imag(b)
+    x_real = torch.zeros_like(b_real)
+    b_norm = torch.clamp(torch.linalg.norm(b_real), min=eps)
+    start = time.perf_counter()
+    precond_calls = 0
+
+    def elapsed():
+        return float(time.perf_counter() - start)
+
+    def A_real(xr):
+        xc = unpack_real_imag(xr, dtype=b.dtype)
+        yc = A(xc)
+        return pack_real_imag(yc)
+
+    def M_real(rr):
+        nonlocal precond_calls
+        rc = unpack_real_imag(rr, dtype=b.dtype)
+        with torch.no_grad():
+            zc = M(rc)
+        precond_calls += 1
+        return pack_real_imag(zc)
+
+    def run_cycle(x0, inner_maxiter):
+        r0 = b_real - A_real(x0)
+        beta = torch.linalg.norm(r0)
+        rel0 = float(beta / b_norm)
+        cycle_history = [rel0]
+        cycle_elapsed = [elapsed()]
+        cycle_calls = [precond_calls]
+        if rel0 < tol:
+            return x0, cycle_history, cycle_elapsed, cycle_calls, True, False
+
+        V = [r0 / torch.clamp(beta, min=eps)]
+        Z = []
+        H = torch.zeros((inner_maxiter + 1, inner_maxiter), dtype=torch.float32, device=b.device)
+        x_cur = x0
+        converged = False
+        breakdown = False
+        breakdown_tol = 1e-14
+        for j in range(inner_maxiter):
+            z_j = M_real(V[j])
+            Z.append(z_j)
+            w = A_real(z_j)
+            for i in range(j + 1):
+                H[i, j] = torch.sum(w * V[i])
+                w = w - H[i, j] * V[i]
+            H[j + 1, j] = torch.linalg.norm(w)
+            h_next = float(torch.abs(H[j + 1, j]))
+            if h_next > breakdown_tol:
+                V.append(w / H[j + 1, j])
+            H_j = H[: j + 2, : j + 1]
+            e1 = torch.zeros(j + 2, dtype=torch.float32, device=b.device)
+            e1[0] = beta
+            y = torch.linalg.lstsq(H_j, e1).solution
+            Z_tensor = torch.stack(Z, dim=0)
+            y_shape = [j + 1] + [1] * (Z_tensor.ndim - 1)
+            x_cur = x0 + torch.sum(Z_tensor * y[: j + 1].reshape(y_shape), dim=0)
+            true_relres = float(torch.linalg.norm(b_real - A_real(x_cur)) / b_norm)
+            cycle_history.append(true_relres)
+            cycle_elapsed.append(elapsed())
+            cycle_calls.append(precond_calls)
+            if true_relres < tol:
+                converged = True
+                break
+            if h_next <= breakdown_tol:
+                breakdown = True
+                break
+        return x_cur, cycle_history, cycle_elapsed, cycle_calls, converged, breakdown
+
+    if restart is None:
+        x_real, history, elapsed_history, call_history, _, _ = run_cycle(x_real, int(maxiter))
+        return x_real, history, elapsed_history, call_history
+
+    history = []
+    elapsed_history = []
+    call_history = []
+    total_iters = 0
+    restarts_used = 0
+    while total_iters < int(maxiter):
+        inner_maxiter = min(int(restart), int(maxiter) - total_iters)
+        x_real, cyc_h, cyc_t, cyc_c, converged, breakdown = run_cycle(x_real, inner_maxiter)
+        if not history:
+            history.extend(cyc_h)
+            elapsed_history.extend(cyc_t)
+            call_history.extend(cyc_c)
+        else:
+            history.extend(cyc_h[1:])
+            elapsed_history.extend(cyc_t[1:])
+            call_history.extend(cyc_c[1:])
+        cycle_iters = len(cyc_h) - 1
+        total_iters += cycle_iters
+        if converged or breakdown or cycle_iters == 0:
+            break
+        if max_restarts is not None and restarts_used >= max_restarts:
+            break
+        restarts_used += 1
+
+    return x_real, history, elapsed_history, call_history
 
 
 def fgmres_with_trace(
@@ -702,7 +832,7 @@ def solve_fgmres(rte, source, preconditioner, maxiter, tol):
                 return preconditioner(r)
 
         with torch.no_grad():
-            _, history, elapsed_history, preconditioner_calls = fgmres_with_trace(
+            _, history, elapsed_history, preconditioner_calls = fgmres_with_trace_real(
                 A=A,
                 b=rte.source,
                 M=M,
