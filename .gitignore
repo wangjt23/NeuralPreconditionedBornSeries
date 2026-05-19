@@ -11,6 +11,7 @@
 # IDE
 .vscode/
 .idea/
+.DS_Store
 
 # Python
 __pycache__/

@@ -9,7 +9,7 @@ class ConvergentBornSeries2d(nn.Module):
                  N = [96,96],
                  dx=0.125,
                  boundary_width=[8,8],
-                 boundary_type='PBL3',
+                 boundary_type='pbl',
                  fdtype=torch.float32,
                  device="cpu"
                  ):
@@ -34,7 +34,7 @@ class ConvergentBornSeries2d(nn.Module):
         self.p_dist2 = (self.px_range**2+self.py_range**2).to(self.device)
 
         ## boundary setting
-        self.boundary_type = boundary_type
+        self.boundary_type = str(boundary_type).lower()
 
         self.Bl = torch.ceil((self.N_pad - self.N)/2).to(int)
         self.Br = torch.floor((self.N_pad - self.N)/2).to(int)
@@ -195,7 +195,7 @@ class ConvergentBornSeries3d(nn.Module):
         self.p_dist2 = (self.pz_range**2 + self.py_range**2 + self.px_range**2).to(self.device)
 
         ## boundary setting
-        self.boundary_type = boundary_type
+        self.boundary_type = str(boundary_type).lower()
 
         self.Bl = torch.ceil((self.N_pad - self.N)/2).to(torch.int)
         self.Br = torch.floor((self.N_pad - self.N)/2).to(torch.int)

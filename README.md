@@ -13,6 +13,7 @@ The framework is validated on three PDE families:
 | Module | PDE | Key feature |
 |--------|-----|-------------|
 | `helmholtz/` | High-frequency Helmholtz in heterogeneous media | CBS preconditioner + learned correction; stationary and FGMRES modes |
+| `rte/` | Steady-state radiative transfer prototype | Transport-resolvent NPBS/Born coordinates for discrete ordinates |
 | `cdr/` | Convection–diffusion–reaction (steady-state) | CBS-style preconditioned Richardson iteration with periodic BCs |
 | `nolinear/` | Newton linearizations of nonlinear Poisson | Preconditioned inner-loop solver for Newton's method |
 
@@ -49,12 +50,31 @@ u ← u − γ (u − G(V·u + b/dx²))
 
 where `G` is the reference Green operator applied via FFT, `V` is the scattering potential, and `γ` is the CBS preconditioner coefficient.
 
+When CBS is used inside FGMRES, `inference.cbs_krylov_preconditioner` controls the right-preconditioner map:
+
+| Value | Map applied to residual `r` | Interpretation |
+|-------|------------------------------|----------------|
+| `gamma_green` (default) | `γ G(r/dx²)` | CBS correction map used by the stationary CBS iteration |
+| `green` | `G(r/dx²)` | pure Born / constant-reference shifted-Laplacian inverse |
+
+The `green` mode is the direct code-level counterpart of the paper identity `I - G_eta V_eta = G_eta A`; the default preserves existing CBS-FGMRES runs.
+
 The baseline shifted-Laplacian preconditioner in `models/shifted_laplacian.py` uses the same padded Helmholtz discretization and ABC/PBL setup as CBS, then applies a standard geometric V-cycle to the complex-shifted operator. Example FGMRES configs are available at:
 
 ```bash
 cd helmholtz
 python inference2d.py --config configs/2d/openfwi/CurveFaultB/sl_vcycle_gmres.yaml
 python inference2d.py --config configs/2d/openfwi/CurveVelA/sl_vcycle_gmres.yaml
+python inference2d.py --config configs/2d/openfwi/CurveFaultB/cbs_gmres_green.yaml
+```
+
+The V-cycle shifted-Laplacian classes are classical variable-coefficient shifted Helmholtz preconditioners. They are useful baselines, but they are not identical to the constant-coefficient FFT reference operator `G` used by CBS/NPBS in the paper's Born-coordinate equivalence.
+
+To verify the discrete identity used by the CBS/NPBS implementation:
+
+```bash
+cd helmholtz
+python verify_operator_identities.py
 ```
 
 For a dataset-independent check, `verify_shifted_laplacian.py` generates a smooth moderate-contrast squared-slowness field `κ = 1/c²` and verifies FGMRES convergence with the V-cycle preconditioner:
@@ -95,6 +115,7 @@ Key YAML fields:
 
 ```yaml
 train:
+  seed: 1234              # optional reproducibility seed
   num_epochs: 400
   batch_size: 30
   lr: 5e-4
@@ -116,6 +137,7 @@ inference:
   max_num_iters: 2000
   tol: 1e-6
   num_test: 50
+  drop_first_timing: false # optionally exclude first solved case from average time
 ```
 
 Available dataset types:  `openfwi_CurveVel_A`, `openfwi_CurveVel_B`, `openfwi_FlatVel_A`, `openfwi_CurveFault_B`, and their `_pad` / `_inter` / `_ppwXX` variants.

@@ -1,0 +1,54 @@
+\relax 
+\providecommand\hyper@newdestlabel[2]{}
+\providecommand\HyperFirstAtBeginDocument{\AtBeginDocument}
+\HyperFirstAtBeginDocument{\ifx\hyper@anchor\@undefined
+\global\let\oldcontentsline\contentsline
+\gdef\contentsline#1#2#3#4{\oldcontentsline{#1}{#2}{#3}}
+\global\let\oldnewlabel\newlabel
+\gdef\newlabel#1#2{\newlabelxx{#1}#2}
+\gdef\newlabelxx#1#2#3#4#5#6{\oldnewlabel{#1}{{#2}{#3}}}
+\AtEndDocument{\ifx\hyper@anchor\@undefined
+\let\contentsline\oldcontentsline
+\let\newlabel\oldnewlabel
+\fi}
+\fi}
+\global\let\hyper@last\relax 
+\gdef\HyperFirstAtBeginDocument#1{#1}
+\providecommand\HyField@AuxAddToFields[1]{}
+\providecommand\HyField@AuxAddToCoFields[2]{}
+\@writefile{toc}{\contentsline {section}{\numberline {1}Purpose}{1}{section.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {2}Sharper Mathematical Framing}{1}{section.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.1}Discrete CBS Identity}{2}{subsection.2.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {2.2}Residual-Propagator Theorem}{2}{subsection.2.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {3}Immediate Improvements for Helmholtz NPBS}{3}{section.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {4}Helmholtz Implementation Audit}{4}{section.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {5}RTE Generalization}{5}{section.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.1}Discrete-Ordinates RTE}{5}{subsection.5.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.2}Transport Resolvent Coordinates}{5}{subsection.5.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.3}General Synthetic Acceleration as Preconditioner}{6}{subsection.5.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.4}DSA as a Special Case}{7}{subsection.5.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.5}TSA-Style Preconditioner}{7}{subsection.5.5}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {5.6}Why This Is Promising}{8}{subsection.5.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {6}Hard RTE Regimes and Synthetic-Acceleration Experiments}{9}{section.6}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.1}Why the Hard Cases Are Hard}{9}{subsection.6.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.2}Experimental Setup}{10}{subsection.6.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {1}{\ignorespaces Hard-regime RTE benchmark. ``Stat. fac.'' is the measured geometric factor over the stationary history. FGMRES uses the same method as a right preconditioner.}}{11}{table.1}\protected@file@percent }
+\newlabel{tab:rte-hard-cases}{{1}{11}{Hard-regime RTE benchmark. ``Stat. fac.'' is the measured geometric factor over the stationary history. FGMRES uses the same method as a right preconditioner}{table.1}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.3}Interpretation of the Results}{11}{subsection.6.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {6.4}Why a Learned Component Can Help}{12}{subsection.6.4}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {7}Per-Sample Learned RTE Preconditioners}{13}{section.7}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.1}Architecture Design}{13}{subsection.7.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Coefficient-conditioned defect CNN.}{13}{section*.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {paragraph}{Residual-polynomial defect network.}{13}{section*.2}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {2}{\ignorespaces Per-sample learned residual-polynomial defect preconditioners. The ``Inner'' column is the number of base \(B_h\) applications per learned preconditioner call; the \(B_h\)-columns count effective base-preconditioner applications.}}{14}{table.2}\protected@file@percent }
+\newlabel{tab:rte-learned-hard-cases}{{2}{14}{Per-sample learned residual-polynomial defect preconditioners. The ``Inner'' column is the number of base \(B_h\) applications per learned preconditioner call; the \(B_h\)-columns count effective base-preconditioner applications}{table.2}{}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.2}Training Objective}{14}{subsection.7.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {7.3}Learned Experiment Interpretation}{14}{subsection.7.3}\protected@file@percent }
+\@writefile{toc}{\contentsline {section}{\numberline {8}Audit Findings and Reliability of the Evidence}{15}{section.8}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.1}Next Steps}{16}{subsection.8.1}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.2}Next Network to Train}{17}{subsection.8.2}\protected@file@percent }
+\@writefile{toc}{\contentsline {subsection}{\numberline {8.3}Laptop-Scale Defect CNN Test}{17}{subsection.8.3}\protected@file@percent }
+\@writefile{lot}{\contentsline {table}{\numberline {3}{\ignorespaces Laptop-scale coefficient-conditioned defect CNN test. All FGMRES runs used \(25\) iterations, so the final residual is the more informative quantity here.}}{18}{table.3}\protected@file@percent }
+\newlabel{tab:defect-cnn-small}{{3}{18}{Laptop-scale coefficient-conditioned defect CNN test. All FGMRES runs used \(25\) iterations, so the final residual is the more informative quantity here}{table.3}{}}
+\@writefile{toc}{\contentsline {section}{\numberline {9}Implementation Added}{18}{section.9}\protected@file@percent }
+\gdef \@abspage@last{19}

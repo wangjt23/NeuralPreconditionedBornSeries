@@ -2,12 +2,25 @@ import os
 import argparse
 import yaml
 import shutil
+import random
 import torch
 import torch.optim as optim
+import numpy as np
 from torch.utils.data import DataLoader
 from utils import Logger,Timer,trainable_params_size,save_loss_history
 from dataloader import Dataconfig, unspvd_sos_Dataset
 from models.model2d import MPMG_BS,PAFNO_BS,MGCFNN_BS,DeepONet_BS,EncoderSolver_BS,MGNO_BS,UNet_BS
+
+
+def set_seed(seed):
+    if seed is None:
+        return
+    seed = int(seed)
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
 
 
 def main(args):
@@ -20,6 +33,8 @@ def main(args):
         train_cfg = cfg['train']
     model_cfg = cfg['model']
     device = "cuda:0" if torch.cuda.is_available() else "cpu"
+    seed = train_cfg.get("seed", cfg.get("seed"))
+    set_seed(seed)
     data_cfg = Dataconfig(user_data_type=model_cfg['data_type'])
     save_dir = train_cfg['save_dir']
     os.makedirs(save_dir, exist_ok=True)
@@ -168,7 +183,11 @@ def main(args):
     )
 
     batch_size = train_cfg['batch_size']
-    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=4)
+    loader_generator = None
+    if seed is not None:
+        loader_generator = torch.Generator()
+        loader_generator.manual_seed(int(seed))
+    train_loader = DataLoader(train_ds, batch_size=batch_size, shuffle=True, num_workers=4, generator=loader_generator)
     test_loader = DataLoader(test_ds, batch_size=batch_size, shuffle=False, num_workers=4)
     lprint(f"Dataset with size {data_cfg.size} loaded...")
 

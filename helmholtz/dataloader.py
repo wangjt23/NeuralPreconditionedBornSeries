@@ -539,7 +539,7 @@ class Dataconfig_openfwi_CurveVel_A16:
 @dataclass
 class Dataconfig_openfwi_CurveVel_A20:
     size:       int   = 256
-    freq:       float = 48000.# ppw = 16
+    freq:       float = 38400.# ppw = 20
     dx:         float = 1./256
     data_num:   int   = 30000 
     sos_mean:   float = 3000.
@@ -721,7 +721,7 @@ def Dataconfig(user_data_type):
 if __name__ == "__main__":
     from tqdm import tqdm
     from torch.utils.data import DataLoader
-    data_cfg = Dataconfig(data_type='openbreastus_inter')
+    data_cfg = Dataconfig(user_data_type='openbreastus_inter')
     train_ds = unspvd_sos_Dataset(
         sos_path=data_cfg.dir_path,
         data_type=data_cfg.data_type,

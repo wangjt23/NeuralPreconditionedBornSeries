@@ -1,6 +1,7 @@
 import os
 import argparse
 import yaml
+import random
 import torch
 import numpy as np
 from torch.utils.data import DataLoader
@@ -18,6 +19,17 @@ from models.gmres import fgmres
 torch.backends.cudnn.benchmark = True    
 torch.backends.cuda.matmul.allow_tf32 = True
 torch.backends.cudnn.allow_tf32 = True
+
+
+def set_seed(seed):
+    if seed is None:
+        return
+    seed = int(seed)
+    random.seed(seed)
+    np.random.seed(seed)
+    torch.manual_seed(seed)
+    if torch.cuda.is_available():
+        torch.cuda.manual_seed_all(seed)
 
 def main(args):
     # load configs
@@ -41,11 +53,13 @@ def main(args):
         weights_suffix = "weights"
 
     infer_cfg = cfg['inference']
+    set_seed(infer_cfg.get("seed", cfg.get("seed")))
     data_cfg  = Dataconfig(user_data_type=model_cfg['data_type'])
 
     # choose preconditioner and paths
     save_name = model_cfg['name']
     dir_path = train_cfg['save_dir']
+    checkpoint_override = getattr(args, "checkpoint", None)
     if not os.path.exists(dir_path):
         print(f"Directory {dir_path} does not exist, creating...")
         os.makedirs(dir_path, exist_ok=True)
@@ -60,6 +74,10 @@ def main(args):
     os.makedirs(out_plots_path, exist_ok=True)
     fdtype = torch.float64 if infer_cfg['fdtype'] == 'float64' else torch.float32
     cdtype = torch.complex128 if fdtype==torch.float64 else torch.complex64
+
+    def checkpoint_path(model_name):
+        return checkpoint_override or os.path.join(dir_path, f"{model_name}_{weights_suffix}.pth")
+
     if save_name == "cbs":
         model = ConvergentBornSeries2d(freq=data_cfg.freq,
                                         N=[data_cfg.size]*2,
@@ -172,7 +190,7 @@ def main(args):
                         mg_levels=model_cfg['mg_sweeps_lvls'],
                         fdtype=fdtype,
                         device=device)
-        mg_path = os.path.join(dir_path, f"{save_name}_{weights_suffix}.pth")
+        mg_path = checkpoint_path(save_name)
         ckpoint = torch.load(mg_path, weights_only=False)
         model.load_state_dict(ckpoint)
         model.eval()
@@ -193,7 +211,7 @@ def main(args):
                         mg_levels=model_cfg['mg_sweeps_lvls'],
                         fdtype=torch.float32,
                         device=device)
-        mg_path = os.path.join(dir_path, f"{save_name}_{weights_suffix}.pth")
+        mg_path = checkpoint_path(save_name)
         ckpoint = torch.load(mg_path, weights_only=False)
         model.load_state_dict(ckpoint)
         model.eval()
@@ -211,7 +229,7 @@ def main(args):
                         boundary_type=model_cfg['boundary_type'],
                         fdtype=torch.float32,
                         device=device)
-        mg_path = os.path.join(dir_path, f"{save_name}_{weights_suffix}.pth")
+        mg_path = checkpoint_path(save_name)
         ckpoint = torch.load(mg_path, weights_only=False)
         model.load_state_dict(ckpoint)
         model.eval()
@@ -231,7 +249,7 @@ def main(args):
                             trunk_channels=model_cfg.get('trunk_channels', 64),
                             fdtype=torch.float32,
                             device=device)
-        mg_path = os.path.join(dir_path, f"{save_name}_{weights_suffix}.pth")
+        mg_path = checkpoint_path(save_name)
         ckpoint = torch.load(mg_path, weights_only=False)
         model.load_state_dict(ckpoint)
         model.eval()
@@ -252,7 +270,7 @@ def main(args):
                                  boundary_type=model_cfg['boundary_type'],
                                  fdtype=torch.float32,
                                  device=device)
-        mg_path = os.path.join(dir_path, f"{save_name}_{weights_suffix}.pth")
+        mg_path = checkpoint_path(save_name)
         ckpoint = torch.load(mg_path, weights_only=False)
         model.load_state_dict(ckpoint)
         model.eval()
@@ -273,7 +291,7 @@ def main(args):
                         boundary_type=model_cfg['boundary_type'],
                         fdtype=fdtype,
                         device=device)
-        mg_path = os.path.join(dir_path, f"{save_name}_{weights_suffix}.pth")
+        mg_path = checkpoint_path(save_name)
         ckpoint = torch.load(mg_path, weights_only=False)
         model.load_state_dict(ckpoint)
         model.eval()
@@ -293,7 +311,7 @@ def main(args):
                         boundary_type=model_cfg['boundary_type'],
                         fdtype=fdtype,
                         device=device)
-        mg_path = os.path.join(dir_path, f"{save_name}_{weights_suffix}.pth")
+        mg_path = checkpoint_path(save_name)
         ckpoint = torch.load(mg_path, weights_only=False)
         model.load_state_dict(ckpoint)
         model.eval()
@@ -341,6 +359,16 @@ def main(args):
     krylov_max_restarts = None if krylov_max_restarts is None else int(krylov_max_restarts)
     krylov_log_step = int(infer_cfg.get('krylov_log_step', print_step))
     krylov_verbose = bool(infer_cfg.get('krylov_verbose', True))
+    drop_first_timing = bool(infer_cfg.get("drop_first_timing", False))
+    cbs_krylov_preconditioner = str(
+        infer_cfg.get("cbs_krylov_preconditioner", model_cfg.get("cbs_krylov_preconditioner", "gamma_green"))
+    ).lower()
+    if cbs_krylov_preconditioner in ("gamma", "cbs"):
+        cbs_krylov_preconditioner = "gamma_green"
+    if cbs_krylov_preconditioner in ("born", "green", "g_eta", "shifted_laplacian_reference"):
+        cbs_krylov_preconditioner = "green"
+    if cbs_krylov_preconditioner not in ("gamma_green", "green"):
+        raise ValueError("cbs_krylov_preconditioner must be 'gamma_green' or 'green'")
     loss_type = model_cfg.get('loss_type', None)
     has_precond = hasattr(model, 'precond')
     has_cbs_kernel_precond = (save_name == "cbs")
@@ -352,11 +380,11 @@ def main(args):
         if has_cbs_kernel_precond and (not hasattr(model, 'G') or not hasattr(model, 'dx')):
             raise ValueError("cbs krylov kernel requires model.G and model.dx")
         if has_sl_vcycle_precond:
-            precond_name = "shifted_laplacian_vcycle"
+            precond_name = getattr(model, "preconditioner_kind", "shifted_laplacian_vcycle")
         elif has_precond:
             precond_name = "model.precond"
         elif has_cbs_kernel_precond:
-            precond_name = "cbs_kernel"
+            precond_name = f"cbs_kernel:{cbs_krylov_preconditioner}"
         else:
             precond_name = "identity"
         lprint(
@@ -375,7 +403,9 @@ def main(args):
             if has_cbs_kernel_precond:
                 if not hasattr(model, 'gamma') or not hasattr(model, 'g0_tilde'):
                     raise RuntimeError("cbs kernel preconditioner is not ready; call model.setup(...) first")
-                z = model.gamma * model.G(r / (model.dx ** 2), model.g0_tilde)
+                z = model.G(r / (model.dx ** 2), model.g0_tilde)
+                if cbs_krylov_preconditioner == "gamma_green":
+                    z = model.gamma * z
                 return z.to(cdtype)
 
             if not has_precond:
@@ -534,8 +564,11 @@ def main(args):
             torch.save(iter_history,f=os.path.join(iter_his_path,f"iter_history_{save_name}_{idx}.pth"))
             torch.save(u.cpu(),f=os.path.join(wavefield_path,f"u_{save_name}_{idx}.pth"))
         lprint('-------------------------------------')
-        lprint(f'Average iterations to reach tol:{np.mean(iter_num_list):.1f}')
-        lprint(f'Average time to reach tol:{np.mean(iter_time_list[1:]):.2e}s')
+        avg_iters = np.mean(iter_num_list) if iter_num_list else float("nan")
+        timing_samples = iter_time_list[1:] if drop_first_timing and len(iter_time_list) > 1 else iter_time_list
+        avg_time = np.mean(timing_samples) if timing_samples else float("nan")
+        lprint(f'Average iterations to reach tol:{avg_iters:.1f}')
+        lprint(f'Average time to reach tol:{avg_time:.2e}s (drop_first_timing={drop_first_timing})')
         lprint(f"Convergence rate: {success_count}/{total_tested} ({100*success_count/total_tested:.1f}%)")
         lprint(f"save inference results to {dir_path}.")
 
@@ -562,5 +595,10 @@ if __name__ == "__main__":
         "--optimize","-o",
         action='store_true',
         help="If set, use torch.compile")
+    parser.add_argument(
+        "--checkpoint",
+        type=str,
+        default=None,
+        help="Optional explicit model checkpoint path for learned preconditioners.")
     args = parser.parse_args()
     main(args)
