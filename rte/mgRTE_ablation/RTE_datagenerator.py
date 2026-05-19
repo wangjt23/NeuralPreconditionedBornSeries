@@ -104,8 +104,11 @@ class RTECoef(Dataset):
         elif data_type == 'bufferzone':
             Varepsilon = torch.ones([num,self.size,self.size]).to(self.device)
             count = 0
-            for n in range(2, 6):
-                sub_num = int(num / 4) if n < 4 else num - 3 * int(num / 4)
+            base_count = int(num / 4)
+            counts = [base_count] * 4
+            counts[-1] += num - 4 * base_count
+            for local_idx, n in enumerate(range(2, 6)):
+                sub_num = counts[local_idx]
                 if sub_num == 0:
                     continue
                 varepsilon_pre = torch.rand((sub_num, 2, n)).to(self.device)

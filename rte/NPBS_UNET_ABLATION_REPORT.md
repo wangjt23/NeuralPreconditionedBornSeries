@@ -216,3 +216,211 @@ with `B_h = transport_dsa` for the current RTE prototype.
 5. Keep `rte/mgRTE_ablation` out of the main conclusions for this thread.  It
    was useful for implementation debugging, but it is not the requested NPBS
    discretization.
+
+## Larger-Scale Extension
+
+This extension answers the original request more directly: larger training
+datasets, longer training schedules, and the newer rollout/stability schemes
+were added to the NPBS-native runner itself in `rte/npbs_unet_ablation.py`.
+
+One implementation detail matters for interpreting the new numbers: GPU runs now
+leave TF32 disabled by default.  An intermediate GPU patch that forced TF32 was
+acceptable for throughput-oriented training, but it inflated the stationary and
+FGMRES residual floors and was therefore not suitable for the NPBS ablation
+report.  The results below use the corrected, numerically trustworthy GPU path.
+
+### Extended Setup
+
+- Base preconditioner: `transport_dsa`
+- Forms: residual, defect2 with \(\omega=0.5\) and \(\omega=1\)
+- Network: width 16, 4 levels
+- Training sources: main source plus 2 auxiliary sources
+- Residual bank: 8 rollout residuals per training source, giving 24 cached
+  rollout residuals before random resampling
+- Size-32 training: 48 residuals per step, 300 AdamW steps, step scheduler with
+  drop at step 120
+- Size-64 training: 64 residuals per step, 300 AdamW steps, same scheduler
+
+Two larger-scale training schemes were compared at size 32:
+
+1. `long-metric`: larger dataset + longer schedule, but still one-step metric
+   plus physical loss.
+2. `long-rollout`: same dataset and schedule, plus rollout and stability
+   penalties on later stationary residuals.
+
+The exact commands were:
+
+```bash
+cd /data/wjt/NeuralPreconditionedBornSeries
+
+python -m rte.npbs_unet_ablation \
+  --cases diffusive heterogeneous anisotropic mixed \
+  --sizes 32 --n-angles 12 \
+  --base-kinds transport_dsa \
+  --forms residual defect2 --defect-relaxations 0.5 1.0 \
+  --steps 300 --lr 2e-3 --weight-decay 1e-4 \
+  --width 16 --levels 4 \
+  --residual-mode resample --residuals-per-step 48 \
+  --rollout-samples-per-step 24 --n-rollout 8 --aux-sources 2 \
+  --scheduler step --scheduler-step-size 120 --scheduler-gamma 0.5 \
+  --device cuda:0 \
+  --output-csv rte/npbs_unet_ablation_dsa_size32_long_metric_precise.csv
+
+python -m rte.npbs_unet_ablation \
+  --cases diffusive heterogeneous anisotropic mixed \
+  --sizes 32 --n-angles 12 \
+  --base-kinds transport_dsa \
+  --forms residual defect2 --defect-relaxations 0.5 1.0 \
+  --steps 300 --lr 2e-3 --weight-decay 1e-4 \
+  --width 16 --levels 4 \
+  --residual-mode resample --residuals-per-step 48 \
+  --rollout-samples-per-step 24 --n-rollout 8 --aux-sources 2 \
+  --scheduler step --scheduler-step-size 120 --scheduler-gamma 0.5 \
+  --rollout-weight 0.2 --rollout-steps 3 --rollout-decay 0.8 \
+  --stability-weight 0.5 --contraction-target 0.95 \
+  --device cuda:0 \
+  --output-csv rte/npbs_unet_ablation_dsa_size32_long_rollout_precise.csv
+
+python -m rte.npbs_unet_ablation \
+  --cases diffusive heterogeneous anisotropic mixed \
+  --sizes 64 --n-angles 12 \
+  --base-kinds transport_dsa \
+  --forms residual defect2 --defect-relaxations 0.5 1.0 \
+  --steps 300 --lr 2e-3 --weight-decay 1e-4 \
+  --width 16 --levels 4 \
+  --residual-mode resample --residuals-per-step 64 \
+  --rollout-samples-per-step 32 --n-rollout 8 --aux-sources 2 \
+  --scheduler step --scheduler-step-size 120 --scheduler-gamma 0.5 \
+  --rollout-weight 0.2 --rollout-steps 3 --rollout-decay 0.8 \
+  --stability-weight 0.5 --contraction-target 0.95 \
+  --device cuda:0 \
+  --output-csv rte/npbs_unet_ablation_dsa_size64_long_rollout_precise.csv
+```
+
+### Size 32: Long-Metric Scheme
+
+Held-out best methods by criterion:
+
+| Case | Best one-step | Value | Best stationary | Value | Best FGMRES | Value |
+|---|---|---:|---|---:|---|---:|
+| diffusive | defect2, \(\omega=1\) | 6.803e-02 | residual | 7.314e-06 | defect2, \(\omega=0.5\) | 7.722e-06 |
+| heterogeneous | DSA2 | 1.503e-01 | defect2, \(\omega=1\) | 3.406e-06 | defect2, \(\omega=1\) | 3.502e-06 |
+| anisotropic | defect2, \(\omega=1\) | 2.292e-01 | defect2, \(\omega=1\) | 5.386e-06 | DSA2 | 6.005e-06 |
+| mixed | defect2, \(\omega=1\) | 2.297e-01 | defect2, \(\omega=1\) | 5.737e-04 | defect2, \(\omega=1\) | 1.439e-04 |
+
+Average held-out one-step true residual over the four cases:
+
+| Method | Average one-step true |
+|---|---:|
+| DSA2 | 3.765e-01 |
+| U-Net residual | 2.786e-01 |
+| U-Net defect2, \(\omega=0.5\) | 1.958e-01 |
+| U-Net defect2, \(\omega=1\) | 1.715e-01 |
+
+The larger dataset and longer schedule strengthen the original NPBS conclusion.
+Defect2 with DSA remains the best one-step form on 3 of 4 regimes and the best
+solver-level choice on the hardest mixed case.
+
+### Size 32: Long-Rollout Scheme
+
+Held-out best methods by criterion:
+
+| Case | Best one-step | Value | Best stationary | Value | Best FGMRES | Value |
+|---|---|---:|---|---:|---|---:|
+| diffusive | defect2, \(\omega=1\) | 5.443e-02 | defect2, \(\omega=1\) | 7.827e-06 | residual | 7.826e-06 |
+| heterogeneous | DSA2 | 1.503e-01 | defect2, \(\omega=1\) | 3.466e-06 | defect2, \(\omega=0.5\) | 3.298e-06 |
+| anisotropic | defect2, \(\omega=0.5\) | 2.250e-01 | defect2, \(\omega=0.5\) | 5.686e-06 | defect2, \(\omega=1\) | 5.863e-06 |
+| mixed | defect2, \(\omega=1\) | 3.067e-01 | defect2, \(\omega=1\) | 2.888e-04 | defect2, \(\omega=1\) | 1.604e-04 |
+
+Relative to long-metric training, rollout/stability does \emph{not} act like a
+universal win.  Its actual effect is more specific:
+
+1. It improves stationary robustness for defect2 on the hardest regimes.  In
+   mixed, `defect2, omega=1` reduces held-out stationary final residual from
+   `5.737e-04` to `2.888e-04`.
+2. It can slightly improve diffusive and anisotropic one-step quality.
+3. It does not uniformly improve FGMRES, and it slightly worsens the average
+   one-step metric for `defect2, omega=1` compared with long-metric training.
+
+So for NPBS the rollout/stability terms are best viewed as a \textbf{stationary
+solver tuning}, not as a blanket replacement for the original one-step loss.
+
+### Size 64: Rollout Confirmation
+
+Held-out best methods by criterion:
+
+| Case | Best one-step | Value | Best stationary | Value | Best FGMRES | Value |
+|---|---|---:|---|---:|---|---:|
+| diffusive | defect2, \(\omega=1\) | 5.094e-02 | defect2, \(\omega=1\) | 1.638e-05 | residual | 1.658e-05 |
+| heterogeneous | DSA2 | 1.516e-01 | defect2, \(\omega=0.5\) | 7.585e-06 | residual | 8.148e-06 |
+| anisotropic | defect2, \(\omega=0.5\) | 2.563e-01 | DSA2 | 1.296e-05 | defect2, \(\omega=1\) | 1.263e-05 |
+| mixed | defect2, \(\omega=1\) | 3.301e-01 | defect2, \(\omega=1\) | 5.090e-04 | defect2, \(\omega=1\) | 3.023e-04 |
+
+Average held-out one-step true residual over the four size-64 cases:
+
+| Method | Average one-step true |
+|---|---:|
+| DSA2 | 3.793e-01 |
+| U-Net residual | 3.340e-01 |
+| U-Net defect2, \(\omega=0.5\) | 2.343e-01 |
+| U-Net defect2, \(\omega=1\) | 2.169e-01 |
+
+The size-64 confirmation keeps the same ordering.  Defect2 remains the most
+promising learned NPBS direction overall, with a case-dependent relaxation:
+
+- \(\omega=1\) is best in diffusive and mixed regimes.
+- \(\omega=0.5\) is the better anisotropic choice on one-step quality.
+- Heterogeneous remains a regime where plain DSA2 is already strong and learned
+  gains are marginal.
+
+### Updated Promising Directions
+
+The larger-scale NPBS study changes the recommendations in a narrower, more
+practical way than the earlier ATFPS-local mgRTE study.
+
+1. \textbf{Keep defect2 as the NPBS default form.}  At both size 32 and size
+   64, defect2 remains the strongest choice for one-step quality and usually the
+   strongest stationary method on anisotropic and mixed regimes.
+
+2. \textbf{Use longer data-rich training even without rollout.}  The larger
+   residual bank, auxiliary sources, and 300-step schedule materially improve
+   defect2 over the earlier 60-step size-32 study.
+
+3. \textbf{Use rollout/stability when stationary iteration matters most.}  For
+   NPBS, rollout is not a universal best objective.  Its main benefit is better
+   stationary contraction on hard regimes, especially mixed.  If the target is
+   Krylov preconditioning alone, the gain is smaller and sometimes neutral.
+
+4. \textbf{Do not switch the NPBS default to residual form.}  Residual-form
+   U-Net can reduce the one-step residual, but it is still unreliable as a
+   solver preconditioner on mixed and anisotropic cases.  Size-64 mixed is the
+   clearest example: residual reduces one-step true residual to `3.581e-01`, but
+   its held-out FGMRES residual is `2.752e-03`, versus `3.023e-04` for
+   `defect2, omega=1` and `3.031e-04` for plain DSA2.
+
+5. \textbf{Tune defect relaxation by regime.}  The larger study does not support
+   a single global answer.  `omega=1` is still the safest mixed/diffusive
+   default, while `omega=0.5` is competitive or better for anisotropic cases.
+
+### Revised Practical Recommendation
+
+For the present NPBS-native RTE question, the best current direction is:
+
+```text
+base preconditioner: transport_dsa
+wrapper:            defect2
+default omega:      1.0
+anisotropic option: sweep omega in {0.5, 1.0}
+training data:      resampled residual batches with auxiliary sources
+training schedule:  300-step AdamW + step decay
+loss choice:        long-metric by default; add rollout/stability when
+                    stationary contraction is the main target
+```
+
+In short,
+
+\[
+\boxed{\text{For NPBS, larger-scale training confirms defect2+DSA as the main
+path; rollout helps stationary robustness, but residual-form is still only an
+ablation.}}
+\]

@@ -1,0 +1,8 @@
+data_type,method,mesh_size,num_coef,objective,train_steps,lr,weight_decay,scheduler,scheduler_step_size,scheduler_gamma,scheduler_eta_min,rhs_mode,rollout_steps,rollout_weight,rollout_decay,stability_weight,contraction_target,train_loss_initial,train_loss_final,train_lr_initial,train_lr_final,train_objective_final,defect_relaxation,true_rel,d_metric_rel,fallback_error
+diffusion,identity,4,2,rollout_true,4,0.003,0.0,step,2,0.5,1e-05,fixed,2,0.25,0.8,0.5,0.95,,,,,,1.0,2.180647850036621,1.133400321006775,0.0
+diffusion,born1,4,2,rollout_true,4,0.003,0.0,step,2,0.5,1e-05,fixed,2,0.25,0.8,0.5,0.95,,,,,,1.0,1.0787402391433716,1.5307844877243042,0.0
+diffusion,born2,4,2,rollout_true,4,0.003,0.0,step,2,0.5,1e-05,fixed,2,0.25,0.8,0.5,0.95,,,,,,1.0,2.4463250637054443,5.500903606414795,0.0
+diffusion,unet_residual_zero,4,2,rollout_true,4,0.003,0.0,step,2,0.5,1e-05,fixed,2,0.25,0.8,0.5,0.95,,,,,,1.0,1.0787402391433716,1.5307844877243042,0.0
+diffusion,unet_defect2_zero,4,2,rollout_true,4,0.003,0.0,step,2,0.5,1e-05,fixed,2,0.25,0.8,0.5,0.95,,,,,,1.0,2.4463250637054443,5.500903606414795,0.0
+diffusion,unet_residual_trained,4,2,rollout_true,4,0.003,0.0,step,2,0.5,1e-05,fixed,2,0.25,0.8,0.5,0.95,2.5016355514526367,2.501509189605713,0.003,0.00075,1.0779738426208496,1.0,1.0787254571914673,1.5307338237762451,0.00011138673289678991
+diffusion,unet_defect2_trained,4,2,rollout_true,4,0.003,0.0,step,2,0.5,1e-05,fixed,2,0.25,0.8,0.5,0.95,114.66838073730469,114.66694641113281,0.003,0.00075,2.159437894821167,1.0,2.4463138580322266,5.500864028930664,1.8272823581355624e-05

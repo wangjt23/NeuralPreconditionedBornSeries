@@ -7,10 +7,13 @@ from pathlib import Path
 
 import torch
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
 from rte.models import PeriodicRTE2D
 
 
-ROOT = Path(__file__).resolve().parents[1]
 sys.path.append(str(ROOT / "helmholtz" / "models"))
 from gmres import fgmres  # noqa: E402
 
@@ -44,7 +47,7 @@ def _gaussian_source(size, n_angles, dtype, angular="isotropic"):
     return source.to(cdtype)
 
 
-def make_case(name, size, n_angles, dtype, eta_scale):
+def make_case(name, size, n_angles, dtype, eta_scale, device="cpu"):
     x, y = _grid(size, dtype)
     if name == "diffusive":
         sigma_t = torch.full((size, size), 20.0, dtype=dtype)
@@ -85,6 +88,7 @@ def make_case(name, size, n_angles, dtype, eta_scale):
         anisotropy_g=anisotropy_g,
         eta_scale=eta_scale,
         fdtype=dtype,
+        device=device,
     ).setup(
         sigma_t=sigma_t.unsqueeze(0).unsqueeze(0),
         sigma_s=sigma_s.unsqueeze(0).unsqueeze(0),

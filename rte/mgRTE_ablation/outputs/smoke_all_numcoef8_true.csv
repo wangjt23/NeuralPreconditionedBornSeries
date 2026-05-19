@@ -1,0 +1,8 @@
+data_type,method,mesh_size,num_coef,objective,train_steps,lr,weight_decay,scheduler,scheduler_step_size,scheduler_gamma,scheduler_eta_min,rhs_mode,rollout_steps,rollout_weight,rollout_decay,stability_weight,contraction_target,train_loss_initial,train_loss_final,train_lr_initial,train_lr_final,train_objective_final,defect_relaxation,true_rel,d_metric_rel,fallback_error
+all,identity,16,8,true,2,0.003,0.0,none,0,0.5,1e-05,random,2,0.25,0.8,0.5,0.95,,,,,,0.25,8.954753875732422,1.0685960054397583,0.0
+all,born1,16,8,true,2,0.003,0.0,none,0,0.5,1e-05,random,2,0.25,0.8,0.5,0.95,,,,,,0.25,1.5528484582901,2.054426670074463,0.0
+all,born2,16,8,true,2,0.003,0.0,none,0,0.5,1e-05,random,2,0.25,0.8,0.5,0.95,,,,,,0.25,3.844217538833618,5.727473258972168,0.0
+all,unet_residual_zero,16,8,true,2,0.003,0.0,none,0,0.5,1e-05,random,2,0.25,0.8,0.5,0.95,,,,,,0.25,1.5528484582901,2.054426670074463,0.0
+all,unet_defect2_zero,16,8,true,2,0.003,0.0,none,0,0.5,1e-05,random,2,0.25,0.8,0.5,0.95,,,,,,0.25,3.844217538833618,5.727473258972168,0.0
+all,unet_residual_trained,16,8,true,2,0.003,0.0,none,0,0.5,1e-05,random,2,0.25,0.8,0.5,0.95,2.3351573944091797,2.3787684440612793,0.003,0.003,1.530555248260498,0.25,1.5528364181518555,2.054415464401245,6.038444917066954e-05
+all,unet_defect2_trained,16,8,true,2,0.003,0.0,none,0,0.5,1e-05,random,2,0.25,0.8,0.5,0.95,14.052858352661133,14.316890716552734,0.003,0.003,3.6518776416778564,0.25,3.8441054821014404,5.727405548095703,5.741499990108423e-05

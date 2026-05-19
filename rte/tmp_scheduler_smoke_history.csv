@@ -1,0 +1,13 @@
+case,model_type,step,loss,lr,size,n_angles,width,residual_mode,residuals_per_step,rollout_bank_size,steps,scheduler,scheduler_step_size,scheduler_gamma,scheduler_eta_min
+anisotropic,rte_unet,1,0.14144012331962585,0.002,32,24,32,resample,64,18,12,step,4,0.5,1e-05
+anisotropic,rte_unet,2,0.14144304394721985,0.002,32,24,32,resample,64,18,12,step,4,0.5,1e-05
+anisotropic,rte_unet,3,0.13895659148693085,0.002,32,24,32,resample,64,18,12,step,4,0.5,1e-05
+anisotropic,rte_unet,4,0.1398429423570633,0.001,32,24,32,resample,64,18,12,step,4,0.5,1e-05
+anisotropic,rte_unet,5,0.136834055185318,0.001,32,24,32,resample,64,18,12,step,4,0.5,1e-05
+anisotropic,rte_unet,6,0.14790520071983337,0.001,32,24,32,resample,64,18,12,step,4,0.5,1e-05
+anisotropic,rte_unet,7,0.1371844857931137,0.001,32,24,32,resample,64,18,12,step,4,0.5,1e-05
+anisotropic,rte_unet,8,0.13862115144729614,0.0005,32,24,32,resample,64,18,12,step,4,0.5,1e-05
+anisotropic,rte_unet,9,0.13442391157150269,0.0005,32,24,32,resample,64,18,12,step,4,0.5,1e-05
+anisotropic,rte_unet,10,0.13566374778747559,0.0005,32,24,32,resample,64,18,12,step,4,0.5,1e-05
+anisotropic,rte_unet,11,0.13552606105804443,0.0005,32,24,32,resample,64,18,12,step,4,0.5,1e-05
+anisotropic,rte_unet,12,0.1365974396467209,0.00025,32,24,32,resample,64,18,12,step,4,0.5,1e-05
