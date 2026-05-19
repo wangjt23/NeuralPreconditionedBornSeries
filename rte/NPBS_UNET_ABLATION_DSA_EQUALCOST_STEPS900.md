@@ -48,6 +48,14 @@ This ablation uses the repository's matrix-free periodic RTE NPBS operator, not 
 - `output_csv`: `rte/npbs_unet_ablation_dsa_equalcost_steps900.csv`
 - `output_md`: `rte/NPBS_UNET_ABLATION_DSA_EQUALCOST_STEPS900.md`
 
+## Terminology
+
+- `transport_dsa` is one reference transport correction followed by one scalar diffusion synthetic correction.
+- `dsaK` means `K` residual-correction applications of this base. Starting with `z=0` and `e_0=r`, each stage applies `z <- z + omega B_h e_j` and `e_{j+1} <- e_j - A_h(omega B_h e_j)`.
+- A suffix such as `-w0.5` means relaxation `omega=0.5`; no suffix means `omega=1`.
+- `UNet-defect2-w1` uses `z0=B_h r`, `z1=B_h(r-A_h z0)`, and returns `z0 + z1 + C_theta(z0,z1,coeff)`.
+- `base-call equal` means equal counts of selected base-preconditioner applications inside one preconditioner call, excluding diagnostic metric evaluations, `A_h` applications, scalar reductions, and U-Net overhead. `UNet-defect2` is base-call equal to `dsa2`; `dsa3` and `dsa4` are deeper classical work-budget baselines, not strict equal-cost matches.
+
 ## Results
 
 | Size | Base | Case | Split | Method | one-step true | one-step Born metric | one-step base metric | stat final | FGMRES final | loss0 | loss1 |

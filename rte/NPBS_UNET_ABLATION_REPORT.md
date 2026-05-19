@@ -51,21 +51,62 @@ defect2 form:
 
 The coefficient features are normalized `sigma_t`, albedo
 `sigma_s / sigma_t`, a periodic gradient magnitude of `sigma_t`, and the
-anisotropy parameter `g`.  The U-Net output projection is zero-initialized, so
-the learned preconditioner starts exactly at the classical fallback: `B_h` for
-residual form and `B_h + omega B_h(I-A_hB_h)` for defect2.
+anisotropy parameter `g`.  The U-Net output projection can be zero-initialized
+or small-random initialized.  With exact zero initialization, the learned
+preconditioner starts exactly at the classical fallback: `B_h` for residual form
+and `B_h + omega B_h(I-A_hB_h)` for defect2.  Later equal-cost tests used the
+small output initialization because it was empirically better in the Q7/Q8
+targeted checks.
 
 The loss is the NPBS metric loss plus a true residual term:
 
 ```text
-|| B_h(A_h M_theta r - r) ||^2 / || B_h r ||^2
-+ 0.5 || A_h M_theta r - r ||^2 / || r ||^2
+|| B_h(r - A_h M_theta r) ||^2 / || B_h r ||^2
++ 0.5 || r - A_h M_theta r ||^2 / || r ||^2
 + small correction penalty.
 ```
 
 Training residuals are base-method rollout residuals plus smooth operator
 probes.  Evaluation uses both the training source and a held-out source with a
 different location/angular profile.
+
+## Terminology And Equal-Cost Definitions
+
+Let \(A_h\) denote the discrete RTE operator and \(B_h\) denote the chosen base
+preconditioner.
+
+- `transport` is the shifted/reference transport inverse \(G_\eta\).
+- `transport_dsa` applies one reference transport correction and then one scalar
+  diffusion synthetic correction to the residual left by that transport
+  correction.  This is the prototype's periodic constant-coefficient DSA-like
+  base.
+- `transport_tsa` applies one reference transport correction and then one
+  reference transport-scattering synthetic correction.  `tsa_harmonics=None`
+  means the synthetic correction keeps all angular Fourier modes; `tsa_harmonics
+  = 2` means only the angular modes \(0,\pm1,\pm2\) are kept.
+- `DSA1`, `DSA2`, `DSA3`, `DSA4` mean one, two, three, or four residual-correction
+  applications of the `transport_dsa` base.  Starting from \(z=0\), \(e_0=r\),
+  each stage performs
+  \[
+  z \leftarrow z+\omega B_h e_j,\qquad
+  e_{j+1} \leftarrow e_j-A_h(\omega B_h e_j).
+  \]
+  A suffix such as `dsa4-w0.5` means the same four-stage residual-correction
+  stack with relaxation \(\omega=0.5\); no suffix means \(\omega=1\).
+- `TSA1`, `TSA2`, `TSA3`, `TSA4` are the same depth-\(K\) residual-correction
+  stacks, but with \(B_h=\)`transport_tsa` rather than `transport_dsa`.
+- `UNet-defect2-w1` uses two base applications,
+  \(z_0=B_h r\), \(z_1=B_h(r-A_hz_0)\), and
+  \(M_\theta r=z_0+z_1+C_\theta(z_0,z_1,\mathrm{coeff})\).  More generally
+  `UNet-defect2-womega` uses \(z_0+\omega z_1+C_\theta\).
+- `base-call equal` means equal counts of selected base-preconditioner
+  applications inside one preconditioner call, excluding diagnostic metric
+  evaluations, \(A_h\) applications, scalar reductions, and U-Net overhead.
+  `UNet-defect2` uses two base applications plus a U-Net evaluation, so it is
+  base-call equal to `DSA2`/`TSA2`.  `DSA3`/`DSA4` and `TSA3`/`TSA4` are deeper
+  classical work-budget baselines, not strict equal-cost matches.  Wall-clock
+  comparisons must additionally include U-Net overhead, FFT cost, GPU
+  synchronization, and memory traffic.
 
 ## Commands
 
@@ -507,8 +548,10 @@ this targeted test, especially for mixed-case solver residuals.
 
 The next recommended trials were then run explicitly:
 
-1. Equal-cost DSA baselines with depths 1, 2, 3, 4 and relaxed variants.
-2. TSA-H2 and TSA-full equal-cost baselines with the same depth sweep.
+1. Base-call and deeper-work-budget DSA baselines with depths 1, 2, 3, 4 and
+   relaxed variants.
+2. TSA-H2 and TSA-full base-call/deeper-work-budget baselines with the same
+   depth sweep.
 3. A heavier size-64 DSA run with larger angles, wider network, more residuals,
    more auxiliary sources, and a longer rollout bank.
 
@@ -519,7 +562,7 @@ Outputs:
 - `rte/npbs_unet_ablation_tsa_full_equalcost_steps900.csv`
 - `rte/npbs_unet_ablation_dsa_size64_heavy_steps600.csv`
 
-### Equal-Cost DSA, Size 32, 900 Steps
+### DSA Work-Budget Sweep, Size 32, 900 Steps
 
 Held-out summary on anisotropic and mixed:
 
@@ -528,11 +571,12 @@ Held-out summary on anisotropic and mixed:
 | anisotropic | `dsa4` (`1.932e-01`) | `dsa3-w0.5` (`5.608e-06`) | `dsa3` (`5.799e-06`) | one `2.044e-01`, stat `6.258e-06`, fgmres `5.859e-06` |
 | mixed | `dsa4` (`2.327e-01`) | `U-Net defect2` (`1.119e-05`) | `dsa4` (`3.776e-06`) | one `2.821e-01`, stat `1.119e-05`, fgmres `2.076e-05` |
 
-Interpretation: the learned defect2 model still beats shallow `dsa2`, but once
-equal-cost deeper DSA baselines are included, the classical stack is stronger on
-one-step quality and usually on Krylov performance.
+Interpretation: the learned defect2 model still beats shallow `dsa2` in some
+solver metrics, but once deeper DSA work-budget baselines are included, the
+classical stack is stronger on one-step quality and usually on Krylov
+performance.
 
-### Equal-Cost TSA-H2 and TSA-Full, Size 32, 900 Steps
+### TSA-H2 and TSA-Full Work-Budget Sweeps, Size 32, 900 Steps
 
 Held-out best one-step residuals:
 
@@ -567,7 +611,8 @@ against `dsa4` at higher scale.
 ## Superseding Recommendation
 
 The earlier recommendation in this report that `transport_dsa + defect2` is the
-main NPBS path should now be treated as superseded by the equal-cost results.
+main NPBS path should now be treated as a pre-work-budget conclusion superseded
+by the depth-sweep results.
 
 The current evidence supports a more precise ranking:
 

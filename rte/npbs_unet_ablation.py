@@ -294,19 +294,21 @@ def collect_residuals_from_sources(
     residuals = []
     original_source = rte.source.clone()
     sources = [original_source] if sources is None else list(sources)
-    with torch.no_grad():
-        for source in sources:
-            rte.source = source.to(device=original_source.device, dtype=original_source.dtype)
-            psi = torch.zeros_like(rte.source)
-            for _ in range(int(n_rollout)):
-                residual = (rte.source - rte.A_op(psi)).detach()
-                residuals.append(residual)
-                correction = rte.apply_preconditioner(residual, kind=base_kind, tsa_harmonics=tsa_harmonics)
-                psi = psi + correction
-        if int(n_random) > 0:
-            exact = smooth_random_like(original_source.expand(int(n_random), -1, -1, -1), modes=random_modes)
-            residuals.extend(torch.unbind(rte.A_op(exact).detach(), dim=0))
-    rte.source = original_source
+    try:
+        with torch.no_grad():
+            for source in sources:
+                rte.source = source.to(device=original_source.device, dtype=original_source.dtype)
+                psi = torch.zeros_like(rte.source)
+                for _ in range(int(n_rollout)):
+                    residual = (rte.source - rte.A_op(psi)).detach()
+                    residuals.append(residual)
+                    correction = rte.apply_preconditioner(residual, kind=base_kind, tsa_harmonics=tsa_harmonics)
+                    psi = psi + correction
+            if int(n_random) > 0:
+                exact = smooth_random_like(original_source.expand(int(n_random), -1, -1, -1), modes=random_modes)
+                residuals.extend(torch.unbind(rte.A_op(exact).detach(), dim=0))
+    finally:
+        rte.source = original_source
     return [residual.unsqueeze(0) if residual.ndim == 3 else residual for residual in residuals]
 
 
@@ -572,7 +574,22 @@ def write_report(rows, path, settings):
     ]
     for key, value in settings.items():
         lines.append(f"- `{key}`: `{value}`")
-    lines.extend(["", "## Results", ""])
+    lines.extend(
+        [
+            "",
+            "## Terminology",
+            "",
+            "- `transport` is the shifted/reference transport inverse `G_eta`.",
+            "- `transport_dsa` applies one reference transport correction followed by one scalar diffusion synthetic correction.",
+            "- `transport_tsa` applies one reference transport correction followed by one reference transport-scattering synthetic correction. `tsa_harmonics=None` keeps all angular Fourier modes; an integer such as `2` keeps only the lowest angular harmonics.",
+            "- `dsaK` and `tsaK` mean `K` residual-correction applications of the selected base preconditioner. Starting with `z=0` and residual `e_0=r`, each stage applies `z <- z + omega B_h e_j` and `e_{j+1} <- e_j - A_h(omega B_h e_j)`. A suffix such as `-w0.5` uses relaxation `omega=0.5`; no suffix means `omega=1`.",
+            "- `UNet-defect2-w1` uses `z0=B_h r`, `z1=B_h(r-A_h z0)`, and returns `z0 + z1 + C_theta(z0,z1,coeff)`. It costs two base applications plus the U-Net evaluation per preconditioner call.",
+            "- `base-call equal` means equal counts of selected base-preconditioner applications inside one preconditioner call, excluding diagnostic metric evaluations, `A_h` applications, scalar reductions, and U-Net overhead. `UNet-defect2` is base-call equal to `dsa2`/`tsa2`; `dsa3`/`dsa4` and `tsa3`/`tsa4` are deeper classical work-budget baselines, not strict equal-cost matches.",
+            "",
+            "## Results",
+            "",
+        ]
+    )
     lines.append(
         "| Size | Base | Case | Split | Method | one-step true | one-step Born metric | one-step base metric | stat final | FGMRES final | loss0 | loss1 |"
     )
