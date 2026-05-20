@@ -1,0 +1,590 @@
+import argparse
+import csv
+import sys
+import time
+from pathlib import Path
+
+import torch
+import torch.nn as nn
+
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+
+from rte.npbs_unet_ablation import (  # noqa: E402
+    CoeffWeightedMomentTSAPreconditioner,
+    MomentNPBSUNetPreconditioner,
+    NPBSUNetPreconditioner,
+    batch_l2_norm,
+    collect_residuals_from_sources,
+    effective_tsa_harmonics,
+    ensure_residual_batch,
+    inner_base_apply,
+    make_residual_sampler,
+    make_source,
+    make_training_sources,
+    one_step_quality,
+    solve_fgmres,
+    solve_stationary,
+)
+from rte.run_hard_case_experiments import make_case  # noqa: E402
+
+
+LOSS_MODES = {
+    "metric",
+    "raw",
+    "metric_raw",
+    "metric_rollout",
+    "raw_rollout",
+    "metric_raw_rollout",
+    "teacher",
+    "metric_raw_teacher",
+}
+
+
+class FixedStackPreconditioner(nn.Module):
+    def __init__(self, rte, kind, depth=1, tsa_harmonics=None, relaxation=1.0):
+        super().__init__()
+        self.rte = rte
+        self.kind = kind
+        self.depth = int(depth)
+        self.tsa_harmonics = tsa_harmonics
+        self.relaxation = float(relaxation)
+        self.base_calls_per_apply = self.depth
+
+    def forward(self, residual):
+        return inner_base_apply(
+            self.rte,
+            residual,
+            depth=self.depth,
+            kind=self.kind,
+            tsa_harmonics=self.tsa_harmonics,
+            relaxation=self.relaxation,
+        )
+
+
+def count_parameters(model):
+    return sum(param.numel() for param in model.parameters() if param.requires_grad)
+
+
+def damped_moment_reference_apply(model, residual):
+    """Fixed damped TSA-MK map matching CoeffWeightedTSA initialization."""
+    rte = model.rte
+    transport = rte.transport_preconditioner(residual)
+    remaining = residual - rte.A_op(transport)
+    synthetic = rte.reference_moment_transport_solve(
+        remaining,
+        harmonics=model.moment_harmonics,
+    )
+    return float(model.transport_relaxation) * transport + float(model.synthetic_relaxation) * synthetic
+
+
+def metric_apply(model, residual, metric_map):
+    if metric_map == "base":
+        return model.base(residual)
+    if metric_map == "forward":
+        return model(residual)
+    if metric_map == "damped_moment":
+        if not isinstance(model, CoeffWeightedMomentTSAPreconditioner):
+            raise ValueError("--metric-map damped_moment only applies to CoeffWeightedTSA")
+        return damped_moment_reference_apply(model, residual)
+    raise ValueError(f"unknown metric map: {metric_map}")
+
+
+def l2_ratio(numerator, denominator):
+    return batch_l2_norm(numerator) / torch.clamp(batch_l2_norm(denominator), min=1e-30)
+
+
+def loss_weights(loss_mode, physical_weight, rollout_weight, teacher_weight):
+    if loss_mode == "metric":
+        return 1.0, 0.0, 0.0, 0.0, 0.0
+    if loss_mode == "raw":
+        return 0.0, 1.0, 0.0, 0.0, 0.0
+    if loss_mode == "metric_raw":
+        return 1.0, float(physical_weight), 0.0, 0.0, 0.0
+    if loss_mode == "metric_rollout":
+        return 1.0, 0.0, float(rollout_weight), 0.0, 0.0
+    if loss_mode == "raw_rollout":
+        return 0.0, 1.0, 0.0, float(rollout_weight), 0.0
+    if loss_mode == "metric_raw_rollout":
+        return 1.0, float(physical_weight), float(rollout_weight), float(rollout_weight), 0.0
+    if loss_mode == "teacher":
+        return 0.0, 0.0, 0.0, 0.0, float(teacher_weight) if teacher_weight > 0.0 else 1.0
+    if loss_mode == "metric_raw_teacher":
+        return 1.0, float(physical_weight), 0.0, 0.0, float(teacher_weight) if teacher_weight > 0.0 else 1.0
+    raise ValueError(f"unknown loss mode: {loss_mode}")
+
+
+def objective_components(
+    model,
+    residuals,
+    loss_mode,
+    metric_map="base",
+    physical_weight=0.5,
+    rollout_weight=0.2,
+    rollout_steps=3,
+    rollout_decay=0.8,
+    stability_weight=0.0,
+    contraction_target=0.95,
+    correction_weight=1e-6,
+    teacher_fn=None,
+    teacher_weight=1.0,
+):
+    residual = ensure_residual_batch(residuals)
+    metric_w, raw_w, rollout_metric_w, rollout_raw_w, teacher_w = loss_weights(
+        loss_mode,
+        physical_weight=physical_weight,
+        rollout_weight=rollout_weight,
+        teacher_weight=teacher_weight,
+    )
+
+    correction = model(residual)
+    next_residual = residual - model.rte.A_op(correction)
+    metric_next = metric_apply(model, next_residual, metric_map=metric_map)
+    metric_ref = metric_apply(model, residual, metric_map=metric_map).detach()
+
+    metric_ratio = l2_ratio(metric_next, metric_ref)
+    physical_ratio = l2_ratio(next_residual, residual.detach())
+    correction_ratio = l2_ratio(correction, metric_ref)
+
+    loss = torch.zeros((), dtype=torch.float32, device=residual.device)
+    if metric_w:
+        loss = loss + metric_w * metric_ratio.square().mean()
+    if raw_w:
+        loss = loss + raw_w * physical_ratio.square().mean()
+    if correction_weight:
+        loss = loss + float(correction_weight) * correction_ratio.square().mean()
+
+    rollout_metric_values = []
+    rollout_raw_values = []
+    metric_history = [metric_ratio]
+    current_residual = next_residual
+    rollout_steps = int(rollout_steps)
+    if rollout_steps > 0 and (rollout_metric_w > 0.0 or rollout_raw_w > 0.0 or stability_weight > 0.0):
+        for rollout_idx in range(rollout_steps):
+            rollout_correction = model(current_residual)
+            rollout_next = current_residual - model.rte.A_op(rollout_correction)
+            rollout_metric = l2_ratio(
+                metric_apply(model, rollout_next, metric_map=metric_map),
+                metric_apply(model, current_residual, metric_map=metric_map).detach(),
+            )
+            rollout_raw = l2_ratio(rollout_next, current_residual.detach())
+            rollout_metric_values.append(rollout_metric)
+            rollout_raw_values.append(rollout_raw)
+            metric_history.append(rollout_metric)
+            scale = float(rollout_decay) ** rollout_idx
+            if rollout_metric_w:
+                loss = loss + rollout_metric_w * scale * rollout_metric.square().mean()
+            if rollout_raw_w:
+                loss = loss + rollout_raw_w * scale * rollout_raw.square().mean()
+            current_residual = rollout_next
+
+    if stability_weight > 0.0:
+        target = float(contraction_target)
+        stability = torch.stack([(torch.relu(entry - target).square()).mean() for entry in metric_history]).mean()
+        loss = loss + float(stability_weight) * stability
+    else:
+        stability = torch.zeros((), dtype=torch.float32, device=residual.device)
+
+    if teacher_w:
+        if teacher_fn is None:
+            raise ValueError(f"loss mode {loss_mode} requires a teacher function")
+        with torch.no_grad():
+            teacher = teacher_fn(residual)
+        teacher_ratio = l2_ratio(correction - teacher, teacher)
+        loss = loss + teacher_w * teacher_ratio.square().mean()
+    else:
+        teacher_ratio = torch.zeros_like(metric_ratio)
+
+    scalars = {
+        "loss": float(loss.detach()),
+        "metric_ratio": float(metric_ratio.detach().mean()),
+        "raw_ratio": float(physical_ratio.detach().mean()),
+        "correction_ratio": float(correction_ratio.detach().mean()),
+        "teacher_ratio": float(teacher_ratio.detach().mean()),
+        "stability": float(stability.detach()),
+    }
+    if rollout_metric_values:
+        scalars["rollout_metric_ratio"] = float(torch.cat([x.detach() for x in rollout_metric_values]).mean())
+    else:
+        scalars["rollout_metric_ratio"] = 0.0
+    if rollout_raw_values:
+        scalars["rollout_raw_ratio"] = float(torch.cat([x.detach() for x in rollout_raw_values]).mean())
+    else:
+        scalars["rollout_raw_ratio"] = 0.0
+    return loss, scalars
+
+
+def make_model(args, rte, base_kind, tsa_harmonics):
+    if args.model_kind == "unet_residual":
+        return NPBSUNetPreconditioner(
+            rte,
+            form="residual",
+            base_kind=base_kind,
+            tsa_harmonics=tsa_harmonics,
+            width=args.width,
+            levels=args.levels,
+            output_init=args.output_init,
+        )
+    if args.model_kind == "unet_defect2":
+        return NPBSUNetPreconditioner(
+            rte,
+            form="defect2",
+            base_kind=base_kind,
+            tsa_harmonics=tsa_harmonics,
+            width=args.width,
+            levels=args.levels,
+            defect_relaxation=args.defect_relaxation,
+            output_init=args.output_init,
+        )
+    if args.model_kind == "moment_unet_defect2":
+        return MomentNPBSUNetPreconditioner(
+            rte,
+            base_kind=base_kind,
+            tsa_harmonics=tsa_harmonics,
+            moment_harmonics=args.moment_harmonics,
+            width=args.width,
+            levels=args.levels,
+            defect_relaxation=args.defect_relaxation,
+            output_init=args.output_init,
+        )
+    if args.model_kind == "coeff_weighted_moment_tsa":
+        return CoeffWeightedMomentTSAPreconditioner(
+            rte,
+            moment_harmonics=args.moment_harmonics,
+            width=args.width,
+            blocks=max(1, args.levels),
+            weight_scale=args.moment_weight_scale,
+            transport_relaxation=args.moment_transport_relaxation,
+            synthetic_relaxation=args.moment_synthetic_relaxation,
+            freeze_scalar_weight=not args.learn_scalar_moment,
+        )
+    raise ValueError(f"unknown model kind: {args.model_kind}")
+
+
+def train_harness(model, residuals, args, teacher_fn=None):
+    optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
+    scheduler = None
+    if args.scheduler == "step":
+        step_size = args.scheduler_step_size if args.scheduler_step_size > 0 else max(1, args.steps // 3)
+        scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size, gamma=args.scheduler_gamma)
+    elif args.scheduler == "cosine":
+        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer,
+            T_max=max(1, args.steps),
+            eta_min=args.scheduler_eta_min,
+        )
+    elif args.scheduler != "none":
+        raise ValueError(f"unknown scheduler: {args.scheduler}")
+
+    history = []
+    initial_batch = residuals() if callable(residuals) else residuals
+    with torch.no_grad():
+        _, initial = objective_components(model, initial_batch, args.loss_mode, args.metric_map, args.physical_weight,
+                                          args.rollout_weight, args.rollout_steps, args.rollout_decay,
+                                          args.stability_weight, args.contraction_target, args.correction_weight,
+                                          teacher_fn, args.teacher_weight)
+    initial["step"] = 0
+    initial["lr"] = optimizer.param_groups[0]["lr"]
+    history.append(initial)
+
+    start = time.perf_counter()
+    for step in range(1, int(args.steps) + 1):
+        current = residuals() if callable(residuals) else residuals
+        optimizer.zero_grad(set_to_none=True)
+        loss, scalars = objective_components(
+            model,
+            current,
+            args.loss_mode,
+            metric_map=args.metric_map,
+            physical_weight=args.physical_weight,
+            rollout_weight=args.rollout_weight,
+            rollout_steps=args.rollout_steps,
+            rollout_decay=args.rollout_decay,
+            stability_weight=args.stability_weight,
+            contraction_target=args.contraction_target,
+            correction_weight=args.correction_weight,
+            teacher_fn=teacher_fn,
+            teacher_weight=args.teacher_weight,
+        )
+        loss.backward()
+        torch.nn.utils.clip_grad_norm_(model.parameters(), args.grad_clip)
+        optimizer.step()
+        if scheduler is not None:
+            scheduler.step()
+        if args.history_every > 0 and (step == 1 or step == args.steps or step % args.history_every == 0):
+            scalars["step"] = step
+            scalars["lr"] = optimizer.param_groups[0]["lr"]
+            history.append(scalars)
+            if args.verbose:
+                print(
+                    f"step {step:5d}/{args.steps} loss={scalars['loss']:.3e} "
+                    f"metric={scalars['metric_ratio']:.3e} raw={scalars['raw_ratio']:.3e} "
+                    f"teacher={scalars['teacher_ratio']:.3e}"
+                )
+
+    elapsed = time.perf_counter() - start
+    if not history or history[-1].get("step") != args.steps:
+        current = residuals() if callable(residuals) else residuals
+        with torch.no_grad():
+            _, final = objective_components(model, current, args.loss_mode, args.metric_map, args.physical_weight,
+                                            args.rollout_weight, args.rollout_steps, args.rollout_decay,
+                                            args.stability_weight, args.contraction_target, args.correction_weight,
+                                            teacher_fn, args.teacher_weight)
+        final["step"] = args.steps
+        final["lr"] = optimizer.param_groups[0]["lr"]
+        history.append(final)
+    return history, elapsed
+
+
+def evaluate_model(rte, model, train_source, heldout_source, base_kind, tsa_harmonics, args):
+    rows = []
+    for split, source in (("train", train_source), ("heldout", heldout_source)):
+        one_true, one_born, one_base = one_step_quality(
+            rte,
+            model,
+            source.to(device=rte.sigma_t.device, dtype=rte.complex_dtype),
+            base_kind=base_kind,
+            tsa_harmonics=tsa_harmonics,
+        )
+        stat_iters, stat_final, stat_factor, stat_time, _, _, _ = solve_stationary(
+            rte,
+            source,
+            model,
+            maxiter=args.maxiter,
+            tol=args.tol,
+        )
+        fgmres_iters, fgmres_final, fgmres_factor, fgmres_time, _, _, _ = solve_fgmres(
+            rte,
+            source,
+            model,
+            maxiter=args.fgmres_maxiter,
+            tol=args.tol,
+            real_stacked=args.fgmres_mode == "real-stacked",
+        )
+        rows.append(
+            {
+                "split": split,
+                "one_step_true": one_true,
+                "one_step_born_metric": one_born,
+                "one_step_base_metric": one_base,
+                "stationary_iters": stat_iters,
+                "stationary_final": stat_final,
+                "stationary_factor": stat_factor,
+                "stationary_time": stat_time,
+                "fgmres_iters": fgmres_iters,
+                "fgmres_final": fgmres_final,
+                "fgmres_factor": fgmres_factor,
+                "fgmres_time": fgmres_time,
+            }
+        )
+    return rows
+
+
+def write_rows(path, rows):
+    path = Path(path)
+    path.parent.mkdir(parents=True, exist_ok=True)
+    if not rows:
+        return
+    keys = list(rows[0].keys())
+    with path.open("w", newline="", encoding="utf-8") as handle:
+        writer = csv.DictWriter(handle, fieldnames=keys)
+        writer.writeheader()
+        writer.writerows(rows)
+
+
+def run(args):
+    torch.manual_seed(args.seed)
+    device = torch.device(args.device if args.device == "cpu" or torch.cuda.is_available() else "cpu")
+    dtype = torch.float32
+    if device.type == "cuda":
+        torch.backends.cuda.matmul.allow_tf32 = bool(args.allow_tf32)
+        torch.backends.cudnn.allow_tf32 = bool(args.allow_tf32)
+        torch.backends.cudnn.benchmark = True
+
+    rte, _ = make_case(args.case, args.size, args.n_angles, dtype, args.eta_scale, device=device)
+    base_kind = args.base_kind
+    tsa_harmonics = effective_tsa_harmonics(base_kind, args.tsa_harmonics, args.moment_harmonics)
+    train_source = rte.source.clone()
+    training_sources = make_training_sources(
+        args.case,
+        args.size,
+        args.n_angles,
+        dtype,
+        device=device,
+        num_aux_sources=args.aux_sources,
+    )
+    training_sources[0] = train_source.clone()
+    heldout_source = make_source(
+        args.size,
+        args.n_angles,
+        dtype,
+        center=(0.68, 0.34),
+        angular="beam" if args.case in ("anisotropic", "mixed") else "dipole",
+    ).to(device=device)
+
+    if args.residual_mode == "pool":
+        residuals = collect_residuals_from_sources(
+            rte,
+            base_kind,
+            tsa_harmonics=tsa_harmonics,
+            sources=training_sources,
+            n_rollout=args.n_rollout,
+            n_random=args.n_random,
+            random_modes=args.random_modes,
+        )
+    else:
+        residuals, _ = make_residual_sampler(
+            rte,
+            base_kind,
+            tsa_harmonics=tsa_harmonics,
+            sources=training_sources,
+            n_rollout=args.n_rollout,
+            residuals_per_step=args.residuals_per_step,
+            rollout_samples_per_step=args.rollout_samples_per_step,
+            random_modes=args.random_modes,
+            seed=args.seed,
+        )
+
+    model = make_model(args, rte, base_kind, tsa_harmonics).to(device)
+    teacher_fn = None
+    if args.teacher_depth > 0:
+        teacher_kind = args.teacher_kind or base_kind
+        teacher_harmonics = effective_tsa_harmonics(teacher_kind, args.teacher_harmonics, args.moment_harmonics)
+
+        def teacher_fn(residual):
+            return inner_base_apply(
+                rte,
+                residual,
+                depth=args.teacher_depth,
+                kind=teacher_kind,
+                tsa_harmonics=teacher_harmonics,
+                relaxation=args.teacher_relaxation,
+            )
+
+    history, train_time = train_harness(model, residuals, args, teacher_fn=teacher_fn)
+    eval_rows = evaluate_model(rte, model, train_source, heldout_source, base_kind, tsa_harmonics, args)
+
+    summary_rows = []
+    initial = history[0]
+    final = history[-1]
+    for row in eval_rows:
+        summary = {
+            "case": args.case,
+            "size": args.size,
+            "n_angles": args.n_angles,
+            "base_kind": base_kind,
+            "tsa_harmonics": "" if tsa_harmonics is None else tsa_harmonics,
+            "model_kind": args.model_kind,
+            "loss_mode": args.loss_mode,
+            "metric_map": args.metric_map,
+            "width": args.width,
+            "levels": args.levels,
+            "params": count_parameters(model),
+            "steps": args.steps,
+            "train_time": train_time,
+            "loss_initial": initial["loss"],
+            "loss_final": final["loss"],
+            "metric_initial": initial["metric_ratio"],
+            "metric_final": final["metric_ratio"],
+            "raw_initial": initial["raw_ratio"],
+            "raw_final": final["raw_ratio"],
+            "teacher_initial": initial["teacher_ratio"],
+            "teacher_final": final["teacher_ratio"],
+            **row,
+        }
+        summary_rows.append(summary)
+
+    write_rows(args.output_csv, summary_rows)
+    if args.history_csv:
+        hist_rows = []
+        for row in history:
+            hist_rows.append(
+                {
+                    "case": args.case,
+                    "size": args.size,
+                    "model_kind": args.model_kind,
+                    "loss_mode": args.loss_mode,
+                    "metric_map": args.metric_map,
+                    **row,
+                }
+            )
+        write_rows(args.history_csv, hist_rows)
+
+    if args.verbose:
+        print(f"wrote {args.output_csv}")
+        if args.history_csv:
+            print(f"wrote {args.history_csv}")
+    return summary_rows, history
+
+
+def main():
+    parser = argparse.ArgumentParser(
+        description="Targeted NPBS/RTE bottleneck harness for loss, teacher, and mode-expressivity diagnostics."
+    )
+    parser.add_argument("--case", choices=["diffusive", "heterogeneous", "anisotropic", "mixed"], default="mixed")
+    parser.add_argument("--size", type=int, default=32)
+    parser.add_argument("--n-angles", type=int, default=12)
+    parser.add_argument("--base-kind", default="transport_tsa")
+    parser.add_argument("--tsa-harmonics", type=int, default=None)
+    parser.add_argument("--moment-harmonics", type=int, default=4)
+    parser.add_argument(
+        "--model-kind",
+        choices=["unet_residual", "unet_defect2", "moment_unet_defect2", "coeff_weighted_moment_tsa"],
+        default="unet_defect2",
+    )
+    parser.add_argument("--loss-mode", choices=sorted(LOSS_MODES), default="metric_raw_rollout")
+    parser.add_argument("--metric-map", choices=["base", "forward", "damped_moment"], default="base")
+    parser.add_argument("--width", type=int, default=16)
+    parser.add_argument("--levels", type=int, default=3)
+    parser.add_argument("--defect-relaxation", type=float, default=1.0)
+    parser.add_argument("--output-init", choices=["zero", "small"], default="zero")
+    parser.add_argument("--moment-weight-scale", type=float, default=0.5)
+    parser.add_argument("--moment-transport-relaxation", type=float, default=0.4)
+    parser.add_argument("--moment-synthetic-relaxation", type=float, default=0.4)
+    parser.add_argument("--learn-scalar-moment", action="store_true")
+    parser.add_argument("--eta-scale", type=float, default=0.1)
+    parser.add_argument("--steps", type=int, default=100)
+    parser.add_argument("--lr", type=float, default=2e-3)
+    parser.add_argument("--weight-decay", type=float, default=1e-4)
+    parser.add_argument("--scheduler", choices=["none", "step", "cosine"], default="step")
+    parser.add_argument("--scheduler-step-size", type=int, default=0)
+    parser.add_argument("--scheduler-gamma", type=float, default=0.5)
+    parser.add_argument("--scheduler-eta-min", type=float, default=1e-5)
+    parser.add_argument("--grad-clip", type=float, default=1.0)
+    parser.add_argument("--physical-weight", type=float, default=0.5)
+    parser.add_argument("--correction-weight", type=float, default=1e-6)
+    parser.add_argument("--rollout-weight", type=float, default=0.2)
+    parser.add_argument("--rollout-steps", type=int, default=3)
+    parser.add_argument("--rollout-decay", type=float, default=0.8)
+    parser.add_argument("--stability-weight", type=float, default=0.0)
+    parser.add_argument("--contraction-target", type=float, default=0.95)
+    parser.add_argument("--teacher-depth", type=int, default=0)
+    parser.add_argument("--teacher-kind", default="")
+    parser.add_argument("--teacher-harmonics", type=int, default=None)
+    parser.add_argument("--teacher-relaxation", type=float, default=1.0)
+    parser.add_argument("--teacher-weight", type=float, default=1.0)
+    parser.add_argument("--residual-mode", choices=["pool", "resample"], default="resample")
+    parser.add_argument("--residuals-per-step", type=int, default=64)
+    parser.add_argument("--rollout-samples-per-step", type=int, default=32)
+    parser.add_argument("--n-rollout", type=int, default=8)
+    parser.add_argument("--n-random", type=int, default=6)
+    parser.add_argument("--random-modes", type=int, default=5)
+    parser.add_argument("--aux-sources", type=int, default=2)
+    parser.add_argument("--maxiter", type=int, default=40)
+    parser.add_argument("--fgmres-maxiter", type=int, default=20)
+    parser.add_argument("--fgmres-mode", choices=["complex", "real-stacked"], default="real-stacked")
+    parser.add_argument("--tol", type=float, default=1e-6)
+    parser.add_argument("--seed", type=int, default=20260521)
+    parser.add_argument("--device", default="cuda:0" if torch.cuda.is_available() else "cpu")
+    parser.add_argument("--allow-tf32", action="store_true")
+    parser.add_argument("--history-every", type=int, default=25)
+    parser.add_argument("--output-csv", default="rte/npbs_bottleneck_harness.csv")
+    parser.add_argument("--history-csv", default="rte/npbs_bottleneck_harness_history.csv")
+    parser.add_argument("--verbose", action="store_true")
+    args = parser.parse_args()
+    run(args)
+
+
+if __name__ == "__main__":
+    main()
