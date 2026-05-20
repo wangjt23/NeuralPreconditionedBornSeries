@@ -9,12 +9,13 @@ import torch
 import torch.nn as nn
 import torch.nn.functional as F
 
+ROOT = Path(__file__).resolve().parents[1]
+if str(ROOT) not in sys.path:
+    sys.path.insert(0, str(ROOT))
+sys.path.append(str(ROOT / "helmholtz" / "models"))
+
 from rte.run_hard_case_experiments import contraction, make_case
 from rte.train_defect_cnn_small import make_source, smooth_random_like
-
-
-ROOT = Path(__file__).resolve().parents[1]
-sys.path.append(str(ROOT / "helmholtz" / "models"))
 
 
 def circular_pad_conv(in_channels, out_channels, kernel_size=3, stride=1, groups=1, bias=False):
@@ -181,6 +182,7 @@ class NPBSUNetPreconditioner(nn.Module):
         self.n_angles = rte.n_angles
         self.delta_scale = float(delta_scale)
         self.defect_relaxation = float(defect_relaxation)
+        self.base_calls_per_apply = 1 if form == "residual" else 2
         in_channels = 2 * self.n_angles if form == "residual" else 4 * self.n_angles
         self.coeff_encoder = CoeffEncoder(coeff_channels=4, width=width, levels=levels)
         self.unet = LinearGatedUNet(
@@ -233,6 +235,138 @@ class NPBSUNetPreconditioner(nn.Module):
         features = torch.cat([self.ri(z0), self.ri(z1)], dim=1)
         delta = self.correction_from_features(features, residual.shape[0], residual.dtype, residual.device)
         return z0 + self.defect_relaxation * z1 + self.delta_scale * delta
+
+
+class MomentNPBSUNetPreconditioner(nn.Module):
+    """
+    Defect2 learned preconditioner whose trainable correction is restricted to
+    low angular Fourier modes.
+    """
+
+    def __init__(
+        self,
+        rte,
+        base_kind="transport_tsa_moment",
+        tsa_harmonics=None,
+        moment_harmonics=2,
+        width=16,
+        levels=3,
+        gate_scale=0.1,
+        delta_scale=1.0,
+        defect_relaxation=1.0,
+        output_init="zero",
+    ):
+        super().__init__()
+        self.rte = rte
+        self.form = "moment_defect2"
+        self.base_kind = base_kind
+        self.tsa_harmonics = tsa_harmonics
+        self.moment_harmonics = int(moment_harmonics)
+        modes = rte.angular_mode_indices(self.moment_harmonics)
+        if modes is None:
+            raise ValueError("moment_harmonics must select a proper low angular Fourier space")
+        self.n_moments = len(modes)
+        self.delta_scale = float(delta_scale)
+        self.defect_relaxation = float(defect_relaxation)
+        self.base_calls_per_apply = 2
+        self.coeff_encoder = CoeffEncoder(coeff_channels=4, width=width, levels=levels)
+        self.unet = LinearGatedUNet(
+            4 * self.n_moments,
+            2 * self.n_moments,
+            width=width,
+            levels=levels,
+            gate_scale=gate_scale,
+            output_init=output_init,
+        )
+
+    def base(self, residual):
+        return self.rte.apply_preconditioner(residual, kind=self.base_kind, tsa_harmonics=self.tsa_harmonics)
+
+    def coeff_features(self, batch_size):
+        sigma_t = self.rte.sigma_t.to(dtype=self.rte.float_dtype)
+        sigma_s = self.rte.sigma_s.to(dtype=self.rte.float_dtype)
+        albedo = sigma_s / torch.clamp(sigma_t, min=1e-12)
+        st_mean = torch.mean(sigma_t, dim=(-2, -1), keepdim=True)
+        st_std = torch.clamp(torch.std(sigma_t, dim=(-2, -1), keepdim=True), min=1e-6)
+        st_norm = (sigma_t - st_mean) / st_std
+        dx = torch.roll(sigma_t, shifts=-1, dims=-1) - torch.roll(sigma_t, shifts=1, dims=-1)
+        dy = torch.roll(sigma_t, shifts=-1, dims=-2) - torch.roll(sigma_t, shifts=1, dims=-2)
+        grad = torch.sqrt(dx * dx + dy * dy) / torch.clamp(st_mean, min=1e-12)
+        g = torch.full_like(sigma_t, float(self.rte.anisotropy_g))
+        coeff = torch.cat([st_norm, albedo, grad, g], dim=1)
+        if coeff.shape[0] == 1 and batch_size > 1:
+            coeff = coeff.expand(batch_size, -1, -1, -1)
+        return coeff
+
+    def restrict_moments(self, field):
+        basis = self.rte.angular_fourier_basis(self.moment_harmonics, dtype=field.dtype, device=field.device)
+        return torch.einsum("nm,bnhw->bmhw", basis.conj(), field)
+
+    def prolong_moments(self, coeff):
+        basis = self.rte.angular_fourier_basis(self.moment_harmonics, dtype=coeff.dtype, device=coeff.device)
+        return torch.einsum("nm,bmhw->bnhw", basis, coeff)
+
+    @staticmethod
+    def ri(x):
+        return torch.cat([x.real, x.imag], dim=1).to(torch.float32)
+
+    def correction_from_moment_features(self, features, batch_size, dtype, device):
+        coeff = self.coeff_features(batch_size).to(device=device, dtype=features.dtype)
+        coeff_features = self.coeff_encoder(coeff)
+        delta_ri = self.unet(features, coeff_features)
+        real, imag = torch.chunk(delta_ri, 2, dim=1)
+        delta_moment = torch.complex(real, imag).to(dtype=dtype)
+        return self.prolong_moments(delta_moment)
+
+    def forward(self, residual):
+        z0 = self.base(residual)
+        defect = residual - self.rte.A_op(z0)
+        z1 = self.base(defect)
+        z0_m = self.restrict_moments(z0)
+        z1_m = self.restrict_moments(z1)
+        features = torch.cat([self.ri(z0_m), self.ri(z1_m)], dim=1)
+        delta = self.correction_from_moment_features(features, residual.shape[0], residual.dtype, residual.device)
+        return z0 + self.defect_relaxation * z1 + self.delta_scale * delta
+
+
+class ModeWeightedMomentTSAPreconditioner(nn.Module):
+    """
+    Tiny learned structural preconditioner that starts exactly as closed
+    TSA-Moment and learns bounded per-|m| weights on the synthetic correction.
+    """
+
+    def __init__(self, rte, moment_harmonics=2, weight_scale=0.5):
+        super().__init__()
+        self.rte = rte
+        self.form = "weighted_moment_tsa"
+        self.base_kind = "transport_tsa_moment"
+        self.tsa_harmonics = int(moment_harmonics)
+        self.moment_harmonics = int(moment_harmonics)
+        modes = rte.angular_mode_indices(self.moment_harmonics)
+        if modes is None:
+            raise ValueError("moment_harmonics must select a proper low angular Fourier space")
+        self.register_buffer("mode_abs", torch.tensor([abs(int(mode)) for mode in modes], dtype=torch.long), persistent=False)
+        self.logits = nn.Parameter(torch.zeros(self.moment_harmonics + 1, dtype=rte.float_dtype))
+        self.weight_scale = float(weight_scale)
+        self.base_calls_per_apply = 1
+
+    def mode_weights(self):
+        weights_by_abs = 1.0 + self.weight_scale * torch.tanh(self.logits)
+        return weights_by_abs[self.mode_abs]
+
+    def base(self, residual):
+        return self.rte.apply_preconditioner(
+            residual,
+            kind="transport_tsa_moment",
+            tsa_harmonics=self.moment_harmonics,
+        )
+
+    def forward(self, residual):
+        return self.rte.transport_moment_tsa_preconditioner(
+            residual,
+            harmonics=self.moment_harmonics,
+            mode_weights=self.mode_weights(),
+        )
 
 
 def collect_residuals(rte, base_kind, tsa_harmonics=None, n_rollout=6, n_random=6):
@@ -635,6 +769,37 @@ def fgmres_with_trace(
     return x, history, elapsed_history, call_history
 
 
+def complex_to_real_channels(x):
+    return torch.cat([x.real, x.imag], dim=1).to(x.real.dtype)
+
+
+def real_channels_to_complex(x, n_angles, dtype):
+    return torch.complex(x[:, :n_angles], x[:, n_angles : 2 * n_angles]).to(dtype=dtype)
+
+
+def fgmres_real_stacked_with_trace(A, b, M, tol=1e-6, maxiter=100, restart=None, max_restarts=None):
+    n_angles = b.shape[1]
+    complex_dtype = b.dtype
+    b_real = complex_to_real_channels(b)
+
+    def A_real(x_real):
+        return complex_to_real_channels(A(real_channels_to_complex(x_real, n_angles, complex_dtype)))
+
+    def M_real(r_real):
+        return complex_to_real_channels(M(real_channels_to_complex(r_real, n_angles, complex_dtype)))
+
+    x_real, history, elapsed_history, call_history = fgmres_with_trace(
+        A=A_real,
+        b=b_real,
+        M=M_real,
+        tol=tol,
+        maxiter=maxiter,
+        restart=restart,
+        max_restarts=max_restarts,
+    )
+    return real_channels_to_complex(x_real, n_angles, complex_dtype), history, elapsed_history, call_history
+
+
 def metric_loss(model, residuals, physical_weight=0.5, correction_weight=1e-6):
     residual_batch = ensure_residual_batch(residuals)
     correction = model(residual_batch)
@@ -819,7 +984,7 @@ def solve_stationary(rte, source, preconditioner, maxiter, tol):
     return len(history) - 1, history[-1], contraction(history), time.perf_counter() - start, history, elapsed_history, preconditioner_calls
 
 
-def solve_fgmres(rte, source, preconditioner, maxiter, tol):
+def solve_fgmres(rte, source, preconditioner, maxiter, tol, real_stacked=False):
     old_source = rte.source
     try:
         rte.source = source.to(device=rte.sigma_t.device, dtype=rte.complex_dtype)
@@ -832,7 +997,8 @@ def solve_fgmres(rte, source, preconditioner, maxiter, tol):
                 return preconditioner(r)
 
         with torch.no_grad():
-            _, history, elapsed_history, preconditioner_calls = fgmres_with_trace_real(
+            fgmres_fn = fgmres_real_stacked_with_trace if real_stacked else fgmres_with_trace
+            _, history, elapsed_history, preconditioner_calls = fgmres_fn(
                 A=A,
                 b=rte.source,
                 M=M,
@@ -873,8 +1039,11 @@ def write_report(rows, path, settings):
             "- `transport` is the shifted/reference transport inverse `G_eta`.",
             "- `transport_dsa` applies one reference transport correction followed by one scalar diffusion synthetic correction.",
             "- `transport_tsa` applies one reference transport correction followed by one reference transport-scattering synthetic correction. `tsa_harmonics=None` keeps all angular Fourier modes; an integer such as `2` keeps only the lowest angular harmonics.",
+            "- `transport_tsa_moment` applies one reference transport correction followed by a closed Galerkin angular Fourier synthetic correction `Q_K (Q_K^* A_ref Q_K)^{-1} Q_K^*` on the post-transport residual. This differs from `transport_tsa` with `tsa_harmonics=K`, which only projects the RHS before applying the full angular reference inverse.",
             "- `dsaK` and `tsaK` mean `K` residual-correction applications of the selected base preconditioner. Starting with `z=0` and residual `e_0=r`, each stage applies `z <- z + omega B_h e_j` and `e_{j+1} <- e_j - A_h(omega B_h e_j)`. A suffix such as `-w0.5` uses relaxation `omega=0.5`; no suffix means `omega=1`.",
             "- `UNet-defect2-w1` uses `z0=B_h r`, `z1=B_h(r-A_h z0)`, and returns `z0 + z1 + C_theta(z0,z1,coeff)`. It costs two base applications plus the U-Net evaluation per preconditioner call.",
+            "- `MomentUNet-K` uses the same defect2 structure but restricts the learned correction to angular Fourier modes `0,+/-1,...,+/-K` before prolonging back to ordinates.",
+            "- `WeightedTSA-MK` is a tiny learned structural model initialized as closed TSA-MK; it learns bounded real weights for each absolute angular mode in the synthetic correction.",
             "- `base-call equal` means equal counts of selected base-preconditioner applications inside one preconditioner call, excluding diagnostic metric evaluations, `A_h` applications, scalar reductions, and U-Net overhead. `UNet-defect2` is base-call equal to `dsa2`/`tsa2`; `dsa3`/`dsa4` and `tsa3`/`tsa4` are deeper classical work-budget baselines, not strict equal-cost matches.",
             "",
             "## Results",
@@ -901,6 +1070,8 @@ def main():
     parser.add_argument("--base-kinds", nargs="+", default=["transport_dsa"])
     parser.add_argument("--tsa-harmonics", type=int, default=None)
     parser.add_argument("--forms", nargs="+", default=["residual", "defect2"])
+    parser.add_argument("--moment-harmonics", type=int, default=2)
+    parser.add_argument("--moment-weight-scale", type=float, default=0.5)
     parser.add_argument("--defect-relaxations", nargs="+", type=float, default=[1.0])
     parser.add_argument("--baseline-depths", nargs="+", type=int, default=[1, 2])
     parser.add_argument("--baseline-relaxations", nargs="+", type=float, default=[1.0])
@@ -935,6 +1106,7 @@ def main():
     parser.add_argument("--teacher-weight", type=float, default=0.0)
     parser.add_argument("--maxiter", type=int, default=60)
     parser.add_argument("--fgmres-maxiter", type=int, default=25)
+    parser.add_argument("--fgmres-mode", choices=["complex", "real-stacked"], default="complex")
     parser.add_argument("--tol", type=float, default=1e-6)
     parser.add_argument("--tol-grid", nargs="+", type=float, default=[])
     parser.add_argument("--seed", type=int, default=20260519)
@@ -1021,6 +1193,10 @@ def main():
                 trained_models = []
                 for form in args.forms:
                     relaxations = args.defect_relaxations if form == "defect2" else [1.0]
+                    if form == "moment_defect2":
+                        relaxations = args.defect_relaxations
+                    if form == "weighted_moment_tsa":
+                        relaxations = [1.0]
                     for relaxation in relaxations:
                         teacher_kind = args.teacher_kind if args.teacher_kind else base_kind
 
@@ -1034,16 +1210,41 @@ def main():
                                 relaxation=args.teacher_relaxation,
                             )
 
-                        model = NPBSUNetPreconditioner(
-                            rte,
-                            form=form,
-                            base_kind=base_kind,
-                            tsa_harmonics=args.tsa_harmonics,
-                            width=args.width,
-                            levels=args.levels,
-                            defect_relaxation=relaxation,
-                            output_init=args.output_init,
-                        ).to(device)
+                        if form == "moment_defect2":
+                            model = MomentNPBSUNetPreconditioner(
+                                rte,
+                                base_kind=base_kind,
+                                tsa_harmonics=args.tsa_harmonics,
+                                moment_harmonics=args.moment_harmonics,
+                                width=args.width,
+                                levels=args.levels,
+                                defect_relaxation=relaxation,
+                                output_init=args.output_init,
+                            ).to(device)
+                        elif form == "weighted_moment_tsa":
+                            if str(base_kind).lower() not in (
+                                "transport_tsa_moment",
+                                "tsa_moment",
+                                "moment_tsa",
+                                "transport_moment_tsa",
+                            ):
+                                raise ValueError("weighted_moment_tsa requires --base-kinds transport_tsa_moment")
+                            model = ModeWeightedMomentTSAPreconditioner(
+                                rte,
+                                moment_harmonics=args.moment_harmonics,
+                                weight_scale=args.moment_weight_scale,
+                            ).to(device)
+                        else:
+                            model = NPBSUNetPreconditioner(
+                                rte,
+                                form=form,
+                                base_kind=base_kind,
+                                tsa_harmonics=args.tsa_harmonics,
+                                width=args.width,
+                                levels=args.levels,
+                                defect_relaxation=relaxation,
+                                output_init=args.output_init,
+                            ).to(device)
                         history = train_model(
                             model,
                             residuals,
@@ -1065,7 +1266,14 @@ def main():
                             teacher_fn=teacher_fn if args.teacher_depth > 0 else None,
                             teacher_weight=args.teacher_weight,
                         )
-                        trained_models.append((f"UNet-{form}-w{relaxation:g}", model, history, residual_info))
+                        model_label = (
+                            f"MomentUNet-K{args.moment_harmonics}-w{relaxation:g}"
+                            if form == "moment_defect2"
+                            else f"WeightedTSA-M{args.moment_harmonics}"
+                            if form == "weighted_moment_tsa"
+                            else f"UNet-{form}-w{relaxation:g}"
+                        )
+                        trained_models.append((model_label, model, history, residual_info))
                         print(
                             f"size={size} case={case} base={base_kind} form={form} mode={args.residual_mode} "
                             f"omega={relaxation:g} bank={residual_info['rollout_bank_size']} "
@@ -1078,7 +1286,7 @@ def main():
                         (
                             label,
                             model,
-                            1 if model.form == "residual" else 2,
+                            getattr(model, "base_calls_per_apply", 1 if model.form == "residual" else 2),
                             history['loss'][0],
                             history['loss'][-1],
                             history['lr'][0],
@@ -1111,6 +1319,7 @@ def main():
                             precond,
                             args.fgmres_maxiter,
                             args.tol,
+                            real_stacked=args.fgmres_mode == "real-stacked",
                         )
 
                         s_base_calls = [c * calls for c in s_calls]
@@ -1182,6 +1391,9 @@ def main():
                             "teacher_kind": (args.teacher_kind if args.teacher_kind else base_kind) if args.teacher_depth > 0 else "",
                             "teacher_relaxation": args.teacher_relaxation if args.teacher_depth > 0 else "",
                             "teacher_weight": args.teacher_weight,
+                            "moment_harmonics": args.moment_harmonics if getattr(precond, "form", "") in ("moment_defect2", "weighted_moment_tsa") else "",
+                            "moment_weight_scale": args.moment_weight_scale if getattr(precond, "form", "") == "weighted_moment_tsa" else "",
+                            "fgmres_mode": args.fgmres_mode,
                         }
                         row.update(tol_metrics)
                         rows.append(row)

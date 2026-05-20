@@ -22,6 +22,8 @@ METHODS = (
     ("transport", "Born", None),
     ("transport_dsa", "DSA", None),
     ("transport_tsa", "TSA-H2", 2),
+    ("transport_tsa_moment", "TSA-M2", 2),
+    ("transport_tsa_moment", "TSA-M4", 4),
     ("transport_tsa", "TSA-full", None),
 )
 

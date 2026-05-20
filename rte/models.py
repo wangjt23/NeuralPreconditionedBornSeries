@@ -146,6 +146,7 @@ class PeriodicRTE2D(nn.Module):
         self.eta = eta
         self.sigma0 = sigma_ref + eta
         self._build_reference_transport_inverse()
+        self._reference_moment_inverse_cache = {}
 
         if source is None:
             self.source = torch.zeros(
@@ -236,6 +237,12 @@ class PeriodicRTE2D(nn.Module):
         return torch.fft.ifftn(out_hat, dim=(-2, -1), norm="backward")
 
     def _build_reference_transport_inverse(self):
+        matrix = self._reference_transport_matrix()
+        flat = matrix.reshape(-1, self.n_angles, self.n_angles)
+        inv = torch.linalg.inv(flat).reshape(self.sigma0.shape[0], *self.shape, self.n_angles, self.n_angles)
+        self.reference_transport_inverse = inv
+
+    def _reference_transport_matrix(self):
         batch_size = self.sigma0.shape[0]
         device = self.sigma0.device
         dtype = self.complex_dtype
@@ -251,9 +258,31 @@ class PeriodicRTE2D(nn.Module):
         matrix = diag_values.unsqueeze(-1) * eye - sigma_s_ref * scattering_matrix.view(
             1, 1, 1, self.n_angles, self.n_angles
         )
-        flat = matrix.reshape(-1, self.n_angles, self.n_angles)
-        inv = torch.linalg.inv(flat).reshape(batch_size, *self.shape, self.n_angles, self.n_angles)
-        self.reference_transport_inverse = inv
+        return matrix
+
+    def angular_mode_indices(self, harmonics):
+        if harmonics is None:
+            return None
+        harmonics = int(harmonics)
+        if harmonics < 0 or harmonics >= self.n_angles // 2:
+            return None
+        modes = [0]
+        for mode in range(1, harmonics + 1):
+            modes.extend([mode, -mode])
+        return modes
+
+    def angular_fourier_basis(self, harmonics, dtype=None, device=None):
+        modes = self.angular_mode_indices(harmonics)
+        if modes is None:
+            return None
+        device = self.directions.device if device is None else device
+        real_dtype = self.float_dtype if dtype is None or not torch.is_complex(torch.empty((), dtype=dtype)) else (
+            torch.float64 if dtype == torch.complex128 else torch.float32
+        )
+        angles = torch.arange(self.n_angles, dtype=real_dtype, device=device) * (2.0 * math.pi / self.n_angles)
+        mode_tensor = torch.tensor(modes, dtype=real_dtype, device=device)
+        basis = torch.exp(1j * angles[:, None] * mode_tensor[None, :]) / math.sqrt(self.n_angles)
+        return basis.to(dtype=dtype or self.complex_dtype)
 
     def angular_project(self, rhs, harmonics=None):
         if harmonics is None:
@@ -290,6 +319,60 @@ class PeriodicRTE2D(nn.Module):
         sol_hat = sol_hat.reshape(rhs.shape[0], *self.shape, self.n_angles).permute(0, 3, 1, 2)
         return torch.fft.ifftn(sol_hat, dim=(-2, -1), norm="backward")
 
+    def reference_moment_transport_solve(self, rhs, harmonics=None, mode_weights=None):
+        """
+        Closed low-order angular Fourier reference solve.
+
+        Unlike reference_transport_solve(..., harmonics=K), this applies the
+        Galerkin inverse Q_K (Q_K^* A_ref Q_K)^{-1} Q_K^* and therefore keeps
+        the correction inside the selected angular moment space.
+        """
+        if harmonics is None or self.angular_mode_indices(harmonics) is None:
+            return self.reference_transport_solve(rhs, harmonics=None)
+        if not hasattr(self, "_reference_moment_inverse_cache"):
+            self._reference_moment_inverse_cache = {}
+
+        harmonics = int(harmonics)
+        basis = self.angular_fourier_basis(harmonics, dtype=rhs.dtype, device=rhs.device)
+        n_modes = basis.shape[1]
+        cache_key = (harmonics, str(rhs.device), str(rhs.dtype))
+        inv = self._reference_moment_inverse_cache.get(cache_key)
+        if inv is None:
+            matrix = self._reference_transport_matrix().to(dtype=rhs.dtype, device=rhs.device)
+            basis_ref = self.angular_fourier_basis(harmonics, dtype=rhs.dtype, device=rhs.device)
+            aq = torch.matmul(matrix, basis_ref.view(1, 1, 1, self.n_angles, n_modes))
+            low_matrix = torch.matmul(
+                basis_ref.conj().transpose(0, 1).view(1, 1, 1, n_modes, self.n_angles),
+                aq,
+            )
+            inv = torch.linalg.inv(low_matrix.reshape(-1, n_modes, n_modes)).reshape(
+                self.sigma0.shape[0],
+                *self.shape,
+                n_modes,
+                n_modes,
+            )
+            self._reference_moment_inverse_cache[cache_key] = inv
+
+        rhs_hat = torch.fft.fftn(rhs, dim=(-2, -1), norm="backward")
+        rhs_vec = rhs_hat.permute(0, 2, 3, 1).unsqueeze(-1)
+        low_rhs = torch.matmul(
+            basis.conj().transpose(0, 1).view(1, 1, 1, n_modes, self.n_angles),
+            rhs_vec,
+        )
+        if inv.shape[0] == 1 and rhs.shape[0] > 1:
+            inv = inv.expand(rhs.shape[0], -1, -1, -1, -1)
+        elif inv.shape[0] != rhs.shape[0]:
+            raise ValueError(f"moment inverse batch ({inv.shape[0]}) does not match rhs batch ({rhs.shape[0]})")
+        coeff = torch.matmul(inv.reshape(-1, n_modes, n_modes), low_rhs.reshape(-1, n_modes, 1))
+        if mode_weights is not None:
+            weights = mode_weights.to(dtype=rhs.dtype, device=rhs.device).reshape(1, 1, 1, n_modes, 1)
+            coeff = coeff.reshape(rhs.shape[0], *self.shape, n_modes, 1) * weights
+        else:
+            coeff = coeff.reshape(rhs.shape[0], *self.shape, n_modes, 1)
+        sol_vec = torch.matmul(basis.view(1, 1, 1, self.n_angles, n_modes), coeff)
+        sol_hat = sol_vec.squeeze(-1).permute(0, 3, 1, 2)
+        return torch.fft.ifftn(sol_hat, dim=(-2, -1), norm="backward")
+
     def lift_scalar_flux(self, scalar_flux, mode="isotropic"):
         if mode != "isotropic":
             raise NotImplementedError("only isotropic scalar-flux lifting is implemented")
@@ -322,6 +405,20 @@ class PeriodicRTE2D(nn.Module):
         synthetic_correction = self.reference_transport_solve(remaining_residual, harmonics=harmonics)
         return transport_correction + synthetic_correction
 
+    def transport_moment_tsa_preconditioner(self, rhs, harmonics=None, mode_weights=None):
+        """
+        One transport reference correction followed by a closed low-order
+        angular Fourier transport-scattering correction.
+        """
+        transport_correction = self.transport_preconditioner(rhs)
+        remaining_residual = rhs - self.A_op(transport_correction)
+        synthetic_correction = self.reference_moment_transport_solve(
+            remaining_residual,
+            harmonics=harmonics,
+            mode_weights=mode_weights,
+        )
+        return transport_correction + synthetic_correction
+
     def apply_preconditioner(self, rhs, kind="transport", tsa_harmonics=None):
         kind = str(kind).lower()
         if kind in ("transport", "green", "g_eta"):
@@ -330,7 +427,9 @@ class PeriodicRTE2D(nn.Module):
             return self.transport_dsa_preconditioner(rhs)
         if kind in ("transport_tsa", "tsa", "transport_synthetic_acceleration"):
             return self.transport_tsa_preconditioner(rhs, harmonics=tsa_harmonics)
-        raise ValueError("kind must be 'transport', 'transport_dsa', or 'transport_tsa'")
+        if kind in ("transport_tsa_moment", "tsa_moment", "moment_tsa", "transport_moment_tsa"):
+            return self.transport_moment_tsa_preconditioner(rhs, harmonics=tsa_harmonics)
+        raise ValueError("kind must be 'transport', 'transport_dsa', 'transport_tsa', or 'transport_tsa_moment'")
 
     def born_fixed_point(self, psi):
         return self.G(self.V_op(psi) + self.source)
