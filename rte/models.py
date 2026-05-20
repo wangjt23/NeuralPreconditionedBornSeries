@@ -327,7 +327,9 @@ class PeriodicRTE2D(nn.Module):
         Galerkin inverse Q_K (Q_K^* A_ref Q_K)^{-1} Q_K^* and therefore keeps
         the correction inside the selected angular moment space.
         """
-        if harmonics is None or self.angular_mode_indices(harmonics) is None:
+        if harmonics is None:
+            raise ValueError("reference_moment_transport_solve requires explicit harmonics")
+        if self.angular_mode_indices(harmonics) is None:
             return self.reference_transport_solve(rhs, harmonics=None)
         if not hasattr(self, "_reference_moment_inverse_cache"):
             self._reference_moment_inverse_cache = {}

@@ -41,7 +41,9 @@ generic raw-ordinate U-Net because it exposes the slow angular subspace directly
   \(\Gamma_\theta(x,|m|;\sigma_t,\sigma_s,g,\nabla\sigma_t)\) on the moment
   correction. This is the first implemented component that explicitly learns
   nonlinear medium dependence while staying linear in residuals for fixed
-  coefficients.
+  coefficients. By default it freezes the scalar \(m=0\) weight and exposes
+  transport/synthetic relaxation parameters, because the smoke tests show that
+  undamped moment TSA can be unstable as a stationary iteration.
 - `rte/verify_moment_tsa.py` checks projection equivalence, Galerkin residual,
   complex linearity, and angular-mode residual energy.
 - `rte/run_hard_case_experiments.py` now includes `TSA-M2` and `TSA-M4`.
