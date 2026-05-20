@@ -36,6 +36,12 @@ generic raw-ordinate U-Net because it exposes the slow angular subspace directly
 - `ModeWeightedMomentTSAPreconditioner` is a tiny learned structural model. It
   starts exactly as closed TSA-MK and learns bounded real weights for each
   absolute angular mode in the synthetic correction.
+- `CoeffWeightedMomentTSAPreconditioner` keeps the closed moment solve fixed,
+  but learns nonlinear coefficient-dependent physical-space weights
+  \(\Gamma_\theta(x,|m|;\sigma_t,\sigma_s,g,\nabla\sigma_t)\) on the moment
+  correction. This is the first implemented component that explicitly learns
+  nonlinear medium dependence while staying linear in residuals for fixed
+  coefficients.
 - `rte/verify_moment_tsa.py` checks projection equivalence, Galerkin residual,
   complex linearity, and angular-mode residual energy.
 - `rte/run_hard_case_experiments.py` now includes `TSA-M2` and `TSA-M4`.
@@ -62,6 +68,14 @@ With only five training steps, `MomentUNet-K2-w0.4` improved one-step residual
 relative to damped TSA-M2 in the smoke run, but its FGMRES residual was still
 worse than the damped classical baseline. This is a sanity check, not evidence
 of superiority.
+
+The fixed-\(Q\) components are intentionally conservative and do not learn a
+full nonlinear subspace \(Q_\theta(\sigma)\). The coefficient-weighted moment
+model is the first intermediate step: it lets the medium choose local bounded
+mode amplitudes without changing the Galerkin inverse. A full learned
+restriction/prolongation pair should come later and should preserve the scalar
+moment, conjugate mode pairs, and \(R_\theta P_\theta\approx I\) on retained
+moments.
 
 ## Next Experiments
 

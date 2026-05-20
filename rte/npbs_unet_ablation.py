@@ -369,6 +369,89 @@ class ModeWeightedMomentTSAPreconditioner(nn.Module):
         )
 
 
+class CoeffWeightedMomentTSAPreconditioner(nn.Module):
+    """
+    Coefficient-conditioned nonlinear-in-coefficients moment TSA.
+
+    The closed moment solve is kept fixed. A small coefficient network predicts
+    bounded physical-space weights for each absolute angular mode. The final
+    projection is zero-initialized, so the initial map is exactly closed TSA-MK.
+    For fixed coefficients the preconditioner remains linear in the residual.
+    """
+
+    def __init__(self, rte, moment_harmonics=2, width=16, blocks=2, weight_scale=0.5):
+        super().__init__()
+        self.rte = rte
+        self.form = "coeff_weighted_moment_tsa"
+        self.base_kind = "transport_tsa_moment"
+        self.tsa_harmonics = int(moment_harmonics)
+        self.moment_harmonics = int(moment_harmonics)
+        modes = rte.angular_mode_indices(self.moment_harmonics)
+        if modes is None:
+            raise ValueError("moment_harmonics must select a proper low angular Fourier space")
+        self.n_moments = len(modes)
+        self.register_buffer("mode_abs", torch.tensor([abs(int(mode)) for mode in modes], dtype=torch.long), persistent=False)
+        self.weight_scale = float(weight_scale)
+        self.base_calls_per_apply = 1
+
+        layers = [circular_pad_conv(4, width, bias=True), nn.SiLU()]
+        for _ in range(int(blocks)):
+            layers.extend([circular_pad_conv(width, width, bias=True), nn.SiLU()])
+        layers.append(circular_pad_conv(width, self.moment_harmonics + 1, kernel_size=1, bias=True))
+        self.net = nn.Sequential(*layers)
+        nn.init.zeros_(self.net[-1].conv.weight)
+        nn.init.zeros_(self.net[-1].conv.bias)
+
+    def coeff_features(self, batch_size):
+        sigma_t = self.rte.sigma_t.to(dtype=self.rte.float_dtype)
+        sigma_s = self.rte.sigma_s.to(dtype=self.rte.float_dtype)
+        albedo = sigma_s / torch.clamp(sigma_t, min=1e-12)
+        st_mean = torch.mean(sigma_t, dim=(-2, -1), keepdim=True)
+        st_std = torch.clamp(torch.std(sigma_t, dim=(-2, -1), keepdim=True), min=1e-6)
+        st_norm = (sigma_t - st_mean) / st_std
+        dx = torch.roll(sigma_t, shifts=-1, dims=-1) - torch.roll(sigma_t, shifts=1, dims=-1)
+        dy = torch.roll(sigma_t, shifts=-1, dims=-2) - torch.roll(sigma_t, shifts=1, dims=-2)
+        grad = torch.sqrt(dx * dx + dy * dy) / torch.clamp(st_mean, min=1e-12)
+        g = torch.full_like(sigma_t, float(self.rte.anisotropy_g))
+        coeff = torch.cat([st_norm, albedo, grad, g], dim=1)
+        if coeff.shape[0] == 1 and batch_size > 1:
+            coeff = coeff.expand(batch_size, -1, -1, -1)
+        return coeff
+
+    def restrict_moments(self, field):
+        basis = self.rte.angular_fourier_basis(self.moment_harmonics, dtype=field.dtype, device=field.device)
+        return torch.einsum("nm,bnhw->bmhw", basis.conj(), field)
+
+    def prolong_moments(self, coeff):
+        basis = self.rte.angular_fourier_basis(self.moment_harmonics, dtype=coeff.dtype, device=coeff.device)
+        return torch.einsum("nm,bmhw->bnhw", basis, coeff)
+
+    def mode_weights(self, batch_size, dtype, device):
+        coeff = self.coeff_features(batch_size).to(device=device, dtype=torch.float32)
+        weights_by_abs = 1.0 + self.weight_scale * torch.tanh(self.net(coeff))
+        weights = weights_by_abs[:, self.mode_abs.to(device=device), :, :]
+        return weights.to(dtype=dtype)
+
+    def base(self, residual):
+        return self.rte.apply_preconditioner(
+            residual,
+            kind="transport_tsa_moment",
+            tsa_harmonics=self.moment_harmonics,
+        )
+
+    def forward(self, residual):
+        transport_correction = self.rte.transport_preconditioner(residual)
+        remaining_residual = residual - self.rte.A_op(transport_correction)
+        synthetic_correction = self.rte.reference_moment_transport_solve(
+            remaining_residual,
+            harmonics=self.moment_harmonics,
+        )
+        synthetic_moments = self.restrict_moments(synthetic_correction)
+        weights = self.mode_weights(residual.shape[0], residual.real.dtype, residual.device)
+        weighted_synthetic = self.prolong_moments(synthetic_moments * weights.to(dtype=synthetic_moments.dtype))
+        return transport_correction + weighted_synthetic
+
+
 def collect_residuals(rte, base_kind, tsa_harmonics=None, n_rollout=6, n_random=6):
     residuals = []
     psi = torch.zeros_like(rte.source)
@@ -1044,6 +1127,7 @@ def write_report(rows, path, settings):
             "- `UNet-defect2-w1` uses `z0=B_h r`, `z1=B_h(r-A_h z0)`, and returns `z0 + z1 + C_theta(z0,z1,coeff)`. It costs two base applications plus the U-Net evaluation per preconditioner call.",
             "- `MomentUNet-K` uses the same defect2 structure but restricts the learned correction to angular Fourier modes `0,+/-1,...,+/-K` before prolonging back to ordinates.",
             "- `WeightedTSA-MK` is a tiny learned structural model initialized as closed TSA-MK; it learns bounded real weights for each absolute angular mode in the synthetic correction.",
+            "- `CoeffWeightedTSA-MK` keeps the closed TSA-MK solve fixed, then uses a coefficient-conditioned nonlinear network to learn bounded physical-space weights for each absolute angular mode. It is nonlinear in coefficients but linear in residuals for fixed coefficients.",
             "- `base-call equal` means equal counts of selected base-preconditioner applications inside one preconditioner call, excluding diagnostic metric evaluations, `A_h` applications, scalar reductions, and U-Net overhead. `UNet-defect2` is base-call equal to `dsa2`/`tsa2`; `dsa3`/`dsa4` and `tsa3`/`tsa4` are deeper classical work-budget baselines, not strict equal-cost matches.",
             "",
             "## Results",
@@ -1195,7 +1279,7 @@ def main():
                     relaxations = args.defect_relaxations if form == "defect2" else [1.0]
                     if form == "moment_defect2":
                         relaxations = args.defect_relaxations
-                    if form == "weighted_moment_tsa":
+                    if form in ("weighted_moment_tsa", "coeff_weighted_moment_tsa"):
                         relaxations = [1.0]
                     for relaxation in relaxations:
                         teacher_kind = args.teacher_kind if args.teacher_kind else base_kind
@@ -1232,6 +1316,21 @@ def main():
                             model = ModeWeightedMomentTSAPreconditioner(
                                 rte,
                                 moment_harmonics=args.moment_harmonics,
+                                weight_scale=args.moment_weight_scale,
+                            ).to(device)
+                        elif form == "coeff_weighted_moment_tsa":
+                            if str(base_kind).lower() not in (
+                                "transport_tsa_moment",
+                                "tsa_moment",
+                                "moment_tsa",
+                                "transport_moment_tsa",
+                            ):
+                                raise ValueError("coeff_weighted_moment_tsa requires --base-kinds transport_tsa_moment")
+                            model = CoeffWeightedMomentTSAPreconditioner(
+                                rte,
+                                moment_harmonics=args.moment_harmonics,
+                                width=args.width,
+                                blocks=max(1, args.levels),
                                 weight_scale=args.moment_weight_scale,
                             ).to(device)
                         else:
@@ -1271,6 +1370,8 @@ def main():
                             if form == "moment_defect2"
                             else f"WeightedTSA-M{args.moment_harmonics}"
                             if form == "weighted_moment_tsa"
+                            else f"CoeffWeightedTSA-M{args.moment_harmonics}"
+                            if form == "coeff_weighted_moment_tsa"
                             else f"UNet-{form}-w{relaxation:g}"
                         )
                         trained_models.append((model_label, model, history, residual_info))
@@ -1391,8 +1492,8 @@ def main():
                             "teacher_kind": (args.teacher_kind if args.teacher_kind else base_kind) if args.teacher_depth > 0 else "",
                             "teacher_relaxation": args.teacher_relaxation if args.teacher_depth > 0 else "",
                             "teacher_weight": args.teacher_weight,
-                            "moment_harmonics": args.moment_harmonics if getattr(precond, "form", "") in ("moment_defect2", "weighted_moment_tsa") else "",
-                            "moment_weight_scale": args.moment_weight_scale if getattr(precond, "form", "") == "weighted_moment_tsa" else "",
+                            "moment_harmonics": args.moment_harmonics if getattr(precond, "form", "") in ("moment_defect2", "weighted_moment_tsa", "coeff_weighted_moment_tsa") else "",
+                            "moment_weight_scale": args.moment_weight_scale if getattr(precond, "form", "") in ("weighted_moment_tsa", "coeff_weighted_moment_tsa") else "",
                             "fgmres_mode": args.fgmres_mode,
                         }
                         row.update(tol_metrics)
