@@ -13,6 +13,7 @@ if str(ROOT) not in sys.path:
 
 from rte.npbs_unet_ablation import (  # noqa: E402
     CoeffWeightedMomentTSAPreconditioner,
+    LearnedRPMomentTSAPreconditioner,
     MomentNPBSUNetPreconditioner,
     NPBSUNetPreconditioner,
     batch_l2_norm,
@@ -36,9 +37,18 @@ LOSS_MODES = {
     "metric_raw",
     "metric_rollout",
     "raw_rollout",
+    "raw_rollout_teacher",
     "metric_raw_rollout",
     "teacher",
+    "raw_teacher",
     "metric_raw_teacher",
+}
+
+CHECKPOINT_METRICS = {
+    "none": None,
+    "heldout_fgmres": ("heldout", "fgmres_final"),
+    "heldout_stationary": ("heldout", "stationary_final"),
+    "heldout_one_step_true": ("heldout", "one_step_true"),
 }
 
 
@@ -106,13 +116,75 @@ def loss_weights(loss_mode, physical_weight, rollout_weight, teacher_weight):
         return 1.0, 0.0, float(rollout_weight), 0.0, 0.0
     if loss_mode == "raw_rollout":
         return 0.0, 1.0, 0.0, float(rollout_weight), 0.0
+    if loss_mode == "raw_rollout_teacher":
+        return 0.0, 1.0, 0.0, float(rollout_weight), float(teacher_weight) if teacher_weight > 0.0 else 1.0
     if loss_mode == "metric_raw_rollout":
         return 1.0, float(physical_weight), float(rollout_weight), float(rollout_weight), 0.0
     if loss_mode == "teacher":
         return 0.0, 0.0, 0.0, 0.0, float(teacher_weight) if teacher_weight > 0.0 else 1.0
+    if loss_mode == "raw_teacher":
+        return 0.0, 1.0, 0.0, 0.0, float(teacher_weight) if teacher_weight > 0.0 else 1.0
     if loss_mode == "metric_raw_teacher":
         return 1.0, float(physical_weight), 0.0, 0.0, float(teacher_weight) if teacher_weight > 0.0 else 1.0
     raise ValueError(f"unknown loss mode: {loss_mode}")
+
+
+def checkpoint_score(eval_rows, selection):
+    if selection == "none":
+        return None
+    split, field = CHECKPOINT_METRICS[selection]
+    row = next(item for item in eval_rows if item["split"] == split)
+    return float(row[field])
+
+
+def resolve_scheduler_eta_min(lr, scheduler_eta_min, scheduler_min_lr_ratio):
+    if scheduler_eta_min is not None:
+        return float(scheduler_eta_min)
+    return float(lr) * float(scheduler_min_lr_ratio)
+
+
+def build_scheduler(
+    optimizer,
+    scheduler_name,
+    steps,
+    lr,
+    scheduler_step_size,
+    scheduler_gamma,
+    scheduler_eta_min,
+    scheduler_min_lr_ratio,
+    scheduler_pct_start,
+):
+    if scheduler_name == "none":
+        return None
+    if scheduler_name == "step":
+        step_size = scheduler_step_size if scheduler_step_size > 0 else max(1, steps // 3)
+        return torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size, gamma=scheduler_gamma)
+    if scheduler_name == "cosine":
+        return torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer,
+            T_max=max(1, steps),
+            eta_min=resolve_scheduler_eta_min(lr, scheduler_eta_min, scheduler_min_lr_ratio),
+        )
+    if scheduler_name == "onecycle":
+        if steps < 3:
+            return torch.optim.lr_scheduler.CosineAnnealingLR(
+                optimizer,
+                T_max=max(1, steps),
+                eta_min=resolve_scheduler_eta_min(lr, scheduler_eta_min, scheduler_min_lr_ratio),
+            )
+        min_lr_ratio = max(float(scheduler_min_lr_ratio), 1e-8)
+        div_factor = max(1.0, min_lr_ratio ** -0.5)
+        pct_start = min(max(float(scheduler_pct_start), 1.0 / steps), 1.0 - 1.0 / steps)
+        return torch.optim.lr_scheduler.OneCycleLR(
+            optimizer,
+            max_lr=float(lr),
+            total_steps=steps,
+            pct_start=pct_start,
+            anneal_strategy="cos",
+            div_factor=div_factor,
+            final_div_factor=div_factor,
+        )
+    raise ValueError(f"unknown scheduler: {scheduler_name}")
 
 
 def objective_components(
@@ -259,23 +331,33 @@ def make_model(args, rte, base_kind, tsa_harmonics):
             synthetic_relaxation=args.moment_synthetic_relaxation,
             freeze_scalar_weight=not args.learn_scalar_moment,
         )
+    if args.model_kind == "learned_rp_moment_tsa":
+        return LearnedRPMomentTSAPreconditioner(
+            rte,
+            moment_harmonics=args.moment_harmonics,
+            width=args.width,
+            blocks=max(1, args.levels),
+            weight_scale=args.moment_weight_scale,
+            transport_relaxation=args.moment_transport_relaxation,
+            synthetic_relaxation=args.moment_synthetic_relaxation,
+            freeze_scalar_weight=not args.learn_scalar_moment,
+        )
     raise ValueError(f"unknown model kind: {args.model_kind}")
 
 
-def train_harness(model, residuals, args, teacher_fn=None):
+def train_harness(model, residuals, args, teacher_fn=None, evaluator=None):
     optimizer = torch.optim.AdamW(model.parameters(), lr=args.lr, weight_decay=args.weight_decay)
-    scheduler = None
-    if args.scheduler == "step":
-        step_size = args.scheduler_step_size if args.scheduler_step_size > 0 else max(1, args.steps // 3)
-        scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size, gamma=args.scheduler_gamma)
-    elif args.scheduler == "cosine":
-        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-            optimizer,
-            T_max=max(1, args.steps),
-            eta_min=args.scheduler_eta_min,
-        )
-    elif args.scheduler != "none":
-        raise ValueError(f"unknown scheduler: {args.scheduler}")
+    scheduler = build_scheduler(
+        optimizer,
+        args.scheduler,
+        int(args.steps),
+        args.lr,
+        int(args.scheduler_step_size),
+        float(args.scheduler_gamma),
+        args.scheduler_eta_min,
+        args.scheduler_min_lr_ratio,
+        args.scheduler_pct_start,
+    )
 
     history = []
     initial_batch = residuals() if callable(residuals) else residuals
@@ -287,6 +369,22 @@ def train_harness(model, residuals, args, teacher_fn=None):
     initial["step"] = 0
     initial["lr"] = optimizer.param_groups[0]["lr"]
     history.append(initial)
+
+    checkpoint = None
+    if evaluator is not None and args.select_checkpoint != "none":
+        initial_eval = evaluator(model)
+        initial_score = checkpoint_score(initial_eval, args.select_checkpoint)
+        checkpoint = {
+            "metric": args.select_checkpoint,
+            "step": 0,
+            "score": initial_score,
+            "rows": initial_eval,
+        }
+        if args.verbose:
+            print(
+                f"eval {0:5d}/{args.steps} {args.select_checkpoint}={initial_score:.3e} "
+                f"best_step=0 best={initial_score:.3e}"
+            )
 
     start = time.perf_counter()
     for step in range(1, int(args.steps) + 1):
@@ -322,6 +420,22 @@ def train_harness(model, residuals, args, teacher_fn=None):
                     f"metric={scalars['metric_ratio']:.3e} raw={scalars['raw_ratio']:.3e} "
                     f"teacher={scalars['teacher_ratio']:.3e}"
                 )
+        if evaluator is not None and args.select_checkpoint != "none" and args.eval_every > 0:
+            if step == 1 or step == args.steps or step % args.eval_every == 0:
+                eval_rows = evaluator(model)
+                eval_score = checkpoint_score(eval_rows, args.select_checkpoint)
+                if checkpoint is None or eval_score < checkpoint["score"]:
+                    checkpoint = {
+                        "metric": args.select_checkpoint,
+                        "step": step,
+                        "score": eval_score,
+                        "rows": eval_rows,
+                    }
+                if args.verbose:
+                    print(
+                        f"eval {step:5d}/{args.steps} {args.select_checkpoint}={eval_score:.3e} "
+                        f"best_step={checkpoint['step']} best={checkpoint['score']:.3e}"
+                    )
 
     elapsed = time.perf_counter() - start
     if not history or history[-1].get("step") != args.steps:
@@ -334,7 +448,7 @@ def train_harness(model, residuals, args, teacher_fn=None):
         final["step"] = args.steps
         final["lr"] = optimizer.param_groups[0]["lr"]
         history.append(final)
-    return history, elapsed
+    return history, elapsed, checkpoint
 
 
 def evaluate_model(rte, model, train_source, heldout_source, base_kind, tsa_harmonics, args):
@@ -395,6 +509,8 @@ def write_rows(path, rows):
 
 def run(args):
     torch.manual_seed(args.seed)
+    if args.select_checkpoint != "none" and args.eval_every <= 0:
+        raise ValueError("--eval-every must be positive when --select-checkpoint is enabled")
     device = torch.device(args.device if args.device == "cpu" or torch.cuda.is_available() else "cpu")
     dtype = torch.float32
     if device.type == "cuda":
@@ -462,8 +578,24 @@ def run(args):
                 relaxation=args.teacher_relaxation,
             )
 
-    history, train_time = train_harness(model, residuals, args, teacher_fn=teacher_fn)
-    eval_rows = evaluate_model(rte, model, train_source, heldout_source, base_kind, tsa_harmonics, args)
+    evaluator = None
+    if args.select_checkpoint != "none":
+        def evaluator(current_model):
+            with torch.no_grad():
+                return evaluate_model(rte, current_model, train_source, heldout_source, base_kind, tsa_harmonics, args)
+
+    history, train_time, checkpoint = train_harness(model, residuals, args, teacher_fn=teacher_fn, evaluator=evaluator)
+    eval_rows = checkpoint["rows"] if checkpoint is not None else evaluate_model(
+        rte,
+        model,
+        train_source,
+        heldout_source,
+        base_kind,
+        tsa_harmonics,
+        args,
+    )
+    selected_step = checkpoint["step"] if checkpoint is not None else args.steps
+    selected_score = checkpoint["score"] if checkpoint is not None else ""
 
     summary_rows = []
     initial = history[0]
@@ -483,6 +615,16 @@ def run(args):
             "params": count_parameters(model),
             "steps": args.steps,
             "train_time": train_time,
+            "scheduler": args.scheduler,
+            "scheduler_step_size": args.scheduler_step_size,
+            "scheduler_gamma": args.scheduler_gamma,
+            "scheduler_eta_min": args.scheduler_eta_min,
+            "scheduler_min_lr_ratio": args.scheduler_min_lr_ratio,
+            "scheduler_pct_start": args.scheduler_pct_start,
+            "checkpoint_metric": args.select_checkpoint,
+            "checkpoint_eval_every": args.eval_every,
+            "selected_step": selected_step,
+            "selected_score": selected_score,
             "loss_initial": initial["loss"],
             "loss_final": final["loss"],
             "metric_initial": initial["metric_ratio"],
@@ -530,7 +672,7 @@ def main():
     parser.add_argument("--moment-harmonics", type=int, default=4)
     parser.add_argument(
         "--model-kind",
-        choices=["unet_residual", "unet_defect2", "moment_unet_defect2", "coeff_weighted_moment_tsa"],
+        choices=["unet_residual", "unet_defect2", "moment_unet_defect2", "coeff_weighted_moment_tsa", "learned_rp_moment_tsa"],
         default="unet_defect2",
     )
     parser.add_argument("--loss-mode", choices=sorted(LOSS_MODES), default="metric_raw_rollout")
@@ -547,10 +689,12 @@ def main():
     parser.add_argument("--steps", type=int, default=100)
     parser.add_argument("--lr", type=float, default=2e-3)
     parser.add_argument("--weight-decay", type=float, default=1e-4)
-    parser.add_argument("--scheduler", choices=["none", "step", "cosine"], default="step")
+    parser.add_argument("--scheduler", choices=["none", "step", "cosine", "onecycle"], default="cosine")
     parser.add_argument("--scheduler-step-size", type=int, default=0)
     parser.add_argument("--scheduler-gamma", type=float, default=0.5)
-    parser.add_argument("--scheduler-eta-min", type=float, default=1e-5)
+    parser.add_argument("--scheduler-eta-min", type=float, default=None)
+    parser.add_argument("--scheduler-min-lr-ratio", type=float, default=1e-2)
+    parser.add_argument("--scheduler-pct-start", type=float, default=0.1)
     parser.add_argument("--grad-clip", type=float, default=1.0)
     parser.add_argument("--physical-weight", type=float, default=0.5)
     parser.add_argument("--correction-weight", type=float, default=1e-6)
@@ -579,6 +723,8 @@ def main():
     parser.add_argument("--device", default="cuda:0" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--allow-tf32", action="store_true")
     parser.add_argument("--history-every", type=int, default=25)
+    parser.add_argument("--eval-every", type=int, default=0)
+    parser.add_argument("--select-checkpoint", choices=sorted(CHECKPOINT_METRICS), default="none")
     parser.add_argument("--output-csv", default="rte/npbs_bottleneck_harness.csv")
     parser.add_argument("--history-csv", default="rte/npbs_bottleneck_harness_history.csv")
     parser.add_argument("--verbose", action="store_true")

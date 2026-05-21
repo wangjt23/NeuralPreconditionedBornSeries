@@ -1332,6 +1332,57 @@ def objective_loss(
     return loss
 
 
+def resolve_scheduler_eta_min(lr, scheduler_eta_min, scheduler_min_lr_ratio):
+    if scheduler_eta_min is not None:
+        return float(scheduler_eta_min)
+    return float(lr) * float(scheduler_min_lr_ratio)
+
+
+def build_scheduler(
+    optimizer,
+    scheduler_name,
+    steps,
+    lr,
+    scheduler_step_size,
+    scheduler_gamma,
+    scheduler_eta_min,
+    scheduler_min_lr_ratio,
+    scheduler_pct_start,
+):
+    if scheduler_name == "none":
+        return None
+    if scheduler_name == "step":
+        step_size = int(scheduler_step_size) if int(scheduler_step_size) > 0 else max(1, int(steps) // 5)
+        return torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size, gamma=float(scheduler_gamma))
+    if scheduler_name == "cosine":
+        return torch.optim.lr_scheduler.CosineAnnealingLR(
+            optimizer,
+            T_max=max(1, int(steps)),
+            eta_min=resolve_scheduler_eta_min(lr, scheduler_eta_min, scheduler_min_lr_ratio),
+        )
+    if scheduler_name == "onecycle":
+        total_steps = int(steps)
+        if total_steps < 3:
+            return torch.optim.lr_scheduler.CosineAnnealingLR(
+                optimizer,
+                T_max=max(1, total_steps),
+                eta_min=resolve_scheduler_eta_min(lr, scheduler_eta_min, scheduler_min_lr_ratio),
+            )
+        min_lr_ratio = max(float(scheduler_min_lr_ratio), 1e-8)
+        div_factor = max(1.0, min_lr_ratio ** -0.5)
+        pct_start = min(max(float(scheduler_pct_start), 1.0 / total_steps), 1.0 - 1.0 / total_steps)
+        return torch.optim.lr_scheduler.OneCycleLR(
+            optimizer,
+            max_lr=float(lr),
+            total_steps=total_steps,
+            pct_start=pct_start,
+            anneal_strategy="cos",
+            div_factor=div_factor,
+            final_div_factor=div_factor,
+        )
+    raise ValueError(f"unsupported scheduler: {scheduler_name}")
+
+
 def train_model(
     model,
     residuals,
@@ -1341,7 +1392,9 @@ def train_model(
     scheduler_name="none",
     scheduler_step_size=0,
     scheduler_gamma=0.5,
-    scheduler_eta_min=0.0,
+    scheduler_eta_min=None,
+    scheduler_min_lr_ratio=1e-2,
+    scheduler_pct_start=0.1,
     log_steps=0,
     metric_weight=1.0,
     physical_weight=0.5,
@@ -1357,18 +1410,17 @@ def train_model(
     teacher_weight=0.0,
 ):
     optimizer = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
-    scheduler = None
-    if scheduler_name == "step":
-        step_size = int(scheduler_step_size) if int(scheduler_step_size) > 0 else max(1, int(steps) // 5)
-        scheduler = torch.optim.lr_scheduler.StepLR(optimizer, step_size=step_size, gamma=float(scheduler_gamma))
-    elif scheduler_name == "cosine":
-        scheduler = torch.optim.lr_scheduler.CosineAnnealingLR(
-            optimizer,
-            T_max=max(1, int(steps)),
-            eta_min=float(scheduler_eta_min),
-        )
-    elif scheduler_name != "none":
-        raise ValueError(f"unsupported scheduler: {scheduler_name}")
+    scheduler = build_scheduler(
+        optimizer,
+        scheduler_name,
+        steps,
+        lr,
+        scheduler_step_size,
+        scheduler_gamma,
+        scheduler_eta_min,
+        scheduler_min_lr_ratio,
+        scheduler_pct_start,
+    )
 
     history = {"loss": [], "lr": []}
     total_steps = int(steps)
@@ -1565,10 +1617,12 @@ def main():
     parser.add_argument("--steps", type=int, default=100)
     parser.add_argument("--lr", type=float, default=2e-3)
     parser.add_argument("--weight-decay", type=float, default=0.0)
-    parser.add_argument("--scheduler", choices=["none", "step", "cosine"], default="none")
+    parser.add_argument("--scheduler", choices=["none", "step", "cosine", "onecycle"], default="cosine")
     parser.add_argument("--scheduler-step-size", type=int, default=0)
     parser.add_argument("--scheduler-gamma", type=float, default=0.5)
-    parser.add_argument("--scheduler-eta-min", type=float, default=1e-5)
+    parser.add_argument("--scheduler-eta-min", type=float, default=None)
+    parser.add_argument("--scheduler-min-lr-ratio", type=float, default=1e-2)
+    parser.add_argument("--scheduler-pct-start", type=float, default=0.1)
     parser.add_argument("--log-steps", type=int, default=0)
     parser.add_argument("--residual-mode", choices=["pool", "resample"], default="pool")
     parser.add_argument("--residuals-per-step", type=int, default=16)
@@ -1827,6 +1881,8 @@ def main():
                             scheduler_step_size=args.scheduler_step_size,
                             scheduler_gamma=args.scheduler_gamma,
                             scheduler_eta_min=args.scheduler_eta_min,
+                            scheduler_min_lr_ratio=args.scheduler_min_lr_ratio,
+                            scheduler_pct_start=args.scheduler_pct_start,
                             log_steps=args.log_steps,
                             metric_weight=args.metric_weight,
                             physical_weight=args.physical_weight,
@@ -1964,6 +2020,8 @@ def main():
                             "scheduler_step_size": args.scheduler_step_size,
                             "scheduler_gamma": args.scheduler_gamma,
                             "scheduler_eta_min": args.scheduler_eta_min,
+                            "scheduler_min_lr_ratio": args.scheduler_min_lr_ratio,
+                            "scheduler_pct_start": args.scheduler_pct_start,
                             "metric_weight": args.metric_weight,
                             "physical_weight": args.physical_weight,
                             "correction_weight": args.correction_weight,
