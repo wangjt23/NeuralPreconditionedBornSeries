@@ -12,10 +12,12 @@ if str(ROOT) not in sys.path:
     sys.path.insert(0, str(ROOT))
 
 from rte.npbs_unet_ablation import (  # noqa: E402
+    CoeffMixedMomentTSAPreconditioner,
     CoeffWeightedMomentTSAPreconditioner,
     LearnedRPMomentTSAPreconditioner,
     MomentNPBSUNetPreconditioner,
     NPBSUNetPreconditioner,
+    ResidualSubspaceMomentTSAPreconditioner,
     batch_l2_norm,
     collect_residuals_from_sources,
     effective_tsa_harmonics,
@@ -78,7 +80,7 @@ def count_parameters(model):
 
 
 def damped_moment_reference_apply(model, residual):
-    """Fixed damped TSA-MK map matching CoeffWeightedTSA initialization."""
+    """Fixed damped TSA-MK map matching the structured moment initializations."""
     rte = model.rte
     transport = rte.transport_preconditioner(residual)
     remaining = residual - rte.A_op(transport)
@@ -95,8 +97,8 @@ def metric_apply(model, residual, metric_map):
     if metric_map == "forward":
         return model(residual)
     if metric_map == "damped_moment":
-        if not isinstance(model, CoeffWeightedMomentTSAPreconditioner):
-            raise ValueError("--metric-map damped_moment only applies to CoeffWeightedTSA")
+        if not hasattr(model, "moment_harmonics"):
+            raise ValueError("--metric-map damped_moment only applies to moment TSA models")
         return damped_moment_reference_apply(model, residual)
     raise ValueError(f"unknown metric map: {metric_map}")
 
@@ -331,8 +333,30 @@ def make_model(args, rte, base_kind, tsa_harmonics):
             synthetic_relaxation=args.moment_synthetic_relaxation,
             freeze_scalar_weight=not args.learn_scalar_moment,
         )
+    if args.model_kind == "coeff_mixed_moment_tsa":
+        return CoeffMixedMomentTSAPreconditioner(
+            rte,
+            moment_harmonics=args.moment_harmonics,
+            width=args.width,
+            blocks=max(1, args.levels),
+            weight_scale=args.moment_weight_scale,
+            transport_relaxation=args.moment_transport_relaxation,
+            synthetic_relaxation=args.moment_synthetic_relaxation,
+            freeze_scalar_weight=not args.learn_scalar_moment,
+        )
     if args.model_kind == "learned_rp_moment_tsa":
         return LearnedRPMomentTSAPreconditioner(
+            rte,
+            moment_harmonics=args.moment_harmonics,
+            width=args.width,
+            blocks=max(1, args.levels),
+            weight_scale=args.moment_weight_scale,
+            transport_relaxation=args.moment_transport_relaxation,
+            synthetic_relaxation=args.moment_synthetic_relaxation,
+            freeze_scalar_weight=not args.learn_scalar_moment,
+        )
+    if args.model_kind == "residual_subspace_moment_tsa":
+        return ResidualSubspaceMomentTSAPreconditioner(
             rte,
             moment_harmonics=args.moment_harmonics,
             width=args.width,
@@ -694,7 +718,15 @@ def main():
     parser.add_argument("--moment-harmonics", type=int, default=4)
     parser.add_argument(
         "--model-kind",
-        choices=["unet_residual", "unet_defect2", "moment_unet_defect2", "coeff_weighted_moment_tsa", "learned_rp_moment_tsa"],
+        choices=[
+            "unet_residual",
+            "unet_defect2",
+            "moment_unet_defect2",
+            "coeff_weighted_moment_tsa",
+            "coeff_mixed_moment_tsa",
+            "learned_rp_moment_tsa",
+            "residual_subspace_moment_tsa",
+        ],
         default="unet_defect2",
     )
     parser.add_argument("--loss-mode", choices=sorted(LOSS_MODES), default="metric_raw_rollout")
