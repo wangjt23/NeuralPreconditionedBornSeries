@@ -146,22 +146,23 @@ physical one-step residual training.
 the structured moment models with raw one-step physical residual losses.
 
 For the physical-loss size-64 moment-structure run, the one-step residual on
-the training source and on the heldout source was:
+the training source and on the heldout source is as follows.  The column
+`Heldout Phys Loss` means `one_step_true^2` on the heldout source.
 
-| Case | Method | Train One-Step | Heldout One-Step | Heldout Stat | Heldout FGMRES | Loss Change |
-|---|---:|---:|---:|---:|---:|---:|
-| anisotropic | `tsa_moment1-w0.4` | `0.6564` | `0.6559` | `1.11e-5` | `1.27e-5` | |
-| anisotropic | `tsa_moment4-w0.4` | `0.2613` | `0.2604` | `1.22e-5` | `1.25e-5` | |
-| anisotropic | `CoeffWeightedTSA-M4` | `0.6255` | `0.6249` | `1.04e-5` | `1.29e-5` | `+0.5%` |
-| anisotropic | `CoeffMixedTSA-M4` | `0.6034` | `0.6066` | `1.06e-5` | `1.24e-5` | `+0.6%` |
-| anisotropic | `LearnedRP-TSA-M4` | `0.5693` | `0.5753` | `1.06e-5` | `1.30e-5` | `-6.9%` |
-| anisotropic | `ResidualSubspaceTSA-M4` | `0.5839` | `0.5988` | `9.78e-6` | `1.25e-5` | `-8.8%` |
-| mixed | `tsa_moment1-w0.4` | `0.6948` | `0.6476` | `2.89e-3` | `1.97e-5` | |
-| mixed | `tsa_moment4-w0.4` | `0.2990` | `0.2440` | `1.30e-5` | `7.32e-6` | |
-| mixed | `CoeffWeightedTSA-M4` | `0.6479` | `0.6024` | `2.96e-3` | `1.93e-5` | `-2.3%` |
-| mixed | `CoeffMixedTSA-M4` | `0.5720` | `0.5910` | `3.41e-3` | `4.29e-5` | `-3.8%` |
-| mixed | `LearnedRP-TSA-M4` | `0.5186` | `0.5000` | `3.42e-3` | `3.21e-4` | `-2.9%` |
-| mixed | `ResidualSubspaceTSA-M4` | `0.5865` | `0.5879` | `1.32e-1` | `1.23e-4` | `-2.6%` |
+| Case | Method | Train One-Step | Heldout One-Step | Heldout Phys Loss | Heldout Stat | Heldout FGMRES | Sampled Train Loss Change |
+|---|---:|---:|---:|---:|---:|---:|---:|
+| anisotropic | `tsa_moment1-w0.4` | `0.6564` | `0.6559` | `0.4303` | `1.11e-5` | `1.27e-5` | |
+| anisotropic | `tsa_moment4-w0.4` | `0.2613` | `0.2604` | `0.0678` | `1.22e-5` | `1.25e-5` | |
+| anisotropic | `CoeffWeightedTSA-M4` | `0.6255` | `0.6249` | `0.3905` | `1.04e-5` | `1.29e-5` | `+0.5%` |
+| anisotropic | `CoeffMixedTSA-M4` | `0.6034` | `0.6066` | `0.3680` | `1.06e-5` | `1.24e-5` | `+0.6%` |
+| anisotropic | `LearnedRP-TSA-M4` | `0.5693` | `0.5753` | `0.3310` | `1.06e-5` | `1.30e-5` | `-6.9%` |
+| anisotropic | `ResidualSubspaceTSA-M4` | `0.5839` | `0.5988` | `0.3586` | `9.78e-6` | `1.25e-5` | `-8.8%` |
+| mixed | `tsa_moment1-w0.4` | `0.6948` | `0.6476` | `0.4194` | `2.89e-3` | `1.97e-5` | |
+| mixed | `tsa_moment4-w0.4` | `0.2990` | `0.2440` | `0.0595` | `1.30e-5` | `7.32e-6` | |
+| mixed | `CoeffWeightedTSA-M4` | `0.6479` | `0.6024` | `0.3628` | `2.96e-3` | `1.93e-5` | `-2.3%` |
+| mixed | `CoeffMixedTSA-M4` | `0.5720` | `0.5910` | `0.3493` | `3.41e-3` | `4.29e-5` | `-3.8%` |
+| mixed | `LearnedRP-TSA-M4` | `0.5186` | `0.5000` | `0.2500` | `3.42e-3` | `3.21e-4` | `-2.9%` |
+| mixed | `ResidualSubspaceTSA-M4` | `0.5865` | `0.5879` | `0.3456` | `1.32e-1` | `1.23e-4` | `-2.6%` |
 
 This table is the most important structured-model evidence.  The learned
 models do improve the training-source one-step residual.  For the mixed case,
@@ -211,6 +212,41 @@ moment TSA:
 This means the current rollout/stability penalties are not enough.  They
 penalize some local contraction behavior, but they do not force the learned
 operator to have the right spectrum as a preconditioner inside FGMRES.
+
+### May 22 Remote Update: Checkpointing And Identity Anchor
+
+The remote update adds an identity-anchor regularizer for `LearnedRP-TSA-M4`.
+For batch size `B`, it computes the learned restriction/prolongation matrices
+and penalizes their mean squared distance from the identity:
+
+`L_id = 0.5 mean((R_theta - I)^2) + 0.5 mean((P_theta - I)^2)`.
+
+The bottleneck harness objective can now add `identity_weight * L_id`.  The
+new remote CSVs also evaluate checkpoint selection by heldout FGMRES.  These
+runs use mixed size 64 and raw-rollout-teacher loss with teacher weight `0.5`.
+
+The new results show a clear stability/performance tradeoff:
+
+| Run | Selected Step | Identity Weight | Sampled Train Loss | Train One-Step | Heldout One-Step | Heldout Phys Loss | Heldout FGMRES | Interpretation |
+|---|---:|---:|---:|---:|---:|---:|---:|---|
+| older uncheckpointed 3000-step | final | | `1.1148 -> 1.0781` | `0.5215` | `0.5016` | `0.2516` | `1.91e-4` | Best one-step, poor Krylov. |
+| cosine checkpoint | `1` | | `1.1243 -> 1.0778` | `0.6943` | `0.6473` | `0.4190` | `1.96e-5` | Checkpointing keeps initial-like stable model. |
+| onecycle checkpoint | `1` | | `1.1196 -> 1.0740` | `0.6948` | `0.6476` | `0.4193` | `1.96e-5` | Same stability but no useful learning selected. |
+| low-lr onecycle checkpoint | `1` | `0` | `1.1253 -> 1.0824` | `0.6948` | `0.6476` | `0.4194` | `1.97e-5` | Low LR alone does not fix selection. |
+| low-lr anchor `1e-3` | `0` | `0.001` | `1.1130 -> 1.0780` | `0.6948` | `0.6476` | `0.4194` | `1.97e-5` | Anchor too weak/selection remains initial. |
+| diverse low-lr anchor `3e-3` | `1` | `0.003` | `1.1261 -> 1.1059` | `0.6948` | `0.6476` | `0.4194` | `1.96e-5` | Still initial-like. |
+| diverse low-lr anchor `5e-3` | `100` | `0.005` | `1.1367 -> 1.1045` | `0.6753` | `0.6239` | `0.3893` | `1.91e-5` | Best stable learned movement so far. |
+| diverse low-lr anchor `1e-2` | `100` | `0.01` | `1.1260 -> 1.0984` | `0.6804` | `0.6250` | `0.3906` | `1.94e-5` | Stable, but smaller one-step gain. |
+| diverse long anchor `1e-2` | `200` | `0.01` | `1.1338 -> 1.0990` | `0.6854` | `0.6359` | `0.4043` | `1.94e-5` | Longer training does not improve the selected tradeoff. |
+
+The important change is not that the anchored model beats classical TSA; it
+does not.  The useful result is that identity anchoring plus heldout-FGMRES
+checkpointing can prevent the severe Krylov degradation.  However, the selected
+stable checkpoints mostly stay close to the initial damped moment step.  The
+best stable movement in this batch is anchor `5e-3` at step `100`, which
+improves heldout physical loss from `0.4194` to `0.3893` while keeping FGMRES
+near `1.91e-5`.  This is still far from `tsa_moment4-w0.4`, whose heldout
+physical loss is about `0.0595` and FGMRES is `7.32e-6`.
 
 ### Generic Defect Network Evidence
 
@@ -308,6 +344,13 @@ simple generalization failure.  The dominant failure is operator quality: the
 learned map is not yet a stable approximation to a deeper synthetic
 acceleration operator.
 
+The May 22 checkpoint/anchor update sharpens the diagnosis.  The training
+objective can reduce sampled raw/metric/teacher ratios, but the FGMRES-selected
+checkpoint often occurs at step `0` or `1`.  That means the optimizer quickly
+finds directions that improve the local one-step objective while hurting the
+global preconditioned Krylov spectrum.  The identity penalty stabilizes this
+movement, but also suppresses most useful correction.
+
 ## Current Ranking
 
 1. `LearnedRP-TSA-M4` is the most promising structured moment candidate.  It
@@ -343,12 +386,25 @@ candidate angular space and learn a low-dimensional subspace inside it:
 
 The most useful immediate experiments are:
 
-- `LearnedRP-TSA-M4`: raw physical residual only versus raw rollout/stability
-  versus raw rollout plus damped deep teacher, with checkpoint selection.
+- `LearnedRP-TSA-M4`: keep identity anchoring, but select by a composite
+  criterion such as heldout FGMRES plus heldout physical one-step loss.  Pure
+  heldout-FGMRES selection is too conservative and selects almost-initial
+  models.
+- Run a continuation schedule: start with a strong identity anchor
+  (`5e-3` to `1e-2`), then gradually reduce it only if heldout FGMRES remains
+  below a fixed safety threshold.
+- Add a preconditioned-spectrum proxy to training.  Practical cheap options
+  are two- or three-step physical rollout, random Rayleigh/power probes of
+  `I - A_h B_theta`, and penalties on growth of `||r_k||/||r_0||` over
+  multiple random residuals.
 - `ResidualSubspaceTSA-M4`: repeat with stronger damping, smaller
-  `moment_weight_scale`, and checkpointing by heldout FGMRES.
+  `moment_weight_scale`, identity-like matrix penalties, and checkpointing by
+  composite FGMRES/one-step score.  It should not be trained freely on the hard
+  mixed case.
 - New candidate-space learned R/P: compare against `tsa_moment4-w0.4`,
-  `tsa_moment6-w0.4`, and full-angular `UNet-defect2`.
+  `tsa_moment6-w0.4`, and full-angular `UNet-defect2`.  This is the most
+  important architectural next step because existing learned R/P only changes
+  maps inside fixed `Q_K`.
 
 The success criterion should be strict: a candidate must lower heldout one-step
 error without making stationary iteration or FGMRES worse.  Large training-loss
