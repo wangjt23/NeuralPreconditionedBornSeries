@@ -203,6 +203,7 @@ def objective_components(
     correction_weight=1e-6,
     teacher_fn=None,
     teacher_weight=1.0,
+    identity_weight=0.0,
 ):
     residual = ensure_residual_batch(residuals)
     metric_w, raw_w, rollout_metric_w, rollout_raw_w, teacher_w = loss_weights(
@@ -228,6 +229,8 @@ def objective_components(
         loss = loss + raw_w * physical_ratio.square().mean()
     if correction_weight:
         loss = loss + float(correction_weight) * correction_ratio.square().mean()
+    if identity_weight > 0.0 and hasattr(model, "identity_penalty"):
+        loss = loss + float(identity_weight) * model.identity_penalty(residual.shape[0], residual.device)
 
     rollout_metric_values = []
     rollout_raw_values = []
@@ -389,7 +392,7 @@ def train_harness(model, residuals, args, teacher_fn=None, evaluator=None):
         _, initial = objective_components(model, initial_batch, args.loss_mode, args.metric_map, args.physical_weight,
                                           args.rollout_weight, args.rollout_steps, args.rollout_decay,
                                           args.stability_weight, args.contraction_target, args.correction_weight,
-                                          teacher_fn, args.teacher_weight)
+                                          teacher_fn, args.teacher_weight, args.identity_weight)
     initial["step"] = 0
     initial["lr"] = optimizer.param_groups[0]["lr"]
     history.append(initial)
@@ -428,6 +431,7 @@ def train_harness(model, residuals, args, teacher_fn=None, evaluator=None):
             correction_weight=args.correction_weight,
             teacher_fn=teacher_fn,
             teacher_weight=args.teacher_weight,
+            identity_weight=args.identity_weight,
         )
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), args.grad_clip)
@@ -468,7 +472,7 @@ def train_harness(model, residuals, args, teacher_fn=None, evaluator=None):
             _, final = objective_components(model, current, args.loss_mode, args.metric_map, args.physical_weight,
                                             args.rollout_weight, args.rollout_steps, args.rollout_decay,
                                             args.stability_weight, args.contraction_target, args.correction_weight,
-                                            teacher_fn, args.teacher_weight)
+                                            teacher_fn, args.teacher_weight, args.identity_weight)
         final["step"] = args.steps
         final["lr"] = optimizer.param_groups[0]["lr"]
         history.append(final)
@@ -650,6 +654,7 @@ def run(args):
             "teacher_harmonics": args.teacher_harmonics,
             "teacher_relaxation": args.teacher_relaxation,
             "teacher_weight": args.teacher_weight,
+            "identity_weight": args.identity_weight,
             "rollout_weight": args.rollout_weight,
             "rollout_steps": args.rollout_steps,
             "rollout_decay": args.rollout_decay,
@@ -762,6 +767,7 @@ def main():
     parser.add_argument("--teacher-harmonics", type=int, default=None)
     parser.add_argument("--teacher-relaxation", type=float, default=1.0)
     parser.add_argument("--teacher-weight", type=float, default=1.0)
+    parser.add_argument("--identity-weight", type=float, default=0.0)
     parser.add_argument("--residual-mode", choices=["pool", "resample"], default="resample")
     parser.add_argument("--residuals-per-step", type=int, default=64)
     parser.add_argument("--rollout-samples-per-step", type=int, default=32)

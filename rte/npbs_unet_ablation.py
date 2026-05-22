@@ -671,6 +671,13 @@ class LearnedRPMomentTSAPreconditioner(nn.Module):
                 matrix[:, 1:, 0, :, :] = 0.0
         return restrict_matrix, prolong_matrix
 
+    def identity_penalty(self, batch_size, device):
+        restrict_matrix, prolong_matrix = self.rp_matrices(batch_size, device)
+        eye = torch.eye(self.n_moments, dtype=restrict_matrix.dtype, device=device).view(1, self.n_moments, self.n_moments, 1, 1)
+        restrict_penalty = (restrict_matrix - eye).square().mean()
+        prolong_penalty = (prolong_matrix - eye).square().mean()
+        return 0.5 * (restrict_penalty + prolong_penalty)
+
     def base(self, residual):
         return self.rte.apply_preconditioner(
             residual,
