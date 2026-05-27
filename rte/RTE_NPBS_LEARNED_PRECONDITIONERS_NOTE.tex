@@ -1,0 +1,1036 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage{amsmath,amssymb,bm}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  urlcolor=blue!55!black,
+  citecolor=blue!55!black
+}
+
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\angles}{N_{\Omega}}
+\newcommand{\om}{\Omega}
+\newcommand{\Ah}{A_h}
+\newcommand{\Bh}{B_h}
+\newcommand{\Geta}{G_\eta}
+\newcommand{\QK}{Q_K}
+
+\title{Base and Learned NPBS Preconditioners for the Periodic RTE Prototype}
+\author{Project note assembled from repository audits and ablation discussions}
+\date{May 26, 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note records the mathematical model, discretization, classical
+preconditioners, learned variants, training losses, diagnostics, and current
+experimental conclusions for the radiative-transfer-equation (RTE) part of the
+Neural Preconditioned Born Series (NPBS) repository.  It is intended to be
+self-contained enough that a new researcher can continue the small-scale laptop
+experiments without reconstructing the notation from code and chat history.
+
+The current RTE prototype is a periodic two-dimensional discrete-ordinates
+model with pseudo-spectral spatial differentiation.  The strongest learned
+result so far is a full-angular \code{UNet-defect2} model trained by physical
+one-step residual loss: it can nearly match a deeper classical full-TSA
+correction on the hard mixed case.  The structured moment-space models
+(\code{CoeffWeightedTSA}, \code{CoeffMixedTSA}, \code{LearnedRP-TSA}, and
+\code{ResidualSubspaceTSA}) show that mode coupling and learned
+restriction/prolongation can reduce one-step residuals, but the same learned
+maps can damage FGMRES convergence.  The most important next direction is a
+stabilized learned angular subspace architecture: learn restriction and
+prolongation from a larger candidate angular space, preserve the scalar mode,
+control the operator norm, and checkpoint by Krylov behavior rather than only
+by one-step residual loss.
+\end{abstract}
+
+\section{Repository map}
+
+The RTE code path used in the NPBS experiments is concentrated in the following
+files.
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.34\linewidth}
+                >{\raggedright\arraybackslash}p{0.58\linewidth}}
+\toprule
+File & Role \\
+\midrule
+\path{rte/models.py}
+& Defines \code{PeriodicRTE2D}: the periodic discrete-ordinates operator,
+FFT streaming, reference inverse, DSA/TSA synthetic corrections, Richardson,
+and FGMRES-facing preconditioner application. \\
+\path{rte/run_hard_case_experiments.py}
+& Defines the benchmark coefficient fields and sources for the four hard
+cases: \code{diffusive}, \code{heterogeneous}, \code{anisotropic}, and
+\code{mixed}. \\
+\path{rte/npbs_unet_ablation.py}
+& Main ablation runner for U-Net and moment-space learned preconditioners;
+contains \code{UNet-residual}, \code{UNet-defect2}, \code{MomentUNet},
+\code{CoeffWeightedTSA}, \code{CoeffMixedTSA}, \code{LearnedRP-TSA}, and
+\code{ResidualSubspaceTSA}. \\
+\path{rte/npbs_bottleneck_harness.py}
+& Targeted harness for bottleneck experiments: loss modes, teacher terms,
+identity anchoring, checkpointing by heldout metrics, and mode-expressivity
+diagnostics. \\
+\path{rte/NPBS_MODE_SUBSPACE_ARCHITECTURE_ASSESSMENT.md}
+& Current narrative assessment of mode/subspace architectures and checkpoint
+experiments. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The older \path{rte/mgRTE_ablation} path contains experiments for the attached
+ATFPS-style multigrid model.  The present note intentionally focuses on the
+NPBS-native periodic pseudo-spectral prototype, because the current research
+question is about a learned preconditioner based on NPBS rather than a separate
+ATFPS discretization.
+
+\section{Continuous RTE model}
+
+The steady mono-energetic transport equation in two spatial dimensions is
+written as
+\begin{equation}
+  \om\cdot \nabla_x \psi(x,\om)
+  + \sigma_t(x)\psi(x,\om)
+  - \sigma_s(x)\int_{\mathbb{S}^1} p(\om,\om')\psi(x,\om')\,\dd\om'
+  = q(x,\om),
+  \label{eq:continuous-rte}
+\end{equation}
+where \(x\in [0,1)^2\) is periodic in the current prototype,
+\(\om\in\mathbb{S}^1\) is the angular direction, \(\sigma_t>0\) is total
+cross section, \(\sigma_s\ge 0\) is scattering cross section, and
+\(\sigma_s<\sigma_t\) is enforced in the verifier.  The scalar flux is
+\begin{equation}
+  \phi(x)=\int_{\mathbb{S}^1}\psi(x,\om)\,\dd\om.
+\end{equation}
+The hard regimes for RTE preconditioning are not only high contrast.  The
+difficult cases are produced by combinations of
+\begin{itemize}
+  \item high albedo, where \(\sigma_s/\sigma_t \approx 1\) and the system has
+  slow diffusive error modes;
+  \item forward-peaked anisotropic scattering, where low scalar moments are not
+  enough to represent the important angular error;
+  \item mixed optically thin and optically thick regions, where streaming and
+  diffusion coexist and one local acceleration mechanism is not uniformly
+  correct;
+  \item strong coefficient variation, where a constant reference inverse can be
+  a poor global model;
+  \item non-normality, where a one-step residual contraction can coexist with
+  poor Krylov convergence.
+\end{itemize}
+
+\section{Discrete ordinates and periodic pseudo-spectral discretization}
+
+The code uses uniform angular quadrature with \(\angles\) directions
+\begin{equation}
+  \theta_\ell = \frac{2\pi \ell}{\angles},\qquad
+  \om_\ell=(\cos\theta_\ell,\sin\theta_\ell),\qquad
+  w_\ell=\frac{1}{\angles},
+  \qquad \ell=0,\ldots,\angles-1.
+\end{equation}
+The unknown is stored as
+\[
+  \psi_h \in \C^{B\times \angles\times n_x\times n_y},
+\]
+with batch dimension \(B\).  The discrete scattering term is
+\begin{equation}
+  (\mathcal{S}_h\psi)_\ell(x_i)
+  =
+  \sigma_s(x_i)\sum_{m=0}^{\angles-1}w_m p_{\ell m}\psi_m(x_i).
+\end{equation}
+For \(g=0\), \(p_{\ell m}=1\), giving isotropic scattering.  For \(g\ne 0\),
+the code uses a circular Henyey--Greenstein-like kernel
+\begin{equation}
+  \tilde p_{\ell m}
+  =
+  \frac{1-g^2}{1-2g\cos(\theta_\ell-\theta_m)+g^2},
+  \qquad
+  p_{\ell m}
+  =
+  \frac{\tilde p_{\ell m}}
+       {\sum_m w_m\tilde p_{\ell m}},
+\end{equation}
+so every angular row is quadrature-normalized.
+
+On the periodic grid with spacing \(h=1/n_x=1/n_y\), spatial derivatives are
+applied spectrally.  If \(\widehat{\psi}_\ell(k)\) denotes the two-dimensional
+FFT coefficient, then
+\begin{equation}
+  \widehat{\om_\ell\cdot\nabla_h\psi_\ell}(k)
+  =
+  \ii(\om_{\ell,x}k_x+\om_{\ell,y}k_y)\widehat{\psi}_\ell(k),
+\end{equation}
+where \(k_x,k_y\) are generated by \code{torch.fft.fftfreq}.  Therefore the
+discrete system is
+\begin{equation}
+  \Ah \psi = q,
+  \qquad
+  (\Ah\psi)_\ell
+  =
+  \om_\ell\cdot\nabla_h \psi_\ell
+  +\sigma_t\psi_\ell
+  -\sigma_s\sum_m w_m p_{\ell m}\psi_m .
+  \label{eq:discrete-A}
+\end{equation}
+
+This is a convenient NPBS testbed, but it is not yet a production transport
+discretization with inflow/vacuum boundaries, upwinding, or positivity
+preservation.  Conclusions about learned preconditioner structure are useful,
+but conclusions about production RTE boundary treatment require a separate
+boundary-compatible discretization.
+
+\section{Reference split and Born identity}
+
+The reference transport operator is
+\begin{equation}
+  L_{\eta,\ell}
+  =
+  \om_\ell\cdot\nabla_h + \sigma_0,
+  \qquad
+  \sigma_0=\sigma_{\rm ref}+\eta.
+\end{equation}
+In the code,
+\begin{equation}
+  \sigma_{\rm ref}
+  =
+  \begin{cases}
+    \operatorname{mean}_x\sigma_t(x), & \text{default},\\
+    \text{user supplied constant}, & \text{optional},
+  \end{cases}
+\end{equation}
+and
+\begin{equation}
+  \eta
+  =
+  \eta_{\rm floor}
+  +
+  \eta_{\rm scale}\,
+  \max_x\left(|\sigma_t(x)-\sigma_{\rm ref}|+|\sigma_s(x)|\right).
+\end{equation}
+The inverse \(\Geta=L_\eta^{-1}\) is diagonal in spatial Fourier variables:
+\begin{equation}
+  \widehat{(\Geta r)_\ell}(k)
+  =
+  \frac{\widehat r_\ell(k)}
+       {\ii(\om_{\ell,x}k_x+\om_{\ell,y}k_y)+\sigma_0}.
+  \label{eq:Geta}
+\end{equation}
+Define \(V_\eta=L_\eta-\Ah\).  Then
+\begin{equation}
+  \Geta\Ah
+  =
+  I-\Geta V_\eta.
+\end{equation}
+The classical Born/Richardson error propagator is \(I-\Geta\Ah=\Geta V_\eta\).
+The preconditioning question is how to replace \(\Geta\) by a stronger but
+still cheap \(\Bh\) so that \(I-\Ah\Bh\) is small enough for stationary
+iteration or has a favorable spectrum for FGMRES.
+
+\section{Classical base preconditioners}
+
+\subsection{Transport/Born preconditioner}
+
+The simplest NPBS/RTE preconditioner is the shifted reference transport inverse
+\begin{equation}
+  B_{\rm tr}r=\Geta r.
+\end{equation}
+This is the direct analogue of using the shifted background Green operator in
+the Helmholtz NPBS/Born method.  It is matrix-free and FFT-applied.
+
+\subsection{DSA-style synthetic acceleration}
+
+Diffusion synthetic acceleration (DSA) adds a low-order diffusion correction to
+the residual left by the reference transport step:
+\begin{align}
+  z_t &= \Geta r,\\
+  s &= r-\Ah z_t,\\
+  \left(-D_{\rm ref}\Delta_h+\sigma_{a,\rm ref}\right)\delta\phi
+    &= \Phi(s),\\
+  B_{\rm DSA}r &= z_t+\mathcal{L}(\delta\phi).
+\end{align}
+Here \(\Phi(s)=\sum_\ell w_\ell s_\ell\) is scalar angular averaging, and
+\(\mathcal{L}\) lifts a scalar correction back to the angular unknown.  In the
+current periodic prototype,
+\[
+  D_{\rm ref}=\frac{1}{2\sigma_{\rm ref}},
+  \qquad
+  \sigma_{a,\rm ref}=\sigma_{\rm ref}-\sigma_{s,\rm ref},
+\]
+with coefficient floors for numerical safety.  The diffusion solve is also
+periodic and FFT-based.  This DSA is therefore a synthetic low-order
+preconditioner in the periodic NPBS testbed; it is not the full transport DSA
+theory for upwind/inflow boundary discretizations.
+
+\subsection{TSA-style synthetic acceleration}
+
+Transport synthetic acceleration (TSA) replaces the diffusion correction by a
+reference transport-scattering solve.  Let \(A_{\rm ref}\) be the constant
+coefficient reference transport-scattering operator,
+\begin{equation}
+  (A_{\rm ref}u)_\ell
+  =
+  \om_\ell\cdot\nabla_h u_\ell
+  +\sigma_{\rm ref}u_\ell
+  -\sigma_{s,\rm ref}\sum_m w_m p_{\ell m}u_m .
+\end{equation}
+The full-angular TSA correction is
+\begin{equation}
+  B_{\rm TSA}r
+  =
+  \Geta r + A_{\rm ref}^{-1}(r-\Ah\Geta r).
+  \label{eq:full-tsa}
+\end{equation}
+Because \(A_{\rm ref}\) has constant spatial coefficients and periodic
+boundaries, it is block diagonal in spatial Fourier variables.  The code can
+therefore apply \(A_{\rm ref}^{-1}\) by small dense angular solves per Fourier
+mode.
+
+\subsection{Moment TSA}
+
+Moment TSA uses angular Fourier modes
+\[
+  \operatorname{range}(\QK)=\operatorname{span}\{0,\pm 1,\ldots,\pm K\}.
+\]
+The correction is
+\begin{equation}
+  B_{{\rm MTSA},K}r
+  =
+  \Geta r
+  +
+  \QK(\QK^*A_{\rm ref}\QK)^{-1}\QK^*(r-\Ah\Geta r).
+  \label{eq:moment-tsa}
+\end{equation}
+This is cheaper than full TSA and is the natural base for learned angular
+subspace experiments.
+
+\paragraph{Important naming convention.}
+The repository uses two different notions of ``4'':
+\begin{itemize}
+  \item \code{tsa4}, \code{dsa4}, or a baseline depth of \(4\) means four
+  residual-correction applications of the selected base method:
+  \(z\leftarrow z+\omega B_0(r-\Ah z)\) repeated four times.
+  \item \code{TSA-M4}, \code{tsa_moment4}, or \code{moment_harmonics=4} means
+  the angular Fourier moment space \(\{0,\pm1,\ldots,\pm4\}\).
+\end{itemize}
+These are not the same.  Reports should always state whether the suffix is a
+depth count or an angular harmonic cutoff.
+
+\subsection{Equal-cost comparisons}
+
+In the ablation reports, ``equal cost'' means equal counts of selected base
+preconditioner applications.  This count includes repeated calls to
+\(B_0\), but it does not fully price all implementation overheads such as
+\(\Ah\) applications, FFT setup, reductions, U-Net evaluation, metric
+evaluation, Python overhead, or dense angular micro-solves.  Equal base-call
+cost is therefore a useful algorithmic normalization, but wall-clock time and
+FGMRES residual histories must still be reported.
+
+\section{Hard cases and sources}
+
+The hard cases are generated in \path{rte/run_hard_case_experiments.py}.  The
+default grid is periodic on \([0,1)^2\) with \(h=1/n\).
+
+\begin{center}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.18\linewidth}
+                >{\raggedright\arraybackslash}p{0.24\linewidth}
+                >{\raggedright\arraybackslash}p{0.43\linewidth}}
+\toprule
+Case & Key coefficients & Purpose \\
+\midrule
+\code{diffusive}
+& \(\sigma_t=20\), albedo \(0.99\), \(g=0\).
+& Homogeneous optically thick high-albedo regime.  Tests diffusion-like slow
+error modes. \\
+\code{heterogeneous}
+& Inclusion/channel contrast; albedo roughly \(0.82\) to \(0.97\), \(g=0\).
+& Tests coefficient heterogeneity without anisotropic scattering. \\
+\code{anisotropic}
+& \(\sigma_t=5\), albedo \(0.96\), \(g=0.85\), beamed source.
+& Tests forward-peaked scattering and angular structure. \\
+\code{mixed}
+& Thin left region with \(\sigma_t\approx 0.35\), thick right region with
+\(\sigma_t\approx16\), albedo from \(0.20\) to \(0.985\), \(g=0.65\).
+& Hardest laptop case: streaming and diffusive regimes are coupled across a
+sharp interface. \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+Training and heldout evaluations use deterministic Gaussian source families in
+the current scripts.  The heldout source is not an independent coefficient
+field; it is a different source/center for the same coefficient regime.  Thus,
+train-vs-heldout gaps measure source generalization inside one coefficient
+field, not broad coefficient generalization.
+
+\section{Learned preconditioner families}
+
+All learned models are intended to approximate or improve an action
+\[
+  z_\theta = B_\theta r
+\]
+used inside stationary iteration or FGMRES.  The operator may be nonlinear in
+\(r\); when it is nonlinear or changes between applications, flexible GMRES is
+the appropriate Krylov wrapper.
+
+\subsection{U-Net residual model}
+
+The residual U-Net first applies the chosen classical base preconditioner:
+\[
+  z_0=\Bh r.
+\]
+It feeds real and imaginary channels of \(z_0\), together with coefficient
+features such as \(\sigma_t\) and \(\sigma_s\), into a gated U-Net correction:
+\begin{equation}
+  B_\theta r
+  =
+  z_0 + C_\theta(z_0,\sigma_t,\sigma_s).
+\end{equation}
+This model is residual-dependent through \(z_0\), but it does not explicitly
+represent a second defect correction.
+
+\subsection{U-Net defect2 model}
+
+The \code{UNet-defect2} model computes one explicit defect correction before
+learning:
+\begin{align}
+  z_0 &= \Bh r,\\
+  d &= r-\Ah z_0,\\
+  z_1 &= \Bh d,
+\end{align}
+and returns
+\begin{equation}
+  B_\theta r
+  =
+  z_0+\omega z_1+C_\theta(z_0,z_1,\sigma_t,\sigma_s).
+  \label{eq:unet-defect2}
+\end{equation}
+This is the strongest learned model observed so far when \(\Bh\) is
+full-angular TSA.  Mechanistically, the model starts from two physically
+meaningful residual-correction directions and lets the U-Net learn a nonlinear
+defect update on top.
+
+\subsection{Moment U-Net}
+
+\code{MomentUNet} applies the same defect2 idea but restricts the learned
+correction to \(\operatorname{range}(\QK)\).  It is safer and cheaper than
+full-angular learning, but it can miss high angular modes in anisotropic and
+mixed regimes.
+
+\subsection{Coefficient-weighted TSA}
+
+\code{CoeffWeightedTSA-MK} predicts bounded spatial weights for retained
+angular Fourier magnitudes and rescales the fixed moment TSA correction:
+\begin{equation}
+  \widehat z_m(x)\leftarrow w_{|m|,\theta}(x)\widehat z_m(x),
+  \qquad |m|\le K.
+\end{equation}
+This architecture has about \(2.27\times10^4\) parameters in the width-24
+\(K=4\) runs, but the main limitation is structural rather than parameter
+count.  It cannot rotate modes, couple modes, learn restriction/prolongation,
+or choose an angular subspace based on the residual.  It only rescales a fixed
+closed-form moment correction.
+
+\subsection{Coefficient-mixed TSA}
+
+\code{CoeffMixedTSA-MK} predicts a local matrix \(M_\theta(x)\) acting on the
+retained moment coefficients:
+\begin{equation}
+  \widehat{\bm z}(x)\leftarrow M_\theta(x)\widehat{\bm z}(x).
+\end{equation}
+This gives mode coupling inside the fixed \(\QK\) space.  It is more expressive
+than diagonal coefficient weighting, but it still cannot leave the prescribed
+angular Fourier subspace.
+
+\subsection{Learned restriction/prolongation TSA}
+
+\code{LearnedRP-TSA-MK} predicts coefficient-conditioned restriction and
+prolongation maps around the closed moment inverse:
+\begin{equation}
+  \QK^*s \mapsto R_\theta(x)\QK^*s,\qquad
+  \widehat{\bm z}(x) \mapsto P_\theta(x)\widehat{\bm z}(x).
+\end{equation}
+This is the most promising structured moment candidate because it modifies both
+the low-order right-hand side and the lifted correction.  Current
+implementations can preserve the scalar moment and are initialized near the
+identity.  However, they still operate inside the fixed \(\QK\) candidate
+space, so they are not yet true learned angular subspaces.
+
+The identity anchor used in bottleneck experiments is
+\begin{equation}
+  L_{\rm id}
+  =
+  \frac12\norm{R_\theta-I}_F^2
+  +
+  \frac12\norm{P_\theta-I}_F^2.
+\end{equation}
+It improves FGMRES safety but often suppresses learning, selecting models close
+to the initial stable classical preconditioner.
+
+\subsection{Residual-dependent subspace TSA}
+
+\code{ResidualSubspaceTSA-MK} predicts a global matrix from summaries of the
+current residual moments:
+\begin{equation}
+  S_\theta(r)
+  =
+  I+\Delta_\theta\left(\operatorname{summary}(\QK^*s)\right).
+\end{equation}
+This is genuinely nonlinear in the residual and can in principle adapt angular
+directions to the current error.  The current experiments show useful one-step
+movement but poor FGMRES stability on the mixed case, so norm control,
+near-identity continuation, and Krylov-aware training are required.
+
+\section{Diagnostics and training objectives}
+
+For any preconditioner \(B_\theta\), one application gives
+\begin{equation}
+  z_\theta=B_\theta r,\qquad r^+=r-\Ah z_\theta.
+\end{equation}
+The three main one-step ratios are
+\begin{align}
+  \rho_{\rm phys}(r)
+  &=
+  \frac{\norm{r^+}_2}{\norm r_2},
+  \label{eq:rho-phys}\\
+  \rho_{\rm born}(r)
+  &=
+  \frac{\norm{\Geta r^+}_2}{\norm{\Geta r}_2},\\
+  \rho_{\rm base}(r)
+  &=
+  \frac{\norm{\Bh r^+}_2}{\norm{\Bh r}_2}.
+\end{align}
+The field \code{one_step_true} in the CSV files is \(\rho_{\rm phys}\).  The
+heldout physical loss is therefore
+\begin{equation}
+  L_{\rm phys}^{\rm heldout}
+  =
+  \rho_{\rm phys}(r_{\rm heldout})^2
+  =
+  \code{one_step_true}^2.
+\end{equation}
+
+This is not the same object as \code{train_loss_final}.  The saved training
+loss is a sampled objective over residual batches and may include metric-space
+ratios, physical ratios, correction-size regularization, rollout terms,
+stability barriers, teacher imitation, and identity penalties.  A large drop in
+\code{train_loss_final} means the sampled objective decreased; it does not
+guarantee that the train-source \(\rho_{\rm phys}\), heldout
+\(\rho_{\rm phys}\), or FGMRES residual improved.
+
+The general loss in \path{rte/npbs_unet_ablation.py} can be written as
+\begin{equation}
+  L
+  =
+  \lambda_m\mathbb{E}\rho_{\rm metric}^2
+  +
+  \lambda_p\mathbb{E}\rho_{\rm phys}^2
+  +
+  \lambda_c\mathbb{E}\rho_{\rm corr}^2
+  +
+  L_{\rm rollout}
+  +
+  L_{\rm stab}
+  +
+  L_{\rm teacher}.
+  \label{eq:general-loss}
+\end{equation}
+Here \(\rho_{\rm metric}\) is usually a Born- or base-preconditioned residual
+ratio, not the raw physical residual.  The correction-size term has the form
+\begin{equation}
+  \rho_{\rm corr}
+  =
+  \frac{\norm{B_\theta r}_2}{\norm{M r}_2},
+\end{equation}
+where \(M\) is the metric map chosen in the harness.  Rollout terms repeatedly
+apply the learned correction:
+\begin{equation}
+  r_{j+1}=r_j-\Ah B_\theta r_j,\qquad
+  L_{\rm rollout}
+  =
+  \lambda_{\rm roll}
+  \sum_{j=1}^{J}\gamma^{j-1}\rho(r_j)^2 .
+\end{equation}
+The stability barrier penalizes ratios above a target:
+\begin{equation}
+  L_{\rm stab}
+  =
+  \lambda_{\rm stab}\frac1J
+  \sum_j
+  \max(\rho(r_j)-\rho_\star,0)^2 .
+\end{equation}
+Teacher imitation is
+\begin{equation}
+  L_{\rm teacher}
+  =
+  \lambda_T\mathbb{E}
+  \frac{\norm{B_\theta r-Tr}_2^2}{\norm{Tr}_2^2},
+\end{equation}
+where \(T\) is a stronger classical correction such as depth-4 moment TSA or
+full TSA.
+
+In \path{rte/npbs_bottleneck_harness.py}, \code{loss_mode=raw} means pure
+physical one-step training.  \code{loss_mode=raw_rollout_teacher} means raw
+physical one-step plus physical rollout and teacher imitation.  The
+\code{metric_map} option can be \code{base}, \code{forward}, or
+\code{damped_moment}.  For structured nonlinear models, the safest reported
+selection criterion so far is not final sampled training loss, but a composite
+view including heldout physical loss and heldout FGMRES.
+
+\section{Why loss can decrease but one-step or FGMRES may not improve}
+
+The main observed failure mode is objective mismatch.  A learned model can
+reduce the recorded training loss while failing to become a better solver
+preconditioner for several reasons.
+
+\begin{enumerate}
+  \item The saved training loss may be a metric-space ratio rather than the
+  raw physical residual \(\norm{r-\Ah B_\theta r}/\norm r\).
+  \item The residual batches include random and rollout residuals, not only the
+  train source used in the table's \code{split=train} one-step diagnostic.
+  \item One-step contraction is necessary but not sufficient for Krylov
+  quality.  The learned \(B_\theta\) can reduce \(\norm{r^+}\) for sampled
+  residuals while producing a preconditioned operator with worse spectrum or
+  worse non-normal transient growth.
+  \item Nonlinear residual-dependent maps should be used with FGMRES.  Even
+  with FGMRES, aggressive residual-dependent corrections can create unstable
+  local linearizations.
+  \item Moment-space models may reduce the component visible inside \(\QK\)
+  while leaving important angular error outside \(\QK\).  This is especially
+  severe in anisotropic and mixed cases.
+\end{enumerate}
+
+This explains why the main \code{UNet-defect2} models can train strongly in
+sampled loss, while structured moment models can show one-step improvement but
+still degrade FGMRES.
+
+\section{Current numerical evidence}
+
+All numbers below are from committed CSV artifacts in \path{rte}.  The
+``heldout loss'' column is computed as \(\code{one_step_true}^2\).
+
+\subsection{Full-angular TSA plus U-Net defect2}
+
+The strongest positive learned result is the physical-loss full-angular
+\code{UNet-defect2} run
+\path{rte/npbs_unet_ablation_tsa_full_physical_steps900.csv}.  It uses
+\code{transport_tsa} as the base and pure physical one-step loss.
+
+\begin{center}
+\small
+\begin{tabular}{llrrrr}
+\toprule
+Case & Method & Train one-step & Heldout one-step & Heldout loss & Heldout FGMRES \\
+\midrule
+anisotropic & \code{tsa2} & -- & 0.08236 & 0.00678 & \(1.23\cdot10^{-5}\) \\
+anisotropic & \code{tsa4} & -- & 0.03645 & 0.00133 & \(1.30\cdot10^{-5}\) \\
+anisotropic & \code{UNet-defect2-w1} & 0.08609 & 0.06990 & 0.00489 & \(1.27\cdot10^{-5}\) \\
+\midrule
+mixed & \code{tsa2} & -- & 0.17898 & 0.03203 & \(7.60\cdot10^{-6}\) \\
+mixed & \code{tsa4} & -- & 0.11446 & 0.01310 & \(7.94\cdot10^{-6}\) \\
+mixed & \code{UNet-defect2-w1} & 0.16587 & 0.12453 & 0.01551 & \(7.54\cdot10^{-6}\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+For the mixed case, the U-Net almost matches \code{tsa4} in heldout one-step
+loss and slightly improves the final FGMRES residual in this run.  This is the
+best evidence that learning can help when the base representation contains
+full angular information.
+
+\subsection{Structured moment-space models}
+
+The moment-structure physical-loss run
+\path{rte/npbs_unet_ablation_moment_structure_physical_size64_steps1800.csv}
+uses \(64^2\) grids, 24 angles, \(K=4\) moments, and relaxation \(0.4\) for the
+moment-TSA base.  The mixed case is the most informative.
+
+\begin{center}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Method & Train one-step & Heldout one-step & Heldout loss & FGMRES & Sampled loss \\
+\midrule
+\code{tsa_moment1-w0.4} & -- & 0.64758 & 0.41936 & \(1.97\cdot10^{-5}\) & -- \\
+\code{tsa_moment4-w0.4} & -- & 0.24397 & 0.05952 & \(7.32\cdot10^{-6}\) & -- \\
+\code{CoeffWeightedTSA-M4} & 0.64788 & 0.60235 & 0.36283 & \(1.93\cdot10^{-5}\) & \(0.6035\to0.5894\) \\
+\code{CoeffMixedTSA-M4} & 0.57202 & 0.59097 & 0.34925 & \(4.29\cdot10^{-5}\) & \(0.6014\to0.5786\) \\
+\code{LearnedRP-TSA-M4} & 0.51855 & 0.50000 & 0.25000 & \(3.21\cdot10^{-4}\) & \(0.5975\to0.5800\) \\
+\code{ResidualSubspaceTSA-M4} & 0.58649 & 0.58787 & 0.34559 & \(1.23\cdot10^{-4}\) & \(0.6042\to0.5886\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+The interpretation is sharp.  Diagonal coefficient weighting barely moves.
+Mode mixing and learned restriction/prolongation reduce the one-step residual
+on both train and heldout sources, so mode-direction learning is not a dead
+idea.  However, FGMRES becomes much worse for the more aggressive learned maps,
+especially \code{LearnedRP-TSA-M4}.  This is not ordinary source overfitting:
+train and heldout one-step numbers are similar.  The bottleneck is stability
+and solver alignment.
+
+For the anisotropic case in the same file, FGMRES is less sensitive, but the
+pattern remains: learned R/P and residual subspace models improve one-step
+loss over \code{tsa_moment1-w0.4}, yet do not approach the deeper
+\code{tsa_moment4-w0.4} one-step correction.
+
+\begin{center}
+\small
+\begin{tabular}{lrrrr}
+\toprule
+Method & Train one-step & Heldout one-step & Heldout loss & FGMRES \\
+\midrule
+\code{tsa_moment1-w0.4} & -- & 0.65593 & 0.43025 & \(1.27\cdot10^{-5}\) \\
+\code{tsa_moment4-w0.4} & -- & 0.26037 & 0.06779 & \(1.25\cdot10^{-5}\) \\
+\code{CoeffWeightedTSA-M4} & 0.62549 & 0.62493 & 0.39054 & \(1.29\cdot10^{-5}\) \\
+\code{CoeffMixedTSA-M4} & 0.60338 & 0.60656 & 0.36791 & \(1.24\cdot10^{-5}\) \\
+\code{LearnedRP-TSA-M4} & 0.56925 & 0.57530 & 0.33097 & \(1.30\cdot10^{-5}\) \\
+\code{ResidualSubspaceTSA-M4} & 0.58391 & 0.59881 & 0.35858 & \(1.25\cdot10^{-5}\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\subsection{Checkpointing and identity anchoring}
+
+The bottleneck harness tested learned R/P with teacher and rollout losses on
+the mixed size-64 case.  An uncheckpointed run improves one-step residual but
+hurts FGMRES.  Checkpointing by heldout FGMRES and adding an identity anchor
+restores solver safety, but mostly selects a near-initial operator.
+
+\begin{center}
+\small
+\begin{tabular}{lrrrrr}
+\toprule
+Run & Selected step & Heldout one-step & Heldout loss & FGMRES & Sampled loss \\
+\midrule
+uncheckpointed teacher 0.5
+& final & 0.50156 & 0.25156 & \(1.91\cdot10^{-4}\) & \(1.1148\to1.0781\) \\
+cosine checkpoint
+& 1 & 0.64730 & 0.41900 & \(1.96\cdot10^{-5}\) & \(1.1243\to1.0778\) \\
+onecycle checkpoint
+& 1 & 0.64756 & 0.41933 & \(1.96\cdot10^{-5}\) & \(1.1196\to1.0740\) \\
+anchor \(5\cdot10^{-3}\), checkpoint
+& 100 & 0.62394 & 0.38931 & \(1.91\cdot10^{-5}\) & \(1.1367\to1.1045\) \\
+anchor \(10^{-2}\), checkpoint
+& 100 & 0.62497 & 0.39059 & \(1.94\cdot10^{-5}\) & \(1.1260\to1.0984\) \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+This table is important for deciding the next design.  The problem is not that
+the model cannot change the one-step residual.  The problem is that the learned
+change is not constrained to remain a good Krylov preconditioner.
+
+\section{Current bottleneck diagnosis}
+
+The bottlenecks, in order of importance, are as follows.
+
+\begin{enumerate}
+  \item \textbf{Fixed angular subspace.}
+  \code{CoeffWeightedTSA-M4} is small, but the decisive issue is that it cannot
+  learn better modes.  It only rescales fixed moment corrections.  Even
+  \code{CoeffMixedTSA} and current \code{LearnedRP-TSA} stay inside fixed
+  \(\QK\).
+
+  \item \textbf{Lack of stable residual-dependent angular directions.}
+  Hard mixed and anisotropic cases require mode directions that depend on
+  coefficient regime and residual content.  \code{ResidualSubspaceTSA} begins
+  to address this, but its unconstrained residual dependence can destabilize
+  FGMRES.
+
+  \item \textbf{One-step loss is not solver aligned.}
+  Physical loss is clearer than metric loss, but even physical one-step
+  residual does not control the spectrum or non-normality of \(I-\Ah B_\theta\).
+
+  \item \textbf{Checkpoint criteria are too late or too conservative.}
+  FGMRES checkpointing catches instability but tends to select near-initial
+  models.  A better training objective should make safe movement possible
+  rather than merely rejecting unsafe movement.
+
+  \item \textbf{No separately saved heldout sampled objective.}
+  Current CSVs report train sampled loss and train/heldout one-step source
+  diagnostics.  They do not always report the same sampled objective evaluated
+  on a heldout residual bank.  This makes it harder to separate optimization,
+  source generalization, and solver-alignment failures.
+\end{enumerate}
+
+\section{Recommended next architectures}
+
+\subsection{Candidate-space learned restriction/prolongation}
+
+The highest-priority design is a true candidate-space learned R/P model.  Use a
+larger angular candidate basis \(Q_{K_{\rm cand}}\) with
+\(K_{\rm cand}>K_{\rm solve}\), for example \(K_{\rm solve}=4\) and
+\(K_{\rm cand}=6\) or \(8\).  Learn
+\begin{equation}
+  R_\theta(x,r): \operatorname{range}(Q_{K_{\rm cand}})\to
+  \operatorname{range}(Q_{K_{\rm solve}}),
+  \qquad
+  P_\theta(x,r): \operatorname{range}(Q_{K_{\rm solve}})\to
+  \operatorname{range}(Q_{K_{\rm cand}}),
+\end{equation}
+then lift back to the full angular grid through \(Q_{K_{\rm cand}}\).  This
+finally lets the model rotate and combine angular directions outside the fixed
+solve space while retaining a small closed moment inverse.
+
+The model should preserve the scalar mode exactly or nearly exactly:
+\[
+  R_\theta e_0=e_0,\qquad P_\theta e_0=e_0,
+\]
+because scalar flux is the dominant stable low-order quantity in diffusive
+transport.  It should also enforce conjugate symmetry of angular Fourier
+coefficients so the lifted angular field remains physically consistent.
+
+\subsection{Bounded low-rank updates}
+
+Instead of predicting dense unrestricted \(R_\theta\) and \(P_\theta\), use
+near-identity bounded low-rank updates:
+\begin{align}
+  R_\theta &= I + \alpha\, U_\theta V_\theta^*,\\
+  P_\theta &= I + \alpha\, \widetilde U_\theta \widetilde V_\theta^*,
+\end{align}
+with \(\alpha\) learned or scheduled but bounded.  Spectral or Frobenius norm
+penalties should be applied to the update, not only to the final residual.
+This gives the model a controlled way to rotate modes without destroying the
+classical preconditioner's stability.
+
+\subsection{Residual-gated angular subspace}
+
+A residual-dependent gate should be retained, but made conservative:
+\begin{equation}
+  B_\theta r
+  =
+  B_{\rm safe}r
+  +
+  g_\theta(r,\sigma_t,\sigma_s)
+  \, \Delta B_\theta r,
+  \qquad
+  0\le g_\theta\le g_{\max}.
+\end{equation}
+Here \(B_{\rm safe}\) can be damped \code{tsa_moment1-w0.4} or
+\code{tsa_moment4-w0.4}; \(\Delta B_\theta\) is the learned candidate-space R/P
+correction.  The gate should use residual moment summaries, not only
+coefficient features, because the useful angular subspace depends on the
+current error.
+
+\subsection{Spectrum-aware and Krylov-aware losses}
+
+The next training objective should combine raw physical one-step loss with
+terms that discourage bad preconditioned spectra:
+\begin{equation}
+  L
+  =
+  L_{\rm phys}
+  +
+  \lambda_{\rm roll}L_{\rm rollout}
+  +
+  \lambda_TL_{\rm teacher}
+  +
+  \lambda_{\rm grow}L_{\rm growth}
+  +
+  \lambda_{\rm id}L_{\rm id}.
+\end{equation}
+Useful growth proxies include random probes of the error propagator
+\[
+  E_\theta v = v-\Ah B_\theta v,
+\]
+for example
+\[
+  L_{\rm growth}
+  =
+  \mathbb{E}_v\max\left(
+  \frac{\norm{E_\theta v}}{\norm v}-\tau,0
+  \right)^2
+  +
+  \mathbb{E}_v\max\left(
+  \frac{\norm{E_\theta^2 v}}{\norm{E_\theta v}}-\tau_2,0
+  \right)^2 .
+\]
+For small laptop tests, an even more direct objective is a short unrolled
+FGMRES or Anderson-like loss on a few residuals.  It will be slower, but it
+targets the actual failure observed in the tables.
+
+\section{Recommended experimental protocol}
+
+Every new learned preconditioner should report at least the following fields:
+\begin{itemize}
+  \item train sampled loss initial/final;
+  \item heldout sampled loss initial/final, using a heldout residual bank;
+  \item train-source \(\rho_{\rm phys}\) and \(\rho_{\rm phys}^2\);
+  \item heldout-source \(\rho_{\rm phys}\) and \(\rho_{\rm phys}^2\);
+  \item \(\rho_{\rm born}\) and \(\rho_{\rm base}\);
+  \item stationary residual history when meaningful;
+  \item FGMRES residual history, final residual, and time;
+  \item base-call count and wall-clock time;
+  \item parameter count, architecture dimensions, moment cutoffs, and whether
+  the model is nonlinear in the residual;
+  \item checkpoint metric and selected step.
+\end{itemize}
+
+The minimum hard-case suite should include \code{anisotropic} and
+\code{mixed} at size \(64\), 24 angles for moment-space models, and both
+train/heldout sources.  The \code{mixed} case should be treated as the primary
+stability test.
+
+\section{Reproducible command templates}
+
+The following commands are templates matching the current parser options.  They
+may need device changes on a laptop.
+
+\paragraph{Full-angular U-Net defect2 with physical loss.}
+\begin{verbatim}
+python -m rte.npbs_unet_ablation \
+  --cases anisotropic mixed \
+  --sizes 32 64 \
+  --n-angles 12 \
+  --base-kinds transport_tsa \
+  --forms defect2 \
+  --defect-relaxations 1.0 \
+  --baseline-depths 1 2 3 4 \
+  --baseline-relaxations 1.0 0.5 \
+  --steps 900 \
+  --lr 0.002 \
+  --scheduler step \
+  --scheduler-step-size 300 \
+  --scheduler-gamma 0.5 \
+  --metric-weight 0.0 \
+  --physical-weight 1.0 \
+  --correction-weight 0.0 \
+  --rollout-weight 0.0 \
+  --fgmres-mode complex \
+  --output-csv rte/npbs_unet_ablation_tsa_full_physical_steps900.csv \
+  --output-md rte/NPBS_UNET_ABLATION_REPORT.md
+\end{verbatim}
+
+\paragraph{Moment-structure physical-loss comparison.}
+\begin{verbatim}
+python -m rte.npbs_unet_ablation \
+  --cases anisotropic mixed \
+  --sizes 64 \
+  --n-angles 24 \
+  --base-kinds transport_tsa_moment \
+  --forms coeff_weighted_tsa coeff_mixed_tsa learned_rp_tsa residual_subspace_tsa \
+  --moment-harmonics 4 \
+  --moment-transport-relaxation 0.4 \
+  --moment-synthetic-relaxation 0.4 \
+  --baseline-depths 1 4 \
+  --baseline-relaxations 0.4 \
+  --steps 1800 \
+  --lr 0.002 \
+  --scheduler cosine \
+  --width 24 \
+  --levels 4 \
+  --metric-weight 0.0 \
+  --physical-weight 1.0 \
+  --correction-weight 0.0 \
+  --rollout-weight 0.0 \
+  --output-csv rte/npbs_unet_ablation_moment_structure_physical_size64_steps1800.csv
+\end{verbatim}
+
+\paragraph{Learned R/P bottleneck harness with teacher, rollout, identity anchor,
+and FGMRES checkpointing.}
+\begin{verbatim}
+python -m rte.npbs_bottleneck_harness \
+  --case mixed \
+  --size 64 \
+  --n-angles 24 \
+  --base-kind transport_tsa_moment \
+  --model-kind learned_rp_moment_tsa \
+  --moment-harmonics 4 \
+  --loss-mode raw_rollout_teacher \
+  --metric-map base \
+  --teacher-depth 4 \
+  --teacher-kind transport_tsa_moment \
+  --teacher-harmonics 4 \
+  --teacher-relaxation 0.4 \
+  --teacher-weight 0.5 \
+  --identity-weight 0.005 \
+  --moment-transport-relaxation 0.4 \
+  --moment-synthetic-relaxation 0.4 \
+  --rollout-weight 0.2 \
+  --rollout-steps 3 \
+  --steps 1200 \
+  --lr 0.0005 \
+  --scheduler onecycle \
+  --eval-every 100 \
+  --select-checkpoint heldout_fgmres \
+  --fgmres-mode real-stacked \
+  --output-csv rte/npbs_bottleneck_harness_candidate.csv \
+  --history-csv rte/npbs_bottleneck_harness_candidate_history.csv
+\end{verbatim}
+
+\section{Concrete next implementation tasks}
+
+\begin{enumerate}
+  \item Add heldout sampled-objective evaluation to
+  \path{rte/npbs_bottleneck_harness.py} and \path{rte/npbs_unet_ablation.py}.
+  This should evaluate the same loss components used for training on a heldout
+  residual bank.
+
+  \item Implement \code{CandidateRP-TSA}: \(K_{\rm solve}=4\),
+  \(K_{\rm cand}=6\) and \(8\), scalar-mode preservation, conjugate symmetry,
+  and bounded low-rank updates.
+
+  \item Add residual-gated candidate-space updates:
+  \(B_\theta=B_{\rm safe}+g_\theta\Delta B_\theta\), with a small maximum gate
+  at the start and a continuation schedule.
+
+  \item Add growth-probe diagnostics for \(E_\theta=I-\Ah B_\theta\):
+  random one-step and two-step amplification, plus optional short unrolled
+  FGMRES loss for very small batches.
+
+  \item Use composite checkpointing.  A reasonable first rule is:
+  accept checkpoints only if heldout FGMRES does not exceed the stable baseline
+  by more than a tolerance, then choose the smallest heldout physical loss.
+
+  \item Re-run the same \code{anisotropic} and \code{mixed} size-64 suite with
+  24 angles, reporting train and heldout physical losses, heldout sampled
+  losses, and FGMRES histories.
+\end{enumerate}
+
+\section{Main conclusions}
+
+\begin{enumerate}
+  \item The RTE extension of NPBS is mathematically natural in the periodic
+  pseudo-spectral testbed: the shifted/reference transport inverse \(\Geta\)
+  gives the same Born identity structure as in Helmholtz.
+
+  \item Classical TSA is the correct base family for hard RTE cases.  Raw
+  transport/Born is too weak, and DSA only targets scalar diffusive errors.
+  Moment TSA gives the right bridge between cheap low-order structure and
+  learnable angular subspaces.
+
+  \item Full-angular \code{UNet-defect2} trained with physical loss is the best
+  current learned model.  It nearly matches deeper full TSA on the mixed case,
+  which shows that learned defect corrections can be useful when the base
+  representation contains enough angular information.
+
+  \item \code{CoeffWeightedTSA-M4} is not competitive because it cannot learn
+  modes.  Its parameter count is small, but the more important limitation is
+  expressivity: it only rescales fixed moment corrections.
+
+  \item Learned mode coupling and learned R/P are promising but currently
+  unstable.  They reduce one-step residuals on train and heldout sources, so
+  the learned direction is not meaningless.  But they often worsen FGMRES,
+  showing that the loss must control solver-relevant operator behavior.
+
+  \item The next decisive experiment is a stabilized candidate-space learned
+  R/P model with residual-dependent but bounded gates, scalar-mode
+  preservation, spectrum/growth penalties, teacher guidance, and checkpointing
+  by heldout Krylov behavior.
+\end{enumerate}
+
+\end{document}
