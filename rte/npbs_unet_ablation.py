@@ -158,6 +158,203 @@ class LinearGatedUNet(nn.Module):
         return self.proj(x)
 
 
+def rte_coeff_feature_map(rte, batch_size, extended=False):
+    sigma_t = rte.sigma_t.to(dtype=rte.float_dtype)
+    sigma_s = rte.sigma_s.to(dtype=rte.float_dtype)
+    albedo = sigma_s / torch.clamp(sigma_t, min=1e-12)
+    st_mean = torch.mean(sigma_t, dim=(-2, -1), keepdim=True)
+    st_std = torch.clamp(torch.std(sigma_t, dim=(-2, -1), keepdim=True), min=1e-6)
+    st_norm = (sigma_t - st_mean) / st_std
+    dx = torch.roll(sigma_t, shifts=-1, dims=-1) - torch.roll(sigma_t, shifts=1, dims=-1)
+    dy = torch.roll(sigma_t, shifts=-1, dims=-2) - torch.roll(sigma_t, shifts=1, dims=-2)
+    grad = torch.sqrt(dx * dx + dy * dy) / torch.clamp(st_mean, min=1e-12)
+    g = torch.full_like(sigma_t, float(rte.anisotropy_g))
+    features = [st_norm, albedo, grad, g]
+    if extended:
+        sigma_a = torch.clamp(sigma_t - sigma_s, min=0.0)
+        sigma_tr = torch.clamp(sigma_t - float(rte.anisotropy_g) * sigma_s, min=1e-12)
+        optical = float(rte.dx) * sigma_t
+        sigma_a_rel = sigma_a / torch.clamp(sigma_t, min=1e-12)
+        sigma_tr_rel = sigma_tr / torch.clamp(sigma_t, min=1e-12)
+        features.extend([optical, sigma_a_rel, sigma_tr_rel, sigma_tr])
+    coeff = torch.cat(features, dim=1)
+    if coeff.shape[0] == 1 and batch_size > 1:
+        coeff = coeff.expand(batch_size, -1, -1, -1)
+    return coeff
+
+
+def spatial_summary(features):
+    mean = features.mean(dim=(-2, -1))
+    std = torch.sqrt(torch.clamp(features.var(dim=(-2, -1), unbiased=False), min=1e-12))
+    amin = features.amin(dim=(-2, -1))
+    amax = features.amax(dim=(-2, -1))
+    return torch.cat([mean, std, amin, amax], dim=1)
+
+
+class LearnedBaseRouter(nn.Module):
+    """
+    Coefficient/residual-conditioned soft router over classical RTE bases.
+
+    The router learns which base correction to use and learns bounded
+    transport/synthetic relaxation factors for DSA/TSA-style decompositions.
+    It is initialized close to a selected classical base so the starting model
+    remains interpretable.
+    """
+
+    CANDIDATE_ALIASES = {
+        "transport": "transport",
+        "green": "transport",
+        "g_eta": "transport",
+        "dsa": "dsa",
+        "transport_dsa": "dsa",
+        "tsa": "tsa",
+        "transport_tsa": "tsa",
+        "tsa_moment": "tsa_moment",
+        "moment_tsa": "tsa_moment",
+        "transport_tsa_moment": "tsa_moment",
+    }
+
+    def __init__(
+        self,
+        rte,
+        candidates=("transport", "dsa", "tsa", "tsa_moment"),
+        initial_candidate="tsa",
+        tsa_harmonics=None,
+        moment_harmonics=2,
+        width=32,
+        blocks=2,
+        temperature=1.0,
+        route_scale=4.0,
+        relaxation_scale=0.5,
+        use_residual_summary=False,
+    ):
+        super().__init__()
+        self.rte = rte
+        self.candidates = tuple(self.normalize_candidate(candidate) for candidate in candidates)
+        if not self.candidates:
+            raise ValueError("learned base router needs at least one candidate")
+        self.tsa_harmonics = tsa_harmonics
+        self.moment_harmonics = int(moment_harmonics)
+        if "tsa_moment" in self.candidates and rte.angular_mode_indices(self.moment_harmonics) is None:
+            raise ValueError("tsa_moment router candidate requires a valid moment_harmonics value")
+        self.temperature = max(float(temperature), 1e-3)
+        self.route_scale = float(route_scale)
+        self.relaxation_scale = float(relaxation_scale)
+        self.use_residual_summary = bool(use_residual_summary)
+        self.base_calls_per_apply = len(self.candidates)
+        self.router_candidates = ",".join(self.candidates)
+
+        coeff_dim = 8 * 4
+        residual_dim = 4 if self.use_residual_summary else 0
+        hidden = max(int(width), 8)
+        layers = [nn.Linear(coeff_dim + residual_dim, hidden), nn.SiLU()]
+        for _ in range(max(int(blocks) - 1, 0)):
+            layers.extend([nn.Linear(hidden, hidden), nn.SiLU()])
+        layers.append(nn.Linear(hidden, 3 * len(self.candidates)))
+        self.net = nn.Sequential(*layers)
+        nn.init.zeros_(self.net[-1].weight)
+        nn.init.zeros_(self.net[-1].bias)
+
+        initial = self.normalize_candidate(initial_candidate)
+        if initial not in self.candidates:
+            initial = self.candidates[0]
+        logits = torch.full((len(self.candidates),), -float(route_scale), dtype=rte.float_dtype)
+        logits[self.candidates.index(initial)] = float(route_scale)
+        self.register_buffer("initial_route_logits", logits, persistent=False)
+
+    @classmethod
+    def normalize_candidate(cls, candidate):
+        key = str(candidate).lower()
+        if key not in cls.CANDIDATE_ALIASES:
+            raise ValueError(
+                "learned base candidate must be one of transport, dsa, tsa, or tsa_moment "
+                f"(got {candidate!r})"
+            )
+        return cls.CANDIDATE_ALIASES[key]
+
+    def coeff_summary(self, batch_size, device):
+        coeff = rte_coeff_feature_map(self.rte, batch_size, extended=True).to(device=device, dtype=torch.float32)
+        return spatial_summary(coeff)
+
+    def residual_summary(self, residual):
+        with torch.no_grad():
+            energy = batch_l2_norm(residual)
+            flux = self.rte.scalar_flux(residual)
+            flux_ratio = batch_l2_norm(flux) / torch.clamp(energy, min=1e-30)
+            angular_fft = torch.fft.fft(residual, dim=1, norm="backward")
+            n_angles = angular_fft.shape[1]
+            low_indices = [0]
+            if n_angles > 2:
+                low_indices.extend([1, n_angles - 1])
+            if n_angles > 4:
+                low_indices.extend([2, n_angles - 2])
+            low_modes = angular_fft[:, low_indices, :, :]
+            low_ratio = batch_l2_norm(low_modes) / torch.clamp(batch_l2_norm(angular_fft), min=1e-30)
+            per_angle = torch.sqrt(
+                torch.clamp((residual.real.square() + residual.imag.square()).mean(dim=(-2, -1)), min=1e-30)
+            )
+            anisotropy_ratio = per_angle.amax(dim=1) / torch.clamp(per_angle.mean(dim=1), min=1e-30)
+            log_energy = torch.log1p(energy).to(torch.float32)
+            return torch.stack(
+                [
+                    log_energy,
+                    flux_ratio.to(torch.float32),
+                    low_ratio.to(torch.float32),
+                    anisotropy_ratio.to(torch.float32),
+                ],
+                dim=1,
+            )
+
+    def router_outputs(self, residual):
+        features = [self.coeff_summary(residual.shape[0], residual.device)]
+        if self.use_residual_summary:
+            features.append(self.residual_summary(residual).to(device=residual.device))
+        raw = self.net(torch.cat(features, dim=1))
+        route_raw, transport_raw, synthetic_raw = torch.chunk(raw, 3, dim=1)
+        logits = self.initial_route_logits.to(device=residual.device, dtype=route_raw.dtype).view(1, -1)
+        logits = logits + self.route_scale * torch.tanh(route_raw)
+        weights = torch.softmax(logits / self.temperature, dim=1)
+        transport_relax = 1.0 + self.relaxation_scale * torch.tanh(transport_raw)
+        synthetic_relax = 1.0 + self.relaxation_scale * torch.tanh(synthetic_raw)
+        return weights, transport_relax, synthetic_relax
+
+    @staticmethod
+    def expand_batch_weight(weight, like):
+        return weight.to(dtype=like.dtype, device=like.device).view(weight.shape[0], 1, 1, 1)
+
+    def candidate_correction(self, residual, candidate, transport_relax, synthetic_relax):
+        transport = self.rte.transport_preconditioner(residual)
+        t_weight = self.expand_batch_weight(transport_relax, residual)
+        if candidate == "transport":
+            return t_weight * transport
+        remaining = residual - self.rte.A_op(transport)
+        s_weight = self.expand_batch_weight(synthetic_relax, residual)
+        if candidate == "dsa":
+            scalar = self.rte.scalar_flux(remaining)
+            synthetic = self.rte.lift_scalar_flux(self.rte.diffusion_solve(scalar), mode="isotropic")
+        elif candidate == "tsa":
+            synthetic = self.rte.reference_transport_solve(remaining, harmonics=self.tsa_harmonics)
+        elif candidate == "tsa_moment":
+            synthetic = self.rte.reference_moment_transport_solve(remaining, harmonics=self.moment_harmonics)
+        else:
+            raise ValueError(f"unknown router candidate: {candidate}")
+        return t_weight * transport + s_weight * synthetic
+
+    def forward(self, residual):
+        route_weights, transport_relax, synthetic_relax = self.router_outputs(residual)
+        correction = torch.zeros_like(residual)
+        for idx, candidate in enumerate(self.candidates):
+            candidate_update = self.candidate_correction(
+                residual,
+                candidate,
+                transport_relax[:, idx],
+                synthetic_relax[:, idx],
+            )
+            weight = self.expand_batch_weight(route_weights[:, idx], residual)
+            correction = correction + weight * candidate_update
+        return correction
+
+
 class NPBSUNetPreconditioner(nn.Module):
     def __init__(
         self,
@@ -171,6 +368,7 @@ class NPBSUNetPreconditioner(nn.Module):
         delta_scale=1.0,
         defect_relaxation=1.0,
         output_init="zero",
+        base_module=None,
     ):
         super().__init__()
         if form not in {"residual", "defect2"}:
@@ -182,7 +380,9 @@ class NPBSUNetPreconditioner(nn.Module):
         self.n_angles = rte.n_angles
         self.delta_scale = float(delta_scale)
         self.defect_relaxation = float(defect_relaxation)
-        self.base_calls_per_apply = 1 if form == "residual" else 2
+        self.base_module = base_module
+        single_base_calls = getattr(base_module, "base_calls_per_apply", 1)
+        self.base_calls_per_apply = single_base_calls if form == "residual" else 2 * single_base_calls
         in_channels = 2 * self.n_angles if form == "residual" else 4 * self.n_angles
         self.coeff_encoder = CoeffEncoder(coeff_channels=4, width=width, levels=levels)
         self.unet = LinearGatedUNet(
@@ -195,23 +395,15 @@ class NPBSUNetPreconditioner(nn.Module):
         )
 
     def base(self, residual):
+        if self.base_module is not None:
+            return self.base_module(residual)
+        return self.rte.apply_preconditioner(residual, kind=self.base_kind, tsa_harmonics=self.tsa_harmonics)
+
+    def metric_base(self, residual):
         return self.rte.apply_preconditioner(residual, kind=self.base_kind, tsa_harmonics=self.tsa_harmonics)
 
     def coeff_features(self, batch_size):
-        sigma_t = self.rte.sigma_t.to(dtype=self.rte.float_dtype)
-        sigma_s = self.rte.sigma_s.to(dtype=self.rte.float_dtype)
-        albedo = sigma_s / torch.clamp(sigma_t, min=1e-12)
-        st_mean = torch.mean(sigma_t, dim=(-2, -1), keepdim=True)
-        st_std = torch.clamp(torch.std(sigma_t, dim=(-2, -1), keepdim=True), min=1e-6)
-        st_norm = (sigma_t - st_mean) / st_std
-        dx = torch.roll(sigma_t, shifts=-1, dims=-1) - torch.roll(sigma_t, shifts=1, dims=-1)
-        dy = torch.roll(sigma_t, shifts=-1, dims=-2) - torch.roll(sigma_t, shifts=1, dims=-2)
-        grad = torch.sqrt(dx * dx + dy * dy) / torch.clamp(st_mean, min=1e-12)
-        g = torch.full_like(sigma_t, float(self.rte.anisotropy_g))
-        coeff = torch.cat([st_norm, albedo, grad, g], dim=1)
-        if coeff.shape[0] == 1 and batch_size > 1:
-            coeff = coeff.expand(batch_size, -1, -1, -1)
-        return coeff
+        return rte_coeff_feature_map(self.rte, batch_size, extended=False)
 
     @staticmethod
     def ri(x):
@@ -255,6 +447,7 @@ class MomentNPBSUNetPreconditioner(nn.Module):
         delta_scale=1.0,
         defect_relaxation=1.0,
         output_init="zero",
+        base_module=None,
     ):
         super().__init__()
         self.rte = rte
@@ -268,7 +461,8 @@ class MomentNPBSUNetPreconditioner(nn.Module):
         self.n_moments = len(modes)
         self.delta_scale = float(delta_scale)
         self.defect_relaxation = float(defect_relaxation)
-        self.base_calls_per_apply = 2
+        self.base_module = base_module
+        self.base_calls_per_apply = 2 * getattr(base_module, "base_calls_per_apply", 1)
         self.coeff_encoder = CoeffEncoder(coeff_channels=4, width=width, levels=levels)
         self.unet = LinearGatedUNet(
             4 * self.n_moments,
@@ -280,23 +474,15 @@ class MomentNPBSUNetPreconditioner(nn.Module):
         )
 
     def base(self, residual):
+        if self.base_module is not None:
+            return self.base_module(residual)
+        return self.rte.apply_preconditioner(residual, kind=self.base_kind, tsa_harmonics=self.tsa_harmonics)
+
+    def metric_base(self, residual):
         return self.rte.apply_preconditioner(residual, kind=self.base_kind, tsa_harmonics=self.tsa_harmonics)
 
     def coeff_features(self, batch_size):
-        sigma_t = self.rte.sigma_t.to(dtype=self.rte.float_dtype)
-        sigma_s = self.rte.sigma_s.to(dtype=self.rte.float_dtype)
-        albedo = sigma_s / torch.clamp(sigma_t, min=1e-12)
-        st_mean = torch.mean(sigma_t, dim=(-2, -1), keepdim=True)
-        st_std = torch.clamp(torch.std(sigma_t, dim=(-2, -1), keepdim=True), min=1e-6)
-        st_norm = (sigma_t - st_mean) / st_std
-        dx = torch.roll(sigma_t, shifts=-1, dims=-1) - torch.roll(sigma_t, shifts=1, dims=-1)
-        dy = torch.roll(sigma_t, shifts=-1, dims=-2) - torch.roll(sigma_t, shifts=1, dims=-2)
-        grad = torch.sqrt(dx * dx + dy * dy) / torch.clamp(st_mean, min=1e-12)
-        g = torch.full_like(sigma_t, float(self.rte.anisotropy_g))
-        coeff = torch.cat([st_norm, albedo, grad, g], dim=1)
-        if coeff.shape[0] == 1 and batch_size > 1:
-            coeff = coeff.expand(batch_size, -1, -1, -1)
-        return coeff
+        return rte_coeff_feature_map(self.rte, batch_size, extended=False)
 
     def restrict_moments(self, field):
         basis = self.rte.angular_fourier_basis(self.moment_harmonics, dtype=field.dtype, device=field.device)
@@ -1236,6 +1422,12 @@ def real_channels_to_complex(x, n_angles, dtype):
     return torch.complex(x[:, :n_angles], x[:, n_angles : 2 * n_angles]).to(dtype=dtype)
 
 
+def model_metric_base(model, residual):
+    if hasattr(model, "metric_base"):
+        return model.metric_base(residual)
+    return model.base(residual)
+
+
 def fgmres_real_stacked_with_trace(A, b, M, tol=1e-6, maxiter=100, restart=None, max_restarts=None):
     n_angles = b.shape[1]
     complex_dtype = b.dtype
@@ -1263,8 +1455,8 @@ def metric_loss(model, residuals, physical_weight=0.5, correction_weight=1e-6):
     residual_batch = ensure_residual_batch(residuals)
     correction = model(residual_batch)
     next_residual = residual_batch - model.rte.A_op(correction)
-    metric_error = model.base(next_residual)
-    denom_metric = torch.clamp(batch_l2_norm(model.base(residual_batch)), min=1e-30)
+    metric_error = model_metric_base(model, next_residual)
+    denom_metric = torch.clamp(batch_l2_norm(model_metric_base(model, residual_batch)), min=1e-30)
     denom_phys = torch.clamp(batch_l2_norm(residual_batch), min=1e-30)
     correction_norm = batch_l2_norm(correction)
     metric_ratio = batch_l2_norm(metric_error) / denom_metric
@@ -1575,6 +1767,7 @@ def write_report(rows, path, settings):
             "- `transport_tsa_moment` applies one reference transport correction followed by a closed Galerkin angular Fourier synthetic correction `Q_K (Q_K^* A_ref Q_K)^{-1} Q_K^*` on the post-transport residual. This differs from `transport_tsa` with `tsa_harmonics=K`, which only projects the RHS before applying the full angular reference inverse.",
             "- `dsaK` and `tsaK` mean `K` residual-correction applications of the selected base preconditioner. Starting with `z=0` and residual `e_0=r`, each stage applies `z <- z + omega B_h e_j` and `e_{j+1} <- e_j - A_h(omega B_h e_j)`. A suffix such as `-w0.5` uses relaxation `omega=0.5`; no suffix means `omega=1`.",
             "- `UNet-defect2-w1` uses `z0=B_h r`, `z1=B_h(r-A_h z0)`, and returns `z0 + z1 + C_theta(z0,z1,coeff)`. It costs two base applications plus the U-Net evaluation per preconditioner call.",
+            "- `RoutedUNet-*` replaces the fixed `B_h` inside the U-Net by a trainable soft router over classical candidates such as `transport`, `dsa`, `tsa`, and `tsa_moment`. The router is conditioned on coefficient summaries, optionally residual summaries, and learns bounded transport/synthetic relaxation factors. The metric loss still uses the fixed classical base so that a learned metric cannot be gamed.",
             "- `MomentUNet-K` uses the same defect2 structure but restricts the learned correction to angular Fourier modes `0,+/-1,...,+/-K` before prolonging back to ordinates.",
             "- `WeightedTSA-MK` is a tiny learned structural model initialized as closed TSA-MK; it learns bounded real weights for each absolute angular mode in the synthetic correction.",
             "- `CoeffWeightedTSA-MK` keeps the closed TSA-MK solve fixed, then uses a coefficient-conditioned nonlinear network to learn bounded physical-space weights for each absolute angular mode. It is nonlinear in coefficients but linear in residuals for fixed coefficients.",
@@ -1615,6 +1808,29 @@ def main():
     parser.add_argument("--moment-transport-relaxation", type=float, default=1.0)
     parser.add_argument("--moment-synthetic-relaxation", type=float, default=1.0)
     parser.add_argument("--learn-scalar-moment", action="store_true")
+    parser.add_argument("--learned-base-router", action="store_true")
+    parser.add_argument(
+        "--learned-base-candidates",
+        nargs="+",
+        default=["transport", "dsa", "tsa", "tsa_moment"],
+        help="Candidate classical bases for a learned soft router used inside residual/defect U-Net forms.",
+    )
+    parser.add_argument("--learned-base-width", type=int, default=32)
+    parser.add_argument("--learned-base-blocks", type=int, default=2)
+    parser.add_argument("--learned-base-temperature", type=float, default=1.0)
+    parser.add_argument("--learned-base-route-scale", type=float, default=4.0)
+    parser.add_argument("--learned-base-relaxation-scale", type=float, default=0.5)
+    parser.add_argument(
+        "--learned-base-use-residual",
+        action="store_true",
+        help="Let the router depend on residual summaries as well as coefficient summaries.",
+    )
+    parser.add_argument(
+        "--learned-base-tsa-harmonics",
+        type=int,
+        default=None,
+        help="Angular harmonics for the routed full-TSA candidate; defaults to --tsa-harmonics.",
+    )
     parser.add_argument("--defect-relaxations", nargs="+", type=float, default=[1.0])
     parser.add_argument("--baseline-depths", nargs="+", type=int, default=[1, 2])
     parser.add_argument("--baseline-relaxations", nargs="+", type=float, default=[1.0])
@@ -1771,6 +1987,32 @@ def main():
                                 relaxation=args.teacher_relaxation,
                             )
 
+                        base_module = None
+                        if args.learned_base_router:
+                            if form not in ("residual", "defect2", "moment_defect2"):
+                                raise ValueError(
+                                    "--learned-base-router is currently supported for residual, defect2, "
+                                    "and moment_defect2 U-Net forms"
+                                )
+                            routed_tsa_harmonics = (
+                                args.learned_base_tsa_harmonics
+                                if args.learned_base_tsa_harmonics is not None
+                                else tsa_harmonics
+                            )
+                            base_module = LearnedBaseRouter(
+                                rte,
+                                candidates=args.learned_base_candidates,
+                                initial_candidate=base_kind,
+                                tsa_harmonics=routed_tsa_harmonics,
+                                moment_harmonics=args.moment_harmonics,
+                                width=args.learned_base_width,
+                                blocks=args.learned_base_blocks,
+                                temperature=args.learned_base_temperature,
+                                route_scale=args.learned_base_route_scale,
+                                relaxation_scale=args.learned_base_relaxation_scale,
+                                use_residual_summary=args.learned_base_use_residual,
+                            ).to(device)
+
                         if form == "moment_defect2":
                             model = MomentNPBSUNetPreconditioner(
                                 rte,
@@ -1781,6 +2023,7 @@ def main():
                                 levels=args.levels,
                                 defect_relaxation=relaxation,
                                 output_init=args.output_init,
+                                base_module=base_module,
                             ).to(device)
                         elif form == "weighted_moment_tsa":
                             if str(base_kind).lower() not in (
@@ -1877,6 +2120,7 @@ def main():
                                 levels=args.levels,
                                 defect_relaxation=relaxation,
                                 output_init=args.output_init,
+                                base_module=base_module,
                             ).to(device)
                         history = train_model(
                             model,
@@ -1919,6 +2163,8 @@ def main():
                             if form == "residual_subspace_moment_tsa"
                             else f"UNet-{form}-w{relaxation:g}"
                         )
+                        if args.learned_base_router and form in ("residual", "defect2", "moment_defect2"):
+                            model_label = "Routed" + model_label
                         trained_models.append((model_label, model, history, residual_info))
                         print(
                             f"size={size} case={case} base={base_kind} form={form} mode={args.residual_mode} "
@@ -2048,6 +2294,12 @@ def main():
                             "moment_transport_relaxation": getattr(precond, "transport_relaxation", ""),
                             "moment_synthetic_relaxation": args.moment_synthetic_relaxation if getattr(precond, "form", "") in ("coeff_weighted_moment_tsa", "coeff_mixed_moment_tsa", "learned_rp_moment_tsa", "residual_subspace_moment_tsa") else "",
                             "learn_scalar_moment": args.learn_scalar_moment if getattr(precond, "form", "") in ("coeff_weighted_moment_tsa", "coeff_mixed_moment_tsa", "learned_rp_moment_tsa", "residual_subspace_moment_tsa") else "",
+                            "learned_base_router": bool(getattr(precond, "base_module", None) is not None),
+                            "learned_base_candidates": getattr(getattr(precond, "base_module", None), "router_candidates", ""),
+                            "learned_base_use_residual": getattr(getattr(precond, "base_module", None), "use_residual_summary", ""),
+                            "learned_base_temperature": getattr(getattr(precond, "base_module", None), "temperature", ""),
+                            "learned_base_route_scale": getattr(getattr(precond, "base_module", None), "route_scale", ""),
+                            "learned_base_relaxation_scale": getattr(getattr(precond, "base_module", None), "relaxation_scale", ""),
                             "fgmres_mode": args.fgmres_mode,
                         }
                         row.update(tol_metrics)

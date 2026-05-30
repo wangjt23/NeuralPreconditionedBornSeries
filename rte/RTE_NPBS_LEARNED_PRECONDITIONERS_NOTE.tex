@@ -423,6 +423,56 @@ full-angular TSA.  Mechanistically, the model starts from two physically
 meaningful residual-correction directions and lets the U-Net learn a nonlinear
 defect update on top.
 
+\subsection{Routed learned base inside U-Net defect2}
+
+In the original \code{UNet-defect2} experiments, \(B_h\) is fixed by the
+command-line \code{base_kind}.  For example, with
+\code{--base-kinds transport_tsa},
+\[
+  B_h r = B_{\rm TSA}r,
+\]
+and the model computes \(z_0=B_{\rm TSA}r\) and
+\(z_1=B_{\rm TSA}(r-A_hz_0)\).  With \code{--base-kinds transport_dsa},
+the same formula uses \(B_{\rm DSA}\).  Thus the earlier model learned only the
+defect correction \(C_\theta\), not the base preconditioner \(B_h\).
+
+The updated ablation code includes a \code{LearnedBaseRouter} option.  In this
+variant,
+\[
+  B_{\theta}^{\rm route}r
+  =
+  \sum_{j=1}^{J}\pi_j(\mu,r)\,
+  \left[
+    \alpha_j(\mu,r)G_\eta r
+    +
+    \beta_j(\mu,r)S_j(r-A_hG_\eta r)
+  \right],
+  \label{eq:routed-base}
+\]
+where \(\mu\) denotes coefficient features derived from
+\(\sigma_t,\sigma_s,g,h\), and \(S_j\) is one of the synthetic corrections:
+zero for the pure transport candidate, scalar diffusion for DSA, full
+reference transport-scattering for TSA, or closed moment TSA.  The route
+weights \(\pi_j\) are produced by a softmax router, while
+\(\alpha_j,\beta_j\) are bounded learned relaxation factors.  The router is
+initialized close to the selected classical \code{base_kind}, so the initial
+map remains near a known stable preconditioner.
+
+This design addresses two limitations of the earlier \code{UNet-defect2}
+model.  First, it can choose between transport-, DSA-, TSA-, and moment-TSA-like
+corrections according to the problem coefficients.  Second, it can tune the
+relative transport and synthetic strengths in a coefficient-conditioned way.
+The router can optionally use residual summaries, making \(B_\theta^{\rm route}\)
+nonlinear in the residual.  In that case FGMRES, not ordinary GMRES, is the
+appropriate Krylov wrapper.
+
+One subtle point is the loss.  If \(B_h\) itself is learned, then a metric loss
+of the form \(\norm{B_h r^+}/\norm{B_h r}\) can be gamed by changing the metric.
+The implementation therefore keeps the diagnostic metric tied to the fixed
+classical base while the routed \(B_\theta^{\rm route}\) is used in the actual
+correction.  Pure physical loss remains the cleanest first objective for routed
+models.
+
 \subsection{Moment U-Net}
 
 \code{MomentUNet} applies the same defect2 idea but restricts the learned
@@ -913,6 +963,35 @@ python -m rte.npbs_unet_ablation \
   --fgmres-mode complex \
   --output-csv rte/npbs_unet_ablation_tsa_full_physical_steps900.csv \
   --output-md rte/NPBS_UNET_ABLATION_REPORT.md
+\end{verbatim}
+
+\paragraph{Routed learned-\(B_h\) U-Net defect2.}
+\begin{verbatim}
+python -m rte.npbs_unet_ablation \
+  --cases anisotropic mixed \
+  --sizes 64 \
+  --n-angles 24 \
+  --base-kinds transport_tsa \
+  --forms defect2 \
+  --learned-base-router \
+  --learned-base-candidates transport dsa tsa tsa_moment \
+  --learned-base-use-residual \
+  --learned-base-width 32 \
+  --learned-base-blocks 2 \
+  --learned-base-temperature 1.0 \
+  --learned-base-route-scale 4.0 \
+  --learned-base-relaxation-scale 0.5 \
+  --moment-harmonics 4 \
+  --steps 900 \
+  --lr 0.002 \
+  --scheduler cosine \
+  --metric-weight 0.0 \
+  --physical-weight 1.0 \
+  --correction-weight 0.0 \
+  --rollout-weight 0.0 \
+  --fgmres-mode real-stacked \
+  --output-csv rte/npbs_unet_ablation_routed_base_physical_steps900.csv \
+  --output-md rte/NPBS_UNET_ABLATION_ROUTED_BASE_REPORT.md
 \end{verbatim}
 
 \paragraph{Moment-structure physical-loss comparison.}
