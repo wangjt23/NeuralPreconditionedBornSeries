@@ -93,6 +93,87 @@ class CoeffEncoder(nn.Module):
         return features
 
 
+class ScaleAwareCoeffGate(nn.Module):
+    """
+    Per-level coefficient gate for multilevel U-Net corrections.
+
+    The local branch sees the coefficient feature map at the current U-Net
+    resolution.  The summary branch sees mean/std/min/max statistics of that
+    same scale plus a small level code, so coarse and fine gates can learn
+    different coefficient dependence.
+    """
+
+    def __init__(
+        self,
+        channels,
+        coeff_channels,
+        level_idx,
+        levels,
+        gate_scale=0.1,
+        channel_mix=False,
+        stage=0.0,
+    ):
+        super().__init__()
+        self.gate_scale = float(gate_scale)
+        self.level_idx = int(level_idx)
+        self.levels = max(int(levels), 1)
+        self.channel_mix = bool(channel_mix)
+        self.stage = float(stage)
+        hidden = max(int(channels), 8)
+        self.local = circular_pad_conv(coeff_channels, channels, kernel_size=1, bias=True)
+        nn.init.zeros_(self.local.conv.weight)
+        nn.init.zeros_(self.local.conv.bias)
+        self.summary = nn.Sequential(
+            nn.Linear(4 * coeff_channels + 4, hidden),
+            nn.SiLU(),
+            nn.Linear(hidden, channels),
+        )
+        nn.init.zeros_(self.summary[-1].weight)
+        nn.init.zeros_(self.summary[-1].bias)
+        self.gain_logit = nn.Parameter(torch.zeros(()))
+        if self.channel_mix:
+            self.mix = nn.Sequential(
+                nn.Linear(4 * coeff_channels + 4, hidden),
+                nn.SiLU(),
+                nn.Linear(hidden, channels * channels),
+            )
+            nn.init.zeros_(self.mix[-1].weight)
+            nn.init.zeros_(self.mix[-1].bias)
+            self.mix_gain_logit = nn.Parameter(torch.zeros(()))
+
+    def level_code(self, batch_size, device, dtype):
+        denom = max(self.levels - 1, 1)
+        level_fraction = float(self.level_idx) / float(denom)
+        scale = 2.0 ** float(self.level_idx)
+        values = torch.tensor(
+            [level_fraction, math.log2(scale), 1.0 / scale, self.stage],
+            dtype=dtype,
+            device=device,
+        )
+        return values.view(1, 4).expand(batch_size, -1)
+
+    def forward(self, x, coeff):
+        if coeff.shape[-2:] != x.shape[-2:]:
+            coeff = F.interpolate(coeff, size=x.shape[-2:], mode="bilinear", align_corners=False)
+        summary = torch.cat(
+            [
+                spatial_summary(coeff),
+                self.level_code(coeff.shape[0], coeff.device, coeff.dtype),
+            ],
+            dim=1,
+        )
+        global_bias = self.summary(summary).view(coeff.shape[0], x.shape[1], 1, 1)
+        gate_logits = self.local(coeff) + global_bias
+        bounded_gain = self.gate_scale * (1.0 + 0.5 * torch.tanh(self.gain_logit))
+        out = x * (1.0 + bounded_gain * torch.tanh(gate_logits))
+        if self.channel_mix:
+            matrix = torch.tanh(self.mix(summary)).view(coeff.shape[0], x.shape[1], x.shape[1])
+            mixed = torch.einsum("bcd,bdhw->bchw", matrix.to(dtype=x.dtype), x) / math.sqrt(x.shape[1])
+            mix_gain = 0.5 * self.gate_scale * (1.0 + 0.5 * torch.tanh(self.mix_gain_logit))
+            out = out + mix_gain * mixed
+        return out
+
+
 class LinearGatedUNet(nn.Module):
     """
     U-Net correction that is exactly linear in residual features for fixed
@@ -100,19 +181,83 @@ class LinearGatedUNet(nn.Module):
     activation-free; nonlinearity enters only through coefficient gates.
     """
 
-    def __init__(self, in_channels, out_channels, width=16, levels=3, gate_scale=0.1, output_init="zero"):
+    def __init__(
+        self,
+        in_channels,
+        out_channels,
+        width=16,
+        levels=3,
+        gate_scale=0.1,
+        output_init="zero",
+        scale_aware_gates=False,
+        scale_gate_channel_mix=False,
+        gate_coeff_channels=None,
+    ):
         super().__init__()
         self.levels = int(levels)
         self.gate_scale = float(gate_scale)
+        self.scale_aware_gates = bool(scale_aware_gates)
+        self.scale_gate_channel_mix = bool(scale_gate_channel_mix)
+        gate_coeff_channels = int(gate_coeff_channels or width)
         self.lift = circular_pad_conv(in_channels, width, kernel_size=1, bias=False)
         self.enc_mix = nn.ModuleList([circular_pad_conv(width, width, bias=False) for _ in range(levels)])
-        self.enc_gate = nn.ModuleList([circular_pad_conv(width, width, kernel_size=1, bias=True) for _ in range(levels)])
+        if self.scale_aware_gates:
+            self.enc_gate = nn.ModuleList(
+                [
+                    ScaleAwareCoeffGate(
+                        width,
+                        gate_coeff_channels,
+                        level_idx=level,
+                        levels=levels,
+                        gate_scale=gate_scale,
+                        stage=-1.0,
+                    )
+                    if not self.scale_gate_channel_mix
+                    else ScaleAwareCoeffGate(
+                        width,
+                        gate_coeff_channels,
+                        level_idx=level,
+                        levels=levels,
+                        gate_scale=gate_scale,
+                        channel_mix=True,
+                        stage=-1.0,
+                    )
+                    for level in range(levels)
+                ]
+            )
+        else:
+            self.enc_gate = nn.ModuleList([circular_pad_conv(width, width, kernel_size=1, bias=True) for _ in range(levels)])
         self.down = nn.ModuleList([circular_pad_conv(width, width, kernel_size=5, stride=2, bias=False) for _ in range(levels - 1)])
         self.up = nn.ModuleList(
             [nn.ConvTranspose2d(width, width, kernel_size=4, stride=2, padding=1, bias=False) for _ in range(levels - 1)]
         )
         self.dec_mix1 = nn.ModuleList([circular_pad_conv(2 * width, width, bias=False) for _ in range(levels - 1)])
-        self.dec_gate = nn.ModuleList([circular_pad_conv(width, width, kernel_size=1, bias=True) for _ in range(levels - 1)])
+        if self.scale_aware_gates:
+            self.dec_gate = nn.ModuleList(
+                [
+                    ScaleAwareCoeffGate(
+                        width,
+                        gate_coeff_channels,
+                        level_idx=levels - 2 - step,
+                        levels=levels,
+                        gate_scale=gate_scale,
+                        stage=1.0,
+                    )
+                    if not self.scale_gate_channel_mix
+                    else ScaleAwareCoeffGate(
+                        width,
+                        gate_coeff_channels,
+                        level_idx=levels - 2 - step,
+                        levels=levels,
+                        gate_scale=gate_scale,
+                        channel_mix=True,
+                        stage=1.0,
+                    )
+                    for step in range(levels - 1)
+                ]
+            )
+        else:
+            self.dec_gate = nn.ModuleList([circular_pad_conv(width, width, kernel_size=1, bias=True) for _ in range(levels - 1)])
         self.dec_mix2 = nn.ModuleList([circular_pad_conv(width, width, bias=False) for _ in range(levels - 1)])
         self.proj = circular_pad_conv(width, out_channels, kernel_size=1, bias=False)
         if output_init == "zero":
@@ -135,6 +280,8 @@ class LinearGatedUNet(nn.Module):
         return x[..., top : top + reference.size(-2), left : left + reference.size(-1)]
 
     def gate(self, x, coeff, projector):
+        if isinstance(projector, ScaleAwareCoeffGate):
+            return projector(x, coeff)
         if coeff.shape[-2:] != x.shape[-2:]:
             coeff = F.interpolate(coeff, size=x.shape[-2:], mode="bilinear", align_corners=False)
         return x * (1.0 + self.gate_scale * torch.tanh(projector(coeff)))
@@ -181,6 +328,27 @@ def rte_coeff_feature_map(rte, batch_size, extended=False):
     if coeff.shape[0] == 1 and batch_size > 1:
         coeff = coeff.expand(batch_size, -1, -1, -1)
     return coeff
+
+
+def raw_gate_feature_pyramid(raw_coeff, reference_features):
+    """
+    Build raw physical coefficient features at each U-Net level.
+
+    Channel convention for extended raw_coeff is
+    [st_norm, albedo, grad, g, h*sigma_t, sigma_a/sigma_t,
+    sigma_tr/sigma_t, sigma_tr].  The optical-thickness channel is rescaled by
+    the level coarsening factor so coarse gates see coarse-cell optical depth.
+    """
+    pyramid = []
+    for level, reference in enumerate(reference_features):
+        raw_level = raw_coeff
+        if raw_level.shape[-2:] != reference.shape[-2:]:
+            raw_level = F.interpolate(raw_level, size=reference.shape[-2:], mode="bilinear", align_corners=False)
+        if raw_level.shape[1] >= 5:
+            raw_level = raw_level.clone()
+            raw_level[:, 4:5] = raw_level[:, 4:5] * (2.0 ** float(level))
+        pyramid.append(raw_level)
+    return pyramid
 
 
 def spatial_summary(features):
@@ -369,6 +537,9 @@ class NPBSUNetPreconditioner(nn.Module):
         defect_relaxation=1.0,
         output_init="zero",
         base_module=None,
+        scale_aware_gates=False,
+        scale_gate_channel_mix=False,
+        extended_coeff_features=False,
     ):
         super().__init__()
         if form not in {"residual", "defect2"}:
@@ -381,10 +552,14 @@ class NPBSUNetPreconditioner(nn.Module):
         self.delta_scale = float(delta_scale)
         self.defect_relaxation = float(defect_relaxation)
         self.base_module = base_module
+        self.extended_coeff_features = bool(extended_coeff_features)
+        self.scale_aware_gates = bool(scale_aware_gates)
         single_base_calls = getattr(base_module, "base_calls_per_apply", 1)
         self.base_calls_per_apply = single_base_calls if form == "residual" else 2 * single_base_calls
         in_channels = 2 * self.n_angles if form == "residual" else 4 * self.n_angles
-        self.coeff_encoder = CoeffEncoder(coeff_channels=4, width=width, levels=levels)
+        coeff_channels = 8 if self.extended_coeff_features else 4
+        gate_coeff_channels = width + (8 if self.scale_aware_gates else 0)
+        self.coeff_encoder = CoeffEncoder(coeff_channels=coeff_channels, width=width, levels=levels)
         self.unet = LinearGatedUNet(
             in_channels,
             2 * self.n_angles,
@@ -392,6 +567,9 @@ class NPBSUNetPreconditioner(nn.Module):
             levels=levels,
             gate_scale=gate_scale,
             output_init=output_init,
+            scale_aware_gates=scale_aware_gates,
+            scale_gate_channel_mix=scale_gate_channel_mix,
+            gate_coeff_channels=gate_coeff_channels,
         )
 
     def base(self, residual):
@@ -403,7 +581,7 @@ class NPBSUNetPreconditioner(nn.Module):
         return self.rte.apply_preconditioner(residual, kind=self.base_kind, tsa_harmonics=self.tsa_harmonics)
 
     def coeff_features(self, batch_size):
-        return rte_coeff_feature_map(self.rte, batch_size, extended=False)
+        return rte_coeff_feature_map(self.rte, batch_size, extended=self.extended_coeff_features)
 
     @staticmethod
     def ri(x):
@@ -412,7 +590,15 @@ class NPBSUNetPreconditioner(nn.Module):
     def correction_from_features(self, features, batch_size, dtype, device):
         coeff = self.coeff_features(batch_size).to(device=device, dtype=features.dtype)
         coeff_features = self.coeff_encoder(coeff)
-        delta_ri = self.unet(features, coeff_features)
+        gate_features = coeff_features
+        if self.scale_aware_gates:
+            raw_coeff = rte_coeff_feature_map(self.rte, batch_size, extended=True).to(device=device, dtype=features.dtype)
+            raw_pyramid = raw_gate_feature_pyramid(raw_coeff, coeff_features)
+            gate_features = [
+                torch.cat([encoded, raw], dim=1)
+                for encoded, raw in zip(coeff_features, raw_pyramid)
+            ]
+        delta_ri = self.unet(features, gate_features)
         real, imag = torch.chunk(delta_ri, 2, dim=1)
         return torch.complex(real, imag).to(dtype=dtype)
 
@@ -448,6 +634,9 @@ class MomentNPBSUNetPreconditioner(nn.Module):
         defect_relaxation=1.0,
         output_init="zero",
         base_module=None,
+        scale_aware_gates=False,
+        scale_gate_channel_mix=False,
+        extended_coeff_features=False,
     ):
         super().__init__()
         self.rte = rte
@@ -462,8 +651,12 @@ class MomentNPBSUNetPreconditioner(nn.Module):
         self.delta_scale = float(delta_scale)
         self.defect_relaxation = float(defect_relaxation)
         self.base_module = base_module
+        self.extended_coeff_features = bool(extended_coeff_features)
+        self.scale_aware_gates = bool(scale_aware_gates)
         self.base_calls_per_apply = 2 * getattr(base_module, "base_calls_per_apply", 1)
-        self.coeff_encoder = CoeffEncoder(coeff_channels=4, width=width, levels=levels)
+        coeff_channels = 8 if self.extended_coeff_features else 4
+        gate_coeff_channels = width + (8 if self.scale_aware_gates else 0)
+        self.coeff_encoder = CoeffEncoder(coeff_channels=coeff_channels, width=width, levels=levels)
         self.unet = LinearGatedUNet(
             4 * self.n_moments,
             2 * self.n_moments,
@@ -471,6 +664,9 @@ class MomentNPBSUNetPreconditioner(nn.Module):
             levels=levels,
             gate_scale=gate_scale,
             output_init=output_init,
+            scale_aware_gates=scale_aware_gates,
+            scale_gate_channel_mix=scale_gate_channel_mix,
+            gate_coeff_channels=gate_coeff_channels,
         )
 
     def base(self, residual):
@@ -482,7 +678,7 @@ class MomentNPBSUNetPreconditioner(nn.Module):
         return self.rte.apply_preconditioner(residual, kind=self.base_kind, tsa_harmonics=self.tsa_harmonics)
 
     def coeff_features(self, batch_size):
-        return rte_coeff_feature_map(self.rte, batch_size, extended=False)
+        return rte_coeff_feature_map(self.rte, batch_size, extended=self.extended_coeff_features)
 
     def restrict_moments(self, field):
         basis = self.rte.angular_fourier_basis(self.moment_harmonics, dtype=field.dtype, device=field.device)
@@ -499,7 +695,15 @@ class MomentNPBSUNetPreconditioner(nn.Module):
     def correction_from_moment_features(self, features, batch_size, dtype, device):
         coeff = self.coeff_features(batch_size).to(device=device, dtype=features.dtype)
         coeff_features = self.coeff_encoder(coeff)
-        delta_ri = self.unet(features, coeff_features)
+        gate_features = coeff_features
+        if self.scale_aware_gates:
+            raw_coeff = rte_coeff_feature_map(self.rte, batch_size, extended=True).to(device=device, dtype=features.dtype)
+            raw_pyramid = raw_gate_feature_pyramid(raw_coeff, coeff_features)
+            gate_features = [
+                torch.cat([encoded, raw], dim=1)
+                for encoded, raw in zip(coeff_features, raw_pyramid)
+            ]
+        delta_ri = self.unet(features, gate_features)
         real, imag = torch.chunk(delta_ri, 2, dim=1)
         delta_moment = torch.complex(real, imag).to(dtype=dtype)
         return self.prolong_moments(delta_moment)
@@ -1767,6 +1971,8 @@ def write_report(rows, path, settings):
             "- `transport_tsa_moment` applies one reference transport correction followed by a closed Galerkin angular Fourier synthetic correction `Q_K (Q_K^* A_ref Q_K)^{-1} Q_K^*` on the post-transport residual. This differs from `transport_tsa` with `tsa_harmonics=K`, which only projects the RHS before applying the full angular reference inverse.",
             "- `dsaK` and `tsaK` mean `K` residual-correction applications of the selected base preconditioner. Starting with `z=0` and residual `e_0=r`, each stage applies `z <- z + omega B_h e_j` and `e_{j+1} <- e_j - A_h(omega B_h e_j)`. A suffix such as `-w0.5` uses relaxation `omega=0.5`; no suffix means `omega=1`.",
             "- `UNet-defect2-w1` uses `z0=B_h r`, `z1=B_h(r-A_h z0)`, and returns `z0 + z1 + C_theta(z0,z1,coeff)`. It costs two base applications plus the U-Net evaluation per preconditioner call.",
+            "- `--scale-aware-gates` replaces the simple per-level coefficient gate by a gate that uses encoded coefficient features, raw physical coefficient features, mean/std/min/max summaries at that U-Net scale, a level/stage code, and a learnable bounded gain. The raw features include coarse-cell optical thickness, absorption ratio, transport cross-section, albedo, gradients, and anisotropy. This is intended to let coarse levels and fine levels react differently to the coefficient field.",
+            "- `--scale-gate-channel-mix` adds a bounded coefficient-conditioned channel-mixing update inside each scale-aware gate, so the gate can rotate/couple residual feature channels instead of only reweighting them diagonally. For fixed coefficients the residual path remains linear.",
             "- `RoutedUNet-*` replaces the fixed `B_h` inside the U-Net by a trainable soft router over classical candidates such as `transport`, `dsa`, `tsa`, and `tsa_moment`. The router is conditioned on coefficient summaries, optionally residual summaries, and learns bounded transport/synthetic relaxation factors. The metric loss still uses the fixed classical base so that a learned metric cannot be gamed.",
             "- `MomentUNet-K` uses the same defect2 structure but restricts the learned correction to angular Fourier modes `0,+/-1,...,+/-K` before prolonging back to ordinates.",
             "- `WeightedTSA-MK` is a tiny learned structural model initialized as closed TSA-MK; it learns bounded real weights for each absolute angular mode in the synthetic correction.",
@@ -1837,6 +2043,22 @@ def main():
     parser.add_argument("--eta-scale", type=float, default=0.1)
     parser.add_argument("--width", type=int, default=16)
     parser.add_argument("--levels", type=int, default=3)
+    parser.add_argument("--gate-scale", type=float, default=0.1)
+    parser.add_argument(
+        "--scale-aware-gates",
+        action="store_true",
+        help="Use per-level coefficient gates with scale summaries and level codes in U-Net forms.",
+    )
+    parser.add_argument(
+        "--scale-gate-channel-mix",
+        action="store_true",
+        help="Let scale-aware gates apply bounded coefficient-conditioned channel mixing, not only diagonal reweighting.",
+    )
+    parser.add_argument(
+        "--extended-coeff-features",
+        action="store_true",
+        help="Use optical thickness, absorption, and transport cross-section features in U-Net coefficient gates.",
+    )
     parser.add_argument("--steps", type=int, default=100)
     parser.add_argument("--lr", type=float, default=2e-3)
     parser.add_argument("--weight-decay", type=float, default=0.0)
@@ -1881,6 +2103,8 @@ def main():
     parser.add_argument("--trace-csv", default="")
     parser.add_argument("--output-md", default="rte/NPBS_UNET_ABLATION_REPORT.md")
     args = parser.parse_args()
+    if args.scale_gate_channel_mix:
+        args.scale_aware_gates = True
 
     torch.manual_seed(args.seed)
     dtype = torch.float32
@@ -2021,9 +2245,13 @@ def main():
                                 moment_harmonics=args.moment_harmonics,
                                 width=args.width,
                                 levels=args.levels,
+                                gate_scale=args.gate_scale,
                                 defect_relaxation=relaxation,
                                 output_init=args.output_init,
                                 base_module=base_module,
+                                scale_aware_gates=args.scale_aware_gates,
+                                scale_gate_channel_mix=args.scale_gate_channel_mix,
+                                extended_coeff_features=args.extended_coeff_features or args.scale_aware_gates,
                             ).to(device)
                         elif form == "weighted_moment_tsa":
                             if str(base_kind).lower() not in (
@@ -2118,9 +2346,13 @@ def main():
                                 tsa_harmonics=tsa_harmonics,
                                 width=args.width,
                                 levels=args.levels,
+                                gate_scale=args.gate_scale,
                                 defect_relaxation=relaxation,
                                 output_init=args.output_init,
                                 base_module=base_module,
+                                scale_aware_gates=args.scale_aware_gates,
+                                scale_gate_channel_mix=args.scale_gate_channel_mix,
+                                extended_coeff_features=args.extended_coeff_features or args.scale_aware_gates,
                             ).to(device)
                         history = train_model(
                             model,
@@ -2165,6 +2397,8 @@ def main():
                         )
                         if args.learned_base_router and form in ("residual", "defect2", "moment_defect2"):
                             model_label = "Routed" + model_label
+                        if args.scale_aware_gates and form in ("residual", "defect2", "moment_defect2"):
+                            model_label = "ScaleGated" + model_label
                         trained_models.append((model_label, model, history, residual_info))
                         print(
                             f"size={size} case={case} base={base_kind} form={form} mode={args.residual_mode} "
@@ -2275,6 +2509,10 @@ def main():
                             "scheduler_eta_min": args.scheduler_eta_min,
                             "scheduler_min_lr_ratio": args.scheduler_min_lr_ratio,
                             "scheduler_pct_start": args.scheduler_pct_start,
+                            "gate_scale": args.gate_scale if getattr(precond, "form", "") in ("residual", "defect2", "moment_defect2") else "",
+                            "scale_aware_gates": args.scale_aware_gates if getattr(precond, "form", "") in ("residual", "defect2", "moment_defect2") else "",
+                            "scale_gate_channel_mix": args.scale_gate_channel_mix if getattr(precond, "form", "") in ("residual", "defect2", "moment_defect2") else "",
+                            "extended_coeff_features": (args.extended_coeff_features or args.scale_aware_gates) if getattr(precond, "form", "") in ("residual", "defect2", "moment_defect2") else "",
                             "metric_weight": args.metric_weight,
                             "physical_weight": args.physical_weight,
                             "correction_weight": args.correction_weight,

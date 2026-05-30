@@ -402,6 +402,69 @@ features such as \(\sigma_t\) and \(\sigma_s\), into a gated U-Net correction:
 This model is residual-dependent through \(z_0\), but it does not explicitly
 represent a second defect correction.
 
+\paragraph{Coefficient-dependent multilevel gates.}
+The U-Net correction path is deliberately linear in the residual features for
+fixed coefficients; nonlinearity enters through coefficient-dependent gates.
+The original implementation already used one coefficient gate at every encoder
+and decoder level.  A coefficient encoder produced a feature pyramid
+\(\{c_\ell\}\), and each residual feature map \(u_\ell\) was modulated as
+\[
+  u_\ell \leftarrow
+  u_\ell\left(1+\gamma\tanh(P_\ell c_\ell)\right),
+\]
+where \(P_\ell\) is a level-specific \(1\times1\) convolution.  This gave
+different learned gates at different U-Net levels, but the gate was mostly
+local at the current resolution.
+
+The updated \code{--scale-aware-gates} option makes the multilevel mechanism
+more explicit.  At each level \(\ell\), the gate now uses the learned
+coefficient feature \(c_\ell\), a raw physical coefficient feature
+\(p_\ell\), and scale summaries.  The raw feature includes normalized
+\(\sigma_t\), albedo, coefficient gradients, anisotropy \(g\), coarse-cell
+optical thickness \(2^\ell h\sigma_t\), absorption ratio
+\(\sigma_a/\sigma_t\), transport ratio \(\sigma_{\rm tr}/\sigma_t\), and
+\(\sigma_{\rm tr}=\sigma_t-g\sigma_s\).  The local gate input is
+\(\tilde c_\ell=[c_\ell,p_\ell]\).  Its summary is
+\[
+  s_\ell =
+  \left[
+    \operatorname{mean}(\tilde c_\ell),
+    \operatorname{std}(\tilde c_\ell),
+    \min(\tilde c_\ell),
+    \max(\tilde c_\ell),
+    \ell/(L-1),
+    \log_2(2^\ell),
+    2^{-\ell},
+    \operatorname{stage}
+  \right],
+\]
+\[
+  u_\ell \leftarrow
+  u_\ell\left(
+    1+
+    \gamma_\ell
+    \tanh\{P_\ell \tilde c_\ell + M_\ell s_\ell\}
+  \right).
+\]
+Here \(\operatorname{stage}=-1\) for encoder/restriction-side gates and
+\(\operatorname{stage}=1\) for decoder/prolongation-side gates.  \(M_\ell\) is
+a small MLP and \(\gamma_\ell\) is a bounded learnable gate strength.  The
+optional \code{--scale-gate-channel-mix} further adds a bounded
+coefficient-conditioned channel-mixing correction
+\[
+  u_\ell \leftarrow u_\ell
+  +
+  \alpha_\ell W_\ell(s_\ell)u_\ell ,
+\]
+initialized at zero.  For fixed coefficients this still defines a linear
+operator in the residual, but it allows the gate to rotate or couple residual
+feature channels rather than merely reweight them.  Thus fine levels can learn
+coefficient dependence appropriate for oscillatory/local error components,
+while coarse levels can learn dependence on coarser optical-thickness and
+albedo summaries.  This is closer to the multilevel-smoother interpretation:
+different U-Net scales are allowed to accelerate different error subspaces with
+different coefficient conditioning.
+
 \subsection{U-Net defect2 model}
 
 The \code{UNet-defect2} model computes one explicit defect correction before
@@ -948,6 +1011,8 @@ python -m rte.npbs_unet_ablation \
   --n-angles 12 \
   --base-kinds transport_tsa \
   --forms defect2 \
+  --scale-aware-gates \
+  --scale-gate-channel-mix \
   --defect-relaxations 1.0 \
   --baseline-depths 1 2 3 4 \
   --baseline-relaxations 1.0 0.5 \
@@ -973,6 +1038,8 @@ python -m rte.npbs_unet_ablation \
   --n-angles 24 \
   --base-kinds transport_tsa \
   --forms defect2 \
+  --scale-aware-gates \
+  --scale-gate-channel-mix \
   --learned-base-router \
   --learned-base-candidates transport dsa tsa tsa_moment \
   --learned-base-use-residual \
