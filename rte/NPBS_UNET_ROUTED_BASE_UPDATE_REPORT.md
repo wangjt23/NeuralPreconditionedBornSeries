@@ -22,9 +22,27 @@ The pulled change adds a `LearnedBaseRouter` that can mix classical base correct
 
 All new ablations below use size 64, cases `anisotropic` and `mixed`, physical-only loss (`metric_weight=0`, `physical_weight=1`, `correction_weight=0`, `rollout_weight=0`), 900 steps, cosine schedule, and `fgmres_mode=real-stacked` unless noted otherwise. Where a historical CSV contains multiple protocol slices, the comparisons below use the size-64 `real-stacked` heldout rows.
 
+## Training And Generalization Protocol
+
+The comparison table does **not** represent a single model trained jointly on anisotropic and mixed coefficient datasets.
+
+- `rte/npbs_unet_ablation.py` loops over `args.cases` and trains a separate model for each case.
+- Passing `--cases anisotropic mixed` therefore launches two independent trainings inside one command: one anisotropic model and one mixed model.
+- The `heldout` rows are source-heldout evaluations on the same case-specific coefficient field, not new coefficient realizations.
+
+So these routed-base results measure **source generalization within each fixed case**, not cross-case generalization and not coefficient-distribution generalization.
+
+## Metric Definitions
+
+- `one-step` means the one-step true residual ratio `||A M r - r|| / ||r||`.
+- `stationary residual` means the final relative residual `||b - A psi_k|| / ||b||` after applying the preconditioner as a stationary fixed-point iteration, `psi_{k+1} = psi_k + M(b - A psi_k)`, for up to 60 iterations or until tolerance.
+- `FGMRES` means the final relative residual after preconditioned FGMRES, with up to 25 iterations in these ablations.
+
+Lower is better for all three metrics.
+
 ## Main Comparison
 
-| Run | Learned base candidates | Residual summary | Anisotropic one-step | Anisotropic FGMRES | Mixed one-step | Mixed stationary | Mixed FGMRES |
+| Run | Learned base candidates | Residual summary | Anisotropic one-step | Anisotropic FGMRES | Mixed one-step | Mixed stationary residual | Mixed FGMRES |
 | --- | --- | --- | ---: | ---: | ---: | ---: | ---: |
 | committed full12 UNet | fixed transport+TSA base | no | 0.0698968 | 1.26946e-05 | 0.124534 | 7.82266e-06 | 7.54405e-06 |
 | current full12 UNet | fixed transport+TSA base | no | 0.0451438 | 1.27416e-05 | 0.276063 | 2.49909e-01 | 7.84667e-06 |
@@ -36,7 +54,7 @@ All new ablations below use size 64, cases `anisotropic` and `mixed`, physical-o
 
 ## Teacher Reference On Mixed
 
-| Run | Mixed one-step | Mixed stationary | Mixed FGMRES |
+| Run | Mixed one-step | Mixed stationary residual | Mixed FGMRES |
 | --- | ---: | ---: | ---: |
 | committed full12 UNet | 0.124534 | 7.82266e-06 | 7.54405e-06 |
 | teacher1200 UNet | 0.174053 | 7.55108e-06 | 7.35536e-06 |
