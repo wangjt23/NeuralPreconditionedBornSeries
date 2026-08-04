@@ -359,6 +359,83 @@ def spatial_summary(features):
     return torch.cat([mean, std, amin, amax], dim=1)
 
 
+class ROMLowRankCorrection(nn.Module):
+    """
+    ROM-style global low-rank correction branch for learned SA.
+
+    The branch is initialized to zero and can be added to the local U-Net
+    correction.  By default the low-rank coefficients depend only on physical
+    coefficient summaries, so the map remains linear in the residual for fixed
+    coefficients.  Passing ``use_residual_summary=True`` makes the rank weights
+    residual-dependent, which is useful as a separate nonlinear ablation.
+    """
+
+    def __init__(
+        self,
+        in_channels,
+        out_channels,
+        coeff_channels=8,
+        rank=0,
+        width=16,
+        scale=0.1,
+        use_residual_summary=False,
+    ):
+        super().__init__()
+        self.rank = int(rank)
+        self.out_channels = int(out_channels)
+        self.scale = float(scale)
+        self.use_residual_summary = bool(use_residual_summary)
+        if self.rank <= 0:
+            raise ValueError("ROMLowRankCorrection requires rank > 0")
+        hidden = max(int(width), 8)
+        self.basis_lift = circular_pad_conv(in_channels, hidden, kernel_size=3, bias=False)
+        self.basis_proj = circular_pad_conv(hidden, self.rank * self.out_channels, kernel_size=1, bias=False)
+        nn.init.normal_(self.basis_proj.conv.weight, mean=0.0, std=1e-3)
+
+        summary_dim = 4 * int(coeff_channels)
+        if self.use_residual_summary:
+            summary_dim += 4
+        self.weight_net = nn.Sequential(
+            nn.Linear(summary_dim, hidden),
+            nn.SiLU(),
+            nn.Linear(hidden, hidden),
+            nn.SiLU(),
+            nn.Linear(hidden, self.rank),
+        )
+        nn.init.zeros_(self.weight_net[-1].weight)
+        nn.init.zeros_(self.weight_net[-1].bias)
+        self.gain_logit = nn.Parameter(torch.zeros(()))
+
+    @staticmethod
+    def residual_summary(features):
+        with torch.no_grad():
+            energy = torch.sqrt(torch.clamp(features.square().mean(dim=(1, 2, 3)), min=1e-12))
+            channel_energy = torch.sqrt(torch.clamp(features.square().mean(dim=(-2, -1)), min=1e-12))
+            channel_mean = torch.clamp(channel_energy.mean(dim=1), min=1e-12)
+            channel_spread = channel_energy.amax(dim=1) / channel_mean
+            signed_mean = features.mean(dim=(1, 2, 3)) / torch.clamp(energy, min=1e-12)
+            signed_std = torch.sqrt(torch.clamp(features.var(dim=(1, 2, 3), unbiased=False), min=1e-12)) / torch.clamp(
+                energy,
+                min=1e-12,
+            )
+            return torch.stack([torch.log1p(energy), channel_spread, signed_mean, signed_std], dim=1)
+
+    def rank_weights(self, features, coeff):
+        summary = [spatial_summary(coeff)]
+        if self.use_residual_summary:
+            summary.append(self.residual_summary(features).to(device=features.device, dtype=features.dtype))
+        logits = self.weight_net(torch.cat(summary, dim=1).to(dtype=torch.float32))
+        bounded_gain = self.scale * (1.0 + 0.5 * torch.tanh(self.gain_logit))
+        return bounded_gain * torch.tanh(logits)
+
+    def forward(self, features, coeff):
+        basis = self.basis_proj(self.basis_lift(features))
+        basis = basis.view(features.shape[0], self.rank, self.out_channels, *features.shape[-2:])
+        weights = self.rank_weights(features, coeff).to(dtype=features.dtype, device=features.device)
+        weights = weights.view(features.shape[0], self.rank, 1, 1, 1)
+        return torch.sum(weights * basis, dim=1) / math.sqrt(float(self.rank))
+
+
 class LearnedBaseRouter(nn.Module):
     """
     Coefficient/residual-conditioned soft router over classical RTE bases.
@@ -540,6 +617,10 @@ class NPBSUNetPreconditioner(nn.Module):
         scale_aware_gates=False,
         scale_gate_channel_mix=False,
         extended_coeff_features=False,
+        rom_rank=0,
+        rom_width=None,
+        rom_scale=0.1,
+        rom_use_residual_summary=False,
     ):
         super().__init__()
         if form not in {"residual", "defect2"}:
@@ -554,6 +635,7 @@ class NPBSUNetPreconditioner(nn.Module):
         self.base_module = base_module
         self.extended_coeff_features = bool(extended_coeff_features)
         self.scale_aware_gates = bool(scale_aware_gates)
+        self.rom_rank = int(rom_rank)
         single_base_calls = getattr(base_module, "base_calls_per_apply", 1)
         self.base_calls_per_apply = single_base_calls if form == "residual" else 2 * single_base_calls
         in_channels = 2 * self.n_angles if form == "residual" else 4 * self.n_angles
@@ -571,6 +653,17 @@ class NPBSUNetPreconditioner(nn.Module):
             scale_gate_channel_mix=scale_gate_channel_mix,
             gate_coeff_channels=gate_coeff_channels,
         )
+        self.rom_head = None
+        if self.rom_rank > 0:
+            self.rom_head = ROMLowRankCorrection(
+                in_channels,
+                2 * self.n_angles,
+                coeff_channels=8,
+                rank=self.rom_rank,
+                width=rom_width or width,
+                scale=rom_scale,
+                use_residual_summary=rom_use_residual_summary,
+            )
 
     def base(self, residual):
         if self.base_module is not None:
@@ -591,6 +684,7 @@ class NPBSUNetPreconditioner(nn.Module):
         coeff = self.coeff_features(batch_size).to(device=device, dtype=features.dtype)
         coeff_features = self.coeff_encoder(coeff)
         gate_features = coeff_features
+        raw_coeff = None
         if self.scale_aware_gates:
             raw_coeff = rte_coeff_feature_map(self.rte, batch_size, extended=True).to(device=device, dtype=features.dtype)
             raw_pyramid = raw_gate_feature_pyramid(raw_coeff, coeff_features)
@@ -599,6 +693,10 @@ class NPBSUNetPreconditioner(nn.Module):
                 for encoded, raw in zip(coeff_features, raw_pyramid)
             ]
         delta_ri = self.unet(features, gate_features)
+        if self.rom_head is not None:
+            if raw_coeff is None:
+                raw_coeff = rte_coeff_feature_map(self.rte, batch_size, extended=True).to(device=device, dtype=features.dtype)
+            delta_ri = delta_ri + self.rom_head(features, raw_coeff)
         real, imag = torch.chunk(delta_ri, 2, dim=1)
         return torch.complex(real, imag).to(dtype=dtype)
 
@@ -612,6 +710,415 @@ class NPBSUNetPreconditioner(nn.Module):
         z1 = self.base(defect)
         features = torch.cat([self.ri(z0), self.ri(z1)], dim=1)
         delta = self.correction_from_features(features, residual.shape[0], residual.dtype, residual.device)
+        return z0 + self.defect_relaxation * z1 + self.delta_scale * delta
+
+
+def periodic_upsample_like(x, reference):
+    """Upsample on the discrete torus without introducing zero boundary data."""
+    target_h, target_w = reference.shape[-2:]
+    if x.shape[-2:] == (target_h, target_w):
+        return x
+    if target_h == 2 * x.shape[-2] and target_w == 2 * x.shape[-1]:
+        return x.repeat_interleave(2, dim=-2).repeat_interleave(2, dim=-1)
+    return F.interpolate(x, size=(target_h, target_w), mode="nearest")
+
+
+class AngularScaleModeMixer(nn.Module):
+    """Bounded, coefficient-conditioned angular mixing at one spatial scale."""
+
+    def __init__(self, n_modes, mode_width, coeff_channels, width, level_idx, levels, stage, scale=0.1):
+        super().__init__()
+        self.n_modes = int(n_modes)
+        self.mode_width = int(mode_width)
+        self.scale = float(scale)
+        self.level_idx = int(level_idx)
+        self.levels = max(int(levels), 1)
+        self.stage = float(stage)
+        hidden = max(int(width), 16)
+        self.static_raw = nn.Parameter(torch.zeros(self.n_modes, self.n_modes))
+        self.coeff_net = nn.Sequential(
+            nn.Linear(4 * int(coeff_channels) + 4, hidden),
+            nn.SiLU(),
+            nn.Linear(hidden, self.n_modes * self.n_modes),
+        )
+        nn.init.zeros_(self.coeff_net[-1].weight)
+        nn.init.zeros_(self.coeff_net[-1].bias)
+
+    def level_code(self, batch_size, device, dtype):
+        denom = max(self.levels - 1, 1)
+        fraction = float(self.level_idx) / float(denom)
+        scale = 2.0 ** float(self.level_idx)
+        return torch.tensor(
+            [fraction, math.log2(scale), 1.0 / scale, self.stage],
+            dtype=dtype,
+            device=device,
+        ).view(1, 4).expand(batch_size, -1)
+
+    def forward(self, x, coeff):
+        batch = x.shape[0]
+        summary = torch.cat(
+            [spatial_summary(coeff), self.level_code(batch, coeff.device, coeff.dtype)],
+            dim=1,
+        ).to(dtype=torch.float32)
+        dynamic = self.coeff_net(summary).view(batch, self.n_modes, self.n_modes)
+        identity = torch.eye(self.n_modes, dtype=x.dtype, device=x.device).view(1, self.n_modes, self.n_modes)
+        static = self.scale * torch.tanh(self.static_raw).to(dtype=x.dtype, device=x.device).view(1, self.n_modes, self.n_modes)
+        dynamic = self.scale * torch.tanh(dynamic).to(dtype=x.dtype, device=x.device)
+        matrix = identity + static + dynamic
+        grouped = x.reshape(batch, self.n_modes, self.mode_width, *x.shape[-2:])
+        mixed = torch.einsum("bmn,bnchw->bmchw", matrix, grouped)
+        return mixed.reshape_as(x)
+
+
+class ModeGroupedPeriodicUNet(nn.Module):
+    """
+    Periodic, mode-preserving linear correction network.
+
+    Channels are grouped by angular Fourier mode for spatial convolutions.
+    Identity-initialized full 1x1 angular mixers at every scale then learn
+    spatially local mode coupling without reducing the angular dimension.
+    Thus the local multilevel path cannot silently replace the angular space
+    by a small channel bottleneck.
+    """
+
+    def __init__(self, n_modes, mode_in_channels=4, mode_out_channels=2, mode_width=4,
+                 levels=3, gate_coeff_channels=24, gate_scale=0.1, mode_mix_scale=0.05,
+                 output_init="zero"):
+        super().__init__()
+        self.n_modes = int(n_modes)
+        self.mode_width = int(mode_width)
+        self.levels = max(int(levels), 1)
+        hidden_channels = self.n_modes * self.mode_width
+        self.lift = circular_pad_conv(
+            self.n_modes * int(mode_in_channels),
+            hidden_channels,
+            kernel_size=1,
+            groups=self.n_modes,
+            bias=False,
+        )
+        self.enc_mix = nn.ModuleList(
+            [
+                circular_pad_conv(
+                    hidden_channels,
+                    hidden_channels,
+                    kernel_size=3,
+                    groups=self.n_modes,
+                    bias=False,
+                )
+                for _ in range(self.levels)
+            ]
+        )
+        self.enc_gate = nn.ModuleList(
+            [
+                ScaleAwareCoeffGate(
+                    hidden_channels,
+                    gate_coeff_channels,
+                    level_idx=level,
+                    levels=self.levels,
+                    gate_scale=gate_scale,
+                    stage=-1.0,
+                )
+                for level in range(self.levels)
+            ]
+        )
+        self.down = nn.ModuleList(
+            [
+                circular_pad_conv(
+                    hidden_channels,
+                    hidden_channels,
+                    kernel_size=5,
+                    stride=2,
+                    groups=self.n_modes,
+                    bias=False,
+                )
+                for _ in range(self.levels - 1)
+            ]
+        )
+        self.up = nn.ModuleList(
+            [
+                circular_pad_conv(
+                    hidden_channels,
+                    hidden_channels,
+                    kernel_size=3,
+                    groups=self.n_modes,
+                    bias=False,
+                )
+                for _ in range(self.levels - 1)
+            ]
+        )
+        self.dec_mix1 = nn.ModuleList(
+            [
+                circular_pad_conv(
+                    2 * hidden_channels,
+                    hidden_channels,
+                    kernel_size=3,
+                    groups=self.n_modes,
+                    bias=False,
+                )
+                for _ in range(self.levels - 1)
+            ]
+        )
+        self.dec_gate = nn.ModuleList(
+            [
+                ScaleAwareCoeffGate(
+                    hidden_channels,
+                    gate_coeff_channels,
+                    level_idx=self.levels - 2 - step,
+                    levels=self.levels,
+                    gate_scale=gate_scale,
+                    stage=1.0,
+                )
+                for step in range(self.levels - 1)
+            ]
+        )
+        self.dec_mix2 = nn.ModuleList(
+            [
+                circular_pad_conv(
+                    hidden_channels,
+                    hidden_channels,
+                    kernel_size=3,
+                    groups=self.n_modes,
+                    bias=False,
+                )
+                for _ in range(self.levels - 1)
+            ]
+        )
+        self.enc_mode_mix = nn.ModuleList(
+            [
+                AngularScaleModeMixer(
+                    self.n_modes,
+                    self.mode_width,
+                    gate_coeff_channels,
+                    width=max(gate_coeff_channels, self.mode_width),
+                    level_idx=level,
+                    levels=self.levels,
+                    stage=-1.0,
+                    scale=mode_mix_scale,
+                )
+                for level in range(self.levels)
+            ]
+        )
+        self.dec_mode_mix = nn.ModuleList(
+            [
+                AngularScaleModeMixer(
+                    self.n_modes,
+                    self.mode_width,
+                    gate_coeff_channels,
+                    width=max(gate_coeff_channels, self.mode_width),
+                    level_idx=self.levels - 2 - step,
+                    levels=self.levels,
+                    stage=1.0,
+                    scale=mode_mix_scale,
+                )
+                for step in range(self.levels - 1)
+            ]
+        )
+        self.proj = circular_pad_conv(
+            hidden_channels,
+            self.n_modes * int(mode_out_channels),
+            kernel_size=1,
+            groups=self.n_modes,
+            bias=False,
+        )
+        if output_init == "zero":
+            nn.init.zeros_(self.proj.conv.weight)
+        elif output_init == "small":
+            nn.init.normal_(self.proj.conv.weight, mean=0.0, std=1e-3)
+        else:
+            raise ValueError("output_init must be 'zero' or 'small'")
+
+    def forward(self, x, coeff_features):
+        x = self.lift(x)
+        skips = []
+        for level in range(self.levels):
+            x = self.enc_mix[level](x)
+            x = self.enc_mode_mix[level](x, coeff_features[level])
+            x = self.enc_gate[level](x, coeff_features[level])
+            skips.append(x)
+            if level < self.levels - 1:
+                x = self.down[level](x)
+        for step in range(self.levels - 1):
+            level = self.levels - 2 - step
+            x = periodic_upsample_like(x, skips[level])
+            x = self.up[step](x)
+            x = torch.cat([skips[level], x], dim=1)
+            x = self.dec_mix1[step](x)
+            x = self.dec_gate[step](x, coeff_features[level])
+            x = self.dec_mix2[step](x)
+            x = self.dec_mode_mix[step](x, coeff_features[level])
+        return self.proj(x)
+
+
+class AngularLowRankMixer(nn.Module):
+    """Coefficient-conditioned bounded low-rank coupling of Fourier modes."""
+
+    def __init__(self, n_modes, coeff_channels=8, rank=2, width=32, scale=0.25):
+        super().__init__()
+        self.n_modes = int(n_modes)
+        self.rank = max(1, min(int(rank), self.n_modes))
+        self.scale = float(scale)
+        hidden = max(int(width), 16)
+        left, _ = torch.linalg.qr(torch.randn(self.n_modes, self.rank), mode="reduced")
+        self.left = nn.Parameter(left)
+        self.right = nn.Parameter(left.transpose(0, 1).contiguous())
+        self.coeff_net = nn.Sequential(
+            nn.Linear(4 * int(coeff_channels), hidden),
+            nn.SiLU(),
+            nn.Linear(hidden, self.rank),
+        )
+        nn.init.zeros_(self.coeff_net[-1].weight)
+        nn.init.zeros_(self.coeff_net[-1].bias)
+
+    def forward(self, modes, coeff):
+        summary = spatial_summary(coeff).to(dtype=torch.float32)
+        amplitudes = self.scale * torch.tanh(self.coeff_net(summary))
+        right = self.right.to(dtype=modes.dtype, device=modes.device)
+        left = self.left.to(dtype=modes.dtype, device=modes.device)
+        projected = torch.einsum("rn,bnhw->brhw", right, modes)
+        projected = projected * amplitudes.to(dtype=modes.real.dtype).view(modes.shape[0], self.rank, 1, 1)
+        mixed = torch.einsum("nr,brhw->bnhw", left, projected)
+        return modes + mixed / math.sqrt(float(self.rank))
+
+
+class AngularResidualSubspaceGate(nn.Module):
+    """Bounded residual-dependent angular subspace gate."""
+
+    def __init__(self, n_modes, coeff_channels=8, width=32, scale=0.25):
+        super().__init__()
+        self.n_modes = int(n_modes)
+        self.scale = float(scale)
+        hidden = max(int(width), 16)
+        self.net = nn.Sequential(
+            nn.Linear(4 * int(coeff_channels) + 1 + self.n_modes, hidden),
+            nn.SiLU(),
+            nn.Linear(hidden, self.n_modes),
+        )
+        nn.init.zeros_(self.net[-1].weight)
+        nn.init.zeros_(self.net[-1].bias)
+
+    def forward(self, modes, coeff, reference_modes):
+        energy = torch.sqrt(
+            torch.clamp(
+                modes.real.square().mean(dim=(-2, -1))
+                + modes.imag.square().mean(dim=(-2, -1))
+                + reference_modes.real.square().mean(dim=(-2, -1))
+                + reference_modes.imag.square().mean(dim=(-2, -1)),
+                min=1e-12,
+            )
+        )
+        energy_mean = energy.mean(dim=1, keepdim=True)
+        relative = energy / torch.clamp(energy_mean, min=1e-12)
+        features = torch.cat(
+            [spatial_summary(coeff), torch.log1p(energy_mean), relative],
+            dim=1,
+        ).to(dtype=torch.float32)
+        gain = self.scale * torch.tanh(self.net(features))
+        return modes * (1.0 + gain.to(dtype=modes.real.dtype).view(modes.shape[0], self.n_modes, 1, 1))
+
+
+class AngularSpectralDefect2Preconditioner(nn.Module):
+    """
+    Full-angular defect2 preconditioner with learned mode coupling.
+
+    The two classical defect stages remain explicit.  The learned correction
+    is computed in the complete angular Fourier space, with grouped periodic
+    spatial convolutions, coefficient gates at every scale, a bounded
+    coefficient-conditioned low-rank mode mixer, and a bounded residual-energy
+    gate.  Zero output initialization gives the exact classical defect2 map.
+    """
+
+    def __init__(
+        self,
+        rte,
+        base_kind="transport_dsa",
+        tsa_harmonics=None,
+        width=16,
+        levels=3,
+        mode_width=4,
+        angular_mix_rank=2,
+        angular_mix_scale=0.25,
+        angular_mode_mix_scale=0.05,
+        residual_gate_scale=0.25,
+        gate_scale=0.1,
+        delta_scale=1.0,
+        defect_relaxation=1.0,
+        output_init="zero",
+        base_module=None,
+    ):
+        super().__init__()
+        self.rte = rte
+        self.form = "angular_spectral_defect2"
+        self.base_kind = base_kind
+        self.tsa_harmonics = tsa_harmonics
+        self.n_angles = int(rte.n_angles)
+        self.mode_width = int(mode_width)
+        self.angular_mix_rank = int(angular_mix_rank)
+        self.angular_mix_scale = float(angular_mix_scale)
+        self.angular_mode_mix_scale = float(angular_mode_mix_scale)
+        self.residual_gate_scale = float(residual_gate_scale)
+        self.delta_scale = float(delta_scale)
+        self.defect_relaxation = float(defect_relaxation)
+        self.base_module = base_module
+        self.base_calls_per_apply = 2 * getattr(base_module, "base_calls_per_apply", 1)
+        coeff_width = max(int(width), 8)
+        self.coeff_encoder = CoeffEncoder(coeff_channels=8, width=coeff_width, levels=levels)
+        gate_channels = coeff_width + 8
+        self.unet = ModeGroupedPeriodicUNet(
+            self.n_angles,
+            mode_in_channels=4,
+            mode_out_channels=2,
+            mode_width=mode_width,
+            levels=levels,
+            gate_coeff_channels=gate_channels,
+            gate_scale=gate_scale,
+            mode_mix_scale=angular_mode_mix_scale,
+            output_init=output_init,
+        )
+        self.mode_mixer = AngularLowRankMixer(
+            self.n_angles,
+            coeff_channels=8,
+            rank=angular_mix_rank,
+            width=coeff_width,
+            scale=angular_mix_scale,
+        )
+        self.residual_gate = AngularResidualSubspaceGate(
+            self.n_angles,
+            coeff_channels=8,
+            width=coeff_width,
+            scale=residual_gate_scale,
+        )
+
+    def base(self, residual):
+        if self.base_module is not None:
+            return self.base_module(residual)
+        return self.rte.apply_preconditioner(residual, kind=self.base_kind, tsa_harmonics=self.tsa_harmonics)
+
+    def metric_base(self, residual):
+        return self.rte.apply_preconditioner(residual, kind=self.base_kind, tsa_harmonics=self.tsa_harmonics)
+
+    def forward(self, residual):
+        z0 = self.base(residual)
+        defect = residual - self.rte.A_op(z0)
+        z1 = self.base(defect)
+        modes0 = torch.fft.fft(z0, dim=1, norm="ortho")
+        modes1 = torch.fft.fft(z1, dim=1, norm="ortho")
+        packed = torch.stack(
+            [modes0.real, modes0.imag, modes1.real, modes1.imag],
+            dim=2,
+        ).reshape(residual.shape[0], 4 * self.n_angles, *residual.shape[-2:]).to(torch.float32)
+        coeff = rte_coeff_feature_map(self.rte, residual.shape[0], extended=True).to(
+            device=residual.device,
+            dtype=packed.dtype,
+        )
+        encoded = self.coeff_encoder(coeff)
+        raw_pyramid = raw_gate_feature_pyramid(coeff, encoded)
+        gate_features = [torch.cat([enc, raw], dim=1) for enc, raw in zip(encoded, raw_pyramid)]
+        delta_packed = self.unet(packed, gate_features)
+        delta_modes = delta_packed.view(residual.shape[0], self.n_angles, 2, *residual.shape[-2:])
+        delta_modes = torch.complex(delta_modes[:, :, 0], delta_modes[:, :, 1])
+        delta_modes = self.mode_mixer(delta_modes, coeff)
+        delta_modes = self.residual_gate(delta_modes, coeff, modes0 + modes1)
+        delta = torch.fft.ifft(delta_modes, dim=1, norm="ortho").to(dtype=residual.dtype)
         return z0 + self.defect_relaxation * z1 + self.delta_scale * delta
 
 
@@ -637,6 +1144,10 @@ class MomentNPBSUNetPreconditioner(nn.Module):
         scale_aware_gates=False,
         scale_gate_channel_mix=False,
         extended_coeff_features=False,
+        rom_rank=0,
+        rom_width=None,
+        rom_scale=0.1,
+        rom_use_residual_summary=False,
     ):
         super().__init__()
         self.rte = rte
@@ -653,6 +1164,7 @@ class MomentNPBSUNetPreconditioner(nn.Module):
         self.base_module = base_module
         self.extended_coeff_features = bool(extended_coeff_features)
         self.scale_aware_gates = bool(scale_aware_gates)
+        self.rom_rank = int(rom_rank)
         self.base_calls_per_apply = 2 * getattr(base_module, "base_calls_per_apply", 1)
         coeff_channels = 8 if self.extended_coeff_features else 4
         gate_coeff_channels = width + (8 if self.scale_aware_gates else 0)
@@ -668,6 +1180,17 @@ class MomentNPBSUNetPreconditioner(nn.Module):
             scale_gate_channel_mix=scale_gate_channel_mix,
             gate_coeff_channels=gate_coeff_channels,
         )
+        self.rom_head = None
+        if self.rom_rank > 0:
+            self.rom_head = ROMLowRankCorrection(
+                4 * self.n_moments,
+                2 * self.n_moments,
+                coeff_channels=8,
+                rank=self.rom_rank,
+                width=rom_width or width,
+                scale=rom_scale,
+                use_residual_summary=rom_use_residual_summary,
+            )
 
     def base(self, residual):
         if self.base_module is not None:
@@ -696,6 +1219,7 @@ class MomentNPBSUNetPreconditioner(nn.Module):
         coeff = self.coeff_features(batch_size).to(device=device, dtype=features.dtype)
         coeff_features = self.coeff_encoder(coeff)
         gate_features = coeff_features
+        raw_coeff = None
         if self.scale_aware_gates:
             raw_coeff = rte_coeff_feature_map(self.rte, batch_size, extended=True).to(device=device, dtype=features.dtype)
             raw_pyramid = raw_gate_feature_pyramid(raw_coeff, coeff_features)
@@ -704,6 +1228,10 @@ class MomentNPBSUNetPreconditioner(nn.Module):
                 for encoded, raw in zip(coeff_features, raw_pyramid)
             ]
         delta_ri = self.unet(features, gate_features)
+        if self.rom_head is not None:
+            if raw_coeff is None:
+                raw_coeff = rte_coeff_feature_map(self.rte, batch_size, extended=True).to(device=device, dtype=features.dtype)
+            delta_ri = delta_ri + self.rom_head(features, raw_coeff)
         real, imag = torch.chunk(delta_ri, 2, dim=1)
         delta_moment = torch.complex(real, imag).to(dtype=dtype)
         return self.prolong_moments(delta_moment)
@@ -1249,6 +1777,10 @@ def collect_residuals_from_sources(
     n_rollout=6,
     n_random=6,
     random_modes=5,
+    rollout_kind=None,
+    rollout_harmonics=None,
+    rollout_depth=1,
+    rollout_relaxation=1.0,
 ):
     residuals = []
     original_source = rte.source.clone()
@@ -1261,7 +1793,14 @@ def collect_residuals_from_sources(
                 for _ in range(int(n_rollout)):
                     residual = (rte.source - rte.A_op(psi)).detach()
                     residuals.append(residual)
-                    correction = rte.apply_preconditioner(residual, kind=base_kind, tsa_harmonics=tsa_harmonics)
+                    correction = inner_base_apply(
+                        rte,
+                        residual,
+                        depth=rollout_depth,
+                        kind=rollout_kind or base_kind,
+                        tsa_harmonics=tsa_harmonics if rollout_kind is None else rollout_harmonics,
+                        relaxation=rollout_relaxation,
+                    )
                     psi = psi + correction
             if int(n_random) > 0:
                 exact = smooth_random_like(original_source.expand(int(n_random), -1, -1, -1), modes=random_modes)
@@ -1281,6 +1820,10 @@ def make_residual_sampler(
     rollout_samples_per_step=8,
     random_modes=5,
     seed=0,
+    rollout_kind=None,
+    rollout_harmonics=None,
+    rollout_depth=1,
+    rollout_relaxation=1.0,
 ):
     rollout_bank = collect_residuals_from_sources(
         rte,
@@ -1290,6 +1833,10 @@ def make_residual_sampler(
         n_rollout=n_rollout,
         n_random=0,
         random_modes=random_modes,
+        rollout_kind=rollout_kind,
+        rollout_harmonics=rollout_harmonics,
+        rollout_depth=rollout_depth,
+        rollout_relaxation=rollout_relaxation,
     )
     original_source = rte.source.clone()
     sources = [original_source] if sources is None else list(sources)
@@ -1974,12 +2521,14 @@ def write_report(rows, path, settings):
             "- `--scale-aware-gates` replaces the simple per-level coefficient gate by a gate that uses encoded coefficient features, raw physical coefficient features, mean/std/min/max summaries at that U-Net scale, a level/stage code, and a learnable bounded gain. The raw features include coarse-cell optical thickness, absorption ratio, transport cross-section, albedo, gradients, and anisotropy. This is intended to let coarse levels and fine levels react differently to the coefficient field.",
             "- `--scale-gate-channel-mix` adds a bounded coefficient-conditioned channel-mixing update inside each scale-aware gate, so the gate can rotate/couple residual feature channels instead of only reweighting them diagonally. For fixed coefficients the residual path remains linear.",
             "- `RoutedUNet-*` replaces the fixed `B_h` inside the U-Net by a trainable soft router over classical candidates such as `transport`, `dsa`, `tsa`, and `tsa_moment`. The router is conditioned on coefficient summaries, optionally residual summaries, and learns bounded transport/synthetic relaxation factors. The metric loss still uses the fixed classical base so that a learned metric cannot be gamed.",
+            "- `ROMK-UNet-*` adds a ROM-style global low-rank correction branch of rank `K` to the local U-Net correction. The branch produces residual-linear rank basis maps and coefficient-conditioned bounded rank weights, is initialized to zero, and is intended to approximate a reduced ideal-correction space while retaining the classical SA base. `--rom-use-residual-summary` makes the rank weights residual-dependent and should be treated as a nonlinear-preconditioner ablation.",
             "- `MomentUNet-K` uses the same defect2 structure but restricts the learned correction to angular Fourier modes `0,+/-1,...,+/-K` before prolonging back to ordinates.",
             "- `WeightedTSA-MK` is a tiny learned structural model initialized as closed TSA-MK; it learns bounded real weights for each absolute angular mode in the synthetic correction.",
             "- `CoeffWeightedTSA-MK` keeps the closed TSA-MK solve fixed, then uses a coefficient-conditioned nonlinear network to learn bounded physical-space weights for each absolute angular mode. It is nonlinear in coefficients but linear in residuals for fixed coefficients.",
             "- `CoeffMixedTSA-MK` keeps the closed TSA-MK solve fixed, then uses a coefficient-conditioned local linear mixing matrix on retained moments. It is initialized to the identity map and can preserve the scalar moment exactly.",
             "- `LearnedRP-TSA-MK` learns coefficient-conditioned restriction/prolongation maps around the fixed closed moment inverse. It is initialized to the identity and can preserve the scalar moment exactly.",
             "- `ResidualSubspaceTSA-MK` uses the current post-transport residual to choose a bounded global mixing matrix on retained moments before the fixed closed inverse. This is a residual-dependent angular-subspace ablation and is nonlinear in the residual.",
+            "- `AngularSpectralDefect2` keeps all angular Fourier modes in grouped periodic U-Net channels. Its local path is mode-preserving; a bounded coefficient-conditioned low-rank mixer learns mode coupling, and a bounded residual-energy gate selects the active angular subspace. With zero output initialization it is exactly the classical defect2 map.",
             "- By default `CoeffWeightedTSA-MK` freezes the scalar `m=0` synthetic weight to preserve the scalar diffusion moment; pass `--learn-scalar-moment` to ablate this constraint. `--moment-transport-relaxation` and `--moment-synthetic-relaxation` allow stable damped variants.",
             "- `--rollout-space` and `--stability-space` choose whether rollout and stability penalties measure contraction in the base metric space or in the physical residual norm.",
             "- `base-call equal` means equal counts of selected base-preconditioner applications inside one preconditioner call, excluding diagnostic metric evaluations, `A_h` applications, scalar reductions, and U-Net overhead. `UNet-defect2` is base-call equal to `dsa2`/`tsa2`; `dsa3`/`dsa4` and `tsa3`/`tsa4` are deeper classical work-budget baselines, not strict equal-cost matches.",
@@ -2043,6 +2592,12 @@ def main():
     parser.add_argument("--eta-scale", type=float, default=0.1)
     parser.add_argument("--width", type=int, default=16)
     parser.add_argument("--levels", type=int, default=3)
+    parser.add_argument("--angular-mode-width", type=int, default=4)
+    parser.add_argument("--angular-mix-rank", type=int, default=2)
+    parser.add_argument("--angular-mix-scale", type=float, default=0.25)
+    parser.add_argument("--angular-mode-mix-scale", type=float, default=0.05)
+    parser.add_argument("--angular-residual-gate-scale", type=float, default=0.25)
+    parser.add_argument("--angular-gate-scale", type=float, default=0.1)
     parser.add_argument("--gate-scale", type=float, default=0.1)
     parser.add_argument(
         "--scale-aware-gates",
@@ -2058,6 +2613,29 @@ def main():
         "--extended-coeff-features",
         action="store_true",
         help="Use optical thickness, absorption, and transport cross-section features in U-Net coefficient gates.",
+    )
+    parser.add_argument(
+        "--rom-rank",
+        type=int,
+        default=0,
+        help="Add a ROM-style coefficient-conditioned low-rank global correction branch to U-Net forms.",
+    )
+    parser.add_argument(
+        "--rom-width",
+        type=int,
+        default=0,
+        help="Hidden width for the ROM-style low-rank branch; defaults to --width.",
+    )
+    parser.add_argument(
+        "--rom-scale",
+        type=float,
+        default=0.1,
+        help="Bounded amplitude scale for the ROM-style low-rank correction.",
+    )
+    parser.add_argument(
+        "--rom-use-residual-summary",
+        action="store_true",
+        help="Let ROM rank weights depend on residual summaries as well as coefficients; this makes the map nonlinear in residual.",
     )
     parser.add_argument("--steps", type=int, default=100)
     parser.add_argument("--lr", type=float, default=2e-3)
@@ -2185,7 +2763,7 @@ def main():
 
                 trained_models = []
                 for form in args.forms:
-                    relaxations = args.defect_relaxations if form == "defect2" else [1.0]
+                    relaxations = args.defect_relaxations if form in ("defect2", "angular_spectral_defect2") else [1.0]
                     if form == "moment_defect2":
                         relaxations = args.defect_relaxations
                     if form in (
@@ -2213,10 +2791,10 @@ def main():
 
                         base_module = None
                         if args.learned_base_router:
-                            if form not in ("residual", "defect2", "moment_defect2"):
+                            if form not in ("residual", "defect2", "angular_spectral_defect2", "moment_defect2"):
                                 raise ValueError(
                                     "--learned-base-router is currently supported for residual, defect2, "
-                                    "and moment_defect2 U-Net forms"
+                                    "angular_spectral_defect2, and moment_defect2 U-Net forms"
                                 )
                             routed_tsa_harmonics = (
                                 args.learned_base_tsa_harmonics
@@ -2237,7 +2815,24 @@ def main():
                                 use_residual_summary=args.learned_base_use_residual,
                             ).to(device)
 
-                        if form == "moment_defect2":
+                        if form == "angular_spectral_defect2":
+                            model = AngularSpectralDefect2Preconditioner(
+                                rte,
+                                base_kind=base_kind,
+                                tsa_harmonics=tsa_harmonics,
+                                width=args.width,
+                                levels=args.levels,
+                                mode_width=args.angular_mode_width,
+                                angular_mix_rank=args.angular_mix_rank,
+                                angular_mix_scale=args.angular_mix_scale,
+                                angular_mode_mix_scale=args.angular_mode_mix_scale,
+                                residual_gate_scale=args.angular_residual_gate_scale,
+                                gate_scale=args.angular_gate_scale,
+                                defect_relaxation=relaxation,
+                                output_init=args.output_init,
+                                base_module=base_module,
+                            ).to(device)
+                        elif form == "moment_defect2":
                             model = MomentNPBSUNetPreconditioner(
                                 rte,
                                 base_kind=base_kind,
@@ -2252,6 +2847,10 @@ def main():
                                 scale_aware_gates=args.scale_aware_gates,
                                 scale_gate_channel_mix=args.scale_gate_channel_mix,
                                 extended_coeff_features=args.extended_coeff_features or args.scale_aware_gates,
+                                rom_rank=args.rom_rank,
+                                rom_width=args.rom_width or args.width,
+                                rom_scale=args.rom_scale,
+                                rom_use_residual_summary=args.rom_use_residual_summary,
                             ).to(device)
                         elif form == "weighted_moment_tsa":
                             if str(base_kind).lower() not in (
@@ -2353,6 +2952,10 @@ def main():
                                 scale_aware_gates=args.scale_aware_gates,
                                 scale_gate_channel_mix=args.scale_gate_channel_mix,
                                 extended_coeff_features=args.extended_coeff_features or args.scale_aware_gates,
+                                rom_rank=args.rom_rank,
+                                rom_width=args.rom_width or args.width,
+                                rom_scale=args.rom_scale,
+                                rom_use_residual_summary=args.rom_use_residual_summary,
                             ).to(device)
                         history = train_model(
                             model,
@@ -2381,7 +2984,9 @@ def main():
                             teacher_weight=args.teacher_weight,
                         )
                         model_label = (
-                            f"MomentUNet-K{args.moment_harmonics}-w{relaxation:g}"
+                            f"AngularSpectralDefect2-w{relaxation:g}"
+                            if form == "angular_spectral_defect2"
+                            else f"MomentUNet-K{args.moment_harmonics}-w{relaxation:g}"
                             if form == "moment_defect2"
                             else f"WeightedTSA-M{args.moment_harmonics}"
                             if form == "weighted_moment_tsa"
@@ -2395,10 +3000,12 @@ def main():
                             if form == "residual_subspace_moment_tsa"
                             else f"UNet-{form}-w{relaxation:g}"
                         )
-                        if args.learned_base_router and form in ("residual", "defect2", "moment_defect2"):
+                        if args.learned_base_router and form in ("residual", "defect2", "angular_spectral_defect2", "moment_defect2"):
                             model_label = "Routed" + model_label
-                        if args.scale_aware_gates and form in ("residual", "defect2", "moment_defect2"):
+                        if args.scale_aware_gates and form in ("residual", "defect2", "angular_spectral_defect2", "moment_defect2"):
                             model_label = "ScaleGated" + model_label
+                        if args.rom_rank > 0 and form in ("residual", "defect2", "angular_spectral_defect2", "moment_defect2"):
+                            model_label = f"ROM{args.rom_rank}-" + model_label
                         trained_models.append((model_label, model, history, residual_info))
                         print(
                             f"size={size} case={case} base={base_kind} form={form} mode={args.residual_mode} "
@@ -2509,10 +3116,19 @@ def main():
                             "scheduler_eta_min": args.scheduler_eta_min,
                             "scheduler_min_lr_ratio": args.scheduler_min_lr_ratio,
                             "scheduler_pct_start": args.scheduler_pct_start,
-                            "gate_scale": args.gate_scale if getattr(precond, "form", "") in ("residual", "defect2", "moment_defect2") else "",
-                            "scale_aware_gates": args.scale_aware_gates if getattr(precond, "form", "") in ("residual", "defect2", "moment_defect2") else "",
-                            "scale_gate_channel_mix": args.scale_gate_channel_mix if getattr(precond, "form", "") in ("residual", "defect2", "moment_defect2") else "",
-                            "extended_coeff_features": (args.extended_coeff_features or args.scale_aware_gates) if getattr(precond, "form", "") in ("residual", "defect2", "moment_defect2") else "",
+                            "gate_scale": args.gate_scale if getattr(precond, "form", "") in ("residual", "defect2", "angular_spectral_defect2", "moment_defect2") else "",
+                            "scale_aware_gates": args.scale_aware_gates if getattr(precond, "form", "") in ("residual", "defect2", "angular_spectral_defect2", "moment_defect2") else "",
+                            "scale_gate_channel_mix": args.scale_gate_channel_mix if getattr(precond, "form", "") in ("residual", "defect2", "angular_spectral_defect2", "moment_defect2") else "",
+                            "extended_coeff_features": (args.extended_coeff_features or args.scale_aware_gates) if getattr(precond, "form", "") in ("residual", "defect2", "angular_spectral_defect2", "moment_defect2") else "",
+                            "angular_mode_width": args.angular_mode_width if getattr(precond, "form", "") == "angular_spectral_defect2" else "",
+                            "angular_mix_rank": args.angular_mix_rank if getattr(precond, "form", "") == "angular_spectral_defect2" else "",
+                            "angular_mix_scale": args.angular_mix_scale if getattr(precond, "form", "") == "angular_spectral_defect2" else "",
+                            "angular_mode_mix_scale": args.angular_mode_mix_scale if getattr(precond, "form", "") == "angular_spectral_defect2" else "",
+                            "angular_residual_gate_scale": args.angular_residual_gate_scale if getattr(precond, "form", "") == "angular_spectral_defect2" else "",
+                            "rom_rank": getattr(precond, "rom_rank", ""),
+                            "rom_width": (args.rom_width or args.width) if getattr(precond, "rom_rank", 0) else "",
+                            "rom_scale": args.rom_scale if getattr(precond, "rom_rank", 0) else "",
+                            "rom_use_residual_summary": args.rom_use_residual_summary if getattr(precond, "rom_rank", 0) else "",
                             "metric_weight": args.metric_weight,
                             "physical_weight": args.physical_weight,
                             "correction_weight": args.correction_weight,

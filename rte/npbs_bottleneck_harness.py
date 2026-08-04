@@ -14,6 +14,7 @@ if str(ROOT) not in sys.path:
 from rte.npbs_unet_ablation import (  # noqa: E402
     CoeffMixedMomentTSAPreconditioner,
     CoeffWeightedMomentTSAPreconditioner,
+    AngularSpectralDefect2Preconditioner,
     LearnedRPMomentTSAPreconditioner,
     MomentNPBSUNetPreconditioner,
     NPBSUNetPreconditioner,
@@ -40,6 +41,7 @@ LOSS_MODES = {
     "metric_rollout",
     "raw_rollout",
     "raw_rollout_teacher",
+    "solver_teacher",
     "metric_raw_rollout",
     "teacher",
     "raw_teacher",
@@ -118,16 +120,16 @@ def loss_weights(loss_mode, physical_weight, rollout_weight, teacher_weight):
         return 1.0, 0.0, float(rollout_weight), 0.0, 0.0
     if loss_mode == "raw_rollout":
         return 0.0, 1.0, 0.0, float(rollout_weight), 0.0
-    if loss_mode == "raw_rollout_teacher":
-        return 0.0, 1.0, 0.0, float(rollout_weight), float(teacher_weight) if teacher_weight > 0.0 else 1.0
+    if loss_mode in ("raw_rollout_teacher", "solver_teacher"):
+        return 0.0, 1.0, 0.0, float(rollout_weight), float(teacher_weight)
     if loss_mode == "metric_raw_rollout":
         return 1.0, float(physical_weight), float(rollout_weight), float(rollout_weight), 0.0
     if loss_mode == "teacher":
-        return 0.0, 0.0, 0.0, 0.0, float(teacher_weight) if teacher_weight > 0.0 else 1.0
+        return 0.0, 0.0, 0.0, 0.0, float(teacher_weight)
     if loss_mode == "raw_teacher":
-        return 0.0, 1.0, 0.0, 0.0, float(teacher_weight) if teacher_weight > 0.0 else 1.0
+        return 0.0, 1.0, 0.0, 0.0, float(teacher_weight)
     if loss_mode == "metric_raw_teacher":
-        return 1.0, float(physical_weight), 0.0, 0.0, float(teacher_weight) if teacher_weight > 0.0 else 1.0
+        return 1.0, float(physical_weight), 0.0, 0.0, float(teacher_weight)
     raise ValueError(f"unknown loss mode: {loss_mode}")
 
 
@@ -203,6 +205,7 @@ def objective_components(
     correction_weight=1e-6,
     teacher_fn=None,
     teacher_weight=1.0,
+    teacher_action_weight=1.0,
     identity_weight=0.0,
 ):
     residual = ensure_residual_batch(residuals)
@@ -269,9 +272,15 @@ def objective_components(
         with torch.no_grad():
             teacher = teacher_fn(residual)
         teacher_ratio = l2_ratio(correction - teacher, teacher)
-        loss = loss + teacher_w * teacher_ratio.square().mean()
+        teacher_next = residual - model.rte.A_op(teacher)
+        teacher_action_ratio = l2_ratio(next_residual - teacher_next, residual.detach())
+        if loss_mode == "solver_teacher":
+            loss = loss + teacher_w * float(teacher_action_weight) * teacher_action_ratio.square().mean()
+        else:
+            loss = loss + teacher_w * teacher_ratio.square().mean()
     else:
         teacher_ratio = torch.zeros_like(metric_ratio)
+        teacher_action_ratio = torch.zeros_like(metric_ratio)
 
     scalars = {
         "loss": float(loss.detach()),
@@ -279,6 +288,7 @@ def objective_components(
         "raw_ratio": float(physical_ratio.detach().mean()),
         "correction_ratio": float(correction_ratio.detach().mean()),
         "teacher_ratio": float(teacher_ratio.detach().mean()),
+        "teacher_action_ratio": float(teacher_action_ratio.detach().mean()),
         "stability": float(stability.detach()),
     }
     if rollout_metric_values:
@@ -293,6 +303,22 @@ def objective_components(
 
 
 def make_model(args, rte, base_kind, tsa_harmonics):
+    if args.model_kind == "angular_spectral_defect2":
+        return AngularSpectralDefect2Preconditioner(
+            rte,
+            base_kind=base_kind,
+            tsa_harmonics=tsa_harmonics,
+            width=args.width,
+            levels=args.levels,
+            mode_width=args.angular_mode_width,
+            angular_mix_rank=args.angular_mix_rank,
+            angular_mix_scale=args.angular_mix_scale,
+            angular_mode_mix_scale=args.angular_mode_mix_scale,
+            residual_gate_scale=args.angular_residual_gate_scale,
+            gate_scale=args.angular_gate_scale,
+            defect_relaxation=args.defect_relaxation,
+            output_init=args.output_init,
+        )
     if args.model_kind == "unet_residual":
         return NPBSUNetPreconditioner(
             rte,
@@ -387,12 +413,18 @@ def train_harness(model, residuals, args, teacher_fn=None, evaluator=None):
     )
 
     history = []
+    def teacher_weight_at(step):
+        ramp_steps = int(getattr(args, "teacher_ramp_steps", 0))
+        if ramp_steps <= 0:
+            return float(args.teacher_weight)
+        return float(args.teacher_weight) * min(1.0, float(step) / float(ramp_steps))
+
     initial_batch = residuals() if callable(residuals) else residuals
     with torch.no_grad():
         _, initial = objective_components(model, initial_batch, args.loss_mode, args.metric_map, args.physical_weight,
                                           args.rollout_weight, args.rollout_steps, args.rollout_decay,
                                           args.stability_weight, args.contraction_target, args.correction_weight,
-                                          teacher_fn, args.teacher_weight, args.identity_weight)
+                                          teacher_fn, teacher_weight_at(0), args.teacher_action_weight, args.identity_weight)
     initial["step"] = 0
     initial["lr"] = optimizer.param_groups[0]["lr"]
     history.append(initial)
@@ -430,7 +462,8 @@ def train_harness(model, residuals, args, teacher_fn=None, evaluator=None):
             contraction_target=args.contraction_target,
             correction_weight=args.correction_weight,
             teacher_fn=teacher_fn,
-            teacher_weight=args.teacher_weight,
+            teacher_weight=teacher_weight_at(step),
+            teacher_action_weight=args.teacher_action_weight,
             identity_weight=args.identity_weight,
         )
         loss.backward()
@@ -472,7 +505,7 @@ def train_harness(model, residuals, args, teacher_fn=None, evaluator=None):
             _, final = objective_components(model, current, args.loss_mode, args.metric_map, args.physical_weight,
                                             args.rollout_weight, args.rollout_steps, args.rollout_decay,
                                             args.stability_weight, args.contraction_target, args.correction_weight,
-                                            teacher_fn, args.teacher_weight, args.identity_weight)
+                                            teacher_fn, teacher_weight_at(args.steps), args.teacher_action_weight, args.identity_weight)
         final["step"] = args.steps
         final["lr"] = optimizer.param_groups[0]["lr"]
         history.append(final)
@@ -549,6 +582,13 @@ def run(args):
     rte, _ = make_case(args.case, args.size, args.n_angles, dtype, args.eta_scale, device=device)
     base_kind = args.base_kind
     tsa_harmonics = effective_tsa_harmonics(base_kind, args.tsa_harmonics, args.moment_harmonics)
+    residual_rollout_kind = args.residual_teacher_kind or base_kind
+    residual_rollout_harmonics = effective_tsa_harmonics(
+        residual_rollout_kind,
+        args.residual_teacher_harmonics,
+        args.moment_harmonics,
+    )
+    residual_rollout_depth = max(1, int(args.residual_teacher_depth))
     train_source = rte.source.clone()
     training_sources = make_training_sources(
         args.case,
@@ -576,6 +616,10 @@ def run(args):
             n_rollout=args.n_rollout,
             n_random=args.n_random,
             random_modes=args.random_modes,
+            rollout_kind=residual_rollout_kind,
+            rollout_harmonics=residual_rollout_harmonics,
+            rollout_depth=residual_rollout_depth,
+            rollout_relaxation=args.residual_teacher_relaxation,
         )
     else:
         residuals, _ = make_residual_sampler(
@@ -588,6 +632,10 @@ def run(args):
             rollout_samples_per_step=args.rollout_samples_per_step,
             random_modes=args.random_modes,
             seed=args.seed,
+            rollout_kind=residual_rollout_kind,
+            rollout_harmonics=residual_rollout_harmonics,
+            rollout_depth=residual_rollout_depth,
+            rollout_relaxation=args.residual_teacher_relaxation,
         )
 
     model = make_model(args, rte, base_kind, tsa_harmonics).to(device)
@@ -654,6 +702,12 @@ def run(args):
             "teacher_harmonics": args.teacher_harmonics,
             "teacher_relaxation": args.teacher_relaxation,
             "teacher_weight": args.teacher_weight,
+            "teacher_action_weight": args.teacher_action_weight,
+            "teacher_ramp_steps": args.teacher_ramp_steps,
+            "residual_teacher_depth": args.residual_teacher_depth,
+            "residual_teacher_kind": args.residual_teacher_kind or base_kind,
+            "residual_teacher_harmonics": args.residual_teacher_harmonics,
+            "residual_teacher_relaxation": args.residual_teacher_relaxation,
             "identity_weight": args.identity_weight,
             "rollout_weight": args.rollout_weight,
             "rollout_steps": args.rollout_steps,
@@ -665,6 +719,12 @@ def run(args):
             "moment_transport_relaxation": args.moment_transport_relaxation,
             "moment_synthetic_relaxation": args.moment_synthetic_relaxation,
             "learn_scalar_moment": args.learn_scalar_moment,
+            "angular_mode_width": args.angular_mode_width,
+            "angular_mix_rank": args.angular_mix_rank,
+            "angular_mix_scale": args.angular_mix_scale,
+            "angular_mode_mix_scale": args.angular_mode_mix_scale,
+            "angular_residual_gate_scale": args.angular_residual_gate_scale,
+            "angular_gate_scale": args.angular_gate_scale,
             "residual_mode": args.residual_mode,
             "residuals_per_step": args.residuals_per_step,
             "rollout_samples_per_step": args.rollout_samples_per_step,
@@ -684,6 +744,8 @@ def run(args):
             "raw_final": final["raw_ratio"],
             "teacher_initial": initial["teacher_ratio"],
             "teacher_final": final["teacher_ratio"],
+            "teacher_action_initial": initial["teacher_action_ratio"],
+            "teacher_action_final": final["teacher_action_ratio"],
             **row,
         }
         summary_rows.append(summary)
@@ -726,6 +788,7 @@ def main():
         choices=[
             "unet_residual",
             "unet_defect2",
+            "angular_spectral_defect2",
             "moment_unet_defect2",
             "coeff_weighted_moment_tsa",
             "coeff_mixed_moment_tsa",
@@ -738,6 +801,12 @@ def main():
     parser.add_argument("--metric-map", choices=["base", "forward", "damped_moment"], default="base")
     parser.add_argument("--width", type=int, default=16)
     parser.add_argument("--levels", type=int, default=3)
+    parser.add_argument("--angular-mode-width", type=int, default=4)
+    parser.add_argument("--angular-mix-rank", type=int, default=2)
+    parser.add_argument("--angular-mix-scale", type=float, default=0.25)
+    parser.add_argument("--angular-mode-mix-scale", type=float, default=0.05)
+    parser.add_argument("--angular-residual-gate-scale", type=float, default=0.25)
+    parser.add_argument("--angular-gate-scale", type=float, default=0.1)
     parser.add_argument("--defect-relaxation", type=float, default=1.0)
     parser.add_argument("--output-init", choices=["zero", "small"], default="zero")
     parser.add_argument("--moment-weight-scale", type=float, default=0.5)
@@ -767,7 +836,13 @@ def main():
     parser.add_argument("--teacher-harmonics", type=int, default=None)
     parser.add_argument("--teacher-relaxation", type=float, default=1.0)
     parser.add_argument("--teacher-weight", type=float, default=1.0)
+    parser.add_argument("--teacher-action-weight", type=float, default=1.0)
+    parser.add_argument("--teacher-ramp-steps", type=int, default=0)
     parser.add_argument("--identity-weight", type=float, default=0.0)
+    parser.add_argument("--residual-teacher-depth", type=int, default=0)
+    parser.add_argument("--residual-teacher-kind", default="")
+    parser.add_argument("--residual-teacher-harmonics", type=int, default=None)
+    parser.add_argument("--residual-teacher-relaxation", type=float, default=1.0)
     parser.add_argument("--residual-mode", choices=["pool", "resample"], default="resample")
     parser.add_argument("--residuals-per-step", type=int, default=64)
     parser.add_argument("--rollout-samples-per-step", type=int, default=32)
