@@ -472,6 +472,7 @@ class LearnedBaseRouter(nn.Module):
         route_scale=4.0,
         relaxation_scale=0.5,
         use_residual_summary=False,
+        top_k=0,
     ):
         super().__init__()
         self.rte = rte
@@ -486,7 +487,8 @@ class LearnedBaseRouter(nn.Module):
         self.route_scale = float(route_scale)
         self.relaxation_scale = float(relaxation_scale)
         self.use_residual_summary = bool(use_residual_summary)
-        self.base_calls_per_apply = len(self.candidates)
+        self.top_k = max(int(top_k), 0)
+        self.base_calls_per_apply = min(self.top_k, len(self.candidates)) if self.top_k > 0 else len(self.candidates)
         self.router_candidates = ",".join(self.candidates)
 
         coeff_dim = 8 * 4
@@ -559,6 +561,12 @@ class LearnedBaseRouter(nn.Module):
         logits = self.initial_route_logits.to(device=residual.device, dtype=route_raw.dtype).view(1, -1)
         logits = logits + self.route_scale * torch.tanh(route_raw)
         weights = torch.softmax(logits / self.temperature, dim=1)
+        if 0 < self.top_k < len(self.candidates):
+            topk = torch.topk(weights, k=self.top_k, dim=1).indices
+            mask = torch.zeros_like(weights)
+            mask.scatter_(1, topk, 1.0)
+            weights = weights * mask
+            weights = weights / torch.clamp(weights.sum(dim=1, keepdim=True), min=1e-30)
         transport_relax = 1.0 + self.relaxation_scale * torch.tanh(transport_raw)
         synthetic_relax = 1.0 + self.relaxation_scale * torch.tanh(synthetic_raw)
         return weights, transport_relax, synthetic_relax
@@ -589,14 +597,18 @@ class LearnedBaseRouter(nn.Module):
         route_weights, transport_relax, synthetic_relax = self.router_outputs(residual)
         correction = torch.zeros_like(residual)
         for idx, candidate in enumerate(self.candidates):
+            active = route_weights[:, idx] > 0
+            if not torch.any(active):
+                continue
+            active_idx = torch.nonzero(active, as_tuple=False).flatten()
             candidate_update = self.candidate_correction(
-                residual,
+                residual.index_select(0, active_idx),
                 candidate,
-                transport_relax[:, idx],
-                synthetic_relax[:, idx],
+                transport_relax.index_select(0, active_idx)[:, idx],
+                synthetic_relax.index_select(0, active_idx)[:, idx],
             )
-            weight = self.expand_batch_weight(route_weights[:, idx], residual)
-            correction = correction + weight * candidate_update
+            weight = self.expand_batch_weight(route_weights.index_select(0, active_idx)[:, idx], candidate_update)
+            correction.index_add_(0, active_idx, weight * candidate_update)
         return correction
 
 
@@ -1754,6 +1766,154 @@ def batch_l2_norm(x):
     return torch.sqrt(torch.clamp(torch.sum(sq, dim=dims), min=1e-30))
 
 
+def resolve_root_path(path_like):
+    path = Path(path_like)
+    if not path.is_absolute():
+        path = ROOT / path
+    return path
+
+
+def tree_to_cpu(value):
+    if torch.is_tensor(value):
+        return value.detach().to(device="cpu")
+    if isinstance(value, dict):
+        return {key: tree_to_cpu(entry) for key, entry in value.items()}
+    if isinstance(value, list):
+        return [tree_to_cpu(entry) for entry in value]
+    if isinstance(value, tuple):
+        return tuple(tree_to_cpu(entry) for entry in value)
+    return value
+
+
+def tensor_nbytes(tensor):
+    return int(tensor.numel()) * int(tensor.element_size())
+
+
+def load_training_checkpoint(path_like):
+    checkpoint_path = resolve_root_path(path_like)
+    payload = torch.load(checkpoint_path, map_location="cpu", weights_only=False)
+    if not isinstance(payload, dict) or "model_state" not in payload:
+        raise ValueError(f"checkpoint {checkpoint_path} does not contain a model_state entry")
+    return checkpoint_path, payload
+
+
+def save_training_checkpoint(path_like, model, optimizer, scheduler, history, completed_steps, total_steps, metadata=None):
+    checkpoint_path = resolve_root_path(path_like)
+    checkpoint_path.parent.mkdir(parents=True, exist_ok=True)
+    payload = {
+        "model_state": tree_to_cpu(model.state_dict()),
+        "optimizer_state": tree_to_cpu(optimizer.state_dict()) if optimizer is not None else None,
+        "scheduler_state": tree_to_cpu(scheduler.state_dict()) if scheduler is not None else None,
+        "history": {key: list(values) for key, values in history.items()},
+        "completed_steps": int(completed_steps),
+        "total_steps": int(total_steps),
+        "metadata": dict(metadata or {}),
+    }
+    torch.save(payload, checkpoint_path)
+    return checkpoint_path
+
+
+def prepare_residual_dataset_bank(residual_bank, training_device, preferred_device="auto", auto_gpu_max_fraction=0.5):
+    preferred = str(preferred_device).lower()
+    if preferred not in {"auto", "cpu", "gpu"}:
+        raise ValueError(f"unsupported residual dataset device: {preferred_device}")
+    bank = residual_bank.detach().contiguous()
+    bank_bytes = tensor_nbytes(bank)
+    if training_device.type != "cuda" or preferred == "cpu":
+        return bank.to(device="cpu"), "cpu", bank_bytes
+    if preferred == "gpu":
+        return bank.to(device=training_device), str(training_device), bank_bytes
+    free_bytes = 0
+    try:
+        with torch.cuda.device(training_device):
+            free_bytes, _ = torch.cuda.mem_get_info()
+    except Exception:
+        free_bytes = 0
+    threshold = int(max(float(auto_gpu_max_fraction), 0.0) * float(free_bytes))
+    if bank_bytes > 0 and threshold > 0 and bank_bytes <= threshold:
+        return bank.to(device=training_device), str(training_device), bank_bytes
+    return bank.to(device="cpu"), "cpu", bank_bytes
+
+
+def load_residual_dataset(path_like):
+    dataset_path = resolve_root_path(path_like)
+    payload = torch.load(dataset_path, map_location="cpu", weights_only=False)
+    metadata = {}
+    if torch.is_tensor(payload):
+        residual_bank = payload
+    elif isinstance(payload, dict):
+        residual_bank = payload.get("residuals")
+        metadata = dict(payload.get("metadata") or {})
+    else:
+        raise ValueError("residual dataset must be a tensor or a dict containing a 'residuals' tensor")
+    if not torch.is_tensor(residual_bank):
+        raise ValueError("residual dataset must contain a 'residuals' tensor")
+    if residual_bank.ndim != 4:
+        raise ValueError(f"expected residual dataset with shape [N, angles, H, W], got {tuple(residual_bank.shape)}")
+    return dataset_path, residual_bank.detach().to(device="cpu"), metadata
+
+
+def validate_residual_dataset(dataset_path, residual_bank, metadata, case, size, n_angles, base_kind):
+    if int(residual_bank.shape[0]) < 1:
+        raise ValueError(f"residual dataset {dataset_path} is empty")
+    expected_shape = (int(n_angles), int(size), int(size))
+    actual_shape = tuple(int(dim) for dim in residual_bank.shape[1:])
+    if actual_shape != expected_shape:
+        raise ValueError(
+            f"residual dataset {dataset_path} has per-sample shape {actual_shape}, expected {expected_shape}"
+        )
+    for key, expected in (
+        ("case", str(case)),
+        ("size", int(size)),
+        ("n_angles", int(n_angles)),
+        ("base_kind", str(base_kind)),
+    ):
+        value = metadata.get(key)
+        if value in (None, ""):
+            continue
+        if key in {"size", "n_angles"}:
+            value = int(value)
+        if value != expected:
+            raise ValueError(
+                f"residual dataset {dataset_path} metadata mismatch for {key}: expected {expected!r}, got {value!r}"
+            )
+
+
+def make_dataset_residual_sampler(residual_bank, residuals_per_step, device, dtype, seed=0, metadata=None):
+    residual_bank = residual_bank.detach().contiguous()
+    metadata = {} if metadata is None else dict(metadata)
+    target_device = torch.device(device)
+    storage_device = residual_bank.device
+    bank_size = int(residual_bank.shape[0])
+    batch_size = max(int(residuals_per_step), 1)
+    generator_device = "cpu" if storage_device.type == "cpu" else str(storage_device)
+    generator = torch.Generator(device=generator_device)
+    generator.manual_seed(int(seed))
+
+    def sample():
+        if bank_size >= batch_size:
+            if storage_device.type == "cpu":
+                indices = torch.randperm(bank_size, generator=generator)[:batch_size]
+            else:
+                indices = torch.randperm(bank_size, generator=generator, device=storage_device)[:batch_size]
+        else:
+            if storage_device.type == "cpu":
+                indices = torch.randint(bank_size, (batch_size,), generator=generator)
+            else:
+                indices = torch.randint(bank_size, (batch_size,), generator=generator, device=storage_device)
+        batch = residual_bank.index_select(0, indices)
+        if batch.device != target_device or batch.dtype != dtype:
+            batch = batch.to(device=target_device, dtype=dtype)
+        return batch
+
+    return sample, {
+        "rollout_bank_size": int(metadata.get("rollout_bank_size", metadata.get("rollout_random_bank_size", bank_size))),
+        "krylov_bank_size": int(metadata.get("krylov_bank_size", 0)),
+        "residuals_per_step": batch_size,
+        "external_residual_bank_size": bank_size,
+    }
+
+
 def make_training_sources(case, size, n_angles, dtype, device, num_aux_sources=0):
     angular = "beam" if case in ("anisotropic", "mixed") else "isotropic"
     sources = [make_source(size, n_angles, dtype, center=(0.32, 0.47), angular=angular).to(device=device)]
@@ -1810,6 +1970,102 @@ def collect_residuals_from_sources(
     return [residual.unsqueeze(0) if residual.ndim == 3 else residual for residual in residuals]
 
 
+def collect_krylov_residuals_from_sources(
+    rte,
+    base_kind,
+    tsa_harmonics=None,
+    sources=None,
+    basis_vectors=0,
+    residual_vectors=0,
+    restart_residuals=0,
+    gmres_restart=20,
+    gmres_max_restarts=2,
+):
+    basis_vectors = max(int(basis_vectors), 0)
+    residual_vectors = max(int(residual_vectors), 0)
+    restart_residuals = max(int(restart_residuals), 0)
+    if basis_vectors == 0 and residual_vectors == 0 and restart_residuals == 0:
+        return []
+
+    original_source = rte.source.clone()
+    sources = [original_source] if sources is None else list(sources)
+    residual_bank = []
+    eps = 1e-30
+
+    def append_batch(batch):
+        if batch is None:
+            return
+        if batch.ndim == 3:
+            residual_bank.append(batch.unsqueeze(0).detach())
+            return
+        for entry in torch.unbind(batch.detach(), dim=0):
+            residual_bank.append(entry.unsqueeze(0))
+
+    total_cycles = 1 + max(int(gmres_max_restarts), 0)
+    inner_maxiter = max(1, int(gmres_restart))
+
+    try:
+        with torch.no_grad():
+            for source in sources:
+                rte.source = source.to(device=original_source.device, dtype=original_source.dtype)
+                x = torch.zeros_like(rte.source)
+                b = rte.source
+                b_norm = torch.clamp(torch.norm(b), min=eps)
+                basis_count = 0
+                residual_count = 0
+                restart_count = 0
+                for _ in range(total_cycles):
+                    if basis_count >= basis_vectors and residual_count >= residual_vectors and restart_count >= restart_residuals:
+                        break
+                    r0 = b - rte.A_op(x)
+                    if float(torch.norm(r0) / b_norm) < 1e-6:
+                        break
+                    if restart_count < restart_residuals:
+                        append_batch(r0)
+                        restart_count += 1
+                    beta = torch.norm(r0)
+                    V = [r0 / torch.clamp(beta, min=eps)]
+                    Z = []
+                    H = torch.zeros((inner_maxiter + 1, inner_maxiter), dtype=b.dtype, device=b.device)
+                    breakdown_tol = 1e-14
+                    x_cycle = x
+                    for j in range(inner_maxiter):
+                        if basis_count < basis_vectors:
+                            append_batch(beta * V[j])
+                            basis_count += 1
+                        z_j = rte.apply_preconditioner(V[j], kind=base_kind, tsa_harmonics=tsa_harmonics)
+                        Z.append(z_j)
+                        w = rte.A_op(z_j)
+                        for i in range(j + 1):
+                            H[i, j] = torch.sum(w * V[i].conj())
+                            w = w - H[i, j] * V[i]
+                        H[j + 1, j] = torch.norm(w)
+                        h_next = torch.abs(H[j + 1, j]).item()
+                        if h_next > breakdown_tol:
+                            V.append(w / H[j + 1, j])
+                        H_j = H[: j + 2, : j + 1]
+                        e1 = torch.zeros(j + 2, dtype=b.dtype, device=b.device)
+                        e1[0] = beta
+                        y = torch.linalg.lstsq(H_j, e1).solution
+                        Z_tensor = torch.stack(Z, dim=0)
+                        y_shape = [j + 1] + [1] * (Z_tensor.ndim - 1)
+                        x_cycle = x + torch.sum(Z_tensor * y[: j + 1].reshape(y_shape), dim=0)
+                        true_residual = b - rte.A_op(x_cycle)
+                        if residual_count < residual_vectors:
+                            append_batch(true_residual)
+                            residual_count += 1
+                        if float(torch.norm(true_residual) / b_norm) < 1e-6 or h_next <= breakdown_tol:
+                            x = x_cycle
+                            break
+                    else:
+                        x = x_cycle
+                        continue
+                    break
+    finally:
+        rte.source = original_source
+    return residual_bank
+
+
 def make_residual_sampler(
     rte,
     base_kind,
@@ -1819,6 +2075,11 @@ def make_residual_sampler(
     residuals_per_step=16,
     rollout_samples_per_step=8,
     random_modes=5,
+    krylov_basis_vectors=0,
+    krylov_residual_vectors=0,
+    krylov_restart_residuals=0,
+    krylov_gmres_restart=20,
+    krylov_gmres_max_restarts=2,
     seed=0,
     rollout_kind=None,
     rollout_harmonics=None,
@@ -1838,6 +2099,18 @@ def make_residual_sampler(
         rollout_depth=rollout_depth,
         rollout_relaxation=rollout_relaxation,
     )
+    krylov_bank = collect_krylov_residuals_from_sources(
+        rte,
+        base_kind,
+        tsa_harmonics=tsa_harmonics,
+        sources=sources,
+        basis_vectors=krylov_basis_vectors,
+        residual_vectors=krylov_residual_vectors,
+        restart_residuals=krylov_restart_residuals,
+        gmres_restart=krylov_gmres_restart,
+        gmres_max_restarts=krylov_gmres_max_restarts,
+    )
+    trace_bank = rollout_bank + krylov_bank
     original_source = rte.source.clone()
     sources = [original_source] if sources is None else list(sources)
     generator = torch.Generator(device="cpu")
@@ -1846,11 +2119,11 @@ def make_residual_sampler(
     def sample():
         batches = []
         with torch.no_grad():
-            if rollout_bank:
-                count = min(int(rollout_samples_per_step), len(rollout_bank), int(residuals_per_step))
+            if trace_bank:
+                count = min(int(rollout_samples_per_step), len(trace_bank), int(residuals_per_step))
                 if count > 0:
-                    indices = torch.randperm(len(rollout_bank), generator=generator)[:count].tolist()
-                    batches.append(torch.cat([rollout_bank[idx] for idx in indices], dim=0))
+                    indices = torch.randperm(len(trace_bank), generator=generator)[:count].tolist()
+                    batches.append(torch.cat([trace_bank[idx] for idx in indices], dim=0))
 
             remaining = int(residuals_per_step) - sum(batch.shape[0] for batch in batches)
             if remaining > 0:
@@ -1865,7 +2138,11 @@ def make_residual_sampler(
         rte.source = original_source
         return torch.cat(batches, dim=0)
 
-    return sample, {"rollout_bank_size": len(rollout_bank), "residuals_per_step": int(residuals_per_step)}
+    return sample, {
+        "rollout_bank_size": len(rollout_bank),
+        "krylov_bank_size": len(krylov_bank),
+        "residuals_per_step": int(residuals_per_step),
+    }
 
 
 def inner_base_apply(rte, residual, depth=1, kind="transport_dsa", tsa_harmonics=None, relaxation=1.0):
@@ -2239,6 +2516,7 @@ def objective_loss(
     stability_space="metric",
     teacher_fn=None,
     teacher_weight=0.0,
+    return_details=False,
 ):
     metric_ratio, physical_ratio, correction_ratio, residual_after = metric_loss(
         model,
@@ -2279,6 +2557,11 @@ def objective_loss(
         denom = torch.clamp(batch_l2_norm(teacher_correction), min=1e-30)
         imitation = batch_l2_norm(student_correction - teacher_correction) / denom
         loss = loss + float(teacher_weight) * (imitation.square()).mean()
+    if return_details:
+        return loss, {
+            "train_one_step": float(physical_ratio.mean().detach()),
+            "train_base_metric": float(metric_ratio.mean().detach()),
+        }
     return loss
 
 
@@ -2358,6 +2641,10 @@ def train_model(
     stability_space="metric",
     teacher_fn=None,
     teacher_weight=0.0,
+    checkpoint_path="",
+    checkpoint_every=0,
+    checkpoint_metadata=None,
+    resume_checkpoint_payload=None,
 ):
     optimizer = torch.optim.AdamW(model.parameters(), lr=lr, weight_decay=weight_decay)
     scheduler = build_scheduler(
@@ -2372,12 +2659,44 @@ def train_model(
         scheduler_pct_start,
     )
 
-    history = {"loss": [], "lr": []}
+    history = {"loss": [], "lr": [], "train_one_step": [], "train_base_metric": []}
     total_steps = int(steps)
-    for step_idx in range(total_steps):
+    checkpoint_path = str(checkpoint_path or "")
+    checkpoint_every = int(checkpoint_every)
+    start_step = 0
+    if resume_checkpoint_payload is not None:
+        resume_total_steps = int(resume_checkpoint_payload.get("total_steps", total_steps))
+        start_step = int(resume_checkpoint_payload.get("completed_steps", 0))
+        if resume_total_steps != total_steps:
+            raise ValueError(
+                "--resume-from-checkpoint requires --steps to match the checkpoint total; "
+                "use --init-from-checkpoint for a fresh continuation schedule"
+            )
+        if start_step < 0 or start_step > total_steps:
+            raise ValueError(f"invalid completed_steps={start_step} for total_steps={total_steps}")
+        model.load_state_dict(resume_checkpoint_payload["model_state"])
+        optimizer_state = resume_checkpoint_payload.get("optimizer_state")
+        if optimizer_state is None:
+            raise ValueError("resume checkpoint is missing optimizer_state")
+        optimizer.load_state_dict(optimizer_state)
+        if scheduler is not None:
+            scheduler_state = resume_checkpoint_payload.get("scheduler_state")
+            if scheduler_state is None:
+                raise ValueError("resume checkpoint is missing scheduler_state")
+            scheduler.load_state_dict(scheduler_state)
+        saved_history = resume_checkpoint_payload.get("history", {})
+        history = {key: list(saved_history.get(key, [])) for key in history.keys()}
+        for key, values in history.items():
+            if len(values) < start_step:
+                raise ValueError(
+                    f"resume checkpoint history for {key} has length {len(values)} but completed_steps={start_step}"
+                )
+            if len(values) > start_step:
+                history[key] = values[:start_step]
+    for step_idx in range(start_step, total_steps):
         current_residuals = residuals() if callable(residuals) else residuals
         optimizer.zero_grad(set_to_none=True)
-        loss = objective_loss(
+        loss, loss_details = objective_loss(
             model,
             current_residuals,
             metric_weight=metric_weight,
@@ -2392,6 +2711,7 @@ def train_model(
             stability_space=stability_space,
             teacher_fn=teacher_fn,
             teacher_weight=teacher_weight,
+            return_details=True,
         )
         loss.backward()
         torch.nn.utils.clip_grad_norm_(model.parameters(), 1.0)
@@ -2400,11 +2720,36 @@ def train_model(
             scheduler.step()
         history["loss"].append(float(loss.detach()))
         history["lr"].append(float(optimizer.param_groups[0]["lr"]))
+        history["train_one_step"].append(loss_details["train_one_step"])
+        history["train_base_metric"].append(loss_details["train_base_metric"])
         if int(log_steps) > 0 and ((step_idx + 1) % int(log_steps) == 0 or step_idx == 0 or step_idx + 1 == total_steps):
             print(
                 f"    step [{step_idx + 1:4d}/{total_steps}] loss={history['loss'][-1]:.3e} "
+                f"one={history['train_one_step'][-1]:.3e} "
                 f"lr={history['lr'][-1]:.2e}"
             )
+        if checkpoint_path and checkpoint_every > 0 and (step_idx + 1) % checkpoint_every == 0:
+            save_training_checkpoint(
+                checkpoint_path,
+                model,
+                optimizer,
+                scheduler,
+                history,
+                completed_steps=step_idx + 1,
+                total_steps=total_steps,
+                metadata=checkpoint_metadata,
+            )
+    if checkpoint_path:
+        save_training_checkpoint(
+            checkpoint_path,
+            model,
+            optimizer,
+            scheduler,
+            history,
+            completed_steps=total_steps,
+            total_steps=total_steps,
+            metadata=checkpoint_metadata,
+        )
     return history
 
 
@@ -2497,6 +2842,25 @@ def solve_fgmres(rte, source, preconditioner, maxiter, tol, real_stacked=False):
 
 
 def write_report(rows, path, settings):
+    def metric_value(row, key):
+        value = row.get(key, "")
+        if value in ("", None):
+            return None
+        try:
+            return float(value)
+        except (TypeError, ValueError):
+            return None
+
+    def format_metric(value):
+        if value is None:
+            return ""
+        if value != value:
+            return "nan"
+        return f"{value:.3e}"
+
+    def format_cell(row, key):
+        return format_metric(metric_value(row, key))
+
     lines = [
         "# NPBS U-Net Preconditioner Ablation",
         "",
@@ -2532,20 +2896,55 @@ def write_report(rows, path, settings):
             "- By default `CoeffWeightedTSA-MK` freezes the scalar `m=0` synthetic weight to preserve the scalar diffusion moment; pass `--learn-scalar-moment` to ablate this constraint. `--moment-transport-relaxation` and `--moment-synthetic-relaxation` allow stable damped variants.",
             "- `--rollout-space` and `--stability-space` choose whether rollout and stability penalties measure contraction in the base metric space or in the physical residual norm.",
             "- `base-call equal` means equal counts of selected base-preconditioner applications inside one preconditioner call, excluding diagnostic metric evaluations, `A_h` applications, scalar reductions, and U-Net overhead. `UNet-defect2` is base-call equal to `dsa2`/`tsa2`; `dsa3`/`dsa4` and `tsa3`/`tsa4` are deeper classical work-budget baselines, not strict equal-cost matches.",
+            "- `Eval 1-step residual` is the post-training ratio `||r - A_h M r||_2 / ||r||_2` measured on the full train or heldout source after one preconditioner application.",
+            "- `Eval 1-step base-metric ratio` measures that same one-step residual after both numerator and denominator are mapped through the selected classical base metric used for the run.",
+            "- `Train batch residual start/end` is the mean one-step physical residual ratio on the sampled residual minibatches used during optimization. It is a training diagnostic and is not directly comparable to the full-source evaluation columns.",
+            "- `Train objective start/end` is the scalar optimization objective on those sampled minibatches, including whichever metric, physical, correction, rollout, stability, and teacher terms were active for the run.",
             "",
-            "## Results",
+            "## Quick Read",
             "",
         ]
     )
+    grouped_rows = {}
+    for row in rows:
+        group_key = (row["size"], row["case"], row["base_kind"])
+        grouped_rows.setdefault(group_key, []).append(row)
+    for (size, case, base_kind), group_rows in sorted(grouped_rows.items()):
+        for split in ("train", "heldout"):
+            split_rows = [row for row in group_rows if row["split"] == split]
+            learned_rows = [row for row in split_rows if metric_value(row, "train_loss_final") is not None]
+            if not learned_rows:
+                continue
+            best_learned = min(learned_rows, key=lambda row: metric_value(row, "one_step_true"))
+            summary_parts = [
+                f"- Size `{size}`, case `{case}`, base `{base_kind}`, split `{split}`: best learned method `{best_learned['method']}` reached eval 1-step residual {format_metric(metric_value(best_learned, 'one_step_true'))}"
+            ]
+            tsa2_row = next((row for row in split_rows if row["method"] == "tsa2"), None)
+            if tsa2_row is not None:
+                summary_parts.append(f"vs `tsa2` {format_metric(metric_value(tsa2_row, 'one_step_true'))}")
+            tsa4_row = next((row for row in split_rows if row["method"] == "tsa4"), None)
+            if tsa4_row is not None:
+                best_eval = metric_value(best_learned, "one_step_true")
+                tsa4_eval = metric_value(tsa4_row, "one_step_true")
+                summary_parts.append(f"vs `tsa4` {format_metric(tsa4_eval)}")
+                if best_eval is not None and tsa4_eval is not None:
+                    gap = best_eval - tsa4_eval
+                    relation = "below" if gap < 0.0 else "above"
+                    summary_parts.append(f"({format_metric(abs(gap))} {relation} `tsa4`)")
+            summary_parts.append(
+                f"; stationary final residual {format_metric(metric_value(best_learned, 'stationary_final'))} and FGMRES final residual {format_metric(metric_value(best_learned, 'fgmres_final'))}."
+            )
+            lines.append(" ".join(summary_parts))
+    lines.extend(["", "## Results", ""])
     lines.append(
-        "| Size | Base | K | FGMRES | Case | Split | Method | one-step true | one-step base metric | stat final | FGMRES final | stat ttol | FGMRES ttol | loss0 | loss1 |"
+        "| Grid | Base | TSA harmonics | FGMRES mode | Case | Split | Method | Eval 1-step residual | Eval 1-step base-metric ratio | Stationary final residual | FGMRES final residual | Stationary time to tol | FGMRES time to tol | Train batch residual start | Train batch residual end | Train objective start | Train objective end |"
     )
-    lines.append("|---:|---|---:|---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|")
+    lines.append("|---:|---|---:|---|---|---|---|---:|---:|---:|---:|---:|---:|---:|---:|---:|---:|")
     for row in rows:
         lines.append(
-            "| {size} | {base_kind} | {tsa_harmonics} | {fgmres_mode} | {case} | {split} | {method} | "
-            "{one_step_true:.3e} | {one_step_base_metric:.3e} | {stationary_final:.3e} | {fgmres_final:.3e} | "
-            "{stationary_time_to_tol} | {fgmres_time_to_tol} | {train_loss_initial} | {train_loss_final} |".format(**row)
+            f"| {row['size']} | {row['base_kind']} | {row['tsa_harmonics']} | {row['fgmres_mode']} | {row['case']} | {row['split']} | {row['method']} | "
+            f"{format_cell(row, 'one_step_true')} | {format_cell(row, 'one_step_base_metric')} | {format_cell(row, 'stationary_final')} | {format_cell(row, 'fgmres_final')} | "
+            f"{format_cell(row, 'stationary_time_to_tol')} | {format_cell(row, 'fgmres_time_to_tol')} | {format_cell(row, 'train_one_step_initial')} | {format_cell(row, 'train_one_step_final')} | {format_cell(row, 'train_loss_initial')} | {format_cell(row, 'train_loss_final')} |"
         )
     path.write_text("\n".join(lines) + "\n", encoding="utf-8")
 
@@ -2573,6 +2972,12 @@ def main():
     parser.add_argument("--learned-base-width", type=int, default=32)
     parser.add_argument("--learned-base-blocks", type=int, default=2)
     parser.add_argument("--learned-base-temperature", type=float, default=1.0)
+    parser.add_argument(
+        "--learned-base-top-k",
+        type=int,
+        default=0,
+        help="If positive, keep only the top-k routed classical candidates per residual and renormalize the weights.",
+    )
     parser.add_argument("--learned-base-route-scale", type=float, default=4.0)
     parser.add_argument("--learned-base-relaxation-scale", type=float, default=0.5)
     parser.add_argument(
@@ -2654,6 +3059,28 @@ def main():
     parser.add_argument("--n-random", type=int, default=6)
     parser.add_argument("--random-modes", type=int, default=5)
     parser.add_argument("--aux-sources", type=int, default=0)
+    parser.add_argument(
+        "--residual-dataset-path",
+        default="",
+        help="Optional saved residual bank (.pt) with a 'residuals' tensor and optional metadata; currently used with --residual-mode resample.",
+    )
+    parser.add_argument(
+        "--residual-dataset-device",
+        choices=["auto", "cpu", "gpu"],
+        default="auto",
+        help="Where to keep an external residual bank; GPU caching avoids per-step host-device copies when memory allows.",
+    )
+    parser.add_argument(
+        "--residual-dataset-gpu-max-fraction",
+        type=float,
+        default=0.5,
+        help="When --residual-dataset-device=auto, move the bank to GPU only if it fits within this fraction of currently free GPU memory.",
+    )
+    parser.add_argument("--krylov-basis-vectors", type=int, default=0)
+    parser.add_argument("--krylov-residual-vectors", type=int, default=0)
+    parser.add_argument("--krylov-restart-residuals", type=int, default=0)
+    parser.add_argument("--krylov-gmres-restart", type=int, default=20)
+    parser.add_argument("--krylov-gmres-max-restarts", type=int, default=2)
     parser.add_argument("--metric-weight", type=float, default=1.0)
     parser.add_argument("--physical-weight", type=float, default=0.5)
     parser.add_argument("--correction-weight", type=float, default=1e-6)
@@ -2677,12 +3104,37 @@ def main():
     parser.add_argument("--device", default="cuda:0" if torch.cuda.is_available() else "cpu")
     parser.add_argument("--allow-tf32", action="store_true")
     parser.add_argument("--output-init", choices=["zero", "small"], default="zero")
+    parser.add_argument(
+        "--init-from-checkpoint",
+        default="",
+        help="Optional checkpoint to load model weights from before training, useful for continuing on larger datasets or longer horizons with a fresh optimizer/scheduler.",
+    )
+    parser.add_argument(
+        "--resume-from-checkpoint",
+        default="",
+        help="Resume an interrupted run from a saved checkpoint, restoring model, optimizer, scheduler, and history. Use --init-from-checkpoint for a fresh continuation schedule.",
+    )
+    parser.add_argument(
+        "--checkpoint-path",
+        default="",
+        help="Optional checkpoint path to save the trained model state for the single trained-model invocation.",
+    )
+    parser.add_argument(
+        "--checkpoint-every",
+        type=int,
+        default=0,
+        help="Save a checkpoint every N optimizer steps in addition to the final checkpoint; 0 disables periodic checkpointing.",
+    )
     parser.add_argument("--output-csv", default="rte/npbs_unet_ablation_results.csv")
     parser.add_argument("--trace-csv", default="")
     parser.add_argument("--output-md", default="rte/NPBS_UNET_ABLATION_REPORT.md")
     args = parser.parse_args()
     if args.scale_gate_channel_mix:
         args.scale_aware_gates = True
+    if args.init_from_checkpoint and args.resume_from_checkpoint:
+        raise ValueError("--init-from-checkpoint and --resume-from-checkpoint are mutually exclusive")
+    if args.resume_from_checkpoint and not args.checkpoint_path:
+        args.checkpoint_path = args.resume_from_checkpoint
 
     torch.manual_seed(args.seed)
     dtype = torch.float32
@@ -2693,9 +3145,31 @@ def main():
         torch.backends.cudnn.benchmark = True
         if args.allow_tf32:
             torch.set_float32_matmul_precision("high")
+    external_residual_dataset_path = None
+    external_residual_bank = None
+    external_residual_metadata = {}
+    external_residual_storage = ""
+    if args.residual_dataset_path:
+        if args.residual_mode != "resample":
+            raise ValueError("--residual-dataset-path currently requires --residual-mode resample")
+        external_residual_dataset_path, external_residual_bank, external_residual_metadata = load_residual_dataset(
+            args.residual_dataset_path
+        )
+        external_residual_bank, external_residual_storage, external_residual_bytes = prepare_residual_dataset_bank(
+            external_residual_bank,
+            training_device=device,
+            preferred_device=args.residual_dataset_device,
+            auto_gpu_max_fraction=args.residual_dataset_gpu_max_fraction,
+        )
+        print(
+            f"loaded residual dataset {external_residual_dataset_path} "
+            f"shape={tuple(int(dim) for dim in external_residual_bank.shape)} "
+            f"storage={external_residual_storage} bytes={external_residual_bytes}"
+        )
     tol_grid = list(dict.fromkeys([float(args.tol)] + [float(t) for t in args.tol_grid]))
     rows = []
     trace_rows = []
+    checkpoint_training_count = 0
     for size in args.sizes:
         for case in args.cases:
             rte, _ = make_case(case, size, args.n_angles, dtype, args.eta_scale, device=device)
@@ -2722,7 +3196,25 @@ def main():
                     raise ValueError(
                         "For moment-TSA ablations, --tsa-harmonics must be omitted or match --moment-harmonics"
                     )
-                if args.residual_mode == "pool":
+                if external_residual_bank is not None:
+                    validate_residual_dataset(
+                        external_residual_dataset_path,
+                        external_residual_bank,
+                        external_residual_metadata,
+                        case,
+                        size,
+                        args.n_angles,
+                        base_kind,
+                    )
+                    residuals, residual_info = make_dataset_residual_sampler(
+                        external_residual_bank,
+                        residuals_per_step=args.residuals_per_step,
+                        device=device,
+                        dtype=rte.complex_dtype,
+                        seed=args.seed,
+                        metadata=external_residual_metadata,
+                    )
+                elif args.residual_mode == "pool":
                     residuals = collect_residuals_from_sources(
                         rte,
                         base_kind,
@@ -2732,7 +3224,23 @@ def main():
                         n_random=args.n_random,
                         random_modes=args.random_modes,
                     )
-                    residual_info = {"rollout_bank_size": len(residuals), "residuals_per_step": len(residuals)}
+                    krylov_bank = collect_krylov_residuals_from_sources(
+                        rte,
+                        base_kind,
+                        tsa_harmonics=tsa_harmonics,
+                        sources=training_sources,
+                        basis_vectors=args.krylov_basis_vectors,
+                        residual_vectors=args.krylov_residual_vectors,
+                        restart_residuals=args.krylov_restart_residuals,
+                        gmres_restart=args.krylov_gmres_restart,
+                        gmres_max_restarts=args.krylov_gmres_max_restarts,
+                    )
+                    residuals.extend(krylov_bank)
+                    residual_info = {
+                        "rollout_bank_size": len(residuals) - len(krylov_bank),
+                        "krylov_bank_size": len(krylov_bank),
+                        "residuals_per_step": len(residuals),
+                    }
                 else:
                     residuals, residual_info = make_residual_sampler(
                         rte,
@@ -2743,6 +3251,11 @@ def main():
                         residuals_per_step=args.residuals_per_step,
                         rollout_samples_per_step=args.rollout_samples_per_step,
                         random_modes=args.random_modes,
+                        krylov_basis_vectors=args.krylov_basis_vectors,
+                        krylov_residual_vectors=args.krylov_residual_vectors,
+                        krylov_restart_residuals=args.krylov_restart_residuals,
+                        krylov_gmres_restart=args.krylov_gmres_restart,
+                        krylov_gmres_max_restarts=args.krylov_gmres_max_restarts,
                         seed=args.seed,
                     )
                 base_label = base_kind.replace("transport_", "")
@@ -2759,7 +3272,7 @@ def main():
                             label = f"{base_label}{int(depth)}"
                         else:
                             label = f"{base_label}{int(depth)}-w{float(relaxation):g}"
-                        baseline_methods.append((label, base_apply, int(depth), "", "", "", "", "", ""))
+                        baseline_methods.append((label, base_apply, int(depth), "", "", "", "", "", "", "", "", ""))
 
                 trained_models = []
                 for form in args.forms:
@@ -2777,6 +3290,12 @@ def main():
                     if form in MOMENT_FORMS and not normalize_moment_base_kind(base_kind):
                         raise ValueError(f"{form} requires --base-kinds transport_tsa_moment")
                     for relaxation in relaxations:
+                        if args.init_from_checkpoint or args.resume_from_checkpoint or args.checkpoint_path:
+                            checkpoint_training_count += 1
+                            if checkpoint_training_count > 1:
+                                raise ValueError(
+                                    "checkpointed or initialized training currently supports a single trained model per invocation; narrow the run to one size/case/base/form combination"
+                                )
                         teacher_kind = args.teacher_kind if args.teacher_kind else base_kind
 
                         def teacher_fn(residual_batch, kind=teacher_kind):
@@ -2810,6 +3329,7 @@ def main():
                                 width=args.learned_base_width,
                                 blocks=args.learned_base_blocks,
                                 temperature=args.learned_base_temperature,
+                                top_k=args.learned_base_top_k,
                                 route_scale=args.learned_base_route_scale,
                                 relaxation_scale=args.learned_base_relaxation_scale,
                                 use_residual_summary=args.learned_base_use_residual,
@@ -2957,6 +3477,47 @@ def main():
                                 rom_scale=args.rom_scale,
                                 rom_use_residual_summary=args.rom_use_residual_summary,
                             ).to(device)
+                        model_label = (
+                            f"AngularSpectralDefect2-w{relaxation:g}"
+                            if form == "angular_spectral_defect2"
+                            else f"MomentUNet-K{args.moment_harmonics}-w{relaxation:g}"
+                            if form == "moment_defect2"
+                            else f"WeightedTSA-M{args.moment_harmonics}"
+                            if form == "weighted_moment_tsa"
+                            else f"CoeffWeightedTSA-M{args.moment_harmonics}"
+                            if form == "coeff_weighted_moment_tsa"
+                            else f"CoeffMixedTSA-M{args.moment_harmonics}"
+                            if form == "coeff_mixed_moment_tsa"
+                            else f"LearnedRP-TSA-M{args.moment_harmonics}"
+                            if form == "learned_rp_moment_tsa"
+                            else f"ResidualSubspaceTSA-M{args.moment_harmonics}"
+                            if form == "residual_subspace_moment_tsa"
+                            else f"UNet-{form}-w{relaxation:g}"
+                        )
+                        if args.learned_base_router and form in ("residual", "defect2", "angular_spectral_defect2", "moment_defect2"):
+                            model_label = "Routed" + model_label
+                        if args.scale_aware_gates and form in ("residual", "defect2", "angular_spectral_defect2", "moment_defect2"):
+                            model_label = "ScaleGated" + model_label
+                        if args.rom_rank > 0 and form in ("residual", "defect2", "angular_spectral_defect2", "moment_defect2"):
+                            model_label = f"ROM{args.rom_rank}-" + model_label
+                        resume_checkpoint_payload = None
+                        if args.resume_from_checkpoint:
+                            resume_checkpoint_path, resume_checkpoint_payload = load_training_checkpoint(
+                                args.resume_from_checkpoint
+                            )
+                            print(
+                                f"resuming model checkpoint {resume_checkpoint_path} "
+                                f"completed_steps={resume_checkpoint_payload.get('completed_steps', '')} "
+                                f"total_steps={resume_checkpoint_payload.get('total_steps', '')}"
+                            )
+                        if args.init_from_checkpoint:
+                            init_checkpoint_path, init_payload = load_training_checkpoint(args.init_from_checkpoint)
+                            model.load_state_dict(init_payload["model_state"])
+                            print(
+                                f"loaded model checkpoint {init_checkpoint_path} "
+                                f"completed_steps={init_payload.get('completed_steps', '')} "
+                                f"total_steps={init_payload.get('total_steps', '')}"
+                            )
                         history = train_model(
                             model,
                             residuals,
@@ -2982,34 +3543,29 @@ def main():
                             stability_space=args.stability_space,
                             teacher_fn=teacher_fn if args.teacher_depth > 0 else None,
                             teacher_weight=args.teacher_weight,
+                            checkpoint_path=args.checkpoint_path,
+                            checkpoint_every=args.checkpoint_every,
+                            checkpoint_metadata={
+                                "label": model_label,
+                                "case": case,
+                                "size": int(size),
+                                "base_kind": base_kind,
+                                "form": form,
+                                "defect_relaxation": float(relaxation),
+                                "scheduler": args.scheduler,
+                                "residual_dataset_path": args.residual_dataset_path,
+                                "residual_dataset_bank_size": int(external_residual_bank.shape[0]) if external_residual_bank is not None else 0,
+                                "residual_dataset_storage": external_residual_storage,
+                                "init_from_checkpoint": args.init_from_checkpoint,
+                                "resume_from_checkpoint": args.resume_from_checkpoint,
+                            },
+                            resume_checkpoint_payload=resume_checkpoint_payload,
                         )
-                        model_label = (
-                            f"AngularSpectralDefect2-w{relaxation:g}"
-                            if form == "angular_spectral_defect2"
-                            else f"MomentUNet-K{args.moment_harmonics}-w{relaxation:g}"
-                            if form == "moment_defect2"
-                            else f"WeightedTSA-M{args.moment_harmonics}"
-                            if form == "weighted_moment_tsa"
-                            else f"CoeffWeightedTSA-M{args.moment_harmonics}"
-                            if form == "coeff_weighted_moment_tsa"
-                            else f"CoeffMixedTSA-M{args.moment_harmonics}"
-                            if form == "coeff_mixed_moment_tsa"
-                            else f"LearnedRP-TSA-M{args.moment_harmonics}"
-                            if form == "learned_rp_moment_tsa"
-                            else f"ResidualSubspaceTSA-M{args.moment_harmonics}"
-                            if form == "residual_subspace_moment_tsa"
-                            else f"UNet-{form}-w{relaxation:g}"
-                        )
-                        if args.learned_base_router and form in ("residual", "defect2", "angular_spectral_defect2", "moment_defect2"):
-                            model_label = "Routed" + model_label
-                        if args.scale_aware_gates and form in ("residual", "defect2", "angular_spectral_defect2", "moment_defect2"):
-                            model_label = "ScaleGated" + model_label
-                        if args.rom_rank > 0 and form in ("residual", "defect2", "angular_spectral_defect2", "moment_defect2"):
-                            model_label = f"ROM{args.rom_rank}-" + model_label
                         trained_models.append((model_label, model, history, residual_info))
                         print(
                             f"size={size} case={case} base={base_kind} form={form} mode={args.residual_mode} "
-                            f"omega={relaxation:g} bank={residual_info['rollout_bank_size']} "
+                            f"omega={relaxation:g} bank={residual_info['rollout_bank_size']}+{residual_info.get('krylov_bank_size', 0)} "
+                            f"one={history['train_one_step'][0]:.3e}->{history['train_one_step'][-1]:.3e} "
                             f"loss={history['loss'][0]:.3e}->{history['loss'][-1]:.3e}"
                         )
 
@@ -3020,18 +3576,21 @@ def main():
                             label,
                             model,
                             getattr(model, "base_calls_per_apply", 1 if model.form == "residual" else 2),
+                            history['train_one_step'][0],
+                            history['train_one_step'][-1],
                             history['loss'][0],
                             history['loss'][-1],
                             history['lr'][0],
                             history['lr'][-1],
                             info['residuals_per_step'],
                             info['rollout_bank_size'],
+                            info.get('krylov_bank_size', 0),
                         )
                     )
 
                 for split, source in (("train", train_source), ("heldout", heldout_source)):
                     residual = source.to(dtype=rte.complex_dtype) - rte.A_op(torch.zeros_like(rte.source))
-                    for label, precond, calls, loss0, loss1, lr0, lr1, residuals_per_step, rollout_bank_size in baseline_methods + methods:
+                    for label, precond, calls, one0, one1, loss0, loss1, lr0, lr1, residuals_per_step, rollout_bank_size, krylov_bank_size in baseline_methods + methods:
                         one_true, one_born_metric, one_base_metric = one_step_quality(
                             rte,
                             precond,
@@ -3099,6 +3658,8 @@ def main():
                             "fgmres_final": ff,
                             "fgmres_factor": fc,
                             "fgmres_time": ft,
+                            "train_one_step_initial": one0,
+                            "train_one_step_final": one1,
                             "train_loss_initial": loss0,
                             "train_loss_final": loss1,
                             "train_lr_initial": lr0,
@@ -3106,10 +3667,20 @@ def main():
                             "residual_mode": args.residual_mode,
                             "residuals_per_step": residuals_per_step,
                             "rollout_bank_size": rollout_bank_size,
+                            "krylov_bank_size": krylov_bank_size,
                             "n_rollout": args.n_rollout,
                             "n_random": args.n_random,
                             "random_modes": args.random_modes,
                             "aux_sources": args.aux_sources,
+                            "krylov_basis_vectors": args.krylov_basis_vectors,
+                            "krylov_residual_vectors": args.krylov_residual_vectors,
+                            "krylov_restart_residuals": args.krylov_restart_residuals,
+                            "krylov_gmres_restart": args.krylov_gmres_restart,
+                            "krylov_gmres_max_restarts": args.krylov_gmres_max_restarts,
+                            "residual_dataset_path": args.residual_dataset_path,
+                            "residual_dataset_bank_size": int(external_residual_bank.shape[0]) if external_residual_bank is not None else "",
+                            "residual_dataset_case": external_residual_metadata.get("case", "") if external_residual_bank is not None else "",
+                            "residual_dataset_base_kind": external_residual_metadata.get("base_kind", "") if external_residual_bank is not None else "",
                             "scheduler": args.scheduler,
                             "scheduler_step_size": args.scheduler_step_size,
                             "scheduler_gamma": args.scheduler_gamma,
@@ -3151,6 +3722,7 @@ def main():
                             "learned_base_router": bool(getattr(precond, "base_module", None) is not None),
                             "learned_base_candidates": getattr(getattr(precond, "base_module", None), "router_candidates", ""),
                             "learned_base_use_residual": getattr(getattr(precond, "base_module", None), "use_residual_summary", ""),
+                            "learned_base_top_k": getattr(getattr(precond, "base_module", None), "top_k", ""),
                             "learned_base_temperature": getattr(getattr(precond, "base_module", None), "temperature", ""),
                             "learned_base_route_scale": getattr(getattr(precond, "base_module", None), "route_scale", ""),
                             "learned_base_relaxation_scale": getattr(getattr(precond, "base_module", None), "relaxation_scale", ""),

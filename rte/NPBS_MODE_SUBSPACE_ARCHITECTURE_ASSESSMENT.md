@@ -409,3 +409,77 @@ The most useful immediate experiments are:
 The success criterion should be strict: a candidate must lower heldout one-step
 error without making stationary iteration or FGMRES worse.  Large training-loss
 decrease alone is not enough.
+
+## Harness Support For The Next Batch
+
+The bottleneck harness now supports the three immediate training improvements
+recommended above:
+
+- Composite checkpoint selection via
+  `--select-checkpoint heldout_composite` with
+  `--checkpoint-phys-weight` and `--checkpoint-stationary-weight`.  This keeps
+  heldout FGMRES as the primary safety term, while allowing heldout physical
+  loss and optionally heldout stationary residual to break ties when pure
+  FGMRES selection is too conservative.
+- Identity-anchor continuation via
+  `--identity-schedule safe_decay`, `--identity-weight-min`,
+  `--identity-decay-factor`, `--identity-decay-start`, and
+  `--identity-safety-threshold`.  This implements the recommended scheme of
+  starting with a strong anchor and only relaxing it after heldout FGMRES stays
+  inside a safe band.
+- Multi-step probe growth penalty via `--probe-weight`, `--probe-steps`,
+  `--probe-contraction-target`, `--probe-residuals-per-step`, and
+  `--probe-rollout-samples-per-step`.  This adds a cheap spectrum proxy by
+  penalizing growth of `||r_k|| / ||r_0||` over random or rollout-based probe
+  residuals.
+
+Given the May 22 mixed-case results, the immediate LearnedRP follow-up should
+use low LR, diverse residual sampling, dense early evaluation, and anchors near
+`5e-3` to `1e-2`.  A reasonable first batch is:
+
+- mixed size 64, `raw_rollout_teacher`, `teacher_weight=0.5`
+- `lr=1e-4`, `scheduler=onecycle`, `eval_every=100`
+- `identity_weight in {5e-3, 1e-2}` with safe decay toward `1e-3`
+- `select-checkpoint heldout_composite` with a small physical term, for
+  example `checkpoint_phys_weight=0.25`
+- moderate probe penalty, for example `probe_weight=0.05`, `probe_steps=3`,
+  `probe_contraction_target=1.0`
+
+The first mixed LearnedRP runs with these new harness features sharpen the
+picture further:
+
+- `anchor=5e-3`, composite checkpointing, and probe penalty selected step 100
+  with heldout FGMRES `1.9045e-05` and heldout one-step `0.6189`.  This is the
+  best stable LearnedRP checkpoint so far, improving both heldout FGMRES and
+  heldout physical loss relative to the earlier `5e-3` pure-FGMRES-selected
+  run (`1.9086e-05`, `0.6239`).
+- A fixed-seed no-probe control was nearly identical to the probe run: it also
+  selected step 100, with heldout FGMRES `1.9108e-05` and heldout one-step
+  `0.6189`.  Therefore the probe-growth penalty is not the main source of the
+  improvement; at this scale its effect is negligible relative to the overall
+  training trajectory.
+- A fixed-seed pure-`heldout_fgmres` rerun without the probe term also selected
+  step 100 and matched the composite-selected checkpoint's heldout one-step to
+  all reported digits.  Therefore the composite checkpoint metric is not yet
+  selecting a meaningfully different LearnedRP checkpoint in this regime.
+- `anchor=1e-2` with the same composite/probe regime is weaker than `5e-3` on
+  the composite tradeoff (`1.9225e-05`, `0.6300`), so the best anchor remains
+  near `5e-3`, not `1e-2`.
+- A short isolation run with `decay_start=150` showed that the selected steps
+  (`1` without decay and `50` with decay) occurred before any anchor release,
+  so the current improvement cannot yet be credited to the decay schedule.
+  The probe and checkpoint-metric controls are now largely resolved; the next
+  useful batch should measure repeated-seed variation for the cleaned-up `5e-3`
+  anchor regime.
+
+The first completed batch with these harness additions now exists.  On mixed
+size 64 with anchor `5e-3`, composite checkpointing plus the probe penalty and
+safe decay selected step `100` with heldout one-step `0.6189` and heldout
+FGMRES `1.9045e-05`.  This slightly improves both metrics over the earlier
+pure-heldout-FGMRES `5e-3` anchor run, which selected step `100` with heldout
+one-step `0.6239` and heldout FGMRES `1.9086e-05`.  The same composite/probe
+batch with anchor `1e-2` did not beat the `5e-3` version.  Because the winning
+checkpoint still occurred before decay materially changed the anchor, the next
+diagnostic run should isolate whether the gain came from composite selection,
+the probe penalty, or their interaction rather than from the continuation
+schedule itself.
