@@ -1,0 +1,617 @@
+\documentclass[UTF8,11pt,fontset=fandol]{ctexart}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,bm,mathtools}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{xcolor}
+\usepackage{hyperref}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue!55!black,
+  urlcolor=blue!55!black,
+  citecolor=blue!55!black
+}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\ii}{\mathrm{i}}
+\newcommand{\dd}{\mathrm{d}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\inner}[2]{\left\langle #1,#2\right\rangle}
+\newcommand{\code}[1]{\texttt{\detokenize{#1}}}
+\newcommand{\Ah}{A_h}
+\newcommand{\Ph}{P_{\theta,h}}
+\newcommand{\Bh}{B_h}
+\newcommand{\Eh}{E_{\theta,h}}
+\newcommand{\mupar}{\mu}
+
+\title{Helmholtz 与 RTE 学习型预条件项目的高层科学问题与研究方案}
+\author{基于当前项目 notes、实验讨论与失败模式的研究纲领}
+\date{2026 年 6 月 1 日}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+本文不是对当前 Born series 或 NPBS 代码的简单总结，而是从 Helmholtz
+和 radiative transfer equation (RTE) 两条实验线中抽象出更一般的数学
+和机器学习科学问题。当前项目已经暴露出一个共同核心：我们不是只在学
+一个从残差到修正量的黑箱映射，而是在学习一个随 PDE 参数、离散化、
+频率、散射机制、边界层和误差子空间变化的\emph{近似逆几何}。真正要
+解决的问题包括：非自伴随/不定 PDE 的正确训练度量是什么；one-step
+残差下降为什么不能保证 Krylov 收敛；如何学习稳定的多尺度子空间、
+限制/延拓、角向或波向模式；如何把经典预条件器的渐近正确性与神经网
+络的适应性结合起来；以及如何建立跨网格、跨频率、跨介质和跨方程族
+的可验证泛化理论。
+\end{abstract}
+
+\tableofcontents
+
+\section{从当前项目得到的高层事实}
+
+项目中 Helmholtz 和 RTE 的具体实现不同，但它们反复显示了同一个深
+层困难：PDE 求解器的好坏不是由单步误差、训练损失或网络容量单独决定，
+而是由预条件后的算子几何决定。
+
+\subsection{Helmholtz 侧的教训}
+
+Helmholtz 方程的困难来自高频、不定性、边界辐射条件、强非正规性以及
+多重散射。当前项目中的 CBS、shifted Laplacian、sparse LU 和学习型
+预条件实验说明了几个事实。
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{离散化兼容性是首要问题。}
+  CBS 与项目原始 pseudo-spectral/FFT 离散自然匹配；有限差分 shifted
+  Laplacian 与五点差分 Helmholtz 自然匹配。跨离散化比较可以调试，但
+  不应作为最终算法优劣判断。
+
+  \item \textbf{经典预条件器各自抓住不同结构。}
+  CBS 抓住常系数 Green resolvent 与 scattering potential 的结构；
+  shifted Laplacian 抓住阻尼后 Helmholtz 可由 multigrid 近似求解的结
+  构；sweeping/domain decomposition 抓住波传播方向性；sparse LU 抓住
+  小规模二维问题的直接因子化优势。
+
+  \item \textbf{小二维问题上直接法仍然强。}
+  这不是迭代法失败，而是成本区间没有进入迭代法最有优势的区域。学习
+  型预条件器真正应在大规模二维、高频三维、多 RHS、多参数 sweep、GPU
+  matrix-free 和 memory-bound 场景中展示优势。
+
+  \item \textbf{学习模型不能只拟合局部 correction。}
+  Helmholtz 的正确近似逆具有强烈的 microlocal 结构：波向、相位、频率、
+  caustic、多重反射、吸收层都影响误差传播。一个普通 U-Net 或 FNO 如
+  果没有显式表达这些结构，很容易只学到短程平滑，而不是可扩展的波动
+  预条件器。
+\end{enumerate}
+
+\subsection{RTE 侧的教训}
+
+RTE 原型显示了与 Helmholtz 平行但不相同的困难。RTE 的误差结构同时
+有空间尺度、角向尺度、流输运尺度和扩散极限。
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{DSA/TSA 是结构性基线，不只是工程 baseline。}
+  DSA 针对低阶扩散误差，TSA 针对参考 transport-scattering 误差，
+  moment TSA 则提供了角向 Fourier 子空间中的低阶逆。它们揭示了 RTE
+  学习预条件器应该学习什么：不是任意 correction，而是 transport、
+  diffusion、angular moment 和 residual subspace 的组合。
+
+  \item \textbf{固定角向子空间限制了学习。}
+  \code{CoeffWeightedTSA} 只能重标定固定角向 moment；\code{CoeffMixedTSA}
+  可以在固定子空间内混合；\code{LearnedRP-TSA} 可以学习 restriction/
+  prolongation，但目前仍主要困在固定 \(Q_K\) 内。真正的问题是如何学
+  稳定的、残差和系数依赖的角向子空间。
+
+  \item \textbf{one-step physical loss 仍不足以保证 FGMRES。}
+  多个 RTE 结果显示，训练损失或单步残差可以下降，但 FGMRES 变差。这
+  说明学习算子改变了预条件后算子的谱、pseudospectrum 或非正规瞬态增
+  长。科学问题不是“网络是否训练成功”，而是“训练目标是否约束了 Krylov
+  所需的算子几何”。
+
+  \item \textbf{多层 U-Net gate 需要对应多层误差子空间。}
+  当前 scale-aware gate、learned router、learned R/P 的讨论指向一个
+  更一般的观点：每一层网络应对应一个误差子空间或物理 regime，而不只
+  是图像式的多尺度特征抽取。
+\end{enumerate}
+
+\section{统一数学表述}
+
+把 Helmholtz 和 RTE 都抽象成参数化离散线性系统
+\begin{equation}
+  A_h(\mu) u_h = f_h,
+  \qquad
+  A_h(\mu): X_h \to Y_h,
+\end{equation}
+其中 \(\mu\) 表示介质、频率、散射参数、边界层、网格尺度和离散化选择。
+目标不是单纯学习 \(A_h(\mu)^{-1}\)，而是学习一个可作为求解器组件的
+预条件器
+\begin{equation}
+  P_{\theta,h}(\mu,r): Y_h \to X_h.
+\end{equation}
+如果 \(P_{\theta,h}\) 对 \(r\) 线性，则它是一个传统右预条件器；如果它
+依赖残差内容、Krylov 历史或局部 regime，则它是非线性/自适应预条件器，
+应由 FGMRES 或更一般的 flexible Krylov 方法包裹。
+
+真正需要控制的是误差传播算子
+\begin{equation}
+  E_{\theta,h}(\mu) = I - A_h(\mu) P_{\theta,h}(\mu)
+\end{equation}
+以及右预条件后的 Krylov 算子
+\begin{equation}
+  A_h(\mu) P_{\theta,h}(\mu).
+\end{equation}
+训练目标如果只控制
+\begin{equation}
+  \frac{\norm{r-A_hP_{\theta,h}r}}{\norm r},
+\end{equation}
+则只看见单个残差方向上的 one-step contraction。GMRES/FGMRES 的表现
+还依赖 field of values、pseudospectrum、非正规瞬态、残差多项式以及
+不同误差子空间之间的耦合。
+
+\section{需要解决的高层数学科学问题}
+
+\subsection{问题一：非自伴随/不定 PDE 的正确求解器几何是什么？}
+
+Helmholtz 是不定的；RTE 在流输运、强散射和周期 pseudo-spectral 设置
+下也是高度非自伴随的。对 SPD 椭圆问题，多重网格理论告诉我们 smoothing
+property 与 approximation property 如何配合。但对于 Helmholtz/RTE，
+我们缺少同样清晰的几何。
+
+核心问题：
+\begin{quote}
+  对一族非正规、不定、可能强参数依赖的 PDE 离散算子 \(A_h(\mu)\)，
+  什么度量 \(M_h(\mu)\)、什么误差分解、什么子空间结构可以预测
+  FGMRES 的鲁棒收敛？
+\end{quote}
+
+可研究方向包括：
+\begin{enumerate}[leftmargin=2em]
+  \item 建立以 \(M_h\)-范数、field of values、pseudospectrum 和
+  short-Krylov residual polynomial 为核心的训练/评估指标。
+  \item 对 Helmholtz，研究频率依赖的 microlocal norm，例如按波向、
+  局部 slowness 和相位空间分解误差。
+  \item 对 RTE，研究 transport-diffusion norm，例如按 scalar flux、
+  angular moments、streaming modes 和 diffusion-limit modes 分解误差。
+  \item 寻找可以统一 Born metric、shifted resolvent metric、DSA/TSA
+  metric 和 learned metric 的抽象框架。
+\end{enumerate}
+
+\subsection{问题二：学习型预条件器应该学习近似逆，还是学习坐标系？}
+
+当前经验显示，直接学习 \(r\mapsto z\approx A^{-1}r\) 容易过拟合 one-step
+修正。更深的问题可能是：网络应学习一个使问题变简单的坐标系。
+
+对于 Helmholtz，这个坐标系可能是局部波包、相位、方向、吸收层模式、
+domain-decomposition interface trace。对于 RTE，这个坐标系可能是
+angular moment、transport ray mode、diffusive scalar mode、boundary
+layer mode。
+
+数学目标可以写成分解
+\begin{equation}
+  P_{\theta,h}
+  =
+  R_{\theta,h}^{\rm out}
+  \, \widetilde P_{\theta,h}
+  \, R_{\theta,h}^{\rm in},
+\end{equation}
+其中 \(R^{\rm in}\) 和 \(R^{\rm out}\) 是 learned restriction/prolongation
+或 learned coordinate transforms，\(\widetilde P\) 是在较好坐标中更简
+单、更稳定的近似逆。当前 RTE 的 learned R/P 只是这个思想的低阶版本。
+
+开放问题：
+\begin{enumerate}[leftmargin=2em]
+  \item 如何学习 \(R^{\rm in},R^{\rm out}\) 且保持守恒量、scalar mode、
+  边界条件和物理对称性？
+  \item 如何保证 learned coordinate transform 不破坏 Krylov 谱？
+  \item 是否存在 Helmholtz 与 RTE 共通的“learned coarse space”理论？
+\end{enumerate}
+
+\subsection{问题三：如何训练预条件器而不是训练单步残差下降器？}
+
+实验中反复出现的失败模式是：
+\[
+  \text{training loss decreases}
+  \quad\not\Rightarrow\quad
+  \text{FGMRES improves}.
+\]
+这说明训练目标与求解目标错配。更一般的问题是：
+\begin{quote}
+  什么可微、低成本、可采样的 loss 能代表 Krylov 收敛质量？
+\end{quote}
+
+候选目标包括：
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{多步误差传播 loss}
+  \[
+    L_{\rm roll}
+    =
+    \sum_{j=1}^{J} \alpha_j
+    \frac{\norm{E_{\theta,h}^j r}^2}{\norm r^2}.
+  \]
+  \item \textbf{随机 probe 的增长约束}
+  \[
+    L_{\rm grow}
+    =
+    \mathbb{E}_{v}
+    \max\left(
+      \frac{\norm{E_{\theta,h}v}}{\norm v}-\tau,0
+    \right)^2.
+  \]
+  \item \textbf{field-of-values 或 numerical range 约束}
+  \[
+    \operatorname{Re}
+    \frac{\inner{A_hP_{\theta,h}v}{v}}{\inner{v}{v}}
+    \ge \alpha >0
+  \]
+  对某些预条件后形式可能有意义。
+  \item \textbf{短 unrolled FGMRES loss}：直接展开 \(m=3\) 到 \(10\) 步
+  FGMRES，对真实目标求导。
+  \item \textbf{teacher-plus-safety loss}：用强但昂贵的经典求解器作为
+  teacher，同时加入谱/增长/identity-anchor 约束。
+\end{enumerate}
+
+\subsection{问题四：非线性和自适应预条件器的稳定理论}
+
+learned router、residual-dependent angular subspace、adaptive damping、网络
+依赖 Krylov residual 的模型都不是固定线性算子。它们可能更强，也更难
+分析。需要解决的问题是：
+\begin{quote}
+  当 \(P_\theta=P_\theta(\mu,r)\) 非线性时，怎样定义和约束它作为 FGMRES
+  预条件器的稳定性？
+\end{quote}
+
+研究方向：
+\begin{enumerate}[leftmargin=2em]
+  \item 用局部 Lipschitz 常数和 bounded update 约束防止残差方向小扰动
+  引起大 correction 改变。
+  \item 将非线性预条件器写成稳定基线加小扰动：
+  \[
+    P_\theta(r)=B_0r+g_\theta(r,\mu)\Delta P_\theta(r),
+    \qquad 0\le g_\theta\le g_{\max}.
+  \]
+  \item 研究 flexible Krylov 中 variable preconditioner 的经验稳定指标：
+  Arnoldi breakdown、orthogonality loss、residual stagnation、restart 后
+  growth。
+  \item 发展“可学习但保守”的结构：near-identity R/P、low-rank bounded
+  update、energy-preserving mode mixing、scalar-mode preservation。
+\end{enumerate}
+
+\subsection{问题五：多尺度子空间如何由物理 regime 决定？}
+
+对于 Helmholtz，不同尺度对应不同波数、局部波向、相位误差、吸收层误差
+和长程传播误差。对于 RTE，不同尺度对应 transport streaming、scalar
+diffusion、angular moment 和 interface layer。普通 CNN/U-Net 的多尺度
+层不自动等价于这些误差子空间。
+
+科学问题：
+\begin{quote}
+  如何把神经网络层级与 PDE 误差子空间建立一一或多对一对应？
+\end{quote}
+
+可能的结构包括：
+\begin{enumerate}[leftmargin=2em]
+  \item Helmholtz 的 wave packet / curvelet / local Fourier neural block。
+  \item RTE 的 angular Fourier moment block 与 learned angular
+  restriction/prolongation。
+  \item multigrid 风格的 learned smoother、learned coarse correction、
+  learned prolongation。
+  \item regime-aware gate：根据 \(kh\)、points per wavelength、局部
+  slowness contrast、optical thickness、albedo、anisotropy 判断层级行为。
+  \item learned router：在 CBS、shifted Laplacian、sweeping、DSA、TSA、
+  moment TSA、direct coarse solve 等候选结构间选择。
+\end{enumerate}
+
+\subsection{问题六：边界条件和辐射条件如何进入学习型求解器？}
+
+Helmholtz 的 PML/PBL/radiation condition 与 RTE 的 inflow/vacuum/reflective
+boundary 都不是附属细节。边界错误会污染整个预条件器质量。
+
+研究问题：
+\begin{enumerate}[leftmargin=2em]
+  \item 学习型预条件器应如何感知边界层、吸收参数和 boundary trace？
+  \item 是否应学习 interface-to-interface map 或 boundary-to-interior
+  map，而不是只学习 volume correction？
+  \item 对 Helmholtz，learned sweeping 或 learned impedance interface
+  condition 是否比全局 U-Net 更自然？
+  \item 对 RTE，生产级 upwind/inflow 离散下的 DSA/TSA learned extension
+  是否仍保持当前 periodic prototype 中观察到的模式？
+\end{enumerate}
+
+\subsection{问题七：跨网格、跨频率、跨 regime 的泛化理论}
+
+一个预条件器如果只在固定 \(n\)、固定频率、固定 albedo 或固定角数上好，
+科学价值有限。需要研究：
+\begin{quote}
+  学习型预条件器怎样随 \(h\to0\)、\(\omega\to\infty\)、optical thickness
+  \(\to\infty\)、angle number \(\to\infty\) 保持稳定？
+\end{quote}
+
+这要求网络输入和结构使用无量纲量，例如 Helmholtz 中的 \(kh\)、points
+per wavelength、局部 slowness contrast；RTE 中的 \(h\sigma_t\)、albedo、
+\(\sigma_a/\sigma_t\)、\(\sigma_{\rm tr}\)、mean free path 与 angular
+anisotropy。没有这些无量纲物理量，跨尺度泛化基本不可期待。
+
+\section{机器学习方面的核心科学问题}
+
+\subsection{问题一：从 operator learning 到 solver-component learning}
+
+经典 neural operator 目标通常是学习 \(f\mapsto u\)。但预条件器学习的目
+标不同：它要成为迭代求解器中的一个稳定组件。它不需要单次输出最精确，
+而需要让剩余误差适合 Krylov 或 stationary iteration。
+
+因此应从
+\[
+  \min_\theta \norm{P_\theta f-u}
+\]
+转向
+\[
+  \min_\theta \mathcal{S}\left(A_hP_{\theta,h}, E_{\theta,h}\right),
+\]
+其中 \(\mathcal{S}\) 衡量收敛因子、短 Krylov 残差、谱稳定性、成本和
+泛化。
+
+\subsection{问题二：物理结构化架构而非通用 CNN/FNO}
+
+当前项目说明，通用网络能降 loss，但容易错过求解器结构。更合理的机器
+学习问题是设计 physics-conditioned solver architecture：
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{Helmholtz microlocal network}：输入局部 slowness、频率、
+  PML 参数，输出按波向/相位分解的 correction 或 coarse-space basis。
+  \item \textbf{RTE angular-subspace network}：输入 \(\sigma_t,\sigma_s,g\)
+  和残差角向谱，输出 learned angular restriction/prolongation。
+  \item \textbf{Mixture-of-preconditioners}：网络不是直接输出 correction，
+  而是在经典候选预条件器之间进行 soft/hard routing。
+  \item \textbf{Learned multigrid}：明确区分 smoother、restriction、
+  coarse solve、prolongation、post-smoothing，每个模块都有物理约束。
+  \item \textbf{Stability-preserving residual blocks}：所有 learned update
+  都以 bounded perturbation of classical solver 的形式出现。
+\end{enumerate}
+
+\subsection{问题三：学习子空间、模式和基函数}
+
+Helmholtz 的方向性波模式和 RTE 的角向 moment 模式都指向同一个问题：
+网络应学习“在哪些子空间里做 correction”。
+
+可研究模型：
+\begin{enumerate}[leftmargin=2em]
+  \item candidate-space R/P：从较大候选空间 \(Q_{K_{\rm cand}}\) 学到较小
+  solve space \(Q_K\)，再 prolong 回去。
+  \item low-rank adaptive coarse basis：
+  \[
+    Q_\theta(\mu) = Q_0 + U_\theta(\mu)V_\theta(\mu)^*,
+  \]
+  并约束正交性、守恒量和 near-identity。
+  \item residual-dependent basis：\(Q_\theta(\mu,r)\)，但必须配合 FGMRES
+  和 Lipschitz/norm 控制。
+  \item microlocal basis：对 Helmholtz 使用局部方向、局部波数、局部
+  phase 的可学习 frame。
+\end{enumerate}
+
+\subsection{问题四：稳定性、可解释性和 expressivity 的折中}
+
+项目中的 \code{CoeffWeightedTSA} 太弱但稳定，\code{LearnedRP-TSA} 更强
+但可能破坏 FGMRES。这是学习型预条件器的普遍 tradeoff。需要系统研究：
+\begin{enumerate}[leftmargin=2em]
+  \item diagonal scaling、channel mixing、low-rank mixing、full mixing 的
+  稳定性阶梯；
+  \item identity initialization 和 continuation schedule；
+  \item scalar mode、constant mode、conservation law 的 hard constraint；
+  \item learned operator norm、spectral norm、field-of-values penalty；
+  \item checkpoint by heldout FGMRES 而不是 checkpoint by training loss。
+\end{enumerate}
+
+\subsection{问题五：数据和 curriculum}
+
+预条件器学习不应只靠随机数据集。需要主动构造 hard cases：
+\begin{enumerate}[leftmargin=2em]
+  \item Helmholtz：高频、强 contrast、薄低速层、断层、cavity、PML 敏感、
+  grazing incidence、多重散射。
+  \item RTE：高 albedo、forward-peaked anisotropy、thin/thick interface、
+  small absorption、boundary layer、角向分辨不足。
+  \item curriculum：从稳定 regime 到 hard regime，逐步打开 frequency、
+  contrast、anisotropy 和 nonlinearity。
+  \item adversarial residual probes：不只训练 source residual，也训练
+  Krylov 中可能出现的困难残差方向。
+\end{enumerate}
+
+\section{跨 Helmholtz 与 RTE 的统一研究假设}
+
+\subsection*{假设 H1：好的学习型预条件器首先是好的坐标变换}
+
+网络最应该学习的是误差坐标、模式分解、restriction/prolongation 和度量，
+而不是直接学习一个无结构 correction。Helmholtz 的波向坐标和 RTE 的
+角向 moment 坐标是同一思想的两个例子。
+
+\subsection*{假设 H2：Krylov-aware loss 是必要条件}
+
+只优化 one-step residual 会系统性误导训练。真正有用的 loss 至少应包
+含 physical one-step、multi-step rollout、random growth probe、teacher
+imitation 和 heldout FGMRES checkpoint 中的若干项。
+
+\subsection*{假设 H3：稳定基线加受控学习扰动优于自由黑箱}
+
+对于 Helmholtz 和 RTE，完全自由网络容易破坏谱结构。更好的形式是
+\[
+  P_\theta = P_{\rm classical} + \Delta P_\theta,
+  \qquad
+  \norm{\Delta P_\theta}_{\mathcal{M}}\le C,
+\]
+或
+\[
+  P_\theta = \sum_j \pi_j(\mu,r) P_j,
+  \qquad
+  \pi_j\ge 0,\quad \sum_j\pi_j=1,
+\]
+其中 \(P_j\) 是渐近正确的经典 solver components。
+
+\subsection*{假设 H4：多尺度网络层级必须绑定物理误差子空间}
+
+U-Net 层级如果只是图像分辨率层级，解释力有限。每一级应绑定到某类误差：
+高频局部误差、粗尺度相位误差、角向低阶 moment、diffusive scalar mode、
+streaming mode、boundary layer mode 等。
+
+\section{研究方案}
+
+\subsection{阶段 I：建立统一评估与诊断框架}
+
+目标是让 Helmholtz 和 RTE 的实验都报告求解器相关指标，而不只报告 loss。
+
+\begin{enumerate}[leftmargin=2em]
+  \item 对每个模型记录 train/heldout one-step physical loss。
+  \item 记录 FGMRES residual curve、wall time、preconditioner calls、memory。
+  \item 增加 random probe：
+  \[
+    \frac{\norm{E_\theta v}}{\norm v},\quad
+    \frac{\norm{E_\theta^2 v}}{\norm{E_\theta v}},\quad
+    \frac{\norm{A_hP_\theta v}}{\norm v}.
+  \]
+  \item 近似 field-of-values 或 pseudospectral 指标。
+  \item 建立 failure taxonomy：loss 下降但 FGMRES 变差、stationary 发散、
+  restart stagnation、对 heldout source 失败、对 heldout coefficient 失败。
+\end{enumerate}
+
+\subsection{阶段 II：稳定的结构化学习预条件器}
+
+\paragraph{Helmholtz 方向。}
+\begin{enumerate}[leftmargin=2em]
+  \item 学习 shifted Laplacian 参数和 smoother，但保持 shifted operator
+  的 multigrid 稳定性。
+  \item 学习 CBS/Green 坐标中的 residual transform，但加入 Krylov-aware
+  loss。
+  \item 设计 microlocal neural preconditioner：按局部 slowness、频率、
+  波向分解 correction。
+  \item 学习 sweeping 或 domain decomposition interface map，用经典
+  subdomain solver 保持稳定。
+  \item 研究多 RHS amortization：网络预处理成本在多源问题中摊销。
+\end{enumerate}
+
+\paragraph{RTE 方向。}
+\begin{enumerate}[leftmargin=2em]
+  \item 从 \code{CoeffWeighted} 转向 candidate-space learned R/P：
+  \(K_{\rm cand}>K_{\rm solve}\)。
+  \item 保持 scalar mode 和守恒结构。
+  \item 学习 residual-dependent 角向子空间，但用 bounded gate 控制。
+  \item 发展 scale-aware U-Net gate：每一层使用 coarse optical thickness、
+  albedo、transport ratio 和 angular residual summary。
+  \item 将 DSA/TSA/moment TSA/full TSA 作为 mixture-of-solvers 候选，而
+  不是把网络限制在单个 \(B_h\)。
+\end{enumerate}
+
+\subsection{阶段 III：训练目标从残差转向求解器}
+
+建议比较以下 loss 族：
+\begin{enumerate}[leftmargin=2em]
+  \item physical one-step baseline；
+  \item metric-matched loss，例如 Born metric 或 transport-resolvent metric；
+  \item physical rollout loss；
+  \item growth probe loss；
+  \item teacher loss，teacher 为更深 classical solver 或 sparse/direct
+  reference；
+  \item short unrolled FGMRES loss；
+  \item composite checkpoint：先要求 heldout FGMRES 不恶化，再最小化 heldout
+  one-step。
+\end{enumerate}
+
+关键实验不是证明某个 loss 在一个 case 上更低，而是判断它是否更能预测
+heldout FGMRES。
+
+\subsection{阶段 IV：泛化与尺度}
+
+每个成功模型都应做四类泛化：
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{网格泛化：} train on \(n\)，test on \(2n\)。
+  \item \textbf{参数泛化：} 频率、ppw、albedo、anisotropy、contrast 外推。
+  \item \textbf{几何泛化：} source 位置、介质结构、边界参数变化。
+  \item \textbf{成本泛化：} 单 RHS、多 RHS、CPU、GPU、2D、3D。
+\end{enumerate}
+
+\subsection{阶段 V：理论化}
+
+理论目标不一定一开始给出完整收敛证明，但应逐步形成可验证命题：
+\begin{enumerate}[leftmargin=2em]
+  \item learned update 足够小且基线 \(B_0\) 稳定时，FGMRES 不显著恶化的
+  perturbation bound。
+  \item learned restriction/prolongation 保持 scalar/coarse mode 时，对
+  diffusion limit 的一致性。
+  \item Helmholtz microlocal coarse basis 覆盖主要传播方向时，外迭代数
+  随频率增长的经验或理论界。
+  \item nonlinear preconditioner 的 Lipschitz 条件与 FGMRES 稳定性关系。
+\end{enumerate}
+
+\section{具体可执行的下一批研究问题}
+
+\subsection{Helmholtz}
+
+\begin{enumerate}[leftmargin=2em]
+  \item 在更大二维和三维问题上重新定位 CBS、SL、sparse LU、learned
+  preconditioner 的成本边界。
+  \item 设计 learned shifted Laplacian：学习 shift、smoother、coarse
+  correction，但保持几何 multigrid 架构。
+  \item 设计 learned microlocal coarse space：输入 slowness 与 frequency，
+  输出局部波向 basis。
+  \item 比较 physical residual loss、Born metric loss、unrolled Krylov
+  loss 对 FGMRES 的预测能力。
+  \item 研究 boundary/PML-aware 网络，而不是把边界层当普通像素。
+\end{enumerate}
+
+\subsection{RTE}
+
+\begin{enumerate}[leftmargin=2em]
+  \item 在生产型 upwind/inflow 边界离散上验证当前 periodic prototype 的
+  结论是否仍成立。
+  \item 实现 candidate-space learned R/P：
+  \(Q_{K_{\rm cand}}\to Q_{K_{\rm solve}}\to Q_{K_{\rm cand}}\)。
+  \item 对 \code{scale-aware-gates} 做 ablation：无 gate、普通 gate、
+  raw-physics scale gate、channel-mixing gate、residual-dependent gate。
+  \item 加入 heldout sampled loss 和 gate saturation diagnostics。
+  \item 用 FGMRES-safe checkpoint 训练 residual-dependent angular subspace。
+\end{enumerate}
+
+\subsection{共同问题}
+
+\begin{enumerate}[leftmargin=2em]
+  \item 建立“solver component benchmark”，而不是只做 solution operator
+  benchmark。
+  \item 对每个模型报告：训练损失、heldout 单步、FGMRES 曲线、谱/增长
+  probe、wall time、memory、参数量、base-call cost。
+  \item 发展 hard-case generator，让失败样本自动进入训练 curriculum。
+  \item 建立跨 PDE 的 architecture vocabulary：resolvent coordinate、
+  learned subspace、routing、bounded perturbation、Krylov-aware loss。
+\end{enumerate}
+
+\section{应避免的研究陷阱}
+
+\begin{enumerate}[leftmargin=2em]
+  \item 只看训练 loss，不看 heldout FGMRES。
+  \item 把不同离散化下的算法放在同一 leaderboard 上得出过度结论。
+  \item 在小二维问题上用 direct LU 失败来否定迭代法，或用 direct LU
+  成功来否定预条件研究。
+  \item 让网络自由学习不受约束的 inverse 参数，例如任意复 shift 或任
+  意 coarse operator，而不控制稳定性。
+  \item 忽略边界条件、PML、inflow/vacuum 等求解器本质结构。
+  \item 把 U-Net 的多尺度层级自动等同于 PDE 多重网格层级。
+\end{enumerate}
+
+\section{结论}
+
+这个项目的更深科学价值不在于 Born series 这一种格式本身，而在于它提
+出了一个更一般的问题：如何学习一个\emph{求解器几何}。Helmholtz 和
+RTE 都表明，好的学习型预条件器必须同时满足四个条件：
+
+\begin{enumerate}[leftmargin=2em]
+  \item 尊重 PDE 的物理渐近结构；
+  \item 尊重离散化与边界条件；
+  \item 学习正确的误差坐标和子空间；
+  \item 训练目标直接服务于 Krylov 或 stationary solver 的收敛。
+\end{enumerate}
+
+因此，后续研究不应局限于“把 Born correction 换成神经网络”，而应把
+问题提升为：在不定、非正规、多尺度 PDE 中，如何用机器学习构造稳定、
+可解释、可泛化、成本可控的近似逆组件。这个方向连接了数值 PDE、Krylov
+理论、多重网格、microlocal analysis、transport asymptotics、neural
+operator 和稳定机器学习，是一个比当前代码实现更一般也更有潜力的研究
+主题。
+
+\end{document}

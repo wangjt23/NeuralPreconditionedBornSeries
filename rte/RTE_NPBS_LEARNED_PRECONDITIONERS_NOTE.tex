@@ -486,6 +486,60 @@ full-angular TSA.  Mechanistically, the model starts from two physically
 meaningful residual-correction directions and lets the U-Net learn a nonlinear
 defect update on top.
 
+\subsection{ROM-enhanced U-Net correction}
+
+The arXiv note
+\href{https://arxiv.org/html/2410.08735v3}{ROM-Enhanced Synthetic
+Acceleration Methods for the Boltzmann Transport Equation} suggests a useful
+architectural lesson for the present project: the learned component should not
+only be a local smoother.  It should also have a reduced global correction
+space that approximates the important ideal synthetic-acceleration defects
+across transport regimes, while retaining a classical SA base for stability.
+
+The updated \path{rte/npbs_unet_ablation.py} therefore includes an optional
+\code{--rom-rank K} branch for \code{UNet-residual}, \code{UNet-defect2}, and
+\code{MomentUNet}.  For real-valued residual features \(f(r)\), raw coefficient
+features \(\mu(x)\), and output channel count \(c_{\rm out}\), the branch
+computes
+\begin{align}
+  \mathcal{P}_\theta f
+  &\in
+  \R^{K\times c_{\rm out}\times n_x\times n_y},\\
+  a_\theta(\mu)
+  &\in
+  \R^K,\\
+  C_{\rm ROM,\theta}(r,\mu)
+  &=
+  \frac{1}{\sqrt K}
+  \sum_{k=1}^K
+  a_{\theta,k}(\mu)\,(\mathcal{P}_\theta f(r))_k .
+\end{align}
+Here \(\mathcal{P}_\theta\) is a bias-free linear convolutional map, and
+\(a_\theta\) is a bounded MLP applied to mean, standard deviation, minimum, and
+maximum summaries of the physical coefficient channels.  The raw channels are
+the same extended features used by scale-aware gates:
+normalized \(\sigma_t\), albedo, coefficient gradient, anisotropy \(g\),
+cell optical thickness \(h\sigma_t\), absorption ratio
+\(\sigma_a/\sigma_t\), transport ratio \(\sigma_{\rm tr}/\sigma_t\), and
+\(\sigma_{\rm tr}\).  The ROM branch is initialized to zero and is added to
+the local U-Net output:
+\begin{equation}
+  C_\theta
+  =
+  C_{\rm UNet,\theta}
+  +
+  C_{\rm ROM,\theta}.
+\end{equation}
+
+By default \(a_\theta\) depends only on \(\mu\), so for a fixed coefficient
+field the branch remains linear in the residual.  The flag
+\code{--rom-use-residual-summary} additionally conditions \(a_\theta\) on
+global residual energy and channel-spread summaries; this is a separate
+nonlinear-preconditioner ablation and should be evaluated with FGMRES.  This is
+not yet a full offline greedy ROM with stored ideal-correction snapshots.  It
+is a lightweight, trainable ROM-style correction space that can be tested on a
+laptop before building the full snapshot/basis pipeline.
+
 \subsection{Routed learned base inside U-Net defect2}
 
 In the original \code{UNet-defect2} experiments, \(B_h\) is fixed by the
@@ -1028,6 +1082,37 @@ python -m rte.npbs_unet_ablation \
   --fgmres-mode complex \
   --output-csv rte/npbs_unet_ablation_tsa_full_physical_steps900.csv \
   --output-md rte/NPBS_UNET_ABLATION_REPORT.md
+\end{verbatim}
+
+\paragraph{ROM-enhanced full-angular U-Net defect2.}
+\begin{verbatim}
+python -m rte.npbs_unet_ablation \
+  --cases anisotropic mixed \
+  --sizes 64 \
+  --n-angles 12 \
+  --base-kinds transport_tsa \
+  --forms defect2 \
+  --scale-aware-gates \
+  --scale-gate-channel-mix \
+  --rom-rank 4 \
+  --rom-width 32 \
+  --rom-scale 0.1 \
+  --defect-relaxations 1.0 \
+  --baseline-depths 1 2 3 4 \
+  --baseline-relaxations 1.0 0.5 \
+  --steps 1200 \
+  --lr 0.001 \
+  --scheduler cosine \
+  --metric-weight 0.0 \
+  --physical-weight 1.0 \
+  --correction-weight 0.0 \
+  --rollout-weight 0.2 \
+  --rollout-space physical \
+  --stability-weight 0.2 \
+  --stability-space physical \
+  --fgmres-mode complex \
+  --output-csv rte/npbs_unet_ablation_rom_tsa_full_physical_size64.csv \
+  --output-md rte/NPBS_UNET_ABLATION_ROM_TSA_FULL_SIZE64.md
 \end{verbatim}
 
 \paragraph{Routed learned-\(B_h\) U-Net defect2.}
