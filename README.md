@@ -6,9 +6,30 @@ Code for the paper:
 
 NPBS is a learned iterative preconditioning framework that uses the Convergent Born Series (CBS) as a preconditioned residual coordinate system. The key idea is to replace the scalar Born correction with a learned residual-to-correction map in Born-preconditioned coordinates, and to use the Green-operator-induced residual metric as the training objective — aligning the geometry used during training with the geometry used during inference.
 
+## Current Research Status
+
+For the saved data/checkpoints, latest shared-model results and workstation
+resume commands, start with the [workstation handoff](docs/research/RTE_WORKSTATION_HANDOFF_2026_09_12.md).
+Local training is stopped. Available laptop checkpoint artifacts are included
+in this handoff; the GPU continuation has not been run locally.
+
+The [2026-09-12 evidence audit](docs/research/PROJECT_AUDIT_2026_09_12.md)
+is the current interpretation of the Helmholtz/RTE experiments. It distinguishes
+one-step residual improvements from demonstrated solver speedups, documents
+repaired training/architecture defects, and gives reproducible next experiments.
+Use the [RTE artifact index](rte/archive/ARTIFACT_INDEX.md) to navigate historical
+notes and numerics; those snapshots are preserved rather than silently revised.
+
+The follow-on [transport-structured architecture](docs/research/RTE_COLLISION_TRANSPORT_ARCHITECTURE.md)
+and [controlled results](docs/research/RTE_COLLISION_TRANSPORT_RESULTS.md) test learned collision/streaming
+factors. Four-stage learning improves held-out mixed-regime solves at two grid resolutions; homogeneous
+controls and training amortization limit the conclusion. This does not supersede the earlier negative
+U-Net/subspace results. A later one-seed coefficient-heldout pilot is described
+separately in the handoff, with timing-protocol caveats and replication still pending.
+
 ## Overview
 
-The framework is validated on three PDE families:
+The repository contains four PDE modules:
 
 | Module | PDE | Key feature |
 |--------|-----|-------------|
@@ -81,14 +102,14 @@ For a dataset-independent check, `verify_shifted_laplacian.py` generates a smoot
 
 ```bash
 cd helmholtz
-python verify_shifted_laplacian.py
+python -m local_revisions.verify_shifted_laplacian
 ```
 
 To reproduce a small CBS-vs-shifted-Laplacian wall-time and convergence comparison with plots:
 
 ```bash
 cd helmholtz
-python compare_cbs_shifted_laplacian.py
+python -m local_revisions.compare_cbs_shifted_laplacian
 ```
 
 ### Loss types (`loss_type` in YAML)

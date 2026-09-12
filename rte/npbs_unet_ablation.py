@@ -712,17 +712,27 @@ class NPBSUNetPreconditioner(nn.Module):
         real, imag = torch.chunk(delta_ri, 2, dim=1)
         return torch.complex(real, imag).to(dtype=dtype)
 
-    def forward(self, residual):
+    def correction_parts(self, residual):
+        """Return (classical correction, scaled learned delta) without recomputing the base.
+
+        The classical part is B(r) for residual form, or z0 + omega*z1 for
+        defect2. If base_module is supplied, it defines B, so this part need
+        not be a fixed classical map. Both parts retain their autograd graph.
+        """
         z0 = self.base(residual)
         if self.form == "residual":
             features = self.ri(z0)
             delta = self.correction_from_features(features, residual.shape[0], residual.dtype, residual.device)
-            return z0 + self.delta_scale * delta
+            return z0, self.delta_scale * delta
         defect = residual - self.rte.A_op(z0)
         z1 = self.base(defect)
         features = torch.cat([self.ri(z0), self.ri(z1)], dim=1)
         delta = self.correction_from_features(features, residual.shape[0], residual.dtype, residual.device)
-        return z0 + self.defect_relaxation * z1 + self.delta_scale * delta
+        return z0 + self.defect_relaxation * z1, self.delta_scale * delta
+
+    def forward(self, residual):
+        classical, delta = self.correction_parts(residual)
+        return classical + delta
 
 
 def periodic_upsample_like(x, reference):
@@ -736,7 +746,12 @@ def periodic_upsample_like(x, reference):
 
 
 class AngularScaleModeMixer(nn.Module):
-    """Bounded, coefficient-conditioned angular mixing at one spatial scale."""
+    """Entrywise-bounded angular mixing at one spatial scale.
+
+    The static and dynamic perturbations each have entries bounded by |scale|,
+    so the combined perturbation norm is at most 2*n_modes*|scale|. Unlike
+    AngularLowRankMixer, scale is not a dimension-independent norm bound here.
+    """
 
     def __init__(self, n_modes, mode_width, coeff_channels, width, level_idx, levels, stage, scale=0.1):
         super().__init__()
@@ -953,7 +968,9 @@ class ModeGroupedPeriodicUNet(nn.Module):
             level = self.levels - 2 - step
             x = periodic_upsample_like(x, skips[level])
             x = self.up[step](x)
-            x = torch.cat([skips[level], x], dim=1)
+            # Each grouped convolution must see [skip_mode, upsampled_mode].
+            shape = (x.shape[0], self.n_modes, self.mode_width, *x.shape[-2:])
+            x = torch.cat([skips[level].reshape(shape), x.reshape(shape)], dim=2).flatten(1, 2)
             x = self.dec_mix1[step](x)
             x = self.dec_gate[step](x, coeff_features[level])
             x = self.dec_mix2[step](x)
@@ -962,7 +979,20 @@ class ModeGroupedPeriodicUNet(nn.Module):
 
 
 class AngularLowRankMixer(nn.Module):
-    """Coefficient-conditioned bounded low-rank coupling of Fourier modes."""
+    """Coefficient-conditioned low-rank perturbation of the angular identity.
+
+    For fixed coefficients the perturbation is (1/rank) sum_j a_j u_j v_j^T,
+    where |a_j| <= |scale| and each factor has Euclidean norm at most one.
+    Thus its spectral norm is at most |scale|, even for collinear factors;
+    the full mixer norm is at most 1 + |scale|. This does not bound the U-Net
+    or imply contraction of the complete preconditioned iteration.
+
+    Factor normalization is differentiable with a norm floor for zero factors.
+    Parameter shapes are unchanged, but normalization and rank averaging replace
+    the old unconstrained factors and sqrt(rank) scaling. Nonzero trained
+    checkpoints therefore need re-evaluation. Zero-amplitude initialization
+    still gives the exact identity.
+    """
 
     def __init__(self, n_modes, coeff_channels=8, rank=2, width=32, scale=0.25):
         super().__init__()
@@ -972,7 +1002,7 @@ class AngularLowRankMixer(nn.Module):
         hidden = max(int(width), 16)
         left, _ = torch.linalg.qr(torch.randn(self.n_modes, self.rank), mode="reduced")
         self.left = nn.Parameter(left)
-        self.right = nn.Parameter(left.transpose(0, 1).contiguous())
+        self.right = nn.Parameter(left.transpose(0, 1).contiguous().clone())
         self.coeff_net = nn.Sequential(
             nn.Linear(4 * int(coeff_channels), hidden),
             nn.SiLU(),
@@ -984,12 +1014,12 @@ class AngularLowRankMixer(nn.Module):
     def forward(self, modes, coeff):
         summary = spatial_summary(coeff).to(dtype=torch.float32)
         amplitudes = self.scale * torch.tanh(self.coeff_net(summary))
-        right = self.right.to(dtype=modes.dtype, device=modes.device)
-        left = self.left.to(dtype=modes.dtype, device=modes.device)
+        right = F.normalize(self.right, dim=1, eps=1e-12).to(dtype=modes.dtype, device=modes.device)
+        left = F.normalize(self.left, dim=0, eps=1e-12).to(dtype=modes.dtype, device=modes.device)
         projected = torch.einsum("rn,bnhw->brhw", right, modes)
         projected = projected * amplitudes.to(dtype=modes.real.dtype).view(modes.shape[0], self.rank, 1, 1)
         mixed = torch.einsum("nr,brhw->bnhw", left, projected)
-        return modes + mixed / math.sqrt(float(self.rank))
+        return modes + mixed / float(self.rank)
 
 
 class AngularResidualSubspaceGate(nn.Module):
@@ -1108,7 +1138,12 @@ class AngularSpectralDefect2Preconditioner(nn.Module):
     def metric_base(self, residual):
         return self.rte.apply_preconditioner(residual, kind=self.base_kind, tsa_harmonics=self.tsa_harmonics)
 
-    def forward(self, residual):
+    def correction_parts(self, residual):
+        """Return (z0 + omega*z1, delta_scale*delta) using two base calls.
+
+        Both parts retain their autograd graph. With base_module supplied,
+        the first part uses that module and need not be a fixed classical map.
+        """
         z0 = self.base(residual)
         defect = residual - self.rte.A_op(z0)
         z1 = self.base(defect)
@@ -1131,7 +1166,11 @@ class AngularSpectralDefect2Preconditioner(nn.Module):
         delta_modes = self.mode_mixer(delta_modes, coeff)
         delta_modes = self.residual_gate(delta_modes, coeff, modes0 + modes1)
         delta = torch.fft.ifft(delta_modes, dim=1, norm="ortho").to(dtype=residual.dtype)
-        return z0 + self.defect_relaxation * z1 + self.delta_scale * delta
+        return z0 + self.defect_relaxation * z1, self.delta_scale * delta
+
+    def forward(self, residual):
+        classical, delta = self.correction_parts(residual)
+        return classical + delta
 
 
 class MomentNPBSUNetPreconditioner(nn.Module):

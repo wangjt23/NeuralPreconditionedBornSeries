@@ -145,7 +145,9 @@ class PeriodicRTE2D(nn.Module):
         self.diffusion_coeff = diffusion_coeff
         self.eta = eta
         self.sigma0 = sigma_ref + eta
-        self._build_reference_transport_inverse()
+        # DSA and Born only need scalar Fourier divisions. A full angular
+        # inverse at every coefficient batch wastes O(B H W n_angles^3) work.
+        self._reference_transport_inverse = None
         self._reference_moment_inverse_cache = {}
 
         if source is None:
@@ -240,7 +242,15 @@ class PeriodicRTE2D(nn.Module):
         matrix = self._reference_transport_matrix()
         flat = matrix.reshape(-1, self.n_angles, self.n_angles)
         inv = torch.linalg.inv(flat).reshape(self.sigma0.shape[0], *self.shape, self.n_angles, self.n_angles)
-        self.reference_transport_inverse = inv
+        self._reference_transport_inverse = inv
+
+    @property
+    def reference_transport_inverse(self):
+        if not hasattr(self, "sigma0"):
+            raise RuntimeError("call setup(...) before reference_transport_inverse")
+        if self._reference_transport_inverse is None:
+            self._build_reference_transport_inverse()
+        return self._reference_transport_inverse
 
     def _reference_transport_matrix(self):
         batch_size = self.sigma0.shape[0]
@@ -300,7 +310,7 @@ class PeriodicRTE2D(nn.Module):
         return projected
 
     def reference_transport_solve(self, rhs, harmonics=None):
-        if not hasattr(self, "reference_transport_inverse"):
+        if not hasattr(self, "sigma0"):
             raise RuntimeError("call setup(...) before reference_transport_solve")
         rhs = self.angular_project(rhs, harmonics=harmonics)
         rhs_hat = torch.fft.fftn(rhs, dim=(-2, -1), norm="backward")

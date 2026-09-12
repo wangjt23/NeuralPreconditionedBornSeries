@@ -1,6 +1,9 @@
 # Log files
 *.log
 *.png
+!rte/results/residual_subspace_mixed/comparison.png
+!rte/results/residual_replay_mixed/comparison.png
+!rte/results/collision_transport_*/comparison.png
 # PyTorch model files
 *.pt
 *.pth
@@ -51,6 +54,7 @@ env/
 .mypy_cache/
 
 *.json
+!rte/results/collision_transport_*/settings.json
 
 # Ignored directories
 repos/

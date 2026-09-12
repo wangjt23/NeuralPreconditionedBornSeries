@@ -1,0 +1,39 @@
+{
+  "case": "mixed",
+  "size": 16,
+  "n_angles": 12,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "kinds": [
+    "reference",
+    "tsa",
+    "dsa",
+    "dsa_transport",
+    "transport"
+  ],
+  "shifts": [
+    0.0,
+    0.03,
+    0.1,
+    0.3
+  ],
+  "depths": [
+    1,
+    2,
+    4
+  ],
+  "relaxations": [
+    0.5,
+    1.0
+  ],
+  "solver_steps": 30,
+  "tol": 1e-05,
+  "repeats": 3,
+  "validation_repeats": 2,
+  "threads": 1,
+  "checkpoints": "rte/results/collision_transport_mixed_final",
+  "output": "rte/results/collision_transport_classical_audit"
+}

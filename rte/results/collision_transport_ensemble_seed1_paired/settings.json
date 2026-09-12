@@ -1,0 +1,32 @@
+{
+  "train_size": 256,
+  "val_size": 32,
+  "test_size": 32,
+  "selection_count": 8,
+  "size": 16,
+  "n_angles": 12,
+  "regimes": "mixed",
+  "g": 0.65,
+  "epochs": 100,
+  "batch_size": 16,
+  "eval_every": 10,
+  "probe_fraction": 0.3333333333333333,
+  "lr": 0.003,
+  "solver_steps": 30,
+  "tol": 1e-05,
+  "repeats": 3,
+  "seed": 1,
+  "threads": 1,
+  "device": "cpu",
+  "output": "rte/results/collision_transport_ensemble_seed1_paired",
+  "resume": "rte/results/collision_transport_ensemble_seed1/last.pt",
+  "stop_after": 0,
+  "fingerprints": {
+    "train": "feaa920e77430f23da7290e9206cc12a93e842c89ce5628511f929e7ccc812f9",
+    "validation": "9401554ad9419d564ec7a29e8c93ba5159ab61d851d6ef47201c212d4074cd57"
+  },
+  "torch": "2.8.0",
+  "schema": 1,
+  "inference_kernel": "cached_fft_multipliers_v2",
+  "test_timing": "randomized_method_order_within_each_medium"
+}

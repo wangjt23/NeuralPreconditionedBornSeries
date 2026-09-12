@@ -1,135 +1,149 @@
-# Large Angular-Spectral RTE Experiments
+# Large RTE Experiment Protocol: Corrected 2026-09-12
 
-This note defines the first large-scale experiments for deciding whether the
-weak RTE results are caused by insufficient coefficient data, insufficient
-optimization, or an inadequate learned operator class.
+Read the [evidence audit](../docs/research/PROJECT_AUDIT_2026_09_12.md) first.
+The old version of this plan incorrectly counted 216 residual entries as
+coefficient environments and called two minibatch updates an epoch. Its
+4,096-sample, 2,000-epoch, batch-64 setting presented 256,000 samples: **62.5
+effective passes**, not 2,000. It also had a regime-subset indexing bug.
+Those configurations are not evidence that thousands of full epochs failed.
 
-## Why scale the data
+The repaired runner uses complete shuffled passes by default, including the
+last partial batch. `--steps-per-epoch K` is an explicit cap, not a new meaning
+of epoch. History records actual updates, sample presentations and effective
+passes. No large GPU experiment described here has been run in this audit.
 
-The previous large run used 5,400 optimizer updates, 256 residuals per update,
-24 rollout media, and 8 auxiliary sources. Its rollout bank therefore had only
-216 coefficient/source environments, and the coefficient medium was still
-fixed during training. The selected checkpoint was step zero. This is evidence
-against treating more epochs as the only missing ingredient: the learned map
-was not being asked to represent a broad coefficient-conditioned operator.
+## Scientific controls
 
-The new driver samples thousands of distinct material fields and source
-parameters. It varies total attenuation, albedo, inclusion geometry, layered
-interfaces, source location, source amplitude, and angular source profile.
-The anisotropy parameter `g` is held fixed within an ensemble because the
-current `PeriodicRTE2D` implementation constructs one angular phase matrix per
-operator instance. This is a controlled coefficient-conditioning experiment,
-not yet a full phase-function generalization experiment.
+These are **coefficient-ensemble** trials, not fixed-medium residual-bank
+trials. Source and material fields vary independently; `g=.65` remains fixed
+because an operator instance has a single angular phase matrix. Data schema
+version 3 includes the independent material channel phase and global regime
+IDs. Old caches are rejected. The regime labels vary attenuation, absorption
+and geometry; with common `g=.65`, even the `diffusive` ensemble label does not
+mean the original isotropic `make_case('diffusive')` benchmark.
 
-## Priority order
+Default `--plan priority` schedules:
 
-The runner is `rte/run_large_angular_spectral_experiments.py`.
+| Name | Distinct media/source samples | Full passes | Updates | Model/objective |
+|---|---:|---:|---:|---|
+| `ensemble_small_angular_teacher` | 256 | 32,000 | 128,000 | Angular, physical + rollout + action teacher |
+| `ensemble_large_angular_teacher` | 4,096 | 2,000 | 128,000 | Same angular/objective |
+| `ensemble_large_old_unet_teacher` | 4,096 | 2,000 | 128,000 | Legacy with extended coefficient features and scale-aware gates |
+| `ensemble_large_angular_raw` | 4,096 | 2,000 | 128,000 | Angular, physical + shared tiny correction regularizer |
 
-1. `fixed_mixed_sample_scale_4096_2000` uses 4,096 randomized samples from the
-   mixed regime with the angular-spectral defect model. It isolates sample
-   count and optimizer effort while keeping the physical regime comparable.
-2. `coefficient_ensemble_4096_2000` uses the same sample and update budget over
-   diffusive, heterogeneous, anisotropic, and mixed regimes. It tests whether
-   coefficient diversity is the missing signal.
-3. `coefficient_ensemble_unet_control_4096_2000` repeats the ensemble study
-   with the earlier `UNet-defect2` architecture. This is the matched control
-   needed to distinguish data/training limitations from angular representation.
-4. `coefficient_ensemble_capacity_8192_3000` increases both data and model
-   capacity. It should be run only if the first three runs show a meaningful
-   held-out trend, since it is the most expensive configuration.
+All use batch 64 and 8,192,000 presentations. The small dataset is an exact
+prefix of the same 4,096-sample pool; evaluation and teacher-ramp schedules
+align in optimizer updates. Different architectures are not equal parameter
+counts or equal wall time. The priority plan enforces at least 1,000 full
+passes for large arms. Use `--plan single` for cheap smoke/pilot runs.
 
-The first three runs use 2,000 epochs and two updates per epoch. The number of
-minibatch sample presentations is
+Equal updates isolate an optimization budget, not statistical sample
+complexity: small and large arms have different reuse rates. Compare several
+seeds. A single selected step-zero checkpoint is not a negative capacity
+theorem. Run a short pilot before authorizing the full schedule.
+This changes the joint medium/source pool: one source is stored per medium,
+so it does not separately identify coefficient diversity, source diversity and
+optimization effort. Crossed medium/source counts and multiple update budgets
+are additional controls, not conclusions of this plan.
 
-\[
-  N_{\rm presentations}
-  = N_{\rm epochs}\,N_{\rm steps/epoch}\,N_{\rm batch}
-  = 256{,}000
-\]
+## Exact objective
 
-for the default batch size 64. The fourth run uses 192,000 presentations with
-batch size 32. The dataset size and presentation count are recorded separately
-in `config.json`, `history.csv`, and `result.json`.
+Let `e(r)=r-A M(r)`, `rho(r)=||e(r)||/||r||`, and `T4` be four
+`transport_dsa` corrections. The `solver_teacher` objective is
 
-## Training objective and residual distribution
+```text
+mean rho(r)^2
++ 0.2 sum_{j=1}^2 0.8^(j-1) mean rho(r_j)^2
++ lambda(t) mean ||A(M(r)-T4(r))||^2 / ||r||^2
++ 1e-6 mean ||M(r)||^2 / ||B(r)||^2,
+r_1 = e(r), r_{j+1} = e(r_j).
+```
 
-The default objective is `solver_teacher`. For a sampled residual `r`, the
-raw term measures the true physical residual after the learned correction,
+`lambda(t)` ramps to .25 over the first 12,800 updates at default settings;
+each rollout ratio is normalized by its current input residual, not the
+original source. `teacher_action_weight=1`. The raw arm disables teacher and
+rollout, but retains the shared `1e-6` correction penalty: it is explicitly
+**not mathematically pure residual-only loss**. The laptop runner has a truly
+pure raw-loss control. Do not call the correction penalty physical loss.
+The raw-versus-teacher comparison removes two terms simultaneously. Add a
+matched single-run `--loss-mode raw_rollout --teacher-weight 0` arm (retaining
+`--rollout-weight .2`) to identify the action teacher's marginal effect.
 
-\[
-  \rho_{\rm raw}(r)
-  = \frac{\|r-A_h M_\theta r\|_2}{\|r\|_2},
-\]
+Each training batch samples a stage from a depth-four classical trajectory;
+50% are replaced by `A` applied to smooth random solution probes with spatial
+Fourier cutoff 5. Variable coefficients can introduce higher frequencies in
+these residuals. Sources and residual stages are not interchangeable samples.
 
-where `A_h` is the current discrete transport operator and `M_theta` is the
-learned preconditioner. The rollout term applies the same learned map for a
-short sequence of residual updates. The teacher term compares with a depth-4
-transport-DSA correction, and its action term measures the physically relevant
-defect
+## Measurement and checkpointing
 
-\[
-  \frac{\|A_h(M_\theta r-T_4r)\|_2}{\|r\|_2}.
-\]
+- A reproducible fixed-probe subset of training and validation media reports
+  the full objective, mean physical ratio, mean squared physical ratio, source
+  one-step residual, FGMRES residual/success/iterations, and solve time.
+- `--eval-count` controls this subset (default 8); it is not the entire dataset.
+  Validation dataset size defaults to 32. Set both to 64 or larger for serious
+  validation. Per-case results retain regime labels.
+- Selection uses validation FGMRES, including the zero-initialized classical
+  fallback. A separate 32-medium test split is evaluated only after selection,
+  against actual parameter-free DSA2 and DSA4, without executing a zero network
+  as the classical timing baseline. Set `--test-size 128` for serious runs.
+- Time includes solver work and synchronized CUDA execution, but excludes
+  coefficient setup and training. Base calls and preconditioner calls are
+  separate. This runner does not instrument every A application; the laptop
+  residual-subspace runner does. Report the relevant distinction.
+- `last.pt` stores model/optimizer/scheduler, sampler and CPU/CUDA RNG state,
+  epoch, actual work counters, history and selected weights. Resume is at epoch
+  boundaries with the **same horizon, data fingerprint and runtime**. `best.pt`
+  is inference-only. Old checkpoint versions are rejected.
+- An explicitly requested unavailable CUDA device fails. Saved metadata records
+  actual hardware, Torch/CUDA versions, deterministic flags and TF32 settings.
+  CPU resume equivalence is tested; the CUDA regression is skipped locally.
 
-The teacher weight is ramped over the first 200 epochs. The residual bank is
-not just the source: each training batch samples a stage from a depth-4
-transport-DSA trajectory, and half of the batch is replaced by low-frequency
-random probes. This gives the network exposure to the residual subspaces that
-matter after several solver iterations while preserving controlled probe
-coverage.
+JSON configurations, datasets and checkpoints are ignored by Git. Preserve
+each run directory externally before moving results between machines. A CSV
+without its configuration, checkpoint and data fingerprint is not sufficient
+to reconstruct a trained model.
 
-The evaluation uses independently generated coefficient/source samples and
-reports both held-out one-step residual reduction and held-out restarted
-FGMRES residual after the configured iteration budget. A one-step gain without
-an FGMRES gain is not accepted as evidence of a useful preconditioner.
+## Commands
 
-## Remote commands
-
-Print the prioritized configurations:
+Inspect without launching:
 
 ```bash
 python -m rte.run_large_angular_spectral_experiments --plan priority
 ```
 
-Run all prioritized experiments on a CUDA device:
+CPU smoke with evaluation rows separated by ordinary training rows:
 
 ```bash
-python -m rte.run_large_angular_spectral_experiments \
-  --plan priority --execute --device cuda:0 \
-  --output-root rte/large_angular_spectral_runs
+python -m rte.run_large_angular_spectral_experiments --execute \
+  --name audit_smoke --device cpu --dataset-size 5 --batch-size 3 \
+  --size 8 --n-angles 4 --levels 2 --epochs 3 --eval-every 2 \
+  --eval-size 2 --test-size 2 --eval-count 2 --fgmres-maxiter 2 \
+  --output-root /tmp/rte_audit_smoke
 ```
 
-Run one experiment with a reusable compact dataset cache:
+Full remote plan, explicitly expensive:
 
 ```bash
-python -m rte.run_large_angular_spectral_experiments \
-  --name coefficient_ensemble_4096_2000 \
-  --dataset-size 4096 --eval-size 32 --size 64 --n-angles 12 \
-  --regimes all --batch-size 64 --epochs 2000 --steps-per-epoch 2 \
-  --model-kind angular_spectral_defect2 \
-  --save-dataset rte/large_angular_spectral_runs/dataset_4096_size64.pt \
-  --device cuda:0 --execute
+python -m rte.run_large_angular_spectral_experiments --plan priority --execute \
+  --device cuda:0 --eval-size 64 --eval-count 64 --test-size 128 \
+  --output-root rte/large_angular_spectral_runs/seed20260804
 ```
 
-The cache stores coefficient fields and compact source parameters, not all
-complex source arrays. A run writes `config.json`, `history.csv`,
-`checkpoint.pt`, and `result.json`. The best checkpoint is selected by held-out
-FGMRES residual. A run can resume from a checkpoint with `--resume`; the
-checkpoint includes model, optimizer, scheduler, epoch, and best-score state.
+Use separate output roots and `--seed` for repetitions. Existing runs are not
+silently overwritten. Resume one interrupted run using the exact original
+single-run flags and `--resume path/to/last.pt`; increasing `--epochs` is a
+different schedule and is rejected by exact-resume validation.
 
-## Interpretation gates
+## Decisions after the pilot
 
-* If the fixed mixed sample-scale run improves while the ensemble run does not,
-  optimization noise or coefficient nonstationarity is limiting the current
-  conditioning mechanism.
-* If both angular and old-UNet controls improve similarly, the prior negative
-  result was primarily a data/training-budget failure.
-* If the angular model improves on the ensemble while the old UNet does not,
-  the retained angular modes and mode coupling are likely useful.
-* If one-step loss falls substantially but held-out FGMRES does not improve,
-  the objective or residual distribution is misaligned with non-normal Krylov
-  behavior; increasing epochs is not the next remedy.
-* If neither architecture improves after the first three runs, stop increasing
-  epochs. The next experiments should target teacher quality, stability bounds,
-  phase-function conditioning, or a learned restriction/prolongation rather
-  than more samples alone.
+Accept a scaling direction only when paired untouched-test results improve
+time to a common true-residual tolerance, or show a sufficiently strong and
+consistent trend to justify further work. Report training and heldout losses
+even when solver quality worsens. If bank loss improves but slow residual
+witnesses and Krylov performance do not, prioritize solver-trajectory/action
+targets and a better correction range, not more epochs alone. If train improves
+but coefficient-heldout loss does not, investigate conditioning and diversity.
+None of these outcomes alone demonstrates the cause of all historical failures.
+Once pilot test results influence a design decision, they are exploratory.
+Reserve a fresh confirmatory test seed/case set after those decisions; reusing
+the same `seed + 200003` cases is not an untouched test.

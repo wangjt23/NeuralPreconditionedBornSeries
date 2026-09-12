@@ -1,0 +1,4 @@
+split,physical_loss,selected_epoch
+train,0.010714081370679196,60
+validation,0.0081065513077192,60
+test,0.009734017425216734,60

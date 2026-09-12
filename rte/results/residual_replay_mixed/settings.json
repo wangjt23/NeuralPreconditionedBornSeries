@@ -1,0 +1,27 @@
+{
+  "case": "mixed",
+  "base_kind": "transport_tsa",
+  "size": 16,
+  "n_angles": 12,
+  "steps": 300,
+  "eval_every": 50,
+  "batch_size": 16,
+  "solver_steps": 12,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "models": [
+    "legacy_raw",
+    "legacy_replay"
+  ],
+  "lr": 0.001,
+  "raw_weight": 0.25,
+  "replay_every": 50,
+  "replay_power_steps": 15,
+  "tol": 1e-06,
+  "device": "cpu",
+  "threads": 1,
+  "output": "rte/results/residual_replay_mixed"
+}

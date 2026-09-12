@@ -1,0 +1,38 @@
+{
+  "case": "mixed",
+  "size": 32,
+  "n_angles": 12,
+  "steps": 300,
+  "eval_every": 50,
+  "batch_size": 16,
+  "solver_steps": 30,
+  "seeds": [
+    1,
+    2,
+    3
+  ],
+  "models": [
+    "learned_modes"
+  ],
+  "shift_grid": [
+    0.5,
+    1.0,
+    2.0,
+    4.0
+  ],
+  "width": 12,
+  "depth": 4,
+  "lr": 0.003,
+  "tol": 1e-05,
+  "repeats": 3,
+  "macro_control": false,
+  "device": "cpu",
+  "threads": 1,
+  "output": "rte/results/collision_transport_mixed_size32",
+  "evaluate_from": null,
+  "torch_version": "2.8.0",
+  "schema": 1,
+  "bank_mixture": "four TSA trajectory states + two smooth-action probes per source",
+  "selection": "lexicographic validation (failures, iterations, final true residual)",
+  "scope": "fixed medium, heldout source centers, periodic spatial FFT / circular angular quadrature"
+}
