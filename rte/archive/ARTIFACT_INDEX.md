@@ -19,11 +19,11 @@ python3 scripts/organize_research_artifacts.py --verify
 
 | Group | Files | Bytes |
 | --- | ---: | ---: |
-| notes | 136 | 3247182 |
+| notes | 138 | 3256462 |
 | results | 265 | 13596797 |
 | traces | 127 | 14352281 |
-| core code | 201 | 3287240 |
-| scratch | 35 | 156373 |
+| core code | 204 | 3299647 |
+| scratch | 36 | 192864 |
 
 ## Notes
 
@@ -137,6 +137,8 @@ python3 scripts/organize_research_artifacts.py --verify
 - [rte/RTE_NPBS_LEARNED_PRECONDITIONERS_NOTE.tex](<../RTE_NPBS_LEARNED_PRECONDITIONERS_NOTE.tex>) (47716 bytes)
 - [rte/_quantum_pdf_harness_runs/20260804T111027Z-63ccfea8/reports/latest.md](<../_quantum_pdf_harness_runs/20260804T111027Z-63ccfea8/reports/latest.md>) (3316 bytes)
 - [rte/archive/README.md](<README.md>) (5945 bytes)
+- [rte/cuda_unet_defect2.cpp](<../cuda_unet_defect2.cpp>) (1992 bytes)
+- [rte/cuda_unet_defect2_v2.cu](<../cuda_unet_defect2_v2.cu>) (7288 bytes)
 - [rte/mgRTE_ablation/.gitignore](<../mgRTE_ablation/.gitignore>) (19 bytes)
 - [rte/mgRTE_ablation/ABLATION_REPORT.md](<../mgRTE_ablation/ABLATION_REPORT.md>) (18713 bytes)
 - [rte/moment_tsa_smoke.tex](<../moment_tsa_smoke.tex>) (1772 bytes)
@@ -712,7 +714,9 @@ python3 scripts/organize_research_artifacts.py --verify
 - [rte/__init__.py](<../__init__.py>) (105 bytes)
 - [rte/analyze_residual_bank.py](<../analyze_residual_bank.py>) (14535 bytes)
 - [rte/audit_transport_baselines.py](<../audit_transport_baselines.py>) (6139 bytes)
+- [rte/benchmark_cuda_unet_defect2.py](<../benchmark_cuda_unet_defect2.py>) (4813 bytes)
 - [rte/collision_transport.py](<../collision_transport.py>) (10871 bytes)
+- [rte/cuda_unet_defect2.py](<../cuda_unet_defect2.py>) (7286 bytes)
 - [rte/handoff/2026-09-12/provenance.json](<../handoff/2026-09-12/provenance.json>) (913 bytes)
 - [rte/mgRTE_ablation/RTE_ATFPS_func.py](<../mgRTE_ablation/RTE_ATFPS_func.py>) (38360 bytes)
 - [rte/mgRTE_ablation/RTE_datagenerator.py](<../mgRTE_ablation/RTE_datagenerator.py>) (14003 bytes)
@@ -741,8 +745,9 @@ python3 scripts/organize_research_artifacts.py --verify
 - [rte/results/residual_replay_mixed/settings.json](<../results/residual_replay_mixed/settings.json>) (446 bytes)
 - [rte/results/residual_subspace_mixed/settings.json](<../results/residual_subspace_mixed/settings.json>) (421 bytes)
 - [rte/run_collision_transport_experiment.py](<../run_collision_transport_experiment.py>) (17017 bytes)
+- [rte/run_cuda_unet_defect2_benchmark.py](<../run_cuda_unet_defect2_benchmark.py>) (194 bytes)
 - [rte/run_hard_case_experiments.py](<../run_hard_case_experiments.py>) (9476 bytes)
-- [rte/run_large_angular_spectral_experiments.py](<../run_large_angular_spectral_experiments.py>) (45584 bytes)
+- [rte/run_large_angular_spectral_experiments.py](<../run_large_angular_spectral_experiments.py>) (45698 bytes)
 - [rte/run_residual_subspace_experiment.py](<../run_residual_subspace_experiment.py>) (12823 bytes)
 - [rte/spectral_sparse_reference.py](<../spectral_sparse_reference.py>) (5489 bytes)
 - [rte/tests/test_angular_structure.py](<../tests/test_angular_structure.py>) (10285 bytes)
@@ -803,3 +808,4 @@ python3 scripts/organize_research_artifacts.py --verify
 - [rte/tmp_router_krylov_smoke.csv](<../tmp_router_krylov_smoke.csv>) (4253 bytes)
 - [rte/tmp_router_krylov_smoke.md](<../tmp_router_krylov_smoke.md>) (8086 bytes)
 - [rte/tmp_router_krylov_smoke_traces.csv](<../tmp_router_krylov_smoke_traces.csv>) (6555 bytes)
+- [rte/tmp_router_topk1_smoke_traces.csv](<../tmp_router_topk1_smoke_traces.csv>) (36491 bytes)
