@@ -22,15 +22,6 @@ Run commands from the repository root. Data and output paths can be set through 
 
 ## Datasets
 
-The experiment commands use the following training and test counts:
-
-| Dataset | Training samples | Test samples |
-| --- | ---: | ---: |
-| CurveVel-A / CurveFault-B (each) | 3000 | 50 |
-| 3D Kimberlina-V1 | 600 | 50 |
-| Convection–diffusion–reaction | 4000 | 400 |
-| Newton states (two trajectory sets combined) | 10000 | 1000 |
-
 ### Helmholtz
 
 Download the CurveVel-A, CurveFault-B, and 3D Kimberlina-V1 velocity models from [OpenFWI](https://openfwi-lanl.github.io/) and place them under `data/openfwi/`. See [helmholtz/README.md](helmholtz/README.md#data) for the directory layout and file formats.
