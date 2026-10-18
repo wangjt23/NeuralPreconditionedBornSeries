@@ -1,0 +1,30 @@
+# Source experiment preset; see helmholtz/README.md for assumptions.
+train:
+  save_dir: outputs/helmholtz/2d/openfwi/CurveFault_B/sl_vcycle_gmres
+model:
+  boundary_layer: pbl
+  boundary_width: 32
+  name: sl_vcycle
+  data_type: openfwi_CurveFault_B
+  shift: 1.0
+  precond_discretization: fft
+  num_levels: 4
+  min_coarse_size: 10
+  pre_smooth: 2
+  post_smooth: 2
+  coarse_smooth: 30
+  direct_coarse: true
+  jacobi_weight: 0.6
+  num_cycles: 1
+inference:
+  fdtype: float64
+  max_num_iters: 2500
+  test_point: 6000
+  num_test: 50
+  tol: 1e-6
+  solver_type: krylov
+  krylov_maxiter: 2500
+  krylov_restart: 50
+  krylov_max_restarts: 50
+  krylov_log_step: 50
+  krylov_verbose: true

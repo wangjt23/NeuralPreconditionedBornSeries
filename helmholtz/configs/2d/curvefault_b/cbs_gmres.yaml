@@ -1,0 +1,20 @@
+# Source experiment preset; see helmholtz/README.md for assumptions.
+train:
+  save_dir: outputs/helmholtz/2d/openfwi/CurveFault_B/cbs_gmres
+model:
+  boundary_layer: pbl
+  boundary_width: 32
+  name: cbs
+  data_type: openfwi_CurveFault_B
+inference:
+  fdtype: float64
+  max_num_iters: 10000
+  test_point: 6000
+  num_test: 50
+  tol: 1e-6
+  solver_type: krylov
+  krylov_maxiter: 10000
+  krylov_restart: 50
+  krylov_max_restarts: 100
+  krylov_log_step: 50
+  krylov_verbose: true

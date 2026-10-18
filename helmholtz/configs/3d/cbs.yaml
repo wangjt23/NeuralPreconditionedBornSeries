@@ -1,0 +1,15 @@
+# Source experiment preset; see helmholtz/README.md for assumptions.
+train:
+  save_dir: outputs/helmholtz/3d/openfwi/cbs
+model:
+  boundary_width: 16
+  boundary_type: pbl
+  name: cbs
+  data_type: openfwi3d
+inference:
+  fdtype: float64
+  print_step: 50
+  max_num_iters: 5000
+  test_point: 6000
+  num_test: 50
+  tol: 1e-6
