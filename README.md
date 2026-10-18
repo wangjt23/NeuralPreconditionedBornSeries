@@ -1,6 +1,6 @@
-# NPBS
+# Neural Preconditioned Born Series
 
-Code for **Born-Preconditioned Learning for Iterative Neural PDE Solvers**.
+Code for **Born-Preconditioned Learning for Iterative Neural PDE Solvers (NeurIPS 2026)**.
 
 ## Requirements
 
@@ -12,10 +12,10 @@ pip install -r requirements.txt
 
 ## Experiments
 
-| Directory | Experiment |
-| --- | --- |
-| [helmholtz](helmholtz/README.md) | 2D/3D Helmholtz equations, CBS and FGMRES |
-| [cdr](cdr/README.md) | Convection–diffusion–reaction equations |
+| Directory                       | Experiment                                            |
+| ------------------------------- | ----------------------------------------------------- |
+| [helmholtz](helmholtz/README.md) | 2D/3D Helmholtz equations, CBS and FGMRES             |
+| [cdr](cdr/README.md)             | Convection–diffusion–reaction equations             |
 | [nonlinear](nonlinear/README.md) | Newton linear systems for nonlinear Poisson equations |
 
 Run commands from the repository root. Data and output paths can be set through the command-line arguments; the defaults use `data/` and `outputs/`.
