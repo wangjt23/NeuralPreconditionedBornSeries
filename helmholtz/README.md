@@ -53,7 +53,7 @@ Weights are saved as `<model.name>_weights.pth` under `train.save_dir`. Inferenc
 
 Each loss is normalized by the corresponding input residual norm over the batch. Train each variant separately. The available backbones are FNO, MgNO, U-Net, Encoder–solver, and an external MGCFNN adapter.
 
-The intended 2D setting uses 32 absorbing cells on each side (`boundary_type: pbl`), giving a padded grid of 320 × 320; the 3D presets use 16 cells on each side. Training uses AdamW. All 2D learned-model presets use 200 epochs, an initial learning rate of `1e-3`, and a factor of 0.8 decay every 10 epochs, including the training settings in the MgNO-FGMRES preset. The 3D presets use 200 epochs and retain a factor of 0.8 decay every 20 epochs. All supplied FGMRES presets use a restart length of 50. The manuscript's Adam optimizer and 400-epoch/every-20-epoch schedule for the 2D experiments still differ from these settings.
+The intended 2D setting uses 32 absorbing cells on each side (`boundary_type: pbl`), giving a padded grid of 320 × 320; the 3D presets use 16 cells on each side. Training uses AdamW. The FNO presets for all three losses on CurveVel-A and CurveFault-B use 400 epochs with a factor of 0.8 decay every 20 epochs. The other 2D learned-model presets use 200 epochs with a factor of 0.8 decay every 10 epochs, including the training settings in the MgNO-FGMRES preset. All 2D learned-model presets use an initial learning rate of `1e-3`. The 3D presets use 200 epochs and retain a factor of 0.8 decay every 20 epochs. All supplied FGMRES presets use a restart length of 50. The manuscript's Adam optimizer and its 400-epoch/every-20-epoch schedule for the other 2D backbones still differ from these settings.
 
 ## FGMRES
 
