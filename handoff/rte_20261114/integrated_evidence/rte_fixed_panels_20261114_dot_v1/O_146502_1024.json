@@ -1,0 +1,767 @@
+{
+  "complete": true,
+  "name": "O_146502_1024",
+  "checkpoint": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_1024.pt",
+  "checkpoint_hash": "f45a6c0fd33e6b70e44da61308b0adc597b554ad1d3ab9cc8f2868fcd60b5dbd",
+  "input_hash": "57b51dffc04b203b60173230c4b33270f958113e1688a4b82760b2e170ddb695",
+  "source_hash": "21f8a93ac972656d9bf6b96f1486b5b8403aeb99057bbe2b97473468b0ed7656",
+  "scope": "same fixed TRAIN8 diagnostic inputs; FP32 M with FP64 A; no new power/training/selection",
+  "rows": [
+    {
+      "material": 0,
+      "kind": "old_true_residual",
+      "item": 0,
+      "relative_norm": 0.3194425439588828,
+      "squared_ratio": 0.10204353889092276
+    },
+    {
+      "material": 0,
+      "kind": "old_true_residual",
+      "item": 1,
+      "relative_norm": 0.400439966447058,
+      "squared_ratio": 0.16035216672812092
+    },
+    {
+      "material": 0,
+      "kind": "old_true_residual",
+      "item": 2,
+      "relative_norm": 0.6456065700745347,
+      "squared_ratio": 0.4168078433234051
+    },
+    {
+      "material": 0,
+      "kind": "old_true_residual",
+      "item": 3,
+      "relative_norm": 0.526337363037067,
+      "squared_ratio": 0.2770310197288133
+    },
+    {
+      "material": 0,
+      "kind": "white_gaussian",
+      "item": 0,
+      "relative_norm": 0.19042757618247327,
+      "squared_ratio": 0.03626266177073166
+    },
+    {
+      "material": 0,
+      "kind": "white_gaussian",
+      "item": 1,
+      "relative_norm": 0.18955682460980894,
+      "squared_ratio": 0.03593178975615387
+    },
+    {
+      "material": 0,
+      "kind": "white_gaussian",
+      "item": 2,
+      "relative_norm": 0.1900168454821321,
+      "squared_ratio": 0.036106401566980466
+    },
+    {
+      "material": 0,
+      "kind": "white_gaussian",
+      "item": 3,
+      "relative_norm": 0.19093232308345162,
+      "squared_ratio": 0.036455151998043556
+    },
+    {
+      "material": 0,
+      "kind": "white_gaussian",
+      "item": 4,
+      "relative_norm": 0.192319566310827,
+      "squared_ratio": 0.036986815585984587
+    },
+    {
+      "material": 0,
+      "kind": "white_gaussian",
+      "item": 5,
+      "relative_norm": 0.18902534790190423,
+      "squared_ratio": 0.035730582149435926
+    },
+    {
+      "material": 0,
+      "kind": "white_gaussian",
+      "item": 6,
+      "relative_norm": 0.18804185671971657,
+      "squared_ratio": 0.03535973987859842
+    },
+    {
+      "material": 0,
+      "kind": "white_gaussian",
+      "item": 7,
+      "relative_norm": 0.190091556587437,
+      "squared_ratio": 0.03613479988583477
+    },
+    {
+      "material": 0,
+      "kind": "stored_witness_before",
+      "item": 0,
+      "relative_norm": 0.9598328886735632,
+      "squared_ratio": 0.9212791741794367
+    },
+    {
+      "material": 0,
+      "kind": "stored_witness_after",
+      "item": 0,
+      "relative_norm": 0.7669601882622282,
+      "squared_ratio": 0.5882279303792326
+    },
+    {
+      "material": 0,
+      "kind": "stored_witness_CT4",
+      "item": 0,
+      "relative_norm": 0.8585290547069048,
+      "squared_ratio": 0.7370721377759315
+    },
+    {
+      "material": 1,
+      "kind": "old_true_residual",
+      "item": 0,
+      "relative_norm": 0.36692103612690324,
+      "squared_ratio": 0.13463104675244023
+    },
+    {
+      "material": 1,
+      "kind": "old_true_residual",
+      "item": 1,
+      "relative_norm": 0.40292653835611697,
+      "squared_ratio": 0.1623497953116434
+    },
+    {
+      "material": 1,
+      "kind": "old_true_residual",
+      "item": 2,
+      "relative_norm": 0.5941067417348519,
+      "squared_ratio": 0.352962820574802
+    },
+    {
+      "material": 1,
+      "kind": "old_true_residual",
+      "item": 3,
+      "relative_norm": 0.6478770125171969,
+      "squared_ratio": 0.41974462334820806
+    },
+    {
+      "material": 1,
+      "kind": "white_gaussian",
+      "item": 0,
+      "relative_norm": 0.1891987908702755,
+      "squared_ratio": 0.03579618246677424
+    },
+    {
+      "material": 1,
+      "kind": "white_gaussian",
+      "item": 1,
+      "relative_norm": 0.1897951429400107,
+      "squared_ratio": 0.0360221962836191
+    },
+    {
+      "material": 1,
+      "kind": "white_gaussian",
+      "item": 2,
+      "relative_norm": 0.1907960914828274,
+      "squared_ratio": 0.03640314852512344
+    },
+    {
+      "material": 1,
+      "kind": "white_gaussian",
+      "item": 3,
+      "relative_norm": 0.18864275608821793,
+      "squared_ratio": 0.03558608942455888
+    },
+    {
+      "material": 1,
+      "kind": "white_gaussian",
+      "item": 4,
+      "relative_norm": 0.18829261559650232,
+      "squared_ratio": 0.03545410908817219
+    },
+    {
+      "material": 1,
+      "kind": "white_gaussian",
+      "item": 5,
+      "relative_norm": 0.18815717829508002,
+      "squared_ratio": 0.035403123743966536
+    },
+    {
+      "material": 1,
+      "kind": "white_gaussian",
+      "item": 6,
+      "relative_norm": 0.18710206465825674,
+      "squared_ratio": 0.035007182599382486
+    },
+    {
+      "material": 1,
+      "kind": "white_gaussian",
+      "item": 7,
+      "relative_norm": 0.18770991766336143,
+      "squared_ratio": 0.035235013189185926
+    },
+    {
+      "material": 1,
+      "kind": "stored_witness_before",
+      "item": 0,
+      "relative_norm": 0.86887489436111,
+      "squared_ratio": 0.7549435820510301
+    },
+    {
+      "material": 1,
+      "kind": "stored_witness_after",
+      "item": 0,
+      "relative_norm": 0.7719012268083085,
+      "squared_ratio": 0.5958315039481717
+    },
+    {
+      "material": 1,
+      "kind": "stored_witness_CT4",
+      "item": 0,
+      "relative_norm": 0.8177889840741849,
+      "squared_ratio": 0.6687788224730874
+    },
+    {
+      "material": 2,
+      "kind": "old_true_residual",
+      "item": 0,
+      "relative_norm": 0.4917032569602033,
+      "squared_ratio": 0.24177209290527168
+    },
+    {
+      "material": 2,
+      "kind": "old_true_residual",
+      "item": 1,
+      "relative_norm": 0.47029049346087837,
+      "squared_ratio": 0.2211731482396765
+    },
+    {
+      "material": 2,
+      "kind": "old_true_residual",
+      "item": 2,
+      "relative_norm": 0.5572367420737441,
+      "squared_ratio": 0.31051278671696037
+    },
+    {
+      "material": 2,
+      "kind": "old_true_residual",
+      "item": 3,
+      "relative_norm": 0.6862354578439049,
+      "squared_ratio": 0.4709191036022338
+    },
+    {
+      "material": 2,
+      "kind": "white_gaussian",
+      "item": 0,
+      "relative_norm": 0.18654237864556145,
+      "squared_ratio": 0.03479805903074402
+    },
+    {
+      "material": 2,
+      "kind": "white_gaussian",
+      "item": 1,
+      "relative_norm": 0.18371918788981775,
+      "squared_ratio": 0.03375273999889416
+    },
+    {
+      "material": 2,
+      "kind": "white_gaussian",
+      "item": 2,
+      "relative_norm": 0.18589508024430434,
+      "squared_ratio": 0.03455698085903635
+    },
+    {
+      "material": 2,
+      "kind": "white_gaussian",
+      "item": 3,
+      "relative_norm": 0.1884041286183776,
+      "squared_ratio": 0.03549611568045017
+    },
+    {
+      "material": 2,
+      "kind": "white_gaussian",
+      "item": 4,
+      "relative_norm": 0.18772228986999281,
+      "squared_ratio": 0.03523965811403361
+    },
+    {
+      "material": 2,
+      "kind": "white_gaussian",
+      "item": 5,
+      "relative_norm": 0.18732688359759617,
+      "squared_ratio": 0.035091361318387346
+    },
+    {
+      "material": 2,
+      "kind": "white_gaussian",
+      "item": 6,
+      "relative_norm": 0.1881877896961906,
+      "squared_ratio": 0.035414644190737664
+    },
+    {
+      "material": 2,
+      "kind": "white_gaussian",
+      "item": 7,
+      "relative_norm": 0.18468051465648114,
+      "squared_ratio": 0.034106892493782744
+    },
+    {
+      "material": 2,
+      "kind": "stored_witness_before",
+      "item": 0,
+      "relative_norm": 0.8456354253406428,
+      "squared_ratio": 0.7150992725910499
+    },
+    {
+      "material": 2,
+      "kind": "stored_witness_after",
+      "item": 0,
+      "relative_norm": 0.6974560776501123,
+      "squared_ratio": 0.48644498025107946
+    },
+    {
+      "material": 2,
+      "kind": "stored_witness_CT4",
+      "item": 0,
+      "relative_norm": 0.8320431411491603,
+      "squared_ratio": 0.6922957887333615
+    },
+    {
+      "material": 3,
+      "kind": "old_true_residual",
+      "item": 0,
+      "relative_norm": 0.3997402889019997,
+      "squared_ratio": 0.1597922985714542
+    },
+    {
+      "material": 3,
+      "kind": "old_true_residual",
+      "item": 1,
+      "relative_norm": 0.3999465843363444,
+      "squared_ratio": 0.15995727032230864
+    },
+    {
+      "material": 3,
+      "kind": "old_true_residual",
+      "item": 2,
+      "relative_norm": 0.5060556092513189,
+      "squared_ratio": 0.25609227965472353
+    },
+    {
+      "material": 3,
+      "kind": "old_true_residual",
+      "item": 3,
+      "relative_norm": 0.5583916520857557,
+      "squared_ratio": 0.31180123711905966
+    },
+    {
+      "material": 3,
+      "kind": "white_gaussian",
+      "item": 0,
+      "relative_norm": 0.18627069481719943,
+      "squared_ratio": 0.03469677174768225
+    },
+    {
+      "material": 3,
+      "kind": "white_gaussian",
+      "item": 1,
+      "relative_norm": 0.1874808393411812,
+      "squared_ratio": 0.0351490651200738
+    },
+    {
+      "material": 3,
+      "kind": "white_gaussian",
+      "item": 2,
+      "relative_norm": 0.18667843387474867,
+      "squared_ratio": 0.03484883767392891
+    },
+    {
+      "material": 3,
+      "kind": "white_gaussian",
+      "item": 3,
+      "relative_norm": 0.18866840402136664,
+      "squared_ratio": 0.035595766675969635
+    },
+    {
+      "material": 3,
+      "kind": "white_gaussian",
+      "item": 4,
+      "relative_norm": 0.18865261446457945,
+      "squared_ratio": 0.035589808944321254
+    },
+    {
+      "material": 3,
+      "kind": "white_gaussian",
+      "item": 5,
+      "relative_norm": 0.18599862765150912,
+      "squared_ratio": 0.034595489488244736
+    },
+    {
+      "material": 3,
+      "kind": "white_gaussian",
+      "item": 6,
+      "relative_norm": 0.18541080532190302,
+      "squared_ratio": 0.03437716673011662
+    },
+    {
+      "material": 3,
+      "kind": "white_gaussian",
+      "item": 7,
+      "relative_norm": 0.18763217753477385,
+      "squared_ratio": 0.03520583404644089
+    },
+    {
+      "material": 3,
+      "kind": "stored_witness_before",
+      "item": 0,
+      "relative_norm": 0.8688717305971017,
+      "squared_ratio": 0.7549380842308024
+    },
+    {
+      "material": 3,
+      "kind": "stored_witness_after",
+      "item": 0,
+      "relative_norm": 0.689568474221528,
+      "squared_ratio": 0.4755046806402061
+    },
+    {
+      "material": 3,
+      "kind": "stored_witness_CT4",
+      "item": 0,
+      "relative_norm": 0.7940735112580449,
+      "squared_ratio": 0.6305527412816804
+    },
+    {
+      "material": 4,
+      "kind": "old_true_residual",
+      "item": 0,
+      "relative_norm": 0.39390116672084696,
+      "squared_ratio": 0.15515812914404448
+    },
+    {
+      "material": 4,
+      "kind": "old_true_residual",
+      "item": 1,
+      "relative_norm": 0.360113732479982,
+      "squared_ratio": 0.12968190032066407
+    },
+    {
+      "material": 4,
+      "kind": "old_true_residual",
+      "item": 2,
+      "relative_norm": 0.4567921257974167,
+      "squared_ratio": 0.20865904619052295
+    },
+    {
+      "material": 4,
+      "kind": "old_true_residual",
+      "item": 3,
+      "relative_norm": 0.5223443689986771,
+      "squared_ratio": 0.2728436398246261
+    },
+    {
+      "material": 4,
+      "kind": "white_gaussian",
+      "item": 0,
+      "relative_norm": 0.19541029245129066,
+      "squared_ratio": 0.038185182395898944
+    },
+    {
+      "material": 4,
+      "kind": "white_gaussian",
+      "item": 1,
+      "relative_norm": 0.19709437986017753,
+      "squared_ratio": 0.038846194572467956
+    },
+    {
+      "material": 4,
+      "kind": "white_gaussian",
+      "item": 2,
+      "relative_norm": 0.19319274126764074,
+      "squared_ratio": 0.03732343527850558
+    },
+    {
+      "material": 4,
+      "kind": "white_gaussian",
+      "item": 3,
+      "relative_norm": 0.1923199302062455,
+      "squared_ratio": 0.036986955554535135
+    },
+    {
+      "material": 4,
+      "kind": "white_gaussian",
+      "item": 4,
+      "relative_norm": 0.19316027900229313,
+      "squared_ratio": 0.037310893384243725
+    },
+    {
+      "material": 4,
+      "kind": "white_gaussian",
+      "item": 5,
+      "relative_norm": 0.19506873156886806,
+      "squared_ratio": 0.038051810035887104
+    },
+    {
+      "material": 4,
+      "kind": "white_gaussian",
+      "item": 6,
+      "relative_norm": 0.19403468718757672,
+      "squared_ratio": 0.037649459831980744
+    },
+    {
+      "material": 4,
+      "kind": "white_gaussian",
+      "item": 7,
+      "relative_norm": 0.19360421487751373,
+      "squared_ratio": 0.037482592018338506
+    },
+    {
+      "material": 5,
+      "kind": "old_true_residual",
+      "item": 0,
+      "relative_norm": 0.4339607979866015,
+      "squared_ratio": 0.18832197418916793
+    },
+    {
+      "material": 5,
+      "kind": "old_true_residual",
+      "item": 1,
+      "relative_norm": 0.47276364006642796,
+      "squared_ratio": 0.22350545936885904
+    },
+    {
+      "material": 5,
+      "kind": "old_true_residual",
+      "item": 2,
+      "relative_norm": 0.6060333543594683,
+      "squared_ratio": 0.3672764265961888
+    },
+    {
+      "material": 5,
+      "kind": "old_true_residual",
+      "item": 3,
+      "relative_norm": 0.653451702864645,
+      "squared_ratio": 0.42699912797670436
+    },
+    {
+      "material": 5,
+      "kind": "white_gaussian",
+      "item": 0,
+      "relative_norm": 0.19642401629699094,
+      "squared_ratio": 0.03858239417824056
+    },
+    {
+      "material": 5,
+      "kind": "white_gaussian",
+      "item": 1,
+      "relative_norm": 0.19907501366325875,
+      "squared_ratio": 0.039630861065026654
+    },
+    {
+      "material": 5,
+      "kind": "white_gaussian",
+      "item": 2,
+      "relative_norm": 0.1966397733231855,
+      "squared_ratio": 0.038667200452593774
+    },
+    {
+      "material": 5,
+      "kind": "white_gaussian",
+      "item": 3,
+      "relative_norm": 0.1964363636522043,
+      "squared_ratio": 0.03858724496490105
+    },
+    {
+      "material": 5,
+      "kind": "white_gaussian",
+      "item": 4,
+      "relative_norm": 0.1983733574080371,
+      "squared_ratio": 0.03935198892933683
+    },
+    {
+      "material": 5,
+      "kind": "white_gaussian",
+      "item": 5,
+      "relative_norm": 0.19691609461854204,
+      "squared_ratio": 0.0387759483198186
+    },
+    {
+      "material": 5,
+      "kind": "white_gaussian",
+      "item": 6,
+      "relative_norm": 0.19750287814789683,
+      "squared_ratio": 0.03900738687670298
+    },
+    {
+      "material": 5,
+      "kind": "white_gaussian",
+      "item": 7,
+      "relative_norm": 0.1976154976425646,
+      "squared_ratio": 0.039051884908518464
+    },
+    {
+      "material": 6,
+      "kind": "old_true_residual",
+      "item": 0,
+      "relative_norm": 0.44218810412288106,
+      "squared_ratio": 0.1955303194277879
+    },
+    {
+      "material": 6,
+      "kind": "old_true_residual",
+      "item": 1,
+      "relative_norm": 0.484936607873937,
+      "squared_ratio": 0.23516351365628055
+    },
+    {
+      "material": 6,
+      "kind": "old_true_residual",
+      "item": 2,
+      "relative_norm": 0.6957606944470915,
+      "squared_ratio": 0.48408294393749907
+    },
+    {
+      "material": 6,
+      "kind": "old_true_residual",
+      "item": 3,
+      "relative_norm": 0.612089259919214,
+      "squared_ratio": 0.3746532621084512
+    },
+    {
+      "material": 6,
+      "kind": "white_gaussian",
+      "item": 0,
+      "relative_norm": 0.17321207213597328,
+      "squared_ratio": 0.030002421933637613
+    },
+    {
+      "material": 6,
+      "kind": "white_gaussian",
+      "item": 1,
+      "relative_norm": 0.17317031744835687,
+      "squared_ratio": 0.02998795884516469
+    },
+    {
+      "material": 6,
+      "kind": "white_gaussian",
+      "item": 2,
+      "relative_norm": 0.170947077493119,
+      "squared_ratio": 0.02922290330343843
+    },
+    {
+      "material": 6,
+      "kind": "white_gaussian",
+      "item": 3,
+      "relative_norm": 0.17239609175873763,
+      "squared_ratio": 0.029720412453687086
+    },
+    {
+      "material": 6,
+      "kind": "white_gaussian",
+      "item": 4,
+      "relative_norm": 0.17237965666320096,
+      "squared_ratio": 0.02971474603132304
+    },
+    {
+      "material": 6,
+      "kind": "white_gaussian",
+      "item": 5,
+      "relative_norm": 0.173026024376294,
+      "squared_ratio": 0.029938005111465885
+    },
+    {
+      "material": 6,
+      "kind": "white_gaussian",
+      "item": 6,
+      "relative_norm": 0.17154910311440516,
+      "squared_ratio": 0.029429094779356815
+    },
+    {
+      "material": 6,
+      "kind": "white_gaussian",
+      "item": 7,
+      "relative_norm": 0.171898394328043,
+      "squared_ratio": 0.029549057972559363
+    },
+    {
+      "material": 7,
+      "kind": "old_true_residual",
+      "item": 0,
+      "relative_norm": 0.4049469700198748,
+      "squared_ratio": 0.16398204852827736
+    },
+    {
+      "material": 7,
+      "kind": "old_true_residual",
+      "item": 1,
+      "relative_norm": 0.4772033451535214,
+      "squared_ratio": 0.2277230326257109
+    },
+    {
+      "material": 7,
+      "kind": "old_true_residual",
+      "item": 2,
+      "relative_norm": 0.7182082433170986,
+      "squared_ratio": 0.5158230807686328
+    },
+    {
+      "material": 7,
+      "kind": "old_true_residual",
+      "item": 3,
+      "relative_norm": 0.7082290632967594,
+      "squared_ratio": 0.5015884060982052
+    },
+    {
+      "material": 7,
+      "kind": "white_gaussian",
+      "item": 0,
+      "relative_norm": 0.21165868660651174,
+      "squared_ratio": 0.04479939961599355
+    },
+    {
+      "material": 7,
+      "kind": "white_gaussian",
+      "item": 1,
+      "relative_norm": 0.2098788022723446,
+      "squared_ratio": 0.044049111643273915
+    },
+    {
+      "material": 7,
+      "kind": "white_gaussian",
+      "item": 2,
+      "relative_norm": 0.2083207901678987,
+      "squared_ratio": 0.04339755161617768
+    },
+    {
+      "material": 7,
+      "kind": "white_gaussian",
+      "item": 3,
+      "relative_norm": 0.21108351879848825,
+      "squared_ratio": 0.04455625190835174
+    },
+    {
+      "material": 7,
+      "kind": "white_gaussian",
+      "item": 4,
+      "relative_norm": 0.2094302462113092,
+      "squared_ratio": 0.04386102802812959
+    },
+    {
+      "material": 7,
+      "kind": "white_gaussian",
+      "item": 5,
+      "relative_norm": 0.2088530636925929,
+      "squared_ratio": 0.04361960221378227
+    },
+    {
+      "material": 7,
+      "kind": "white_gaussian",
+      "item": 6,
+      "relative_norm": 0.2111916652662397,
+      "squared_ratio": 0.04460191947792744
+    },
+    {
+      "material": 7,
+      "kind": "white_gaussian",
+      "item": 7,
+      "relative_norm": 0.20981825364844894,
+      "squared_ratio": 0.04402369956408486
+    }
+  ]
+}

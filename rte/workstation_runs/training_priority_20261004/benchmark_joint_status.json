@@ -1,0 +1,18 @@
+{
+  "mode": "benchmark_joint",
+  "pid": 2412695,
+  "started": 1791108294.4431796,
+  "complete": true,
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/benchmark_adequacy.py",
+    "--output",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/benchmark_joint",
+    "--alignment",
+    "--alignment-directory",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry"
+  ],
+  "returncode": 0,
+  "finished": 1791108679.0230367,
+  "seconds": 384.5798571109772
+}

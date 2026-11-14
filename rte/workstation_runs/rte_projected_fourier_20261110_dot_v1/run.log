@@ -1,0 +1,6 @@
+{"event": "started", "pid": 1283946, "own_sources": {"run_projected_gate.py": "ac460829c7a72fb69bc4c60a6f801235b3a7717274acfdb88281178c7279284b", "projected_operator.py": "568450e3a3ad80da3ce0cb9d86d4c937a785700228f7ed667cde46aef36b5d45"}}
+{"event": "qualification_passed", "seconds": 4.88606601790525}
+{"method": "compact4", "repeat": 0, "setup_observed_seconds": 3.0214216669555753, "first_RHS_observed_seconds": 8.040303281042725, "complete_four_RHS_observed_seconds": 20.734828860964626, "inner_phase_seconds": 0, "calls": [4, 3, 4, 3], "inner_calls": []}
+{"method": "full_E", "repeat": 0, "setup_observed_seconds": 1.616126247914508, "first_RHS_observed_seconds": 5.217405149945989, "complete_four_RHS_observed_seconds": 15.746670254971832, "inner_phase_seconds": 4.186754804104567, "calls": [2, 2, 2, 2], "inner_calls": [5, 5, 5, 4]}
+{"method": "reduced_E", "repeat": 0, "setup_observed_seconds": 3.9325353209860623, "first_RHS_observed_seconds": 7.3367136609740555, "complete_four_RHS_observed_seconds": 17.29470837302506, "inner_phase_seconds": 3.270407388918102, "calls": [2, 2, 2, 2], "inner_calls": [5, 5, 5, 4]}
+{"event": "finished", "pid": 1283946, "result": "NO_GO_FORWARD_COMPLETE_COST", "error": null, "wall_seconds": 84.16328713693656}

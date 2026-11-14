@@ -1,0 +1,93 @@
+{
+  "status": "Completed bounded feasibility study; no neural network training was started.",
+  "scientific_object": {
+    "equation": "A(sigma_t,sigma_s) u = b on the original periodic Fourier discretization; N=128, L=12, g=0.65.",
+    "prefix": "Use the actual deployed TSA16 prefix1 for the old distribution; TSA64 prefix1 for the selected hard scene.",
+    "target": "e = u_star - x1; predict a direction in C8 e: all normal grid points and all angular channels, tangent Fourier |k|<=8 (26112 complex coefficients).",
+    "visible_inputs": "Full material fields are available. Tested KRR compresses them to385 real features and uses C16 r1 (50688 complex coefficients), phase/RMS normalized only from that retained input.",
+    "decode": "z = D8 f_theta(material, C16 r1). Feed z to the same retained outer real-stacked FGMRES; it chooses real amplitude jointly with prior directions.",
+    "proposed_training_loss": "L = min_alpha_real ||Pi_perp(r1 - alpha A z)||^2 / ||r1||^2, where Pi_perp removes the existing real AZ span. Full accepted wall time and failure rate remain the primary test, not this surrogate loss."
+  },
+  "debate": [
+    {
+      "challenge": "Does tangent truncation hide essential input information?",
+      "evidence": "For the same A, C16r and the exact solve of A e_cut = Pi16r change retained C8e by mean7.10e-8, max4.60e-7 on16 reused development cases. All32 auxiliary solves at cuts8/16 verified residual<=9.04e-10.",
+      "conclusion": "No material evidence of that bottleneck here. This is a conditional fixed-A experiment, not a theorem for all residuals or material-feature sufficiency."
+    },
+    {
+      "challenge": "Can a cheap learned global low-rank coefficient map exploit the oracle headroom?",
+      "evidence": "96fit/32internal kernel ridge selected length1.0,ridge0.01,rank96. On16 reused development, Q1 is11.60% worse than native TSA16. Free L2-oracle POD96 coefficients are10.51% worse with the same4.6875 classical calls. Full C8 oracle uses2.0625 calls.",
+      "conclusion": "Reject this fitted global real-POD/KRR family on this distribution. Coordinate compressibility does not imply a low-rank cross-material/source manifold. It does not prove every learned representation or every POD coefficient rule impossible."
+    },
+    {
+      "challenge": "Is the rank failure merely an arbitrary source translation?",
+      "evidence": "Input-only residual-energy tangent registration reduces rank96 development projection error from0.3835 to0.3550, but free coefficients still make Q1 worse10.58%. Same registered physical minimum-residual ROM is also slower. The full C8 oracle remains2.0625 calls, verifying physical invariance.",
+      "conclusion": "One simple residual registration does not rescue this family. Do not keep tuning registration on the same16 development cases."
+    },
+    {
+      "challenge": "Do more layers create a stronger benchmark?",
+      "evidence": "Four controlled scenes with2/8 layers and scattering scale1/10/3, fixed absorption0.05, identical4RHS. Eight layers were easier, not harder. Depths8/16/32/64/128 plus existing HSS16 were tested.",
+      "conclusion": "Use measured accepted cost, optical thickness and reuse structure, not visual complexity. For2 layers atscale10/3, TSA64 is the interior best depth, better than32 and128."
+    },
+    {
+      "challenge": "Is the new hard-scene learning opportunity already solved by classical structure?",
+      "evidence": "One compact4 G injection into TSA64 gives four-RHS batch360.04ms vs TSA64 427.97ms, including warm-process fresh setup. Free C8 oracle219.58ms remains39.01% faster than this stronger measured classical control. Standalone G failed all32 recorded attempts.",
+      "conclusion": "A real remaining headroom exists on this one selected structure, but it is only an oracle diagnostic. First add same-A Krylov recycling/local ROM before any neural training."
+    }
+  ],
+  "recommended_next_gate": {
+    "scope": "The selected2-layer high-scattering fixed-material/multiple-RHS family, then varied interface locations, scattering scale and weak inclusions. Four current right-hand sides are development, not a confirmation set.",
+    "classical_first": "Charge the first RHS solve; recycle its accepted Krylov/AZ information for later RHS in the actual four-RHS batch. Compare online recycling and material-local POD to tuned TSA64 and compact-G injection. Do not obtain a free test-source teacher basis.",
+    "representation": "If classical recycling leaves useful margin, test a material-conditioned normal-direction/tangent-mode correction map or local dictionary, not one fixed96-vector dictionary shared across all media. Output the C8 correction direction directly, without requiring a mismatched layered G decoder.",
+    "budget": "Actual accurate reference solve mean0.203s on the selected scene. A128-case diagnostic teacher pass would be about26s of solves plus setup/data/I/O under identical conditions; this is an estimate, not a promised training budget. Reuse current data only where A and prefix match.",
+    "model_gate": "Before training, allocate at most5ms measured online preprocessing+inference+decode for a small candidate. Aim at <=3 mean TSA64 calls and >=10% batch4 total-cost gain over the strongest measured classical method, with all original acceptance tests passing; counts alone do not establish the gain.",
+    "failure_gate": "Stop or revise the representation if a free candidate-space oracle cannot beat the strongest classical batch at equal acceptance and setup accounting. Do not tune a stronger regressor around an inadequate fixed output span.",
+    "generalization": "Hold out whole physical materials, not random grid samples. Freeze architecture and thresholds before touching reserved data. Current seed9626 remains untouched; N256 was not tested this round.",
+    "headroom_caution": "30.61ms/RHS is the arithmetic extra-cost budget for retaining5% batch gain relative to current best classic when starting from perfect free coefficients. Prediction error can consume it through additional iterations; it is not an achievable-model performance claim.",
+    "not_done": [
+      "Neural training",
+      "Cross-grid N256 confirmation",
+      "Same-A recycling baseline",
+      "Bent/curved or crossing layers",
+      "High-g L24/L48 tests",
+      "A new independent hard-scene confirmation set"
+    ]
+  },
+  "record_accounting": {
+    "end_to_end_attempts_including_warmups": 3472,
+    "failed_attempts": 32,
+    "failed_family": "Both standalone upwind/compact4 G preconditioners in hardgate_01; all retained.",
+    "existing_teacher_cases": 144,
+    "new_unique_teacher_cases": 4,
+    "new_exact_reference_solve_executions": 12,
+    "auxiliary_truncated_rhs_solves": 32,
+    "stage_wall_seconds": 515.5477390442975,
+    "heldout9626": false,
+    "timing_corrections": "hardgate_01 Born had a redundant repeated G(r) call. It is preserved, not used as the optimized comparator. hardgate_born_02 fixes it; hardgate_final_03 is primary and also uses3 new warm-process factor/capture builds to avoid method-order cold-start bias. First-process setup is preserved separately.",
+    "method_setup": "No factor setup is silently free. Q1 charges one setup. Batch4 shares it across the actual same4RHS only. Offline fitted global dictionary cost and59.6MB model footprint are separately recorded, not mislabelled as per-medium setup.",
+    "acceptance": "Original A64 residual<=1e-5; evaluated coercivity-based relative error bound<=1e-3; field difference<=1e-4 against paired/reference solution. Failure checks retained."
+  },
+  "literature_context": [
+    {
+      "url": "https://arxiv.org/abs/2410.08735",
+      "role": "FGMRES/ROM transport acceleration, credible non-neural comparator."
+    },
+    {
+      "url": "https://arxiv.org/abs/2509.05001",
+      "role": "Trajectory-aware ROM, motivates actual-prefix rather than unrelated solution snapshots."
+    },
+    {
+      "url": "https://epubs.siam.org/doi/10.1137/23M1570715",
+      "role": "Registration-aware reduced approximation; one energy-peak test is not the entire class."
+    },
+    {
+      "url": "https://arxiv.org/abs/1907.13013",
+      "role": "Fokker-Planck synthetic acceleration for forward-peaked scattering; relevant if changing g."
+    },
+    {
+      "url": "https://arxiv.org/abs/2010.04559",
+      "role": "Angular multigrid is a stronger comparator for angular hardening."
+    }
+  ],
+  "novelty": "No novelty claim. Evidence is specific to this implementation, data split, hardware and acceptance contract."
+}

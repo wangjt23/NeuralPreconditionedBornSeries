@@ -1,0 +1,21 @@
+{"event": "source_done", "label": "01_E_once", "source_id": 0, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 4.788854554644634e-07}
+{"event": "source_done", "label": "01_E_once", "source_id": 4, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 1.925049784647746e-06}
+{"event": "source_done", "label": "01_E_once", "source_id": 7, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 7.764024034830506e-07}
+{"event": "source_done", "label": "01_E_once", "source_id": 14, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 2.0712061601526896e-06}
+{"event": "batch_done", "method": "E_once", "label": "01_E_once", "seconds": 22.653948756167665, "calls": [3, 3, 3, 3], "attempts": [1, 1, 1, 1]}
+{"event": "source_done", "label": "02_fine_only", "source_id": 0, "calls": 5, "attempts": 1, "inner_iterations": [], "residual": 8.351503322063183e-07}
+{"event": "source_done", "label": "02_fine_only", "source_id": 4, "calls": 5, "attempts": 1, "inner_iterations": [], "residual": 1.1913410925172118e-06}
+{"event": "source_done", "label": "02_fine_only", "source_id": 7, "calls": 5, "attempts": 1, "inner_iterations": [], "residual": 9.279111633259454e-07}
+{"event": "source_done", "label": "02_fine_only", "source_id": 14, "calls": 5, "attempts": 1, "inner_iterations": [], "residual": 1.10084352898254e-06}
+{"event": "batch_done", "method": "fine_only", "label": "02_fine_only", "seconds": 26.099935391917825, "calls": [5, 5, 5, 5], "attempts": [1, 1, 1, 1]}
+{"event": "source_done", "label": "03_additive", "source_id": 0, "calls": 4, "attempts": 1, "inner_iterations": [4], "residual": 3.248651663869115e-06}
+{"event": "source_done", "label": "03_additive", "source_id": 4, "calls": 4, "attempts": 1, "inner_iterations": [4], "residual": 4.7190968314526e-06}
+{"event": "source_done", "label": "03_additive", "source_id": 7, "calls": 4, "attempts": 1, "inner_iterations": [4], "residual": 3.175621518211207e-06}
+{"event": "source_done", "label": "03_additive", "source_id": 14, "calls": 4, "attempts": 1, "inner_iterations": [4], "residual": 4.354004111953787e-06}
+{"event": "batch_done", "method": "additive", "label": "03_additive", "seconds": 28.043404129799455, "calls": [4, 4, 4, 4], "attempts": [1, 1, 1, 1]}
+{"event": "source_done", "label": "04_multiplicative", "source_id": 0, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 3.0119920595020405e-07}
+{"event": "source_done", "label": "04_multiplicative", "source_id": 4, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 1.1811207620996326e-06}
+{"event": "source_done", "label": "04_multiplicative", "source_id": 7, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 4.915854388661628e-07}
+{"event": "source_done", "label": "04_multiplicative", "source_id": 14, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 1.2011922932987565e-06}
+{"event": "batch_done", "method": "multiplicative", "label": "04_multiplicative", "seconds": 23.070610059890896, "calls": [3, 3, 3, 3], "attempts": [1, 1, 1, 1]}
+{"event": "finished", "complete": true, "result": "MULTIPLICATIVE_NO_GO", "error": null, "seconds": 101.30329575901851}

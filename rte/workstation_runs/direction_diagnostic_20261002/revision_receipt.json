@@ -1,0 +1,5 @@
+{
+  "before_sha256": "60c93d1bac2040af1d19490080ae0c5c5beb1b2d226e19f6c160aaf6896a609a",
+  "after_sha256": "d7c32f871a900d9d57fb193aaffb40d5456188f82ac3a0ce6ee182b319a9a2c1",
+  "reason": "Partial smoke decision explicitly ineligible; phase0 invariants labelled correctly; predeclared matched TSA16 and four-forward reference-cost controls added before full run. No model or physical input changed."
+}

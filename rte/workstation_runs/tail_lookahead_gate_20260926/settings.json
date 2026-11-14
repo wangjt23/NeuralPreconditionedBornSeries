@@ -1,0 +1,26 @@
+{
+  "args": {
+    "output": "rte/workstation_runs/tail_lookahead_gate_20260926",
+    "old_checkpoint": "rte/workstation_runs/tail_direction_pilot_20260926/best.pt",
+    "new_checkpoint": "rte/workstation_runs/tail_lookahead_20260926/best.pt",
+    "classical_selection": "rte/workstation_runs/tail_solver_benchmark_20260926/frozen_selection.json"
+  },
+  "complete": true,
+  "scope": "validation gate; fresh test cohort only after passing the predeclared runtime gate",
+  "gate": "zero failures and at least 5% saving at BOTH N128 and N256; N64 also measured",
+  "source_sha256": {
+    "rte/benchmark_tail_lookahead.py": "415051c98cde57d4000c526b186a6e70310343ced4cf9754da5ad4d6356898b5",
+    "rte/benchmark_tail_solver.py": "05424458ec34649a2e592638f2621a7cb4891f280839ae4df55e7da5527b9030"
+  },
+  "checkpoint_sha256": {
+    "rte/workstation_runs/tail_direction_pilot_20260926/best.pt": "135aa962f6ebc1a08b1f17c61d85cafed990da68665e1bf12cfedb097ed0775f",
+    "rte/workstation_runs/tail_lookahead_20260926/best.pt": "261382ac3c4dae3ec0490b3447146bfe12951ad9164d35864713e417a868023c"
+  },
+  "classical_selection_sha256": "67cf2328721db970470643fdae52c7df7db7a191a2db2f56731ffb5c63fb6a49",
+  "timing": "same synchronized shuffled warm-solve protocol as benchmark_tail_solver; initialization and inference included, setup separate",
+  "gpu_processes_before": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n1403744, python, 266 MiB\n",
+  "passed": false,
+  "test_generated": false,
+  "frozen_gate_sha256": "d9ca83337bab4dfcf942786fee6442f3e56ee97ff4cfc9122b37db30e83569c7",
+  "gpu_processes_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n1403744, python, 6576 MiB\n"
+}

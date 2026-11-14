@@ -1,0 +1,221 @@
+{
+  "complete": true,
+  "pid": 1265585,
+  "device": "cpu",
+  "affinity": [
+    0
+  ],
+  "grid": 128,
+  "L": 12,
+  "g": 0.65,
+  "modes": [
+    0,
+    1,
+    8
+  ],
+  "seed": 20261110,
+  "vectors_per_mode": 3,
+  "repair_target": 1e-10,
+  "max_corrections": 3,
+  "records": [
+    {
+      "k": 0,
+      "RHS_sha256": "4a9ac4be27fc41e5ce257428c5c68828226ef89b02b3fd79a1f2340304b79f5c",
+      "original_matrix_free_vs_dense": [
+        4.40940484910022e-16,
+        4.2597000402714286e-16,
+        4.2172521057515684e-16
+      ],
+      "dense_assembly_seconds": 0.10483528696931899,
+      "dense_LU_seconds": 0.24481943901628256,
+      "band_setup": {
+        "assembly_seconds": 0.017626871122047305,
+        "chain_factor_seconds": 0.020837282994762063,
+        "corner_factor_seconds": 0.0530327339656651,
+        "total_seconds": 0.09212656295858324
+      },
+      "dense_three_RHS_apply_and_check_seconds": [
+        0.011479296023026109,
+        0.011227037059143186,
+        0.010646287119016051
+      ],
+      "band_three_RHS_apply_repair_check_seconds": [
+        0.012998893857002258,
+        0.01095965993590653,
+        0.010863384930416942
+      ],
+      "dense_factor_bytes": 37754880,
+      "band_stored_bytes": 16272584,
+      "raw_band_original_residual": [
+        7.590357621310519e-06,
+        1.1343929159696672e-05,
+        1.0150667828043284e-05
+      ],
+      "raw_band_own_operator_residual": [
+        5.124328862548571e-12,
+        6.104035012179227e-12,
+        5.363864429263788e-12
+      ],
+      "status": {
+        "corrections": 1,
+        "success": true,
+        "residual_trace": [
+          [
+            7.590357621310519e-06,
+            1.1343929159696672e-05,
+            1.0150667828043284e-05
+          ],
+          [
+            2.513527529580586e-12,
+            2.6893223473874694e-12,
+            2.7536605635485166e-12
+          ]
+        ]
+      },
+      "dense_original_residual": [
+        6.114197467547445e-14,
+        9.241865222767682e-14,
+        8.130396786932328e-14
+      ],
+      "relative_difference_vs_dense": [
+        2.690333459862181e-12,
+        3.275181320213319e-12,
+        4.201718027149335e-12
+      ]
+    },
+    {
+      "k": 1,
+      "RHS_sha256": "9f294a64abf7eaf2a88ccb255abd0549ff3a4f0c2d46970bcdf13b039a74102d",
+      "original_matrix_free_vs_dense": [
+        4.23807559439497e-16,
+        4.203627701944398e-16,
+        4.388602662333852e-16
+      ],
+      "dense_assembly_seconds": 0.10185863496735692,
+      "dense_LU_seconds": 0.23439474101178348,
+      "band_setup": {
+        "assembly_seconds": 0.011204565176740289,
+        "chain_factor_seconds": 0.018524168990552425,
+        "corner_factor_seconds": 0.051483700051903725,
+        "total_seconds": 0.08132311305962503
+      },
+      "dense_three_RHS_apply_and_check_seconds": [
+        0.011124314041808248,
+        0.010929097887128592,
+        0.010400499915704131
+      ],
+      "band_three_RHS_apply_repair_check_seconds": [
+        0.01270251302048564,
+        0.010276078013703227,
+        0.011264536064118147
+      ],
+      "dense_factor_bytes": 37754880,
+      "band_stored_bytes": 16272584,
+      "raw_band_original_residual": [
+        4.2351699279641035e-06,
+        2.2731614119668474e-06,
+        5.135299737347417e-06
+      ],
+      "raw_band_own_operator_residual": [
+        3.6348451260018797e-12,
+        3.65547548753381e-12,
+        4.575027470365339e-12
+      ],
+      "status": {
+        "corrections": 1,
+        "success": true,
+        "residual_trace": [
+          [
+            4.2351699279641035e-06,
+            2.2731614119668474e-06,
+            5.135299737347417e-06
+          ],
+          [
+            9.321152705330585e-13,
+            7.651502953721207e-13,
+            1.0761286839645275e-12
+          ]
+        ]
+      },
+      "dense_original_residual": [
+        3.122064862975266e-14,
+        1.8441743889296098e-14,
+        3.8407733656675126e-14
+      ],
+      "relative_difference_vs_dense": [
+        1.623038091700848e-12,
+        1.176967986367631e-12,
+        1.6072682881589012e-12
+      ]
+    },
+    {
+      "k": 8,
+      "RHS_sha256": "cf6443708e271ea5508e1d2cd9e2aeb2bc37f40e7f443ad14a68f5e1a92cc37b",
+      "original_matrix_free_vs_dense": [
+        4.515496682890626e-16,
+        4.2927036848820734e-16,
+        4.271344654243048e-16
+      ],
+      "dense_assembly_seconds": 0.09737934498116374,
+      "dense_LU_seconds": 0.23040134995244443,
+      "band_setup": {
+        "assembly_seconds": 0.01128274411894381,
+        "chain_factor_seconds": 0.013220211025327444,
+        "corner_factor_seconds": 0.0352222400251776,
+        "total_seconds": 0.0598391171079129
+      },
+      "dense_three_RHS_apply_and_check_seconds": [
+        0.010777122108265758,
+        0.010483816964551806,
+        0.01011584117077291
+      ],
+      "band_three_RHS_apply_repair_check_seconds": [
+        0.012488604988902807,
+        0.010402335086837411,
+        0.010663948021829128
+      ],
+      "dense_factor_bytes": 37754880,
+      "band_stored_bytes": 16272584,
+      "raw_band_original_residual": [
+        4.5399673782565996e-07,
+        4.265152541077255e-07,
+        5.024133940946615e-07
+      ],
+      "raw_band_own_operator_residual": [
+        1.4823452303944314e-12,
+        1.7013743408323035e-12,
+        1.6287615053680638e-12
+      ],
+      "status": {
+        "corrections": 1,
+        "success": true,
+        "residual_trace": [
+          [
+            4.5399673782565996e-07,
+            4.265152541077255e-07,
+            5.024133940946615e-07
+          ],
+          [
+            3.6277912734220113e-13,
+            3.625662136315136e-13,
+            3.515077940684614e-13
+          ]
+        ]
+      },
+      "dense_original_residual": [
+        3.0602969079099483e-15,
+        2.7983611265204594e-15,
+        3.2846405149085367e-15
+      ],
+      "relative_difference_vs_dense": [
+        2.7011475025352405e-12,
+        1.7566714468331199e-12,
+        2.239075799471131e-12
+      ]
+    }
+  ],
+  "wall_seconds": 1.5491883249487728,
+  "source_hash": "08908e4940e0fc061ca77a3879b397b185d457b06a4dba23eac16c414f883d3a",
+  "scope": "Fixed-mode original-G qualification only. Cyclic band is an approximate representation of stored angular coefficients, repaired against original G. Not bitwise exact, no17-mode full solve or GPU claim.",
+  "GPU_used": false
+}

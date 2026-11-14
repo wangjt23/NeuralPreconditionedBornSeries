@@ -1,0 +1,18 @@
+{
+  "utc": "2026-10-02T22:48:39.562665+00:00",
+  "prior571_preserved": true,
+  "total_verified_files": 575,
+  "new_artifact_metadata_files": 4,
+  "artifact_metadata_sha256": {
+    "rte/workstation_runs/residual_certifier_20261002/library_artifact_receipt.json": "4d36ea72fa14a44e4089c0e81fbb988c080b3b599c1fbcd1391edea706f83616",
+    "rte/workstation_runs/residual_certifier_20261002/LIBRARY_ARTIFACTS.md": "f942cb15d1daec63269beb74d0cb6554609220e4f4d32266dab49d46cdaff3f0",
+    "rte/workstation_runs/residual_certifier_20261002/reports/final/ARTIFACT_REPRODUCTION.json": "3678be6f52ae1bafe4e3ed8016c1aec8682a892af8adbfc012070f5d4be1eba2",
+    "rte/workstation_runs/residual_certifier_20261002/reports/final/PRESERVATION_BEFORE_LIBRARY.json": "c18e703ec7002fa44211ca144605aebd34a83a6e979a499c9610757bb4b22763"
+  },
+  "tracked_dirty_unchanged": true,
+  "other_research_processes": [],
+  "gpu_after": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]\nNVIDIA RTX A6000, 49140 MiB, 37 MiB, 0 %\n",
+  "full_solves": 0,
+  "original_source_exported": false,
+  "private_library_exact_versions_verified": true
+}

@@ -1,0 +1,34 @@
+{
+  "executions": [
+    {
+      "label": "diagnosis_closed",
+      "exit_code": 0,
+      "process_wall_seconds": 7.568534173071384,
+      "argv": [
+        "/data1/software/miniconda3/bin/python",
+        "-u",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/tsa_precision_repair_20261002/code/diagnose_precision_closed.py"
+      ]
+    },
+    {
+      "label": "repair_gate",
+      "exit_code": 2,
+      "process_wall_seconds": 12.162525536492467,
+      "argv": [
+        "/data1/software/miniconda3/bin/python",
+        "-u",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/tsa_precision_repair_20261002/code/check_sum_stable_tsa.py",
+        "--output",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/tsa_precision_repair_20261002/repair_gate"
+      ]
+    }
+  ],
+  "gate_completed": true,
+  "gate_passed": false,
+  "full_solves_run": 0,
+  "warmed_solver_timings_run": 0,
+  "training_run": false,
+  "test_touched": false,
+  "policy_sha256": "671e4bd3fcc0737b1d19af209a7ef00d423e6e745fb7eeca66a72e8bd4836ff4",
+  "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n"
+}

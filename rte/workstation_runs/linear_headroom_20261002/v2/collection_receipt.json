@@ -1,0 +1,17 @@
+{
+  "host": "FWI-Standard-PC-i440FX-PIIX-1996",
+  "user": "wjt",
+  "repository": "/data/wjt/NeuralPreconditionedBornSeries",
+  "stage": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/linear_headroom_20261002/v2",
+  "original_source_count": 155,
+  "original_sources_unchanged": true,
+  "frozen_v1_unchanged": true,
+  "development_parents_unchanged": true,
+  "staged_v2_code_unchanged": true,
+  "original_git_head": "028caea3f35d100225f656e2b1e910c1366aaafe",
+  "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "execution_complete": true,
+  "process_timed_out": false,
+  "test_touched": false,
+  "training_run": false
+}

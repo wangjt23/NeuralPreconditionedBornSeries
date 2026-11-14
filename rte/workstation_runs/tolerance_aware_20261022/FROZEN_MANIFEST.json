@@ -1,0 +1,8 @@
+{
+  "PROTOCOL.json": "7a6aed2400421bdfd1e3f3ce30b56bb1abc097dc2aaeda9e484b4c2e19d68d95",
+  "code/objective.py": "778081ae47d49a630bdbec35abb9428cbe461243c7e6e82305196c8b98d535c5",
+  "code/train_tolerance.py": "a6886c8cd7e2017dccb97fb1e259600e69bf37dea3f0e1d0ca620f17aaa9aea4",
+  "code/admit.py": "69eb2bce4b39a2e2eec2d82bd907950219853d0bff7e42ae451dff4821feeffe",
+  "code/test_objective.py": "5b7d4b45f80542163a1f561c10bcccbc9f1515c4d8b793e3da1d4c9a7822e134",
+  "code/benchmark_tolerance.py": "56cd092e1d2bb58a3206381138a02f1b06d22af97e970d1c18f5dca112f22240"
+}

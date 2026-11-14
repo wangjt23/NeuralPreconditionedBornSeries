@@ -1,0 +1,118 @@
+[
+  {
+    "size": 128,
+    "index": 0,
+    "input_readback_and_physical_setup_seconds": 0.3869919069111347,
+    "strong_base_setup_seconds": 0.12402664311230183,
+    "strong_source_apply_seconds": 0.003568323329091072,
+    "strong_source_persistence_seconds": 0.10994032397866249,
+    "strong_source_H_seconds": 0.07221452705562115,
+    "candidate_setup_seconds": 0.7070354912430048,
+    "candidate_diagnostics": {
+      "coarse_size": 64,
+      "full_angles": 12,
+      "interpolation_relative_error": 5.788274684215669e-17,
+      "reused_same_development_source_teacher": true,
+      "old_teacher_acquisition_seconds": null,
+      "acquisition_cost_unknown_not_zero": true,
+      "no_new_teacher_solve": true,
+      "crossgrid_source_geometry_parameter_identity": {
+        "centers": true,
+        "phases": true,
+        "amplitudes": true,
+        "angular_codes": true,
+        "geometry_base64": true
+      },
+      "frontier_role": "Fixed trial column for original-source response, not a frontier response teacher",
+      "Nyquist_rule": "Identically remove coarse negative-Nyquist rows/columns from both teacher and analytic response before normalized Fourier embedding",
+      "filtered_teacher_relative_difference": 0.00034440013278900556
+    }
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "input_readback_and_physical_setup_seconds": 0.236753324046731,
+    "strong_base_setup_seconds": 0.01607418619096279,
+    "strong_source_apply_seconds": 0.0033774878829717636,
+    "strong_source_persistence_seconds": 0.05944860354065895,
+    "strong_source_H_seconds": 0.0009384285658597946,
+    "candidate_setup_seconds": 0.6484315674751997,
+    "candidate_diagnostics": {
+      "coarse_size": 64,
+      "full_angles": 12,
+      "interpolation_relative_error": 7.7000523097149e-17,
+      "reused_same_development_source_teacher": true,
+      "old_teacher_acquisition_seconds": null,
+      "acquisition_cost_unknown_not_zero": true,
+      "no_new_teacher_solve": true,
+      "crossgrid_source_geometry_parameter_identity": {
+        "centers": true,
+        "phases": true,
+        "amplitudes": true,
+        "angular_codes": true,
+        "geometry_base64": true
+      },
+      "frontier_role": "Fixed trial column for original-source response, not a frontier response teacher",
+      "Nyquist_rule": "Identically remove coarse negative-Nyquist rows/columns from both teacher and analytic response before normalized Fourier embedding",
+      "filtered_teacher_relative_difference": 0.00039702995526242995
+    }
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "input_readback_and_physical_setup_seconds": 0.8939159847795963,
+    "strong_base_setup_seconds": 0.024330846965312958,
+    "strong_source_apply_seconds": 0.017911048606038094,
+    "strong_source_persistence_seconds": 0.22944378294050694,
+    "strong_source_H_seconds": 0.0021758079528808594,
+    "candidate_setup_seconds": 0.1814145427197218,
+    "candidate_diagnostics": {
+      "coarse_size": 64,
+      "full_angles": 12,
+      "interpolation_relative_error": 6.53214360646236e-17,
+      "reused_same_development_source_teacher": true,
+      "old_teacher_acquisition_seconds": null,
+      "acquisition_cost_unknown_not_zero": true,
+      "no_new_teacher_solve": true,
+      "crossgrid_source_geometry_parameter_identity": {
+        "centers": true,
+        "phases": true,
+        "amplitudes": true,
+        "angular_codes": true,
+        "geometry_base64": true
+      },
+      "frontier_role": "Fixed trial column for original-source response, not a frontier response teacher",
+      "Nyquist_rule": "Identically remove coarse negative-Nyquist rows/columns from both teacher and analytic response before normalized Fourier embedding",
+      "filtered_teacher_relative_difference": 0.00034440013278900556
+    }
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "input_readback_and_physical_setup_seconds": 0.8618482798337936,
+    "strong_base_setup_seconds": 0.01868092454969883,
+    "strong_source_apply_seconds": 0.01763204112648964,
+    "strong_source_persistence_seconds": 0.21294507384300232,
+    "strong_source_H_seconds": 0.0013131555169820786,
+    "candidate_setup_seconds": 0.18542972579598427,
+    "candidate_diagnostics": {
+      "coarse_size": 64,
+      "full_angles": 12,
+      "interpolation_relative_error": 8.334914654662886e-17,
+      "reused_same_development_source_teacher": true,
+      "old_teacher_acquisition_seconds": null,
+      "acquisition_cost_unknown_not_zero": true,
+      "no_new_teacher_solve": true,
+      "crossgrid_source_geometry_parameter_identity": {
+        "centers": true,
+        "phases": true,
+        "amplitudes": true,
+        "angular_codes": true,
+        "geometry_base64": true
+      },
+      "frontier_role": "Fixed trial column for original-source response, not a frontier response teacher",
+      "Nyquist_rule": "Identically remove coarse negative-Nyquist rows/columns from both teacher and analytic response before normalized Fourier embedding",
+      "filtered_teacher_relative_difference": 0.00039702995526242995
+    }
+  }
+]

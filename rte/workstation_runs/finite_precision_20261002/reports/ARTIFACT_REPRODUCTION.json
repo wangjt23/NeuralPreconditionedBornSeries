@@ -1,0 +1,8 @@
+{
+  "manifest_payloads": 86,
+  "all_sha256_verified": true,
+  "root_scalar_reduction_byte_exact": true,
+  "independent_scalar_audit_success": true,
+  "independent_audit_byte_exact": true,
+  "no_gpu_or_original_source_required": true
+}

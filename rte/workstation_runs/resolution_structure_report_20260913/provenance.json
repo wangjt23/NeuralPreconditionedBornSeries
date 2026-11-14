@@ -1,0 +1,149 @@
+{
+  "evaluations": [
+    {
+      "run": "resolution_n64_final_cpu_20260913",
+      "fingerprints": {
+        "comparison": "7f4cea12b9f4490a5cbba6e163c5935f651ada6245331b0c75534bb4d0e0bf34",
+        "selection": "8cac9b53588337165bed203d8e02ca5b92f0d7c69efe75d1b0d78663637379d3"
+      },
+      "scope": "Fresh timing after suspension; frozen weights; classical grid tuned seed 542, learned repeats seed 843",
+      "sample_rows": 1056,
+      "snapshots": 541,
+      "foreign_observations": 876,
+      "foreign_processes": [
+        "3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3453963, python, 576 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3453963, python, 606 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3453963, python, 672 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3453963, python, 684 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3453963, python, 728 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3453963, python, 732 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3456454, python, 1584 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3456454, python, 1586 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3456454, python, 1588 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3456454, python, 1696 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3456454, python, 1698 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3456454, python, 1700 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3456454, python, 1992 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3456454, python, 1994 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3456454, python, 2068 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3456454, python, 2140 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3456454, python, 392 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3456454, python, 598 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+      ],
+      "first_foreign_stage": "start",
+      "gpu_timing_uncontended_claim": false
+    },
+    {
+      "run": "resolution_n128_final_cpu_20260913",
+      "fingerprints": {
+        "comparison": "7ec57204a355edc20e36f76341d3b4648fac94785384a0b96a8716becef1feb3",
+        "selection": "d643c3e6c509ef0e839656d871e3b1e656c0343f4d5197d23cb96beebc45c241"
+      },
+      "scope": "Frozen September 12 N128 weights; all six CPU-tuned classical families; same 24 cases as GPU",
+      "sample_rows": 768,
+      "snapshots": 397,
+      "foreign_observations": 549,
+      "foreign_processes": [
+        "3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3458961, python, 876 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3458965, python, 584 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3459492, python, 326 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3459492, python, 472 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3459492, python, 712 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3459492, python, 862 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3459492, python, 910 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3460245, python, 1450 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3460245, python, 1900 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3460245, python, 1902 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3460245, python, 1912 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3460245, python, 1914 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3460245, python, 1920 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3460245, python, 260 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3460245, python, 842 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 310 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 328 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 330 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 334 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 354 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 374 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 446 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 450 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 460 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 474 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 516 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 712 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 722 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 724 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 742 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 750 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 754 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3461871, /data1/software/miniconda3/envs/xll/bin/python, 756 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3462290, /data1/software/miniconda3/envs/xll/bin/python, 2628 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3462290, /data1/software/miniconda3/envs/xll/bin/python, 312 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3462290, /data1/software/miniconda3/envs/xll/bin/python, 3300 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3462290, /data1/software/miniconda3/envs/xll/bin/python, 332 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3462290, /data1/software/miniconda3/envs/xll/bin/python, 336 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3462290, /data1/software/miniconda3/envs/xll/bin/python, 3474 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3462290, /data1/software/miniconda3/envs/xll/bin/python, 348 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3462290, /data1/software/miniconda3/envs/xll/bin/python, 358 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3462290, /data1/software/miniconda3/envs/xll/bin/python, 360 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3462290, /data1/software/miniconda3/envs/xll/bin/python, 4670 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1",
+        "3462290, /data1/software/miniconda3/envs/xll/bin/python, 5944 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+      ],
+      "first_foreign_stage": "start",
+      "gpu_timing_uncontended_claim": false
+    },
+    {
+      "run": "resolution_n64_final_gpu_20260913",
+      "fingerprints": {
+        "comparison": "7f4cea12b9f4490a5cbba6e163c5935f651ada6245331b0c75534bb4d0e0bf34",
+        "selection": "8cac9b53588337165bed203d8e02ca5b92f0d7c69efe75d1b0d78663637379d3"
+      },
+      "scope": "Frozen September 12 weights; GPU-specific tuning; 24 new coefficient cases",
+      "sample_rows": 864,
+      "snapshots": 445,
+      "foreign_observations": 445,
+      "foreign_processes": [
+        "3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+      ],
+      "first_foreign_stage": "start",
+      "gpu_timing_uncontended_claim": false
+    },
+    {
+      "run": "resolution_n128_final_gpu_20260913",
+      "fingerprints": {
+        "comparison": "7ec57204a355edc20e36f76341d3b4648fac94785384a0b96a8716becef1feb3",
+        "selection": "d643c3e6c509ef0e839656d871e3b1e656c0343f4d5197d23cb96beebc45c241"
+      },
+      "scope": "Frozen September 12 weights; GPU-specific tuning; 24 new coefficient cases",
+      "sample_rows": 1056,
+      "snapshots": 541,
+      "foreign_observations": 541,
+      "foreign_processes": [
+        "3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+      ],
+      "first_foreign_stage": "start",
+      "gpu_timing_uncontended_claim": false
+    },
+    {
+      "run": "structure_n128_fresh_gpu_20260913",
+      "fingerprints": {
+        "comparison": "cc4fc30d7137125658daef34e4c061145028cfcb712aa818d72c3c0de4d974a9",
+        "selection": "92441ce23f591f1db627eb6df8742f05ef1218a1e1be56b674764e9330e103dd"
+      },
+      "scope": "Frozen characteristic-coordinate trial; new coefficient seed 100947; competing GPU process possible",
+      "sample_rows": 1056,
+      "snapshots": 541,
+      "foreign_observations": 541,
+      "foreign_processes": [
+        "3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+      ],
+      "first_foreign_stage": "start",
+      "gpu_timing_uncontended_claim": false
+    }
+  ],
+  "interval_scope": "paired medium bootstrap conditional on fixed trained models, not training-seed uncertainty",
+  "baseline_scope": "fastest observed successful classical family in each comparison; not an oracle chosen per medium",
+  "timing_scope": "initialized process/model/operator, not process-cold; shared host/device"
+}

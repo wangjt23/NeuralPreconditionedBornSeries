@@ -1,0 +1,140 @@
+{
+  "args": {
+    "output": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/smoke",
+    "wall_seconds": 240.0,
+    "max_gpu_gib": 14.0,
+    "seed": 41004,
+    "horizon": 3000,
+    "smoke": true,
+    "batch": 4,
+    "cache_mode": "auto",
+    "width": 32,
+    "blocks": 4,
+    "modes": 6
+  },
+  "provenance": {
+    "warm_start": "rte/workstation_runs/resume_audit_20261002/paired_training/mixed64_128/best.pt",
+    "warm_sha256": "5b1f192ac4d4a2e50b3391f36ac42f60a0685d19af5fe99ff8f6933eee73d82d",
+    "input_sha256": {
+      "train64": "1e34233b172224ed18b59184a74aec41111ed68184b8068a9c9ddfe9cd62e72f",
+      "train128": "fe98917ec481a92d1b7437289fe209b358c5e7ad8c7326a7c60d9d9db5f8ce8f",
+      "panel64": "1b0e36d3ab0966f82136240f1ed263ad6a4364cb486fc4f73eb55fea5b0cf20b",
+      "panel128": "63e98424179e1ecba06c25c2c46bb7938e71dca9ed5b979086afca15628fa8da",
+      "parent64": "858f73d0066333dd9a4b4366d7ff48dc5f160650e5e326c33b1d28b03079efed",
+      "parent128": "58f8e2f069ea1fa1c0c8f490b441c7acfc91a6592d045a7a7a52eea7bf08aeb4"
+    },
+    "source_sha256": {
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/train_adequacy.py": "df2d02c39ea2bd479cbce55d3b0487ef6070142097ab5af6598075957152bfd9",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/resume_audit_20261002/code/train_tail_multiresolution.py": "9e39c46004df068631a183c8a3dcb60914ddbfd1af2ad3beba18f86db16cfe55",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/train_tail_lookahead.py": "210b4e2e00e5923d31a3b4d561fa3816dced9e9090f7595967a84be23d983fe3",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/tail_lookahead.py": "b979dfb964b681f7695171faf80c8bee6fe129e4ffc064effc045d52fe044e2f",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/train_tail_direction.py": "506c5e4b912222f69ffd9e09fe4ff059849ec740843fc995a14ebe1a118d360d",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/audit_tail_injection.py": "6eb42830f4f5a05d996987dc03862cd440604894ebe406bff795b18b1dc49be9",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/global_source_predictor.py": "8e90c95245bb13796f6fff324224d7d504062e52ed08f8bda14988afa808f2e5",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/tail_response_network.py": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/mixed_precision_transport.py": "9c6793ed0bffad5bf803253ac0ada097026c653c02f6498e82fb0974dfc9765a",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/transport_baselines.py": "05f6984eb24962409ff25e42313e9c1ac740df86b59ef7b498faff715cfd62ec",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/run_large_angular_spectral_experiments.py": "7a3e61e7fa294094c8e1528ad588d64b5559eb4890ea2c8d8196375fd795970e",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/RTE_mgmodel.py": "902f97e2b31c6157b57760b277a30f68d35a836acc9fa0a5c3700d19fb76a753",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/source_initialization.py": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af"
+    }
+  },
+  "complete": true,
+  "scope": "existing train and reused development only; no test access",
+  "protocol": "fixed architecture, TSA8-balanced contexts, two-step loss; same 3000-step cosine horizon and shared samples; weights-only warm start, state reset",
+  "learning_rate_control_scope": "compare arms only at matched update1000; extended main endpoint is a budget-plus-rate comparison against control1000",
+  "fixed_panels": "first16 eligible original training IDs per grid; all13 eligible development IDs per grid; phase0; controls at initialization",
+  "selection": "all16 development media at64/128; failures, equivalent work, residual; no selection using timing or N256",
+  "resources": "serial GPU execution, wall cap900s for phase including cache/validation/panels/checkpoints; reserved GPU guard14GiB",
+  "cache": {
+    "mode": "gpu",
+    "estimated_resident_bytes": 5963779584,
+    "grids": {
+      "64": {
+        "seconds": 0.5509744603186846,
+        "bytes": 1192756992,
+        "memory": {
+          "allocated_bytes": 1201276928,
+          "reserved_bytes": 1835008000,
+          "free_bytes": 48697507840,
+          "total_bytes": 50908823552,
+          "peak_allocated_bytes": 1774717952,
+          "peak_reserved_bytes": 1835008000
+        }
+      },
+      "128": {
+        "seconds": 0.7429058235138655,
+        "bytes": 4771022592,
+        "memory": {
+          "allocated_bytes": 5972299776,
+          "reserved_bytes": 8931770368,
+          "free_bytes": 41600745472,
+          "total_bytes": 50908823552,
+          "peak_allocated_bytes": 8262390784,
+          "peak_reserved_bytes": 8931770368
+        }
+      }
+    }
+  },
+  "panel_cache": {
+    "mode": "gpu",
+    "estimated_resident_bytes": 692224416,
+    "grids": {
+      "64": {
+        "seconds": 0.03365921415388584,
+        "bytes": 138445008,
+        "memory": {
+          "allocated_bytes": 6110745600,
+          "reserved_bytes": 8931770368,
+          "free_bytes": 41600745472,
+          "total_bytes": 50908823552,
+          "peak_allocated_bytes": 8262390784,
+          "peak_reserved_bytes": 8931770368
+        }
+      },
+      "128": {
+        "seconds": 0.08739061281085014,
+        "bytes": 553779408,
+        "memory": {
+          "allocated_bytes": 6664525824,
+          "reserved_bytes": 8933867520,
+          "free_bytes": 41598648320,
+          "total_bytes": 50908823552,
+          "peak_allocated_bytes": 8262390784,
+          "peak_reserved_bytes": 8933867520
+        }
+      }
+    }
+  },
+  "identity_phase_sha256": "062215e80e84630af8a3fd91ab6493cf7747eef2fced54674d278a1ba22514b2",
+  "arms": [
+    {
+      "arm": "smoke",
+      "complete": true,
+      "updates": 2,
+      "selected_step": 2,
+      "best_score": [
+        0,
+        7.84375,
+        5.908482280315962e-06
+      ],
+      "timing": {
+        "training": 0.4476237017661333,
+        "validation": 9.359028933569789,
+        "panel": 7.3037549294531345,
+        "checkpoint": 0.7539584264159203
+      },
+      "peak_allocated_bytes": 8262390784,
+      "peak_reserved_bytes": 9279897600,
+      "stopping_reason": "planned budget",
+      "checkpoint_sha256": {
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/smoke/smoke/last.pt": "e492e51cead26a406cc56bc33e9c46f866bd515df2544db6e344e858c98013eb",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/smoke/smoke/best.pt": "9b7cb9a881a2292f14be2fb950fef517d951077190509c09b073ad209a0ee68f",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/smoke/smoke/step0.pt": "f6487b865a928cbdfc80927948e832f74124a375210f4aab24ba633f5119a435"
+      }
+    }
+  ],
+  "wall_seconds": 42.68391005508602
+}

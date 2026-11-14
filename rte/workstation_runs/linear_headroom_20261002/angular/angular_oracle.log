@@ -1,0 +1,5 @@
+angular q3 N128 ID0 complete
+angular q3 N128 ID3 complete
+angular q3 N256 ID0 complete
+angular q3 N256 ID3 complete
+{"complete": true, "wall_seconds": 50.84101880155504, "independent_media": 2, "parity_passed": true, "all_coarse_accepted": true, "all_full_solves_accuracy_passed": true, "range_optimality_claim": false, "peak_allocated_bytes": 1123206656, "peak_reserved_bytes": 3219128320, "training": false, "test_touched": false, "scope": "q3 cached oracle; acquisition excluded from cached timings, included separately; no ML success claim"}

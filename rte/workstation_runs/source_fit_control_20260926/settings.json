@@ -1,0 +1,16 @@
+{
+  "args": {
+    "checkpoint": "rte/workstation_runs/source_predictor_characteristic_20260926/best.pt",
+    "teacher_bank": "rte/workstation_runs/source_predictor_pilot_20260926/train.pt",
+    "output": "rte/workstation_runs/source_fit_control_20260926",
+    "cases": 4,
+    "steps": 1000,
+    "eval_every": 200,
+    "lr": 0.001
+  },
+  "complete": true,
+  "checkpoint_sha256": "62a458ec46f124b04d2dcc2b09ff62eab67a9bcd714fbd9e2e1890e057dfc664",
+  "bank_sha256": "44a80f5ed30aa2085119925f55a8b5dea072f2d8c48dcc023c9d29e785db6e96",
+  "scope": "CPU training-set overfit control; zero held-out speed claims; do not compare with test results",
+  "seconds": 286.358205454424
+}

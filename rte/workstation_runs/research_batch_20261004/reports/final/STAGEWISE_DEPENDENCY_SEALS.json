@@ -1,0 +1,27 @@
+{
+  "certified_twiddles.py": {
+    "bytes": 6758,
+    "sha256": "c1cb5f8744e96013c326114bdbe67819a24088fe2bc31772ae5a875c7d3d18f2",
+    "source": "Authored prior certifier dependency; no original project source"
+  },
+  "cpu_interval_primitives.cpp": {
+    "bytes": 2852,
+    "sha256": "8a9a2eccfa3b85c4caa33958a1db0c67db2c97ecd340dd1c8f5294fa0608d53a",
+    "source": "Authored prior certifier dependency; no original project source"
+  },
+  "interval_fft.py": {
+    "bytes": 22908,
+    "sha256": "a150f0680fa98d7f627f9abbbfae1e45d62c5ad6f89b96a9197134743a88ea41",
+    "source": "Authored prior certifier dependency; no original project source"
+  },
+  "test_certified_twiddles.py": {
+    "bytes": 8583,
+    "sha256": "44c765b8f676fc747de7827a9b5559639ae30ccfa20a2fd48439bb085e8cb2f9",
+    "source": "Authored prior certifier dependency; no original project source"
+  },
+  "test_interval_fft.py": {
+    "bytes": 11050,
+    "sha256": "380cab6f47c6f75b2432f3804c3eaf43dd9dfdf28954a6566e7e2ace10438428",
+    "source": "Authored prior certifier dependency; no original project source"
+  }
+}

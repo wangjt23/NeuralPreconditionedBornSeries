@@ -1,0 +1,3 @@
+step,train_batch_objective,validation_objective,validation_failures,validation_iterations,validation_final,selected_step
+0,,0.1809377372264862,4,19.4375,0.0032449095537856465,0
+20,0.14525270462036133,0.14673789590597153,6,20.8125,0.0011422306043868957,0

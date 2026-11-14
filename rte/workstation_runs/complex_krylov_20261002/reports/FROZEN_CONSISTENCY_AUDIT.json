@@ -1,0 +1,69 @@
+{
+  "frozen_consistency_passed": true,
+  "policy_sha256": "acd73134c63839726d3b699c60e795b8da90d14709a9529fb94e905ce59ebd93",
+  "code_hashes": {
+    "code/complex_screen.py": {
+      "expected": "efc7d6f95598e1a7b02c60c1740ab52660a2a48e19cc9d67e90f76564bacb3bf",
+      "actual": "efc7d6f95598e1a7b02c60c1740ab52660a2a48e19cc9d67e90f76564bacb3bf",
+      "local_path": "deliverables/complex_krylov/complex_screen.py"
+    },
+    "code/complex_augmented_fgmres.py": {
+      "expected": "d517306d65f796b923c08735be235f7d56b615614e8a068fcd35349a592bfe4e",
+      "actual": "d517306d65f796b923c08735be235f7d56b615614e8a068fcd35349a592bfe4e",
+      "local_path": "deliverables/complex_krylov/complex_augmented_fgmres.py"
+    },
+    "code/test_complex_augmented_fgmres.py": {
+      "expected": "3222ecad4a617b6184bc0a2970f4927f77108bff0382f7d6b21555d28182a1b8",
+      "actual": "3222ecad4a617b6184bc0a2970f4927f77108bff0382f7d6b21555d28182a1b8",
+      "local_path": "deliverables/complex_krylov/test_complex_augmented_fgmres.py"
+    },
+    "code/admissibility.py": {
+      "expected": "c7a76527ee259b0aca5e9620248574bb46d73864a0719ccaadb65da7591280a4",
+      "actual": "c7a76527ee259b0aca5e9620248574bb46d73864a0719ccaadb65da7591280a4",
+      "local_path": "deliverables/complex_krylov/admissibility.py"
+    },
+    "code/test_admissibility.py": {
+      "expected": "4a10411660b0d45f6b3bbbf55b3ee1dfeb36a17b5965d47d9499369ef32d56e4",
+      "actual": "4a10411660b0d45f6b3bbbf55b3ee1dfeb36a17b5965d47d9499369ef32d56e4",
+      "local_path": "deliverables/complex_krylov/test_admissibility.py"
+    },
+    "code/graph_classical_v2.py": {
+      "expected": "cb142084d28b1a0b5236e92b6b5e14f4d7aca3d67b8d7d41e3f65d2d76c0db3e",
+      "actual": "cb142084d28b1a0b5236e92b6b5e14f4d7aca3d67b8d7d41e3f65d2d76c0db3e",
+      "local_path": "deliverables/headroom/graph_classical_v2.py"
+    },
+    "code/segmented_tsa.py": {
+      "expected": "a95ed61b4c282353e48b8dad6f5aebd993a50f130f10d8aaca6e8aa2c883ba29",
+      "actual": "a95ed61b4c282353e48b8dad6f5aebd993a50f130f10d8aaca6e8aa2c883ba29",
+      "local_path": "deliverables/segmented/segmented_tsa.py"
+    },
+    "code/direct_segmented_tsa.py": {
+      "expected": "98eb806b8482990c1727cb80de3a2182c520be01090a512b742feb0417e0d1d1",
+      "actual": "98eb806b8482990c1727cb80de3a2182c520be01090a512b742feb0417e0d1d1",
+      "local_path": "deliverables/direct_capture/direct_segmented_tsa.py"
+    },
+    "code/direct_full_graph.py": {
+      "expected": "cf29f0b3d4b2dfe773660ac06a33385216719f6fcf363c1a33d44973ab372cd0",
+      "actual": "cf29f0b3d4b2dfe773660ac06a33385216719f6fcf363c1a33d44973ab372cd0",
+      "local_path": "deliverables/direct_capture/direct_full_graph.py"
+    }
+  },
+  "capture_entry_checks": 112,
+  "admissibility_records": 108,
+  "admissibility_action_calls": 1080,
+  "maximum_full_solves": 96,
+  "paired_coefficient_solves": 32,
+  "same_real_recipe_pairs": 64,
+  "shared_reference_cache_required": true,
+  "diagnostic_capture_ZW": false,
+  "current_raw_image_live": true,
+  "imaginary_diagnostic_in_acceptance_timer": true,
+  "physical_H_after_deployed_cap": 0.001,
+  "physical_H128_cap": 1e-12,
+  "absolute_arnoldi_cutoff": 1e-14,
+  "complex_tiny_ls": "SVD every step with disclosed rank safety",
+  "historical_summary_sha256": "44d7a8f08bb3f9ffd960b680508f3c2a06f3db8d54cf51fe248146cb97500b1c",
+  "historical_raw_solver_sha256": "4fed2a0d6cab61bdcec266ce77329a2acf7635f238286d7e48a0090f15690966",
+  "historical_four_envelopes_match_raw": true,
+  "remaining": "FWI staging/preflight and executed receipts pending. This is static consistency, not a numerical/admissibility or performance pass."
+}

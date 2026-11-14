@@ -1,0 +1,12 @@
+test_action_adjoint_and_actual_hqw_adjoint_use_physical_stored_buffers (test_image_whitening.ImageWhiteningTests.test_action_adjoint_and_actual_hqw_adjoint_use_physical_stored_buffers) ... ok
+test_cache_refreshes_for_actual_physical_and_angular_buffer_changes (test_image_whitening.ImageWhiteningTests.test_cache_refreshes_for_actual_physical_and_angular_buffer_changes) ... ok
+test_homogeneous_image_equals_direct_physical_action_including_nyquist (test_image_whitening.ImageWhiteningTests.test_homogeneous_image_equals_direct_physical_action_including_nyquist) ... ok
+test_invalid_precision_shape_and_material_batch_are_rejected (test_image_whitening.ImageWhiteningTests.test_invalid_precision_shape_and_material_batch_are_rejected) ... ok
+test_one_material_broadcasts_to_multiple_rhs_and_other_mode_counts (test_image_whitening.ImageWhiteningTests.test_one_material_broadcasts_to_multiple_rhs_and_other_mode_counts) ... ok
+test_symbol_is_the_full_original_homogeneous_image_and_whitens_it (test_image_whitening.ImageWhiteningTests.test_symbol_is_the_full_original_homogeneous_image_and_whitens_it) ... ok
+test_zero_additivity_and_complex_linearity (test_image_whitening.ImageWhiteningTests.test_zero_additivity_and_complex_linearity) ... ok
+
+----------------------------------------------------------------------
+Ran 7 tests in 1.200s
+
+OK

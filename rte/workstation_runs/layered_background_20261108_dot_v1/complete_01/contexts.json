@@ -1,0 +1,450 @@
+[
+  {
+    "grid": 128,
+    "index": 0,
+    "variant": "upwind_32",
+    "axis": 0,
+    "physical_setup_seconds": 0.2962504420429468,
+    "acceptance_setup_seconds": 0.10181733313947916,
+    "tsa_base_setup_seconds": 0.022632324835285544,
+    "tsa_capture_seconds": 0.05581905203871429,
+    "factor_setup_seconds": 0.10756914410740137,
+    "factor_bytes": 302137344,
+    "capture_seconds": {
+      "G": 0.010045459959656,
+      "Born2": 0.01725064404308796,
+      "GMRES2": 0.03168995096348226,
+      "OracleQ": 0.017639087978750467
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0,
+      "OracleQ": 0.0
+    },
+    "oracle": {
+      "prefix_relative_residual": 0.12755369604444142,
+      "known_q_norm": 2.5411783499190173,
+      "teacher_equation_error_original_rhs": 7.215860578541907e-10,
+      "raw_proposal_residual_ratio": 1.0466516964729056,
+      "raw_proposal_residual_original_rhs": 0.13350429235630396,
+      "information_acquisition": "Existing teacher + one captured classical prefix; excluded from optimistic online oracle, recorded separately.",
+      "prefix_acquisition_seconds": 0.13179161702282727
+    }
+  },
+  {
+    "grid": 128,
+    "index": 0,
+    "variant": "compact4_64",
+    "axis": 0,
+    "physical_setup_seconds": 0.2962504420429468,
+    "acceptance_setup_seconds": 0.10181733313947916,
+    "tsa_base_setup_seconds": 0.022632324835285544,
+    "tsa_capture_seconds": 0.05581905203871429,
+    "factor_setup_seconds": 0.17821459588594735,
+    "factor_bytes": 604274688,
+    "capture_seconds": {
+      "G": 0.019605420995503664,
+      "Born2": 0.02286889497190714,
+      "GMRES2": 0.027734959963709116,
+      "OracleQ": 0.02160554099828005
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0,
+      "OracleQ": 0.0
+    },
+    "oracle": {
+      "prefix_relative_residual": 0.12755369604444142,
+      "known_q_norm": 2.5411783499190173,
+      "teacher_equation_error_original_rhs": 7.215860578541907e-10,
+      "raw_proposal_residual_ratio": 5.200054957740422,
+      "raw_proposal_residual_original_rhs": 0.6632862294940125,
+      "information_acquisition": "Existing teacher + one captured classical prefix; excluded from optimistic online oracle, recorded separately.",
+      "prefix_acquisition_seconds": 0.13179161702282727
+    }
+  },
+  {
+    "grid": 128,
+    "index": 4,
+    "variant": "upwind_32",
+    "axis": 0,
+    "physical_setup_seconds": 0.005332096945494413,
+    "acceptance_setup_seconds": 0.0007476978935301304,
+    "tsa_base_setup_seconds": 0.0033503121230751276,
+    "tsa_capture_seconds": 0.012667012866586447,
+    "factor_setup_seconds": 0.023921998916193843,
+    "factor_bytes": 302137344,
+    "capture_seconds": {
+      "G": 0.00811925414018333,
+      "Born2": 0.016400206135585904,
+      "GMRES2": 0.023524615913629532,
+      "OracleQ": 0.01388327102176845
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0,
+      "OracleQ": 0.0
+    },
+    "oracle": {
+      "prefix_relative_residual": 0.21206151045094376,
+      "known_q_norm": 0.23829612999575528,
+      "teacher_equation_error_original_rhs": 9.744857559599692e-10,
+      "raw_proposal_residual_ratio": 1.7125489035508488,
+      "raw_proposal_residual_original_rhs": 0.3631657072081006,
+      "information_acquisition": "Existing teacher + one captured classical prefix; excluded from optimistic online oracle, recorded separately.",
+      "prefix_acquisition_seconds": 0.010377452010288835
+    }
+  },
+  {
+    "grid": 128,
+    "index": 4,
+    "variant": "compact4_64",
+    "axis": 0,
+    "physical_setup_seconds": 0.005332096945494413,
+    "acceptance_setup_seconds": 0.0007476978935301304,
+    "tsa_base_setup_seconds": 0.0033503121230751276,
+    "tsa_capture_seconds": 0.012667012866586447,
+    "factor_setup_seconds": 0.17198708886280656,
+    "factor_bytes": 604274688,
+    "capture_seconds": {
+      "G": 0.011902853148058057,
+      "Born2": 0.022252272116020322,
+      "GMRES2": 0.02703412901610136,
+      "OracleQ": 0.021060873055830598
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0,
+      "OracleQ": 0.0
+    },
+    "oracle": {
+      "prefix_relative_residual": 0.21206151045094376,
+      "known_q_norm": 0.23829612999575528,
+      "teacher_equation_error_original_rhs": 9.744857559599692e-10,
+      "raw_proposal_residual_ratio": 7.957401654118412,
+      "raw_proposal_residual_original_rhs": 1.6874586140371888,
+      "information_acquisition": "Existing teacher + one captured classical prefix; excluded from optimistic online oracle, recorded separately.",
+      "prefix_acquisition_seconds": 0.010377452010288835
+    }
+  },
+  {
+    "grid": 128,
+    "index": 7,
+    "variant": "upwind_32",
+    "axis": 1,
+    "physical_setup_seconds": 0.005366923054680228,
+    "acceptance_setup_seconds": 0.0007528620772063732,
+    "tsa_base_setup_seconds": 0.0033916770480573177,
+    "tsa_capture_seconds": 0.012857269961386919,
+    "factor_setup_seconds": 0.025103506166487932,
+    "factor_bytes": 302137344,
+    "capture_seconds": {
+      "G": 0.008361964952200651,
+      "Born2": 0.016657929867506027,
+      "GMRES2": 0.02386311488226056,
+      "OracleQ": 0.014274429064244032
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0,
+      "OracleQ": 0.0
+    },
+    "oracle": {
+      "prefix_relative_residual": 0.05154978015747816,
+      "known_q_norm": 0.008248263414677813,
+      "teacher_equation_error_original_rhs": 4.890895106219181e-10,
+      "raw_proposal_residual_ratio": 1.2209794292037333,
+      "raw_proposal_residual_original_rhs": 0.06294122115225562,
+      "information_acquisition": "Existing teacher + one captured classical prefix; excluded from optimistic online oracle, recorded separately.",
+      "prefix_acquisition_seconds": 0.010451362002640963
+    }
+  },
+  {
+    "grid": 128,
+    "index": 7,
+    "variant": "compact4_64",
+    "axis": 1,
+    "physical_setup_seconds": 0.005366923054680228,
+    "acceptance_setup_seconds": 0.0007528620772063732,
+    "tsa_base_setup_seconds": 0.0033916770480573177,
+    "tsa_capture_seconds": 0.012857269961386919,
+    "factor_setup_seconds": 0.17215860192663968,
+    "factor_bytes": 604274688,
+    "capture_seconds": {
+      "G": 0.011657132068648934,
+      "Born2": 0.022384644951671362,
+      "GMRES2": 0.02719943388365209,
+      "OracleQ": 0.021472741849720478
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0,
+      "OracleQ": 0.0
+    },
+    "oracle": {
+      "prefix_relative_residual": 0.05154978015747816,
+      "known_q_norm": 0.008248263414677813,
+      "teacher_equation_error_original_rhs": 4.890895106219181e-10,
+      "raw_proposal_residual_ratio": 4.888627448679094,
+      "raw_proposal_residual_original_rhs": 0.2520076702512207,
+      "information_acquisition": "Existing teacher + one captured classical prefix; excluded from optimistic online oracle, recorded separately.",
+      "prefix_acquisition_seconds": 0.010451362002640963
+    }
+  },
+  {
+    "grid": 128,
+    "index": 14,
+    "variant": "upwind_32",
+    "axis": 1,
+    "physical_setup_seconds": 0.005214876029640436,
+    "acceptance_setup_seconds": 0.0007260739803314209,
+    "tsa_base_setup_seconds": 0.0034763861913233995,
+    "tsa_capture_seconds": 0.012348548974841833,
+    "factor_setup_seconds": 0.024003607919439673,
+    "factor_bytes": 302137344,
+    "capture_seconds": {
+      "G": 0.008145765867084265,
+      "Born2": 0.016218604985624552,
+      "GMRES2": 0.023498967988416553,
+      "OracleQ": 0.014035107102245092
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0,
+      "OracleQ": 0.0
+    },
+    "oracle": {
+      "prefix_relative_residual": 0.08394834951569535,
+      "known_q_norm": 0.011312374489524091,
+      "teacher_equation_error_original_rhs": 5.382504464817734e-10,
+      "raw_proposal_residual_ratio": 1.5938436784888521,
+      "raw_proposal_residual_original_rhs": 0.13380054619516374,
+      "information_acquisition": "Existing teacher + one captured classical prefix; excluded from optimistic online oracle, recorded separately.",
+      "prefix_acquisition_seconds": 0.010268996935337782
+    }
+  },
+  {
+    "grid": 128,
+    "index": 14,
+    "variant": "compact4_64",
+    "axis": 1,
+    "physical_setup_seconds": 0.005214876029640436,
+    "acceptance_setup_seconds": 0.0007260739803314209,
+    "tsa_base_setup_seconds": 0.0034763861913233995,
+    "tsa_capture_seconds": 0.012348548974841833,
+    "factor_setup_seconds": 0.17232974502258003,
+    "factor_bytes": 604274688,
+    "capture_seconds": {
+      "G": 0.01147651206701994,
+      "Born2": 0.02235603705048561,
+      "GMRES2": 0.027073119999840856,
+      "OracleQ": 0.02115352009423077
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0,
+      "OracleQ": 0.0
+    },
+    "oracle": {
+      "prefix_relative_residual": 0.08394834951569535,
+      "known_q_norm": 0.011312374489524091,
+      "teacher_equation_error_original_rhs": 5.382504464817734e-10,
+      "raw_proposal_residual_ratio": 7.611218794292586,
+      "raw_proposal_residual_original_rhs": 0.6389492555837035,
+      "information_acquisition": "Existing teacher + one captured classical prefix; excluded from optimistic online oracle, recorded separately.",
+      "prefix_acquisition_seconds": 0.010268996935337782
+    }
+  },
+  {
+    "grid": 256,
+    "index": 0,
+    "variant": "upwind_32",
+    "axis": 0,
+    "physical_setup_seconds": 0.006022654008120298,
+    "acceptance_setup_seconds": 0.0007585929706692696,
+    "tsa_base_setup_seconds": 0.005633511813357472,
+    "tsa_capture_seconds": 0.01789637515321374,
+    "factor_setup_seconds": 0.09911125106737018,
+    "factor_bytes": 1359249408,
+    "capture_seconds": {
+      "G": 0.019025125075131655,
+      "Born2": 0.037214698968455195,
+      "GMRES2": 0.051373494090512395
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0
+    },
+    "oracle": null
+  },
+  {
+    "grid": 256,
+    "index": 0,
+    "variant": "compact4_64",
+    "axis": 0,
+    "physical_setup_seconds": 0.006022654008120298,
+    "acceptance_setup_seconds": 0.0007585929706692696,
+    "tsa_base_setup_seconds": 0.005633511813357472,
+    "tsa_capture_seconds": 0.01789637515321374,
+    "factor_setup_seconds": 0.7840189610142261,
+    "factor_bytes": 2718498816,
+    "capture_seconds": {
+      "G": 0.046987642999738455,
+      "Born2": 0.08583239000290632,
+      "GMRES2": 0.09924393193796277
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0
+    },
+    "oracle": null
+  },
+  {
+    "grid": 256,
+    "index": 4,
+    "variant": "upwind_32",
+    "axis": 0,
+    "physical_setup_seconds": 0.007142250891774893,
+    "acceptance_setup_seconds": 0.0007727569900453091,
+    "tsa_base_setup_seconds": 0.005618249997496605,
+    "tsa_capture_seconds": 0.014120541978627443,
+    "factor_setup_seconds": 0.10016535292379558,
+    "factor_bytes": 1359249408,
+    "capture_seconds": {
+      "G": 0.0187228680588305,
+      "Born2": 0.03778881300240755,
+      "GMRES2": 0.0515681451652199
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0
+    },
+    "oracle": null
+  },
+  {
+    "grid": 256,
+    "index": 4,
+    "variant": "compact4_64",
+    "axis": 0,
+    "physical_setup_seconds": 0.007142250891774893,
+    "acceptance_setup_seconds": 0.0007727569900453091,
+    "tsa_base_setup_seconds": 0.005618249997496605,
+    "tsa_capture_seconds": 0.014120541978627443,
+    "factor_setup_seconds": 0.786523099988699,
+    "factor_bytes": 2718498816,
+    "capture_seconds": {
+      "G": 0.04166844207793474,
+      "Born2": 0.08384759491309524,
+      "GMRES2": 0.09681368805468082
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0
+    },
+    "oracle": null
+  },
+  {
+    "grid": 256,
+    "index": 7,
+    "variant": "upwind_32",
+    "axis": 1,
+    "physical_setup_seconds": 0.006664657033979893,
+    "acceptance_setup_seconds": 0.0007788019720464945,
+    "tsa_base_setup_seconds": 0.005450012860819697,
+    "tsa_capture_seconds": 0.013337873853743076,
+    "factor_setup_seconds": 0.10055659012869,
+    "factor_bytes": 1359249408,
+    "capture_seconds": {
+      "G": 0.01866923994384706,
+      "Born2": 0.03814016911201179,
+      "GMRES2": 0.0520226510707289
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0
+    },
+    "oracle": null
+  },
+  {
+    "grid": 256,
+    "index": 7,
+    "variant": "compact4_64",
+    "axis": 1,
+    "physical_setup_seconds": 0.006664657033979893,
+    "acceptance_setup_seconds": 0.0007788019720464945,
+    "tsa_base_setup_seconds": 0.005450012860819697,
+    "tsa_capture_seconds": 0.013337873853743076,
+    "factor_setup_seconds": 0.7892046901397407,
+    "factor_bytes": 2718498816,
+    "capture_seconds": {
+      "G": 0.04219744703732431,
+      "Born2": 0.08471713098697364,
+      "GMRES2": 0.09841025713831186
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0
+    },
+    "oracle": null
+  },
+  {
+    "grid": 256,
+    "index": 14,
+    "variant": "upwind_32",
+    "axis": 1,
+    "physical_setup_seconds": 0.008481618016958237,
+    "acceptance_setup_seconds": 0.0007495959289371967,
+    "tsa_base_setup_seconds": 0.007940595969557762,
+    "tsa_capture_seconds": 0.01808588905259967,
+    "factor_setup_seconds": 0.09974620095454156,
+    "factor_bytes": 1359249408,
+    "capture_seconds": {
+      "G": 0.01849698508158326,
+      "Born2": 0.037844699108973145,
+      "GMRES2": 0.050996992038562894
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0
+    },
+    "oracle": null
+  },
+  {
+    "grid": 256,
+    "index": 14,
+    "variant": "compact4_64",
+    "axis": 1,
+    "physical_setup_seconds": 0.008481618016958237,
+    "acceptance_setup_seconds": 0.0007495959289371967,
+    "tsa_base_setup_seconds": 0.007940595969557762,
+    "tsa_capture_seconds": 0.01808588905259967,
+    "factor_setup_seconds": 0.7891274120192975,
+    "factor_bytes": 2718498816,
+    "capture_seconds": {
+      "G": 0.042058716993778944,
+      "Born2": 0.08470780798234046,
+      "GMRES2": 0.09756662184372544
+    },
+    "capture_differences": {
+      "G": 0.0,
+      "Born2": 0.0,
+      "GMRES2": 0.0
+    },
+    "oracle": null
+  }
+]

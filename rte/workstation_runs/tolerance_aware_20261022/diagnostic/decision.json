@@ -1,0 +1,152 @@
+{
+  "complete": true,
+  "training_ids": 56,
+  "grid": 128,
+  "phase": 0,
+  "updates": 0,
+  "tau": 1e-05,
+  "beta": 1.3862943611198906,
+  "residual_gradient": {
+    "old_norm": 4.970000602114952,
+    "new_norm": 3.3140463888289604,
+    "cosine": 0.9021308179308083,
+    "one_minus_cosine": 0.0978691820691917,
+    "relative_difference": 0.49146296654144767,
+    "best_positive_scale": 0.6015499028597023,
+    "relative_nonscaling_component": 0.2877036106318577,
+    "clipped_relative_difference": 0.4424232861620003,
+    "real_component_sign_difference": 0.25648506062065174
+  },
+  "total_gradient": {
+    "old_norm": 4.976372987818317,
+    "new_norm": 3.3245322021007793,
+    "cosine": 0.9021518042999361,
+    "one_minus_cosine": 0.09784819570006387,
+    "relative_difference": 0.4908355589284182,
+    "best_positive_scale": 0.6026945190644455,
+    "relative_nonscaling_component": 0.28821502515854447,
+    "clipped_relative_difference": 0.44237584857237355,
+    "real_component_sign_difference": 0.2557605644510898
+  },
+  "training_pair_discriminating": true,
+  "criterion": "TOTAL gradient relative difference>=1e-3 AND 1-cos>=1e-6; frozen before diagnostic",
+  "limitation": "noncollinearity is not a theorem of distinct Adam trajectories or better solver calls",
+  "cache": {
+    "mode": "gpu",
+    "estimated_resident_bytes": 2981890688,
+    "grids": {
+      "64": {
+        "seconds": 0.43392795138061047,
+        "bytes": 596378944,
+        "memory": {
+          "allocated_bytes": 608044544,
+          "reserved_bytes": 973078528,
+          "free_bytes": 49559437312,
+          "total_bytes": 50908823552,
+          "peak_allocated_bytes": 895354880,
+          "peak_reserved_bytes": 973078528
+        }
+      },
+      "128": {
+        "seconds": 0.35757887549698353,
+        "bytes": 2385511744,
+        "memory": {
+          "allocated_bytes": 2993556480,
+          "reserved_bytes": 4672454656,
+          "free_bytes": 45860061184,
+          "total_bytes": 50908823552,
+          "peak_allocated_bytes": 4138601984,
+          "peak_reserved_bytes": 4672454656
+        }
+      }
+    }
+  },
+  "provenance": {
+    "warm_start": "rte/workstation_runs/resume_audit_20261002/paired_training/mixed64_128/best.pt",
+    "warm_sha256": "5b1f192ac4d4a2e50b3391f36ac42f60a0685d19af5fe99ff8f6933eee73d82d",
+    "original_ids": [
+      4,
+      7,
+      10,
+      12,
+      20,
+      26,
+      28,
+      29,
+      30,
+      36,
+      38,
+      39,
+      40,
+      42,
+      45,
+      50,
+      51,
+      54,
+      56,
+      57,
+      59,
+      60,
+      61,
+      63,
+      64,
+      65,
+      67,
+      71,
+      73,
+      74,
+      75,
+      76,
+      78,
+      79,
+      80,
+      83,
+      88,
+      89,
+      93,
+      95,
+      97,
+      98,
+      100,
+      103,
+      107,
+      111,
+      112,
+      114,
+      116,
+      117,
+      118,
+      119,
+      121,
+      122,
+      124,
+      127
+    ],
+    "inputs": {
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/train_tsa16_n64.pt": "626dbf07a9c6bcfdca396cc4ff6687dc04ffc2c0bc756049a2eba86cd497159f",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/train_tsa16_n128.pt": "3300919ccd68200299fab7ce212498520154e8cd2cf7742c4df872890303b07c"
+    },
+    "own_source_sha256": {
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/tolerance_aware_20261022/code/objective.py": "778081ae47d49a630bdbec35abb9428cbe461243c7e6e82305196c8b98d535c5",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/tolerance_aware_20261022/code/train_tolerance.py": "a6886c8cd7e2017dccb97fb1e259600e69bf37dea3f0e1d0ca620f17aaa9aea4",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/tolerance_aware_20261022/code/benchmark_tolerance.py": "56cd092e1d2bb58a3206381138a02f1b06d22af97e970d1c18f5dca112f22240",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/tolerance_aware_20261022/code/admit.py": "69eb2bce4b39a2e2eec2d82bd907950219853d0bff7e42ae451dff4821feeffe",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/tolerance_aware_20261022/code/test_objective.py": "5b7d4b45f80542163a1f561c10bcccbc9f1515c4d8b793e3da1d4c9a7822e134"
+    },
+    "original_source_sha256": {
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/train_tail_lookahead.py": "210b4e2e00e5923d31a3b4d561fa3816dced9e9090f7595967a84be23d983fe3",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/tail_lookahead.py": "b979dfb964b681f7695171faf80c8bee6fe129e4ffc064effc045d52fe044e2f",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/train_tail_direction.py": "506c5e4b912222f69ffd9e09fe4ff059849ec740843fc995a14ebe1a118d360d",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/audit_tail_injection.py": "6eb42830f4f5a05d996987dc03862cd440604894ebe406bff795b18b1dc49be9",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/global_source_predictor.py": "8e90c95245bb13796f6fff324224d7d504062e52ed08f8bda14988afa808f2e5",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/tail_response_network.py": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/mixed_precision_transport.py": "9c6793ed0bffad5bf803253ac0ada097026c653c02f6498e82fb0974dfc9765a",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/transport_baselines.py": "05f6984eb24962409ff25e42313e9c1ac740df86b59ef7b498faff715cfd62ec",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/run_large_angular_spectral_experiments.py": "7a3e61e7fa294094c8e1528ad588d64b5559eb4890ea2c8d8196375fd795970e",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/RTE_mgmodel.py": "902f97e2b31c6157b57760b277a30f68d35a836acc9fa0a5c3700d19fb76a753",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/source_initialization.py": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af"
+    }
+  }
+}

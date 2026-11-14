@@ -1,0 +1,14 @@
+# Independent revised-model audit — 2026-10-02
+
+Reviewed `error_model.py` SHA256 `5628afcaa039b0a1fb88d68c4c73ea381fc5c961b0f4481ccbe9f705fa863015`. All initial corrections recorded in MODEL_REVIEW.md are resolved in this version: sign/domain guards, both symbol-formation paths when comparing32 with physical64, exact/outward scalar acceptance evaluation and a reserve that pays norm/subtraction uncertainty while retaining the original exact residual tolerance. The separate source-contract sensitivity expressions must remain clearly distinct from this unchanged-tolerance reserve.
+
+Added and ran `test_error_model_audit.py`: **12 independent scalar tests passed in0.023s**. These cover worst-case aligned action/check errors at the smallest and both production norm counts; reserve shrinkage with norm count; no remaining acceptance slack at the observed tolerance; independent solution-error failure despite a passing source residual; exact scalar outward enclosure; nonpositive solution-norm lower bound; signed/nonnormal angular coefficients; and rejected invalid precision/error/count/material/acceptance inputs. These are scalar model tests, not RTE action/field/solver experiments. No new scientific field, GPU/SSH call, full solve, source export, training, seed9626 access or frozen-file edit occurred.
+
+The revised reserve uses an observed-ratio ceiling `(1−allocation)*tau`, a conditional norm-conversion allowance, and scalar subtraction allowance. Algebraically it enforces
+
+    b <= m*(tau−rho_upper−a)/(1+tau),
+    a=mu_sub, b=epsilon_H+mu_sub*(L+epsilon_H).
+
+This is a sufficient condition for the unchanged exact nominal source-residual target under its hypotheses. The exact Fraction calculation and outward conversion avoid an additional unaccounted rounding error in the scalar budget. They do **not** establish the hypotheses: FFT and angular contraction contracts, normal-range scalar/reduction behavior, and norm enclosures still require separate justification. A returned conditional-contract flag means those inputs are assumed, not that CUDA has supplied them. The joint relative solution-error condition remains independent and is correctly represented by the positive denominator in `acceptance_upper`.
+
+**Decision:** mathematically acceptable as a conditional error model for a separately frozen, bounded primitive-only diagnostic. Such a diagnostic may identify finite-input discrepancies, exact-toy defects, costs and falsifications of proposed contracts. Passing finite NumPy/exact4×4 references cannot establish a uniform CUDA action error, admit an unobserved Arnoldi trajectory, guarantee convergence or demonstrate solver economics. Certified full-solver admission remains **NO-GO** while the backend/global contract is unresolved. The earlier failed frozen entry gate remains preserved and is not retrospectively changed. Driver/policy scope still needs review before any diagnostic execution.

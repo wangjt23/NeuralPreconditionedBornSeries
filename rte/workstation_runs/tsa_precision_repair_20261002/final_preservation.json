@@ -1,0 +1,38 @@
+{
+  "host": "FWI-Standard-PC-i440FX-PIIX-1996",
+  "user": "wjt",
+  "workspace": "/data/wjt/NeuralPreconditionedBornSeries",
+  "branch": "main",
+  "head": "028caea3f35d100225f656e2b1e910c1366aaafe",
+  "original_sources_verified": 155,
+  "original_input_files_verified": 7,
+  "model_files_verified": 3,
+  "development_parents_verified": 3,
+  "previous_reports_verified": 11,
+  "all_mismatches": [],
+  "reserved_seed_touched": false,
+  "reserved_test_files": [],
+  "git_push_commit_merge": false,
+  "original_source_modified": false,
+  "full_solves_run": 0,
+  "warmed_solver_timings_run": 0,
+  "gate_changed": false,
+  "gate_passed": false,
+  "training_run": false,
+  "other_research_processes": [],
+  "gpu_processes_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "gpu_after": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]\nNVIDIA RTX A6000, 49140 MiB, 37 MiB, 0 %\n",
+  "executed_code_sha256": {
+    "code/sum_stable_tsa.py": "274c94dd0ca5fa6e36ffd51ab9b0036a2a7df32b40041d3e9200457378460b6b",
+    "code/check_sum_stable_tsa.py": "30acea5481c605ff7fcd1655784638a6e8c6ebfba2368e86d6e8e8dc136ece42",
+    "code/diagnose_precision_final.py": "616de8fc569411e8829fda37b05de5a8641a2fc7148a728d31b75d53f3606cee",
+    "code/algebraic_tsa.py": "85ca74f338091c645ca77b198d74f011eca09ec62b86d27d732ba92126de5e81",
+    "code/diagnose_precision.py": "7e9f4f12ba4718805a24a513656844402333fb00dba3aadaac51f5f37ce24fb9",
+    "code/diagnose_precision_extended.py": "4fe65413e22219ea6485a9ba6e4165f986605b987020dc668b8072a6866bf632",
+    "code/diagnose_precision_closed.py": "d8aae8caaeb581d2d43883cab5d2d63eff29485004505d7143e454886a527146"
+  },
+  "report_sha256": {
+    "HANDOFF.md": "0662dd14f3675c18b899b28266c142f3f1c5c943e0cbf3852426f3713b2ffa40",
+    "RTE_TSA_PRECISION_OBSTRUCTION_2026_10_02.md": "d05d2ded25aab9948e87682065f048a6dae65c07d33ff5a4bed7614330891e83"
+  }
+}

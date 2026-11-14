@@ -1,0 +1,52 @@
+{
+  "complete": true,
+  "pid": 975241,
+  "source_hash": "95d6dacba7fd1b996bb2632e136d9aaa04c7dcb2ae4e7975c2c24ac3ce18b57d",
+  "neural_training": false,
+  "new_unique_teacher_cases": 0,
+  "recomputed_reference_solves": 4,
+  "heldout9626": false,
+  "grid": 128,
+  "n_angles": 12,
+  "g": 0.65,
+  "selected_condition": "p1_b3.33333",
+  "selection": "Hardest of4 tested scenes; best depth64 is interior and beats32 and128.",
+  "source_ids": [
+    0,
+    4,
+    7,
+    14
+  ],
+  "repeats": 3,
+  "maxiter": 100,
+  "wall_limit": 600,
+  "teacher_contract": "4 new exact solutions for the changed A, original Fourier residual <=2e-9.",
+  "cost": "Full Q1 and actual reuse across the same4RHS. Teacher cost excluded only for explicitly oracle method. Factor/capture charged to every method that uses it.",
+  "methods": [
+    "tsa64",
+    "upwind:born",
+    "compact4:born"
+  ],
+  "common_setup_seconds": 0.32738058385439217,
+  "coercivity_margin": 0.04996154916125306,
+  "tsa64_setup_seconds": 0.06704184506088495,
+  "factors": {
+    "upwind": {
+      "factor_seconds": 0.12575176311656833,
+      "capture_seconds": 0.04709271714091301,
+      "factor_bytes": 302137344,
+      "capture_error": 0.0
+    },
+    "compact4": {
+      "factor_seconds": 0.02538226987235248,
+      "capture_seconds": 0.009158209897577763,
+      "factor_bytes": 302137344,
+      "capture_error": 0.0
+    }
+  },
+  "wall_seconds": 11.297484625829384,
+  "rows": 48,
+  "failures": 0,
+  "peak_allocated_bytes": 856823808,
+  "peak_reserved_bytes": 1176502272
+}

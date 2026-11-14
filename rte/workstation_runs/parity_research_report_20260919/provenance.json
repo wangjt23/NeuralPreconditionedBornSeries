@@ -1,0 +1,793 @@
+{
+  "runs": [
+    {
+      "directory": "rte/workstation_runs/parity_stiffness_pilot_20260919",
+      "complete": true,
+      "settings": {
+        "args": {
+          "sizes": [
+            64
+          ],
+          "epsilons": [
+            1.0,
+            0.1
+          ],
+          "shifts": [
+            1.0
+          ],
+          "count": 2,
+          "seed": 1919,
+          "repeats": 1,
+          "checkpoint": "rte/workstation_runs/sct4_krylov_n64_seed402_20260912/best.pt",
+          "device": "cuda:0",
+          "output": "rte/workstation_runs/parity_stiffness_pilot_20260919"
+        },
+        "scope": "development survey, not held-out tuned-method confirmation; no training",
+        "refinement": "same continuous realizations, exact nested-grid coefficient agreement checked",
+        "scaling": "t=t0/eps; s=t-eps*(t0-s0), rounded once to FP32 then physical operator promoted unchanged",
+        "timing": "preparation plus first, followed by warmed same-RHS solves; excludes initial process/operator construction",
+        "parity": "symmetric reference only, original physical A unchanged and checked in FP64"
+      },
+      "telemetry_snapshots": 4,
+      "competing_process_snapshots": 0,
+      "first_competing": []
+    },
+    {
+      "directory": "rte/workstation_runs/parity_stiffness_survey_20260919",
+      "complete": true,
+      "settings": {
+        "args": {
+          "sizes": [
+            64,
+            128
+          ],
+          "epsilons": [
+            1.0,
+            0.25,
+            0.1
+          ],
+          "shifts": [
+            0.5,
+            1.0,
+            2.0
+          ],
+          "count": 4,
+          "seed": 1919,
+          "repeats": 2,
+          "checkpoint": "rte/workstation_runs/sct4_krylov_n64_seed402_20260912/best.pt",
+          "device": "cuda:0",
+          "output": "rte/workstation_runs/parity_stiffness_survey_20260919"
+        },
+        "scope": "development survey, not held-out tuned-method confirmation; no training",
+        "refinement": "same continuous realizations, exact nested-grid coefficient agreement checked",
+        "scaling": "t=t0/eps; s=t-eps*(t0-s0), rounded once to FP32 then physical operator promoted unchanged",
+        "timing": "preparation plus first, followed by warmed same-RHS solves; excludes initial process/operator construction",
+        "parity": "symmetric reference only, original physical A unchanged and checked in FP64"
+      },
+      "telemetry_snapshots": 24,
+      "competing_process_snapshots": 5,
+      "first_competing": [
+        {
+          "snapshot": 13,
+          "stage": null,
+          "processes": [
+            [
+              "569434",
+              " /data1/software/miniconda3/envs/xll/bin/python",
+              " 446 MiB",
+              " GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "directory": "rte/workstation_runs/parity_response_blocks_20260919",
+      "complete": true,
+      "settings": {
+        "args": {
+          "sizes": [
+            16,
+            32
+          ],
+          "divisions": [
+            4
+          ],
+          "epsilons": [
+            1.0,
+            0.1
+          ],
+          "count": 4,
+          "limit": 2,
+          "seed": 1919,
+          "device": "cuda:0",
+          "output": "rte/workstation_runs/parity_response_blocks_20260919"
+        },
+        "scope": "dense small-grid structural diagnostic; compression errors are block Frobenius, not solver errors",
+        "operators": "even Schur inverse and inverse minus homogeneous reference; all retained angular channels",
+        "limitation": "sampled source patch only; no whole-operator hierarchical approximation or network tested"
+      },
+      "telemetry_snapshots": 0,
+      "competing_process_snapshots": 0,
+      "first_competing": []
+    },
+    {
+      "directory": "rte/workstation_runs/parity_multilevel_control_20260919",
+      "complete": true,
+      "settings": {
+        "args": {
+          "datasets": [
+            "rte/workstation_runs/parity_stiffness_survey_20260919/data_n64.pt",
+            "rte/workstation_runs/parity_stiffness_survey_20260919/data_n128.pt"
+          ],
+          "epsilons": [
+            1.0,
+            0.1
+          ],
+          "coarse_sizes": [
+            8
+          ],
+          "count": 2,
+          "inner_steps": 8,
+          "repeats": 2,
+          "device": "cuda:0",
+          "output": "rte/workstation_runs/parity_multilevel_control_20260919"
+        },
+        "scope": "development control, no learned weights; exact coarse setup cost included",
+        "precision": "FP64 parity/reference arithmetic, unchanged FP64 physical operator; existing full-angle controls FP32",
+        "coarse": "positive additive R0+P(RSP)^-1R; analytic sqrt(t/mean(t)) congruence optional"
+      },
+      "telemetry_snapshots": 8,
+      "competing_process_snapshots": 8,
+      "first_competing": [
+        {
+          "snapshot": 0,
+          "stage": null,
+          "processes": [
+            [
+              "571430",
+              " /data1/software/miniconda3/envs/xll/bin/python",
+              " 5998 MiB",
+              " GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "directory": "rte/workstation_runs/parity_characteristic_control_20260919",
+      "complete": true,
+      "settings": {
+        "args": {
+          "datasets": [
+            "rte/workstation_runs/parity_stiffness_survey_20260919/data_n64.pt"
+          ],
+          "epsilons": [
+            1.0,
+            0.1
+          ],
+          "coarse_sizes": [
+            8
+          ],
+          "characteristic_count": 49,
+          "count": 2,
+          "inner_steps": 8,
+          "repeats": 1,
+          "device": "cuda:0",
+          "output": "rte/workstation_runs/parity_characteristic_control_20260919"
+        },
+        "scope": "development control, no learned weights; exact coarse setup cost included",
+        "precision": "FP64 parity/reference arithmetic, unchanged FP64 physical operator; existing full-angle controls FP32",
+        "coarse": "positive additive R0+P(RSP)^-1R; analytic sqrt(t/mean(t)) congruence optional"
+      },
+      "telemetry_snapshots": 4,
+      "competing_process_snapshots": 4,
+      "first_competing": [
+        {
+          "snapshot": 0,
+          "stage": null,
+          "processes": [
+            [
+              "571430",
+              " /data1/software/miniconda3/envs/xll/bin/python",
+              " 5998 MiB",
+              " GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "directory": "rte/workstation_runs/hierarchical_response_oracle_20260919",
+      "complete": true,
+      "settings": {
+        "args": {
+          "size": 16,
+          "count": 2,
+          "seed": 1919,
+          "device": "cpu",
+          "output": "rte/workstation_runs/hierarchical_response_oracle_20260919"
+        },
+        "dataset_count": 4,
+        "scope": "small-grid exact-inverse oracle; no NN, no timing claim, no O(N) hierarchical implementation",
+        "near": "periodic 4x4 patches, same/adjacent patches exact; separated blocks independently truncated with adjoint pairing",
+        "limitations": "SPD of truncated inverse is not guaranteed; outer FGMRES checks unchanged physical residual"
+      },
+      "telemetry_snapshots": 0,
+      "competing_process_snapshots": 0,
+      "first_competing": []
+    },
+    {
+      "directory": "rte/workstation_runs/hierarchical_residual_weighted_oracle_20260919",
+      "complete": true,
+      "settings": {
+        "args": {
+          "size": 16,
+          "count": 2,
+          "seed": 1919,
+          "metric": "residual",
+          "tolerances": [
+            0.01,
+            0.001
+          ],
+          "device": "cpu",
+          "output": "rte/workstation_runs/hierarchical_residual_weighted_oracle_20260919"
+        },
+        "dataset_count": 4,
+        "scope": "small-grid exact-inverse oracle; no NN, no timing claim, no O(N) hierarchical implementation",
+        "near": "periodic 4x4 patches, same/adjacent patches exact; separated blocks truncated",
+        "metric": "Euclidean with adjoint pairing, or output-row weighted by QR of H[:, output_patch]; weighted result need not be Hermitian",
+        "limitations": "SPD is not guaranteed; outer FGMRES checks unchanged physical residual"
+      },
+      "telemetry_snapshots": 0,
+      "competing_process_snapshots": 0,
+      "first_competing": []
+    },
+    {
+      "directory": "rte/workstation_runs/depth_review_n128_gpu_20260919",
+      "complete": true,
+      "settings": {
+        "args": {
+          "specs": "rte/workstation_runs/depth_review_config_20260919/specs.json",
+          "size": 128,
+          "n_angles": 12,
+          "g": 0.65,
+          "selection_count": 6,
+          "count": 24,
+          "seed": 843,
+          "solver_steps": 60,
+          "tol": 1e-05,
+          "repeats": 3,
+          "tuning_repeats": 1,
+          "device": "cuda:0",
+          "precision": "mixed",
+          "scope": "September 19 classical-depth audit on original comparison cases; no new training, not independent confirmation",
+          "output": "rte/workstation_runs/depth_review_n128_gpu_20260919"
+        },
+        "specs": [
+          {
+            "label": "compiled_hss_d2_s0.5",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 2,
+            "scale": 0.5
+          },
+          {
+            "label": "compiled_hss_d2_s1.0",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 2,
+            "scale": 1.0
+          },
+          {
+            "label": "compiled_hss_d2_s2.0",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 2,
+            "scale": 2.0
+          },
+          {
+            "label": "compiled_hss_d4_s0.5",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 4,
+            "scale": 0.5
+          },
+          {
+            "label": "compiled_hss_d4_s1.0",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 4,
+            "scale": 1.0
+          },
+          {
+            "label": "compiled_hss_d4_s2.0",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 4,
+            "scale": 2.0
+          },
+          {
+            "label": "compiled_hss_d8_s0.5",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 8,
+            "scale": 0.5
+          },
+          {
+            "label": "compiled_hss_d8_s1.0",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 8,
+            "scale": 1.0
+          },
+          {
+            "label": "compiled_hss_d8_s2.0",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 8,
+            "scale": 2.0
+          },
+          {
+            "label": "compiled_hss_d16_s0.5",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 16,
+            "scale": 0.5
+          },
+          {
+            "label": "compiled_hss_d16_s1.0",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 16,
+            "scale": 1.0
+          },
+          {
+            "label": "compiled_hss_d16_s2.0",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 16,
+            "scale": 2.0
+          },
+          {
+            "label": "compiled_hss_d32_s0.5",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 32,
+            "scale": 0.5
+          },
+          {
+            "label": "compiled_hss_d32_s1.0",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 32,
+            "scale": 1.0
+          },
+          {
+            "label": "compiled_hss_d32_s2.0",
+            "group": "compiled_hss",
+            "mode": "compiled_hss",
+            "family": "compiled_hss",
+            "depth": 32,
+            "scale": 2.0
+          },
+          {
+            "label": "hss_d2_s0.5",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 2,
+            "scale": 0.5
+          },
+          {
+            "label": "hss_d2_s1.0",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 2,
+            "scale": 1.0
+          },
+          {
+            "label": "hss_d2_s2.0",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 2,
+            "scale": 2.0
+          },
+          {
+            "label": "hss_d4_s0.5",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 4,
+            "scale": 0.5
+          },
+          {
+            "label": "hss_d4_s1.0",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 4,
+            "scale": 1.0
+          },
+          {
+            "label": "hss_d4_s2.0",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 4,
+            "scale": 2.0
+          },
+          {
+            "label": "hss_d8_s0.5",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 8,
+            "scale": 0.5
+          },
+          {
+            "label": "hss_d8_s1.0",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 8,
+            "scale": 1.0
+          },
+          {
+            "label": "hss_d8_s2.0",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 8,
+            "scale": 2.0
+          },
+          {
+            "label": "hss_d16_s0.5",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 16,
+            "scale": 0.5
+          },
+          {
+            "label": "hss_d16_s1.0",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 16,
+            "scale": 1.0
+          },
+          {
+            "label": "hss_d16_s2.0",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 16,
+            "scale": 2.0
+          },
+          {
+            "label": "hss_d32_s0.5",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 32,
+            "scale": 0.5
+          },
+          {
+            "label": "hss_d32_s1.0",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 32,
+            "scale": 1.0
+          },
+          {
+            "label": "hss_d32_s2.0",
+            "group": "hss",
+            "mode": "classical",
+            "family": "hss",
+            "depth": 32,
+            "scale": 2.0
+          },
+          {
+            "label": "tsa_d2_s0.0",
+            "group": "tsa",
+            "mode": "classical",
+            "family": "tsa",
+            "depth": 2,
+            "scale": 0.0
+          },
+          {
+            "label": "tsa_d2_s0.03",
+            "group": "tsa",
+            "mode": "classical",
+            "family": "tsa",
+            "depth": 2,
+            "scale": 0.03
+          },
+          {
+            "label": "tsa_d4_s0.0",
+            "group": "tsa",
+            "mode": "classical",
+            "family": "tsa",
+            "depth": 4,
+            "scale": 0.0
+          },
+          {
+            "label": "tsa_d4_s0.03",
+            "group": "tsa",
+            "mode": "classical",
+            "family": "tsa",
+            "depth": 4,
+            "scale": 0.03
+          },
+          {
+            "label": "tsa_d8_s0.0",
+            "group": "tsa",
+            "mode": "classical",
+            "family": "tsa",
+            "depth": 8,
+            "scale": 0.0
+          },
+          {
+            "label": "tsa_d8_s0.03",
+            "group": "tsa",
+            "mode": "classical",
+            "family": "tsa",
+            "depth": 8,
+            "scale": 0.03
+          },
+          {
+            "label": "tsa_d16_s0.0",
+            "group": "tsa",
+            "mode": "classical",
+            "family": "tsa",
+            "depth": 16,
+            "scale": 0.0
+          },
+          {
+            "label": "tsa_d16_s0.03",
+            "group": "tsa",
+            "mode": "classical",
+            "family": "tsa",
+            "depth": 16,
+            "scale": 0.03
+          },
+          {
+            "label": "dsa_d2_s0.0",
+            "group": "dsa",
+            "mode": "classical",
+            "family": "dsa",
+            "depth": 2,
+            "scale": 0.0
+          },
+          {
+            "label": "dsa_d2_s0.03",
+            "group": "dsa",
+            "mode": "classical",
+            "family": "dsa",
+            "depth": 2,
+            "scale": 0.03
+          },
+          {
+            "label": "dsa_d4_s0.0",
+            "group": "dsa",
+            "mode": "classical",
+            "family": "dsa",
+            "depth": 4,
+            "scale": 0.0
+          },
+          {
+            "label": "dsa_d4_s0.03",
+            "group": "dsa",
+            "mode": "classical",
+            "family": "dsa",
+            "depth": 4,
+            "scale": 0.03
+          },
+          {
+            "label": "dsa_d8_s0.0",
+            "group": "dsa",
+            "mode": "classical",
+            "family": "dsa",
+            "depth": 8,
+            "scale": 0.0
+          },
+          {
+            "label": "dsa_d8_s0.03",
+            "group": "dsa",
+            "mode": "classical",
+            "family": "dsa",
+            "depth": 8,
+            "scale": 0.03
+          },
+          {
+            "label": "dsa_transport_d2_s0.0",
+            "group": "dsa_transport",
+            "mode": "classical",
+            "family": "dsa_transport",
+            "depth": 2,
+            "scale": 0.0
+          },
+          {
+            "label": "dsa_transport_d2_s0.03",
+            "group": "dsa_transport",
+            "mode": "classical",
+            "family": "dsa_transport",
+            "depth": 2,
+            "scale": 0.03
+          },
+          {
+            "label": "dsa_transport_d4_s0.0",
+            "group": "dsa_transport",
+            "mode": "classical",
+            "family": "dsa_transport",
+            "depth": 4,
+            "scale": 0.0
+          },
+          {
+            "label": "dsa_transport_d4_s0.03",
+            "group": "dsa_transport",
+            "mode": "classical",
+            "family": "dsa_transport",
+            "depth": 4,
+            "scale": 0.03
+          },
+          {
+            "label": "dsa_transport_d8_s0.0",
+            "group": "dsa_transport",
+            "mode": "classical",
+            "family": "dsa_transport",
+            "depth": 8,
+            "scale": 0.0
+          },
+          {
+            "label": "dsa_transport_d8_s0.03",
+            "group": "dsa_transport",
+            "mode": "classical",
+            "family": "dsa_transport",
+            "depth": 8,
+            "scale": 0.03
+          },
+          {
+            "label": "reference_d2_s0.0",
+            "group": "reference",
+            "mode": "classical",
+            "family": "reference",
+            "depth": 2,
+            "scale": 0.0
+          },
+          {
+            "label": "reference_d2_s0.03",
+            "group": "reference",
+            "mode": "classical",
+            "family": "reference",
+            "depth": 2,
+            "scale": 0.03
+          },
+          {
+            "label": "reference_d4_s0.0",
+            "group": "reference",
+            "mode": "classical",
+            "family": "reference",
+            "depth": 4,
+            "scale": 0.0
+          },
+          {
+            "label": "reference_d4_s0.03",
+            "group": "reference",
+            "mode": "classical",
+            "family": "reference",
+            "depth": 4,
+            "scale": 0.03
+          },
+          {
+            "label": "reference_d8_s0.0",
+            "group": "reference",
+            "mode": "classical",
+            "family": "reference",
+            "depth": 8,
+            "scale": 0.0
+          },
+          {
+            "label": "reference_d8_s0.03",
+            "group": "reference",
+            "mode": "classical",
+            "family": "reference",
+            "depth": 8,
+            "scale": 0.03
+          },
+          {
+            "label": "reference_d16_s0.0",
+            "group": "reference",
+            "mode": "classical",
+            "family": "reference",
+            "depth": 16,
+            "scale": 0.0
+          },
+          {
+            "label": "reference_d16_s0.03",
+            "group": "reference",
+            "mode": "classical",
+            "family": "reference",
+            "depth": 16,
+            "scale": 0.03
+          },
+          {
+            "label": "ct128_r1",
+            "group": "ct",
+            "checkpoint": "rte/workstation_runs/ct4_krylov_n128_seed402_20260912/best.pt",
+            "repeats": 1
+          },
+          {
+            "label": "ct128_r2",
+            "group": "ct",
+            "checkpoint": "rte/workstation_runs/ct4_krylov_n128_seed402_20260912/best.pt",
+            "repeats": 2
+          },
+          {
+            "label": "sct128_r1",
+            "group": "sct",
+            "checkpoint": "rte/workstation_runs/sct4_krylov_n128_seed402_20260912/best.pt",
+            "repeats": 1
+          },
+          {
+            "label": "sct128_r2",
+            "group": "sct",
+            "checkpoint": "rte/workstation_runs/sct4_krylov_n128_seed402_20260912/best.pt",
+            "repeats": 2
+          }
+        ],
+        "fingerprints": {
+          "comparison": "7ec57204a355edc20e36f76341d3b4648fac94785384a0b96a8716becef1feb3",
+          "selection": "d643c3e6c509ef0e839656d871e3b1e656c0343f4d5197d23cb96beebc45c241"
+        },
+        "checkpoint_sha256": {
+          "rte/workstation_runs/ct4_krylov_n128_seed402_20260912/best.pt": "2ce070b0745a80f2ab6c42d4da1d908fcc6f7382df832c99372eee1cb2615625",
+          "rte/workstation_runs/sct4_krylov_n128_seed402_20260912/best.pt": "817e1b8cbb17d8c2d2609ac7a1f8aff3ef1b8f945c42041e922f6154a3142084"
+        },
+        "torch": "2.5.1",
+        "cuda": "12.4",
+        "timing": "resident process/operator; preparation + first and warmed solve separate; CPU one thread",
+        "scope": "September 19 classical-depth audit on original comparison cases; no new training, not independent confirmation",
+        "transfer": "independently generated higher-resolution media, not same material refined",
+        "coarse_operator": "cell-average rediscretization, not Galerkin; all angles, strict coarse spatial band"
+      },
+      "telemetry_snapshots": 397,
+      "competing_process_snapshots": 397,
+      "first_competing": [
+        {
+          "snapshot": 0,
+          "stage": "start",
+          "processes": [
+            [
+              "571430",
+              " /data1/software/miniconda3/envs/xll/bin/python",
+              " 5998 MiB",
+              " GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+            ]
+          ]
+        }
+      ]
+    }
+  ],
+  "scope": "development sweeps; correlated resolutions/epsilons, fixed four-media survey, no neural training",
+  "failures": "all methods retained; successful-only filtering is not used",
+  "uncertainty": "small exploratory sample, no held-out model-selection or general speedup claim"
+}

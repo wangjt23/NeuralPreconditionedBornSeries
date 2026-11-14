@@ -1,0 +1,35 @@
+{
+  "complete": true,
+  "error": null,
+  "certificates": 8,
+  "paired_controls": 12,
+  "costs": {
+    "readback_hash_seconds": 2.184686852619052,
+    "certificates_seconds": 153.98066460341215,
+    "direct_pair_controls_seconds": 2.8118642438203096,
+    "final_snapshot_hash_seconds": 1.6266413312405348,
+    "json_persistence_seconds": 3.8427119962871075
+  },
+  "elapsed_seconds": 166.5248489137739,
+  "first_checker_ready_seconds": 0.24909919686615467,
+  "ledger_load_seconds": 0.0029351897537708282,
+  "snapshot_ledger_sha256": "29f9ec208e25d74204ae8a12663fb3f8b240e99eb304aebe7b04e14e99fa2b83",
+  "native_guard": {
+    "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+    "architecture": "x86-MXCSR",
+    "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+    "compilation_provenance_must_be_recorded_by_executor": true,
+    "guard_flags": 127,
+    "control_register": 8098,
+    "floating_control_modes_modified": false,
+    "sticky_exception_flags_may_change_in_arithmetic": true
+  },
+  "native_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+  "cpu_peak_rss_kib": 474916,
+  "full_solves": 0,
+  "training_steps": 0,
+  "source_arrays_exported": false,
+  "paired_solver_comparison": false,
+  "global_gpu_contract_established": false,
+  "cost_scope": "Entire fresh CPU checker process including imports/startup, readback/hash, both N256 certificates, direct paired gates and JSON; generation/transfers/snapshot costs separately recorded and included by orchestrator"
+}

@@ -34,8 +34,9 @@ class ClassicalTransportStack(nn.Module):
     def prepare(self):
         if self._grid != (self.rte.shape, self.rte.dx, self.rte.n_angles, self.rte.anisotropy_g, self.rte.float_dtype):
             raise RuntimeError("grid/phase changed; reconstruct the classical reference")
-        signature = tuple((x.data_ptr(), x._version, x.dtype, str(x.device), x.shape)
-                          for x in (self.rte.sigma_t, self.rte.sigma_s))
+        signature = (getattr(self.rte, "setup_generation", 0),
+                     tuple((x.data_ptr(), x._version, x.dtype, str(x.device), x.shape)
+                           for x in (self.rte.sigma_t, self.rte.sigma_s)))
         if self._signature != signature:
             self.reference.setup(self.rte.sigma_t, self.rte.sigma_s, self.rte.source)
             if self.kind == "dsa_transport":

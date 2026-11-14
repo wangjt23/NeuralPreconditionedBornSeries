@@ -1,0 +1,31 @@
+{
+  "purpose": "capacity/optimization diagnostic on fixed TRAIN8, not generalization",
+  "parent": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_born_20261114_dot_v1",
+  "start_checkpoint_hash": "b2b2aaf68667d0b0319b5e52ccc59ff6f1e297697e6fd72e05828c1899233484",
+  "train_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "states": [
+    "source",
+    "TSA1_true_defect",
+    "own_FGMRES2_true_defect_FP64",
+    "own_FGMRES8_true_defect_FP64"
+  ],
+  "updates": 4096,
+  "loss": "mean per-sample squared original-equation residual",
+  "batch": "all8 materials, randomly drawn one of four fixed states",
+  "draw_seed": 144402,
+  "lr": 0.0003,
+  "optimizer": "fresh AdamW, wd1e-5 cosine to1e-5",
+  "DEV_training": false,
+  "selection": "fixed endpoints only",
+  "bank_hash": "4beb4d9e1a7b7d182d76c1a9c22f6a2bb7a44776acae481bf4b20f733857774c",
+  "source_hash": "a0dd3ed03692df445857cf64479139d7175d8fc6d0276c0693f2909a0c406772"
+}

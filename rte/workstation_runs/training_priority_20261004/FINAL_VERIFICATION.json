@@ -1,0 +1,169 @@
+{
+  "written": {
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/RTE_Training_Priority_Results_2026_10_04.md": "c5b09c3d500ba8d49b6aace09cc59b55822929436697d5442b73cfe9f6e9c9e3",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/RTE_Training_Priority_Results_2026_10_04.html": "3387c9f92e4f5b4745275a56d414a5f330ad6ee745cb5c577e2c342849292f32",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/ANALYSIS.json": "1d912ccce5033386e5f2ce7f99ddd6812605a805a966ce2d47005f9a94668ea3",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/ALL_CANDIDATE_GATES.json": "2c045ab1b5e516372ec5d842d3a828cb0e8359b1ac51a17f0440673598be18bb",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/analyze_results.py": "26fb0f35a37c9a74bee69704e682d9a04d189bc9fbda9a979aa741ba538c04f6",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/build_report.py": "fed980a53b902bec84b44cd425dea42626edc8527df28c33951cfab0b17e6b48",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/HANDOFF.md": "c5b09c3d500ba8d49b6aace09cc59b55822929436697d5442b73cfe9f6e9c9e3",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/bootstrap_verification.json": "9654b09d7fa9fc74d964bd9870695d6694c97f3f0895da7cfffb09488ebee586",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/training_priority_evidence.png": "a9820947c20f64b89c60cd38231f9434108a20b36731e4dac05a78e658167e1c",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/training_priority_evidence.svg": "e2c4e9c0d92ab9ac7ad2957ca25db2b188bdcec62d3f6418b578b915c22cd7e6",
+    "/data/wjt/NeuralPreconditionedBornSeries/docs/research/RTE_TRAINING_PRIORITY_RESULTS_2026_10_04.md": "c5b09c3d500ba8d49b6aace09cc59b55822929436697d5442b73cfe9f6e9c9e3"
+  },
+  "timestamp_utc": "2026-10-04T11:28:39.719798+00:00",
+  "preservation": {
+    "count": 133,
+    "changed": [],
+    "head": "028caea3f35d100225f656e2b1e910c1366aaafe",
+    "branch": "main",
+    "tracked_dirty": [
+      "docs/research/RTE_WORKSTATION_HANDOFF_2026_09_12.md",
+      "rte/NPBS_UNET_ABLATION_FULL12_SCALEAWARE_CHANNELMIX_TEACHERPHYSICAL_ONECYCLE_XLARGEBANK_MIXED_SIZE64_FROM2400_LR2E3_STEPS2400.md",
+      "rte/collision_transport.py",
+      "rte/models.py",
+      "rte/spectral_sparse_reference.py",
+      "rte/tests/test_collision_transport.py",
+      "rte/tests/test_collision_transport_ensemble.py",
+      "rte/train_collision_transport_ensemble.py",
+      "rte/transport_baselines.py"
+    ]
+  },
+  "gpu": "NVIDIA RTX A6000, 49140 MiB, 37 MiB, 0 %",
+  "gpu_processes": "1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB",
+  "scoped_processes": [],
+  "statuses": {
+    "training_status.json": {
+      "mode": "training",
+      "pid": 2409622,
+      "started": 1791106861.2432504,
+      "complete": true,
+      "command": [
+        "/data1/software/miniconda3/bin/python",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/train_adequacy.py",
+        "--output",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/training"
+      ],
+      "returncode": 0,
+      "finished": 1791107515.744634,
+      "seconds": 654.5013835430145
+    },
+    "benchmark_status.json": {
+      "mode": "benchmark",
+      "pid": 2411022,
+      "started": 1791107547.6498637,
+      "complete": true,
+      "command": [
+        "/data1/software/miniconda3/bin/python",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/benchmark_adequacy.py",
+        "--output",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/benchmark"
+      ],
+      "returncode": 0,
+      "finished": 1791107745.8426645,
+      "seconds": 198.19280076026917
+    },
+    "alignment_retry_status.json": {
+      "mode": "alignment_retry",
+      "pid": 2411570,
+      "started": 1791107834.905102,
+      "complete": true,
+      "command": [
+        "/data1/software/miniconda3/bin/python",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/train_alignment.py",
+        "--output",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry",
+        "--reuse-strong-train64",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment/train_tsa16_n64.pt"
+      ],
+      "returncode": 0,
+      "finished": 1791108294.1293259,
+      "seconds": 459.2242238521576
+    },
+    "pipeline_status.json": {
+      "complete": false,
+      "started": 1791107321.9930224,
+      "phase": "finished",
+      "alignment_returncode": 1,
+      "benchmark_returncode": 0,
+      "finished": 1791107745.892305,
+      "seconds": 423.89928245544434
+    },
+    "alignment_status.json": {
+      "mode": "alignment",
+      "pid": 2410905,
+      "started": 1791107522.205839,
+      "complete": false,
+      "command": [
+        "/data1/software/miniconda3/bin/python",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/train_alignment.py",
+        "--output",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment"
+      ],
+      "returncode": 1,
+      "finished": 1791107547.4752228,
+      "seconds": 25.269383907318115
+    },
+    "smoke_status.json": {
+      "mode": "smoke",
+      "pid": 2409091,
+      "started": 1791106717.1932533,
+      "complete": true,
+      "tests_returncode": 0,
+      "command": [
+        "/data1/software/miniconda3/bin/python",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/train_adequacy.py",
+        "--output",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/smoke",
+        "--smoke",
+        "--wall-seconds",
+        "240"
+      ],
+      "returncode": 0,
+      "finished": 1791106769.7196562,
+      "seconds": 52.526402950286865
+    },
+    "benchmark_joint_status.json": {
+      "mode": "benchmark_joint",
+      "pid": 2412695,
+      "started": 1791108294.4431796,
+      "complete": true,
+      "command": [
+        "/data1/software/miniconda3/bin/python",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/benchmark_adequacy.py",
+        "--output",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/benchmark_joint",
+        "--alignment",
+        "--alignment-directory",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry"
+      ],
+      "returncode": 0,
+      "finished": 1791108679.0230367,
+      "seconds": 384.5798571109772
+    },
+    "retry_pipeline_status.json": {
+      "complete": true,
+      "started": 1791107834.8287165,
+      "phase": "finished",
+      "finished": 1791108679.0547626,
+      "seconds": 844.2260460853577
+    },
+    "smoke_attempt1_status.json": {
+      "mode": "smoke",
+      "pid": 2408547,
+      "started": 1791106527.9759364,
+      "complete": false,
+      "tests_returncode": 5,
+      "error": {
+        "type": "RuntimeError",
+        "message": "existing continuation-loss tests failed"
+      },
+      "returncode": 1,
+      "finished": 1791106531.2044225,
+      "seconds": 3.2284860610961914
+    }
+  },
+  "checkpoint_hashes_unchanged": 18,
+  "tensor_inventory_unchanged": 126
+}

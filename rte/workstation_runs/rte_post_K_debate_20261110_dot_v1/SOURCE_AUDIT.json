@@ -1,0 +1,28 @@
+{
+  "audit": "Read-only source and saved-evidence audit; no new arrays, factorization or solver call.",
+  "files": {
+    "deliverables/rte_angular_full_20261110_dot_v1/angular_modes.py": "d152afea90179efa8342a4f12631979951503785330f3aab08d4b7f1fe32a481",
+    "remote_reference/rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "remote_reference/rte/source_initialization.py": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af",
+    "deliverables/rte_E_tangent_permutation_20261110_dot_v1/run_permutation_gate.py": "4507fe32246b091cc30d7e76961d12f08557fdfbf6a4c39f44e111e22d762198"
+  },
+  "K_files": [
+    "run_permutation_gate.py",
+    "SOURCE_AUDIT.json",
+    "watchdog.py",
+    "WATCHDOG.json",
+    "run.log",
+    "analyze_permutation.py",
+    "ADMISSION.txt",
+    "PREFLIGHT_REVIEW.txt",
+    "FROZEN_PLAN.md",
+    "DEPTH_BINDING_TEST.json",
+    "analysis.json",
+    "test_depth_binding_static.py",
+    "PROCESS_RELEASE.txt",
+    "PERMUTATION_REPORT.md",
+    "LAUNCH_SHA256SUMS",
+    "SHA256SUMS",
+    "gate_01/results.json"
+  ]
+}

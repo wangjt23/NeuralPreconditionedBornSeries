@@ -1,0 +1,567 @@
+{
+  "authored_code_hashes_all_match": true,
+  "boundaries": {
+    "actual_AZ_projector_used": false,
+    "full_solver_admission": false,
+    "historical_teacher_acquisition_cost": "unknown, not zero",
+    "holdout_or_training_used": false,
+    "learned_advantage_established": false,
+    "new_research_authorized": false,
+    "original_source_solution_accuracy_established": false,
+    "persisted_binary_fields_independently_rehashed": false
+  },
+  "decision": "Both fixed action-only gates fail; retain negatives and stop new research this round",
+  "identical_recorded_strong_source_fields_across_C_D": true,
+  "jobs": {
+    "jobC": {
+      "aggregates": [
+        {
+          "component_apply_cost_ratio_to_strong": 0.2978049768651477,
+          "component_cost_gate_pass": false,
+          "context": "source",
+          "maps": {
+            "material_local": {
+              "mean_actual_constructed_residual_ratio": 0.9802118723359976,
+              "mean_actual_constructed_squared_residual_ratio": 0.9608163219801633,
+              "mean_component_median_apply_seconds": 0.0009898915886878967
+            },
+            "reference": {
+              "mean_actual_constructed_residual_ratio": 0.9603519513986714,
+              "mean_actual_constructed_squared_residual_ratio": 0.9222763020964051,
+              "mean_component_median_apply_seconds": 0.00030562933534383774
+            },
+            "strong": {
+              "mean_actual_constructed_residual_ratio": 0.282863015630228,
+              "mean_actual_constructed_squared_residual_ratio": 0.08212635144578764,
+              "mean_component_median_apply_seconds": 0.0033239591866731644
+            }
+          },
+          "residual_excess_mean_square": 0.8786899705343757,
+          "residual_gate_pass": false,
+          "size": 128,
+          "stratum_gate_pass": false
+        },
+        {
+          "component_apply_cost_ratio_to_strong": 0.28211544463347665,
+          "component_cost_gate_pass": false,
+          "context": "one_strong_action_defect",
+          "maps": {
+            "material_local": {
+              "mean_actual_constructed_residual_ratio": 0.9802197312308525,
+              "mean_actual_constructed_squared_residual_ratio": 0.9608693406726423,
+              "mean_component_median_apply_seconds": 0.0009403610602021217
+            },
+            "reference": {
+              "mean_actual_constructed_residual_ratio": 0.8231181758703429,
+              "mean_actual_constructed_squared_residual_ratio": 0.6815765693975262,
+              "mean_component_median_apply_seconds": 0.00027198437601327896
+            },
+            "strong": {
+              "mean_actual_constructed_residual_ratio": 0.26739590103947597,
+              "mean_actual_constructed_squared_residual_ratio": 0.08198140123987092,
+              "mean_component_median_apply_seconds": 0.0033332491293549538
+            }
+          },
+          "residual_excess_mean_square": 0.8788879394327713,
+          "residual_gate_pass": false,
+          "size": 128,
+          "stratum_gate_pass": false
+        },
+        {
+          "component_apply_cost_ratio_to_strong": 0.10785398011620605,
+          "component_cost_gate_pass": true,
+          "context": "source",
+          "maps": {
+            "material_local": {
+              "mean_actual_constructed_residual_ratio": 0.989520371418332,
+              "mean_actual_constructed_squared_residual_ratio": 0.9791507586990713,
+              "mean_component_median_apply_seconds": 0.001932697370648384
+            },
+            "reference": {
+              "mean_actual_constructed_residual_ratio": 0.9608985336956908,
+              "mean_actual_constructed_squared_residual_ratio": 0.9233261786134478,
+              "mean_component_median_apply_seconds": 0.0008148979395627975
+            },
+            "strong": {
+              "mean_actual_constructed_residual_ratio": 0.08407238398660664,
+              "mean_actual_constructed_squared_residual_ratio": 0.00894481893013046,
+              "mean_component_median_apply_seconds": 0.017919573932886124
+            }
+          },
+          "residual_excess_mean_square": 0.9702059397689409,
+          "residual_gate_pass": false,
+          "size": 256,
+          "stratum_gate_pass": false
+        },
+        {
+          "component_apply_cost_ratio_to_strong": 0.11051872663256426,
+          "component_cost_gate_pass": true,
+          "context": "one_strong_action_defect",
+          "maps": {
+            "material_local": {
+              "mean_actual_constructed_residual_ratio": 0.9860311572355869,
+              "mean_actual_constructed_squared_residual_ratio": 0.9723077143360779,
+              "mean_component_median_apply_seconds": 0.0020076194778084755
+            },
+            "reference": {
+              "mean_actual_constructed_residual_ratio": 0.8128179676868476,
+              "mean_actual_constructed_squared_residual_ratio": 0.6636018228291409,
+              "mean_component_median_apply_seconds": 0.0008251266553997993
+            },
+            "strong": {
+              "mean_actual_constructed_residual_ratio": 0.11935867710820153,
+              "mean_actual_constructed_squared_residual_ratio": 0.017957411163787365,
+              "mean_component_median_apply_seconds": 0.018165423534810543
+            }
+          },
+          "residual_excess_mean_square": 0.9543503031722905,
+          "residual_gate_pass": false,
+          "size": 256,
+          "stratum_gate_pass": false
+        }
+      ],
+      "candidate_H_checks": 24,
+      "commutator_summary": {
+        "diagnostics_seconds": 1.3319186866283417,
+        "identity_discrepancy_max": 1.1293221715324142e-12,
+        "local_collision_closure_max": 3.987343443972353e-13,
+        "max_norm_difference_penalty_vs_actual_residual": 1.4210854715202004e-14,
+        "reference_closure_max": 9.52537840682627e-13,
+        "streaming_material_penalty_max": 98.19175678675067,
+        "streaming_material_penalty_min": 6.274595993912001
+      },
+      "constructed_field_original_H_checks": 24,
+      "constructed_image_linearity_gap_max": 7.227768954129059e-12,
+      "counts": {
+        "H": 52,
+        "M": 28,
+        "S": 16,
+        "full_solves": 0,
+        "new_seed_generation": 0,
+        "training_steps": 0
+      },
+      "driver_seconds": 25.03497726470232,
+      "external_process_seconds": 25.74613226391375,
+      "gpu_peak_allocated_bytes": 1268984320,
+      "gpu_peak_reserved_bytes": 1797259264,
+      "imagefit_actual_constructed_ratio_difference_max": 1.354472090042691e-14,
+      "measured_component_sums_seconds": {
+        "all_three_measured_apply_repeats_seconds": 0.31710694544017315,
+        "candidate_persistence_readback_seconds": 4.031898256391287,
+        "constructed_line_H_seconds": 0.027548393234610558,
+        "constructed_line_persistence_seconds": 3.915943408384919,
+        "original_H_seconds": 0.027602408081293106
+      },
+      "only_component_cost_not_full_solver": true,
+      "rows": 24,
+      "scalar_payloads_finite": true,
+      "screen_gate_pass": false,
+      "setup_cases": [
+        {
+          "candidate_diagnostics": {
+            "backend": "torch",
+            "condition_2": 1.0577704176387885,
+            "condition_cap": 100.0,
+            "eigen_residual_cap": 1e-12,
+            "eigen_residual_relative": 3.0418821534792374e-16,
+            "exact_or_interval_certificate": false,
+            "full_original_phase_used": true,
+            "homogeneous_reference_action": "Actual captured D64 plus computed mean collision",
+            "local_filter_bytes": 3145728,
+            "min_denominator_magnitude": 0.017008218598523417,
+            "parameter_sweep": false,
+            "phase_eigenvalues_preserved_complex": true,
+            "physical_action_formula": "Mloc=C(x)^-1 Cref Rref; intended exact algebra only",
+            "reconstruction_cap": 1e-12,
+            "reconstruction_relative": 1.2455964078256073e-15,
+            "reference_dtype": "complex128",
+            "reference_inverse_bytes": 37748736,
+            "reference_material_policy": "Fixed actual spatial mean of t/s; no sweep",
+            "reference_matrix_closure_cap": 1e-10,
+            "reference_matrix_closure_max": 7.463834342911764e-14,
+            "stored_original_stream_symbol_used": true,
+            "target": "Computed full stored column-weighted P; nominal C^-1 Cref Rref"
+          },
+          "candidate_setup_seconds": 0.08568611182272434,
+          "index": 0,
+          "input_readback_and_physical_setup_seconds": 0.3681541718542576,
+          "size": 128,
+          "strong_base_setup_seconds": 0.12062685564160347,
+          "strong_source_H_seconds": 0.06289085187017918,
+          "strong_source_apply_seconds": 0.0036088228225708008,
+          "strong_source_persistence_seconds": 0.10486125946044922
+        },
+        {
+          "candidate_diagnostics": {
+            "backend": "torch",
+            "condition_2": 1.0577704176387885,
+            "condition_cap": 100.0,
+            "eigen_residual_cap": 1e-12,
+            "eigen_residual_relative": 3.0418821534792374e-16,
+            "exact_or_interval_certificate": false,
+            "full_original_phase_used": true,
+            "homogeneous_reference_action": "Actual captured D64 plus computed mean collision",
+            "local_filter_bytes": 3145728,
+            "min_denominator_magnitude": 0.04077080126765065,
+            "parameter_sweep": false,
+            "phase_eigenvalues_preserved_complex": true,
+            "physical_action_formula": "Mloc=C(x)^-1 Cref Rref; intended exact algebra only",
+            "reconstruction_cap": 1e-12,
+            "reconstruction_relative": 1.2455964078256073e-15,
+            "reference_dtype": "complex128",
+            "reference_inverse_bytes": 37748736,
+            "reference_material_policy": "Fixed actual spatial mean of t/s; no sweep",
+            "reference_matrix_closure_cap": 1e-10,
+            "reference_matrix_closure_max": 4.009306335490793e-14,
+            "stored_original_stream_symbol_used": true,
+            "target": "Computed full stored column-weighted P; nominal C^-1 Cref Rref"
+          },
+          "candidate_setup_seconds": 0.017323410138487816,
+          "index": 3,
+          "input_readback_and_physical_setup_seconds": 0.24543166905641556,
+          "size": 128,
+          "strong_base_setup_seconds": 0.01625782437622547,
+          "strong_source_H_seconds": 0.0010202117264270782,
+          "strong_source_apply_seconds": 0.0033852718770503998,
+          "strong_source_persistence_seconds": 0.0649572592228651
+        },
+        {
+          "candidate_diagnostics": {
+            "backend": "torch",
+            "condition_2": 1.0577704176387885,
+            "condition_cap": 100.0,
+            "eigen_residual_cap": 1e-12,
+            "eigen_residual_relative": 3.0418821534792374e-16,
+            "exact_or_interval_certificate": false,
+            "full_original_phase_used": true,
+            "homogeneous_reference_action": "Actual captured D64 plus computed mean collision",
+            "local_filter_bytes": 12582912,
+            "min_denominator_magnitude": 0.017008218598523417,
+            "parameter_sweep": false,
+            "phase_eigenvalues_preserved_complex": true,
+            "physical_action_formula": "Mloc=C(x)^-1 Cref Rref; intended exact algebra only",
+            "reconstruction_cap": 1e-12,
+            "reconstruction_relative": 1.2455964078256073e-15,
+            "reference_dtype": "complex128",
+            "reference_inverse_bytes": 150994944,
+            "reference_material_policy": "Fixed actual spatial mean of t/s; no sweep",
+            "reference_matrix_closure_cap": 1e-10,
+            "reference_matrix_closure_max": 7.190887376359729e-14,
+            "stored_original_stream_symbol_used": true,
+            "target": "Computed full stored column-weighted P; nominal C^-1 Cref Rref"
+          },
+          "candidate_setup_seconds": 0.03913700953125954,
+          "index": 0,
+          "input_readback_and_physical_setup_seconds": 0.9297748636454344,
+          "size": 256,
+          "strong_base_setup_seconds": 0.022526709362864494,
+          "strong_source_H_seconds": 0.0021789539605379105,
+          "strong_source_apply_seconds": 0.01798473671078682,
+          "strong_source_persistence_seconds": 0.2658645696938038
+        },
+        {
+          "candidate_diagnostics": {
+            "backend": "torch",
+            "condition_2": 1.0577704176387885,
+            "condition_cap": 100.0,
+            "eigen_residual_cap": 1e-12,
+            "eigen_residual_relative": 3.0418821534792374e-16,
+            "exact_or_interval_certificate": false,
+            "full_original_phase_used": true,
+            "homogeneous_reference_action": "Actual captured D64 plus computed mean collision",
+            "local_filter_bytes": 12582912,
+            "min_denominator_magnitude": 0.04077080126765065,
+            "parameter_sweep": false,
+            "phase_eigenvalues_preserved_complex": true,
+            "physical_action_formula": "Mloc=C(x)^-1 Cref Rref; intended exact algebra only",
+            "reconstruction_cap": 1e-12,
+            "reconstruction_relative": 1.2455964078256073e-15,
+            "reference_dtype": "complex128",
+            "reference_inverse_bytes": 150994944,
+            "reference_material_policy": "Fixed actual spatial mean of t/s; no sweep",
+            "reference_matrix_closure_cap": 1e-10,
+            "reference_matrix_closure_max": 2.5904790523710474e-14,
+            "stored_original_stream_symbol_used": true,
+            "target": "Computed full stored column-weighted P; nominal C^-1 Cref Rref"
+          },
+          "candidate_setup_seconds": 0.03831440582871437,
+          "index": 3,
+          "input_readback_and_physical_setup_seconds": 0.9101589601486921,
+          "size": 256,
+          "strong_base_setup_seconds": 0.019880911335349083,
+          "strong_source_H_seconds": 0.0013173259794712067,
+          "strong_source_apply_seconds": 0.0176707673817873,
+          "strong_source_persistence_seconds": 0.27249323949217796
+        }
+      ],
+      "setup_ledger_sums_seconds": {
+        "candidate_setup_seconds": 0.18046093732118607,
+        "input_readback_and_physical_setup_seconds": 2.4535196647047997,
+        "strong_base_setup_seconds": 0.17929230071604252,
+        "strong_source_H_seconds": 0.06740734353661537,
+        "strong_source_apply_seconds": 0.04264959879219532,
+        "strong_source_persistence_seconds": 0.7081763278692961
+      },
+      "snapshot_bytes": 471933840,
+      "snapshot_count": 60
+    },
+    "jobD": {
+      "aggregates": [
+        {
+          "context": "source",
+          "maps": {
+            "reference_column": {
+              "mean_actual_constructed_residual_ratio": 0.9603502950927654,
+              "mean_actual_constructed_squared_residual_ratio": 0.9222731188611246,
+              "mean_component_median_apply_seconds": 1.410115510225296e-05
+            },
+            "teacher_column": {
+              "mean_actual_constructed_residual_ratio": 0.7152187766990179,
+              "mean_actual_constructed_squared_residual_ratio": 0.5196544750600253,
+              "mean_component_median_apply_seconds": 1.4386139810085297e-05
+            }
+          },
+          "size": 128,
+          "stratum_gate_pass": true,
+          "teacher_squared_residual_gain_over_reference": 0.40261864380109935
+        },
+        {
+          "context": "one_strong_action_defect",
+          "maps": {
+            "reference_column": {
+              "mean_actual_constructed_residual_ratio": 0.9989445819339084,
+              "mean_actual_constructed_squared_residual_ratio": 0.9978902898893867,
+              "mean_component_median_apply_seconds": 1.408252865076065e-05
+            },
+            "teacher_column": {
+              "mean_actual_constructed_residual_ratio": 0.9996294146789471,
+              "mean_actual_constructed_squared_residual_ratio": 0.9992590422733153,
+              "mean_component_median_apply_seconds": 1.416727900505066e-05
+            }
+          },
+          "size": 128,
+          "stratum_gate_pass": false,
+          "teacher_squared_residual_gain_over_reference": -0.0013687523839286397
+        },
+        {
+          "context": "source",
+          "maps": {
+            "reference_column": {
+              "mean_actual_constructed_residual_ratio": 0.9607253563262425,
+              "mean_actual_constructed_squared_residual_ratio": 0.9229935709609302,
+              "mean_component_median_apply_seconds": 1.4279969036579132e-05
+            },
+            "teacher_column": {
+              "mean_actual_constructed_residual_ratio": 0.7842122999596456,
+              "mean_actual_constructed_squared_residual_ratio": 0.6212916469452077,
+              "mean_component_median_apply_seconds": 1.4585442841053009e-05
+            }
+          },
+          "size": 256,
+          "stratum_gate_pass": true,
+          "teacher_squared_residual_gain_over_reference": 0.3017019240157225
+        },
+        {
+          "context": "one_strong_action_defect",
+          "maps": {
+            "reference_column": {
+              "mean_actual_constructed_residual_ratio": 0.9998495662531914,
+              "mean_actual_constructed_squared_residual_ratio": 0.9996991707560163,
+              "mean_component_median_apply_seconds": 1.401267945766449e-05
+            },
+            "teacher_column": {
+              "mean_actual_constructed_residual_ratio": 0.9996938036245913,
+              "mean_actual_constructed_squared_residual_ratio": 0.999387769726723,
+              "mean_component_median_apply_seconds": 1.4145858585834503e-05
+            }
+          },
+          "size": 256,
+          "stratum_gate_pass": false,
+          "teacher_squared_residual_gain_over_reference": 0.00031140102929327895
+        }
+      ],
+      "candidate_H_checks": 16,
+      "commutator_summary": null,
+      "constructed_field_original_H_checks": 16,
+      "constructed_image_linearity_gap_max": 6.586542620634603e-12,
+      "counts": {
+        "H": 36,
+        "M": 4,
+        "S": 0,
+        "full_solves": 0,
+        "new_seed_generation": 0,
+        "training_steps": 0
+      },
+      "driver_seconds": 19.77542818337679,
+      "external_process_seconds": 20.711033644154668,
+      "gpu_peak_allocated_bytes": 439639552,
+      "gpu_peak_reserved_bytes": 847249408,
+      "imagefit_actual_constructed_ratio_difference_max": 2.55351295663786e-15,
+      "measured_component_sums_seconds": {
+        "all_three_measured_apply_repeats_seconds": 0.0007189083844423294,
+        "candidate_persistence_readback_seconds": 2.1367796417325735,
+        "constructed_line_H_seconds": 0.018631668761372566,
+        "constructed_line_persistence_seconds": 2.061116460710764,
+        "original_H_seconds": 0.018723851069808006
+      },
+      "only_component_cost_not_full_solver": true,
+      "rows": 16,
+      "scalar_payloads_finite": true,
+      "screen_gate_pass": false,
+      "setup_cases": [
+        {
+          "candidate_diagnostics": {
+            "Nyquist_rule": "Identically remove coarse negative-Nyquist rows/columns from both teacher and analytic response before normalized Fourier embedding",
+            "acquisition_cost_unknown_not_zero": true,
+            "coarse_size": 64,
+            "crossgrid_source_geometry_parameter_identity": {
+              "amplitudes": true,
+              "angular_codes": true,
+              "centers": true,
+              "geometry_base64": true,
+              "phases": true
+            },
+            "filtered_teacher_relative_difference": 0.00034440013278900556,
+            "frontier_role": "Fixed trial column for original-source response, not a frontier response teacher",
+            "full_angles": 12,
+            "interpolation_relative_error": 5.788274684215669e-17,
+            "no_new_teacher_solve": true,
+            "old_teacher_acquisition_seconds": null,
+            "reused_same_development_source_teacher": true
+          },
+          "candidate_setup_seconds": 0.7070354912430048,
+          "index": 0,
+          "input_readback_and_physical_setup_seconds": 0.3869919069111347,
+          "size": 128,
+          "strong_base_setup_seconds": 0.12402664311230183,
+          "strong_source_H_seconds": 0.07221452705562115,
+          "strong_source_apply_seconds": 0.003568323329091072,
+          "strong_source_persistence_seconds": 0.10994032397866249
+        },
+        {
+          "candidate_diagnostics": {
+            "Nyquist_rule": "Identically remove coarse negative-Nyquist rows/columns from both teacher and analytic response before normalized Fourier embedding",
+            "acquisition_cost_unknown_not_zero": true,
+            "coarse_size": 64,
+            "crossgrid_source_geometry_parameter_identity": {
+              "amplitudes": true,
+              "angular_codes": true,
+              "centers": true,
+              "geometry_base64": true,
+              "phases": true
+            },
+            "filtered_teacher_relative_difference": 0.00039702995526242995,
+            "frontier_role": "Fixed trial column for original-source response, not a frontier response teacher",
+            "full_angles": 12,
+            "interpolation_relative_error": 7.7000523097149e-17,
+            "no_new_teacher_solve": true,
+            "old_teacher_acquisition_seconds": null,
+            "reused_same_development_source_teacher": true
+          },
+          "candidate_setup_seconds": 0.6484315674751997,
+          "index": 3,
+          "input_readback_and_physical_setup_seconds": 0.236753324046731,
+          "size": 128,
+          "strong_base_setup_seconds": 0.01607418619096279,
+          "strong_source_H_seconds": 0.0009384285658597946,
+          "strong_source_apply_seconds": 0.0033774878829717636,
+          "strong_source_persistence_seconds": 0.05944860354065895
+        },
+        {
+          "candidate_diagnostics": {
+            "Nyquist_rule": "Identically remove coarse negative-Nyquist rows/columns from both teacher and analytic response before normalized Fourier embedding",
+            "acquisition_cost_unknown_not_zero": true,
+            "coarse_size": 64,
+            "crossgrid_source_geometry_parameter_identity": {
+              "amplitudes": true,
+              "angular_codes": true,
+              "centers": true,
+              "geometry_base64": true,
+              "phases": true
+            },
+            "filtered_teacher_relative_difference": 0.00034440013278900556,
+            "frontier_role": "Fixed trial column for original-source response, not a frontier response teacher",
+            "full_angles": 12,
+            "interpolation_relative_error": 6.53214360646236e-17,
+            "no_new_teacher_solve": true,
+            "old_teacher_acquisition_seconds": null,
+            "reused_same_development_source_teacher": true
+          },
+          "candidate_setup_seconds": 0.1814145427197218,
+          "index": 0,
+          "input_readback_and_physical_setup_seconds": 0.8939159847795963,
+          "size": 256,
+          "strong_base_setup_seconds": 0.024330846965312958,
+          "strong_source_H_seconds": 0.0021758079528808594,
+          "strong_source_apply_seconds": 0.017911048606038094,
+          "strong_source_persistence_seconds": 0.22944378294050694
+        },
+        {
+          "candidate_diagnostics": {
+            "Nyquist_rule": "Identically remove coarse negative-Nyquist rows/columns from both teacher and analytic response before normalized Fourier embedding",
+            "acquisition_cost_unknown_not_zero": true,
+            "coarse_size": 64,
+            "crossgrid_source_geometry_parameter_identity": {
+              "amplitudes": true,
+              "angular_codes": true,
+              "centers": true,
+              "geometry_base64": true,
+              "phases": true
+            },
+            "filtered_teacher_relative_difference": 0.00039702995526242995,
+            "frontier_role": "Fixed trial column for original-source response, not a frontier response teacher",
+            "full_angles": 12,
+            "interpolation_relative_error": 8.334914654662886e-17,
+            "no_new_teacher_solve": true,
+            "old_teacher_acquisition_seconds": null,
+            "reused_same_development_source_teacher": true
+          },
+          "candidate_setup_seconds": 0.18542972579598427,
+          "index": 3,
+          "input_readback_and_physical_setup_seconds": 0.8618482798337936,
+          "size": 256,
+          "strong_base_setup_seconds": 0.01868092454969883,
+          "strong_source_H_seconds": 0.0013131555169820786,
+          "strong_source_apply_seconds": 0.01763204112648964,
+          "strong_source_persistence_seconds": 0.21294507384300232
+        }
+      ],
+      "setup_ledger_sums_seconds": {
+        "candidate_setup_seconds": 1.7223113272339106,
+        "input_readback_and_physical_setup_seconds": 2.3795094955712557,
+        "strong_base_setup_seconds": 0.1831126008182764,
+        "strong_source_H_seconds": 0.07664191909134388,
+        "strong_source_apply_seconds": 0.04248890094459057,
+        "strong_source_persistence_seconds": 0.6117777843028307
+      },
+      "snapshot_bytes": 283160304,
+      "snapshot_count": 36
+    }
+  },
+  "policy_sha256": "a01ba4cc03b14b0f7f8a78281f82fe98e8610c7329fbb176fd2fc9d50548e07b",
+  "preflight": {
+    "native_compile_seconds": 0.3552320133894682,
+    "pre_batch_preservation_seconds": 36.48990331962705,
+    "prior_files_root_verified": 576,
+    "returncode": 0,
+    "subtests": 34,
+    "tests": 47,
+    "tests_external_seconds": 13.509224884212017
+  },
+  "receipt_sha256": {
+    "C_local.execution.json": "81d487c74823c5f9040fadc025d170d8423b3184d9ebee9c2e1bb09c35f8eb5c",
+    "D_coarse.execution.json": "5e5ea7db226991c9d2389467fcc9d945a695a394b113e6dede9ab63e09eec161",
+    "jobC/candidates/manifest.json": "c9cb58485a05285be2790b285bde1646ca8200763954cd763c1ffb17195bf044",
+    "jobC/commutator.json": "6d177daa30350660e5ecbf68a2eac8e392341908080a7bed16e0cfa25bb55cd3",
+    "jobC/results.json": "7ab868729f91f3e160ec663f961a5d9684958ee514d96098aedd2e114a9c66c3",
+    "jobC/settings.json": "0445bd470f84549c4bd1f9b5dbc4cc60ed50bb1a154d315e04ce9f439ce7dabc",
+    "jobC/setup.json": "f3e6a6de044d3f2b5c82bb4331126d71502b43821dd57c38b292b57df8661285",
+    "jobD/candidates/manifest.json": "9c2bcf022c47059ba058a2baf98d8fd8c5e4315622563efba270c0ff75f09c4d",
+    "jobD/results.json": "6f7ac2ac08cca9e1db2186e8ad82838eb1c328fe3c159a016ce7d96c462b360a",
+    "jobD/settings.json": "afd9c17ac1f14100bfd511b7e19b2ca29d84646731273a037afa7ab0d0b95069",
+    "jobD/setup.json": "aa08364760a50a07560d3f4d96237c777d8d1a93f4c27f614b6fc8919529db81",
+    "preflight_receipt.json": "0e23825322c0e849c07440c8538f4a47e5e227d6602a29668804c8d4b628f6de"
+  },
+  "schema": "RTE_C_D_scalar_audit_20261004_v1",
+  "scope": "Frozen action-only jobs C/D; independent scalar audit, no FWI reexecution or field export"
+}

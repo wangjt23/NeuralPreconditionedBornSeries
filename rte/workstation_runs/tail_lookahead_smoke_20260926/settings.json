@@ -1,0 +1,37 @@
+{
+  "args": {
+    "output": "rte/workstation_runs/tail_lookahead_smoke_20260926",
+    "context": "rte/workstation_runs/tail_injection_gate_20260926/train_context.pt",
+    "validation_parent": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+    "warm_start": "rte/workstation_runs/tail_direction_pilot_20260926/best.pt",
+    "steps": 1,
+    "lookahead": 2,
+    "eval_every": 1,
+    "batch": 4,
+    "lr": 0.0003,
+    "seed": 26929,
+    "width": 32,
+    "blocks": 4,
+    "modes": 6
+  },
+  "complete": true,
+  "scope": "training and validation only; two-step actual flexible-Arnoldi continuation loss",
+  "selection": "validation failures, classical calls +0.5*injection calls, then true residual; same proxy as base network",
+  "warm_start_sha256": "135aa962f6ebc1a08b1f17c61d85cafed990da68665e1bf12cfedb097ed0775f",
+  "context_sha256": "1e34233b172224ed18b59184a74aec41111ed68184b8068a9c9ddfe9cd62e72f",
+  "source_sha256": {
+    "rte/train_tail_lookahead.py": "210b4e2e00e5923d31a3b4d561fa3816dced9e9090f7595967a84be23d983fe3",
+    "rte/tail_lookahead.py": "b979dfb964b681f7695171faf80c8bee6fe129e4ffc064effc045d52fe044e2f",
+    "rte/train_tail_direction.py": "506c5e4b912222f69ffd9e09fe4ff059849ec740843fc995a14ebe1a118d360d",
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/global_source_predictor.py": "8e90c95245bb13796f6fff324224d7d504062e52ed08f8bda14988afa808f2e5"
+  },
+  "reference_cache_seconds": 0.28575616981834173,
+  "selected_step": 0,
+  "validation_score": [
+    0,
+    8.03125,
+    5.518636462276647e-06
+  ],
+  "training_seconds": 6.668767750263214
+}

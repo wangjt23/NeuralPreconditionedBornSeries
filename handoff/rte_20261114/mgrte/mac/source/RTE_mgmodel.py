@@ -1,0 +1,468 @@
+import torch
+import torch.nn as nn
+import torch.nn.functional as F
+
+
+def _norm_groups(channels):
+    for groups in (8, 4, 2):
+        if channels % groups == 0 and channels // groups >= 2:
+            return groups
+    return 1
+
+
+def _norm_layer(channels):
+    return nn.GroupNorm(_norm_groups(channels), channels)
+
+
+def _resize_like(x, reference):
+    if x.shape[-2:] == reference.shape[-2:]:
+        return x
+    diff_h = reference.size(-2) - x.size(-2)
+    diff_w = reference.size(-1) - x.size(-1)
+    if diff_h >= 0 and diff_w >= 0:
+        return F.pad(x, [diff_w // 2, diff_w - diff_w // 2, diff_h // 2, diff_h - diff_h // 2])
+    top = max((-diff_h) // 2, 0)
+    left = max((-diff_w) // 2, 0)
+    return x[..., top : top + reference.size(-2), left : left + reference.size(-1)]
+
+
+def _detach_feature_list(features):
+    if features is None:
+        return None
+    return [feature.detach() for feature in features]
+
+class coeff_model(nn.Module):
+    """
+    Pre-process the coefficient 'a' and share it over several levels.
+    Now supports projecting each level to user-defined u_channel_list.
+    """
+
+    def __init__(self, a_channels_in, a_channels_list, u_channels_list, num_levels):
+        super().__init__()
+        self.num_levels = num_levels
+        self.a_channels_in = a_channels_in
+
+        self.lifting_a = nn.Conv2d(a_channels_in, a_channels_list[0], kernel_size=3, stride=1, padding=1, bias=True)
+
+        # per‑level modules
+        self.inv_a_models = nn.ModuleList()
+        self.restrict_a_models = nn.ModuleList()
+
+        # projection layers to match u_channel_list
+        self.proj_a_to_u = nn.ModuleList()          # for a_list
+        self.proj_inv_a_to_u = nn.ModuleList()      # for inv_a_list
+
+        for i in range(num_levels):
+            self.inv_a_models.append(
+                nn.Sequential(
+                    nn.Conv2d(a_channels_list[i], a_channels_list[i], kernel_size=3, stride=1, padding=1, bias=True),
+                    _norm_layer(a_channels_list[i]),
+                    nn.GELU(),
+                    nn.Conv2d(a_channels_list[i], a_channels_list[i], kernel_size=3, stride=1, padding=1, bias=True),
+                    _norm_layer(a_channels_list[i]),
+                    nn.GELU(),
+                )
+            )
+            self.proj_a_to_u.append(
+                nn.Sequential(
+                    nn.Conv2d(a_channels_list[i], u_channels_list[i], kernel_size=3, stride=1, padding=1, bias=True),
+                    _norm_layer(u_channels_list[i]),
+                    nn.GELU()
+                )
+            )
+            
+            self.proj_inv_a_to_u.append(
+                nn.Sequential(
+                    nn.Conv2d(a_channels_list[i], u_channels_list[i], kernel_size=3, stride=1, padding=1, bias=True),
+                    _norm_layer(u_channels_list[i]),
+                    nn.GELU(),
+                )
+            )
+            
+            if i < num_levels - 1:
+                self.restrict_a_models.append(
+                    nn.Sequential(
+                        nn.Conv2d(a_channels_list[i], a_channels_list[i+1], kernel_size=3, stride=2, padding=1, bias=True),
+                        _norm_layer(a_channels_list[i+1]),
+                        nn.GELU(),
+                    )
+                )
+
+    def forward(self, a):
+        """
+        Returns
+        -------
+        a_list, inv_a_list 
+        """
+        a = self.lifting_a(a)
+        a_list = [a]
+        inv_a_list = []
+        
+        for i in range(self.num_levels):
+            inv_a_list.append(self.inv_a_models[i](a_list[i]))
+            if i < self.num_levels - 1:
+                a_list.append(self.restrict_a_models[i](a_list[i]))
+
+        for i in range(self.num_levels):
+            a_list[i] = self.proj_a_to_u[i](a_list[i]) 
+            inv_a_list[i] = self.proj_inv_a_to_u[i](inv_a_list[i])
+
+
+        return a_list, inv_a_list
+
+    
+class A_operator(nn.Module):
+    '''
+    Computes Au = A_operator(u,a)
+    Shared over the levels.
+    '''
+    def __init__(self, u_channels, a_channels):
+        super().__init__()
+        # self.conv_a = nn.Conv2d(a_channels, u_channels, kernel_size=3, stride=1, padding=1, bias=False)
+        self.conv_u = nn.Conv2d(u_channels, u_channels, kernel_size=3, stride=1, padding=1, bias=False)
+        self.conv_I = nn.Conv2d(u_channels, u_channels, kernel_size=3, stride=1, padding=1, bias=False)
+    def forward(self, u, a):
+        Au = self.conv_I(u) +  a * self.conv_u(u)
+        return Au
+
+    
+class mg_iteration(nn.Module):
+    '''
+    Performs a single multigrid iteration:
+    u = u + B(b - Au)
+    where B(b-Au) = linear_conv(nonlinear_conv(a)*linear_conv(b-Au))
+    '''
+    def __init__(self, u_channels, a_channels, A_op):
+        super().__init__()
+        self.A = A_op
+        self.conv_res = nn.Conv2d(u_channels, u_channels, kernel_size=3, stride=1, padding=1, bias=False)
+    def forward(self, out):
+        (u, a, inv_a, rhs, res) = out
+        # u = u + self.conv_B(inv_a * self.conv_res(rhs))
+        # u = u + inv_a * self.conv_res(res)
+        u = u + inv_a * self.conv_res(res)
+        res = rhs - self.A(u, a)
+        return u, a, inv_a, rhs, res
+    
+class mg_restriction(nn.Module):
+    '''
+    Restricts rhs and initializes u to zeros at the coarser level.
+    '''
+    def __init__(self, u_channels_in, u_channels_out, A_op):
+        super().__init__()
+        self.R_rhs = nn.Conv2d(u_channels_in, u_channels_out, kernel_size=3, stride=2, padding=1, bias=False)
+        self.A     = A_op
+    def forward(self, rhs):
+        rhs = self.R_rhs(rhs)        
+        u = torch.zeros_like(rhs)                  
+        return u, rhs
+    
+class mg_prolongation(nn.Module):
+    '''
+    Prolongates u from the coarser level.
+    '''
+    def __init__(self, u_channels_in, u_channels_out):
+        super().__init__()
+        self.P_u = nn.ConvTranspose2d(u_channels_in, u_channels_out, kernel_size=4, stride=2, padding=1, bias=False)
+    def forward(self, u):
+        u = self.P_u(u)
+        return u
+    
+
+class mg_operator(nn.Module):
+    '''
+    Multigrid operator.
+    Input: rhs, a
+    Returns: mg(rhs,a) approximates inv_A * rhs,
+    using different u_channels and a_channels for each level.
+    '''
+    def __init__(self, u_channels_list, a_channels_list, num_iteration=[1, 1, 1, 1, 1]):
+        super().__init__()
+        self.num_iteration = num_iteration 
+        assert len(u_channels_list) == len(num_iteration), "u_channels_list length must match number of levels"
+        assert len(a_channels_list) == len(num_iteration), "a_channels_list length must match number of levels"
+        self.u_channels_list = u_channels_list
+        self.a_channels_list = a_channels_list
+
+
+        self.coeff_model = coeff_model(a_channels_in=3,
+                                    a_channels_list=a_channels_list, 
+                                    u_channels_list=u_channels_list,
+                                    num_levels=len(num_iteration))
+        # Setup the A operators, restriction, and prolongation layers
+        self.A_list  = nn.ModuleList([])
+        self.RT_list = nn.ModuleList([])
+        self.R_list  = nn.ModuleList([])
+
+        for j in range(len(num_iteration)):
+            self.A_list.append(A_operator(u_channels=u_channels_list[j], a_channels=a_channels_list[j]))
+            if j < len(num_iteration) - 1:
+                self.R_list.append(mg_restriction(u_channels_in=u_channels_list[j], 
+                                                    u_channels_out=u_channels_list[j+1], 
+                                                    A_op=self.A_list[j]))
+                self.RT_list.append(mg_prolongation(u_channels_in=u_channels_list[j+1], 
+                                                    u_channels_out=u_channels_list[j]))
+
+        # Setup cycle layers for down and up sweeps
+        self.Down_sweep_layers = nn.ModuleList([])
+        self.Up_sweep_layers   = nn.ModuleList([])
+
+        for l, num_iteration_l in enumerate(num_iteration):
+            down_layer_i = []
+            up_layer_i   = []
+            
+            # for down layers
+            for li in range(num_iteration_l):
+                down_layer_i.append(mg_iteration(u_channels=self.u_channels_list[l],
+                                                    a_channels=self.a_channels_list[l],
+                                                    A_op=self.A_list[l]))
+                    
+            self.Down_sweep_layers.append(nn.Sequential(*down_layer_i))
+
+            # for up layers 
+            if l < len(num_iteration) - 1:
+                for li in range(num_iteration_l):
+                    up_layer_i.append(mg_iteration(u_channels=self.u_channels_list[l],
+                                                a_channels=self.a_channels_list[l],
+                                                A_op=self.A_list[l]))
+                self.Up_sweep_layers.append(nn.Sequential(*up_layer_i))
+
+    def setup_coeff(self, a):
+        a_list, inv_a_list = self.coeff_model(a)
+        return a_list, inv_a_list
+
+    def forward(self, rhs, a_list, inv_a_list):
+        u = torch.zeros_like(rhs)
+        out_list = [0] * len(self.num_iteration)
+
+        for l in range(len(self.num_iteration)):
+            u, _, _, rhs, res = self.Down_sweep_layers[l]((u, a_list[l], inv_a_list[l], rhs, rhs))
+            out_list[l] = (u, rhs)
+            if l < len(self.num_iteration) - 1:
+                u, rhs = self.R_list[l](res)
+
+        for j in range(len(self.num_iteration) - 2, -1, -1):
+            u, rhs = out_list[j][0], out_list[j][1]
+            u = u + _resize_like(self.RT_list[j](out_list[j+1][0]), u)
+            res = rhs - self.A_list[j](u, a_list[j])
+            u, _, _, rhs, _ = self.Up_sweep_layers[j]((u, a_list[j], inv_a_list[j], rhs, res))
+            out_list[j] = (u, rhs)
+            
+        return out_list[0][0]
+    
+class MG_precond(nn.Module):
+    def __init__(self, 
+                M,
+                u_channels_list=[2, 20, 30, 40, 50],
+                a_channels_list=[32, 32, 32, 32, 32],
+                mg_levels=[1, 2, 4, 8, 8],
+                input_channels=None,
+                output_channels=None):
+        super().__init__()
+        torch.set_default_dtype(torch.float32)
+        self.mg_levels = mg_levels
+        self.input_channels = 8 * M if input_channels is None else int(input_channels)
+        self.output_channels = self.input_channels if output_channels is None else int(output_channels)
+        self.lifting_rhs = nn.Conv2d(self.input_channels, u_channels_list[0], kernel_size=1, stride=1, padding=0, bias=False)
+        self.mg = mg_operator(u_channels_list=u_channels_list, a_channels_list=a_channels_list, num_iteration=mg_levels)
+        self.proj_u = nn.Conv2d(u_channels_list[0], self.output_channels, kernel_size=1, stride=1, padding=0, bias=False)
+
+    def setup(self, coeff):
+        '''
+        coeff: [sigma_t(x), sigma_a(x), log_epsilon(x)], (batch, 3, N, N)
+        '''
+        a_list, inv_a_list = self.mg.setup_coeff(coeff)
+        if not self.training:
+            a_list = _detach_feature_list(a_list)
+            inv_a_list = _detach_feature_list(inv_a_list)
+        return a_list, inv_a_list
+        
+    def forward(self, rhs, a_list, inv_a_list):
+        rhs = self.lifting_rhs(rhs)   
+        u = self.mg(rhs, a_list, inv_a_list)
+        u = self.proj_u(u)
+        return u 
+
+class _CoeffGateBlock(nn.Module):
+    def __init__(self, channels):
+        super().__init__()
+        groups = _norm_groups(channels)
+        self.net = nn.Sequential(
+            nn.Conv2d(channels, channels, kernel_size=3, padding=1, bias=True),
+            nn.GroupNorm(groups, channels),
+            nn.SiLU(),
+            nn.Conv2d(channels, channels, kernel_size=3, padding=1, bias=True),
+            nn.GroupNorm(groups, channels),
+            nn.SiLU(),
+        )
+
+    def forward(self, x):
+        return self.net(x)
+
+
+class RTECoeffEncoder(nn.Module):
+    """Nonlinear coefficient encoder used by the RTE U-Net preconditioner."""
+
+    def __init__(self, num_levels, channels):
+        super().__init__()
+        self.num_levels = int(num_levels)
+        groups = _norm_groups(channels)
+        self.lifting = nn.Sequential(
+            nn.Conv2d(3, channels, kernel_size=3, padding=1, bias=True),
+            nn.GroupNorm(groups, channels),
+            nn.SiLU(),
+        )
+        self.blocks = nn.ModuleList([_CoeffGateBlock(channels) for _ in range(self.num_levels)])
+        self.restrict = nn.ModuleList(
+            [
+                nn.Sequential(
+                    nn.Conv2d(channels, channels, kernel_size=3, stride=2, padding=1, bias=True),
+                    nn.GroupNorm(groups, channels),
+                    nn.SiLU(),
+                )
+                for _ in range(self.num_levels - 1)
+            ]
+        )
+
+    def forward(self, coeff):
+        x = self.lifting(coeff)
+        features = []
+        for level in range(self.num_levels):
+            x = self.blocks[level](x)
+            features.append(x)
+            if level < self.num_levels - 1:
+                x = self.restrict[level](x)
+        return features
+
+
+class _LinearGatedUNetSolver(nn.Module):
+    """
+    U-Net solver that is exactly linear in the residual for fixed coefficients.
+
+    All residual-path convolutions are bias-free and activation-free. Coefficients
+    enter only as multiplicative gates, following the NPBS preconditioner pattern.
+    """
+
+    def __init__(self, channels, num_levels, gate_scale=0.1):
+        super().__init__()
+        self.channels = int(channels)
+        self.num_levels = int(num_levels)
+        self.gate_scale = float(gate_scale)
+
+        self.enc_expand = nn.ModuleList(
+            [nn.Conv2d(channels, 2 * channels, kernel_size=1, bias=False) for _ in range(self.num_levels)]
+        )
+        self.enc_depthwise = nn.ModuleList(
+            [
+                nn.Conv2d(2 * channels, 2 * channels, kernel_size=3, padding=1, groups=2 * channels, bias=False)
+                for _ in range(self.num_levels)
+            ]
+        )
+        self.enc_gate = nn.ModuleList(
+            [nn.Conv2d(channels, 2 * channels, kernel_size=1, bias=True) for _ in range(self.num_levels)]
+        )
+        self.enc_shrink = nn.ModuleList(
+            [nn.Conv2d(2 * channels, channels, kernel_size=1, bias=False) for _ in range(self.num_levels)]
+        )
+        self.enc_mix = nn.ModuleList(
+            [nn.Conv2d(channels, channels, kernel_size=3, padding=1, bias=False) for _ in range(self.num_levels)]
+        )
+        self.down = nn.ModuleList(
+            [nn.Conv2d(channels, channels, kernel_size=5, stride=2, padding=2, bias=False) for _ in range(self.num_levels - 1)]
+        )
+        self.up = nn.ModuleList(
+            [
+                nn.ConvTranspose2d(channels, channels, kernel_size=4, stride=2, padding=1, bias=False)
+                for _ in range(self.num_levels - 1)
+            ]
+        )
+        self.dec_gate = nn.ModuleList(
+            [nn.Conv2d(channels, channels, kernel_size=1, bias=True) for _ in range(self.num_levels - 1)]
+        )
+        self.dec_mix1 = nn.ModuleList(
+            [nn.Conv2d(2 * channels, channels, kernel_size=3, padding=1, bias=False) for _ in range(self.num_levels - 1)]
+        )
+        self.dec_mix2 = nn.ModuleList(
+            [nn.Conv2d(channels, channels, kernel_size=3, padding=1, bias=False) for _ in range(self.num_levels - 1)]
+        )
+
+    def _resize_like(self, x, reference):
+        if x.shape[-2:] == reference.shape[-2:]:
+            return x
+        diff_h = reference.size(-2) - x.size(-2)
+        diff_w = reference.size(-1) - x.size(-1)
+        if diff_h >= 0 and diff_w >= 0:
+            return F.pad(x, [diff_w // 2, diff_w - diff_w // 2, diff_h // 2, diff_h - diff_h // 2])
+        top = max((-diff_h) // 2, 0)
+        left = max((-diff_w) // 2, 0)
+        return x[..., top : top + reference.size(-2), left : left + reference.size(-1)]
+
+    def _gate(self, x, coeff_features, projector):
+        if coeff_features.shape[-2:] != x.shape[-2:]:
+            coeff_features = F.interpolate(coeff_features, size=x.shape[-2:], mode="bilinear", align_corners=False)
+        gate = torch.tanh(projector(coeff_features))
+        return x * (1.0 + self.gate_scale * gate)
+
+    def forward(self, x, coeff_features):
+        skips = []
+        for level in range(self.num_levels):
+            x = self.enc_expand[level](x)
+            x = self._gate(self.enc_depthwise[level](x), coeff_features[level], self.enc_gate[level])
+            x = self.enc_shrink[level](x)
+            x = self.enc_mix[level](x)
+            skips.append(x)
+            if level < self.num_levels - 1:
+                x = self.down[level](x)
+
+        for step in range(self.num_levels - 1):
+            level = self.num_levels - 2 - step
+            x = self._resize_like(self.up[step](x), skips[level])
+            x = torch.cat([skips[level], x], dim=1)
+            x = self.dec_mix1[step](x)
+            x = self._gate(x, coeff_features[level], self.dec_gate[step])
+            x = self.dec_mix2[step](x)
+        return x
+
+
+class RTEUNetPrecond(nn.Module):
+    """
+    Coefficient-conditioned RTE correction module.
+
+    The map is nonlinear in coefficients but linear in the residual. It is meant
+    to be used with `preconditioner_form=residual` or `defect2` for
+    Born-coordinate training, so the solver starts from a known base
+    preconditioner and learns a nonlocal defect correction.
+    """
+
+    def __init__(
+        self,
+        M,
+        channels=32,
+        num_levels=4,
+        input_channels=None,
+        output_channels=None,
+        gate_scale=0.1,
+        init_output_scale=0.1,
+    ):
+        super().__init__()
+        self.input_channels = 8 * M if input_channels is None else int(input_channels)
+        self.output_channels = self.input_channels if output_channels is None else int(output_channels)
+        self.channels = int(channels)
+        self.num_levels = int(num_levels)
+        self.coeff_encoder = RTECoeffEncoder(self.num_levels, self.channels)
+        self.lifting_rhs = nn.Conv2d(self.input_channels, self.channels, kernel_size=1, bias=False)
+        self.solver = _LinearGatedUNetSolver(self.channels, self.num_levels, gate_scale=gate_scale)
+        self.proj_u = nn.Conv2d(self.channels, self.output_channels, kernel_size=1, bias=False)
+        nn.init.zeros_(self.proj_u.weight)
+        self.output_scale = nn.Parameter(torch.tensor(float(init_output_scale), dtype=torch.float32))
+
+    def setup(self, coeff):
+        features = self.coeff_encoder(coeff)
+        if not self.training:
+            features = _detach_feature_list(features)
+        return features, None
+
+    def forward(self, rhs, a_list, inv_a_list):
+        x = self.lifting_rhs(rhs)
+        x = self.solver(x, a_list)
+        return self.output_scale * self.proj_u(x)

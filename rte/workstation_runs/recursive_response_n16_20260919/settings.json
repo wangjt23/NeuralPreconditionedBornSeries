@@ -1,0 +1,33 @@
+{
+  "args": {
+    "size": 16,
+    "count": 2,
+    "seed": 1919,
+    "epsilons": [
+      0.1,
+      1.0
+    ],
+    "metrics": [
+      "residual",
+      "euclidean"
+    ],
+    "tolerances": [
+      0.001
+    ],
+    "leaf_size": 2,
+    "rank_multiple": 4,
+    "setup_threads": 4,
+    "repeats": 3,
+    "probes": 16,
+    "output": "rte/workstation_runs/recursive_response_n16_20260919"
+  },
+  "torch_version": "2.5.1",
+  "platform": "Linux-6.11.0-25-generic-x86_64-with-glibc2.39",
+  "dataset_count": 4,
+  "dataset_sha256": "1493f2f317af41ad83cb096b05d336d1c21deea3a4c0f90c9fcb771bf07bc28c",
+  "device": "cpu",
+  "timing": "one CPU thread; paired randomized warmed full solves; teacher setup is separately reported",
+  "scope": "directed recursive H-matrix oracle, not trained AI; all true residuals use unchanged physical FP64 promotion",
+  "grouping": "dense leaves and low-rank far blocks; padding AND int64 index bytes counted",
+  "limitation": "small fixed sample; shared host; no scalability or NN speedup claim; QR block bounds are not global bounds"
+}

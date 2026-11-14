@@ -1,0 +1,876 @@
+[
+  {
+    "size": 64,
+    "index": 0,
+    "method": "tsa8_reference",
+    "iterations": 13,
+    "classical_calls": 12,
+    "injection_calls": 1,
+    "injection_accepted": 1,
+    "injection_rejected": 0,
+    "true_residual": 7.2433945661368136e-06,
+    "failed": 0,
+    "injection_stages": [
+      {
+        "reason": "accepted",
+        "accepted": true,
+        "iteration_before": 4,
+        "classical_calls": 4,
+        "injection_call": 1,
+        "relative_residual_before": 0.020962925485100578,
+        "relative_residual_after": 0.018483545253912607,
+        "candidate_relative_residual": 0.018483545253912607
+      }
+    ],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.18761933594942093,
+        "action": 0.010951271280646324,
+        "neural_callback": 0.0005081072449684143,
+        "projection_LS": 0.021050650626420975,
+        "true_checks": 0.01537969522178173
+      },
+      "stage_counts": {
+        "precondition": 12,
+        "action": 13,
+        "neural_callback": 1,
+        "projection_LS": 26,
+        "true_checks": 16
+      },
+      "profiled_wall_seconds": 0.24132646061480045,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.0002949461340904236,
+      "model_seconds": 0.0,
+      "model_forwards": 0
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "method": "tsa8_reference_cost",
+    "iterations": 13,
+    "classical_calls": 12,
+    "injection_calls": 1,
+    "injection_accepted": 1,
+    "injection_rejected": 0,
+    "true_residual": 7.2433945661368136e-06,
+    "failed": 0,
+    "injection_stages": [
+      {
+        "reason": "accepted",
+        "accepted": true,
+        "iteration_before": 4,
+        "classical_calls": 4,
+        "injection_call": 1,
+        "relative_residual_before": 0.020962925485100578,
+        "relative_residual_after": 0.018483545253912607,
+        "candidate_relative_residual": 0.018483545253912607
+      }
+    ],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.18899240531027317,
+        "action": 0.011005423963069916,
+        "neural_callback": 0.009181763976812363,
+        "projection_LS": 0.02111980691552162,
+        "true_checks": 0.015382885932922363
+      },
+      "stage_counts": {
+        "precondition": 12,
+        "action": 13,
+        "neural_callback": 1,
+        "projection_LS": 26,
+        "true_checks": 16
+      },
+      "profiled_wall_seconds": 0.2501858752220869,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.0002826191484928131,
+      "model_seconds": 0.008644647896289825,
+      "model_forwards": 1
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "method": "tsa8_reference_phase4_cost",
+    "iterations": 13,
+    "classical_calls": 12,
+    "injection_calls": 1,
+    "injection_accepted": 1,
+    "injection_rejected": 0,
+    "true_residual": 7.2433945661368136e-06,
+    "failed": 0,
+    "injection_stages": [
+      {
+        "reason": "accepted",
+        "accepted": true,
+        "iteration_before": 4,
+        "classical_calls": 4,
+        "injection_call": 1,
+        "relative_residual_before": 0.020962925485100578,
+        "relative_residual_after": 0.018483545253912607,
+        "candidate_relative_residual": 0.018483545253912607
+      }
+    ],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.18791333213448524,
+        "action": 0.011068645864725113,
+        "neural_callback": 0.034620266407728195,
+        "projection_LS": 0.02109084464609623,
+        "true_checks": 0.015477770939469337
+      },
+      "stage_counts": {
+        "precondition": 12,
+        "action": 13,
+        "neural_callback": 1,
+        "projection_LS": 26,
+        "true_checks": 16
+      },
+      "profiled_wall_seconds": 0.27464038506150246,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.00030491501092910767,
+      "model_seconds": 0.034080905839800835,
+      "model_forwards": 4
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "method": "tsa8_mixed",
+    "iterations": 13,
+    "classical_calls": 12,
+    "injection_calls": 1,
+    "injection_accepted": 1,
+    "injection_rejected": 0,
+    "true_residual": 7.0537141692356945e-06,
+    "failed": 0,
+    "injection_stages": [
+      {
+        "reason": "accepted",
+        "accepted": true,
+        "iteration_before": 4,
+        "classical_calls": 4,
+        "injection_call": 1,
+        "relative_residual_before": 0.020962925485100578,
+        "relative_residual_after": 0.018326871800158354,
+        "candidate_relative_residual": 0.018326871800158354
+      }
+    ],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.1891668289899826,
+        "action": 0.01100604422390461,
+        "neural_callback": 0.008816555142402649,
+        "projection_LS": 0.020903704687952995,
+        "true_checks": 0.015289006754755974
+      },
+      "stage_counts": {
+        "precondition": 12,
+        "action": 13,
+        "neural_callback": 1,
+        "projection_LS": 26,
+        "true_checks": 16
+      },
+      "profiled_wall_seconds": 0.24960224889218807,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.00028165802359580994,
+      "model_seconds": 0.008282911032438278,
+      "model_forwards": 1
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "method": "tsa8_phase4",
+    "iterations": 13,
+    "classical_calls": 12,
+    "injection_calls": 1,
+    "injection_accepted": 1,
+    "injection_rejected": 0,
+    "true_residual": 5.9873598795168395e-06,
+    "failed": 0,
+    "injection_stages": [
+      {
+        "reason": "accepted",
+        "accepted": true,
+        "iteration_before": 4,
+        "classical_calls": 4,
+        "injection_call": 1,
+        "relative_residual_before": 0.020962925485100578,
+        "relative_residual_after": 0.018122562547822563,
+        "candidate_relative_residual": 0.018122562547822563
+      }
+    ],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.1873034369200468,
+        "action": 0.010987959802150726,
+        "neural_callback": 0.034197621047496796,
+        "projection_LS": 0.02081996761262417,
+        "true_checks": 0.015248030424118042
+      },
+      "stage_counts": {
+        "precondition": 12,
+        "action": 13,
+        "neural_callback": 1,
+        "projection_LS": 26,
+        "true_checks": 16
+      },
+      "profiled_wall_seconds": 0.273164302110672,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.0002788510173559189,
+      "model_seconds": 0.03367842733860016,
+      "model_forwards": 4
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "method": "tsa16_plain",
+    "iterations": 8,
+    "classical_calls": 8,
+    "injection_calls": 0,
+    "injection_accepted": 0,
+    "injection_rejected": 0,
+    "true_residual": 1.9413893697347922e-06,
+    "failed": 0,
+    "injection_stages": [],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.2762908972799778,
+        "action": 0.007370704784989357,
+        "neural_callback": 0.0,
+        "projection_LS": 0.011358678340911865,
+        "true_checks": 0.011172402650117874
+      },
+      "stage_counts": {
+        "precondition": 8,
+        "action": 8,
+        "neural_callback": 0,
+        "projection_LS": 16,
+        "true_checks": 11
+      },
+      "profiled_wall_seconds": 0.3090472873300314,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.0,
+      "model_seconds": 0.0,
+      "model_forwards": 0
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "method": "tsa16_noop_cost",
+    "iterations": 8,
+    "classical_calls": 8,
+    "injection_calls": 1,
+    "injection_accepted": 0,
+    "injection_rejected": 1,
+    "true_residual": 1.9413893697347922e-06,
+    "failed": 0,
+    "injection_stages": [
+      {
+        "reason": "invalid_proposal",
+        "accepted": false,
+        "iteration_before": 4,
+        "classical_calls": 4,
+        "injection_call": 1,
+        "relative_residual_before": 0.001112029470730953,
+        "relative_residual_after": 0.001112029470730953,
+        "candidate_relative_residual": null
+      }
+    ],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.28168140165507793,
+        "action": 0.00756453163921833,
+        "neural_callback": 0.00994696095585823,
+        "projection_LS": 0.011591646820306778,
+        "true_checks": 0.01156582310795784
+      },
+      "stage_counts": {
+        "precondition": 8,
+        "action": 8,
+        "neural_callback": 1,
+        "projection_LS": 16,
+        "true_checks": 11
+      },
+      "profiled_wall_seconds": 0.3257235437631607,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.0003100782632827759,
+      "model_seconds": 0.009326335042715073,
+      "model_forwards": 1
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "method": "tsa16_reference",
+    "iterations": 8,
+    "classical_calls": 7,
+    "injection_calls": 1,
+    "injection_accepted": 1,
+    "injection_rejected": 0,
+    "true_residual": 3.6614548449626103e-06,
+    "failed": 0,
+    "injection_stages": [
+      {
+        "reason": "accepted",
+        "accepted": true,
+        "iteration_before": 4,
+        "classical_calls": 4,
+        "injection_call": 1,
+        "relative_residual_before": 0.001112029470730953,
+        "relative_residual_after": 0.0009677478262953993,
+        "candidate_relative_residual": 0.0009677478262953993
+      }
+    ],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.24608484841883183,
+        "action": 0.007594441995024681,
+        "neural_callback": 0.0005766116082668304,
+        "projection_LS": 0.012121377512812614,
+        "true_checks": 0.011662539094686508
+      },
+      "stage_counts": {
+        "precondition": 7,
+        "action": 8,
+        "neural_callback": 1,
+        "projection_LS": 16,
+        "true_checks": 11
+      },
+      "profiled_wall_seconds": 0.28177778236567974,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.0003308448940515518,
+      "model_seconds": 0.0,
+      "model_forwards": 0
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "method": "tsa16_reference_cost",
+    "iterations": 8,
+    "classical_calls": 7,
+    "injection_calls": 1,
+    "injection_accepted": 1,
+    "injection_rejected": 0,
+    "true_residual": 3.6614548449626103e-06,
+    "failed": 0,
+    "injection_stages": [
+      {
+        "reason": "accepted",
+        "accepted": true,
+        "iteration_before": 4,
+        "classical_calls": 4,
+        "injection_call": 1,
+        "relative_residual_before": 0.001112029470730953,
+        "relative_residual_after": 0.0009677478262953993,
+        "candidate_relative_residual": 0.0009677478262953993
+      }
+    ],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.24887662939727306,
+        "action": 0.007616370916366577,
+        "neural_callback": 0.010541711002588272,
+        "projection_LS": 0.0124068483710289,
+        "true_checks": 0.011710260063409805
+      },
+      "stage_counts": {
+        "precondition": 7,
+        "action": 8,
+        "neural_callback": 1,
+        "projection_LS": 16,
+        "true_checks": 11
+      },
+      "profiled_wall_seconds": 0.2950212378054857,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.00031248293817043304,
+      "model_seconds": 0.009930428117513657,
+      "model_forwards": 1
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "method": "tsa16_mixed",
+    "iterations": 9,
+    "classical_calls": 8,
+    "injection_calls": 1,
+    "injection_accepted": 1,
+    "injection_rejected": 0,
+    "true_residual": 3.00366157678566e-06,
+    "failed": 0,
+    "injection_stages": [
+      {
+        "reason": "accepted",
+        "accepted": true,
+        "iteration_before": 4,
+        "classical_calls": 4,
+        "injection_call": 1,
+        "relative_residual_before": 0.001112029470730953,
+        "relative_residual_after": 0.0010474422836118217,
+        "candidate_relative_residual": 0.0010474422836118217
+      }
+    ],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.28335568867623806,
+        "action": 0.0085938461124897,
+        "neural_callback": 0.010571230202913284,
+        "projection_LS": 0.014396565034985542,
+        "true_checks": 0.012796597555279732
+      },
+      "stage_counts": {
+        "precondition": 8,
+        "action": 9,
+        "neural_callback": 1,
+        "projection_LS": 18,
+        "true_checks": 12
+      },
+      "profiled_wall_seconds": 0.3338093850761652,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.0003124605864286423,
+      "model_seconds": 0.00996508076786995,
+      "model_forwards": 1
+    }
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "method": "tsa8_reference",
+    "iterations": 8,
+    "classical_calls": 7,
+    "injection_calls": 1,
+    "injection_accepted": 1,
+    "injection_rejected": 0,
+    "true_residual": 2.0829119027272385e-06,
+    "failed": 0,
+    "injection_stages": [
+      {
+        "reason": "accepted",
+        "accepted": true,
+        "iteration_before": 4,
+        "classical_calls": 4,
+        "injection_call": 1,
+        "relative_residual_before": 0.0006217547328554331,
+        "relative_residual_after": 0.0003981186926956786,
+        "candidate_relative_residual": 0.0003981186926956786
+      }
+    ],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.10947558842599392,
+        "action": 0.00677933543920517,
+        "neural_callback": 0.0005184728652238846,
+        "projection_LS": 0.010975072160363197,
+        "true_checks": 0.01049833744764328
+      },
+      "stage_counts": {
+        "precondition": 7,
+        "action": 8,
+        "neural_callback": 1,
+        "projection_LS": 16,
+        "true_checks": 11
+      },
+      "profiled_wall_seconds": 0.14168553613126278,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.0002852361649274826,
+      "model_seconds": 0.0,
+      "model_forwards": 0
+    }
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "method": "tsa8_reference_cost",
+    "iterations": 8,
+    "classical_calls": 7,
+    "injection_calls": 1,
+    "injection_accepted": 1,
+    "injection_rejected": 0,
+    "true_residual": 2.0829119027272385e-06,
+    "failed": 0,
+    "injection_stages": [
+      {
+        "reason": "accepted",
+        "accepted": true,
+        "iteration_before": 4,
+        "classical_calls": 4,
+        "injection_call": 1,
+        "relative_residual_before": 0.0006217547328554331,
+        "relative_residual_after": 0.0003981186926956786,
+        "candidate_relative_residual": 0.0003981186926956786
+      }
+    ],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.10924870520830154,
+        "action": 0.006808370351791382,
+        "neural_callback": 0.009498273953795433,
+        "projection_LS": 0.010946007445454597,
+        "true_checks": 0.010461190715432167
+      },
+      "stage_counts": {
+        "precondition": 7,
+        "action": 8,
+        "neural_callback": 1,
+        "projection_LS": 16,
+        "true_checks": 11
+      },
+      "profiled_wall_seconds": 0.15034096129238605,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.00030371546745300293,
+      "model_seconds": 0.00892421044409275,
+      "model_forwards": 1
+    }
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "method": "tsa8_reference_phase4_cost",
+    "iterations": 8,
+    "classical_calls": 7,
+    "injection_calls": 1,
+    "injection_accepted": 1,
+    "injection_rejected": 0,
+    "true_residual": 2.0829119027272385e-06,
+    "failed": 0,
+    "injection_stages": [
+      {
+        "reason": "accepted",
+        "accepted": true,
+        "iteration_before": 4,
+        "classical_calls": 4,
+        "injection_call": 1,
+        "relative_residual_before": 0.0006217547328554331,
+        "relative_residual_after": 0.0003981186926956786,
+        "candidate_relative_residual": 0.0003981186926956786
+      }
+    ],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.10929283872246742,
+        "action": 0.0067787375301122665,
+        "neural_callback": 0.03422091715037823,
+        "projection_LS": 0.010958151891827583,
+        "true_checks": 0.01049613393843174
+      },
+      "stage_counts": {
+        "precondition": 7,
+        "action": 8,
+        "neural_callback": 1,
+        "projection_LS": 16,
+        "true_checks": 11
+      },
+      "profiled_wall_seconds": 0.17518402077257633,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.00030935555696487427,
+      "model_seconds": 0.03367893397808075,
+      "model_forwards": 4
+    }
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "method": "tsa8_mixed",
+    "iterations": 7,
+    "classical_calls": 6,
+    "injection_calls": 1,
+    "injection_accepted": 1,
+    "injection_rejected": 0,
+    "true_residual": 5.295805423667049e-06,
+    "failed": 0,
+    "injection_stages": [
+      {
+        "reason": "accepted",
+        "accepted": true,
+        "iteration_before": 4,
+        "classical_calls": 4,
+        "injection_call": 1,
+        "relative_residual_before": 0.0006217547328554331,
+        "relative_residual_after": 0.00031685120154873207,
+        "candidate_relative_residual": 0.00031685120154873207
+      }
+    ],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.09350787661969662,
+        "action": 0.005947226658463478,
+        "neural_callback": 0.00891110673546791,
+        "projection_LS": 0.009253563359379768,
+        "true_checks": 0.009466573596000671
+      },
+      "stage_counts": {
+        "precondition": 6,
+        "action": 7,
+        "neural_callback": 1,
+        "projection_LS": 14,
+        "true_checks": 10
+      },
+      "profiled_wall_seconds": 0.13029023446142673,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.0003054831176996231,
+      "model_seconds": 0.00837254524230957,
+      "model_forwards": 1
+    }
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "method": "tsa8_phase4",
+    "iterations": 7,
+    "classical_calls": 6,
+    "injection_calls": 1,
+    "injection_accepted": 1,
+    "injection_rejected": 0,
+    "true_residual": 4.7879895739390935e-06,
+    "failed": 0,
+    "injection_stages": [
+      {
+        "reason": "accepted",
+        "accepted": true,
+        "iteration_before": 4,
+        "classical_calls": 4,
+        "injection_call": 1,
+        "relative_residual_before": 0.0006217547328554331,
+        "relative_residual_after": 0.0002959758616370488,
+        "candidate_relative_residual": 0.0002959758616370488
+      }
+    ],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.08456246182322502,
+        "action": 0.005399702116847038,
+        "neural_callback": 0.029245685786008835,
+        "projection_LS": 0.00825463980436325,
+        "true_checks": 0.008614843711256981
+      },
+      "stage_counts": {
+        "precondition": 6,
+        "action": 7,
+        "neural_callback": 1,
+        "projection_LS": 14,
+        "true_checks": 10
+      },
+      "profiled_wall_seconds": 0.13925445452332497,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.00025052763521671295,
+      "model_seconds": 0.02875150926411152,
+      "model_forwards": 4
+    }
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "method": "tsa16_plain",
+    "iterations": 4,
+    "classical_calls": 4,
+    "injection_calls": 0,
+    "injection_accepted": 0,
+    "injection_rejected": 0,
+    "true_residual": 1.362828748030858e-06,
+    "failed": 0,
+    "injection_stages": [],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.10466564074158669,
+        "action": 0.0028539858758449554,
+        "neural_callback": 0.0,
+        "projection_LS": 0.003563530743122101,
+        "true_checks": 0.0056554414331912994
+      },
+      "stage_counts": {
+        "precondition": 4,
+        "action": 4,
+        "neural_callback": 0,
+        "projection_LS": 8,
+        "true_checks": 7
+      },
+      "profiled_wall_seconds": 0.1184151042252779,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.0,
+      "model_seconds": 0.0,
+      "model_forwards": 0
+    }
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "method": "tsa16_noop_cost",
+    "iterations": 4,
+    "classical_calls": 4,
+    "injection_calls": 0,
+    "injection_accepted": 0,
+    "injection_rejected": 0,
+    "true_residual": 1.362828748030858e-06,
+    "failed": 0,
+    "injection_stages": [],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.10483325831592083,
+        "action": 0.002841278910636902,
+        "neural_callback": 0.0,
+        "projection_LS": 0.00357641838490963,
+        "true_checks": 0.005579402670264244
+      },
+      "stage_counts": {
+        "precondition": 4,
+        "action": 4,
+        "neural_callback": 0,
+        "projection_LS": 8,
+        "true_checks": 7
+      },
+      "profiled_wall_seconds": 0.11845470778644085,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.0,
+      "model_seconds": 0.0,
+      "model_forwards": 0
+    }
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "method": "tsa16_reference",
+    "iterations": 4,
+    "classical_calls": 4,
+    "injection_calls": 0,
+    "injection_accepted": 0,
+    "injection_rejected": 0,
+    "true_residual": 1.362828748030858e-06,
+    "failed": 0,
+    "injection_stages": [],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.10473085753619671,
+        "action": 0.0028671864420175552,
+        "neural_callback": 0.0,
+        "projection_LS": 0.003547756001353264,
+        "true_checks": 0.005556536838412285
+      },
+      "stage_counts": {
+        "precondition": 4,
+        "action": 4,
+        "neural_callback": 0,
+        "projection_LS": 8,
+        "true_checks": 7
+      },
+      "profiled_wall_seconds": 0.11837066151201725,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.0,
+      "model_seconds": 0.0,
+      "model_forwards": 0
+    }
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "method": "tsa16_reference_cost",
+    "iterations": 4,
+    "classical_calls": 4,
+    "injection_calls": 0,
+    "injection_accepted": 0,
+    "injection_rejected": 0,
+    "true_residual": 1.362828748030858e-06,
+    "failed": 0,
+    "injection_stages": [],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.10492542386054993,
+        "action": 0.0028626900166273117,
+        "neural_callback": 0.0,
+        "projection_LS": 0.003587242215871811,
+        "true_checks": 0.005542434751987457
+      },
+      "stage_counts": {
+        "precondition": 4,
+        "action": 4,
+        "neural_callback": 0,
+        "projection_LS": 8,
+        "true_checks": 7
+      },
+      "profiled_wall_seconds": 0.11855325102806091,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.0,
+      "model_seconds": 0.0,
+      "model_forwards": 0
+    }
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "method": "tsa16_mixed",
+    "iterations": 4,
+    "classical_calls": 4,
+    "injection_calls": 0,
+    "injection_accepted": 0,
+    "injection_rejected": 0,
+    "true_residual": 1.362828748030858e-06,
+    "failed": 0,
+    "injection_stages": [],
+    "profile": {
+      "stage_seconds": {
+        "precondition": 0.10486450418829918,
+        "action": 0.002878338098526001,
+        "neural_callback": 0.0,
+        "projection_LS": 0.003561919555068016,
+        "true_checks": 0.005626974627375603
+      },
+      "stage_counts": {
+        "precondition": 4,
+        "action": 4,
+        "neural_callback": 0,
+        "projection_LS": 8,
+        "true_checks": 7
+      },
+      "profiled_wall_seconds": 0.11856096796691418,
+      "note": "synchronized diagnostic execution; stage counts are timed blocks; capture callbacks/bookkeeping excluded from stage totals; not unprofiled latency"
+    },
+    "callback_parts": {
+      "reference_seconds": 0.0,
+      "model_seconds": 0.0,
+      "model_forwards": 0
+    }
+  }
+]

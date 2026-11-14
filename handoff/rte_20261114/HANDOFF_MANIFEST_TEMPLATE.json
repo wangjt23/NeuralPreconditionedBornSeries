@@ -1,0 +1,84 @@
+{
+  "schema": "research-handoff-manifest-v1",
+  "project": "<project>",
+  "track": "<track>",
+  "date": "YYYY-MM-DD",
+  "authority": {
+    "parent_commit": null,
+    "parent_archive_sha256": null,
+    "source_root": "<path>",
+    "representation": "complete-runnable | source-first | documentation-recovery",
+    "supersedes": [],
+    "does_not_supersede": []
+  },
+  "claims": [
+    {
+      "id": "C1",
+      "status": "PROVED",
+      "claim": "<claim>",
+      "assumptions": [
+        "<assumption>"
+      ],
+      "proof_paths": [
+        "<path>"
+      ],
+      "code_paths": [],
+      "evidence_paths": [],
+      "non_implications": [
+        "<boundary>"
+      ]
+    }
+  ],
+  "artifacts": [
+    {
+      "path": "<path>",
+      "role": "source | proof | test | result | manuscript | provenance",
+      "bytes": null,
+      "sha256": null,
+      "required": true,
+      "materialized": true,
+      "provenance": "<origin>"
+    }
+  ],
+  "experiments": {
+    "complete_runs": 0,
+    "refused_runs": 0,
+    "incomplete_runs": 0,
+    "accuracy_contract": "<literal criterion>",
+    "timing_contract": "<included/excluded work>",
+    "host_scope": "<scope>"
+  },
+  "open_problems": [
+    {
+      "id": "O1",
+      "statement": "<missing statement>",
+      "load_bearing": true,
+      "closure_criterion": "<what proves/closes it>",
+      "type": "theory | implementation | numerical | provenance"
+    }
+  ],
+  "reproduction": {
+    "integrity": [
+      "<command>"
+    ],
+    "tests": [
+      "<command>"
+    ],
+    "smoke": [
+      "<command>"
+    ],
+    "main": [
+      "<command>"
+    ],
+    "manuscript": [
+      "<command>"
+    ]
+  },
+  "integrity": {
+    "relative_links_checked": false,
+    "manifests_verified": false,
+    "hashes_verified": false,
+    "json_parsed": false,
+    "ci_status": "not_checked"
+  }
+}

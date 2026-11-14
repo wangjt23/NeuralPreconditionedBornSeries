@@ -1,0 +1,5 @@
+# Post-run scalar-only diagnostic, declared before replay
+
+The completed candidate and two controls are frozen. Do not rerun or tune a Green factor. The ideal-Cauchy diagnostic in that run evaluated `2j*pi*sgn` with a float32 sign tensor before promoting to complex128, causing a spurious 2.78e-8 relative comparison error. Correct only this scalar formula in a separate receipt; do not overwrite raw results or launch source.
+
+The completed scalar spectra also show a ~1e-6 rounding floor. One N128 paired scalar check will compare the actual stored-frequency D with ideal-integer D under the same absolute block-error budget and hierarchy. It will compute, not assume, the frequency-perturbation norm and ranks; it may estimate tensor counts using the validated factor layout but must NOT build or time an ideal-D Green factor. No source or inverse is used. This tests a concrete cause of rank inflation, not a tolerance/rank sweep. Retaining the stored-frequency difference in original residual repairs would be a new approximate-inverse contract, not an exact identity; any bound must include that difference. No such candidate is promoted or launched here.

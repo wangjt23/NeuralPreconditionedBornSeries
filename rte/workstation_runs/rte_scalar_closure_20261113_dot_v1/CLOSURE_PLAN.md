@@ -1,0 +1,13 @@
+# Fixed actual-operator test of a necessary scalar closure condition
+
+Literature context: arXiv:2610.07653v1, published 2026-10-06. This is not a reproduction of its DG/inflow/isotropic numerical benchmark. We test one algebraic prerequisite for transplanting its cheap single-scalar transport formulation into our existing periodic Fourier, g=.65,12-angle RTE.
+
+Let L=diag(L_j) be the actual original background streaming+total collision operator at the already fixed N128 k0 mode, S the original scatter profile and K the stored weighted angular phase. Let R be the actual angular average and P=1 R/(R 1). The source-iteration scalar update depends only on R psi for arbitrary psi iff H(I-P)=0, where H=R L^-1 S K. The stronger identity K=U R would make scattering itself scalar-dependent; rank(K)>1 rules out that single-channel identity.
+
+Exactly one predetermined witness: h=(e_0-e_1)/sqrt(2), f_j=exp(2 pi i j/128), psi=h tensor f. Equal original quadrature weights make R psi=0. Evaluate Y=L^-1 S K psi using twelve original 128x128 directional matrices, each solved once by LU. Compare with the zero input, whose response is zero. Nonzero RY then falsifies scalar closure for this actual background. No search for a favorable angle, frequency, source, rank, tolerance, grid, or material.
+
+Keep actual stored frequencies and directions, including near-grazing values. Validate the L_j dense actions against original FFT application and solve residuals; require both <1e-12. Report the raw closure magnitude and normalized value, the actual phase singular values, K(I-P) norm, fingerprints against the completed fixed-layout bridge, all setup/solve/check CPU and wall, logical temporary storage and full process RSS. This is a necessary-condition diagnostic, not a full Green inverse, RTE solve, or speed comparison.
+
+Optional algebraic null control is only the exact rank-one scattering map 1 R applied to this zero-mean witness: it must give zero. It is not a substitute original equation or extra solver benchmark. No original physical tolerance is relaxed. CPU0 one thread with CUDA disabled; launch only after observing idle CPU0 and checking no duplicate directory/job. Stop after this one witness regardless of whether closure is falsified.
+
+A negative scalar-closure result does not rule out all scalar Schur complements, moment formulations, or low-rank solution matrices. General Schur elimination can hide the complementary angular subsystem inverse. An exact rank-r factor K=U V* gives an r-moment system; full rank12 has no angular dimension reduction. A low-rank solution can still occur for particular data.

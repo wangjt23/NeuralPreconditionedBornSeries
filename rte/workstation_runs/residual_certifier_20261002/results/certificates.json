@@ -1,0 +1,1622 @@
+[
+  {
+    "kind": "saved_teacher",
+    "size": 64,
+    "index": 0,
+    "development_seed": 4626,
+    "parent": {
+      "path": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+      "sha256": "858f73d0066333dd9a4b4366d7ff48dc5f160650e5e326c33b1d28b03079efed"
+    },
+    "buffer_identities": {
+      "source": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          64,
+          64
+        ],
+        "sha256": "0b3916a45c184d7c326db743989bf3965ad448d9f0427275a073277524282aa5",
+        "bytes": 786432
+      },
+      "candidate": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          64,
+          64
+        ],
+        "sha256": "1e5c8e476873430dbcb0d85d05635ea9efa82248b2ee7f5f08ca2984d2adb9c3",
+        "bytes": 786432
+      },
+      "stream_symbol": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          64,
+          64
+        ],
+        "sha256": "45236f973cc0bb0c75d18593cd039f47f36f6a70ff1c2ebaed767b69f847970c",
+        "bytes": 786432
+      },
+      "sigma_t": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          64,
+          64
+        ],
+        "sha256": "4807a4e1e3859f238bebf873031f4819a4c163ca4de6595ebc0489b1ccb5f4d0",
+        "bytes": 32768
+      },
+      "sigma_s": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          64,
+          64
+        ],
+        "sha256": "a0fb81630e46b0823fd8c1c7a3fbd01b909077591393e4ce66a941e1509e83ee",
+        "bytes": 32768
+      },
+      "phase": {
+        "dtype": "float64",
+        "shape": [
+          12,
+          12
+        ],
+        "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff",
+        "bytes": 1152
+      },
+      "weights": {
+        "dtype": "float64",
+        "shape": [
+          12
+        ],
+        "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6",
+        "bytes": 96
+      }
+    },
+    "certificate": {
+      "residual_norm_lower": 3.631335205761497e-09,
+      "residual_norm_upper": 2.4748957469105087e-07,
+      "source_norm_lower": 36.823804664164896,
+      "source_norm_upper": 36.82380466416501,
+      "candidate_norm_lower": 293.537851856752,
+      "candidate_norm_upper": 293.5378518567528,
+      "coercivity_lower": 0.017008103633576552,
+      "coercivity_lower_rational": "22607647504961107959115923110450317/1329227995784915872903807060280344576",
+      "coercivity_lower_numerator": 22607647504961107959115923110450317,
+      "coercivity_lower_denominator": 1329227995784915872903807060280344576,
+      "derived_coercivity_lower_rational": "22607647504961107959115923110450317/1329227995784915872903807060280344576",
+      "policy_tolerance_rational": "1/100000",
+      "policy_solution_tolerance_rational": "1/1000",
+      "reserve_fraction_rational": "1/100",
+      "source_relative_norm_defined": true,
+      "residual_center_inside_enclosure": true,
+      "residual_center_norm_lower": 2.5113614994383568e-08,
+      "residual_center_norm_upper": 2.511361499438364e-08,
+      "residual_center_norm_width": 7.279189390466644e-23,
+      "source_norm_width": 1.1368683772161603e-13,
+      "residual_radius_norm_lower": 0.0,
+      "residual_radius_norm_upper": 2.376273576678106e-07,
+      "center_plus_radius_residual_norm_upper": 2.627409726621943e-07,
+      "relative_center_norm_upper": 6.819940313995574e-10,
+      "relative_radius_norm_upper": 6.453090869750833e-09,
+      "relative_residual_upper": 6.720912652784504e-09,
+      "absolute_solution_error_upper": 1.4551273911717545e-05,
+      "relative_solution_error_upper": 4.9572055327825993e-08,
+      "residual_accepted": true,
+      "reserve_center_accepted": true,
+      "reserve_radius_accepted": true,
+      "fixed_one_percent_reserve_accepted": true,
+      "solution_error_accepted": true,
+      "accepted": true,
+      "certified_under_cpu_contract": true,
+      "cpu_contract": "Authored native add/multiply kernels compiled -fno-fast-math -ffp-contract=off; IEC559 binary64, FE_TONEAREST and hardware FTZ/DAZ guards checked; separate correctly rounded CPU operations; no FTZ/DAZ, overflow, hidden reduced precision or cross-ufunc fusion; correct adjacent-value nextafter. Rationally certified twiddles; no NumPy FFT/BLAS/trig/reduction certificate.",
+      "native_backend_guard_before": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "native_backend_guard_after": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "global_gpu_contract_established": false,
+      "target": "Exact nominal original stored D64 and collision/source bits",
+      "costs": {
+        "initial_guard_seconds": 1.7803162336349487e-05,
+        "coefficient_margin_seconds": 0.05411626026034355,
+        "source_candidate_norm_seconds": 0.027961203828454018,
+        "action_seconds": 1.0820378810167313,
+        "residual_norm_seconds": 0.017886552959680557,
+        "reserve_center_radius_seconds": 0.03144180588424206,
+        "exact_acceptance_seconds": 8.93864780664444e-05,
+        "final_guard_seconds": 9.665265679359436e-06
+      },
+      "elapsed_seconds": 1.2136188391596079
+    },
+    "ordinary_gpu_residual_diagnostic": 6.819932368017624e-10,
+    "explicit_gpu_H_seconds": 0.16113224253058434,
+    "complete_verification_seconds": 1.2357575222849846,
+    "verification_cost_scope": "Capture actualD64 and all CPUtransfers, both bitidentityhash passes, complete certifier; excludes separate roundedGPU diagnostic and JSON persistence",
+    "output_representation": "Actual immutable saved/constructed complex128 bits",
+    "source_representation": "Actual immutable captured source bits",
+    "no_input_mutation": true
+  },
+  {
+    "kind": "saved_teacher",
+    "size": 64,
+    "index": 3,
+    "development_seed": 4626,
+    "parent": {
+      "path": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+      "sha256": "858f73d0066333dd9a4b4366d7ff48dc5f160650e5e326c33b1d28b03079efed"
+    },
+    "buffer_identities": {
+      "source": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          64,
+          64
+        ],
+        "sha256": "d1bbd0a30630c58e77d361544a44eb31dbd10dd72d231a2091a38b948c61c473",
+        "bytes": 786432
+      },
+      "candidate": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          64,
+          64
+        ],
+        "sha256": "5756bbaa67afcdea5750b8dad1c3110d6722244323831797b1c90d298f95d7e4",
+        "bytes": 786432
+      },
+      "stream_symbol": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          64,
+          64
+        ],
+        "sha256": "45236f973cc0bb0c75d18593cd039f47f36f6a70ff1c2ebaed767b69f847970c",
+        "bytes": 786432
+      },
+      "sigma_t": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          64,
+          64
+        ],
+        "sha256": "c2b59c7efa0d13da23c7501240bd22954d2e1f774d27be1fe89050d56f441c10",
+        "bytes": 32768
+      },
+      "sigma_s": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          64,
+          64
+        ],
+        "sha256": "dd5363711e755d2cfabe4d04fcac5fcc0b063ce8f7a0312f990041a068fc6784",
+        "bytes": 32768
+      },
+      "phase": {
+        "dtype": "float64",
+        "shape": [
+          12,
+          12
+        ],
+        "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff",
+        "bytes": 1152
+      },
+      "weights": {
+        "dtype": "float64",
+        "shape": [
+          12
+        ],
+        "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6",
+        "bytes": 96
+      }
+    },
+    "certificate": {
+      "residual_norm_lower": 8.736188112884994e-09,
+      "residual_norm_upper": 1.4507903309958883e-07,
+      "source_norm_lower": 46.817606375861025,
+      "source_norm_upper": 46.81760637586116,
+      "candidate_norm_lower": 138.6015205584008,
+      "candidate_norm_upper": 138.6015205584012,
+      "coercivity_lower": 0.04077052551721153,
+      "coercivity_lower_rational": "27096661960170431329191584503725969/664613997892457936451903530140172288",
+      "coercivity_lower_numerator": 27096661960170431329191584503725969,
+      "coercivity_lower_denominator": 664613997892457936451903530140172288,
+      "derived_coercivity_lower_rational": "27096661960170431329191584503725969/664613997892457936451903530140172288",
+      "policy_tolerance_rational": "1/100000",
+      "policy_solution_tolerance_rational": "1/1000",
+      "reserve_fraction_rational": "1/100",
+      "source_relative_norm_defined": true,
+      "residual_center_inside_enclosure": true,
+      "residual_center_norm_lower": 3.029821423318618e-08,
+      "residual_center_norm_upper": 3.029821423318628e-08,
+      "residual_center_norm_width": 9.926167350636332e-23,
+      "source_norm_width": 1.3500311979441904e-13,
+      "residual_radius_norm_lower": 0.0,
+      "residual_radius_norm_upper": 1.3094881297779283e-07,
+      "center_plus_radius_residual_norm_upper": 1.6124702721097913e-07,
+      "relative_center_norm_upper": 6.471542776011701e-10,
+      "relative_radius_norm_upper": 2.796999315311206e-09,
+      "relative_residual_upper": 3.098813551783609e-09,
+      "absolute_solution_error_upper": 3.558429312821656e-06,
+      "relative_solution_error_upper": 2.5673812161972137e-08,
+      "residual_accepted": true,
+      "reserve_center_accepted": true,
+      "reserve_radius_accepted": true,
+      "fixed_one_percent_reserve_accepted": true,
+      "solution_error_accepted": true,
+      "accepted": true,
+      "certified_under_cpu_contract": true,
+      "cpu_contract": "Authored native add/multiply kernels compiled -fno-fast-math -ffp-contract=off; IEC559 binary64, FE_TONEAREST and hardware FTZ/DAZ guards checked; separate correctly rounded CPU operations; no FTZ/DAZ, overflow, hidden reduced precision or cross-ufunc fusion; correct adjacent-value nextafter. Rationally certified twiddles; no NumPy FFT/BLAS/trig/reduction certificate.",
+      "native_backend_guard_before": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "native_backend_guard_after": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "global_gpu_contract_established": false,
+      "target": "Exact nominal original stored D64 and collision/source bits",
+      "costs": {
+        "initial_guard_seconds": 1.3029202818870544e-05,
+        "coefficient_margin_seconds": 0.05324200913310051,
+        "source_candidate_norm_seconds": 0.025459378957748413,
+        "action_seconds": 0.818739639595151,
+        "residual_norm_seconds": 0.01763763651251793,
+        "reserve_center_radius_seconds": 0.03155777044594288,
+        "exact_acceptance_seconds": 9.296461939811707e-05,
+        "final_guard_seconds": 1.056678593158722e-05
+      },
+      "elapsed_seconds": 0.9467853419482708
+    },
+    "ordinary_gpu_residual_diagnostic": 6.471542533487961e-10,
+    "explicit_gpu_H_seconds": 0.0012673232704401016,
+    "complete_verification_seconds": 0.9650564286857843,
+    "verification_cost_scope": "Capture actualD64 and all CPUtransfers, both bitidentityhash passes, complete certifier; excludes separate roundedGPU diagnostic and JSON persistence",
+    "output_representation": "Actual immutable saved/constructed complex128 bits",
+    "source_representation": "Actual immutable captured source bits",
+    "no_input_mutation": true
+  },
+  {
+    "kind": "saved_teacher",
+    "size": 128,
+    "index": 0,
+    "development_seed": 4626,
+    "parent": {
+      "path": "rte/workstation_runs/tail_multiresolution_bank_20260926/validation.pt",
+      "sha256": "58f8e2f069ea1fa1c0c8f490b441c7acfc91a6592d045a7a7a52eea7bf08aeb4"
+    },
+    "buffer_identities": {
+      "source": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          128,
+          128
+        ],
+        "sha256": "62684f15f9bf8d61534597f9a0a0e4f8102dd01c6aa859d13631c11cd879cd35",
+        "bytes": 3145728
+      },
+      "candidate": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          128,
+          128
+        ],
+        "sha256": "d57578f20cc9883a4dcc71d7860b1a785f0db56346d38d83e2f01fdbd10d21e0",
+        "bytes": 3145728
+      },
+      "stream_symbol": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          128,
+          128
+        ],
+        "sha256": "460ad151505e8c2dd9406409185a54c5d6b46da729dd8efa9db176539f7da737",
+        "bytes": 3145728
+      },
+      "sigma_t": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          128,
+          128
+        ],
+        "sha256": "f7b96221e93c0b91ed84e25ff8aef49abd4761699ec8a1e30f3ca2761e34933e",
+        "bytes": 131072
+      },
+      "sigma_s": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          128,
+          128
+        ],
+        "sha256": "9b0f81ea3d671df4dbaf18b1858d08100ca9324d819879c516cc2cc60e779371",
+        "bytes": 131072
+      },
+      "phase": {
+        "dtype": "float64",
+        "shape": [
+          12,
+          12
+        ],
+        "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff",
+        "bytes": 1152
+      },
+      "weights": {
+        "dtype": "float64",
+        "shape": [
+          12
+        ],
+        "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6",
+        "bytes": 96
+      }
+    },
+    "certificate": {
+      "residual_norm_lower": 0.0,
+      "residual_norm_upper": 6.387622345347394e-06,
+      "source_norm_lower": 73.64766780253638,
+      "source_norm_upper": 73.64766780253662,
+      "candidate_norm_lower": 586.820539037606,
+      "candidate_norm_upper": 586.8205390376075,
+      "coercivity_lower": 0.017008103633554643,
+      "coercivity_lower_rational": "11303823752465993349281896611522839/664613997892457936451903530140172288",
+      "coercivity_lower_numerator": 11303823752465993349281896611522839,
+      "coercivity_lower_denominator": 664613997892457936451903530140172288,
+      "derived_coercivity_lower_rational": "11303823752465993349281896611522839/664613997892457936451903530140172288",
+      "policy_tolerance_rational": "1/100000",
+      "policy_solution_tolerance_rational": "1/1000",
+      "reserve_fraction_rational": "1/100",
+      "source_relative_norm_defined": true,
+      "residual_center_inside_enclosure": true,
+      "residual_center_norm_lower": 5.3143135717952374e-08,
+      "residual_center_norm_upper": 5.314313571795255e-08,
+      "residual_center_norm_width": 1.7867101231145398e-22,
+      "source_norm_width": 2.4158453015843406e-13,
+      "residual_radius_norm_lower": 0.0,
+      "residual_radius_norm_upper": 6.371217250386433e-06,
+      "center_plus_radius_residual_norm_upper": 6.424360386104386e-06,
+      "relative_center_norm_upper": 7.215861316944831e-10,
+      "relative_radius_norm_upper": 8.650942304743306e-08,
+      "relative_residual_upper": 8.673217409238054e-08,
+      "absolute_solution_error_upper": 0.0003755634656849983,
+      "relative_solution_error_upper": 6.399975479055747e-07,
+      "residual_accepted": true,
+      "reserve_center_accepted": true,
+      "reserve_radius_accepted": true,
+      "fixed_one_percent_reserve_accepted": true,
+      "solution_error_accepted": true,
+      "accepted": true,
+      "certified_under_cpu_contract": true,
+      "cpu_contract": "Authored native add/multiply kernels compiled -fno-fast-math -ffp-contract=off; IEC559 binary64, FE_TONEAREST and hardware FTZ/DAZ guards checked; separate correctly rounded CPU operations; no FTZ/DAZ, overflow, hidden reduced precision or cross-ufunc fusion; correct adjacent-value nextafter. Rationally certified twiddles; no NumPy FFT/BLAS/trig/reduction certificate.",
+      "native_backend_guard_before": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "native_backend_guard_after": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "global_gpu_contract_established": false,
+      "target": "Exact nominal original stored D64 and collision/source bits",
+      "costs": {
+        "initial_guard_seconds": 1.3303011655807495e-05,
+        "coefficient_margin_seconds": 0.20508424937725067,
+        "source_candidate_norm_seconds": 0.09471196681261063,
+        "action_seconds": 3.526928348466754,
+        "residual_norm_seconds": 0.06331921182572842,
+        "reserve_center_radius_seconds": 0.10666042380034924,
+        "exact_acceptance_seconds": 0.00010036677122116089,
+        "final_guard_seconds": 1.062825322151184e-05
+      },
+      "elapsed_seconds": 3.9968617632985115
+    },
+    "ordinary_gpu_residual_diagnostic": 7.215861657325212e-10,
+    "explicit_gpu_H_seconds": 0.003997942432761192,
+    "complete_verification_seconds": 4.069300260394812,
+    "verification_cost_scope": "Capture actualD64 and all CPUtransfers, both bitidentityhash passes, complete certifier; excludes separate roundedGPU diagnostic and JSON persistence",
+    "output_representation": "Actual immutable saved/constructed complex128 bits",
+    "source_representation": "Actual immutable captured source bits",
+    "no_input_mutation": true
+  },
+  {
+    "kind": "original_source_zero",
+    "size": 128,
+    "index": 0,
+    "development_seed": 4626,
+    "parent": {
+      "path": "rte/workstation_runs/tail_multiresolution_bank_20260926/validation.pt",
+      "sha256": "58f8e2f069ea1fa1c0c8f490b441c7acfc91a6592d045a7a7a52eea7bf08aeb4"
+    },
+    "buffer_identities": {
+      "source": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          128,
+          128
+        ],
+        "sha256": "62684f15f9bf8d61534597f9a0a0e4f8102dd01c6aa859d13631c11cd879cd35",
+        "bytes": 3145728
+      },
+      "candidate": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          128,
+          128
+        ],
+        "sha256": "78c5937b66f54e5f74ce29b8cfb4250de3a58485a43d3186e84b9c664e717759",
+        "bytes": 3145728
+      },
+      "stream_symbol": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          128,
+          128
+        ],
+        "sha256": "460ad151505e8c2dd9406409185a54c5d6b46da729dd8efa9db176539f7da737",
+        "bytes": 3145728
+      },
+      "sigma_t": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          128,
+          128
+        ],
+        "sha256": "f7b96221e93c0b91ed84e25ff8aef49abd4761699ec8a1e30f3ca2761e34933e",
+        "bytes": 131072
+      },
+      "sigma_s": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          128,
+          128
+        ],
+        "sha256": "9b0f81ea3d671df4dbaf18b1858d08100ca9324d819879c516cc2cc60e779371",
+        "bytes": 131072
+      },
+      "phase": {
+        "dtype": "float64",
+        "shape": [
+          12,
+          12
+        ],
+        "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff",
+        "bytes": 1152
+      },
+      "weights": {
+        "dtype": "float64",
+        "shape": [
+          12
+        ],
+        "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6",
+        "bytes": 96
+      }
+    },
+    "certificate": {
+      "residual_norm_lower": 73.64766780253635,
+      "residual_norm_upper": 73.64766780253662,
+      "source_norm_lower": 73.64766780253638,
+      "source_norm_upper": 73.64766780253662,
+      "candidate_norm_lower": 0.0,
+      "candidate_norm_upper": 1.971163463349951e-159,
+      "coercivity_lower": 0.017008103633554643,
+      "coercivity_lower_rational": "11303823752465993349281896611522839/664613997892457936451903530140172288",
+      "coercivity_lower_numerator": 11303823752465993349281896611522839,
+      "coercivity_lower_denominator": 664613997892457936451903530140172288,
+      "derived_coercivity_lower_rational": "11303823752465993349281896611522839/664613997892457936451903530140172288",
+      "policy_tolerance_rational": "1/100000",
+      "policy_solution_tolerance_rational": "1/1000",
+      "reserve_fraction_rational": "1/100",
+      "source_relative_norm_defined": true,
+      "residual_center_inside_enclosure": true,
+      "residual_center_norm_lower": 73.64766780253638,
+      "residual_center_norm_upper": 73.64766780253662,
+      "residual_center_norm_width": 2.4158453015843406e-13,
+      "source_norm_width": 2.4158453015843406e-13,
+      "residual_radius_norm_lower": 0.0,
+      "residual_radius_norm_upper": 1.1698138422728488e-14,
+      "center_plus_radius_residual_norm_upper": 73.64766780253663,
+      "relative_center_norm_upper": 1.0000000000000033,
+      "relative_radius_norm_upper": 1.588392242656408e-16,
+      "relative_residual_upper": 1.0000000000000033,
+      "absolute_solution_error_upper": 4330.1516376722875,
+      "relative_solution_error_upper": null,
+      "residual_accepted": false,
+      "reserve_center_accepted": false,
+      "reserve_radius_accepted": true,
+      "fixed_one_percent_reserve_accepted": false,
+      "solution_error_accepted": false,
+      "accepted": false,
+      "certified_under_cpu_contract": true,
+      "cpu_contract": "Authored native add/multiply kernels compiled -fno-fast-math -ffp-contract=off; IEC559 binary64, FE_TONEAREST and hardware FTZ/DAZ guards checked; separate correctly rounded CPU operations; no FTZ/DAZ, overflow, hidden reduced precision or cross-ufunc fusion; correct adjacent-value nextafter. Rationally certified twiddles; no NumPy FFT/BLAS/trig/reduction certificate.",
+      "native_backend_guard_before": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "native_backend_guard_after": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "global_gpu_contract_established": false,
+      "target": "Exact nominal original stored D64 and collision/source bits",
+      "costs": {
+        "initial_guard_seconds": 1.307949423789978e-05,
+        "coefficient_margin_seconds": 0.18947557732462883,
+        "source_candidate_norm_seconds": 0.0900266133248806,
+        "action_seconds": 6.259563630446792,
+        "residual_norm_seconds": 0.061465976759791374,
+        "reserve_center_radius_seconds": 0.12195881456136703,
+        "exact_acceptance_seconds": 7.239170372486115e-05,
+        "final_guard_seconds": 9.86829400062561e-06
+      },
+      "elapsed_seconds": 6.722618039697409
+    },
+    "ordinary_gpu_residual_diagnostic": 1.0,
+    "explicit_gpu_H_seconds": 0.0012719891965389252,
+    "complete_verification_seconds": 6.786958701908588,
+    "verification_cost_scope": "Capture actualD64 and all CPUtransfers, both bitidentityhash passes, complete certifier; excludes separate roundedGPU diagnostic and JSON persistence",
+    "output_representation": "Actual immutable saved/constructed complex128 bits",
+    "source_representation": "Actual immutable captured source bits",
+    "no_input_mutation": true
+  },
+  {
+    "kind": "saved_teacher",
+    "size": 128,
+    "index": 3,
+    "development_seed": 4626,
+    "parent": {
+      "path": "rte/workstation_runs/tail_multiresolution_bank_20260926/validation.pt",
+      "sha256": "58f8e2f069ea1fa1c0c8f490b441c7acfc91a6592d045a7a7a52eea7bf08aeb4"
+    },
+    "buffer_identities": {
+      "source": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          128,
+          128
+        ],
+        "sha256": "aadd185e963b0b130bbe10259408a77cdf7c1f776cc3e61508c59e67e2fac7af",
+        "bytes": 3145728
+      },
+      "candidate": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          128,
+          128
+        ],
+        "sha256": "7fef81f9c52e42b08b88eae505233786db844e2e0e5b6d584419d12279b8717a",
+        "bytes": 3145728
+      },
+      "stream_symbol": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          128,
+          128
+        ],
+        "sha256": "460ad151505e8c2dd9406409185a54c5d6b46da729dd8efa9db176539f7da737",
+        "bytes": 3145728
+      },
+      "sigma_t": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          128,
+          128
+        ],
+        "sha256": "abe2c1f95cc012a3d7a95fed37aa30d9a444581939766884e23da04c3bf932b9",
+        "bytes": 131072
+      },
+      "sigma_s": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          128,
+          128
+        ],
+        "sha256": "2937371ae252311e84e3988f161897632845481a292fafc62a3325d06272c4e6",
+        "bytes": 131072
+      },
+      "phase": {
+        "dtype": "float64",
+        "shape": [
+          12,
+          12
+        ],
+        "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff",
+        "bytes": 1152
+      },
+      "weights": {
+        "dtype": "float64",
+        "shape": [
+          12
+        ],
+        "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6",
+        "bytes": 96
+      }
+    },
+    "certificate": {
+      "residual_norm_lower": 0.0,
+      "residual_norm_upper": 3.531695315803299e-06,
+      "source_norm_lower": 93.635212625011,
+      "source_norm_upper": 93.6352126250113,
+      "candidate_norm_lower": 277.2367770646932,
+      "candidate_norm_upper": 277.236777064694,
+      "coercivity_lower": 0.04077052551699245,
+      "coercivity_lower_rational": "13548330980012412513215467533351387/332306998946228968225951765070086144",
+      "coercivity_lower_numerator": 13548330980012412513215467533351387,
+      "coercivity_lower_denominator": 332306998946228968225951765070086144,
+      "derived_coercivity_lower_rational": "13548330980012412513215467533351387/332306998946228968225951765070086144",
+      "policy_tolerance_rational": "1/100000",
+      "policy_solution_tolerance_rational": "1/1000",
+      "reserve_fraction_rational": "1/100",
+      "source_relative_norm_defined": true,
+      "residual_center_inside_enclosure": true,
+      "residual_center_norm_lower": 6.021209656699067e-08,
+      "residual_center_norm_upper": 6.021209656699087e-08,
+      "residual_center_norm_width": 1.9852334701272664e-22,
+      "source_norm_width": 3.126388037344441e-13,
+      "residual_radius_norm_lower": 0.0,
+      "residual_radius_norm_upper": 3.5115352326716955e-06,
+      "center_plus_radius_residual_norm_upper": 3.5717473292386868e-06,
+      "relative_center_norm_upper": 6.430497125918585e-10,
+      "relative_radius_norm_upper": 3.750229357340858e-08,
+      "relative_residual_upper": 3.771759807869486e-08,
+      "absolute_solution_error_upper": 8.66237378846478e-05,
+      "relative_solution_error_upper": 3.124540902103164e-07,
+      "residual_accepted": true,
+      "reserve_center_accepted": true,
+      "reserve_radius_accepted": true,
+      "fixed_one_percent_reserve_accepted": true,
+      "solution_error_accepted": true,
+      "accepted": true,
+      "certified_under_cpu_contract": true,
+      "cpu_contract": "Authored native add/multiply kernels compiled -fno-fast-math -ffp-contract=off; IEC559 binary64, FE_TONEAREST and hardware FTZ/DAZ guards checked; separate correctly rounded CPU operations; no FTZ/DAZ, overflow, hidden reduced precision or cross-ufunc fusion; correct adjacent-value nextafter. Rationally certified twiddles; no NumPy FFT/BLAS/trig/reduction certificate.",
+      "native_backend_guard_before": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "native_backend_guard_after": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "global_gpu_contract_established": false,
+      "target": "Exact nominal original stored D64 and collision/source bits",
+      "costs": {
+        "initial_guard_seconds": 1.2252479791641235e-05,
+        "coefficient_margin_seconds": 0.20525146834552288,
+        "source_candidate_norm_seconds": 0.08688127063214779,
+        "action_seconds": 3.30414723418653,
+        "residual_norm_seconds": 0.06272374093532562,
+        "reserve_center_radius_seconds": 0.1054953970015049,
+        "exact_acceptance_seconds": 8.974038064479828e-05,
+        "final_guard_seconds": 1.02948397397995e-05
+      },
+      "elapsed_seconds": 3.76464269682765
+    },
+    "ordinary_gpu_residual_diagnostic": 6.430497998019388e-10,
+    "explicit_gpu_H_seconds": 0.0019251331686973572,
+    "complete_verification_seconds": 3.8281746078282595,
+    "verification_cost_scope": "Capture actualD64 and all CPUtransfers, both bitidentityhash passes, complete certifier; excludes separate roundedGPU diagnostic and JSON persistence",
+    "output_representation": "Actual immutable saved/constructed complex128 bits",
+    "source_representation": "Actual immutable captured source bits",
+    "no_input_mutation": true
+  },
+  {
+    "kind": "original_source_zero",
+    "size": 128,
+    "index": 3,
+    "development_seed": 4626,
+    "parent": {
+      "path": "rte/workstation_runs/tail_multiresolution_bank_20260926/validation.pt",
+      "sha256": "58f8e2f069ea1fa1c0c8f490b441c7acfc91a6592d045a7a7a52eea7bf08aeb4"
+    },
+    "buffer_identities": {
+      "source": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          128,
+          128
+        ],
+        "sha256": "aadd185e963b0b130bbe10259408a77cdf7c1f776cc3e61508c59e67e2fac7af",
+        "bytes": 3145728
+      },
+      "candidate": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          128,
+          128
+        ],
+        "sha256": "78c5937b66f54e5f74ce29b8cfb4250de3a58485a43d3186e84b9c664e717759",
+        "bytes": 3145728
+      },
+      "stream_symbol": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          128,
+          128
+        ],
+        "sha256": "460ad151505e8c2dd9406409185a54c5d6b46da729dd8efa9db176539f7da737",
+        "bytes": 3145728
+      },
+      "sigma_t": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          128,
+          128
+        ],
+        "sha256": "abe2c1f95cc012a3d7a95fed37aa30d9a444581939766884e23da04c3bf932b9",
+        "bytes": 131072
+      },
+      "sigma_s": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          128,
+          128
+        ],
+        "sha256": "2937371ae252311e84e3988f161897632845481a292fafc62a3325d06272c4e6",
+        "bytes": 131072
+      },
+      "phase": {
+        "dtype": "float64",
+        "shape": [
+          12,
+          12
+        ],
+        "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff",
+        "bytes": 1152
+      },
+      "weights": {
+        "dtype": "float64",
+        "shape": [
+          12
+        ],
+        "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6",
+        "bytes": 96
+      }
+    },
+    "certificate": {
+      "residual_norm_lower": 93.63521262501098,
+      "residual_norm_upper": 93.63521262501132,
+      "source_norm_lower": 93.635212625011,
+      "source_norm_upper": 93.6352126250113,
+      "candidate_norm_lower": 0.0,
+      "candidate_norm_upper": 1.971163463349951e-159,
+      "coercivity_lower": 0.04077052551699245,
+      "coercivity_lower_rational": "13548330980012412513215467533351387/332306998946228968225951765070086144",
+      "coercivity_lower_numerator": 13548330980012412513215467533351387,
+      "coercivity_lower_denominator": 332306998946228968225951765070086144,
+      "derived_coercivity_lower_rational": "13548330980012412513215467533351387/332306998946228968225951765070086144",
+      "policy_tolerance_rational": "1/100000",
+      "policy_solution_tolerance_rational": "1/1000",
+      "reserve_fraction_rational": "1/100",
+      "source_relative_norm_defined": true,
+      "residual_center_inside_enclosure": true,
+      "residual_center_norm_lower": 93.635212625011,
+      "residual_center_norm_upper": 93.6352126250113,
+      "residual_center_norm_width": 3.126388037344441e-13,
+      "source_norm_width": 3.126388037344441e-13,
+      "residual_radius_norm_lower": 0.0,
+      "residual_radius_norm_upper": 1.503680477701738e-14,
+      "center_plus_radius_residual_norm_upper": 93.63521262501133,
+      "relative_center_norm_upper": 1.0000000000000036,
+      "relative_radius_norm_upper": 1.6058920950216207e-16,
+      "relative_residual_upper": 1.0000000000000036,
+      "absolute_solution_error_upper": 2296.6398258954446,
+      "relative_solution_error_upper": null,
+      "residual_accepted": false,
+      "reserve_center_accepted": false,
+      "reserve_radius_accepted": true,
+      "fixed_one_percent_reserve_accepted": false,
+      "solution_error_accepted": false,
+      "accepted": false,
+      "certified_under_cpu_contract": true,
+      "cpu_contract": "Authored native add/multiply kernels compiled -fno-fast-math -ffp-contract=off; IEC559 binary64, FE_TONEAREST and hardware FTZ/DAZ guards checked; separate correctly rounded CPU operations; no FTZ/DAZ, overflow, hidden reduced precision or cross-ufunc fusion; correct adjacent-value nextafter. Rationally certified twiddles; no NumPy FFT/BLAS/trig/reduction certificate.",
+      "native_backend_guard_before": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "native_backend_guard_after": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "global_gpu_contract_established": false,
+      "target": "Exact nominal original stored D64 and collision/source bits",
+      "costs": {
+        "initial_guard_seconds": 1.1388212442398071e-05,
+        "coefficient_margin_seconds": 0.20494401082396507,
+        "source_candidate_norm_seconds": 0.08633909747004509,
+        "action_seconds": 6.2649392038583755,
+        "residual_norm_seconds": 0.060828518122434616,
+        "reserve_center_radius_seconds": 0.12262006849050522,
+        "exact_acceptance_seconds": 7.970444858074188e-05,
+        "final_guard_seconds": 9.940937161445618e-06
+      },
+      "elapsed_seconds": 6.739801404997706
+    },
+    "ordinary_gpu_residual_diagnostic": 1.0,
+    "explicit_gpu_H_seconds": 0.0026115402579307556,
+    "complete_verification_seconds": 6.805834783241153,
+    "verification_cost_scope": "Capture actualD64 and all CPUtransfers, both bitidentityhash passes, complete certifier; excludes separate roundedGPU diagnostic and JSON persistence",
+    "output_representation": "Actual immutable saved/constructed complex128 bits",
+    "source_representation": "Actual immutable captured source bits",
+    "no_input_mutation": true
+  },
+  {
+    "kind": "manufactured_M_source",
+    "size": 256,
+    "index": 0,
+    "development_seed": 4626,
+    "parent": {
+      "path": "rte/workstation_runs/resume_audit_20261002/runtime_gate/validation_n256.pt",
+      "sha256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+    },
+    "buffer_identities": {
+      "source": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          256,
+          256
+        ],
+        "sha256": "241612e4c115fd4db706cdd098a02aee6c2ab22eb9f18a8746bb6d1b71ee654d",
+        "bytes": 12582912
+      },
+      "candidate": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          256,
+          256
+        ],
+        "sha256": "8d8f6a75e24d67c073e237e0afdf84f8ef2d78f88880385e9f9208ee3d732d8c",
+        "bytes": 12582912
+      },
+      "stream_symbol": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          256,
+          256
+        ],
+        "sha256": "46333b7b19994e9fe525c83aed3463b40a0b3cfc725150a26161cd57ddec0323",
+        "bytes": 12582912
+      },
+      "sigma_t": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "sha256": "990790ef4989633ca7aa8175d127a16ea9aa41b3931d4e86c161b80bf77bb8f6",
+        "bytes": 524288
+      },
+      "sigma_s": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "sha256": "7062ab2586b05cd1216f488b3107337dc781997dbc4a12ff40f80c84c0a3c542",
+        "bytes": 524288
+      },
+      "phase": {
+        "dtype": "float64",
+        "shape": [
+          12,
+          12
+        ],
+        "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff",
+        "bytes": 1152
+      },
+      "weights": {
+        "dtype": "float64",
+        "shape": [
+          12
+        ],
+        "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6",
+        "bytes": 96
+      }
+    },
+    "certificate": {
+      "residual_norm_lower": 0.0,
+      "residual_norm_upper": 0.00017088335136388217,
+      "source_norm_lower": 148.32386934760973,
+      "source_norm_upper": 148.32386934761027,
+      "candidate_norm_lower": 1172.8238269083226,
+      "candidate_norm_upper": 1172.8238269083263,
+      "coercivity_lower": 0.017008103633554643,
+      "coercivity_lower_rational": "11303823752465993349281896611522839/664613997892457936451903530140172288",
+      "coercivity_lower_numerator": 11303823752465993349281896611522839,
+      "coercivity_lower_denominator": 664613997892457936451903530140172288,
+      "derived_coercivity_lower_rational": "11303823752465993349281896611522839/664613997892457936451903530140172288",
+      "policy_tolerance_rational": "1/100000",
+      "policy_solution_tolerance_rational": "1/1000",
+      "reserve_fraction_rational": "1/100",
+      "source_relative_norm_defined": true,
+      "residual_center_inside_enclosure": true,
+      "residual_center_norm_lower": 1.4838555200689462e-11,
+      "residual_center_norm_upper": 1.483855520068952e-11,
+      "residual_center_norm_width": 5.816113682013476e-26,
+      "source_norm_width": 5.400124791776761e-13,
+      "residual_radius_norm_lower": 0.0,
+      "residual_radius_norm_upper": 0.0001708833430043103,
+      "center_plus_radius_residual_norm_upper": 0.0001708833578428655,
+      "relative_center_norm_upper": 1.0004158646855478e-13,
+      "relative_radius_norm_upper": 1.1520960433133693e-06,
+      "relative_residual_upper": 1.1520960996736295e-06,
+      "absolute_solution_error_upper": 0.010047172515268127,
+      "relative_solution_error_upper": 8.566724478229946e-06,
+      "residual_accepted": true,
+      "reserve_center_accepted": true,
+      "reserve_radius_accepted": false,
+      "fixed_one_percent_reserve_accepted": false,
+      "solution_error_accepted": true,
+      "accepted": false,
+      "certified_under_cpu_contract": true,
+      "cpu_contract": "Authored native add/multiply kernels compiled -fno-fast-math -ffp-contract=off; IEC559 binary64, FE_TONEAREST and hardware FTZ/DAZ guards checked; separate correctly rounded CPU operations; no FTZ/DAZ, overflow, hidden reduced precision or cross-ufunc fusion; correct adjacent-value nextafter. Rationally certified twiddles; no NumPy FFT/BLAS/trig/reduction certificate.",
+      "native_backend_guard_before": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8114,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "native_backend_guard_after": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "global_gpu_contract_established": false,
+      "target": "Exact nominal original stored D64 and collision/source bits",
+      "costs": {
+        "initial_guard_seconds": 1.4213845133781433e-05,
+        "coefficient_margin_seconds": 0.7773709744215012,
+        "source_candidate_norm_seconds": 0.392799599096179,
+        "action_seconds": 15.556547308340669,
+        "residual_norm_seconds": 0.2714995611459017,
+        "reserve_center_radius_seconds": 0.46998363733291626,
+        "exact_acceptance_seconds": 9.765475988388062e-05,
+        "final_guard_seconds": 9.96515154838562e-06
+      },
+      "elapsed_seconds": 17.46835868060589
+    },
+    "ordinary_gpu_residual_diagnostic": 0.0,
+    "explicit_gpu_H_seconds": 0.0020990967750549316,
+    "complete_verification_seconds": 17.762026641517878,
+    "verification_cost_scope": "Capture actualD64 and all CPUtransfers, both bitidentityhash passes, complete certifier; excludes separate roundedGPU diagnostic and JSON persistence",
+    "output_representation": "Actual immutable saved/constructed complex128 bits",
+    "source_representation": "Actual immutable captured source bits",
+    "no_input_mutation": true
+  },
+  {
+    "kind": "original_source_zero",
+    "size": 256,
+    "index": 0,
+    "development_seed": 4626,
+    "parent": {
+      "path": "rte/workstation_runs/resume_audit_20261002/runtime_gate/validation_n256.pt",
+      "sha256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+    },
+    "buffer_identities": {
+      "source": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          256,
+          256
+        ],
+        "sha256": "3a7aece93ec0a73c843471348f05f64c9792d3a5c2a2d6b6d3aca4c01d0d4fc6",
+        "bytes": 12582912
+      },
+      "candidate": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          256,
+          256
+        ],
+        "sha256": "54f895f1982b31232d22d7331fdb6cbe2693bcc6f6584e7cc8fc82c5cf3d3686",
+        "bytes": 12582912
+      },
+      "stream_symbol": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          256,
+          256
+        ],
+        "sha256": "46333b7b19994e9fe525c83aed3463b40a0b3cfc725150a26161cd57ddec0323",
+        "bytes": 12582912
+      },
+      "sigma_t": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "sha256": "990790ef4989633ca7aa8175d127a16ea9aa41b3931d4e86c161b80bf77bb8f6",
+        "bytes": 524288
+      },
+      "sigma_s": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "sha256": "7062ab2586b05cd1216f488b3107337dc781997dbc4a12ff40f80c84c0a3c542",
+        "bytes": 524288
+      },
+      "phase": {
+        "dtype": "float64",
+        "shape": [
+          12,
+          12
+        ],
+        "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff",
+        "bytes": 1152
+      },
+      "weights": {
+        "dtype": "float64",
+        "shape": [
+          12
+        ],
+        "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6",
+        "bytes": 96
+      }
+    },
+    "certificate": {
+      "residual_norm_lower": 147.295386449801,
+      "residual_norm_upper": 147.29538644980155,
+      "source_norm_lower": 147.29538644980101,
+      "source_norm_upper": 147.29538644980155,
+      "candidate_norm_lower": 0.0,
+      "candidate_norm_upper": 3.942328806549813e-159,
+      "coercivity_lower": 0.017008103633554643,
+      "coercivity_lower_rational": "11303823752465993349281896611522839/664613997892457936451903530140172288",
+      "coercivity_lower_numerator": 11303823752465993349281896611522839,
+      "coercivity_lower_denominator": 664613997892457936451903530140172288,
+      "derived_coercivity_lower_rational": "11303823752465993349281896611522839/664613997892457936451903530140172288",
+      "policy_tolerance_rational": "1/100000",
+      "policy_solution_tolerance_rational": "1/1000",
+      "reserve_fraction_rational": "1/100",
+      "source_relative_norm_defined": true,
+      "residual_center_inside_enclosure": true,
+      "residual_center_norm_lower": 147.29538644980101,
+      "residual_center_norm_upper": 147.29538644980155,
+      "residual_center_norm_width": 5.400124791776761e-13,
+      "source_norm_width": 5.400124791776761e-13,
+      "residual_radius_norm_lower": 0.0,
+      "residual_radius_norm_upper": 2.341116759492519e-14,
+      "center_plus_radius_residual_norm_upper": 147.29538644980158,
+      "relative_center_norm_upper": 1.0000000000000038,
+      "relative_radius_norm_upper": 1.5894026390910644e-16,
+      "relative_residual_upper": 1.0000000000000038,
+      "absolute_solution_error_upper": 8660.306264785926,
+      "relative_solution_error_upper": null,
+      "residual_accepted": false,
+      "reserve_center_accepted": false,
+      "reserve_radius_accepted": true,
+      "fixed_one_percent_reserve_accepted": false,
+      "solution_error_accepted": false,
+      "accepted": false,
+      "certified_under_cpu_contract": true,
+      "cpu_contract": "Authored native add/multiply kernels compiled -fno-fast-math -ffp-contract=off; IEC559 binary64, FE_TONEAREST and hardware FTZ/DAZ guards checked; separate correctly rounded CPU operations; no FTZ/DAZ, overflow, hidden reduced precision or cross-ufunc fusion; correct adjacent-value nextafter. Rationally certified twiddles; no NumPy FFT/BLAS/trig/reduction certificate.",
+      "native_backend_guard_before": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "native_backend_guard_after": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "global_gpu_contract_established": false,
+      "target": "Exact nominal original stored D64 and collision/source bits",
+      "costs": {
+        "initial_guard_seconds": 1.2120231986045837e-05,
+        "coefficient_margin_seconds": 0.811296196654439,
+        "source_candidate_norm_seconds": 0.3667712938040495,
+        "action_seconds": 27.240707900375128,
+        "residual_norm_seconds": 0.24872375279664993,
+        "reserve_center_radius_seconds": 0.5006615556776524,
+        "exact_acceptance_seconds": 6.682984530925751e-05,
+        "final_guard_seconds": 1.0307878255844116e-05
+      },
+      "elapsed_seconds": 29.168285137042403
+    },
+    "ordinary_gpu_residual_diagnostic": 1.0,
+    "explicit_gpu_H_seconds": 0.02693861722946167,
+    "complete_verification_seconds": 29.39456196129322,
+    "verification_cost_scope": "Capture actualD64 and all CPUtransfers, both bitidentityhash passes, complete certifier; excludes separate roundedGPU diagnostic and JSON persistence",
+    "output_representation": "Actual immutable saved/constructed complex128 bits",
+    "source_representation": "Actual immutable captured source bits",
+    "no_input_mutation": true
+  },
+  {
+    "kind": "manufactured_M_source",
+    "size": 256,
+    "index": 3,
+    "development_seed": 4626,
+    "parent": {
+      "path": "rte/workstation_runs/resume_audit_20261002/runtime_gate/validation_n256.pt",
+      "sha256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+    },
+    "buffer_identities": {
+      "source": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          256,
+          256
+        ],
+        "sha256": "953cc98c5a3321fdd051091d97b34921126baf0f47236bd91c75ce7f37bf64c8",
+        "bytes": 12582912
+      },
+      "candidate": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          256,
+          256
+        ],
+        "sha256": "937d71bcb27807a44ba6f77b08c4c097205b87f9be3f99013e1a6e2b28abb5f3",
+        "bytes": 12582912
+      },
+      "stream_symbol": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          256,
+          256
+        ],
+        "sha256": "46333b7b19994e9fe525c83aed3463b40a0b3cfc725150a26161cd57ddec0323",
+        "bytes": 12582912
+      },
+      "sigma_t": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "sha256": "5310a2ea2953739a38769ff9abde58d86c24860976669c628e30a00fbd8f4b68",
+        "bytes": 524288
+      },
+      "sigma_s": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "sha256": "98ccd230057133a34f5e05aa93357c46a2af94beef970e2f619796d5ab4054f5",
+        "bytes": 524288
+      },
+      "phase": {
+        "dtype": "float64",
+        "shape": [
+          12,
+          12
+        ],
+        "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff",
+        "bytes": 1152
+      },
+      "weights": {
+        "dtype": "float64",
+        "shape": [
+          12
+        ],
+        "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6",
+        "bytes": 96
+      }
+    },
+    "certificate": {
+      "residual_norm_lower": 0.0,
+      "residual_norm_upper": 9.433611797186422e-05,
+      "source_norm_lower": 187.49136380287385,
+      "source_norm_upper": 187.4913638028745,
+      "candidate_norm_lower": 553.3802985647359,
+      "candidate_norm_upper": 553.3802985647378,
+      "coercivity_lower": 0.04077052551699245,
+      "coercivity_lower_rational": "13548330980012412513215467533351387/332306998946228968225951765070086144",
+      "coercivity_lower_numerator": 13548330980012412513215467533351387,
+      "coercivity_lower_denominator": 332306998946228968225951765070086144,
+      "derived_coercivity_lower_rational": "13548330980012412513215467533351387/332306998946228968225951765070086144",
+      "policy_tolerance_rational": "1/100000",
+      "policy_solution_tolerance_rational": "1/1000",
+      "reserve_fraction_rational": "1/100",
+      "source_relative_norm_defined": true,
+      "residual_center_inside_enclosure": true,
+      "residual_center_norm_lower": 9.663671234234789e-12,
+      "residual_center_norm_upper": 9.663671234234825e-12,
+      "residual_center_norm_width": 3.554291694563791e-26,
+      "source_norm_width": 6.536993168992922e-13,
+      "residual_radius_norm_lower": 0.0,
+      "residual_radius_norm_upper": 9.433611131497579e-05,
+      "center_plus_radius_residual_norm_upper": 9.433612097864704e-05,
+      "relative_center_norm_upper": 5.154195392378228e-14,
+      "relative_radius_norm_upper": 5.031491019189537e-07,
+      "relative_residual_upper": 5.03149137423994e-07,
+      "absolute_solution_error_upper": 0.002313831297870972,
+      "relative_solution_error_upper": 4.18128541739069e-06,
+      "residual_accepted": true,
+      "reserve_center_accepted": true,
+      "reserve_radius_accepted": false,
+      "fixed_one_percent_reserve_accepted": false,
+      "solution_error_accepted": true,
+      "accepted": false,
+      "certified_under_cpu_contract": true,
+      "cpu_contract": "Authored native add/multiply kernels compiled -fno-fast-math -ffp-contract=off; IEC559 binary64, FE_TONEAREST and hardware FTZ/DAZ guards checked; separate correctly rounded CPU operations; no FTZ/DAZ, overflow, hidden reduced precision or cross-ufunc fusion; correct adjacent-value nextafter. Rationally certified twiddles; no NumPy FFT/BLAS/trig/reduction certificate.",
+      "native_backend_guard_before": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "native_backend_guard_after": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "global_gpu_contract_established": false,
+      "target": "Exact nominal original stored D64 and collision/source bits",
+      "costs": {
+        "initial_guard_seconds": 1.4692544937133789e-05,
+        "coefficient_margin_seconds": 0.706413771957159,
+        "source_candidate_norm_seconds": 0.34902195259928703,
+        "action_seconds": 14.088351784273982,
+        "residual_norm_seconds": 0.24814269691705704,
+        "reserve_center_radius_seconds": 0.438474977388978,
+        "exact_acceptance_seconds": 9.33818519115448e-05,
+        "final_guard_seconds": 1.0941177606582642e-05
+      },
+      "elapsed_seconds": 15.830566447228193
+    },
+    "ordinary_gpu_residual_diagnostic": 0.0,
+    "explicit_gpu_H_seconds": 0.0012355484068393707,
+    "complete_verification_seconds": 16.051978515461087,
+    "verification_cost_scope": "Capture actualD64 and all CPUtransfers, both bitidentityhash passes, complete certifier; excludes separate roundedGPU diagnostic and JSON persistence",
+    "output_representation": "Actual immutable saved/constructed complex128 bits",
+    "source_representation": "Actual immutable captured source bits",
+    "no_input_mutation": true
+  },
+  {
+    "kind": "original_source_zero",
+    "size": 256,
+    "index": 3,
+    "development_seed": 4626,
+    "parent": {
+      "path": "rte/workstation_runs/resume_audit_20261002/runtime_gate/validation_n256.pt",
+      "sha256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+    },
+    "buffer_identities": {
+      "source": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          256,
+          256
+        ],
+        "sha256": "698a1baed2f50516c85c86b8b6849333be0681e37bacfb59e4ea6fdfdb8c81d6",
+        "bytes": 12582912
+      },
+      "candidate": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          256,
+          256
+        ],
+        "sha256": "54f895f1982b31232d22d7331fdb6cbe2693bcc6f6584e7cc8fc82c5cf3d3686",
+        "bytes": 12582912
+      },
+      "stream_symbol": {
+        "dtype": "complex128",
+        "shape": [
+          1,
+          12,
+          256,
+          256
+        ],
+        "sha256": "46333b7b19994e9fe525c83aed3463b40a0b3cfc725150a26161cd57ddec0323",
+        "bytes": 12582912
+      },
+      "sigma_t": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "sha256": "5310a2ea2953739a38769ff9abde58d86c24860976669c628e30a00fbd8f4b68",
+        "bytes": 524288
+      },
+      "sigma_s": {
+        "dtype": "float64",
+        "shape": [
+          1,
+          1,
+          256,
+          256
+        ],
+        "sha256": "98ccd230057133a34f5e05aa93357c46a2af94beef970e2f619796d5ab4054f5",
+        "bytes": 524288
+      },
+      "phase": {
+        "dtype": "float64",
+        "shape": [
+          12,
+          12
+        ],
+        "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff",
+        "bytes": 1152
+      },
+      "weights": {
+        "dtype": "float64",
+        "shape": [
+          12
+        ],
+        "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6",
+        "bytes": 96
+      }
+    },
+    "certificate": {
+      "residual_norm_lower": 187.2704250467168,
+      "residual_norm_upper": 187.27042504671752,
+      "source_norm_lower": 187.27042504671684,
+      "source_norm_upper": 187.2704250467175,
+      "candidate_norm_lower": 0.0,
+      "candidate_norm_upper": 3.942328806549813e-159,
+      "coercivity_lower": 0.04077052551699245,
+      "coercivity_lower_rational": "13548330980012412513215467533351387/332306998946228968225951765070086144",
+      "coercivity_lower_numerator": 13548330980012412513215467533351387,
+      "coercivity_lower_denominator": 332306998946228968225951765070086144,
+      "derived_coercivity_lower_rational": "13548330980012412513215467533351387/332306998946228968225951765070086144",
+      "policy_tolerance_rational": "1/100000",
+      "policy_solution_tolerance_rational": "1/1000",
+      "reserve_fraction_rational": "1/100",
+      "source_relative_norm_defined": true,
+      "residual_center_inside_enclosure": true,
+      "residual_center_norm_lower": 187.27042504671684,
+      "residual_center_norm_upper": 187.2704250467175,
+      "residual_center_norm_width": 6.536993168992922e-13,
+      "source_norm_width": 6.536993168992922e-13,
+      "residual_radius_norm_lower": 0.0,
+      "residual_radius_norm_upper": 3.0033160429189354e-14,
+      "center_plus_radius_residual_norm_upper": 187.27042504671755,
+      "relative_center_norm_upper": 1.0000000000000036,
+      "relative_radius_norm_upper": 1.6037321654872747e-16,
+      "relative_residual_upper": 1.0000000000000038,
+      "absolute_solution_error_upper": 4593.279646804318,
+      "relative_solution_error_upper": null,
+      "residual_accepted": false,
+      "reserve_center_accepted": false,
+      "reserve_radius_accepted": true,
+      "fixed_one_percent_reserve_accepted": false,
+      "solution_error_accepted": false,
+      "accepted": false,
+      "certified_under_cpu_contract": true,
+      "cpu_contract": "Authored native add/multiply kernels compiled -fno-fast-math -ffp-contract=off; IEC559 binary64, FE_TONEAREST and hardware FTZ/DAZ guards checked; separate correctly rounded CPU operations; no FTZ/DAZ, overflow, hidden reduced precision or cross-ufunc fusion; correct adjacent-value nextafter. Rationally certified twiddles; no NumPy FFT/BLAS/trig/reduction certificate.",
+      "native_backend_guard_before": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "native_backend_guard_after": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "global_gpu_contract_established": false,
+      "target": "Exact nominal original stored D64 and collision/source bits",
+      "costs": {
+        "initial_guard_seconds": 1.3967975974082947e-05,
+        "coefficient_margin_seconds": 0.7097870446741581,
+        "source_candidate_norm_seconds": 0.3376071508973837,
+        "action_seconds": 25.40436576679349,
+        "residual_norm_seconds": 0.24994538724422455,
+        "reserve_center_radius_seconds": 0.49977828562259674,
+        "exact_acceptance_seconds": 8.442066609859467e-05,
+        "final_guard_seconds": 1.0348856449127197e-05
+      },
+      "elapsed_seconds": 27.20162689499557
+    },
+    "ordinary_gpu_residual_diagnostic": 1.0,
+    "explicit_gpu_H_seconds": 0.02708066999912262,
+    "complete_verification_seconds": 27.42193696089089,
+    "verification_cost_scope": "Capture actualD64 and all CPUtransfers, both bitidentityhash passes, complete certifier; excludes separate roundedGPU diagnostic and JSON persistence",
+    "output_representation": "Actual immutable saved/constructed complex128 bits",
+    "source_representation": "Actual immutable captured source bits",
+    "no_input_mutation": true
+  }
+]

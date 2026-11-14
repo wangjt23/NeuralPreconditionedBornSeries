@@ -1,0 +1,8 @@
+{
+  "learned_candidates_passing_development_rule": [],
+  "full_decision_scope": true,
+  "recommended": "stop the tested fixed nonlinear one-shot correction as a speed mechanism; retain classical controls and the isolated semantic repair",
+  "test_generated": false,
+  "reserved_test_seed": 9626,
+  "qualification": "single paired training seed; repeatedly reused development media; no claim of held-out or OOD superiority"
+}

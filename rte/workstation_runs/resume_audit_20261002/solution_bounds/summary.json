@@ -1,0 +1,10 @@
+{
+  "cases": 48,
+  "failures": 0,
+  "positive_margins": 48,
+  "relative_bounds_available": 48,
+  "min_coercivity_margin": 0.012706031357495817,
+  "max_relative_solution_error_bound": 0.00023688605765287695,
+  "max_true_residual": 9.985011571756997e-06,
+  "scope": "48 frozen-classical validation solves across3 nested grids;16 independent media; FP64 evaluated discrete bounds, not interval certificates"
+}

@@ -1,0 +1,13 @@
+test_actions_equal_exact_restriction_of_original_physical_action (test_angular_galerkin.AngularGalerkinTests.test_actions_equal_exact_restriction_of_original_physical_action) ... ok
+test_adjoint_matches_original_physical_adjoint_and_inner_products (test_angular_galerkin.AngularGalerkinTests.test_adjoint_matches_original_physical_adjoint_and_inner_products) ... ok
+test_cache_refreshes_after_pointer_version_and_setup_generation_changes (test_angular_galerkin.AngularGalerkinTests.test_cache_refreshes_after_pointer_version_and_setup_generation_changes) ... ok
+test_coercivity_bound_is_conservative_per_batch_without_phase_symmetry_assumption (test_angular_galerkin.AngularGalerkinTests.test_coercivity_bound_is_conservative_per_batch_without_phase_symmetry_assumption) ... ok
+test_complex64_and_real_inputs_are_rejected_instead_of_silently_promoted (test_angular_galerkin.AngularGalerkinTests.test_complex64_and_real_inputs_are_rejected_instead_of_silently_promoted) ... ok
+test_lift_restrict_and_small_matrices_use_actual_stored_geometry (test_angular_galerkin.AngularGalerkinTests.test_lift_restrict_and_small_matrices_use_actual_stored_geometry) ... ok
+test_reference_inverse_and_adjoint_use_exact_projected_homogeneous_matrix (test_angular_galerkin.AngularGalerkinTests.test_reference_inverse_and_adjoint_use_exact_projected_homogeneous_matrix) ... ok
+test_zero_additivity_and_complex_phase_are_preserved (test_angular_galerkin.AngularGalerkinTests.test_zero_additivity_and_complex_phase_are_preserved) ... ok
+
+----------------------------------------------------------------------
+Ran 8 tests in 1.313s
+
+OK

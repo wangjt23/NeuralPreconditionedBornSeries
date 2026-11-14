@@ -1,0 +1,92 @@
+{
+  "date": "2026-10-02",
+  "scope": "Scalar recomputation from existing receipts; no new fields/actions/solves",
+  "certified": false,
+  "arithmetic": "Ordinary Python binary64 diagnostics, not outward norm/eigenvalue certificates",
+  "tolerance": 1e-05,
+  "relative_solution_error_target": 0.001,
+  "derivations": {
+    "mX_over_Q": "rho*(1+1/evaluated_bound)",
+    "absolute_action_ceiling": "m*(tau-rho-a)/(1+tau), conditional valid operator/check bounds; a=0 table only"
+  },
+  "sources": [
+    {
+      "path": "receipts/complex_execution/results/setup.json",
+      "sha256": "912e1485fef5f558710605dacddad18eaee1cb5ccfff83f02a797ea6b037a5e0"
+    },
+    {
+      "path": "receipts/complex_execution/results/admissibility.json",
+      "sha256": "4f2b88e793dbba8f79084a143d9c00ae3bb86c573027b8eafa9cac7989f3870d"
+    },
+    {
+      "path": "receipts/gain_two_execution/results/solver.json",
+      "sha256": "4fed2a0d6cab61bdcec266ce77329a2acf7635f238286d7e48a0090f15690966"
+    }
+  ],
+  "rows": [
+    {
+      "size": 128,
+      "index": 0,
+      "old_method": "direct_segmented",
+      "old_repeat": 0,
+      "reported_source_norm": 73.64766780253649,
+      "reported_margin": 0.017008218598520308,
+      "margins_equal": true,
+      "reported_old_relative_residual": 7.002423363250661e-06,
+      "reported_old_evaluated_relative_error_bound": 5.167323784006931e-05,
+      "reconstructed_m_field_norm_over_source_norm": 0.13552054204175207,
+      "nominal_solution_error_acceptance_ceiling_over_Q": 0.00013538515688486723,
+      "nominal_residual_slack_over_Q": 2.99757663674934e-06,
+      "conditional_absolute_action_ceiling_a_zero": 5.098292887436133e-08,
+      "conditional_zero_residual_absolute_action_ceiling_a_zero": 1.7008048518035127e-07
+    },
+    {
+      "size": 128,
+      "index": 3,
+      "old_method": "direct_segmented",
+      "old_repeat": 0,
+      "reported_source_norm": 93.63521262501115,
+      "reported_margin": 0.04077080126764265,
+      "margins_equal": true,
+      "reported_old_relative_residual": 4.791795754880513e-06,
+      "reported_old_evaluated_relative_error_bound": 3.969672271530451e-05,
+      "reconstructed_m_field_norm_over_source_norm": 0.12071490152562193,
+      "nominal_solution_error_acceptance_ceiling_over_Q": 0.00012059430721840355,
+      "nominal_residual_slack_over_Q": 5.208204245119488e-06,
+      "conditional_absolute_action_ceiling_a_zero": 2.1234053683369114e-07,
+      "conditional_zero_residual_absolute_action_ceiling_a_zero": 4.0770393563707017e-07
+    },
+    {
+      "size": 256,
+      "index": 0,
+      "old_method": "direct_segmented",
+      "old_repeat": 0,
+      "reported_source_norm": 147.29538644980127,
+      "reported_margin": 0.017008218598520308,
+      "margins_equal": true,
+      "reported_old_relative_residual": 9.757451258812898e-06,
+      "reported_old_evaluated_relative_error_bound": 7.202015101687104e-05,
+      "reconstructed_m_field_norm_over_source_norm": 0.13549199570048398,
+      "nominal_solution_error_acceptance_ceiling_over_Q": 0.0001353566390614226,
+      "nominal_residual_slack_over_Q": 2.425487411871031e-07,
+      "conditional_absolute_action_ceiling_a_zero": 4.125280758098594e-09,
+      "conditional_zero_residual_absolute_action_ceiling_a_zero": 1.7008048518035127e-07
+    },
+    {
+      "size": 256,
+      "index": 3,
+      "old_method": "direct_segmented",
+      "old_repeat": 0,
+      "reported_source_norm": 187.27042504671715,
+      "reported_margin": 0.04077080126764265,
+      "margins_equal": true,
+      "reported_old_relative_residual": 1.1054276492236477e-06,
+      "reported_old_evaluated_relative_error_bound": 9.175102916606375e-06,
+      "reconstructed_m_field_norm_over_source_norm": 0.12048233155350459,
+      "nominal_solution_error_acceptance_ceiling_over_Q": 0.00012036196958392069,
+      "nominal_residual_slack_over_Q": 8.894572350776353e-06,
+      "conditional_absolute_action_ceiling_a_zero": 3.626352153220186e-07,
+      "conditional_zero_residual_absolute_action_ceiling_a_zero": 4.0770393563707017e-07
+    }
+  ]
+}

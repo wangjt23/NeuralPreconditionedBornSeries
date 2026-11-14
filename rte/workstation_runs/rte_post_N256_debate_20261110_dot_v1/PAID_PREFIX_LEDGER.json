@@ -1,0 +1,133 @@
+{
+  "scope": "Read-only arithmetic on sealed J2 phase and observed-wall records; no new solve or new source count. Prefix bounds are derived, not directly measured full-prefix clocks.",
+  "receipt_sha256": "504000b6746aad51cf1ba8f63420c1872ef55252143c4850b70c4bddb85daaad",
+  "methods": {
+    "tsa64_zero": {
+      "setup_seconds": 0.4018908180296421,
+      "total_between_phase_overhead_seconds": 0.1766117352526635,
+      "prefix_bounds": [
+        {
+          "count": 1,
+          "lower_seconds": 27.35609905514866,
+          "upper_seconds": 27.35609905514866,
+          "direct_clock": true
+        },
+        {
+          "count": 2,
+          "lower_seconds": 54.13689009891823,
+          "upper_seconds": 54.31350183417089,
+          "direct_clock": false
+        },
+        {
+          "count": 3,
+          "lower_seconds": 80.71955427876674,
+          "upper_seconds": 80.8961660140194,
+          "direct_clock": false
+        },
+        {
+          "count": 4,
+          "lower_seconds": 107.70724099501967,
+          "upper_seconds": 107.70724099501967,
+          "direct_clock": true
+        }
+      ]
+    },
+    "compact4": {
+      "setup_seconds": 21.800463662017137,
+      "total_between_phase_overhead_seconds": 0.6551034783478826,
+      "prefix_bounds": [
+        {
+          "count": 1,
+          "lower_seconds": 43.36258568195626,
+          "upper_seconds": 43.36258568195626,
+          "direct_clock": true
+        },
+        {
+          "count": 2,
+          "lower_seconds": 59.85746726789512,
+          "upper_seconds": 60.512570746243,
+          "direct_clock": false
+        },
+        {
+          "count": 3,
+          "lower_seconds": 81.49467866076156,
+          "upper_seconds": 82.14978213910945,
+          "direct_clock": false
+        },
+        {
+          "count": 4,
+          "lower_seconds": 98.67117238114588,
+          "upper_seconds": 98.67117238114588,
+          "direct_clock": true
+        }
+      ]
+    },
+    "tsa16_zero": {
+      "setup_seconds": 0.40154907084070146,
+      "total_between_phase_overhead_seconds": 0.592208790127188,
+      "prefix_bounds": [
+        {
+          "count": 1,
+          "lower_seconds": 25.910007522907108,
+          "upper_seconds": 25.910007522907108,
+          "direct_clock": true
+        },
+        {
+          "count": 2,
+          "lower_seconds": 51.95435193483718,
+          "upper_seconds": 52.546560724964365,
+          "direct_clock": false
+        },
+        {
+          "count": 3,
+          "lower_seconds": 78.3384540649131,
+          "upper_seconds": 78.93066285504028,
+          "direct_clock": false
+        },
+        {
+          "count": 4,
+          "lower_seconds": 105.23514765803702,
+          "upper_seconds": 105.23514765803702,
+          "direct_clock": true
+        }
+      ]
+    },
+    "E": {
+      "setup_seconds": 14.692833674140275,
+      "total_between_phase_overhead_seconds": 0.1404376041609794,
+      "prefix_bounds": [
+        {
+          "count": 1,
+          "lower_seconds": 31.411620836006477,
+          "upper_seconds": 31.411620836006477,
+          "direct_clock": true
+        },
+        {
+          "count": 2,
+          "lower_seconds": 47.307789674028754,
+          "upper_seconds": 47.448227278189734,
+          "direct_clock": false
+        },
+        {
+          "count": 3,
+          "lower_seconds": 62.880117191933095,
+          "upper_seconds": 63.020554796094075,
+          "direct_clock": false
+        },
+        {
+          "count": 4,
+          "lower_seconds": 77.25407462310977,
+          "upper_seconds": 77.25407462310977,
+          "direct_clock": true
+        }
+      ]
+    }
+  },
+  "prefix_decisions_within_this_receipt": {
+    "1": "tsa16_zero",
+    "2": "E",
+    "3": "E",
+    "4": "E"
+  },
+  "not_authorized_inference": "These observations do not validate a learned/adaptive selector, an unobserved source order, any additional RHS, new material, or a GPU comparison."
+}

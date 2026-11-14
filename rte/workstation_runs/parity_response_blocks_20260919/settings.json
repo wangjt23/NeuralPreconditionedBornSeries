@@ -1,0 +1,23 @@
+{
+  "args": {
+    "sizes": [
+      16,
+      32
+    ],
+    "divisions": [
+      4
+    ],
+    "epsilons": [
+      1.0,
+      0.1
+    ],
+    "count": 4,
+    "limit": 2,
+    "seed": 1919,
+    "device": "cuda:0",
+    "output": "rte/workstation_runs/parity_response_blocks_20260919"
+  },
+  "scope": "dense small-grid structural diagnostic; compression errors are block Frobenius, not solver errors",
+  "operators": "even Schur inverse and inverse minus homogeneous reference; all retained angular channels",
+  "limitation": "sampled source patch only; no whole-operator hierarchical approximation or network tested"
+}

@@ -1,0 +1,17 @@
+{
+  "report_sha256": {
+    "rte/workstation_runs/direct_capture_20261002/HANDOFF.md": "d9beab41ded3445d843c554bfd921a0af73f39957a252f4a34aa6c65d4e8f138",
+    "rte/workstation_runs/direct_capture_20261002/notes/screen_audit.md": "91ec5dbcea2d925d09f0f469af1e05c9ab8f488e664eb993d36b34a47a429cb2",
+    "rte/workstation_runs/direct_capture_20261002/notes/confirmation_audit.md": "e07ac68e90de83fc7576d0279144e0010b86de5f447bf41f70d9a361b376391e",
+    "rte/workstation_runs/direct_capture_20261002/notes/NEXT_RESEARCH_DECISION.md": "8d1f724d0bfeab470bf1516bc96bebb78a452ca7acfc0c6915eefa82b41dbd1a",
+    "rte/workstation_runs/direct_capture_20261002/notes/headroom_interpretation.md": "cc8d425407e4adf8c7a976b0168117b2e44edce47168fb3083cffc917f5807b9",
+    "rte/workstation_runs/direct_capture_20261002/notes/confirmation_audit.json": "b70e03b3ec347393a0e9707ad8cccc3bb1c6b9637181e0b78654d8b6239596b5",
+    "rte/workstation_runs/direct_capture_20261002/notes/independent_confirmation_audit.json": "c5f69fcabd2c5c0f3a6a51d39c782c4b4f5becc975d558a107bd63dfc042c836",
+    "rte/workstation_runs/direct_capture_20261002/notes/frozen_selection.json": "e1de6b0fb7f929f9bbda092a09b12da50a4a33acc752e4387acd72a0429f30ad",
+    "docs/research/RTE_DIRECT_CAPTURE_Q1_2026_10_02.md": "d9beab41ded3445d843c554bfd921a0af73f39957a252f4a34aa6c65d4e8f138"
+  },
+  "head": "028caea3f35d100225f656e2b1e910c1366aaafe",
+  "tracked_dirty_count": 9,
+  "original_source_modified": false,
+  "original_source_exported": false
+}

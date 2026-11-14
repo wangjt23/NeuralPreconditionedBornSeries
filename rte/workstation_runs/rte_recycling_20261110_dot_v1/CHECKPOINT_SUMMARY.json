@@ -1,0 +1,19 @@
+{
+  "status": "Same-instance CPU timing gate passed; material transfer and GPU gates untested.",
+  "original_contract_outer_attempts": 76,
+  "original_contract_outer_failures": 0,
+  "additional_ordinary_native_reference_solves": 4,
+  "recorded_main_wall_seconds": 470.59936912707053,
+  "cpu_confirmation_median_paired_gain_percent": 12.640765193408487,
+  "cpu_confirmation_paired_gain_range_percent": [
+    10.836366185686375,
+    13.317599387772905
+  ],
+  "CPU_used": "One thread; CPU0 pinned after initial recycling probe.",
+  "GPU_used": false,
+  "new_accurate_teachers": false,
+  "neural_training": false,
+  "heldout9626": false,
+  "production_changed": false,
+  "next_unrun_gate": "Predeclare amplitude3-to6 inclusion perturbation with original position/width and all numerical parameters/RHS fixed; no screening. GPU gate waits for coordination."
+}

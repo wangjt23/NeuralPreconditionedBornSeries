@@ -1,0 +1,10 @@
+{
+  "python": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:12:24) [GCC 11.2.0]",
+  "executable": "/data1/software/miniconda3/bin/python",
+  "platform": "Linux-6.11.0-25-generic-x86_64-with-glibc2.39",
+  "torch": "2.5.1",
+  "cuda": "12.4",
+  "numpy": "1.26.4",
+  "scipy": "1.13.1",
+  "scope": "recorded existing FWI runtime; not a tested clean install lockfile"
+}

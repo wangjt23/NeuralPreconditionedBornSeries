@@ -1,0 +1,126 @@
+{
+  "complete": true,
+  "pid": 976812,
+  "source_hash": "df1c722794d6f928443dd4c9dd8fff6c4bc2e5d900f7fb345e915380299e91e8",
+  "neural_training": false,
+  "new_unique_teacher_cases": 0,
+  "recomputed_reference_solves": 4,
+  "heldout9626": false,
+  "grid": 128,
+  "n_angles": 12,
+  "g": 0.65,
+  "selected_condition": "p1_b3.33333",
+  "selection": "Hardest of4 tested scenes; best depth64 is interior and beats32 and128.",
+  "source_ids": [
+    0,
+    4,
+    7,
+    14
+  ],
+  "repeats": 3,
+  "maxiter": 100,
+  "wall_limit": 600,
+  "teacher_contract": "4 new exact solutions for the changed A, original Fourier residual <=2e-9.",
+  "cost": "Full Q1 and actual reuse across the same4RHS. Teacher cost excluded only for explicitly oracle method. Factor/capture charged to every method that uses it.",
+  "methods": [
+    "tsa64",
+    "oracle_C8",
+    "compact4:inject",
+    "compact4:born",
+    "upwind:inject",
+    "upwind:born",
+    "upwind:gmres2"
+  ],
+  "common_setup_seconds": 0.004738287068903446,
+  "coercivity_margin": 0.04996154916125306,
+  "tsa64_setup_seconds": 0.015283888904377818,
+  "factors": {
+    "upwind": {
+      "factor_seconds": 0.13018572609871626,
+      "capture_seconds": 0.0464876270852983,
+      "factor_bytes": 302137344,
+      "capture_error": 0.0
+    },
+    "compact4": {
+      "factor_seconds": 0.025063336128368974,
+      "capture_seconds": 0.00881667505018413,
+      "factor_bytes": 302137344,
+      "capture_error": 0.0
+    }
+  },
+  "first_process_setup": {
+    "common_seconds": 0.34172762208618224,
+    "tsa64_seconds": 0.07698490400798619,
+    "factors": {
+      "upwind": {
+        "factor_seconds": 0.13018572609871626,
+        "capture_seconds": 0.0464876270852983,
+        "factor_bytes": 302137344,
+        "capture_error": 0.0
+      },
+      "compact4": {
+        "factor_seconds": 0.025063336128368974,
+        "capture_seconds": 0.00881667505018413,
+        "factor_bytes": 302137344,
+        "capture_error": 0.0
+      }
+    }
+  },
+  "setup_protocol": "Primary paired rows use median of3 warm-process new-material factorizations/captures, not zero setup. First-process setup remains recorded separately. No factor reused across different media.",
+  "warm_setup_calibration": [
+    {
+      "repeat": 0,
+      "common_seconds": 0.005243077874183655,
+      "tsa64_seconds": 0.015847685048356652,
+      "factors": {
+        "compact4": {
+          "factor_seconds": 0.024518033023923635,
+          "capture_seconds": 0.00836427416652441
+        },
+        "upwind": {
+          "factor_seconds": 0.023957595927640796,
+          "capture_seconds": 0.007990827783942223
+        }
+      }
+    },
+    {
+      "repeat": 1,
+      "common_seconds": 0.004738287068903446,
+      "tsa64_seconds": 0.01526674092747271,
+      "factors": {
+        "upwind": {
+          "factor_seconds": 0.02399920905008912,
+          "capture_seconds": 0.007924163015559316
+        },
+        "compact4": {
+          "factor_seconds": 0.024364182027056813,
+          "capture_seconds": 0.008301547961309552
+        }
+      }
+    },
+    {
+      "repeat": 2,
+      "common_seconds": 0.0047288641799241304,
+      "tsa64_seconds": 0.015283888904377818,
+      "factors": {
+        "compact4": {
+          "factor_seconds": 0.02405189606361091,
+          "capture_seconds": 0.008261418901383877
+        },
+        "upwind": {
+          "factor_seconds": 0.023527423152700067,
+          "capture_seconds": 0.00791268702596426
+        }
+      }
+    }
+  ],
+  "G_setup_seconds": {
+    "upwind": 0.03192337206564844,
+    "compact4": 0.032665729988366365
+  },
+  "wall_seconds": 17.563032519072294,
+  "rows": 112,
+  "failures": 0,
+  "peak_allocated_bytes": 1224151040,
+  "peak_reserved_bytes": 2019557376
+}

@@ -1,0 +1,31 @@
+{
+  "files": [
+    {
+      "file_name": "RTE_FWI_Gain_Two_Screen_2026_10_02.md",
+      "library_file_id": "libfile_4e610149396481918dd1fdb1a1187ded",
+      "file_id": "file_00000000bd6481fbb6a49b894fb42325",
+      "bytes": 17520,
+      "sha256": "e411a4878cf2e833fe0ae8bfe54c4b8fa049349d5c95be9a8330488a894699cd",
+      "exact_pinned_version_byte_match": true,
+      "local_metadata_exit": 0
+    },
+    {
+      "file_name": "RTE_FWI_Gain_Two_Screen_2026_10_02.zip",
+      "library_file_id": "libfile_1140a9ee6cd88191aaae2985556deaa3",
+      "file_id": "file_0000000040a481fbb400162c4c6d1c41",
+      "bytes": 248918,
+      "sha256": "c601ba2ba95d649f0159d97e400af99c65d2819c501e5476246591e927af148a",
+      "exact_pinned_version_byte_match": true,
+      "local_metadata_exit": 0
+    }
+  ],
+  "verified_payloads": 59,
+  "zip_entries": 60,
+  "all_payload_sha256_verified": true,
+  "zip_crc_passed": true,
+  "root_analysis_reproduced_byte_exact": true,
+  "independent_core_claims_reproduced_exact": true,
+  "no_original_source_gpu_needed_for_receipt_audits": true,
+  "private_library_saved": true,
+  "original_source_exported": false
+}

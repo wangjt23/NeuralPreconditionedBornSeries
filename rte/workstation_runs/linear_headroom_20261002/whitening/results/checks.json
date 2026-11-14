@@ -1,0 +1,38 @@
+[
+  {
+    "size": 128,
+    "index": 0,
+    "normal_whitening_max_identity_defect": 2.1764057220053824e-14,
+    "adjoint_relative": 1.2423920675353718e-16,
+    "reference_min_eigenvalue": 0.0007970538790239074,
+    "reference_max_eigenvalue": 243936.16093764087,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "normal_whitening_max_identity_defect": 2.1636793824203142e-14,
+    "adjoint_relative": 0.0,
+    "reference_min_eigenvalue": 0.0035040953002228358,
+    "reference_max_eigenvalue": 244341.75264592815,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "normal_whitening_max_identity_defect": 2.1688731957047617e-14,
+    "adjoint_relative": 3.726893757555898e-16,
+    "reference_min_eigenvalue": 0.0007974754391600859,
+    "reference_max_eigenvalue": 971614.0146612916,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "normal_whitening_max_identity_defect": 2.1457456892554347e-14,
+    "adjoint_relative": 0.0,
+    "reference_min_eigenvalue": 0.0035193714232429774,
+    "reference_max_eigenvalue": 972050.9956467028,
+    "passed": true
+  }
+]

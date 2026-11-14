@@ -1,0 +1,14 @@
+{
+  "host": "FWI-Standard-PC-i440FX-PIIX-1996",
+  "user": "wjt",
+  "workspace": "/data/wjt/NeuralPreconditionedBornSeries",
+  "branch": "main",
+  "head": "028caea3f35d100225f656e2b1e910c1366aaafe",
+  "source_count": 155,
+  "source_mismatches": [],
+  "model_mismatches": [],
+  "development_parent_mismatches": [],
+  "gpu_processes": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "new_directory_exists": false,
+  "test_files": []
+}

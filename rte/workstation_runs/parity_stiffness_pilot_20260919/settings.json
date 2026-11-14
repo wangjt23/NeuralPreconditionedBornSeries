@@ -1,0 +1,25 @@
+{
+  "args": {
+    "sizes": [
+      64
+    ],
+    "epsilons": [
+      1.0,
+      0.1
+    ],
+    "shifts": [
+      1.0
+    ],
+    "count": 2,
+    "seed": 1919,
+    "repeats": 1,
+    "checkpoint": "rte/workstation_runs/sct4_krylov_n64_seed402_20260912/best.pt",
+    "device": "cuda:0",
+    "output": "rte/workstation_runs/parity_stiffness_pilot_20260919"
+  },
+  "scope": "development survey, not held-out tuned-method confirmation; no training",
+  "refinement": "same continuous realizations, exact nested-grid coefficient agreement checked",
+  "scaling": "t=t0/eps; s=t-eps*(t0-s0), rounded once to FP32 then physical operator promoted unchanged",
+  "timing": "preparation plus first, followed by warmed same-RHS solves; excludes initial process/operator construction",
+  "parity": "symmetric reference only, original physical A unchanged and checked in FP64"
+}

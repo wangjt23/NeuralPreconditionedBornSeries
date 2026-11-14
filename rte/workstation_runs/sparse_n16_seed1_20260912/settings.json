@@ -1,0 +1,10 @@
+{
+  "case": "mixed",
+  "size": 16,
+  "n_angles": 12,
+  "seed": 1,
+  "exact": true,
+  "solver_steps": 30,
+  "tol": 1e-05,
+  "output": "rte/workstation_runs/sparse_n16_seed1_20260912"
+}

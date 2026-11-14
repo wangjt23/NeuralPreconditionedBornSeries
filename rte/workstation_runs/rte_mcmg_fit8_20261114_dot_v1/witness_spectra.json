@@ -1,0 +1,170 @@
+[
+  {
+    "file": "witness_0_CT4.pt",
+    "kind": "input_ri",
+    "low_k4": 0.25882086157798767,
+    "high_k16": 0.6971509456634521,
+    "scalar_angle": 0.04016841948032379
+  },
+  {
+    "file": "witness_0_CT4.pt",
+    "kind": "output_ri",
+    "low_k4": 0.201438307762146,
+    "high_k16": 0.7070498466491699,
+    "scalar_angle": 0.24931220710277557
+  },
+  {
+    "file": "witness_0_after.pt",
+    "kind": "input_ri",
+    "low_k4": 0.00014756133896298707,
+    "high_k16": 0.30784574151039124,
+    "scalar_angle": 0.1402655690908432
+  },
+  {
+    "file": "witness_0_after.pt",
+    "kind": "output_ri",
+    "low_k4": 0.00015056518896017224,
+    "high_k16": 0.032789550721645355,
+    "scalar_angle": 0.09048564732074738
+  },
+  {
+    "file": "witness_0_before.pt",
+    "kind": "input_ri",
+    "low_k4": 0.6088323593139648,
+    "high_k16": 0.35781633853912354,
+    "scalar_angle": 0.04317918419837952
+  },
+  {
+    "file": "witness_0_before.pt",
+    "kind": "output_ri",
+    "low_k4": 0.858311653137207,
+    "high_k16": 0.10693999379873276,
+    "scalar_angle": 0.015161898918449879
+  },
+  {
+    "file": "witness_1_CT4.pt",
+    "kind": "input_ri",
+    "low_k4": 3.595710174053579e-09,
+    "high_k16": 0.9999980926513672,
+    "scalar_angle": 0.06458404660224915
+  },
+  {
+    "file": "witness_1_CT4.pt",
+    "kind": "output_ri",
+    "low_k4": 2.9980413707164644e-09,
+    "high_k16": 0.9999966025352478,
+    "scalar_angle": 0.2465042769908905
+  },
+  {
+    "file": "witness_1_after.pt",
+    "kind": "input_ri",
+    "low_k4": 0.017207307741045952,
+    "high_k16": 0.26558294892311096,
+    "scalar_angle": 0.12563015520572662
+  },
+  {
+    "file": "witness_1_after.pt",
+    "kind": "output_ri",
+    "low_k4": 0.015093909576535225,
+    "high_k16": 0.0383528508245945,
+    "scalar_angle": 0.10938163846731186
+  },
+  {
+    "file": "witness_1_before.pt",
+    "kind": "input_ri",
+    "low_k4": 0.49272143840789795,
+    "high_k16": 0.449349969625473,
+    "scalar_angle": 0.05323081091046333
+  },
+  {
+    "file": "witness_1_before.pt",
+    "kind": "output_ri",
+    "low_k4": 0.6720256805419922,
+    "high_k16": 0.20399725437164307,
+    "scalar_angle": 0.08598989248275757
+  },
+  {
+    "file": "witness_2_CT4.pt",
+    "kind": "input_ri",
+    "low_k4": 1.9544988457548262e-12,
+    "high_k16": 1.0,
+    "scalar_angle": 0.1314142942428589
+  },
+  {
+    "file": "witness_2_CT4.pt",
+    "kind": "output_ri",
+    "low_k4": 7.07883513091645e-13,
+    "high_k16": 0.9999999403953552,
+    "scalar_angle": 0.15834906697273254
+  },
+  {
+    "file": "witness_2_after.pt",
+    "kind": "input_ri",
+    "low_k4": 2.770062224044523e-07,
+    "high_k16": 0.2797505855560303,
+    "scalar_angle": 0.1415185183286667
+  },
+  {
+    "file": "witness_2_after.pt",
+    "kind": "output_ri",
+    "low_k4": 2.633415761010838e-07,
+    "high_k16": 0.03375230357050896,
+    "scalar_angle": 0.08821548521518707
+  },
+  {
+    "file": "witness_2_before.pt",
+    "kind": "input_ri",
+    "low_k4": 0.6188575625419617,
+    "high_k16": 0.33932170271873474,
+    "scalar_angle": 0.04319062829017639
+  },
+  {
+    "file": "witness_2_before.pt",
+    "kind": "output_ri",
+    "low_k4": 0.85784912109375,
+    "high_k16": 0.1162903755903244,
+    "scalar_angle": 0.016944417729973793
+  },
+  {
+    "file": "witness_3_CT4.pt",
+    "kind": "input_ri",
+    "low_k4": 1.5556294316945718e-12,
+    "high_k16": 0.999997079372406,
+    "scalar_angle": 0.09914810955524445
+  },
+  {
+    "file": "witness_3_CT4.pt",
+    "kind": "output_ri",
+    "low_k4": 6.513792326703904e-13,
+    "high_k16": 0.9999971389770508,
+    "scalar_angle": 0.18649770319461823
+  },
+  {
+    "file": "witness_3_after.pt",
+    "kind": "input_ri",
+    "low_k4": 0.023450477048754692,
+    "high_k16": 0.279280424118042,
+    "scalar_angle": 0.13349317014217377
+  },
+  {
+    "file": "witness_3_after.pt",
+    "kind": "output_ri",
+    "low_k4": 0.024306783452630043,
+    "high_k16": 0.034905772656202316,
+    "scalar_angle": 0.09192956984043121
+  },
+  {
+    "file": "witness_3_before.pt",
+    "kind": "input_ri",
+    "low_k4": 0.6417699456214905,
+    "high_k16": 0.32035085558891296,
+    "scalar_angle": 0.03939388319849968
+  },
+  {
+    "file": "witness_3_before.pt",
+    "kind": "output_ri",
+    "low_k4": 0.8802911639213562,
+    "high_k16": 0.0950295627117157,
+    "scalar_angle": 0.013716664165258408
+  }
+]

@@ -1,0 +1,23 @@
+{
+  "complete": true,
+  "counters": {
+    "saved_teacher_certificates": 4,
+    "manufactured_fixture_certificates": 2,
+    "negative_control_certificates": 4,
+    "explicit_gpu_H_actions": 10,
+    "preconditioner_actions": 2,
+    "full_solves": 0,
+    "training_steps": 0
+  },
+  "costs": {
+    "parent_hash_load_seconds": 0.9189963191747665,
+    "physical_setup_seconds": 0.32645323872566223,
+    "base_capture_setup_seconds": 0.1323901265859604,
+    "preconditioner_seconds": 0.03585457429289818,
+    "explicit_gpu_H_seconds": 0.22956010326743126,
+    "transfers_seconds": 0.13340197689831257,
+    "certificate_seconds": 113.100042399019,
+    "json_save_seconds": 0.9241653420031071
+  },
+  "elapsed_seconds": 118.34682368673384
+}

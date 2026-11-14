@@ -1,0 +1,12 @@
+{
+  "seed": 146715,
+  "model_load_and_init_seconds": {
+    "mg1000": 0.20668404805473983,
+    "mg2000": 0.19477527402341366
+  },
+  "concurrent_jobs_before": "2379742, /data1/software/miniconda3/envs/xll/bin/python, 570 MiB\n2380615, /data1/software/miniconda3/envs/xll/bin/python, 308 MiB\n",
+  "timing": "GPU shared with GB training; NOT uncontended benchmark. Three interleaved repetitions; setup and warm separate; original coefficient-generation excluded. Cached LU is same block Jacobi, not strong multilevel baseline.",
+  "probe_tolerance": 1e-05,
+  "data": "same saved first8, not certified heldout",
+  "concurrent_jobs_after": "2379742, /data1/software/miniconda3/envs/xll/bin/python, 570 MiB\n2380615, /data1/software/miniconda3/envs/xll/bin/python, 422 MiB\n"
+}

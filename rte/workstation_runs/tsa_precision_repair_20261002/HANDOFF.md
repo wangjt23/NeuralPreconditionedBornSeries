@@ -1,0 +1,13 @@
+# FWI RTE precision follow-up
+
+**Decision: stop the FP64-sum algebraic TSA candidate.** It completed the same 48-case gate and passed 43; the same five complex64 physical-source/depth16 cases failed, worst original-physical-image difference 5.18003e-4 versus 1e-4. All fields were finite and all 24 complex128 cases passed. Original source, acceptance semantics and held-out seed 9626 remain untouched. No full-solve timing, training or promotion followed the failed gate.
+
+Remote repository: `/data/wjt/NeuralPreconditionedBornSeries`, user wjt on `FWI-Standard-PC-i440FX-PIIX-1996`, branch main, HEAD `028caea3f35d100225f656e2b1e910c1366aaafe`. Work is isolated at `rte/workstation_runs/tsa_precision_repair_20261002`. RTE is the radiative transfer equation; the separately paused OL_preconditioner project is outside scope.
+
+The report `RTE_TSA_PRECISION_OBSTRUCTION_2026_10_02.md` explains the pinned discrete identity, physical-image error budget, exact failure rows and precision/setup costs. `error_budget.md` and `implementation_design.md` contain independent mathematical/source/receipt audits. `solve_protocol.md` is a conditional protocol and was **not executed**.
+
+`evidence/` contains actual FWI JSON/logs and code, plus prior failed 48 rows. The closed diagnostic verifies original/fused inverse caches are bit-identical, examines 80 stages, and closes 15 selected vector budgets to H-image norm at most 1.9684e-11. Common-input native reference action roundoff and late outer-defect rounding differences are substantial; local cancellation is modest. Fourier bands are grid-relative. These results locate roundoff contributions but do not identify one vendor kernel or either branch's absolute error against an exact solution.
+
+The sole attempted repair retains input-precision G/local/scattering/R/outerA and promotes stage/outer sums/output. It preserves 126→94 transform counts but adds 47 field conversions per depth16 application, with conceptual 846 MiB read-plus-write traffic at N256 and 6 MiB extra accumulator storage. This is an operation ledger, not an elapsed speedup. The unchanged gate failed, so end-to-end accuracy and economics remain unmeasured.
+
+Reproduction requires the existing hash-pinned FWI project and validation files; no packages need installing. Use the recorded Python/PYTHONPATH and a **new empty** output directory. The checker writes all 48 rows and exits 2 on the retained failure. Do not modify the gate or access reserved test data. The archive manifest hashes every included file; the separate Library verification receipt confirms the archive's download bytes, CRC, entry hashes and Library identity.

@@ -1,0 +1,1004 @@
+[
+  {
+    "size": 128,
+    "index": 0,
+    "physical_seconds": 0.26244604028761387,
+    "base_seconds": {
+      "tsa8": 0.07343677990138531,
+      "tsa4": 0.0036108996719121933
+    },
+    "constructor_seconds": {
+      "context_full": 0.18034143187105656,
+      "context_segmented": 0.054517872631549835,
+      "direct_full": 0.06610764563083649,
+      "direct_segmented": 0.014431383460760117,
+      "tsa4": 0.013970501720905304,
+      "full_segmented": 0.015808790922164917,
+      "full_raw": 0.03837284632027149,
+      "q3_segmented": 0.015369286760687828,
+      "q3_raw": 0.039590561762452126,
+      "gain_two": 0.03980508632957935
+    },
+    "acceptance_setup_seconds": 0.07889199629426003,
+    "evaluated_margin": 0.017008218598520308,
+    "start_source_parity": {
+      "reference_cache_bitwise_equal": true,
+      "source_bitwise_equal": true,
+      "initialization_bitwise_equal": true,
+      "passed": true,
+      "comparative_qa_seconds": 0.01710856705904007
+    },
+    "strong_depth": 8,
+    "candidate_backend": "raw",
+    "fixed_gain": 2,
+    "base_parameters": {
+      "tsa8": {
+        "kind": "tsa",
+        "depth": 8,
+        "eta_scale": 0.0,
+        "relaxation": 1.0
+      },
+      "tsa4": {
+        "kind": "tsa",
+        "depth": 4,
+        "eta_scale": 0.0,
+        "relaxation": 1.0
+      }
+    },
+    "capture_fft_counts": {
+      "context_full": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "context_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "direct_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "tsa4": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "full_segmented": null,
+      "full_raw": {
+        "fftn": 17,
+        "ifftn": 17,
+        "fft": 0,
+        "ifft": 0
+      },
+      "q3_segmented": null,
+      "q3_raw": {
+        "fftn": 17,
+        "ifftn": 17,
+        "fft": 1,
+        "ifft": 1
+      },
+      "gain_two": {
+        "fftn": 17,
+        "ifftn": 17,
+        "fft": 1,
+        "ifft": 1
+      }
+    },
+    "mix_info": {
+      "full_segmented": {
+        "mode": "full",
+        "harmonics": null,
+        "prefix_backend": "direct_segmented",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 18874368,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": false,
+        "q3_mask_cache_bytes": 0,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 0,
+          "ifft": 0
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup"
+      },
+      "full_raw": {
+        "mode": "full",
+        "harmonics": null,
+        "prefix_backend": "original",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 18874368,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": false,
+        "q3_mask_cache_bytes": 0,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 0,
+          "ifft": 0
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup",
+        "capture_api": "raw begin/end",
+        "capture_error_mode": "global",
+        "graph_pool": "private; no pool hint",
+        "same_explicit_warmup_and_capture_stream": true,
+        "native128_fallback": "exact compound action",
+        "setup_includes_final_host_binding": true,
+        "capture_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 0,
+          "ifft": 0
+        }
+      },
+      "q3_segmented": {
+        "mode": "q3",
+        "harmonics": 1,
+        "prefix_backend": "direct_segmented",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 18874368,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": true,
+        "q3_mask_cache_bytes": 48,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup"
+      },
+      "q3_raw": {
+        "mode": "q3",
+        "harmonics": 1,
+        "prefix_backend": "original",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 18874368,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": true,
+        "q3_mask_cache_bytes": 48,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup",
+        "capture_api": "raw begin/end",
+        "capture_error_mode": "global",
+        "graph_pool": "private; no pool hint",
+        "same_explicit_warmup_and_capture_stream": true,
+        "native128_fallback": "exact compound action",
+        "setup_includes_final_host_binding": true,
+        "capture_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        }
+      },
+      "gain_two": {
+        "mode": "gain_two",
+        "harmonics": 1,
+        "prefix_backend": "original",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 18874368,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": false,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": true,
+        "q3_mask_cache_bytes": 48,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup",
+        "beta": 2,
+        "gain_tunable": false,
+        "formula": "g + R0(2*d - Pi3*d)",
+        "weighting_before_one_reference_solve": true,
+        "full_angle_input_retained": true,
+        "input_angular_weighting": "2I-Pi3; identity on q3 and gain2 on its complement",
+        "capture_api": "raw begin/end",
+        "capture_error_mode": "global",
+        "graph_pool": "private; no pool hint",
+        "same_explicit_warmup_and_capture_stream": true,
+        "native128_fallback": "exact gain-two compound",
+        "setup_includes_final_host_binding": true,
+        "capture_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        }
+      }
+    },
+    "reference_cache_bytes": 18874368
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "physical_seconds": 0.005944836884737015,
+    "base_seconds": {
+      "tsa4": 0.003444815054535866,
+      "tsa8": 0.003221314400434494
+    },
+    "constructor_seconds": {
+      "tsa4": 0.014252642169594765,
+      "direct_segmented": 0.01405470073223114,
+      "direct_full": 0.06638931855559349,
+      "context_segmented": 0.0956492442637682,
+      "context_full": 0.10635273717343807,
+      "q3_segmented": 0.015663722530007362,
+      "q3_raw": 0.03841966763138771,
+      "full_segmented": 0.015361601486802101,
+      "full_raw": 0.03909831866621971,
+      "gain_two": 0.03892609477043152
+    },
+    "acceptance_setup_seconds": 0.0011576469987630844,
+    "evaluated_margin": 0.04077080126764265,
+    "start_source_parity": {
+      "reference_cache_bitwise_equal": true,
+      "source_bitwise_equal": true,
+      "initialization_bitwise_equal": true,
+      "passed": true,
+      "comparative_qa_seconds": 0.0018724612891674042
+    },
+    "strong_depth": 8,
+    "candidate_backend": "raw",
+    "fixed_gain": 2,
+    "base_parameters": {
+      "tsa4": {
+        "kind": "tsa",
+        "depth": 4,
+        "eta_scale": 0.0,
+        "relaxation": 1.0
+      },
+      "tsa8": {
+        "kind": "tsa",
+        "depth": 8,
+        "eta_scale": 0.0,
+        "relaxation": 1.0
+      }
+    },
+    "capture_fft_counts": {
+      "tsa4": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "context_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "context_full": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "q3_segmented": null,
+      "q3_raw": {
+        "fftn": 17,
+        "ifftn": 17,
+        "fft": 1,
+        "ifft": 1
+      },
+      "full_segmented": null,
+      "full_raw": {
+        "fftn": 17,
+        "ifftn": 17,
+        "fft": 0,
+        "ifft": 0
+      },
+      "gain_two": {
+        "fftn": 17,
+        "ifftn": 17,
+        "fft": 1,
+        "ifft": 1
+      }
+    },
+    "mix_info": {
+      "q3_segmented": {
+        "mode": "q3",
+        "harmonics": 1,
+        "prefix_backend": "direct_segmented",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 18874368,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": true,
+        "q3_mask_cache_bytes": 48,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup"
+      },
+      "q3_raw": {
+        "mode": "q3",
+        "harmonics": 1,
+        "prefix_backend": "original",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 18874368,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": true,
+        "q3_mask_cache_bytes": 48,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup",
+        "capture_api": "raw begin/end",
+        "capture_error_mode": "global",
+        "graph_pool": "private; no pool hint",
+        "same_explicit_warmup_and_capture_stream": true,
+        "native128_fallback": "exact compound action",
+        "setup_includes_final_host_binding": true,
+        "capture_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        }
+      },
+      "full_segmented": {
+        "mode": "full",
+        "harmonics": null,
+        "prefix_backend": "direct_segmented",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 18874368,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": false,
+        "q3_mask_cache_bytes": 0,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 0,
+          "ifft": 0
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup"
+      },
+      "full_raw": {
+        "mode": "full",
+        "harmonics": null,
+        "prefix_backend": "original",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 18874368,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": false,
+        "q3_mask_cache_bytes": 0,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 0,
+          "ifft": 0
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup",
+        "capture_api": "raw begin/end",
+        "capture_error_mode": "global",
+        "graph_pool": "private; no pool hint",
+        "same_explicit_warmup_and_capture_stream": true,
+        "native128_fallback": "exact compound action",
+        "setup_includes_final_host_binding": true,
+        "capture_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 0,
+          "ifft": 0
+        }
+      },
+      "gain_two": {
+        "mode": "gain_two",
+        "harmonics": 1,
+        "prefix_backend": "original",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 18874368,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": false,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": true,
+        "q3_mask_cache_bytes": 48,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup",
+        "beta": 2,
+        "gain_tunable": false,
+        "formula": "g + R0(2*d - Pi3*d)",
+        "weighting_before_one_reference_solve": true,
+        "full_angle_input_retained": true,
+        "input_angular_weighting": "2I-Pi3; identity on q3 and gain2 on its complement",
+        "capture_api": "raw begin/end",
+        "capture_error_mode": "global",
+        "graph_pool": "private; no pool hint",
+        "same_explicit_warmup_and_capture_stream": true,
+        "native128_fallback": "exact gain-two compound",
+        "setup_includes_final_host_binding": true,
+        "capture_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        }
+      }
+    },
+    "reference_cache_bytes": 18874368
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "physical_seconds": 0.006985405460000038,
+    "base_seconds": {
+      "tsa16": 0.005995795130729675,
+      "tsa4": 0.005388515070080757
+    },
+    "constructor_seconds": {
+      "context_full": 0.21601681411266327,
+      "context_segmented": 0.060011060908436775,
+      "direct_full": 0.13748567923903465,
+      "direct_segmented": 0.015457969158887863,
+      "tsa4": 0.01589183136820793,
+      "full_segmented": 0.017110036686062813,
+      "full_raw": 0.039588699117302895,
+      "q3_segmented": 0.017138037830591202,
+      "q3_raw": 0.04176345840096474,
+      "gain_two": 0.01756269671022892
+    },
+    "acceptance_setup_seconds": 0.0012753568589687347,
+    "evaluated_margin": 0.017008218598520308,
+    "start_source_parity": {
+      "reference_cache_bitwise_equal": true,
+      "source_bitwise_equal": true,
+      "initialization_bitwise_equal": true,
+      "passed": true,
+      "comparative_qa_seconds": 0.0006742961704730988
+    },
+    "strong_depth": 16,
+    "candidate_backend": "direct_segmented",
+    "fixed_gain": 2,
+    "base_parameters": {
+      "tsa16": {
+        "kind": "tsa",
+        "depth": 16,
+        "eta_scale": 0.0,
+        "relaxation": 1.0
+      },
+      "tsa4": {
+        "kind": "tsa",
+        "depth": 4,
+        "eta_scale": 0.0,
+        "relaxation": 1.0
+      }
+    },
+    "capture_fft_counts": {
+      "context_full": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "context_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "direct_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "tsa4": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "full_segmented": null,
+      "full_raw": {
+        "fftn": 17,
+        "ifftn": 17,
+        "fft": 0,
+        "ifft": 0
+      },
+      "q3_segmented": null,
+      "q3_raw": {
+        "fftn": 17,
+        "ifftn": 17,
+        "fft": 1,
+        "ifft": 1
+      },
+      "gain_two": null
+    },
+    "mix_info": {
+      "full_segmented": {
+        "mode": "full",
+        "harmonics": null,
+        "prefix_backend": "direct_segmented",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 75497472,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": false,
+        "q3_mask_cache_bytes": 0,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 0,
+          "ifft": 0
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup"
+      },
+      "full_raw": {
+        "mode": "full",
+        "harmonics": null,
+        "prefix_backend": "original",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 75497472,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": false,
+        "q3_mask_cache_bytes": 0,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 0,
+          "ifft": 0
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup",
+        "capture_api": "raw begin/end",
+        "capture_error_mode": "global",
+        "graph_pool": "private; no pool hint",
+        "same_explicit_warmup_and_capture_stream": true,
+        "native128_fallback": "exact compound action",
+        "setup_includes_final_host_binding": true,
+        "capture_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 0,
+          "ifft": 0
+        }
+      },
+      "q3_segmented": {
+        "mode": "q3",
+        "harmonics": 1,
+        "prefix_backend": "direct_segmented",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 75497472,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": true,
+        "q3_mask_cache_bytes": 48,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup"
+      },
+      "q3_raw": {
+        "mode": "q3",
+        "harmonics": 1,
+        "prefix_backend": "original",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 75497472,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": true,
+        "q3_mask_cache_bytes": 48,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup",
+        "capture_api": "raw begin/end",
+        "capture_error_mode": "global",
+        "graph_pool": "private; no pool hint",
+        "same_explicit_warmup_and_capture_stream": true,
+        "native128_fallback": "exact compound action",
+        "setup_includes_final_host_binding": true,
+        "capture_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        }
+      },
+      "gain_two": {
+        "mode": "gain_two",
+        "harmonics": 1,
+        "prefix_backend": "direct_segmented",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 75497472,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": false,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": true,
+        "q3_mask_cache_bytes": 48,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup",
+        "beta": 2,
+        "gain_tunable": false,
+        "formula": "g + R0(2*d - Pi3*d)",
+        "weighting_before_one_reference_solve": true,
+        "full_angle_input_retained": true,
+        "input_angular_weighting": "2I-Pi3; identity on q3 and gain2 on its complement"
+      }
+    },
+    "reference_cache_bytes": 75497472
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "physical_seconds": 0.007093621417880058,
+    "base_seconds": {
+      "tsa4": 0.005321584641933441,
+      "tsa16": 0.005306785926222801
+    },
+    "constructor_seconds": {
+      "tsa4": 0.01576780527830124,
+      "direct_segmented": 0.015145398676395416,
+      "direct_full": 0.14718598686158657,
+      "context_segmented": 0.11760207079350948,
+      "context_full": 0.18353427574038506,
+      "q3_segmented": 0.01722881756722927,
+      "q3_raw": 0.04111710749566555,
+      "full_segmented": 0.016898753121495247,
+      "full_raw": 0.04099200665950775,
+      "gain_two": 0.017315002158284187
+    },
+    "acceptance_setup_seconds": 0.0013914760202169418,
+    "evaluated_margin": 0.04077080126764265,
+    "start_source_parity": {
+      "reference_cache_bitwise_equal": true,
+      "source_bitwise_equal": true,
+      "initialization_bitwise_equal": true,
+      "passed": true,
+      "comparative_qa_seconds": 0.00044149719178676605
+    },
+    "strong_depth": 16,
+    "candidate_backend": "direct_segmented",
+    "fixed_gain": 2,
+    "base_parameters": {
+      "tsa4": {
+        "kind": "tsa",
+        "depth": 4,
+        "eta_scale": 0.0,
+        "relaxation": 1.0
+      },
+      "tsa16": {
+        "kind": "tsa",
+        "depth": 16,
+        "eta_scale": 0.0,
+        "relaxation": 1.0
+      }
+    },
+    "capture_fft_counts": {
+      "tsa4": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "context_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "context_full": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "q3_segmented": null,
+      "q3_raw": {
+        "fftn": 17,
+        "ifftn": 17,
+        "fft": 1,
+        "ifft": 1
+      },
+      "full_segmented": null,
+      "full_raw": {
+        "fftn": 17,
+        "ifftn": 17,
+        "fft": 0,
+        "ifft": 0
+      },
+      "gain_two": null
+    },
+    "mix_info": {
+      "q3_segmented": {
+        "mode": "q3",
+        "harmonics": 1,
+        "prefix_backend": "direct_segmented",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 75497472,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": true,
+        "q3_mask_cache_bytes": 48,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup"
+      },
+      "q3_raw": {
+        "mode": "q3",
+        "harmonics": 1,
+        "prefix_backend": "original",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 75497472,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": true,
+        "q3_mask_cache_bytes": 48,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup",
+        "capture_api": "raw begin/end",
+        "capture_error_mode": "global",
+        "graph_pool": "private; no pool hint",
+        "same_explicit_warmup_and_capture_stream": true,
+        "native128_fallback": "exact compound action",
+        "setup_includes_final_host_binding": true,
+        "capture_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        }
+      },
+      "full_segmented": {
+        "mode": "full",
+        "harmonics": null,
+        "prefix_backend": "direct_segmented",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 75497472,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": false,
+        "q3_mask_cache_bytes": 0,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 0,
+          "ifft": 0
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup"
+      },
+      "full_raw": {
+        "mode": "full",
+        "harmonics": null,
+        "prefix_backend": "original",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 75497472,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": true,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": false,
+        "q3_mask_cache_bytes": 0,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 0,
+          "ifft": 0
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup",
+        "capture_api": "raw begin/end",
+        "capture_error_mode": "global",
+        "graph_pool": "private; no pool hint",
+        "same_explicit_warmup_and_capture_stream": true,
+        "native128_fallback": "exact compound action",
+        "setup_includes_final_host_binding": true,
+        "capture_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 0,
+          "ifft": 0
+        }
+      },
+      "gain_two": {
+        "mode": "gain_two",
+        "harmonics": 1,
+        "prefix_backend": "direct_segmented",
+        "prefix_depth": 4,
+        "original_dtype_defect_and_addition": true,
+        "prefix_output_cast_back_to_input_dtype": true,
+        "reference_inverse_dtype": "torch.complex64",
+        "reference_inverse_cache_bytes": 75497472,
+        "original_reference_cache_reused": true,
+        "q3_filters_input_only": false,
+        "full_angle_output": true,
+        "projection": "index-DFT; actual stored uniform quadrature",
+        "q3_mask_prepared_before_capture": true,
+        "q3_mask_cache_bytes": 48,
+        "native128_mask_policy": "promote the same cached 0/1 mask to rhs.real.dtype",
+        "application_fft_counts": {
+          "fftn": 17,
+          "ifftn": 17,
+          "fft": 1,
+          "ifft": 1
+        },
+        "serial_application_only": true,
+        "setup_timing": "host construction; externally synchronize GPU setup",
+        "beta": 2,
+        "gain_tunable": false,
+        "formula": "g + R0(2*d - Pi3*d)",
+        "weighting_before_one_reference_solve": true,
+        "full_angle_input_retained": true,
+        "input_angular_weighting": "2I-Pi3; identity on q3 and gain2 on its complement"
+      }
+    },
+    "reference_cache_bytes": 75497472
+  }
+]

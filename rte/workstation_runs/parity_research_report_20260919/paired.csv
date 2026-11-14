@@ -1,0 +1,3 @@
+run,method,baseline,media,warm_wins,median_paired_warm_savings,median_paired_first_savings
+depth_review_n128_gpu_20260919,ct128_r2,compiled_hss_d16_s1.0,24,10,-0.03429129705961231,-0.10163516950970064
+depth_review_n128_gpu_20260919,sct128_r2,compiled_hss_d16_s1.0,24,10,-0.0389839750544424,-0.17384258415747433

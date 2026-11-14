@@ -1,0 +1,74 @@
+{
+  "phase": "fresh_original_H_interval_certifier_v1",
+  "head": "028caea3f35d100225f656e2b1e910c1366aaafe",
+  "development_seed": 4626,
+  "development_ids": [
+    0,
+    3
+  ],
+  "teacher_banks": {
+    "64": {
+      "path": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+      "sha256": "858f73d0066333dd9a4b4366d7ff48dc5f160650e5e326c33b1d28b03079efed"
+    },
+    "128": {
+      "path": "rte/workstation_runs/tail_multiresolution_bank_20260926/validation.pt",
+      "sha256": "58f8e2f069ea1fa1c0c8f490b441c7acfc91a6592d045a7a7a52eea7bf08aeb4"
+    }
+  },
+  "n256_material_parent": {
+    "path": "rte/workstation_runs/resume_audit_20261002/runtime_gate/validation_n256.pt",
+    "sha256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "frozen_capture_code": "rte/workstation_runs/finite_precision_20261002/code",
+  "tau_rational": [
+    1,
+    100000
+  ],
+  "solution_tolerance_rational": [
+    1,
+    1000
+  ],
+  "reserve_rational": [
+    1,
+    100
+  ],
+  "soft_seconds": 120,
+  "hard_seconds": 150,
+  "max_reserved_bytes": 4294967296,
+  "max_full_solves": 0,
+  "max_certificates": 10,
+  "max_explicit_H_actions": 10,
+  "max_M_actions": 2,
+  "training": false,
+  "holdout_or_reserved_seed_access": false,
+  "source_export": false,
+  "gate_scope": "Input-specific certifier admission only; no new full-solver comparison this round regardless of outcome",
+  "planned_cases": [
+    "N64,N128 saved fullteachers ID0/3",
+    "N128,N256 originalsource/candidatezero rejection ID0/3",
+    "N256 capturedMsource/manufactured capturedGPUH(x) RHS ID0/3"
+  ],
+  "failed_reserve_status": "NO_CERTIFICATE; never loosen target, reserve or frozen old gate",
+  "native_compile": [
+    "g++",
+    "-O2",
+    "-std=c++17",
+    "-fno-fast-math",
+    "-ffp-contract=off",
+    "-shared",
+    "-fPIC"
+  ],
+  "expected_original_operator": "Captured original pure-imaginary assembled complex128 D64, exact stored promoted phase/weights/t/s/source and candidate bits, mathematical radix2 DFT on last2axes",
+  "cost_policy": "Count all inputtransfer, coefficient/norm/residual/reserve/guard verification and coldcompile separately; equal completeverification charge percontrol if deployed; old solver timings exclude this new certifier",
+  "code_sha256": {
+    "code/interval_fft.py": "a150f0680fa98d7f627f9abbbfae1e45d62c5ad6f89b96a9197134743a88ea41",
+    "code/certified_twiddles.py": "c1cb5f8744e96013c326114bdbe67819a24088fe2bc31772ae5a875c7d3d18f2",
+    "code/cpu_interval_primitives.cpp": "8a9a2eccfa3b85c4caa33958a1db0c67db2c97ecd340dd1c8f5294fa0608d53a",
+    "code/certifier_driver.py": "c1b233eaf0a659c644610f96cf8ee35f17c28840baaad4f9bfd7b6cd1bbaf1d3",
+    "code/test_interval_fft.py": "380cab6f47c6f75b2432f3804c3eaf43dd9dfdf28954a6566e7e2ace10438428",
+    "code/test_interval_fft_audit.py": "2753ff116fab9b3c4a0ebc9d9cf2c9202c564daac1187fe59972e36ce0c4e059",
+    "code/test_certified_twiddles.py": "44c765b8f676fc747de7827a9b5559639ae30ccfa20a2fd48439bb085e8cb2f9"
+  },
+  "prior_preservation_hash_count": 528
+}

@@ -1,0 +1,18 @@
+{
+  "submitted": true,
+  "supervisor_pid": 2403549,
+  "root": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004",
+  "utc": "2026-10-04T08:28:43.063553+00:00",
+  "jobs": [
+    "A_stagewise",
+    "B_optimized",
+    "C_local",
+    "D_coarse"
+  ],
+  "max_cpu_workers": 3,
+  "gpu_lane_serial": true,
+  "submission_seconds": 51.879721166566014,
+  "prior_preservation_verified": 576,
+  "full_solves": 0,
+  "training_steps": 0
+}

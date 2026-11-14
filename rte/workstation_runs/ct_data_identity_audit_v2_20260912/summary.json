@@ -1,0 +1,27 @@
+{
+  "materials": 5440,
+  "overlaps": [],
+  "n16_source_rechecks": 96,
+  "max_source_loss_difference": 103621.04572264478,
+  "max_paired_evaluator_source_difference": 1.7881393432617188e-07,
+  "max_bank_loss_difference": 1.5133991837501526e-09,
+  "original_source_mismatches": [
+    {
+      "seed": 2,
+      "index": 21
+    },
+    {
+      "seed": 2,
+      "index": 24
+    },
+    {
+      "seed": 3,
+      "index": 23
+    },
+    {
+      "seed": 3,
+      "index": 31
+    }
+  ],
+  "scope": "exact stored coefficient tensor equality; no claim of distributional independence or geometry equivalence"
+}

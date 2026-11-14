@@ -1,0 +1,91 @@
+{
+  "phase": "gain_two_screen",
+  "fixed_gain": 2,
+  "gain_sweep": false,
+  "candidate_backend_by_grid": {
+    "128": "raw",
+    "256": "direct_segmented"
+  },
+  "prior_negative_policy_sha256": "67e5cbdfaf734265f9b06ffb7f18cee75a6ab52c22cf8c5a46bce7cee0c30c48",
+  "grids": [
+    128,
+    256
+  ],
+  "development_ids": [
+    0,
+    3
+  ],
+  "development_seed": 4626,
+  "development_parent_sha256": {
+    "64": "bbebfd1c7c4808733628ee8fdecac9e9ce09521d70f7664a5d5391c8af10813a",
+    "128": "9ade993bce700505d134fa197ceeee72327790bc6660e670a95bea8c43052de1",
+    "256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "code_sha256": {
+    "code/gain_two_screen.py": "040d21a413f6e14a118f6193fde7fa09a359489c41e0d13551cceb28138553cf",
+    "code/gain_two_reference.py": "6827ebc351253e32ec075abebd63b9bd4fd03b82ebcf454dd51bbabc6a86bafc",
+    "code/test_gain_two_reference.py": "a1c9696f1cb37ad0fb91a1c23ee0a01bc4ac8340f36cef2ff5b520ca32d79877",
+    "code/matched_reference.py": "6194942d23831bed3e720f194271acd279abb6176debeb5996067b267445b1f4",
+    "code/matched_reference_v2.py": "6194942d23831bed3e720f194271acd279abb6176debeb5996067b267445b1f4",
+    "code/graph_classical_v2.py": "cb142084d28b1a0b5236e92b6b5e14f4d7aca3d67b8d7d41e3f65d2d76c0db3e",
+    "code/test_graph_classical_v2.py": "2e2ed3714a8cd91ff60d2aa8e9add45e51fd08c6ab92bd2bea4e23a4a9ccc01a",
+    "code/segmented_tsa.py": "a95ed61b4c282353e48b8dad6f5aebd993a50f130f10d8aaca6e8aa2c883ba29",
+    "code/test_segmented_tsa.py": "de88c075efe33e3a9ebd20f6a70a487a107709976693e2fa3da645c00f5d48ac",
+    "code/direct_segmented_tsa.py": "98eb806b8482990c1727cb80de3a2182c520be01090a512b742feb0417e0d1d1",
+    "code/direct_full_graph.py": "cf29f0b3d4b2dfe773660ac06a33385216719f6fcf363c1a33d44973ab372cd0",
+    "code/test_direct_full_graph.py": "c81828e50e9c7380cc613be92e53f4164753ff222cc3615fd1cc8d418d94ba19"
+  },
+  "timed_repeats": 3,
+  "warmup_repeats": 1,
+  "soft_seconds": 95,
+  "hard_seconds": 120,
+  "max_full_solves": 176,
+  "max_truncated_prefix_solves": 4,
+  "max_geometry_targets": 8,
+  "global_entry_checks": 280,
+  "measured_applications": 220,
+  "max_reserved_bytes": 12884901888,
+  "maxiter": 100,
+  "restart": 25,
+  "tolerance": 1e-05,
+  "relative_error_bound_limit": 0.001,
+  "paired_field_difference_limit": 0.0001,
+  "hypothesis": "The sole fixed beta2 omitted-input weighting improves complete accepted costs against the strongest contemporary ten-control portfolio.",
+  "action_semantics": "Literal original dtype: g=TSA4(r); d=r-low.A_op(g); p2=g+R0(2*d-Pi3(d),harmonics=None). Prefix output backcast to input dtype before defect/add. Original complex64 reference inverse and exact q3 mask reused; final owned128. Native128 promotes identical buffers, no rebuild.",
+  "equal_information_budget": "Same material/source/full stored H/reference-cache/precision/TSA4 and original solver start/injection. Gain2 sees same full r as prior full/q3. Same-cache/source/start bitwise QA required before solves.",
+  "strong_portfolio": [
+    "eager",
+    "context_full",
+    "context_segmented",
+    "direct_full",
+    "direct_segmented"
+  ],
+  "prior_portfolio": [
+    "eager",
+    "context_full",
+    "context_segmented",
+    "direct_full",
+    "direct_segmented",
+    "tsa4",
+    "full_segmented",
+    "q3_segmented",
+    "full_raw",
+    "q3_raw"
+  ],
+  "candidate": "gain_two",
+  "parity": "All280 entry/ownership/cache/beta checks versus each independent original literal before any full solve. 96 full same-recipe backend pairs retain bitwise field/status equality. Different recipes are compared by unchanged numerical acceptance.",
+  "accuracy": "Allfullsource rows retain originalfinite/residual<=1e-5/evaluatederror<=1e-3/pairedfield<=1e-4. Keepfailuresandcosts; onlysuccessfularmsare comparators.",
+  "cost_scope": "Per arm charge material/coercivity setup+appropriate prepared base+entire action/mask/graph constructor including warmup/private pool/guards+casts/copies+complete original solver including injection/rejected work+independent physical residual/error/finite acceptance. Recorded setup+warm accepted Q1 is not matched process-cold latency. Source IO/interpreter startup/QA excluded, recorded as research process costs.",
+  "selection": "One fixed gain2 candidate only, raw at128/direct_segmented at256 fixed before results. No backend/gain/map/teacher selection after outcomes. Prior-ten eligible Q1 and warm minima are independently computed per case as comparison envelopes, not free deployed selectors.",
+  "decisive_cost_gate": "Candidate must save>=10% mean recorded Q1 AND>=10% mean warm accepted time at BOTH grids versus successful prior-ten per-case envelope, worst individual Q1 regression<=10%, and all candidate full/warm rows must pass unchanged accuracy. A classical result does not establish a learned win.",
+  "research_charge_rule": "Additionally add unique prefix initialization+solve+independent verification once per context plus both total geometry diagnostic times to gain2 Q1 without amortization. Nested acquisition fields are not added again. Require the same Q1/warm/worst-regression gate under this stricter sensitivity for any superiority claim. This sensitivity is research acquisition, not mandatory fixed-map runtime or a time floor.",
+  "geometry_scope": "Eight actual rounded gain2 fields evaluated by unchanged original H at source and physical four-step-prefix residuals. Real-AZ projection uses unchanged recorded basis. Record own-literal parity and full/q3/gain2 line/unit geometry, with no new span fit, teacher, H0 rebuild, range optimum or geometry-only authorization of training.",
+  "historical_acquisition": "Prior matched full/q3 diagnostic acquisition 0.6127943694591522s is retained provenance; no historical costs silently erased/rebilled as necessary gain2 runtime.",
+  "stop_rule": "Retain any negative gain2/cost/accuracy result. If gate fails, close this prespecified gain/placement family and explain range-versus-cost obstruction or principled omitted classical baseline. No further arbitrary gain/q5 sweep/training/broad campaign.",
+  "training": false,
+  "test9626_touched": false,
+  "original_source_exported": false,
+  "new_package": false,
+  "large_campaign": false,
+  "git_write": false
+}

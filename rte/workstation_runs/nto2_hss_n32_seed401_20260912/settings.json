@@ -1,0 +1,43 @@
+{
+  "args": {
+    "model": "nto",
+    "depth": 2,
+    "base": "hss",
+    "width": 24,
+    "no_mixing": false,
+    "no_spectral": false,
+    "size": 32,
+    "n_angles": 12,
+    "g": 0.65,
+    "train_size": 256,
+    "val_size": 64,
+    "test_size": 0,
+    "batch_size": 16,
+    "selection_count": 16,
+    "steps": 1600,
+    "eval_every": 200,
+    "lr": 0.001,
+    "broad_fraction": 0.2,
+    "rollout_weight": 0.25,
+    "seed": 401,
+    "solver_steps": 30,
+    "tol": 1e-05,
+    "device": "cuda:0",
+    "resume": "rte/workstation_runs/nto2_hss_n32_seed401_20260912/last.pt",
+    "stop_after": 0,
+    "output": "rte/workstation_runs/nto2_hss_n32_seed401_20260912",
+    "regimes": "mixed",
+    "dataset_dir": ""
+  },
+  "fingerprints": {
+    "train": "d297b5ef4f54a2518c9aae867fb5d33cc029fdc462a21a21d07d19680fd0fb0d",
+    "validation": "dc4d80049a8f810a71e52ac40a217382a0c12854590ee9b565eb84cddba948ff"
+  },
+  "parameters": 35186,
+  "torch": "2.5.1",
+  "cuda": "12.4",
+  "scope": "architecture pilot: train/validation only, no confirmatory test",
+  "loss": "L1 + rollout_weight * ||E(E(r))||^2/||r||^2",
+  "sampler": "broad_fraction full-spectrum A e; remainder TSA trajectory/smooth A e (2:1)",
+  "checkpoint_selection": "validation failures, iterations, true residual; timing separately"
+}

@@ -1,0 +1,45 @@
+{
+  "status": "complete",
+  "workspace": "/data/wjt/NeuralPreconditionedBornSeries",
+  "head": "028caea3f35d100225f656e2b1e910c1366aaafe",
+  "prior_tracked_file_hashes": {
+    "docs/research/RTE_WORKSTATION_HANDOFF_2026_09_12.md": "b3e3d7fb21407c90e14caeac5932c0340c8474f209be193b580d89066753a421",
+    "rte/NPBS_UNET_ABLATION_FULL12_SCALEAWARE_CHANNELMIX_TEACHERPHYSICAL_ONECYCLE_XLARGEBANK_MIXED_SIZE64_FROM2400_LR2E3_STEPS2400.md": "34d4e52b0a0863e32c0cd6224f14ea6279c2da71fbf9acbe72cf7769e73ed7dc",
+    "rte/collision_transport.py": "8f900f0e90d242e8ba09f1bdf4c725689ae08ce6fd80ec1bc53a5c983c9d560f",
+    "rte/models.py": "6cd887b332ed48409bcffa2d2bad6ca9654c97ff7071c13a6443278f583b04d1",
+    "rte/spectral_sparse_reference.py": "851a6a15627c35b3a70a44a48cf8e5b31f6daae68ff737663a6ff8e1f19e12d0",
+    "rte/tests/test_collision_transport.py": "8c6a546ff8fcfa42f427528136bd8d85771341bd76132d10684fccb463646367",
+    "rte/tests/test_collision_transport_ensemble.py": "3bf7a9f76b2d1d95436bddf852ac302c911ca6dc68c5127b2b59df2d2146c6f1",
+    "rte/train_collision_transport_ensemble.py": "0a9c92b926016c867d2a3c000685f275b6689448b3a59ba9f850b4de6eb61031",
+    "rte/transport_baselines.py": "05f6984eb24962409ff25e42313e9c1ac740df86b59ef7b498faff715cfd62ec"
+  },
+  "all_prior_tracked_files_unchanged": true,
+  "written": [
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_adequacy_audit_20261004/HANDOFF.md",
+      "bytes": 15558,
+      "sha256": "b066042fcbf92bd535b8a5ef116eb48875542008473de195561a6d6840e79fca"
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_adequacy_audit_20261004/TRAINING_EVIDENCE.json",
+      "bytes": 28918,
+      "sha256": "cecab68d5060f2bc2b2f32508e614d97b1861b25925057544ce7a8fd3b0d6e70"
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_adequacy_audit_20261004/checkpoint_inventory.json",
+      "bytes": 384656,
+      "sha256": "d7219805758c8fc31219a0504db502c0e6fa40564fedb270e4bc094a0a4282ad"
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_adequacy_audit_20261004/legacy_inventory.json",
+      "bytes": 190448,
+      "sha256": "bce5d3b1f5cadd61da0dfbb2498e5825d43b2922726ebfde85365037d9369ecb"
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/docs/research/RTE_TRAINING_ADEQUACY_AUDIT_2026_10_04.md",
+      "bytes": 15558,
+      "sha256": "b066042fcbf92bd535b8a5ef116eb48875542008473de195561a6d6840e79fca"
+    }
+  ],
+  "scope": "new audit artifacts only; no training or numerical field generation"
+}

@@ -1,0 +1,10 @@
+[
+  {
+    "name": "RESULT_AUDIT.md",
+    "captured_sha256": "673bc6d424badee4edcdc99bc2a4226864875a0e343161a41682b00fe8be320a",
+    "final_local_sha256": "392062720806c6140f84ed40704ab693424d33913ec0099130f7165033ad9471",
+    "reason": "Final source-audit Markdown spacing cleanup completed after report payload capture; numerical content unchanged",
+    "preserved_snapshot": "receipts/finite_report_snapshots/RESULT_AUDIT.md",
+    "remote_final_copy": "rte/workstation_runs/finite_precision_20261002/reports/RESULT_AUDIT_FINAL.md"
+  }
+]

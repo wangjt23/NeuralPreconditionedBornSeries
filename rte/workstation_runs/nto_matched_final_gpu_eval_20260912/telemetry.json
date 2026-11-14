@@ -1,0 +1,247 @@
+[
+  {
+    "stage": "start",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 306 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_16",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 410 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_17",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_18",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_19",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_20",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_21",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_22",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_23",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_24",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_25",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_26",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_27",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_28",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_29",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_30",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_31",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_32",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_33",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_34",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_35",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_36",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_37",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_38",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_39",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_40",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_41",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_42",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_43",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_44",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_45",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_46",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_47",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_48",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_49",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_50",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_51",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_52",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_53",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_54",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_55",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_56",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_57",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_58",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_59",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_60",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_61",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_62",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "medium_63",
+    "pid": 3404868,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3404868, python, 432 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  }
+]

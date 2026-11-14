@@ -1,0 +1,546 @@
+[
+  {
+    "index": 0,
+    "cut": 8,
+    "visible_residual_identity_error": 1.963400916972051e-16,
+    "removed_input_relative_norm": 0.0017394183425808961,
+    "retained_output_relative_difference": 1.383462584994331e-05,
+    "actual_rhs_quotient_ratio": 4.5125282888735244e-06,
+    "auxiliary_seconds": 0.11122960085049272,
+    "auxiliary_status": {
+      "iterations": 14,
+      "true_residual": 4.5104022017533533e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 4.5104022017533533e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 0,
+    "cut": 16,
+    "visible_residual_identity_error": 2.0949777785303072e-16,
+    "removed_input_relative_norm": 0.0015748814303011304,
+    "retained_output_relative_difference": 2.160841901491241e-09,
+    "actual_rhs_quotient_ratio": 4.536683102411963e-06,
+    "auxiliary_seconds": 0.10669049387797713,
+    "auxiliary_status": {
+      "iterations": 14,
+      "true_residual": 4.5104049639657246e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 4.5104049639657246e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 1,
+    "cut": 8,
+    "visible_residual_identity_error": 1.702329642355057e-16,
+    "removed_input_relative_norm": 0.0037023092042957357,
+    "retained_output_relative_difference": 2.12545261365823e-06,
+    "actual_rhs_quotient_ratio": 1.3767411556793233e-05,
+    "auxiliary_seconds": 0.05404595588333905,
+    "auxiliary_status": {
+      "iterations": 7,
+      "true_residual": 6.704060530391956e-11,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 6.704060530391956e-11,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 1,
+    "cut": 16,
+    "visible_residual_identity_error": 1.9455101274602088e-16,
+    "removed_input_relative_norm": 0.003577617088534699,
+    "retained_output_relative_difference": 1.5248391260698117e-08,
+    "actual_rhs_quotient_ratio": 1.3767473438425396e-05,
+    "auxiliary_seconds": 0.05245548905804753,
+    "auxiliary_status": {
+      "iterations": 7,
+      "true_residual": 6.704061177102723e-11,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 6.704061177102723e-11,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 2,
+    "cut": 8,
+    "visible_residual_identity_error": 1.9226605267553667e-16,
+    "removed_input_relative_norm": 0.10374192329709683,
+    "retained_output_relative_difference": 8.689361682388513e-06,
+    "actual_rhs_quotient_ratio": 0.010764598080815329,
+    "auxiliary_seconds": 0.03079392295330763,
+    "auxiliary_status": {
+      "iterations": 4,
+      "true_residual": 1.2511121613186554e-12,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 1.2511121613186554e-12,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 2,
+    "cut": 16,
+    "visible_residual_identity_error": 2.0411026177028976e-16,
+    "removed_input_relative_norm": 0.1001596049477384,
+    "retained_output_relative_difference": 4.601314803846629e-07,
+    "actual_rhs_quotient_ratio": 0.010764598262474227,
+    "auxiliary_seconds": 0.030633986927568913,
+    "auxiliary_status": {
+      "iterations": 4,
+      "true_residual": 1.2506676212650598e-12,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 1.2506676212650598e-12,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 3,
+    "cut": 8,
+    "visible_residual_identity_error": 1.8055431743549687e-16,
+    "removed_input_relative_norm": 0.0011182180337752188,
+    "retained_output_relative_difference": 2.0197247475466488e-07,
+    "actual_rhs_quotient_ratio": 1.2460764440611557e-06,
+    "auxiliary_seconds": 0.0690861081238836,
+    "auxiliary_status": {
+      "iterations": 8,
+      "true_residual": 7.538712760192725e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 7.538712760192725e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 3,
+    "cut": 16,
+    "visible_residual_identity_error": 1.9783708841058526e-16,
+    "removed_input_relative_norm": 0.0010674705716239873,
+    "retained_output_relative_difference": 1.4649751564193258e-08,
+    "actual_rhs_quotient_ratio": 1.246116202735603e-06,
+    "auxiliary_seconds": 0.06241990509442985,
+    "auxiliary_status": {
+      "iterations": 8,
+      "true_residual": 7.538713914083628e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 7.538713914083628e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 4,
+    "cut": 8,
+    "visible_residual_identity_error": 1.689855676279282e-16,
+    "removed_input_relative_norm": 0.0005669241782354475,
+    "retained_output_relative_difference": 3.4845471010394184e-09,
+    "actual_rhs_quotient_ratio": 1.1195538249245132e-06,
+    "auxiliary_seconds": 0.14262601709924638,
+    "auxiliary_status": {
+      "iterations": 18,
+      "true_residual": 6.619775887979339e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 6.619775887979339e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 4,
+    "cut": 16,
+    "visible_residual_identity_error": 1.8732364917768445e-16,
+    "removed_input_relative_norm": 0.0005441816997902224,
+    "retained_output_relative_difference": 1.4937717139127259e-09,
+    "actual_rhs_quotient_ratio": 1.11955165489973e-06,
+    "auxiliary_seconds": 0.1361269559711218,
+    "auxiliary_status": {
+      "iterations": 18,
+      "true_residual": 6.619777644986711e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 6.619777644986711e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 5,
+    "cut": 8,
+    "visible_residual_identity_error": 1.749777357084213e-16,
+    "removed_input_relative_norm": 0.009134633340367983,
+    "retained_output_relative_difference": 5.305584122367351e-06,
+    "actual_rhs_quotient_ratio": 8.153831626036745e-05,
+    "auxiliary_seconds": 0.03845193097367883,
+    "auxiliary_status": {
+      "iterations": 5,
+      "true_residual": 7.242321515935391e-11,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 7.242321515935391e-11,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 5,
+    "cut": 16,
+    "visible_residual_identity_error": 1.9161828460874492e-16,
+    "removed_input_relative_norm": 0.008341435710780092,
+    "retained_output_relative_difference": 7.236336295472212e-08,
+    "actual_rhs_quotient_ratio": 8.154788712972862e-05,
+    "auxiliary_seconds": 0.037802278995513916,
+    "auxiliary_status": {
+      "iterations": 5,
+      "true_residual": 7.242282310302396e-11,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 7.242282310302396e-11,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 6,
+    "cut": 8,
+    "visible_residual_identity_error": 1.705993283947383e-16,
+    "removed_input_relative_norm": 0.011468366750424851,
+    "retained_output_relative_difference": 9.918478780535443e-05,
+    "actual_rhs_quotient_ratio": 0.00013928173871358864,
+    "auxiliary_seconds": 0.06119706784375012,
+    "auxiliary_status": {
+      "iterations": 8,
+      "true_residual": 6.442705742311534e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 6.442705742311534e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 6,
+    "cut": 16,
+    "visible_residual_identity_error": 1.8955513838817884e-16,
+    "removed_input_relative_norm": 0.0010759027060953533,
+    "retained_output_relative_difference": 4.973406087860456e-09,
+    "actual_rhs_quotient_ratio": 0.00013950692148061462,
+    "auxiliary_seconds": 0.06207009218633175,
+    "auxiliary_status": {
+      "iterations": 8,
+      "true_residual": 6.442318627496308e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 6.442318627496308e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 7,
+    "cut": 8,
+    "visible_residual_identity_error": 1.805582873350838e-16,
+    "removed_input_relative_norm": 0.0018250069739406288,
+    "retained_output_relative_difference": 1.9751177242594107e-08,
+    "actual_rhs_quotient_ratio": 3.3324399134316204e-06,
+    "auxiliary_seconds": 0.08485258393920958,
+    "auxiliary_status": {
+      "iterations": 11,
+      "true_residual": 4.649907002971546e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 4.649907002971546e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 7,
+    "cut": 16,
+    "visible_residual_identity_error": 1.987347809950308e-16,
+    "removed_input_relative_norm": 0.001748171758638426,
+    "retained_output_relative_difference": 6.1758329415145686e-09,
+    "actual_rhs_quotient_ratio": 3.3324404918257878e-06,
+    "auxiliary_seconds": 0.08219882799312472,
+    "auxiliary_status": {
+      "iterations": 11,
+      "true_residual": 4.6499062555979904e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 4.6499062555979904e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 8,
+    "cut": 8,
+    "visible_residual_identity_error": 1.818126335105914e-16,
+    "removed_input_relative_norm": 0.004565793169266051,
+    "retained_output_relative_difference": 3.157907914759004e-07,
+    "actual_rhs_quotient_ratio": 2.1097032260001458e-05,
+    "auxiliary_seconds": 0.06494599091820419,
+    "auxiliary_status": {
+      "iterations": 8,
+      "true_residual": 1.4531598839521173e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 1.4531598839521173e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 8,
+    "cut": 16,
+    "visible_residual_identity_error": 2.0150309997046042e-16,
+    "removed_input_relative_norm": 0.004391886631056688,
+    "retained_output_relative_difference": 1.4006920686449596e-08,
+    "actual_rhs_quotient_ratio": 2.10971165008829e-05,
+    "auxiliary_seconds": 0.06360365403816104,
+    "auxiliary_status": {
+      "iterations": 8,
+      "true_residual": 1.4531587381396858e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 1.4531587381396858e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 9,
+    "cut": 8,
+    "visible_residual_identity_error": 1.7427686270171979e-16,
+    "removed_input_relative_norm": 0.0027326820215684343,
+    "retained_output_relative_difference": 2.858477625662194e-07,
+    "actual_rhs_quotient_ratio": 7.465743011272437e-06,
+    "auxiliary_seconds": 0.066446078941226,
+    "auxiliary_status": {
+      "iterations": 7,
+      "true_residual": 1.8320621937272417e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 1.8320621937272417e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 9,
+    "cut": 16,
+    "visible_residual_identity_error": 1.9315638349848452e-16,
+    "removed_input_relative_norm": 0.00262851344622136,
+    "retained_output_relative_difference": 9.636286897782656e-09,
+    "actual_rhs_quotient_ratio": 7.465878959398189e-06,
+    "auxiliary_seconds": 0.056576307862997055,
+    "auxiliary_status": {
+      "iterations": 7,
+      "true_residual": 1.8320642626498614e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 1.8320642626498614e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 10,
+    "cut": 8,
+    "visible_residual_identity_error": 1.970222641959418e-16,
+    "removed_input_relative_norm": 0.2108273023473826,
+    "retained_output_relative_difference": 1.1209304099866611e-05,
+    "actual_rhs_quotient_ratio": 0.044448215710743984,
+    "auxiliary_seconds": 0.02370539214462042,
+    "auxiliary_status": {
+      "iterations": 3,
+      "true_residual": 5.777507780645544e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 5.777507780645544e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 10,
+    "cut": 16,
+    "visible_residual_identity_error": 2.0848970833588933e-16,
+    "removed_input_relative_norm": 0.20455829365665396,
+    "retained_output_relative_difference": 2.584067738446584e-07,
+    "actual_rhs_quotient_ratio": 0.044448213582344145,
+    "auxiliary_seconds": 0.024206080939620733,
+    "auxiliary_status": {
+      "iterations": 3,
+      "true_residual": 5.769976412315302e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 5.769976412315302e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 11,
+    "cut": 8,
+    "visible_residual_identity_error": 1.900396988497681e-16,
+    "removed_input_relative_norm": 0.021206633427654418,
+    "retained_output_relative_difference": 7.3671968195171415e-06,
+    "actual_rhs_quotient_ratio": 0.00045089214955216123,
+    "auxiliary_seconds": 0.03874405915848911,
+    "auxiliary_status": {
+      "iterations": 5,
+      "true_residual": 9.024346299930354e-12,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 9.024346299930354e-12,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 11,
+    "cut": 16,
+    "visible_residual_identity_error": 2.0665725477632736e-16,
+    "removed_input_relative_norm": 0.020439425341651638,
+    "retained_output_relative_difference": 2.0529135174195077e-07,
+    "actual_rhs_quotient_ratio": 0.00045089517493206193,
+    "auxiliary_seconds": 0.03832467598840594,
+    "auxiliary_status": {
+      "iterations": 5,
+      "true_residual": 9.024203718073992e-12,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 9.024203718073992e-12,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 12,
+    "cut": 8,
+    "visible_residual_identity_error": 1.8823456404964085e-16,
+    "removed_input_relative_norm": 0.012443262582859863,
+    "retained_output_relative_difference": 6.142248375095535e-07,
+    "actual_rhs_quotient_ratio": 0.00015483402712772603,
+    "auxiliary_seconds": 0.03891946002840996,
+    "auxiliary_status": {
+      "iterations": 5,
+      "true_residual": 8.420636528995836e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 8.420636528995836e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 12,
+    "cut": 16,
+    "visible_residual_identity_error": 1.9737023066349232e-16,
+    "removed_input_relative_norm": 0.012080697912138583,
+    "retained_output_relative_difference": 1.8463511563412907e-08,
+    "actual_rhs_quotient_ratio": 0.00015483410885114998,
+    "auxiliary_seconds": 0.03804993210360408,
+    "auxiliary_status": {
+      "iterations": 5,
+      "true_residual": 8.420605288461211e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 8.420605288461211e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 13,
+    "cut": 8,
+    "visible_residual_identity_error": 1.8956408796935887e-16,
+    "removed_input_relative_norm": 0.0024942063399546097,
+    "retained_output_relative_difference": 1.6023785330538232e-05,
+    "actual_rhs_quotient_ratio": 6.145076609369609e-05,
+    "auxiliary_seconds": 0.06277835299260914,
+    "auxiliary_status": {
+      "iterations": 8,
+      "true_residual": 8.76566750736181e-11,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 8.76566750736181e-11,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 13,
+    "cut": 16,
+    "visible_residual_identity_error": 2.1210769534006958e-16,
+    "removed_input_relative_norm": 0.00200296820804429,
+    "retained_output_relative_difference": 2.0150043765130164e-08,
+    "actual_rhs_quotient_ratio": 6.144640675477595e-05,
+    "auxiliary_seconds": 0.06149098998866975,
+    "auxiliary_status": {
+      "iterations": 8,
+      "true_residual": 8.765670525665002e-11,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 8.765670525665002e-11,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 14,
+    "cut": 8,
+    "visible_residual_identity_error": 1.851959785562248e-16,
+    "removed_input_relative_norm": 0.0011998939809582934,
+    "retained_output_relative_difference": 2.9455792175370806e-08,
+    "actual_rhs_quotient_ratio": 1.4397315821081936e-06,
+    "auxiliary_seconds": 0.11784439999610186,
+    "auxiliary_status": {
+      "iterations": 14,
+      "true_residual": 9.031508564325522e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 9.031508564325522e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 14,
+    "cut": 16,
+    "visible_residual_identity_error": 2.0350109316191044e-16,
+    "removed_input_relative_norm": 0.0011475796255060577,
+    "retained_output_relative_difference": 3.1000646723673538e-09,
+    "actual_rhs_quotient_ratio": 1.4397333354303426e-06,
+    "auxiliary_seconds": 0.10888059111312032,
+    "auxiliary_status": {
+      "iterations": 14,
+      "true_residual": 9.031507778660217e-10,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 9.031507778660217e-10,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 15,
+    "cut": 8,
+    "visible_residual_identity_error": 2.0095706599777876e-16,
+    "removed_input_relative_norm": 0.01640389600965862,
+    "retained_output_relative_difference": 6.951224561970712e-07,
+    "actual_rhs_quotient_ratio": 0.00026907111263061,
+    "auxiliary_seconds": 0.05023959092795849,
+    "auxiliary_status": {
+      "iterations": 6,
+      "true_residual": 5.5388312210301834e-11,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 5.5388312210301834e-11,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  },
+  {
+    "index": 15,
+    "cut": 16,
+    "visible_residual_identity_error": 2.0991849601610313e-16,
+    "removed_input_relative_norm": 0.015977899994125154,
+    "retained_output_relative_difference": 2.9479552988209672e-08,
+    "actual_rhs_quotient_ratio": 0.0002690713162988166,
+    "auxiliary_seconds": 0.045918347081169486,
+    "auxiliary_status": {
+      "iterations": 6,
+      "true_residual": 5.538799578157798e-11,
+      "initial_residual": 1.0,
+      "failed": 0
+    },
+    "auxiliary_explicit_residual": 5.538799578157798e-11,
+    "scope": "Fixed same A and same visible projected r; conditional map test. Not a claim both residuals arise from identical physical-source prefix trajectories."
+  }
+]

@@ -1,0 +1,59 @@
+{
+  "complete": true,
+  "pid": 949127,
+  "training": false,
+  "new_teachers": false,
+  "heldout9626": false,
+  "ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "grids": [
+    128,
+    256
+  ],
+  "methods": [
+    "TSA16_native",
+    "TSA16_augmented",
+    "reference_eager_inject1",
+    "reference_graph_inject1",
+    "TSA1_eager_inject1",
+    "TSA1_graph_inject1",
+    "layered_G_inject1"
+  ],
+  "repeats": 3,
+  "warmups": 224,
+  "status": "Full16 reused development; exploratory low-cost classical direction comparison.",
+  "protocol": "Native TSA16/seg decision control; same augmented entry and p1 for all direction controls. Original A64 acceptance, tol1e-5, bound1e-3, field1e-4.",
+  "setup": "Single RHS per material; common physical+acceptance+TSA caches/capture charged to every method. Only method-specific extra setup added. Eager reference/TSA1 reuse existing cache.",
+  "capture": "Private direct warmed raw CUDA capture and fresh output storage; no context-manager GC/cache flush.",
+  "code_hashes": {
+    "frontier_layered.py": "52ebd76f2f865cdbe2d8fe54c7ff678e0a26d7afd1ac7a3eaa4d11bf79c18e06",
+    "layered_inverse_probe01.py": "ac19adbd8c3810545fbd17f7a0e33d11f650d95a19b83ebcbfdebfe97b2fec6c",
+    "test_layered_cpu.py": "bb99bde30d01335dbe1ecd644ea20d95ff672f743fb0336a96c8883e98627ec7",
+    "probe_layered.py": "b9a2d59eb51d9a16916225374de69f191e2799313c95c7dcbb908f577e202c8e",
+    "complete_layered.py": "bb3c6e5799bca1a286fa210c5f37614d945e451d849a2669e90439911701a384",
+    "layered_inverse.py": "aaa026a7ddc59e2b64ed3a6e884ec6f3359f330d9f3cbfa4ce173219a8df4de2"
+  },
+  "wall_seconds": 120.6854357549455,
+  "rows": 896,
+  "contexts": 32,
+  "measured_solves": 672,
+  "failures": 0,
+  "peak_allocated_bytes": 2535924224,
+  "peak_reserved_bytes": 4374659072
+}

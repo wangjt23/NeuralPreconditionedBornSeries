@@ -1,0 +1,290 @@
+{
+  "date": "2026-10-02",
+  "scope": "Independent arithmetic from inspected cost_summary.json and read receipt metadata; full-row rescan interrupted by concrete exec-server transport disconnection.",
+  "reportedCounts": {
+    "fullSolves": 96,
+    "timedSolves": 72,
+    "warmups": 24,
+    "checks": 20,
+    "standaloneApplicationRows": 80,
+    "teachers": 0,
+    "independentMedia": 2
+  },
+  "receiptReportedAccuracy": {
+    "allFullAccuracy": true,
+    "allChecks": true,
+    "phase": "cost",
+    "training": false,
+    "test9626Touched": false
+  },
+  "rawRescanStatus": "Not completed: CreateProcess exec-server transport disconnected; recovery timed out. No claim of independent all-row extrema or current filesystem hash recomputation.",
+  "cases": [
+    {
+      "size": 128,
+      "index": 0,
+      "originalBestMs": 531.4330998808146,
+      "expandedAll6BestMs": 531.4330998808146,
+      "bestMethod": "strong_graph",
+      "methods": {
+        "cheap_eager": {
+          "acceptedMs": 236.05705052614212,
+          "setupMs": 428.9945960044861,
+          "totalMs": 665.0516465306282,
+          "savingPercent": -25.14306065613536,
+          "remainingBudgetMs": -133.61854664981365,
+          "remainingBudgetAt10PercentMs": -186.7618566378951,
+          "setupOnlyRemainingWarmAt10PercentMs": 49.29519388824701
+        },
+        "cheap_graph": {
+          "acceptedMs": 92.9395854473114,
+          "setupMs": 569.4371908903122,
+          "totalMs": 662.3767763376236,
+          "savingPercent": -24.63972915615833,
+          "remainingBudgetMs": -130.94367645680904,
+          "remainingBudgetAt10PercentMs": -184.0869864448905,
+          "setupOnlyRemainingWarmAt10PercentMs": -91.1474009975791
+        },
+        "homogeneous_eager": {
+          "acceptedMs": 264.2695363610983,
+          "setupMs": 570.8052106201649,
+          "totalMs": 835.0747469812632,
+          "savingPercent": -57.13638220286747,
+          "remainingBudgetMs": -303.6416471004486,
+          "remainingBudgetAt10PercentMs": -356.78495708853006,
+          "setupOnlyRemainingWarmAt10PercentMs": -92.51542072743177
+        },
+        "homogeneous_graph": {
+          "acceptedMs": 120.55675499141216,
+          "setupMs": 711.247805505991,
+          "totalMs": 831.8045604974031,
+          "savingPercent": -56.521029774764386,
+          "remainingBudgetMs": -300.3714606165886,
+          "remainingBudgetAt10PercentMs": -353.51477060467005,
+          "setupOnlyRemainingWarmAt10PercentMs": -232.95801561325788
+        },
+        "strong_eager": {
+          "acceptedMs": 207.0592325180769,
+          "setupMs": 356.91922158002853,
+          "totalMs": 563.9784540981054,
+          "savingPercent": -6.124073608623526,
+          "remainingBudgetMs": -32.54535421729088,
+          "remainingBudgetAt10PercentMs": -85.68866420537233,
+          "setupOnlyRemainingWarmAt10PercentMs": 121.37056831270456
+        },
+        "strong_graph": {
+          "acceptedMs": 60.789722949266434,
+          "setupMs": 470.6433769315481,
+          "totalMs": 531.4330998808146,
+          "savingPercent": 0,
+          "remainingBudgetMs": 0,
+          "remainingBudgetAt10PercentMs": -53.143309988081455,
+          "setupOnlyRemainingWarmAt10PercentMs": 7.6464129611849785
+        }
+      },
+      "derivedResponseSetupMs": 141.8106146156788,
+      "derivedTSA4GraphSetupMs": 140.4425948858261
+    },
+    {
+      "size": 128,
+      "index": 3,
+      "originalBestMs": 149.64699931442738,
+      "expandedAll6BestMs": 149.64699931442738,
+      "bestMethod": "strong_eager",
+      "methods": {
+        "cheap_eager": {
+          "acceptedMs": 160.58701276779175,
+          "setupMs": 9.391233325004578,
+          "totalMs": 169.97824609279633,
+          "savingPercent": -13.586137290765453,
+          "remainingBudgetMs": -20.33124677836895,
+          "remainingBudgetAt10PercentMs": -35.29594670981169,
+          "setupOnlyRemainingWarmAt10PercentMs": 125.29106605798006
+        },
+        "cheap_graph": {
+          "acceptedMs": 60.57583540678024,
+          "setupMs": 145.12384124100208,
+          "totalMs": 205.69967664778233,
+          "savingPercent": -37.4565995911359,
+          "remainingBudgetMs": -56.05267733335495,
+          "remainingBudgetAt10PercentMs": -71.01737726479769,
+          "setupOnlyRemainingWarmAt10PercentMs": -10.441541858017445
+        },
+        "homogeneous_eager": {
+          "acceptedMs": 168.5284525156021,
+          "setupMs": 16.114484518766403,
+          "totalMs": 184.64293703436852,
+          "savingPercent": -23.385659505547608,
+          "remainingBudgetMs": -34.99593771994114,
+          "remainingBudgetAt10PercentMs": -49.96063765138388,
+          "setupOnlyRemainingWarmAt10PercentMs": 118.56781486421824
+        },
+        "homogeneous_graph": {
+          "acceptedMs": 74.22656193375587,
+          "setupMs": 151.8470924347639,
+          "totalMs": 226.07365436851978,
+          "savingPercent": -51.07129137518507,
+          "remainingBudgetMs": -76.42665505409241,
+          "remainingBudgetAt10PercentMs": -91.39135498553514,
+          "setupOnlyRemainingWarmAt10PercentMs": -17.16479305177927
+        },
+        "strong_eager": {
+          "acceptedMs": 139.55598697066307,
+          "setupMs": 10.091012343764305,
+          "totalMs": 149.64699931442738,
+          "savingPercent": 0,
+          "remainingBudgetMs": 0,
+          "remainingBudgetAt10PercentMs": -14.964699931442738,
+          "setupOnlyRemainingWarmAt10PercentMs": 124.59128703922033
+        },
+        "strong_graph": {
+          "acceptedMs": 41.76183417439461,
+          "setupMs": 114.86110650002956,
+          "totalMs": 156.62294067442417,
+          "savingPercent": -4.661597888334179,
+          "remainingBudgetMs": -6.975941359996796,
+          "remainingBudgetAt10PercentMs": -21.940641291439533,
+          "setupOnlyRemainingWarmAt10PercentMs": 19.821192882955074
+        }
+      },
+      "derivedResponseSetupMs": 6.723251193761826,
+      "derivedTSA4GraphSetupMs": 135.7326079159975
+    },
+    {
+      "size": 256,
+      "index": 0,
+      "originalBestMs": 246.11062370240688,
+      "expandedAll6BestMs": 246.11062370240688,
+      "bestMethod": "strong_eager",
+      "methods": {
+        "cheap_eager": {
+          "acceptedMs": 328.9962522685528,
+          "setupMs": 12.923359870910645,
+          "totalMs": 341.9196121394634,
+          "savingPercent": -38.92923718437578,
+          "remainingBudgetMs": -95.80898843705654,
+          "remainingBudgetAt10PercentMs": -120.42005080729723,
+          "setupOnlyRemainingWarmAt10PercentMs": 208.57620146125555
+        },
+        "cheap_graph": {
+          "acceptedMs": 263.57412710785866,
+          "setupMs": 146.6243378818035,
+          "totalMs": 410.19846498966217,
+          "savingPercent": -66.67239260897074,
+          "remainingBudgetMs": -164.0878412872553,
+          "remainingBudgetAt10PercentMs": -188.69890365749598,
+          "setupOnlyRemainingWarmAt10PercentMs": 74.87522345036268
+        },
+        "homogeneous_eager": {
+          "acceptedMs": 365.03899469971657,
+          "setupMs": 30.313992872834206,
+          "totalMs": 395.3529875725508,
+          "savingPercent": -60.64035823606113,
+          "remainingBudgetMs": -149.2423638701439,
+          "remainingBudgetAt10PercentMs": -173.85342624038458,
+          "setupOnlyRemainingWarmAt10PercentMs": 191.185568459332
+        },
+        "homogeneous_graph": {
+          "acceptedMs": 303.40535566210747,
+          "setupMs": 164.01497088372707,
+          "totalMs": 467.42032654583454,
+          "savingPercent": -89.92285644321957,
+          "remainingBudgetMs": -221.30970284342766,
+          "remainingBudgetAt10PercentMs": -245.92076521366835,
+          "setupOnlyRemainingWarmAt10PercentMs": 57.48459044843912
+        },
+        "strong_eager": {
+          "acceptedMs": 233.59680362045765,
+          "setupMs": 12.513820081949234,
+          "totalMs": 246.11062370240688,
+          "savingPercent": 0,
+          "remainingBudgetMs": 0,
+          "remainingBudgetAt10PercentMs": -24.61106237024069,
+          "setupOnlyRemainingWarmAt10PercentMs": 208.98574125021696
+        },
+        "strong_graph": {
+          "acceptedMs": 151.10833942890167,
+          "setupMs": 192.25595146417618,
+          "totalMs": 343.36429089307785,
+          "savingPercent": -39.516241000741424,
+          "remainingBudgetMs": -97.25366719067097,
+          "remainingBudgetAt10PercentMs": -121.86472956091166,
+          "setupOnlyRemainingWarmAt10PercentMs": 29.243609867990017
+        }
+      },
+      "derivedResponseSetupMs": 17.39063300192356,
+      "derivedTSA4GraphSetupMs": 133.70097801089287
+    },
+    {
+      "size": 256,
+      "index": 3,
+      "originalBestMs": 181.7764900624752,
+      "expandedAll6BestMs": 181.7764900624752,
+      "bestMethod": "strong_eager",
+      "methods": {
+        "cheap_eager": {
+          "acceptedMs": 204.00497689843178,
+          "setupMs": 13.788212090730667,
+          "totalMs": 217.79318898916245,
+          "savingPercent": -19.81372778972055,
+          "remainingBudgetMs": -36.01669892668724,
+          "remainingBudgetAt10PercentMs": -54.19434793293476,
+          "setupOnlyRemainingWarmAt10PercentMs": 149.81062896549702
+        },
+        "cheap_graph": {
+          "acceptedMs": 160.95842979848385,
+          "setupMs": 189.31345455348492,
+          "totalMs": 350.27188435196877,
+          "savingPercent": -92.69372196128496,
+          "remainingBudgetMs": -168.49539428949356,
+          "remainingBudgetAt10PercentMs": -186.67304329574108,
+          "setupOnlyRemainingWarmAt10PercentMs": -25.714613497257233
+        },
+        "homogeneous_eager": {
+          "acceptedMs": 242.03615449368954,
+          "setupMs": 31.341850757598877,
+          "totalMs": 273.3780052512884,
+          "savingPercent": -50.39238856319124,
+          "remainingBudgetMs": -91.60151518881321,
+          "remainingBudgetAt10PercentMs": -109.77916419506073,
+          "setupOnlyRemainingWarmAt10PercentMs": 132.2569902986288
+        },
+        "homogeneous_graph": {
+          "acceptedMs": 197.6009849458933,
+          "setupMs": 206.86709322035313,
+          "totalMs": 404.4680781662464,
+          "savingPercent": -122.50846521859553,
+          "remainingBudgetMs": -222.6915881037712,
+          "remainingBudgetAt10PercentMs": -240.86923711001873,
+          "setupOnlyRemainingWarmAt10PercentMs": -43.26825216412544
+        },
+        "strong_eager": {
+          "acceptedMs": 166.20693914592266,
+          "setupMs": 15.569550916552544,
+          "totalMs": 181.7764900624752,
+          "savingPercent": 0,
+          "remainingBudgetMs": 0,
+          "remainingBudgetAt10PercentMs": -18.17764900624752,
+          "setupOnlyRemainingWarmAt10PercentMs": 148.02929013967514
+        },
+        "strong_graph": {
+          "acceptedMs": 108.97630825638771,
+          "setupMs": 201.19317062199116,
+          "totalMs": 310.16947887837887,
+          "savingPercent": -70.63234017324021,
+          "remainingBudgetMs": -128.39298881590366,
+          "remainingBudgetAt10PercentMs": -146.57063782215118,
+          "setupOnlyRemainingWarmAt10PercentMs": -37.59432956576347
+        }
+      },
+      "derivedResponseSetupMs": 17.55363866686821,
+      "derivedTSA4GraphSetupMs": 175.52524246275425
+    }
+  ],
+  "inputArtifact": "deliverables/response/cost_summary.json",
+  "receiptRoot": "receipts/response_cost/response_range_20261002",
+  "reportedArchiveSha256": "3373c0fe68a3cafbf54c59f1a5d5ed00ec4ff7f27de0ad7a80e5fad83b657106",
+  "firstUseCaveat": "Fixed construction order confounds standalone cold attribution. First common setup353.265ms; first TSA4 base75.730ms vs strong3.654ms; first response141.811ms vs later6.723/17.391/17.554ms. No posthoc normalization or universal hardware time floor.",
+  "timingScope": "Selected setup plus median warm solve and charged independent physical residual/coercivity/field-finite acceptance. Dataset/startup, parity/adjoint and comparative field/bitwise QA excluded. Not measured per-arm process-cold execution.",
+  "stageBDecision": "Current tested methods have no positive measured Q1 complete-cost headroom, so no CGLS acquired and current StageB remains stopped. Positive setup-only budgets at some contexts leave hypothetical coefficient quality unresolved; not a theorem against range(HU).",
+  "nextMechanism": "Only selected segmented exact-original TSA setup-reduction screen, under its own parity/accuracy and fully charged setup+warm protocol; no coefficient teachers or training."
+}

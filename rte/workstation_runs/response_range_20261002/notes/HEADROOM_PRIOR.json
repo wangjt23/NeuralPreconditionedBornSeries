@@ -1,0 +1,919 @@
+{
+  "scope": "pre-GPU analytic/receipt arithmetic prior for new response U=H0^-1 Q; no new numerical operator experiment or authorization to run",
+  "date": "2026-10-02",
+  "thresholds_reported": [
+    0,
+    0.05,
+    0.1
+  ],
+  "source_sha256": {
+    "receipts/headroom_v2/verified_remote/v2/full16/case_medians.json": "202cae89e0ec82f5da2bfb8de5c7d39624b1f3d4d10c10dbdcb527b68699d361",
+    "receipts/headroom_v2/verified_remote/v2/full16/setup_records.json": "25ed6b2afd10689f87326d09f95de5c3605b0825c106c69764b84b4af5974b1c",
+    "receipts/headroom_v2/verified_remote/v2/full16/settings.json": "b2291fa4d30ce0da26338d131ebf22e4de565a981f2915bba34cac456382f654",
+    "receipts/headroom/graph_oracle/settings.json": "198073cfc4de7d4a4e3fb251b5871a972a293fc94a6d22d614dc0dbf4cc2184d",
+    "receipts/headroom/code/graph_oracle.py": "c9aadab70295445e5239a4266a1839b391cfebfc119f8d0c54cf3be221e51045",
+    "receipts/rte/workstation_runs/direction_diagnostic_20261002/results/runtime_n128.csv": "df239383d2acf36ceea3f5ac16f31c0d7c32ab575ec69b65885c9bd5fcc48b38",
+    "receipts/rte/workstation_runs/direction_diagnostic_20261002/results/runtime_n256.csv": "2b84ee1bc12e9474258d74efa5b19fb128d9fb18e44be5e523113d49ec14a7d3"
+  },
+  "cost_formula": {
+    "classical_eager": "Sc+Q*To",
+    "classical_graph": "Sc+Cg+Q*Tg",
+    "candidate_existing_graph": "Sc+Cg+Sr+Q*(Tp+P+Tchecks+Tremaining)",
+    "candidate_warm_budget": "[(1-g)*Cbaseline(Q)-Sc-Cg-Sr]/Q",
+    "prefix_residual_budget": "candidate_warm_budget - empirical prefix4 scenario; neither category profile nor proxy is a rigorous time lower bound",
+    "main_scope": "Q1 fixed eager is successful setup-inclusive comparator; min recorded classical is a conservative percase hindsight hurdle, not a measured deployable selector",
+    "reuse": "Q16 illustrative conditional only; no distinct-RHS reuse assumed or measured"
+  },
+  "case_budgets": [
+    {
+      "size": 128,
+      "index": 0,
+      "eager_warm_seconds": 0.20802204124629498,
+      "graph_warm_seconds": 0.06019094679504633,
+      "common_setup_seconds": 0.008179713040590286,
+      "graph_extra_setup_seconds": 0.11985008977353573,
+      "original_classical_Q1_estimate_seconds": 0.21620175428688526,
+      "graph_classical_Q1_estimate_seconds": 0.18822074960917234,
+      "depth16_graph_application_seconds_from_v1": 0.004009868949651718,
+      "application_matches_full_recipe": false,
+      "prefix4_application_proxy_seconds": 0.016039475798606873,
+      "prefix_proxy_scope": "N128 uses measured TSA16 as a hypothetical TSA8 proxy; no direct TSA8 application timing retained",
+      "shared_material_graph_only_setup_seconds": 0.12802980281412601,
+      "cost_scenarios": [
+        {
+          "Q": 1,
+          "saving_target": 0,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 0.21620175428688526,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.08817195147275925,
+          "residual_budget_after_prefix4_proxy_seconds": 0.07213247567415237,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.18822074960917234,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.06019094679504633,
+          "residual_budget_after_prefix4_proxy_seconds": 0.04415147099643946,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.18822074960917234,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.06019094679504633,
+          "residual_budget_after_prefix4_proxy_seconds": 0.04415147099643946,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 0.21620175428688526,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.07736186375841497,
+          "residual_budget_after_prefix4_proxy_seconds": 0.0613223879598081,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.18822074960917234,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.0507799093145877,
+          "residual_budget_after_prefix4_proxy_seconds": 0.03474043351598083,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.05,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.18822074960917234,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.0507799093145877,
+          "residual_budget_after_prefix4_proxy_seconds": 0.03474043351598083,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 0.21620175428688526,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.06655177604407073,
+          "residual_budget_after_prefix4_proxy_seconds": 0.050512300245463854,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.18822074960917234,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.0413688718341291,
+          "residual_budget_after_prefix4_proxy_seconds": 0.025329396035522228,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.1,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.18822074960917234,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.0413688718341291,
+          "residual_budget_after_prefix4_proxy_seconds": 0.025329396035522228,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 3.33653237298131,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.200531410635449,
+          "residual_budget_after_prefix4_proxy_seconds": 0.18449193483684212,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 1.0910849515348673,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.06019094679504633,
+          "residual_budget_after_prefix4_proxy_seconds": 0.04415147099643946,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 1.0910849515348673,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.06019094679504633,
+          "residual_budget_after_prefix4_proxy_seconds": 0.04415147099643946,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 3.33653237298131,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.1901047469698824,
+          "residual_budget_after_prefix4_proxy_seconds": 0.17406527117127552,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 1.0910849515348673,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.05678130632149987,
+          "residual_budget_after_prefix4_proxy_seconds": 0.040741830522893,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.05,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 1.0910849515348673,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.05678130632149987,
+          "residual_budget_after_prefix4_proxy_seconds": 0.040741830522893,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 3.33653237298131,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.1796780833043158,
+          "residual_budget_after_prefix4_proxy_seconds": 0.16363860750570894,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 1.0910849515348673,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.05337166584795341,
+          "residual_budget_after_prefix4_proxy_seconds": 0.037332190049346535,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.1,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 1.0910849515348673,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.05337166584795341,
+          "residual_budget_after_prefix4_proxy_seconds": 0.037332190049346535,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        }
+      ]
+    },
+    {
+      "size": 128,
+      "index": 3,
+      "eager_warm_seconds": 0.13925855606794357,
+      "graph_warm_seconds": 0.04206490609794855,
+      "common_setup_seconds": 0.008366826921701431,
+      "graph_extra_setup_seconds": 0.12030795961618423,
+      "original_classical_Q1_estimate_seconds": 0.147625382989645,
+      "graph_classical_Q1_estimate_seconds": 0.17073969263583422,
+      "depth16_graph_application_seconds_from_v1": 0.0040074121206998825,
+      "application_matches_full_recipe": false,
+      "prefix4_application_proxy_seconds": 0.01602964848279953,
+      "prefix_proxy_scope": "N128 uses measured TSA16 as a hypothetical TSA8 proxy; no direct TSA8 application timing retained",
+      "shared_material_graph_only_setup_seconds": 0.12867478653788567,
+      "cost_scenarios": [
+        {
+          "Q": 1,
+          "saving_target": 0,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 0.147625382989645,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.01895059645175934,
+          "residual_budget_after_prefix4_proxy_seconds": 0.0029209479689598083,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.17073969263583422,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.04206490609794855,
+          "residual_budget_after_prefix4_proxy_seconds": 0.02603525761514902,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.147625382989645,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.01895059645175934,
+          "residual_budget_after_prefix4_proxy_seconds": 0.0029209479689598083,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 0.147625382989645,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.011569327302277083,
+          "residual_budget_after_prefix4_proxy_seconds": -0.004460321180522447,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.17073969263583422,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.033527921466156824,
+          "residual_budget_after_prefix4_proxy_seconds": 0.017498272983357294,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.05,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.147625382989645,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.011569327302277083,
+          "residual_budget_after_prefix4_proxy_seconds": -0.004460321180522447,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 0.147625382989645,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.004188058152794855,
+          "residual_budget_after_prefix4_proxy_seconds": -0.011841590330004675,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.17073969263583422,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.024990936834365124,
+          "residual_budget_after_prefix4_proxy_seconds": 0.008961288351565594,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.1,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.147625382989645,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.004188058152794855,
+          "residual_budget_after_prefix4_proxy_seconds": -0.011841590330004675,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 2.2365037240087986,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.13173930859193206,
+          "residual_budget_after_prefix4_proxy_seconds": 0.11570966010913253,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.8017132841050625,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.04206490609794855,
+          "residual_budget_after_prefix4_proxy_seconds": 0.02603525761514902,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.8017132841050625,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.04206490609794855,
+          "residual_budget_after_prefix4_proxy_seconds": 0.02603525761514902,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 2.2365037240087986,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.12475023445440456,
+          "residual_budget_after_prefix4_proxy_seconds": 0.10872058597160503,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.8017132841050625,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.03955955208512023,
+          "residual_budget_after_prefix4_proxy_seconds": 0.023529903602320698,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.05,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.8017132841050625,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.03955955208512023,
+          "residual_budget_after_prefix4_proxy_seconds": 0.023529903602320698,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 2.2365037240087986,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.11776116031687708,
+          "residual_budget_after_prefix4_proxy_seconds": 0.10173151183407755,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.8017132841050625,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.03705419807229191,
+          "residual_budget_after_prefix4_proxy_seconds": 0.021024549589492382,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.1,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.8017132841050625,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.03705419807229191,
+          "residual_budget_after_prefix4_proxy_seconds": 0.021024549589492382,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        }
+      ]
+    },
+    {
+      "size": 256,
+      "index": 0,
+      "eager_warm_seconds": 0.23137874715030193,
+      "graph_warm_seconds": 0.14976707100868225,
+      "common_setup_seconds": 0.011404827237129211,
+      "graph_extra_setup_seconds": 0.1875267866998911,
+      "original_classical_Q1_estimate_seconds": 0.24278357438743114,
+      "graph_classical_Q1_estimate_seconds": 0.34869868494570255,
+      "depth16_graph_application_seconds_from_v1": 0.016568591818213463,
+      "application_matches_full_recipe": true,
+      "prefix4_application_proxy_seconds": 0.06627436727285385,
+      "prefix_proxy_scope": "four times previous-screen measured TSA16 application median; optimistic empirical scenario, not a rigorous lower bound",
+      "shared_material_graph_only_setup_seconds": 0.1989316139370203,
+      "cost_scenarios": [
+        {
+          "Q": 1,
+          "saving_target": 0,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 0.24278357438743114,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.04385196045041084,
+          "residual_budget_after_prefix4_proxy_seconds": -0.02242240682244301,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.34869868494570255,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.14976707100868225,
+          "residual_budget_after_prefix4_proxy_seconds": 0.0834927037358284,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.24278357438743114,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.04385196045041084,
+          "residual_budget_after_prefix4_proxy_seconds": -0.02242240682244301,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 0.24278357438743114,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.03171278173103928,
+          "residual_budget_after_prefix4_proxy_seconds": -0.03456158554181457,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.34869868494570255,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.1323321367613971,
+          "residual_budget_after_prefix4_proxy_seconds": 0.06605776948854325,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.05,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.24278357438743114,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.03171278173103928,
+          "residual_budget_after_prefix4_proxy_seconds": -0.03456158554181457,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 0.24278357438743114,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.019573603011667745,
+          "residual_budget_after_prefix4_proxy_seconds": -0.046700764261186106,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.34869868494570255,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.114897202514112,
+          "residual_budget_after_prefix4_proxy_seconds": 0.048622835241258155,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.1,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.24278357438743114,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.019573603011667745,
+          "residual_budget_after_prefix4_proxy_seconds": -0.046700764261186106,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 3.71346478164196,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.21965832298155874,
+          "residual_budget_after_prefix4_proxy_seconds": 0.1533839557087049,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 2.5952047500759363,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.14976707100868225,
+          "residual_budget_after_prefix4_proxy_seconds": 0.0834927037358284,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 2.5952047500759363,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.14976707100868225,
+          "residual_budget_after_prefix4_proxy_seconds": 0.0834927037358284,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 3.71346478164196,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.2080537455389276,
+          "residual_budget_after_prefix4_proxy_seconds": 0.14177937826607376,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 2.5952047500759363,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.14165705616469496,
+          "residual_budget_after_prefix4_proxy_seconds": 0.0753826888918411,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.05,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 2.5952047500759363,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.14165705616469496,
+          "residual_budget_after_prefix4_proxy_seconds": 0.0753826888918411,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 3.71346478164196,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.1964491680962965,
+          "residual_budget_after_prefix4_proxy_seconds": 0.13017480082344265,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 2.5952047500759363,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.13354704132070766,
+          "residual_budget_after_prefix4_proxy_seconds": 0.06727267404785381,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.1,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 2.5952047500759363,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.13354704132070766,
+          "residual_budget_after_prefix4_proxy_seconds": 0.06727267404785381,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        }
+      ]
+    },
+    {
+      "size": 256,
+      "index": 3,
+      "eager_warm_seconds": 0.16382351890206337,
+      "graph_warm_seconds": 0.10702970996499062,
+      "common_setup_seconds": 0.011244194582104683,
+      "graph_extra_setup_seconds": 0.18295656703412533,
+      "original_classical_Q1_estimate_seconds": 0.17506771348416805,
+      "graph_classical_Q1_estimate_seconds": 0.3012304715812206,
+      "depth16_graph_application_seconds_from_v1": 0.016564596444368362,
+      "application_matches_full_recipe": true,
+      "prefix4_application_proxy_seconds": 0.06625838577747345,
+      "prefix_proxy_scope": "four times previous-screen measured TSA16 application median; optimistic empirical scenario, not a rigorous lower bound",
+      "shared_material_graph_only_setup_seconds": 0.19420076161623,
+      "cost_scenarios": [
+        {
+          "Q": 1,
+          "saving_target": 0,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 0.17506771348416805,
+          "candidate_warm_budget_zero_response_setup_seconds": -0.01913304813206196,
+          "residual_budget_after_prefix4_proxy_seconds": -0.08539143390953541,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.3012304715812206,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.10702970996499062,
+          "residual_budget_after_prefix4_proxy_seconds": 0.040771324187517166,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.17506771348416805,
+          "candidate_warm_budget_zero_response_setup_seconds": -0.01913304813206196,
+          "residual_budget_after_prefix4_proxy_seconds": -0.08539143390953541,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 0.17506771348416805,
+          "candidate_warm_budget_zero_response_setup_seconds": -0.027886433806270372,
+          "residual_budget_after_prefix4_proxy_seconds": -0.09414481958374382,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.3012304715812206,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.09196818638592957,
+          "residual_budget_after_prefix4_proxy_seconds": 0.025709800608456124,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.05,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.17506771348416805,
+          "candidate_warm_budget_zero_response_setup_seconds": -0.027886433806270372,
+          "residual_budget_after_prefix4_proxy_seconds": -0.09414481958374382,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 0.17506771348416805,
+          "candidate_warm_budget_zero_response_setup_seconds": -0.03663981948047876,
+          "residual_budget_after_prefix4_proxy_seconds": -0.10289820525795221,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 0.3012304715812206,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.07690666280686859,
+          "residual_budget_after_prefix4_proxy_seconds": 0.010648277029395137,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 1,
+          "saving_target": 0.1,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 0.17506771348416805,
+          "candidate_warm_budget_zero_response_setup_seconds": -0.03663981948047876,
+          "residual_budget_after_prefix4_proxy_seconds": -0.10289820525795221,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 2.6324204970151186,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.15238873346243054,
+          "residual_budget_after_prefix4_proxy_seconds": 0.08613034768495709,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 1.9066761210560799,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.10702970996499062,
+          "residual_budget_after_prefix4_proxy_seconds": 0.040771324187517166,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 1.9066761210560799,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.10702970996499062,
+          "residual_budget_after_prefix4_proxy_seconds": 0.040771324187517166,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 2.6324204970151186,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.14416241940925828,
+          "residual_budget_after_prefix4_proxy_seconds": 0.07790403363178483,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.05,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 1.9066761210560799,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.10107134708669036,
+          "residual_budget_after_prefix4_proxy_seconds": 0.034812961309216905,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.05,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 1.9066761210560799,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.10107134708669036,
+          "residual_budget_after_prefix4_proxy_seconds": 0.034812961309216905,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_eager",
+          "baseline_estimated_seconds": 2.6324204970151186,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.13593610535608605,
+          "residual_budget_after_prefix4_proxy_seconds": 0.0696777195786126,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.1,
+          "baseline_name": "fixed_graph",
+          "baseline_estimated_seconds": 1.9066761210560799,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.09511298420839012,
+          "residual_budget_after_prefix4_proxy_seconds": 0.028854598430916673,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        },
+        {
+          "Q": 16,
+          "saving_target": 0.1,
+          "baseline_name": "min_recorded_classical_supplement",
+          "baseline_estimated_seconds": 1.9066761210560799,
+          "candidate_warm_budget_zero_response_setup_seconds": 0.09511298420839012,
+          "residual_budget_after_prefix4_proxy_seconds": 0.028854598430916673,
+          "scenario_response_setup_paid_seconds": 0,
+          "actual_response_setup_penalty_to_warm_budget": "subtract S_response/Q; proposal acquisition/application and all images/checks/remaining solve must fit the remaining budget"
+        }
+      ]
+    }
+  ],
+  "cohort_mean_budgets": [
+    {
+      "size": 128,
+      "independent_media": 16,
+      "mean_eager_warm_seconds": 0.13657969271298498,
+      "mean_graph_warm_seconds": 0.04084716801298782,
+      "mean_common_setup_seconds": 0.008454115013591945,
+      "mean_graph_extra_setup_seconds": 0.12253389123361558,
+      "mean_eager_Q1_seconds": 0.14503380772657692,
+      "mean_graph_Q1_seconds": 0.17183517426019534,
+      "mean_graph_setup_only_seconds": 0.13098800624720752,
+      "mean_min_percase_recorded_classical_Q1_seconds": 0.13362349022645503,
+      "mean_warm_budget_Q1_eager_zero_response_setup_by_threshold": {
+        "0": 0.014045801479369402,
+        "0.05": 0.006794111093040539,
+        "0.1": -0.00045757929328829605
+      },
+      "conditional_Q16_graph_warm_budget_zero_response_setup_by_threshold": {
+        "0": 0.04084716801298782,
+        "0.05": 0.03839547209281591,
+        "0.1": 0.03594377617264399
+      }
+    },
+    {
+      "size": 256,
+      "independent_media": 16,
+      "mean_eager_warm_seconds": 0.14865086635109037,
+      "mean_graph_warm_seconds": 0.09680632723029703,
+      "mean_common_setup_seconds": 0.011208052281290293,
+      "mean_graph_extra_setup_seconds": 0.1862292840378359,
+      "mean_eager_Q1_seconds": 0.15985891863238066,
+      "mean_graph_Q1_seconds": 0.2942436635494232,
+      "mean_graph_setup_only_seconds": 0.1974373363191262,
+      "mean_min_percase_recorded_classical_Q1_seconds": 0.15985891863238066,
+      "mean_warm_budget_Q1_eager_zero_response_setup_by_threshold": {
+        "0": -0.037578417686745524,
+        "0.05": -0.04557136361836456,
+        "0.1": -0.05356430954998359
+      },
+      "conditional_Q16_graph_warm_budget_zero_response_setup_by_threshold": {
+        "0": 0.09680632723029703,
+        "0.05": 0.0913490191927849,
+        "0.1": 0.08589171115527279
+      }
+    }
+  ],
+  "historical_phase4": [
+    {
+      "size": 128,
+      "scope": "old eager complete solves, all16 media; not current graph latency or a call-to-time theorem",
+      "methods": {
+        "frozen_classical": {
+          "mean_case_median_seconds": 0.13582995033357292,
+          "mean_classical_calls": 7.8125
+        },
+        "tsa8_phase4": {
+          "mean_case_median_seconds": 0.1510329310549423,
+          "mean_classical_calls": 7.375
+        },
+        "tsa8_mixed": {
+          "mean_case_median_seconds": 0.1353070930344984,
+          "mean_classical_calls": 7.5
+        },
+        "tsa16_mixed": {
+          "mean_case_median_seconds": 0.14244065270759165,
+          "mean_classical_calls": 4.5
+        }
+      }
+    },
+    {
+      "size": 256,
+      "scope": "old eager complete solves, all16 media; not current graph latency or a call-to-time theorem",
+      "methods": {
+        "frozen_classical": {
+          "mean_case_median_seconds": 0.1436949687777087,
+          "mean_classical_calls": 4.5
+        },
+        "tsa8_phase4": {
+          "mean_case_median_seconds": 0.1700592627748847,
+          "mean_classical_calls": 7.4375
+        },
+        "tsa8_mixed": {
+          "mean_case_median_seconds": 0.15373001410625875,
+          "mean_classical_calls": 7.5625
+        },
+        "tsa16_mixed": {
+          "mean_case_median_seconds": 0.14993813645560294,
+          "mean_classical_calls": 4.5
+        }
+      }
+    }
+  ],
+  "linearity_distinctions": [
+    "U is fixed-material complex-linear when H0,Q and arithmetic action fixed",
+    "a cached acquired vector is source/prefix-specific and is not a deployable residual-linear map",
+    "adaptive CGLS/GMRES coefficients/stopping are RHS-dependent; a finite stopped algorithm is generally nonlinear",
+    "an exact fixed-coefficient inverse/least-squares action or fixed scalar-polynomial iteration is complex-linear in exact arithmetic; cheap/stable realization requires separate evidence"
+  ],
+  "next_control": "from-start TSA4 plus fixed-material response, paired against identical TSA4 alone and both successful frozen eager/graph recipes; measure actual setup/action/acquisition/full solve. Existing TSA8/16 graph setup and prefix proxy cannot be assumed for this different control.",
+  "no_gpu_execution": true,
+  "no_new_training": true,
+  "no_holdout_access": true
+}

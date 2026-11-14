@@ -1,0 +1,7 @@
+{"event": "incumbent_done", "source_id": 0, "calls": 3, "residual": 4.788854686453486e-07, "states": ["after_coarse", "after_classical_2"]}
+{"event": "incumbent_done", "source_id": 4, "calls": 3, "residual": 1.9250488510590933e-06, "states": ["after_coarse", "after_classical_2"]}
+{"event": "response_done", "source_id": 0, "state": "after_coarse", "iterations": 8, "seconds": 10.097281915834174, "residual_Q8": 0.9987278690971375, "error_Q8": 0.9424872666753953, "error_bound": 2.6949669193064197e-08}
+{"event": "response_done", "source_id": 0, "state": "after_classical_2", "iterations": 9, "seconds": 11.310322247911245, "residual_Q8": 0.9837248097637802, "error_Q8": 0.9702507556723053, "error_bound": 1.7872927473577858e-09}
+{"event": "response_done", "source_id": 4, "state": "after_coarse", "iterations": 8, "seconds": 10.051204832969233, "residual_Q8": 0.9964885306741769, "error_Q8": 0.6729122434881939, "error_bound": 1.827022598563695e-08}
+{"event": "response_done", "source_id": 4, "state": "after_classical_2", "iterations": 8, "seconds": 10.042577643878758, "residual_Q8": 0.9768335459750679, "error_Q8": 0.9832914300181804, "error_bound": 1.3388568216160172e-08}
+{"event": "finished", "complete": true, "seconds": 59.14886724296957, "error": null}

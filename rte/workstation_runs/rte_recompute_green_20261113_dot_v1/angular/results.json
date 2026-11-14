@@ -1,0 +1,222 @@
+{
+  "complete": true,
+  "pid": 2234020,
+  "method": "angular",
+  "n": 128,
+  "k": 0,
+  "source_independent": true,
+  "original_residual_tolerance": 1e-10,
+  "max_repairs": 3,
+  "threads": 1,
+  "cpu_affinity": [
+    0
+  ],
+  "CUDA_disabled": true,
+  "no_physical_source": true,
+  "no_dense_inverse": true,
+  "cost": {
+    "physical_setup_seconds": 0.01212600595317781,
+    "factor_seconds": 0.10039237909950316,
+    "reference_read_seconds": 0.004848351003602147
+  },
+  "resource_at_start": [
+    "    PID PSR %CPU COMMAND",
+    "2234020   0 96.5 /data1/software/miniconda3/bin/python -u run_recompute.py angular",
+    "2224141  17  7.0 [kworker/u144:0-events_power_efficient]",
+    "2233608   6  3.9 [kworker/6:1-inode_switch_wbs]",
+    "2233615   5  3.6 [kworker/5:0-inode_switch_wbs]",
+    "2233619   5  3.4 [kworker/5:1-inode_switch_wbs]",
+    "2233622   7  3.3 [kworker/7:1-inode_switch_wbs]",
+    "2233578  34  3.2 [kworker/34:1-inode_switch_wbs]",
+    "2233627   6  3.1 [kworker/6:2-inode_switch_wbs]",
+    "2233646   6  3.0 [kworker/6:4-inode_switch_wbs]",
+    "2233623   5  3.0 [kworker/5:2-inode_switch_wbs]",
+    "2233636   7  2.9 [kworker/7:4-inode_switch_wbs]",
+    "2233598   0  2.9 [kworker/0:0-inode_switch_wbs]",
+    "2233654   6  2.8 [kworker/6:5-inode_switch_wbs]",
+    "2233518  27  2.8 [kworker/27:1-inode_switch_wbs]",
+    "2233545   8  2.8 [kworker/8:2-inode_switch_wbs]",
+    "2233547  27  2.8 [kworker/27:6-mm_percpu_wq]",
+    "2233534   8  2.8 [kworker/8:1-inode_switch_wbs]",
+    "2233605   4  2.7 [kworker/4:0-mm_percpu_wq]",
+    "2233522  26  2.7 [kworker/26:3-inode_switch_wbs]"
+  ],
+  "rss": {
+    "before_physical": 391897088,
+    "after_physical": 415281152,
+    "after_factor": 450076672,
+    "after_applications": 451801088
+  },
+  "source_hashes": {
+    "operator_green.py": "bffd49c9cc169656ddac5efe61a70836d515ce20a31e7fd48d8c0cb226bb2390",
+    "run_recompute.py": "252b34c4c0b0cfe69f8a8258793df7b6236ca133575a788393b3ac6652ab59bc",
+    "prior_permutation_driver.py": "4507fe32246b091cc30d7e76961d12f08557fdfbf6a4c39f44e111e22d762198"
+  },
+  "plan_sha256": "2987d71ef57cfab88ac257c85780193424f38e0dabc59b9a44110cde9d9c3715",
+  "background": {
+    "axis": 0,
+    "total_sha256": "2f3f2685c7b7e79bf0fd0f4721aeb10a7afda17a0fbfe5d65d69de752ee441c2",
+    "scatter_sha256": "ca41ae0109c4fc04e392ebe57a1f7955d753f6667efa430a49595d92119dbb45",
+    "score": 16470.990234375
+  },
+  "alpha": 0.04996158451422161,
+  "factor_bytes": 16272584,
+  "factor_phase_peak_RSS_bytes": 466833408,
+  "probe_sha256": "2255431f70b897ed7c35acd4da84906bca03a89c5af0c9c0447077ab470181c8",
+  "applications": [
+    {
+      "repeat": 0,
+      "checked_inverse_seconds": 0.025774803012609482,
+      "independent_check_seconds": 0.0033459700644016266,
+      "status": {
+        "success": true,
+        "corrections": 1,
+        "residual_trace": [
+          [
+            0.0,
+            4.002049392617948e-06,
+            3.3331340707763998e-06,
+            1.0084679229207745e-05,
+            4.002049388145725e-06
+          ],
+          [
+            0.0,
+            2.141189797285632e-12,
+            2.192513152255074e-12,
+            2.4609331686258523e-12,
+            2.141058005642788e-12
+          ]
+        ]
+      },
+      "original_relative": [
+        0.0,
+        2.141189797285632e-12,
+        2.192513152255074e-12,
+        2.4609331686258523e-12,
+        2.141058005642788e-12
+      ],
+      "relative_to_cached": [
+        0.0,
+        4.164904074233425e-12,
+        3.3978298407804252e-12,
+        4.566168244914975e-12,
+        4.163645815929855e-12
+      ],
+      "zero": true,
+      "tiny": true,
+      "passed": true
+    },
+    {
+      "repeat": 1,
+      "checked_inverse_seconds": 0.012472051894292235,
+      "independent_check_seconds": 0.0030799119267612696,
+      "status": {
+        "success": true,
+        "corrections": 1,
+        "residual_trace": [
+          [
+            0.0,
+            4.002049392617948e-06,
+            3.3331340707763998e-06,
+            1.0084679229207745e-05,
+            4.002049388145725e-06
+          ],
+          [
+            0.0,
+            2.141189797285632e-12,
+            2.192513152255074e-12,
+            2.4609331686258523e-12,
+            2.141058005642788e-12
+          ]
+        ]
+      },
+      "original_relative": [
+        0.0,
+        2.141189797285632e-12,
+        2.192513152255074e-12,
+        2.4609331686258523e-12,
+        2.141058005642788e-12
+      ],
+      "relative_to_cached": [
+        0.0,
+        4.164904074233425e-12,
+        3.3978298407804252e-12,
+        4.566168244914975e-12,
+        4.163645815929855e-12
+      ],
+      "zero": true,
+      "tiny": true,
+      "passed": true
+    },
+    {
+      "repeat": 2,
+      "checked_inverse_seconds": 0.011540473904460669,
+      "independent_check_seconds": 0.0030561869498342276,
+      "status": {
+        "success": true,
+        "corrections": 1,
+        "residual_trace": [
+          [
+            0.0,
+            4.002049392617948e-06,
+            3.3331340707763998e-06,
+            1.0084679229207745e-05,
+            4.002049388145725e-06
+          ],
+          [
+            0.0,
+            2.141189797285632e-12,
+            2.192513152255074e-12,
+            2.4609331686258523e-12,
+            2.141058005642788e-12
+          ]
+        ]
+      },
+      "original_relative": [
+        0.0,
+        2.141189797285632e-12,
+        2.192513152255074e-12,
+        2.4609331686258523e-12,
+        2.141058005642788e-12
+      ],
+      "relative_to_cached": [
+        0.0,
+        4.164904074233425e-12,
+        3.3978298407804252e-12,
+        4.566168244914975e-12,
+        4.163645815929855e-12
+      ],
+      "zero": true,
+      "tiny": true,
+      "passed": true
+    }
+  ],
+  "application_phase_peak_RSS_bytes": 466833408,
+  "process_seconds": 3.1904313368722796,
+  "total_peak_RSS_bytes": 466833408,
+  "current_RSS_end": 452096000,
+  "resource_at_end": [
+    "    PID PSR %CPU COMMAND",
+    "2234020   0 93.8 /data1/software/miniconda3/bin/python -u run_recompute.py angular",
+    "2224141  17  7.0 [kworker/u144:0-events_power_efficient]",
+    "2233608   6  3.9 [kworker/6:1-inode_switch_wbs]",
+    "2233615   5  3.6 [kworker/5:0-inode_switch_wbs]",
+    "2233619   5  3.3 [kworker/5:1-inode_switch_wbs]",
+    "2233622   7  3.3 [kworker/7:1-inode_switch_wbs]",
+    "2233578  34  3.2 [kworker/34:1-inode_switch_wbs]",
+    "2233627   6  3.1 [kworker/6:2-inode_switch_wbs]",
+    "2233646   6  3.0 [kworker/6:4-inode_switch_wbs]",
+    "2233623   5  2.9 [kworker/5:2-inode_switch_wbs]",
+    "2233636   7  2.9 [kworker/7:4-inode_switch_wbs]",
+    "2233598   0  2.9 [kworker/0:0-inode_switch_wbs]",
+    "2233654   6  2.8 [kworker/6:5-inode_switch_wbs]",
+    "2233518  27  2.8 [kworker/27:1-inode_switch_wbs]",
+    "2233545   8  2.8 [kworker/8:2-inode_switch_wbs]",
+    "2233547  27  2.8 [kworker/27:6-mm_percpu_wq]",
+    "2233534   8  2.8 [kworker/8:1-inode_switch_wbs]",
+    "2233605   4  2.7 [kworker/4:0-mm_percpu_wq]",
+    "2233522  26  2.7 [kworker/26:3-inode_switch_wbs]"
+  ],
+  "production_unchanged": true,
+  "E_unchanged": true
+}

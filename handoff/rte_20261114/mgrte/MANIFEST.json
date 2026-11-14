@@ -1,0 +1,867 @@
+[
+  {
+    "path": "HANDOFF.md",
+    "bytes": 5580,
+    "sha256": "47628e826d5d812a4c444c53c70677da6fca7e643610f406cf9f5b357c3f8bfa"
+  },
+  {
+    "path": "TREE_DIFFERENCES.json",
+    "bytes": 7109,
+    "sha256": "3894783fb5e48447673db56f59fe6ea95d78ca3a0e533c02443f1360de1e3d48"
+  },
+  {
+    "path": "fwi/inventory.json",
+    "bytes": 84998,
+    "sha256": "c662c762b627c3675196419a51d19fe83e2a2b5d1d3a8d652e6abf09bf361f26"
+  },
+  {
+    "path": "fwi/source/.gitignore",
+    "bytes": 198,
+    "sha256": "7cb213a2cec331f5d919ab3f74dfe4539dbbb21c61c36d661d327c81095cae52"
+  },
+  {
+    "path": "fwi/source/RTE_ATFPS_func.py",
+    "bytes": 38360,
+    "sha256": "a3cf869c2099a9b83f69b147d7d413404f9c422629db9480b0ac7a32e26bda04"
+  },
+  {
+    "path": "fwi/source/RTE_datagenerator.py",
+    "bytes": 13890,
+    "sha256": "a6f82f7042e5c765dcddf9b73973fe17137e0d2a821127166ff114d9a9f400d3"
+  },
+  {
+    "path": "fwi/source/RTE_dataloader.py",
+    "bytes": 4940,
+    "sha256": "ee648836fc58ee1560ae96674a6429ae865f636b737e842eed090be63cd9665d"
+  },
+  {
+    "path": "fwi/source/RTE_mgmodel.py",
+    "bytes": 10288,
+    "sha256": "c26c5026d2a35a8d05136c2e3b835ac0408997f96a02283e5427d195e8c4e2f4"
+  },
+  {
+    "path": "fwi/source/RTE_pseudospectral.py",
+    "bytes": 5629,
+    "sha256": "ffccf0b7f70d19b030c9d09dee3f5a74a952a2464c395a00b78f416dbc8a01c6"
+  },
+  {
+    "path": "fwi/source/__init__.py",
+    "bytes": 125,
+    "sha256": "86443517720f5ad49b3799e57c3d951a687a8c394dc319cca474c57b6da4146f"
+  },
+  {
+    "path": "fwi/source/collect_replay_residuals.py",
+    "bytes": 4019,
+    "sha256": "cf0ba369237539c79e97a2455a270bdc69e35373b4a226df4c6c59013844e83a"
+  },
+  {
+    "path": "fwi/source/configs/born_precond.yaml",
+    "bytes": 773,
+    "sha256": "c8f8fb7e2eb3eee5d4a1c54b17a673e5259793e65811f984bf3908ea38984d74"
+  },
+  {
+    "path": "fwi/source/configs/default.yaml",
+    "bytes": 741,
+    "sha256": "c26dabccaaa1431c268f062283ef07a99cf66fa0efc89e6a487dbeca0c73b923"
+  },
+  {
+    "path": "fwi/source/configs/pseudospectral_rte.yaml",
+    "bytes": 386,
+    "sha256": "91cbae797f5bb6b045febf6ecba2434933d515ac56bf7a87333ae358e91e7330"
+  },
+  {
+    "path": "fwi/source/docs/born_coordinate_atfps_analysis.tex",
+    "bytes": 18112,
+    "sha256": "cbeadcd925bbb8d5844c4db74b7b54e1bd38749bcec75d6027a846b94e6035dc"
+  },
+  {
+    "path": "fwi/source/docs/training_scheme_audit.md",
+    "bytes": 3366,
+    "sha256": "908aa05a0f2697697234ada3462ff330596ac4f9e4beabac77f8aea7210f4a37"
+  },
+  {
+    "path": "fwi/source/environment.yml",
+    "bytes": 171,
+    "sha256": "c26267128220ac68ce50906768cbe5d374dcd078b3e037ed11cf7e61c5f04b88"
+  },
+  {
+    "path": "fwi/source/gmres.py",
+    "bytes": 12141,
+    "sha256": "ee99358ddbe7ce4f76d4bf1c7c39f630ade337af65da9f67ec7c739baf29612a"
+  },
+  {
+    "path": "fwi/source/inference.py",
+    "bytes": 8772,
+    "sha256": "f498c70196413991d1f96341120bfde33d382a65261466cec63f38799cd29a91"
+  },
+  {
+    "path": "fwi/source/outputs/diffusion_small_born_inference.json",
+    "bytes": 3304,
+    "sha256": "8490c58318055916e8c0bd5fadd51a459017bb80a42327655e2efb57fdb4eb47"
+  },
+  {
+    "path": "fwi/source/outputs/diffusion_small_born_inference_100ep.json",
+    "bytes": 3307,
+    "sha256": "0cd01b9df9a6543f63d3bf076eb894fdee66eb1a8e9709f44f9f5b7f97c8784c"
+  },
+  {
+    "path": "fwi/source/outputs/diffusion_small_born_random_relative_100ep.json",
+    "bytes": 3306,
+    "sha256": "13917cb6945b1ee46785234fcf84086e5c5219e9bb27020e07efff5f8a3a90e5"
+  },
+  {
+    "path": "fwi/source/outputs/diffusion_small_born_random_relative_residual_100ep.json",
+    "bytes": 3310,
+    "sha256": "279f0ee4557e5d6886c3323de1357e51b57201b1943e1105f3d3661f2928f87e"
+  },
+  {
+    "path": "fwi/source/outputs/diffusion_small_born_replay_relative_100ep.json",
+    "bytes": 3311,
+    "sha256": "75f485fb9a006d527500fcf25f3993f0559823cd7c1ad1e5a660f8864d0b5a2d"
+  },
+  {
+    "path": "fwi/source/outputs/diffusion_small_born_residual_inference.json",
+    "bytes": 3303,
+    "sha256": "0a9b0c0410933a3f387f4dea1cabef900a2705982b47753e47c66f93c8aec516"
+  },
+  {
+    "path": "fwi/source/outputs/diffusion_small_raw_inference.json",
+    "bytes": 3324,
+    "sha256": "e945eedeaf08e998b012dd4989b131fa86277e205bbd204542966b7ebbc12897"
+  },
+  {
+    "path": "fwi/source/outputs/diffusion_small_raw_inference_100ep.json",
+    "bytes": 3336,
+    "sha256": "7e97c2a6eb76f28f6ab875362be3f9564dd597457f89eef8ee8016b4b8d6d654"
+  },
+  {
+    "path": "fwi/source/outputs/diffusion_small_raw_random_relative_100ep.json",
+    "bytes": 3341,
+    "sha256": "03ba13f5fec62ae9aa4ad903c0d6f1759cf75f8c141405b6fba31ccfd7f65539"
+  },
+  {
+    "path": "fwi/source/outputs/interface_small_born_inference_100ep.json",
+    "bytes": 3309,
+    "sha256": "ff79c683cebcc4e715c1535ca5b5afcf74ff59097dba11c46458c186329a53db"
+  },
+  {
+    "path": "fwi/source/outputs/interface_small_raw_inference_100ep.json",
+    "bytes": 3309,
+    "sha256": "db0ab8ee3fa71bc05f868a21b59c9fd7f51e15554850e6b73d98adc87167292b"
+  },
+  {
+    "path": "fwi/source/plot.py",
+    "bytes": 2806,
+    "sha256": "60e00335dffdc0191c206337a54b56bd7a324f4a41619ced554251ca768c623d"
+  },
+  {
+    "path": "fwi/source/pyproject.toml",
+    "bytes": 380,
+    "sha256": "22920d3073e7a7189030b5e7a869961e0e64f881dfb265bcc496b73d60e7c83a"
+  },
+  {
+    "path": "fwi/source/readme.md",
+    "bytes": 7001,
+    "sha256": "21a68472f093c6e66fd12882ba5adc820ef32eef4ae9078e2a7ec18f8a970564"
+  },
+  {
+    "path": "fwi/source/rte_config.py",
+    "bytes": 3342,
+    "sha256": "045e6936c04193258ca02f2374e6fc1832e1f986cd84d1c78e71375c7f48f368"
+  },
+  {
+    "path": "fwi/source/rte_preconditioning.py",
+    "bytes": 5599,
+    "sha256": "5a560fe0bbd25882dedacb9588d462ee94721c0c838dc3970c86bd00b827e3fe"
+  },
+  {
+    "path": "fwi/source/someplot.ipynb",
+    "bytes": 157288,
+    "sha256": "f4b3f4fa798ae1259b96e814d6c2bc3fafd7c902632cc7f6ab7ad80a1d790424"
+  },
+  {
+    "path": "fwi/source/test.ipynb",
+    "bytes": 461192,
+    "sha256": "f84954288372a9d24abbff71e102597d16537232f4dbdb58a584b108ae82b293"
+  },
+  {
+    "path": "fwi/source/tests/__init__.py",
+    "bytes": 29,
+    "sha256": "6352a52dfb267479727cc8bc2ac5924ff23cadf5abfd3d38cfa810bcd6d0b88a"
+  },
+  {
+    "path": "fwi/source/tests/test_born_preconditioning.py",
+    "bytes": 4624,
+    "sha256": "8aa57880664c692b437f9bd856afc1cc0e03395c794c5950cf1ce06b20aaec74"
+  },
+  {
+    "path": "fwi/source/tests/test_pseudospectral_rte.py",
+    "bytes": 1969,
+    "sha256": "c9fc4e397835172344dd55f9e80ec21127710347d0d38379e1b72457765e0450"
+  },
+  {
+    "path": "fwi/source/tests/test_smoke.py",
+    "bytes": 4636,
+    "sha256": "4b9345ed7b94b4e271fa5004fe394f72edbabcf0e360060acb4c379842341e1d"
+  },
+  {
+    "path": "fwi/source/train.py",
+    "bytes": 13231,
+    "sha256": "f69795f3f5e23ce7aabf8bafd4e72e4a405a5dc320949dd6e9bfee6df73d08c9"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/allI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "b9f1039ac5c53b972d75cedc6678a61fa9c979aa1ef7e2d2032e0f8bfbe08952"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "9b9c1672396d64e6311a53989e7e48b20a82ed7a471753342c146e56c76d8add"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "aa26ffc235a1d9e1a10fbd6845fa91d2d12757b49175ffc7fb185c555d113686"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch100d32512tol5_multilevel.txt",
+    "bytes": 1200,
+    "sha256": "2d16421ac477d6c367b1107520aacb05a431e249911738b7331fd785d0ad583b"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch100d32512tol5_multilevel_born_mixed.txt",
+    "bytes": 1200,
+    "sha256": "197d90d3c89ff2f4b707f541b9b54d1ed3d3ec6a2982bc55d88b2e7fb3555c8c"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch100d32512tol5_multilevel_born_mixed_random_relative.txt",
+    "bytes": 1200,
+    "sha256": "4d31e33b315364ae068c248753e2094077cbcc49adf21988de00be3f8ea16518"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch100d32512tol5_multilevel_born_mixed_random_relative_residual.txt",
+    "bytes": 1200,
+    "sha256": "07ab2e7e83c900de2149d45b72adafd364b5edcbae8c6dca97a02e6216171f8c"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch100d32512tol5_multilevel_born_mixed_replay_relative.txt",
+    "bytes": 1200,
+    "sha256": "9453c71190ed2eb5ee7747dd81e4e20016b028b751a391dc6b2f214689259d57"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch100d32512tol5_multilevel_raw_random_relative.txt",
+    "bytes": 1200,
+    "sha256": "38361dae55e60d43d2dd1b5d433010dcb2d340d8519d143c45eb6da51c80f3c6"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch30d32512tol5_multilevel.txt",
+    "bytes": 360,
+    "sha256": "1b9d1a56c5a315dc7268045e3e0d71ebb808e3a6b3b48e0f7fce8a18694a710c"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch30d32512tol5_multilevel_born_mixed.txt",
+    "bytes": 360,
+    "sha256": "1ba070ad587ac67c9b965e0ac99be7fd70f4e1c6b7533719643c20cfaa45a290"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch30d32512tol5_multilevel_born_mixed_residual.txt",
+    "bytes": 360,
+    "sha256": "1156ae86401eded5d28ef47ee88803313c514131d68381c9d592da5a7fa11f44"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol1000000_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "8b4d92de5f9d713324a7ef1d4a6efd8a97e149128cee6934b0619677ade121c0"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "70a572622b38c78e7b3723fe9173a2ac2ff54cb278e2791dd0606e21865a6322"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "d219dd5a1e3fbd13bcb61f18e19ed471abe737070b4cbaaaff488fa6849533af"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol1000000_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "96cfbce4e2329a947310ad325299955209ab03ced0a6a91f719a0c57fdae42d8"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "4a71162803680afaaa5f7d267f7cb1726a476551484a39fdf5bd7db84245d761"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.txt",
+    "bytes": 7920,
+    "sha256": "af041077c2a041aeefaa02e9bc7303aad36874f693be1a2647af3106d08e2ada"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.txt",
+    "bytes": 10536,
+    "sha256": "be31fe032dfcdeef907522237e77e510743f0b3f9f36f11aac0aaade77fc63cc"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L3batch32epoch100d32512tol5_multilevel.txt",
+    "bytes": 1200,
+    "sha256": "9e2136c08c3daedd9744685b1aa1d659be21746e90ffe2894ad7a52fb68390c4"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L3batch32epoch100d32512tol5_multilevel_born_mixed.txt",
+    "bytes": 1200,
+    "sha256": "54ae6251aadf131b3fb0896d388511179318551542e851366647803b873d8c38"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol1000000_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "d7c332b56c9a249e1f9f7c1b42e876b636dd6e3103c1b250df0a978a26965286"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "d0a574e812f1f6f8ca53dfd7f5d17d30fed5f603ee16f800aa179f2fdb18672c"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "1b29efbdae86971dc7b7093b0231057e5711a7275f4b965e8f236a6c727e809e"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol1000000_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "873fef0100d5d566c04b5f591cf6d35fd96e73fc4348dbc8db6bb07cc14eca66"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "b925d705aee6efc9946e304fe22455ca1dab5ac3b62cb2ecbb1de05dc37a94df"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "8e403d260ef7c18b5529a351a1caee3c4f25132f33a0ea97a43790090abcfadc"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "bb40463b954b973a8f1c34c9dca518b9edcd5b9a320d7a9189116915f80f5d49"
+  },
+  {
+    "path": "fwi/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "0d7e1fe06cd0fd6ddee1f3421b49596533bc708567ab1e07f5596fc68196bc47"
+  },
+  {
+    "path": "fwi/source/utils.py",
+    "bytes": 4315,
+    "sha256": "a61a85818c8e6dc25ed3842297099dde9af75776e5f153eeb55ba00fb7c556ab"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/allI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "89969763225965ecb4e8ad76060cee84efdf36cee3d779bbc1911163227e55cd"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "577c0a2c7c25d109fe40cb6d0cbd139033db282eec045c658978bfd24f771d88"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "85f1334c383f1e28ddafd8c78db8da8ff3db90767ed4c0181010e1de874110c0"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch100d32512tol5_multilevel.txt",
+    "bytes": 60,
+    "sha256": "4d69b1d3e6a3e47802d76e95467fbc291bddc84fe4a61ddfeaaa37c091b6c20d"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch100d32512tol5_multilevel_born_mixed.txt",
+    "bytes": 60,
+    "sha256": "dfe47f4b6af055190a66a589311e36d695a52bdb0e756e7f147c5ae62a564b52"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch100d32512tol5_multilevel_born_mixed_random_relative.txt",
+    "bytes": 60,
+    "sha256": "92f9247bbcad49b10a20e330aa2bfacd55efad6097c828aa463136cfa83e552a"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch100d32512tol5_multilevel_born_mixed_random_relative_residual.txt",
+    "bytes": 60,
+    "sha256": "ec0369b2ab48ee9e5832c206631a8a967f111ad98e16cadcb298a00972ebef0a"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch100d32512tol5_multilevel_born_mixed_replay_relative.txt",
+    "bytes": 60,
+    "sha256": "5ed8b85a488f513b110bf1ca637235dd39200e59a4eed2ebc9e4af33f8e1678f"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch100d32512tol5_multilevel_raw_random_relative.txt",
+    "bytes": 60,
+    "sha256": "4f4676d7356327ff2a5d29e686b7a25ff8fa2876856d466a698deed2c165f15f"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch30d32512tol5_multilevel.txt",
+    "bytes": 36,
+    "sha256": "2e6abeed2a9a49898eb0bfd1753c22a11bff1d0059e48a2c0d3246a17dd630cb"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch30d32512tol5_multilevel_born_mixed.txt",
+    "bytes": 36,
+    "sha256": "98ad6dbb63e55c8700f483227a2b36c4bc3e4b58dc407b845b8d7c51baf9a7aa"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L3batch32epoch30d32512tol5_multilevel_born_mixed_residual.txt",
+    "bytes": 36,
+    "sha256": "47cc378949b37c4fd4f490c4ce7bd0a8c85c03cd4e95ba9f008ad31f9ec398a9"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol1000000_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "78e6e1d393a36f2cf52dde86ebea065af72e02ffe413e93f67d21a40452e1d66"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "6aacd6b1708e1e0bdbde0db80a53a3f2643dfa763281e9d8f813011b2101f125"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "0a85f23db1d0c0b4611af783f498001e8462869a52aa81af8331998410fcc2c4"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol1000000_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "e084e554471254854510ef0b7c6b8fcf3c5660ff28e216de0091a4eb046888de"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "7afa6af1d728f6137c13ace592394bc39798293056453005f7eec0c1d3baab50"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.txt",
+    "bytes": 1584,
+    "sha256": "684101cee5ed6710500787ebfbf8c2d2603e99d9e8b3343d9999b4d88582ed27"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.txt",
+    "bytes": 2100,
+    "sha256": "8f0b912a87ecbbbe0f5ec0087d45c6c342a0b982a3ad2a53045697f958c258b6"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L3batch32epoch100d32512tol5_multilevel.txt",
+    "bytes": 60,
+    "sha256": "c5c78b49bb1563d8a0a6ab440c03d9d5e1bd1534ffe84a29431bd2413ed1b52b"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L3batch32epoch100d32512tol5_multilevel_born_mixed.txt",
+    "bytes": 60,
+    "sha256": "6d96d48ea8c8dcba64b0a16b141e25ecc23692969063cc6e96ccf32c1892c5b0"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol1000000.0_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "47a864b1ba10cec1ff0c74c16b6093bba8b4260298302a5d8f6ad9ad120d685e"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "f5c8d523fd2089694b3330e97d737e0544f04570e9e56ca0ea5784a1f8b39720"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "372eedce4fe42f869288a7e4d1449e61bccd75551d663241e29dcb39e9aa8842"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol1000000.0_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "b4ad117a5d4aa1c906098ea3af22933db47a36c4be8fb0ae7fc23e618c75cdf1"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "85aed0aa5d6c9d9da115ef6f0b4d16cf29d5054c62c0f890668a99014f11741b"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "cc7df70dc5411f4a03c901b08be59f4608105eac62013f5afe7bec5ea345c721"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "5b83b81861b3477f9435fc5113df99ad0e840a00838f0abf62dffd98eb0cc9b5"
+  },
+  {
+    "path": "fwi/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "d82adf14998992bec88f2240eb2893928dfd8aaee8d8b7eb8386573f3403856d"
+  },
+  {
+    "path": "fwi/working-tree.patch",
+    "bytes": 6769,
+    "sha256": "820fec1209f9acf5de3ca3c6975cc42efb4677472d259ceebe338d2d22bb5a07"
+  },
+  {
+    "path": "mac/inventory.json",
+    "bytes": 57207,
+    "sha256": "929d7992dd0872987f03a82ee0558c16a5bc1c1532c21a93b7694ce74f42bffd"
+  },
+  {
+    "path": "mac/source/.gitignore",
+    "bytes": 198,
+    "sha256": "7cb213a2cec331f5d919ab3f74dfe4539dbbb21c61c36d661d327c81095cae52"
+  },
+  {
+    "path": "mac/source/RTE_ATFPS_func.py",
+    "bytes": 38360,
+    "sha256": "a3cf869c2099a9b83f69b147d7d413404f9c422629db9480b0ac7a32e26bda04"
+  },
+  {
+    "path": "mac/source/RTE_datagenerator.py",
+    "bytes": 13890,
+    "sha256": "a6f82f7042e5c765dcddf9b73973fe17137e0d2a821127166ff114d9a9f400d3"
+  },
+  {
+    "path": "mac/source/RTE_dataloader.py",
+    "bytes": 4499,
+    "sha256": "de457509f0f5d7d07708bea317a61bcef8e3cc279508e47e362db61691f7f7be"
+  },
+  {
+    "path": "mac/source/RTE_mgmodel.py",
+    "bytes": 18830,
+    "sha256": "32ab45709fae050b3ab4d5bffecae186140414a8635ec925f7231f3aaaf596a3"
+  },
+  {
+    "path": "mac/source/RTE_pseudospectral.py",
+    "bytes": 5629,
+    "sha256": "ffccf0b7f70d19b030c9d09dee3f5a74a952a2464c395a00b78f416dbc8a01c6"
+  },
+  {
+    "path": "mac/source/__init__.py",
+    "bytes": 125,
+    "sha256": "86443517720f5ad49b3799e57c3d951a687a8c394dc319cca474c57b6da4146f"
+  },
+  {
+    "path": "mac/source/ablate_defect_revisions.py",
+    "bytes": 6657,
+    "sha256": "96967324dbe29931f80eecf9e87670b8c47e1b554ca32efa678523838fe5be5b"
+  },
+  {
+    "path": "mac/source/configs/born_precond.yaml",
+    "bytes": 878,
+    "sha256": "f8d8736e1bc6c79950e6ce913b75fb7c15b0960cb78782e31816458736a90350"
+  },
+  {
+    "path": "mac/source/configs/born_unet_precond.yaml",
+    "bytes": 875,
+    "sha256": "f126652ab19a8fe6b994fbdc7358010b525603891966f7fffee919f9652fa94d"
+  },
+  {
+    "path": "mac/source/configs/default.yaml",
+    "bytes": 846,
+    "sha256": "fe796140e54d5053bf8b7d18e2a97ddb572ab9c086ca8ad345a6a388729bc4a9"
+  },
+  {
+    "path": "mac/source/configs/pseudospectral_rte.yaml",
+    "bytes": 386,
+    "sha256": "91cbae797f5bb6b045febf6ecba2434933d515ac56bf7a87333ae358e91e7330"
+  },
+  {
+    "path": "mac/source/docs/born_coordinate_atfps_analysis.tex",
+    "bytes": 18112,
+    "sha256": "cbeadcd925bbb8d5844c4db74b7b54e1bd38749bcec75d6027a846b94e6035dc"
+  },
+  {
+    "path": "mac/source/docs/born_failure_architecture_notes.md",
+    "bytes": 3257,
+    "sha256": "4d3905d8636f25d939f6877f36a71b61075a3130d1ab7771c4a2c17a3403383f"
+  },
+  {
+    "path": "mac/source/docs/training_scheme_audit.md",
+    "bytes": 3366,
+    "sha256": "908aa05a0f2697697234ada3462ff330596ac4f9e4beabac77f8aea7210f4a37"
+  },
+  {
+    "path": "mac/source/environment.yml",
+    "bytes": 171,
+    "sha256": "c26267128220ac68ce50906768cbe5d374dcd078b3e037ed11cf7e61c5f04b88"
+  },
+  {
+    "path": "mac/source/gmres.py",
+    "bytes": 12141,
+    "sha256": "ee99358ddbe7ce4f76d4bf1c7c39f630ade337af65da9f67ec7c739baf29612a"
+  },
+  {
+    "path": "mac/source/inference.py",
+    "bytes": 9323,
+    "sha256": "2f1c666b3bdcd590fca15d7309dadbac0a67ce3642046f9f395de96818988fd4"
+  },
+  {
+    "path": "mac/source/outputs/tiny_training_audit_inference.json",
+    "bytes": 853,
+    "sha256": "56a9f675cb5cd9b83dc696a5e4143dce9bafc7b3c645e2d006890ea2a7abc4fb"
+  },
+  {
+    "path": "mac/source/plot.py",
+    "bytes": 2806,
+    "sha256": "60e00335dffdc0191c206337a54b56bd7a324f4a41619ced554251ca768c623d"
+  },
+  {
+    "path": "mac/source/pyproject.toml",
+    "bytes": 380,
+    "sha256": "22920d3073e7a7189030b5e7a869961e0e64f881dfb265bcc496b73d60e7c83a"
+  },
+  {
+    "path": "mac/source/readme.md",
+    "bytes": 7005,
+    "sha256": "ea1a6104c1c9591c194eebd4ec616cf848a9e0f8f3393ab9366b63dc28ee2172"
+  },
+  {
+    "path": "mac/source/rte_config.py",
+    "bytes": 3633,
+    "sha256": "3226e1a326dace833e6bb87bc087978fe2233bfd8c3de52ebfaf7e6aeaaf00dc"
+  },
+  {
+    "path": "mac/source/rte_preconditioning.py",
+    "bytes": 7111,
+    "sha256": "4324512cd22c466e607427190514d87df3041c5a1101b056a2656fdb0f9e036f"
+  },
+  {
+    "path": "mac/source/someplot.ipynb",
+    "bytes": 157288,
+    "sha256": "f4b3f4fa798ae1259b96e814d6c2bc3fafd7c902632cc7f6ab7ad80a1d790424"
+  },
+  {
+    "path": "mac/source/test.ipynb",
+    "bytes": 461192,
+    "sha256": "f84954288372a9d24abbff71e102597d16537232f4dbdb58a584b108ae82b293"
+  },
+  {
+    "path": "mac/source/tests/__init__.py",
+    "bytes": 29,
+    "sha256": "6352a52dfb267479727cc8bc2ac5924ff23cadf5abfd3d38cfa810bcd6d0b88a"
+  },
+  {
+    "path": "mac/source/tests/test_born_preconditioning.py",
+    "bytes": 6795,
+    "sha256": "a56981776808030e1c7f84252823ff61233ab09a9997d92bcbfaeda02fdc0d11"
+  },
+  {
+    "path": "mac/source/tests/test_pseudospectral_rte.py",
+    "bytes": 1969,
+    "sha256": "c9fc4e397835172344dd55f9e80ec21127710347d0d38379e1b72457765e0450"
+  },
+  {
+    "path": "mac/source/tests/test_smoke.py",
+    "bytes": 5642,
+    "sha256": "0b4f5df1685ffe743fca055f7ad818f10918d0a33e0bf4974d049e2b0df21c20"
+  },
+  {
+    "path": "mac/source/train.py",
+    "bytes": 13838,
+    "sha256": "722c2221a745e301e0a92bf98476f8a79d20b1ae4b7d787c057f1a7580e45ca0"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/allI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "b9f1039ac5c53b972d75cedc6678a61fa9c979aa1ef7e2d2032e0f8bfbe08952"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "9b9c1672396d64e6311a53989e7e48b20a82ed7a471753342c146e56c76d8add"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "aa26ffc235a1d9e1a10fbd6845fa91d2d12757b49175ffc7fb185c555d113686"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol1000000_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "8b4d92de5f9d713324a7ef1d4a6efd8a97e149128cee6934b0619677ade121c0"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "70a572622b38c78e7b3723fe9173a2ac2ff54cb278e2791dd0606e21865a6322"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "d219dd5a1e3fbd13bcb61f18e19ed471abe737070b4cbaaaff488fa6849533af"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol1000000_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "96cfbce4e2329a947310ad325299955209ab03ced0a6a91f719a0c57fdae42d8"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "4a71162803680afaaa5f7d267f7cb1726a476551484a39fdf5bd7db84245d761"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.txt",
+    "bytes": 7920,
+    "sha256": "af041077c2a041aeefaa02e9bc7303aad36874f693be1a2647af3106d08e2ada"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.txt",
+    "bytes": 10536,
+    "sha256": "be31fe032dfcdeef907522237e77e510743f0b3f9f36f11aac0aaade77fc63cc"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol1000000_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "d7c332b56c9a249e1f9f7c1b42e876b636dd6e3103c1b250df0a978a26965286"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "d0a574e812f1f6f8ca53dfd7f5d17d30fed5f603ee16f800aa179f2fdb18672c"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "1b29efbdae86971dc7b7093b0231057e5711a7275f4b965e8f236a6c727e809e"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol1000000_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "873fef0100d5d566c04b5f591cf6d35fd96e73fc4348dbc8db6bb07cc14eca66"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "b925d705aee6efc9946e304fe22455ca1dab5ac3b62cb2ecbb1de05dc37a94df"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "8e403d260ef7c18b5529a351a1caee3c4f25132f33a0ea97a43790090abcfadc"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "bb40463b954b973a8f1c34c9dca518b9edcd5b9a320d7a9189116915f80f5d49"
+  },
+  {
+    "path": "mac/source/train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 12000,
+    "sha256": "0d7e1fe06cd0fd6ddee1f3421b49596533bc708567ab1e07f5596fc68196bc47"
+  },
+  {
+    "path": "mac/source/utils.py",
+    "bytes": 4315,
+    "sha256": "a61a85818c8e6dc25ed3842297099dde9af75776e5f153eeb55ba00fb7c556ab"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/allI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "89969763225965ecb4e8ad76060cee84efdf36cee3d779bbc1911163227e55cd"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "577c0a2c7c25d109fe40cb6d0cbd139033db282eec045c658978bfd24f771d88"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "85f1334c383f1e28ddafd8c78db8da8ff3db90767ed4c0181010e1de874110c0"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol1000000_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "78e6e1d393a36f2cf52dde86ebea065af72e02ffe413e93f67d21a40452e1d66"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "6aacd6b1708e1e0bdbde0db80a53a3f2643dfa763281e9d8f813011b2101f125"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "0a85f23db1d0c0b4611af783f498001e8462869a52aa81af8331998410fcc2c4"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol1000000_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "e084e554471254854510ef0b7c6b8fcf3c5660ff28e216de0091a4eb046888de"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "7afa6af1d728f6137c13ace592394bc39798293056453005f7eec0c1d3baab50"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.txt",
+    "bytes": 1584,
+    "sha256": "684101cee5ed6710500787ebfbf8c2d2603e99d9e8b3343d9999b4d88582ed27"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.txt",
+    "bytes": 2100,
+    "sha256": "8f0b912a87ecbbbe0f5ec0087d45c6c342a0b982a3ad2a53045697f958c258b6"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol1000000.0_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "47a864b1ba10cec1ff0c74c16b6093bba8b4260298302a5d8f6ad9ad120d685e"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "f5c8d523fd2089694b3330e97d737e0544f04570e9e56ca0ea5784a1f8b39720"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "372eedce4fe42f869288a7e4d1449e61bccd75551d663241e29dcb39e9aa8842"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol1000000.0_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "b4ad117a5d4aa1c906098ea3af22933db47a36c4be8fb0ae7fc23e618c75cdf1"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "85aed0aa5d6c9d9da115ef6f0b4d16cf29d5054c62c0f890668a99014f11741b"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "cc7df70dc5411f4a03c901b08be59f4608105eac62013f5afe7bec5ea345c721"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "5b83b81861b3477f9435fc5113df99ad0e840a00838f0abf62dffd98eb0cc9b5"
+  },
+  {
+    "path": "mac/source/val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+    "bytes": 2400,
+    "sha256": "d82adf14998992bec88f2240eb2893928dfd8aaee8d8b7eb8386573f3403856d"
+  },
+  {
+    "path": "mac/working-tree.patch",
+    "bytes": 30488,
+    "sha256": "9369a3c22096110da6147474c44f84be075ed007631d9d6b5d60ca3788a05d69"
+  },
+  {
+    "path": "verify.py",
+    "bytes": 536,
+    "sha256": "fbbcee04d75f5b52a7d6277fea6a9c1ad8867484d5efca938b78ad15c0f2816a"
+  }
+]

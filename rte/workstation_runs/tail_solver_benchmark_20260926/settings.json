@@ -1,0 +1,69 @@
+{
+  "args": {
+    "output": "rte/workstation_runs/tail_solver_benchmark_20260926",
+    "tail_checkpoint": "rte/workstation_runs/tail_direction_pilot_20260926/best.pt",
+    "optical_checkpoint": "rte/workstation_runs/tail_optical_moment_20260926/last.pt",
+    "sizes": [
+      64,
+      128,
+      256
+    ],
+    "validation_count": 16,
+    "validation_seed": 4626,
+    "validation_repeats": 2,
+    "test_count": 32,
+    "test_seed": 8626,
+    "test_repeats": 3
+  },
+  "complete": true,
+  "torch_version": "2.5.1",
+  "gpu": "NVIDIA RTX A6000",
+  "gpu_processes_before": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "classical_candidates": [
+    "tsa4_balanced",
+    "tsa8_balanced",
+    "tsa16_balanced",
+    "tsa32_balanced",
+    "reference16_balanced",
+    "reference32_balanced",
+    "hss16s2_balanced",
+    "hss32s2_balanced",
+    "tsa8_zero",
+    "tsa16_zero",
+    "reference_tail",
+    "moment_reference"
+  ],
+  "neural_candidates": [
+    "neural_tail",
+    "optical_tail",
+    "optical_moments"
+  ],
+  "checkpoint_sha256": {
+    "rte/workstation_runs/tail_direction_pilot_20260926/best.pt": "135aa962f6ebc1a08b1f17c61d85cafed990da68665e1bf12cfedb097ed0775f",
+    "rte/workstation_runs/tail_optical_moment_20260926/last.pt": "48b6db082762994080fc620dd2812f43b742ca43f4e8aa18c04e2f56e58d1323"
+  },
+  "source_sha256": {
+    "rte/benchmark_tail_solver.py": "05424458ec34649a2e592638f2621a7cb4891f280839ae4df55e7da5527b9030",
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/tail_response_network.py": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+    "rte/optical_tail_network.py": "54047cae9ef96a5d072625e26050898f2bc8ee417de4456e4dcc3bf5e8c6928e",
+    "rte/tail_moment_space.py": "55afc159d7c3d9c9c689ae3f9b31ccc8cd4175bb733dff757c2558cb12b1cee5",
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4",
+    "rte/source_initialization.py": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af"
+  },
+  "selection": "fastest mean case-median synchronized warm solve time with zero validation failures, per grid; frozen before any test generation",
+  "timing": "includes reference initialization, network, projection and final physical check; physical/preconditioner setup separately measured; NOT cold latency",
+  "accuracy": "FP32 physical geometry promoted exactly to FP64, unchanged A; 1e-5 relative to original RHS, 100 directions max, restart25",
+  "scope": "synthetic mixed periodic RTE, L12, g0.65, epsilon0.1; shared workstation; no test teachers or test tuning",
+  "optical_checkpoint_policy": "fixed final training step, versus work-proxy-selected base-tail checkpoint; pipeline chosen only on validation timing",
+  "frozen_selection_sha256": "67cf2328721db970470643fdae52c7df7db7a191a2db2f56731ffb5c63fb6a49",
+  "gpu_processes_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n1402257, python, 10162 MiB\n",
+  "data_sha256": {
+    "rte/workstation_runs/tail_solver_benchmark_20260926/test_n128.pt": "9b1c03a7863553d0d1490dab4e8226340bf853ee798c1cc540d167b2fd5398c4",
+    "rte/workstation_runs/tail_solver_benchmark_20260926/test_n256.pt": "10061eef35d29fb7ea47856d95bc443333b2b9ce33c4b59f5ebc37f7dcc0afab",
+    "rte/workstation_runs/tail_solver_benchmark_20260926/test_n64.pt": "5ae2c6da35efa4c96357c137e94975608ba99c19d37ed2578f52ac4781a7942f",
+    "rte/workstation_runs/tail_solver_benchmark_20260926/validation_n128.pt": "9ade993bce700505d134fa197ceeee72327790bc6660e670a95bea8c43052de1",
+    "rte/workstation_runs/tail_solver_benchmark_20260926/validation_n256.pt": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8",
+    "rte/workstation_runs/tail_solver_benchmark_20260926/validation_n64.pt": "bbebfd1c7c4808733628ee8fdecac9e9ce09521d70f7664a5d5391c8af10813a"
+  }
+}

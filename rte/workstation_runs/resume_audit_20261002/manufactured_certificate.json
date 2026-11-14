@@ -1,0 +1,22 @@
+{
+  "status": "passed",
+  "scope": "small CPU homogeneous manufactured field, no solver or teacher",
+  "actual_absolute_error": 0.028255414423300648,
+  "actual_relative_error": 0.0020061711006909714,
+  "streaming_relative_skew_adjoint_defect": 1.3984257411856462e-17,
+  "phase_hermitian_max_eigenvalue": 1.0000000393225124,
+  "coercivity_margin": 1.9999999606774876,
+  "positive_margin": true,
+  "phase_relative_asymmetry": 5.428440622876551e-08,
+  "phase_max_row_normalization_error": 1.0554989582356455e-07,
+  "phase_max_column_normalization_error": 8.319815147928011e-08,
+  "uniform_angular_weights": true,
+  "rhs_norm": 118.1185740678241,
+  "approximate_solution_norm": 14.085018529952578,
+  "independently_checked_residual_norm": 0.21882280826245698,
+  "independently_checked_relative_residual": 0.0018525689967846053,
+  "absolute_solution_error_bound": 0.10941140628239418,
+  "relative_solution_error_bound": 0.007828740842112429,
+  "relative_certificate_available": true,
+  "interpretation": "algebraic bound evaluated in FP64; no interval rounding"
+}

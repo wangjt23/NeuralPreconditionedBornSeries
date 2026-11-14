@@ -1,0 +1,21 @@
+{"event": "source_done", "label": "01_coarse64", "source_id": 0, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 4.788854686453486e-07}
+{"event": "source_done", "label": "01_coarse64", "source_id": 4, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 1.925049942483304e-06}
+{"event": "source_done", "label": "01_coarse64", "source_id": 7, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 7.764020570295649e-07}
+{"event": "source_done", "label": "01_coarse64", "source_id": 14, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 2.0712061601612065e-06}
+{"event": "batch_done", "method": "coarse64", "label": "01_coarse64", "seconds": 22.745312883052975, "calls": [3, 3, 3, 3], "attempts": [1, 1, 1, 1]}
+{"event": "source_done", "label": "02_coarse64_then8", "source_id": 0, "calls": 12, "attempts": 1, "inner_iterations": [4], "residual": 6.253576489681304e-06}
+{"event": "source_done", "label": "02_coarse64_then8", "source_id": 4, "calls": 14, "attempts": 1, "inner_iterations": [4], "residual": 9.620305206139209e-06}
+{"event": "source_done", "label": "02_coarse64_then8", "source_id": 7, "calls": 12, "attempts": 1, "inner_iterations": [4], "residual": 7.424818850388265e-06}
+{"event": "source_done", "label": "02_coarse64_then8", "source_id": 14, "calls": 15, "attempts": 1, "inner_iterations": [4], "residual": 6.228470882296876e-06}
+{"event": "batch_done", "method": "coarse64_then8", "label": "02_coarse64_then8", "seconds": 24.2916937940754, "calls": [12, 14, 12, 15], "attempts": [1, 1, 1, 1]}
+{"event": "source_done", "label": "03_plain64_then8", "source_id": 0, "calls": 25, "attempts": 0, "inner_iterations": [], "residual": 7.0152380499303755e-06}
+{"event": "source_done", "label": "03_plain64_then8", "source_id": 4, "calls": 26, "attempts": 0, "inner_iterations": [], "residual": 7.206066084046435e-06}
+{"event": "source_done", "label": "03_plain64_then8", "source_id": 7, "calls": 25, "attempts": 0, "inner_iterations": [], "residual": 7.843652608432973e-06}
+{"event": "source_done", "label": "03_plain64_then8", "source_id": 14, "calls": 25, "attempts": 0, "inner_iterations": [], "residual": 9.530732078169402e-06}
+{"event": "batch_done", "method": "plain64_then8", "label": "03_plain64_then8", "seconds": 28.206123548792675, "calls": [25, 26, 25, 25], "attempts": [0, 0, 0, 0]}
+{"event": "source_done", "label": "04_coarse8", "source_id": 0, "calls": 18, "attempts": 1, "inner_iterations": [4], "residual": 7.148028339287129e-06}
+{"event": "source_done", "label": "04_coarse8", "source_id": 4, "calls": 18, "attempts": 1, "inner_iterations": [5], "residual": 8.404831502172583e-06}
+{"event": "source_done", "label": "04_coarse8", "source_id": 7, "calls": 18, "attempts": 1, "inner_iterations": [4], "residual": 6.78898594016963e-06}
+{"event": "source_done", "label": "04_coarse8", "source_id": 14, "calls": 18, "attempts": 1, "inner_iterations": [4], "residual": 6.9644812855911305e-06}
+{"event": "batch_done", "method": "coarse8", "label": "04_coarse8", "seconds": 24.624604522949085, "calls": [18, 18, 18, 18], "attempts": [1, 1, 1, 1]}
+{"event": "finished", "complete": true, "result": "POSTCOARSE_BUDGET_NO_GO", "error": null, "seconds": 100.9080797128845}

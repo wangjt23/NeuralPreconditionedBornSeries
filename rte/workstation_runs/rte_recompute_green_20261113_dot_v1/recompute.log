@@ -1,0 +1,1 @@
+{"method": "recompute", "complete": true, "factor_bytes": 7179312, "factor_seconds": 2.793175633996725, "application_seconds": [0.24513797601684928, 0.24269672809168696, 0.24198938207700849], "leaf_visits": 256, "process_seconds": 6.777567309094593, "error": null}

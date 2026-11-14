@@ -1,0 +1,318 @@
+[
+  {
+    "size": 256,
+    "index": 0,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 0.020658354282793008,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 6.8547733235796245e-15,
+    "image_gram_defect": 1.653778739218521e-15,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "prefix": "tsa16_zero",
+    "eligible": true,
+    "prefix_true_residual": 0.0011072798051388888,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 1.2214963281625587e-13,
+    "image_gram_defect": 1.1912605642534087e-15,
+    "frontier_norm": 0.9999999999999999
+  },
+  {
+    "size": 256,
+    "index": 1,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 0.0006148299701019927,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 7.199106010387182e-13,
+    "image_gram_defect": 1.1840334157367356e-15,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 256,
+    "index": 1,
+    "prefix": "tsa16_zero",
+    "eligible": false,
+    "prefix_true_residual": 1.3440608472918583e-06,
+    "prefix_classical_calls": 4
+  },
+  {
+    "size": 256,
+    "index": 2,
+    "prefix": "tsa8_balanced",
+    "eligible": false,
+    "prefix_true_residual": 3.1155593465566156e-07,
+    "prefix_classical_calls": 4
+  },
+  {
+    "size": 256,
+    "index": 2,
+    "prefix": "tsa16_zero",
+    "eligible": false,
+    "prefix_true_residual": 6.629420523862828e-07,
+    "prefix_classical_calls": 2
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 0.0020242166089168164,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 2.7347377397433643e-13,
+    "image_gram_defect": 1.1424874288306977e-15,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "prefix": "tsa16_zero",
+    "eligible": true,
+    "prefix_true_residual": 1.666957369490871e-05,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 1.1005904521849454e-11,
+    "image_gram_defect": 7.813077635176178e-16,
+    "frontier_norm": 0.9999999999999999
+  },
+  {
+    "size": 256,
+    "index": 4,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 0.046740131953871555,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 2.49703824581342e-15,
+    "image_gram_defect": 1.2053239929744508e-15,
+    "frontier_norm": 0.9999999999999999
+  },
+  {
+    "size": 256,
+    "index": 4,
+    "prefix": "tsa16_zero",
+    "eligible": true,
+    "prefix_true_residual": 0.003970020281383876,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 1.8279744619904249e-13,
+    "image_gram_defect": 1.7737201648217243e-15,
+    "frontier_norm": 0.9999999999999999
+  },
+  {
+    "size": 256,
+    "index": 5,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 4.073171899093791e-05,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 4.948321559076962e-12,
+    "image_gram_defect": 4.960961473372457e-16,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 256,
+    "index": 5,
+    "prefix": "tsa16_zero",
+    "eligible": false,
+    "prefix_true_residual": 6.976360772949031e-07,
+    "prefix_classical_calls": 3
+  },
+  {
+    "size": 256,
+    "index": 6,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 0.002959545484621948,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 1.3941381687606604e-13,
+    "image_gram_defect": 1.0231060764558634e-15,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 256,
+    "index": 6,
+    "prefix": "tsa16_zero",
+    "eligible": true,
+    "prefix_true_residual": 2.236333958208809e-05,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 2.957968105697999e-11,
+    "image_gram_defect": 1.4504390003218743e-15,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 256,
+    "index": 7,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 0.004583966519395387,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 5.6296676255843517e-14,
+    "image_gram_defect": 1.071217467346465e-15,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 256,
+    "index": 7,
+    "prefix": "tsa16_zero",
+    "eligible": true,
+    "prefix_true_residual": 0.00015580344247698885,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 1.6796827253957689e-12,
+    "image_gram_defect": 8.037581609660581e-16,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 256,
+    "index": 8,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 0.0007616220448221797,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 7.098701998340827e-13,
+    "image_gram_defect": 1.537843122927434e-15,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 256,
+    "index": 8,
+    "prefix": "tsa16_zero",
+    "eligible": false,
+    "prefix_true_residual": 4.655938706288421e-06,
+    "prefix_classical_calls": 4
+  },
+  {
+    "size": 256,
+    "index": 9,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 0.0008486998373083741,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 3.1454698011193234e-13,
+    "image_gram_defect": 1.919446135773504e-15,
+    "frontier_norm": 0.9999999999999999
+  },
+  {
+    "size": 256,
+    "index": 9,
+    "prefix": "tsa16_zero",
+    "eligible": false,
+    "prefix_true_residual": 2.2389973517835553e-06,
+    "prefix_classical_calls": 4
+  },
+  {
+    "size": 256,
+    "index": 10,
+    "prefix": "tsa8_balanced",
+    "eligible": false,
+    "prefix_true_residual": 6.947389678741115e-06,
+    "prefix_classical_calls": 3
+  },
+  {
+    "size": 256,
+    "index": 10,
+    "prefix": "tsa16_zero",
+    "eligible": false,
+    "prefix_true_residual": 4.6554404529208796e-07,
+    "prefix_classical_calls": 2
+  },
+  {
+    "size": 256,
+    "index": 11,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 1.0562777372132423e-05,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 1.4528031363319808e-11,
+    "image_gram_defect": 1.0920077712019775e-15,
+    "frontier_norm": 0.9999999999999999
+  },
+  {
+    "size": 256,
+    "index": 11,
+    "prefix": "tsa16_zero",
+    "eligible": false,
+    "prefix_true_residual": 1.1066562560930887e-07,
+    "prefix_classical_calls": 3
+  },
+  {
+    "size": 256,
+    "index": 12,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 8.227031999332849e-05,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 2.8816148762195153e-12,
+    "image_gram_defect": 1.0768233739238924e-15,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 256,
+    "index": 12,
+    "prefix": "tsa16_zero",
+    "eligible": false,
+    "prefix_true_residual": 1.8756996613319078e-06,
+    "prefix_classical_calls": 3
+  },
+  {
+    "size": 256,
+    "index": 13,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 0.0018129151695488335,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 6.53670764503757e-14,
+    "image_gram_defect": 1.516844582122075e-15,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 256,
+    "index": 13,
+    "prefix": "tsa16_zero",
+    "eligible": false,
+    "prefix_true_residual": 6.988698245581641e-06,
+    "prefix_classical_calls": 4
+  },
+  {
+    "size": 256,
+    "index": 14,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 0.012937394883877107,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 4.7717903418085485e-14,
+    "image_gram_defect": 1.1837133949623292e-15,
+    "frontier_norm": 0.9999999999999999
+  },
+  {
+    "size": 256,
+    "index": 14,
+    "prefix": "tsa16_zero",
+    "eligible": true,
+    "prefix_true_residual": 0.0008552894192336935,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 4.3051909362811884e-13,
+    "image_gram_defect": 1.377413833445341e-15,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 256,
+    "index": 15,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 7.252725938174174e-05,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 1.0662180879427983e-11,
+    "image_gram_defect": 4.098275006113483e-16,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 256,
+    "index": 15,
+    "prefix": "tsa16_zero",
+    "eligible": false,
+    "prefix_true_residual": 2.1846612130415777e-06,
+    "prefix_classical_calls": 3
+  }
+]

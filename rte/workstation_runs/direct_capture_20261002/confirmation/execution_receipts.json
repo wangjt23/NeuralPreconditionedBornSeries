@@ -1,0 +1,74 @@
+[
+  {
+    "shard": 0,
+    "development_ids": [
+      0,
+      1,
+      2,
+      3
+    ],
+    "exit_code": 0,
+    "owned_process_timed_out": false,
+    "process_wall_seconds": 63.88503145799041,
+    "gpu_before": "1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+    "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+    "policy_sha256": "627ae1590738ddf8eec26a547abc79d8b487886ec6a31122baf6cdbd751e1034",
+    "selection_sha256": "e1de6b0fb7f929f9bbda092a09b12da50a4a33acc752e4387acd72a0429f30ad",
+    "training": false,
+    "test9626_touched": false
+  },
+  {
+    "shard": 1,
+    "development_ids": [
+      4,
+      5,
+      6,
+      7
+    ],
+    "exit_code": 0,
+    "owned_process_timed_out": false,
+    "process_wall_seconds": 68.97623788751662,
+    "gpu_before": "1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+    "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+    "policy_sha256": "6385d812ee345a9711980203910c16bc71c5903aaaef30c17831b0d060c7ac99",
+    "selection_sha256": "e1de6b0fb7f929f9bbda092a09b12da50a4a33acc752e4387acd72a0429f30ad",
+    "training": false,
+    "test9626_touched": false
+  },
+  {
+    "shard": 2,
+    "development_ids": [
+      8,
+      9,
+      10,
+      11
+    ],
+    "exit_code": 0,
+    "owned_process_timed_out": false,
+    "process_wall_seconds": 59.313717026263475,
+    "gpu_before": "1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+    "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+    "policy_sha256": "77fd2bc29151064f18f39b209f4c1aee900512f372fec3ee8387efe68790071b",
+    "selection_sha256": "e1de6b0fb7f929f9bbda092a09b12da50a4a33acc752e4387acd72a0429f30ad",
+    "training": false,
+    "test9626_touched": false
+  },
+  {
+    "shard": 3,
+    "development_ids": [
+      12,
+      13,
+      14,
+      15
+    ],
+    "exit_code": 0,
+    "owned_process_timed_out": false,
+    "process_wall_seconds": 59.30151448212564,
+    "gpu_before": "1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+    "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+    "policy_sha256": "001cdc27a2978a6d5a248f3938a47720879e42b5f005399c75123a78bb2fe8bf",
+    "selection_sha256": "e1de6b0fb7f929f9bbda092a09b12da50a4a33acc752e4387acd72a0429f30ad",
+    "training": false,
+    "test9626_touched": false
+  }
+]

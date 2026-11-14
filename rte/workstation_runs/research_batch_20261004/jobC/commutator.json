@@ -1,0 +1,98 @@
+[
+  {
+    "size": 128,
+    "index": 0,
+    "context": "source",
+    "reference_closure_relative": 4.728289447017071e-13,
+    "local_collision_closure_relative": 3.987343443972353e-13,
+    "streaming_material_penalty_relative": 72.41934568173501,
+    "actual_residual_relative": 72.41934568173502,
+    "identity_discrepancy_relative": 5.270962939938704e-13,
+    "diagnostic_seconds": 0.07564402371644974,
+    "ordinary_fp64_diagnostic_not_proof": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "context": "one_strong_action_defect",
+    "reference_closure_relative": 1.0021366893663326e-14,
+    "local_collision_closure_relative": 5.863366760580803e-16,
+    "streaming_material_penalty_relative": 10.60477612993433,
+    "actual_residual_relative": 10.604776129934333,
+    "identity_discrepancy_relative": 3.497544073474123e-14,
+    "diagnostic_seconds": 0.07009941153228283,
+    "ordinary_fp64_diagnostic_not_proof": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "context": "source",
+    "reference_closure_relative": 1.8394375724706076e-13,
+    "local_collision_closure_relative": 1.244634981974695e-13,
+    "streaming_material_penalty_relative": 30.995896461307012,
+    "actual_residual_relative": 30.995896461307016,
+    "identity_discrepancy_relative": 1.9581532847635228e-13,
+    "diagnostic_seconds": 0.0659826248884201,
+    "ordinary_fp64_diagnostic_not_proof": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "context": "one_strong_action_defect",
+    "reference_closure_relative": 2.441517360435539e-15,
+    "local_collision_closure_relative": 5.67758468089792e-16,
+    "streaming_material_penalty_relative": 6.274595993912001,
+    "actual_residual_relative": 6.274595993912001,
+    "identity_discrepancy_relative": 1.6322882912364993e-14,
+    "diagnostic_seconds": 0.0646844170987606,
+    "ordinary_fp64_diagnostic_not_proof": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "context": "source",
+    "reference_closure_relative": 9.52537840682627e-13,
+    "local_collision_closure_relative": 3.9820268009271116e-13,
+    "streaming_material_penalty_relative": 98.19175678675067,
+    "actual_residual_relative": 98.19175678675067,
+    "identity_discrepancy_relative": 1.1293221715324142e-12,
+    "diagnostic_seconds": 0.2659288812428713,
+    "ordinary_fp64_diagnostic_not_proof": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "context": "one_strong_action_defect",
+    "reference_closure_relative": 8.77068327336101e-15,
+    "local_collision_closure_relative": 5.135800328705412e-16,
+    "streaming_material_penalty_relative": 11.469904756579249,
+    "actual_residual_relative": 11.469904756579249,
+    "identity_discrepancy_relative": 7.836917473088985e-14,
+    "diagnostic_seconds": 0.2558865062892437,
+    "ordinary_fp64_diagnostic_not_proof": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "context": "source",
+    "reference_closure_relative": 3.9169290356888663e-13,
+    "local_collision_closure_relative": 1.26842113202615e-13,
+    "streaming_material_penalty_relative": 42.97304713822805,
+    "actual_residual_relative": 42.973047138228054,
+    "identity_discrepancy_relative": 4.4354984525188047e-13,
+    "diagnostic_seconds": 0.26329889334738255,
+    "ordinary_fp64_diagnostic_not_proof": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "context": "one_strong_action_defect",
+    "reference_closure_relative": 3.9938685335958274e-15,
+    "local_collision_closure_relative": 4.3289313503765494e-16,
+    "streaming_material_penalty_relative": 7.084775330947298,
+    "actual_residual_relative": 7.084775330947298,
+    "identity_discrepancy_relative": 3.1435799847895307e-14,
+    "diagnostic_seconds": 0.27039392851293087,
+    "ordinary_fp64_diagnostic_not_proof": true
+  }
+]

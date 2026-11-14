@@ -1,0 +1,13 @@
+[
+  {"label":"nto32_fine","checkpoint":"rte/workstation_runs/nto4_hss_n32_seed401_20260912/best.pt"},
+  {"label":"ct32_fine","checkpoint":"rte/workstation_runs/ct4_matched_n32_seed401_20260912/best.pt"},
+  {"label":"hss_compiled4","mode":"compiled_hss","depth":4},
+  {"label":"hss_compiled8","mode":"compiled_hss","depth":8},
+  {"label":"tsa4","mode":"classical","family":"tsa","depth":4,"scale":0.0},
+  {"label":"ml_nto_p01","mode":"multilevel","pre":0,"post":1,"checkpoint":"rte/workstation_runs/nto4_hss_n32_seed401_20260912/best.pt"},
+  {"label":"ml_nto_p02","mode":"multilevel","pre":0,"post":2,"checkpoint":"rte/workstation_runs/nto4_hss_n32_seed401_20260912/best.pt"},
+  {"label":"ml_nto_p11","mode":"multilevel","pre":1,"post":1,"checkpoint":"rte/workstation_runs/nto4_hss_n32_seed401_20260912/best.pt"},
+  {"label":"ml_hss_p01","mode":"multilevel","pre":0,"post":1},
+  {"label":"ml_hss_p02","mode":"multilevel","pre":0,"post":2},
+  {"label":"ml_hss_p11","mode":"multilevel","pre":1,"post":1}
+]

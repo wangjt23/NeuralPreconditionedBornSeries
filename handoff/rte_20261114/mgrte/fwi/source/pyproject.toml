@@ -1,0 +1,20 @@
+[project]
+name = "mgRTE"
+version = "0.1.0"
+description = "MgNet preconditioners for steady-state radiative transfer equations"
+requires-python = ">=3.10"
+dependencies = [
+    "matplotlib",
+    "numpy",
+    "PyYAML",
+    "scipy",
+    "torch",
+]
+
+[project.optional-dependencies]
+gpu = ["gpustat"]
+dev = ["pytest"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]

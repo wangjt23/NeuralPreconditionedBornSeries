@@ -1,0 +1,20 @@
+{
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/code/diagnose_tail_directions.py",
+    "--output",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/smoke",
+    "--sizes",
+    "64",
+    "--count",
+    "2",
+    "--repeats",
+    "1",
+    "--profile-count",
+    "1",
+    "--max-wall-seconds",
+    "180"
+  ],
+  "exit_code": 0,
+  "seconds": 24.27209891565144
+}

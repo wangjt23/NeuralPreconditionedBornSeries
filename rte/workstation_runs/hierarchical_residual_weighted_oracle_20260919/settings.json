@@ -1,0 +1,19 @@
+{
+  "args": {
+    "size": 16,
+    "count": 2,
+    "seed": 1919,
+    "metric": "residual",
+    "tolerances": [
+      0.01,
+      0.001
+    ],
+    "device": "cpu",
+    "output": "rte/workstation_runs/hierarchical_residual_weighted_oracle_20260919"
+  },
+  "dataset_count": 4,
+  "scope": "small-grid exact-inverse oracle; no NN, no timing claim, no O(N) hierarchical implementation",
+  "near": "periodic 4x4 patches, same/adjacent patches exact; separated blocks truncated",
+  "metric": "Euclidean with adjoint pairing, or output-row weighted by QR of H[:, output_patch]; weighted result need not be Hermitian",
+  "limitations": "SPD is not guaranteed; outer FGMRES checks unchanged physical residual"
+}

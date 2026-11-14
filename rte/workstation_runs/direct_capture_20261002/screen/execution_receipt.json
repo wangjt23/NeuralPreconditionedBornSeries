@@ -1,0 +1,10 @@
+{
+  "exit_code": 0,
+  "owned_process_timed_out": false,
+  "process_wall_seconds": 36.75960646383464,
+  "gpu_before": "1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "training": false,
+  "test9626_touched": false,
+  "policy_sha256": "b5f430a0287b331c814c3d8987ee8d0a9d6b3cf8b5f8fdd22795139a875537e2"
+}

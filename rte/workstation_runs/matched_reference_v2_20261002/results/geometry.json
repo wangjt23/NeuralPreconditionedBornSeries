@@ -1,0 +1,562 @@
+[
+  {
+    "size": 128,
+    "index": 0,
+    "context": "source",
+    "diagnostic_acquisition_seconds": 0.013763656839728355,
+    "prefix_acquisition_seconds": 0.0,
+    "homogeneous_diagnostic_matrix_seconds": 0.0006469301879405975,
+    "oracle_small_fit_seconds": 0.005655623972415924,
+    "low_vs_high_defect_relative": 0.00031009906582640285,
+    "discarded_input_angle_fraction": 0.9354943633079529,
+    "q3_higher_output_angle_fraction": 0.05152333900332451,
+    "full_homogeneous_closure_relative": 2.5281154988037166e-06,
+    "q3_homogeneous_closure_relative": 2.884850090455813e-06,
+    "correction_additivity_relative": 1.058339326266476e-06,
+    "physical_image_additivity_relative": 1.0733577019971614e-05,
+    "composite_q3": {
+      "target_norm": 73.64766780253649,
+      "image_norm": 83.568198291924,
+      "real_alpha": 0.767560560024714,
+      "unit_remaining_ratio": 0.5576780769023626,
+      "best_real_line_remaining_ratio": 0.49136643106519134,
+      "real_cosine": 0.8709529438622138,
+      "projection_removed_image_fraction": 0.0
+    },
+    "composite_full": {
+      "target_norm": 73.64766780253649,
+      "image_norm": 82.46314866013654,
+      "real_alpha": 0.7921797325430956,
+      "unit_remaining_ratio": 0.517082875390076,
+      "best_real_line_remaining_ratio": 0.4617654139234259,
+      "real_cosine": 0.88700208709119,
+      "projection_removed_image_fraction": 0.0
+    },
+    "increment_q3": {
+      "target_norm": 42.41838790831446,
+      "image_norm": 10.852838269209824,
+      "real_alpha": 0.9772966866745869,
+      "unit_remaining_ratio": 0.96825202334637,
+      "best_real_line_remaining_ratio": 0.9682345995684106,
+      "real_cosine": 0.2500435166098083,
+      "projection_removed_image_fraction": 0.0
+    },
+    "increment_full": {
+      "target_norm": 42.41838790831446,
+      "image_norm": 14.037504709846958,
+      "real_alpha": 1.3857703651984328,
+      "unit_remaining_ratio": 0.8977698220187269,
+      "best_real_line_remaining_ratio": 0.8886466361181088,
+      "real_cosine": 0.45859258183704793,
+      "projection_removed_image_fraction": 0.0
+    },
+    "two_composite_span_oracle": {
+      "attained_relative_residual": 0.45613300973218823,
+      "rank": 2,
+      "gram_eigenvalues": [
+        0.0079149005026834,
+        1.992085099497317
+      ],
+      "coefficients": [
+        -0.5046444539687444,
+        1.2995389528613661
+      ],
+      "small_fit_and_project_seconds": 0.005582798272371292,
+      "scope": "attained two-proposal real span only; no range optimum; actual H image acquisition recorded separately"
+    },
+    "physical_residual_projection_gap": 0.0,
+    "oracle_deployable": false,
+    "range_optimality_claim": false,
+    "total_geometry_diagnostic_seconds": 0.02742033824324608
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "context": "prefix4",
+    "diagnostic_acquisition_seconds": 0.013069113716483116,
+    "prefix_acquisition_seconds": 0.12309037521481514,
+    "homogeneous_diagnostic_matrix_seconds": 0.0006469301879405975,
+    "oracle_small_fit_seconds": 0.0049862973392009735,
+    "low_vs_high_defect_relative": 5.874390644110995e-06,
+    "discarded_input_angle_fraction": 0.9767014384269714,
+    "q3_higher_output_angle_fraction": 0.19734038412570953,
+    "full_homogeneous_closure_relative": 7.873083923512387e-06,
+    "q3_homogeneous_closure_relative": 1.2354292733230118e-06,
+    "correction_additivity_relative": 8.212174300991145e-06,
+    "physical_image_additivity_relative": 8.329914156940085e-05,
+    "composite_q3": {
+      "target_norm": 1.5288154072191449,
+      "image_norm": 0.7705599708922696,
+      "real_alpha": 1.481360951335849,
+      "unit_remaining_ratio": 0.7080885138172363,
+      "best_real_line_remaining_ratio": 0.6652263206069565,
+      "real_cosine": 0.7466417764709731,
+      "projection_removed_image_fraction": 0.2730669195627628
+    },
+    "composite_full": {
+      "target_norm": 1.5288154072191449,
+      "image_norm": 0.8395618705088944,
+      "real_alpha": 1.4081408644697497,
+      "unit_remaining_ratio": 0.672498973548119,
+      "best_real_line_remaining_ratio": 0.6340495413586159,
+      "real_cosine": 0.7732924279358546,
+      "projection_removed_image_fraction": 0.26655685301756166
+    },
+    "increment_q3": {
+      "target_norm": 1.0825858215590682,
+      "image_norm": 0.09306439001818971,
+      "real_alpha": 0.5061487847724544,
+      "unit_remaining_ratio": 0.9999545596613431,
+      "best_real_line_remaining_ratio": 0.9990529465281557,
+      "real_cosine": 0.04351103346749894,
+      "projection_removed_image_fraction": 0.11402729599927987
+    },
+    "increment_full": {
+      "target_norm": 1.0825858215590682,
+      "image_norm": 0.12224012210506652,
+      "real_alpha": 4.346284980391481,
+      "unit_remaining_ratio": 0.9496954157103062,
+      "best_real_line_remaining_ratio": 0.8712944900896425,
+      "real_cosine": 0.49076054399210767,
+      "projection_removed_image_fraction": 0.28257134245970067
+    },
+    "two_composite_span_oracle": {
+      "attained_relative_residual": 0.6200716139642041,
+      "rank": 2,
+      "gram_eigenvalues": [
+        0.010141406970681778,
+        1.9898585930293182
+      ],
+      "coefficients": [
+        -1.8491814594998184,
+        3.0881298176438823
+      ],
+      "small_fit_and_project_seconds": 0.004904750734567642,
+      "scope": "attained two-proposal real span only; no range optimum; actual H image acquisition recorded separately"
+    },
+    "physical_residual_projection_gap": 6.988266683532442e-14,
+    "oracle_deployable": false,
+    "range_optimality_claim": false,
+    "total_geometry_diagnostic_seconds": 0.0318579263985157
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "context": "source",
+    "diagnostic_acquisition_seconds": 0.012027954682707787,
+    "prefix_acquisition_seconds": 0.0,
+    "homogeneous_diagnostic_matrix_seconds": 0.0005696266889572144,
+    "oracle_small_fit_seconds": 0.0019320696592330933,
+    "low_vs_high_defect_relative": 0.0001489166813271144,
+    "discarded_input_angle_fraction": 0.9278197884559631,
+    "q3_higher_output_angle_fraction": 0.07425326108932495,
+    "full_homogeneous_closure_relative": 1.7262365997111786e-06,
+    "q3_homogeneous_closure_relative": 1.142853599345443e-06,
+    "correction_additivity_relative": 6.349486089798789e-07,
+    "physical_image_additivity_relative": 7.761090275190229e-06,
+    "composite_q3": {
+      "target_norm": 93.63521262501115,
+      "image_norm": 99.31810819741628,
+      "real_alpha": 0.8471137171791829,
+      "unit_remaining_ratio": 0.4679182230583316,
+      "best_real_line_remaining_ratio": 0.43891901259068294,
+      "real_cosine": 0.8985266275333303,
+      "projection_removed_image_fraction": 0.0
+    },
+    "composite_full": {
+      "target_norm": 93.63521262501115,
+      "image_norm": 98.8681815100662,
+      "real_alpha": 0.8674620811742032,
+      "unit_remaining_ratio": 0.4250121911734724,
+      "best_real_line_remaining_ratio": 0.40131128828097223,
+      "real_cosine": 0.9159417284403341,
+      "projection_removed_image_fraction": 0.0
+    },
+    "increment_q3": {
+      "target_norm": 44.0733035117749,
+      "image_norm": 8.00549462233741,
+      "real_alpha": 0.6780569486653157,
+      "unit_remaining_ratio": 0.9941079640758778,
+      "best_real_line_remaining_ratio": 0.9923865082504069,
+      "real_cosine": 0.12316256834998696,
+      "projection_removed_image_fraction": 0.0
+    },
+    "increment_full": {
+      "target_norm": 44.0733035117749,
+      "image_norm": 10.779017748242591,
+      "real_alpha": 2.043740927672555,
+      "unit_remaining_ratio": 0.902952669670598,
+      "best_real_line_remaining_ratio": 0.8661188115194659,
+      "real_cosine": 0.4998381781457953,
+      "projection_removed_image_fraction": 0.0
+    },
+    "two_composite_span_oracle": {
+      "attained_relative_residual": 0.37127784585797785,
+      "rank": 2,
+      "gram_eigenvalues": [
+        0.004053840237668416,
+        1.9959461597623316
+      ],
+      "coefficients": [
+        -1.5965403225436336,
+        2.46476632434928
+      ],
+      "small_fit_and_project_seconds": 0.001875210553407669,
+      "scope": "attained two-proposal real span only; no range optimum; actual H image acquisition recorded separately"
+    },
+    "physical_residual_projection_gap": 0.0,
+    "oracle_deployable": false,
+    "range_optimality_claim": false,
+    "total_geometry_diagnostic_seconds": 0.0193084217607975
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "context": "prefix4",
+    "diagnostic_acquisition_seconds": 0.012513482943177223,
+    "prefix_acquisition_seconds": 0.028785360977053642,
+    "homogeneous_diagnostic_matrix_seconds": 0.0005696266889572144,
+    "oracle_small_fit_seconds": 0.004746105521917343,
+    "low_vs_high_defect_relative": 5.563184467504333e-06,
+    "discarded_input_angle_fraction": 0.957351803779602,
+    "q3_higher_output_angle_fraction": 0.14362366497516632,
+    "full_homogeneous_closure_relative": 3.914054780915459e-06,
+    "q3_homogeneous_closure_relative": 1.49381402482401e-06,
+    "correction_additivity_relative": 4.306383921590434e-06,
+    "physical_image_additivity_relative": 2.2581618921478998e-05,
+    "composite_q3": {
+      "target_norm": 0.18415774731958812,
+      "image_norm": 0.12494235547503822,
+      "real_alpha": 1.3001636778494923,
+      "unit_remaining_ratio": 0.5131978227096421,
+      "best_real_line_remaining_ratio": 0.4710625644594093,
+      "real_cosine": 0.8820998018166226,
+      "projection_removed_image_fraction": 0.19023900921513076
+    },
+    "composite_full": {
+      "target_norm": 0.18415774731958812,
+      "image_norm": 0.13498466959059727,
+      "real_alpha": 1.225980804114708,
+      "unit_remaining_ratio": 0.46894690825948787,
+      "best_real_line_remaining_ratio": 0.4387191520627408,
+      "real_cosine": 0.8986242293714038,
+      "projection_removed_image_fraction": 0.17355180850518803
+    },
+    "increment_q3": {
+      "target_norm": 0.0947449966661559,
+      "image_norm": 0.008476873393876776,
+      "real_alpha": 0.8103106533572164,
+      "unit_remaining_ratio": 0.9975128847182958,
+      "best_real_line_remaining_ratio": 0.9973684978728606,
+      "real_cosine": 0.0724988237893131,
+      "projection_removed_image_fraction": 0.06449136025402762
+    },
+    "increment_full": {
+      "target_norm": 0.0947449966661559,
+      "image_norm": 0.013895675587639818,
+      "real_alpha": 4.43218380384413,
+      "unit_remaining_ratio": 0.911501496588288,
+      "best_real_line_remaining_ratio": 0.7598986321829205,
+      "real_cosine": 0.650041590059072,
+      "projection_removed_image_fraction": 0.13990256558474626
+    },
+    "two_composite_span_oracle": {
+      "attained_relative_residual": 0.40636300358828625,
+      "rank": 2,
+      "gram_eigenvalues": [
+        0.0033466228558650677,
+        1.9966533771441348
+      ],
+      "coefficients": [
+        -2.9816279802876737,
+        3.976551674787836
+      ],
+      "small_fit_and_project_seconds": 0.004682356491684914,
+      "scope": "attained two-proposal real span only; no range optimum; actual H image acquisition recorded separately"
+    },
+    "physical_residual_projection_gap": 1.9835184129165826e-13,
+    "oracle_deployable": false,
+    "range_optimality_claim": false,
+    "total_geometry_diagnostic_seconds": 0.030780699104070663
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "context": "source",
+    "diagnostic_acquisition_seconds": 0.016269681975245476,
+    "prefix_acquisition_seconds": 0.0,
+    "homogeneous_diagnostic_matrix_seconds": 0.0010615531355142593,
+    "oracle_small_fit_seconds": 0.002503940835595131,
+    "low_vs_high_defect_relative": 0.0006439011860662449,
+    "discarded_input_angle_fraction": 0.9355675578117371,
+    "q3_higher_output_angle_fraction": 0.051724907010793686,
+    "full_homogeneous_closure_relative": 4.025881677404678e-06,
+    "q3_homogeneous_closure_relative": 3.5697103841776998e-06,
+    "correction_additivity_relative": 1.706047028592207e-06,
+    "physical_image_additivity_relative": 1.45816070093302e-05,
+    "composite_q3": {
+      "target_norm": 147.29538644980127,
+      "image_norm": 167.19134415982808,
+      "real_alpha": 0.7671577460765064,
+      "unit_remaining_ratio": 0.5582026334363311,
+      "best_real_line_remaining_ratio": 0.4916697463729658,
+      "real_cosine": 0.8707817525083674,
+      "projection_removed_image_fraction": 0.0
+    },
+    "composite_full": {
+      "target_norm": 147.29538644980127,
+      "image_norm": 164.96509488168059,
+      "real_alpha": 0.7918254256739483,
+      "unit_remaining_ratio": 0.5176092160467002,
+      "best_real_line_remaining_ratio": 0.4621272378965021,
+      "real_cosine": 0.8868136309248691,
+      "projection_removed_image_fraction": 0.0
+    },
+    "increment_q3": {
+      "target_norm": 84.92933334492217,
+      "image_norm": 21.72057094619469,
+      "real_alpha": 0.9798316098569325,
+      "unit_remaining_ratio": 0.9681068645159483,
+      "best_real_line_remaining_ratio": 0.9680931234856162,
+      "real_cosine": 0.2505907106416032,
+      "projection_removed_image_fraction": 0.0
+    },
+    "increment_full": {
+      "target_norm": 84.92933334492217,
+      "image_norm": 28.086679647876856,
+      "real_alpha": 1.3875024021576248,
+      "unit_remaining_ratio": 0.8977045529247858,
+      "best_real_line_remaining_ratio": 0.8885106399083281,
+      "real_cosine": 0.4588560152920451,
+      "projection_removed_image_fraction": 0.0
+    },
+    "two_composite_span_oracle": {
+      "attained_relative_residual": 0.4564714725258617,
+      "rank": 2,
+      "gram_eigenvalues": [
+        0.007888864790805862,
+        1.9921111352091943
+      ],
+      "coefficients": [
+        -0.5065472068007869,
+        1.3011586155451127
+      ],
+      "small_fit_and_project_seconds": 0.0024460460990667343,
+      "scope": "attained two-proposal real span only; no range optimum; actual H image acquisition recorded separately"
+    },
+    "physical_residual_projection_gap": 0.0,
+    "oracle_deployable": false,
+    "range_optimality_claim": false,
+    "total_geometry_diagnostic_seconds": 0.028091315180063248
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "context": "prefix4",
+    "diagnostic_acquisition_seconds": 0.016073083505034447,
+    "prefix_acquisition_seconds": 0.0983512420207262,
+    "homogeneous_diagnostic_matrix_seconds": 0.0010615531355142593,
+    "oracle_small_fit_seconds": 0.007643604651093483,
+    "low_vs_high_defect_relative": 1.649693837352809e-05,
+    "discarded_input_angle_fraction": 0.9837552905082703,
+    "q3_higher_output_angle_fraction": 0.2631898820400238,
+    "full_homogeneous_closure_relative": 5.272895072522786e-06,
+    "q3_homogeneous_closure_relative": 5.996591659709679e-07,
+    "correction_additivity_relative": 7.313781498648536e-06,
+    "physical_image_additivity_relative": 5.8435268210830036e-05,
+    "composite_q3": {
+      "target_norm": 0.16309720680599327,
+      "image_norm": 0.10600594925517777,
+      "real_alpha": 1.382404617751248,
+      "unit_remaining_ratio": 0.5044500669350139,
+      "best_real_line_remaining_ratio": 0.4389700869040697,
+      "real_cosine": 0.8985016765724111,
+      "projection_removed_image_fraction": 0.5914453615985291
+    },
+    "composite_full": {
+      "target_norm": 0.16309720680599327,
+      "image_norm": 0.11928896528660726,
+      "real_alpha": 1.2609359595973717,
+      "unit_remaining_ratio": 0.431144168107533,
+      "best_real_line_remaining_ratio": 0.38660357359595754,
+      "real_cosine": 0.9222459958616437,
+      "projection_removed_image_fraction": 0.5543759220813909
+    },
+    "increment_q3": {
+      "target_norm": 0.08136360108242138,
+      "image_norm": 0.010454961878377252,
+      "real_alpha": -0.18175808779516917,
+      "unit_remaining_ratio": 1.011194143815797,
+      "best_real_line_remaining_ratio": 0.9997272270416651,
+      "real_cosine": -0.02335533154512495,
+      "projection_removed_image_fraction": 0.09615802729530923
+    },
+    "increment_full": {
+      "target_norm": 0.08136360108242138,
+      "image_norm": 0.01782657708180612,
+      "real_alpha": 3.1359757502671948,
+      "unit_remaining_ratio": 0.8642489834352138,
+      "best_real_line_remaining_ratio": 0.7265770035982717,
+      "real_cosine": 0.6870850441118311,
+      "projection_removed_image_fraction": 0.19474666475685926
+    },
+    "two_composite_span_oracle": {
+      "attained_relative_residual": 0.36364144980756574,
+      "rank": 2,
+      "gram_eigenvalues": [
+        0.007896433548975401,
+        1.9921035664510245
+      ],
+      "coefficients": [
+        -1.6100984192330337,
+        2.680449051614304
+      ],
+      "small_fit_and_project_seconds": 0.0075782909989356995,
+      "scope": "attained two-proposal real span only; no range optimum; actual H image acquisition recorded separately"
+    },
+    "physical_residual_projection_gap": 1.2217034159399245e-13,
+    "oracle_deployable": false,
+    "range_optimality_claim": false,
+    "total_geometry_diagnostic_seconds": 0.048525601625442505
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "context": "source",
+    "diagnostic_acquisition_seconds": 0.015736715868115425,
+    "prefix_acquisition_seconds": 0.0,
+    "homogeneous_diagnostic_matrix_seconds": 0.0010438747704029083,
+    "oracle_small_fit_seconds": 0.0024588406085968018,
+    "low_vs_high_defect_relative": 0.0003146757118606203,
+    "discarded_input_angle_fraction": 0.9281598329544067,
+    "q3_higher_output_angle_fraction": 0.0749005675315857,
+    "full_homogeneous_closure_relative": 2.647523269418741e-06,
+    "q3_homogeneous_closure_relative": 2.013216288416873e-06,
+    "correction_additivity_relative": 8.844209437512607e-07,
+    "physical_image_additivity_relative": 1.2438885253117239e-05,
+    "composite_q3": {
+      "target_norm": 187.27042504671715,
+      "image_norm": 198.73818416650195,
+      "real_alpha": 0.8460607310086654,
+      "unit_remaining_ratio": 0.469592546504281,
+      "best_real_line_remaining_ratio": 0.440259839519099,
+      "real_cosine": 0.8978704103079781,
+      "projection_removed_image_fraction": 0.0
+    },
+    "composite_full": {
+      "target_norm": 187.27042504671715,
+      "image_norm": 197.82605953034326,
+      "real_alpha": 0.8664513207863483,
+      "unit_remaining_ratio": 0.42678761660485603,
+      "best_real_line_remaining_ratio": 0.4027966756084311,
+      "real_cosine": 0.9152894832340183,
+      "projection_removed_image_fraction": 0.0
+    },
+    "increment_q3": {
+      "target_norm": 88.45491210207229,
+      "image_norm": 15.976053116849847,
+      "real_alpha": 0.6776562704031511,
+      "unit_remaining_ratio": 0.9941878132589358,
+      "best_real_line_remaining_ratio": 0.9924816998086072,
+      "real_cosine": 0.12239311886302208,
+      "projection_removed_image_fraction": 0.0
+    },
+    "increment_full": {
+      "target_norm": 88.45491210207229,
+      "image_norm": 21.50869391125673,
+      "real_alpha": 2.0523561445502105,
+      "unit_remaining_ratio": 0.9035642672609318,
+      "best_real_line_remaining_ratio": 0.8665726959653764,
+      "real_cosine": 0.49905086174387014,
+      "projection_removed_image_fraction": 0.0
+    },
+    "two_composite_span_oracle": {
+      "attained_relative_residual": 0.37232669790499845,
+      "rank": 2,
+      "gram_eigenvalues": [
+        0.004009888441261378,
+        1.9959901115587384
+      ],
+      "coefficients": [
+        -1.6186912744114448,
+        2.48608526201371
+      ],
+      "small_fit_and_project_seconds": 0.0024005770683288574,
+      "scope": "attained two-proposal real span only; no range optimum; actual H image acquisition recorded separately"
+    },
+    "physical_residual_projection_gap": 0.0,
+    "oracle_deployable": false,
+    "range_optimality_claim": false,
+    "total_geometry_diagnostic_seconds": 0.0272716972976923
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "context": "prefix4",
+    "diagnostic_acquisition_seconds": 0.01659775711596012,
+    "prefix_acquisition_seconds": 0.09649462625384331,
+    "homogeneous_diagnostic_matrix_seconds": 0.0010438747704029083,
+    "oracle_small_fit_seconds": 0.007817737758159637,
+    "low_vs_high_defect_relative": 2.017319197480369e-05,
+    "discarded_input_angle_fraction": 0.958701491355896,
+    "q3_higher_output_angle_fraction": 0.19457459449768066,
+    "full_homogeneous_closure_relative": 2.4179699884709164e-06,
+    "q3_homogeneous_closure_relative": 1.7599763069296929e-06,
+    "correction_additivity_relative": 7.089631443594055e-06,
+    "physical_image_additivity_relative": 2.0440021483689252e-05,
+    "composite_q3": {
+      "target_norm": 0.0031217181511931295,
+      "image_norm": 0.002305148438086425,
+      "real_alpha": 1.1873090892547713,
+      "unit_remaining_ratio": 0.5004637844090712,
+      "best_real_line_remaining_ratio": 0.4809713300442039,
+      "real_cosine": 0.8767363227764146,
+      "projection_removed_image_fraction": 0.27666202339809165
+    },
+    "composite_full": {
+      "target_norm": 0.0031217181511931295,
+      "image_norm": 0.0024802796718700784,
+      "real_alpha": 1.1372745887419071,
+      "unit_remaining_ratio": 0.44206063503293036,
+      "best_real_line_remaining_ratio": 0.428394431846028,
+      "real_cosine": 0.9035918385882638,
+      "projection_removed_image_fraction": 0.26593397273239894
+    },
+    "increment_q3": {
+      "target_norm": 0.0015457553899405202,
+      "image_norm": 0.0001794118147517802,
+      "real_alpha": -0.2990882386688939,
+      "unit_remaining_ratio": 1.0107077033695084,
+      "best_real_line_remaining_ratio": 0.9993972737393989,
+      "real_cosine": -0.03471439531746651,
+      "projection_removed_image_fraction": 0.06441756370256933
+    },
+    "increment_full": {
+      "target_norm": 0.0015457553899405202,
+      "image_norm": 0.000255585038422316,
+      "real_alpha": 4.2122116761761745,
+      "unit_remaining_ratio": 0.892760081442993,
+      "best_real_line_remaining_ratio": 0.7175821264652267,
+      "real_cosine": 0.6964738988487965,
+      "projection_removed_image_fraction": 0.18012349143384404
+    },
+    "two_composite_span_oracle": {
+      "attained_relative_residual": 0.35698313043845137,
+      "rank": 2,
+      "gram_eigenvalues": [
+        0.004602951308555481,
+        1.9953970486914445
+      ],
+      "coefficients": [
+        -3.3464524499951502,
+        4.233119883281506
+      ],
+      "small_fit_and_project_seconds": 0.007744157686829567,
+      "scope": "attained two-proposal real span only; no range optimum; actual H image acquisition recorded separately"
+    },
+    "physical_residual_projection_gap": 1.1005904767897854e-11,
+    "oracle_deployable": false,
+    "range_optimality_claim": false,
+    "total_geometry_diagnostic_seconds": 0.04949478060007095
+  }
+]

@@ -1,0 +1,16 @@
+Operator-parity checks N64 complete
+Operator-parity checks N128 complete
+Operator-parity checks N256 complete
+{
+  "checks": 48,
+  "all_passed": false,
+  "wall_seconds": 7.892534056678414,
+  "max_field_difference_by_dtype": {
+    "torch.complex64": 5.039646566729061e-06,
+    "torch.complex128": 9.391070762393184e-15
+  },
+  "max_image_difference_by_dtype": {
+    "torch.complex64": 0.0005386726405103414,
+    "torch.complex128": 1.4294981204936225e-12
+  }
+}

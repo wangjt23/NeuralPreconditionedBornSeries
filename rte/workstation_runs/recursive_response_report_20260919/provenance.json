@@ -1,0 +1,237 @@
+{
+  "runs": [
+    {
+      "run": "recursive_response_n16_20260919",
+      "settings": {
+        "args": {
+          "size": 16,
+          "count": 2,
+          "seed": 1919,
+          "epsilons": [
+            0.1,
+            1.0
+          ],
+          "metrics": [
+            "residual",
+            "euclidean"
+          ],
+          "tolerances": [
+            0.001
+          ],
+          "leaf_size": 2,
+          "rank_multiple": 4,
+          "setup_threads": 4,
+          "repeats": 3,
+          "probes": 16,
+          "output": "rte/workstation_runs/recursive_response_n16_20260919"
+        },
+        "torch_version": "2.5.1",
+        "platform": "Linux-6.11.0-25-generic-x86_64-with-glibc2.39",
+        "dataset_count": 4,
+        "dataset_sha256": "1493f2f317af41ad83cb096b05d336d1c21deea3a4c0f90c9fcb771bf07bc28c",
+        "device": "cpu",
+        "timing": "one CPU thread; paired randomized warmed full solves; teacher setup is separately reported",
+        "scope": "directed recursive H-matrix oracle, not trained AI; all true residuals use unchanged physical FP64 promotion",
+        "grouping": "dense leaves and low-rank far blocks; padding AND int64 index bytes counted",
+        "limitation": "small fixed sample; shared host; no scalability or NN speedup claim; QR block bounds are not global bounds"
+      },
+      "measured_solves": 396,
+      "unique_rhs_cases": 12
+    },
+    {
+      "run": "recursive_response_n32_20260919",
+      "settings": {
+        "args": {
+          "size": 32,
+          "count": 2,
+          "seed": 1919,
+          "epsilons": [
+            0.1,
+            1.0
+          ],
+          "metrics": [
+            "residual"
+          ],
+          "tolerances": [
+            0.001
+          ],
+          "leaf_size": 2,
+          "rank_multiple": 4,
+          "setup_threads": 4,
+          "repeats": 3,
+          "probes": 16,
+          "output": "rte/workstation_runs/recursive_response_n32_20260919"
+        },
+        "torch_version": "2.5.1",
+        "platform": "Linux-6.11.0-25-generic-x86_64-with-glibc2.39",
+        "dataset_count": 4,
+        "dataset_sha256": "a4f8c85ea96e8b131ba0c91cd0657311e7cdcf76ab23d286a4f1b3d0935d3c2d",
+        "device": "cpu",
+        "timing": "one CPU thread; paired randomized warmed full solves; teacher setup is separately reported",
+        "scope": "directed recursive H-matrix oracle, not trained AI; all true residuals use unchanged physical FP64 promotion",
+        "grouping": "dense leaves and low-rank far blocks; padding AND int64 index bytes counted",
+        "limitation": "small fixed sample; shared host; no scalability or NN speedup claim; QR block bounds are not global bounds"
+      },
+      "measured_solves": 324,
+      "unique_rhs_cases": 12
+    },
+    {
+      "run": "recursive_energy_n16_20260919",
+      "settings": {
+        "args": {
+          "size": 16,
+          "count": 2,
+          "seed": 1919,
+          "epsilons": [
+            0.1
+          ],
+          "metrics": [
+            "energy"
+          ],
+          "tolerances": [
+            0.01,
+            0.003
+          ],
+          "leaf_size": 2,
+          "rank_multiple": 4,
+          "setup_threads": 4,
+          "repeats": 1,
+          "probes": 16,
+          "output": "rte/workstation_runs/recursive_energy_n16_20260919"
+        },
+        "torch_version": "2.5.1",
+        "platform": "Linux-6.11.0-25-generic-x86_64-with-glibc2.39",
+        "dataset_count": 4,
+        "dataset_sha256": "1493f2f317af41ad83cb096b05d336d1c21deea3a4c0f90c9fcb771bf07bc28c",
+        "device": "cpu",
+        "timing": "one CPU thread; paired randomized warmed full solves; teacher setup is separately reported",
+        "scope": "directed recursive H-matrix oracle, not trained AI; all true residuals use unchanged physical FP64 promotion",
+        "grouping": "dense leaves and low-rank far blocks; padding AND int64 index bytes counted",
+        "limitation": "small fixed sample; shared host; no scalability or NN speedup claim; QR block bounds are not global bounds"
+      },
+      "measured_solves": 66,
+      "unique_rhs_cases": 6
+    },
+    {
+      "run": "coarse_response_pilot_n64_20260919",
+      "settings": {
+        "args": {
+          "sizes": [
+            64
+          ],
+          "coarse_sizes": [
+            8,
+            16
+          ],
+          "epsilons": [
+            0.1
+          ],
+          "count": 2,
+          "seed": 1919,
+          "sources": 1,
+          "repeats": 1,
+          "setup_threads": 4,
+          "hierarchy": false,
+          "tolerance": 0.001,
+          "output": "rte/workstation_runs/coarse_response_pilot_n64_20260919"
+        },
+        "device": "cpu",
+        "torch_version": "2.5.1",
+        "dataset_count": 4,
+        "scope": "development opportunity check, not AI; exact Galerkin response with fine HSS complement",
+        "timing": "one CPU thread, shuffled paired warmed solves, shared host; teacher costs separately reported",
+        "physics": "original stored FP32 geometry promoted unchanged to FP64; true outer tolerance 1e-5",
+        "datasets": {
+          "64": "dbd86174abc7f6a3c499ee3ff03ac291457f92d3ca5155731c9404b89900a50c"
+        }
+      },
+      "measured_solves": 32,
+      "unique_rhs_cases": 2
+    },
+    {
+      "run": "coarse_response_harmonic_20260919",
+      "settings": {
+        "args": {
+          "sizes": [
+            64,
+            128
+          ],
+          "coarse_sizes": [
+            16
+          ],
+          "epsilons": [
+            0.1
+          ],
+          "count": 2,
+          "seed": 1919,
+          "sources": 1,
+          "repeats": 1,
+          "setup_threads": 4,
+          "hierarchy": false,
+          "harmonic_only": true,
+          "cache_kinds": [
+            "dense"
+          ],
+          "tolerance": 0.001,
+          "output": "rte/workstation_runs/coarse_response_harmonic_20260919"
+        },
+        "device": "cpu",
+        "torch_version": "2.5.1",
+        "dataset_count": 4,
+        "scope": "development opportunity check, not AI; exact Galerkin response with fine HSS complement",
+        "timing": "one CPU thread, shuffled paired warmed solves, shared host; teacher costs separately reported",
+        "physics": "original stored FP32 geometry promoted unchanged to FP64; true outer tolerance 1e-5",
+        "datasets": {
+          "64": "dbd86174abc7f6a3c499ee3ff03ac291457f92d3ca5155731c9404b89900a50c",
+          "128": "dd04f929dfa9def5748d76ce8db4489fba6ed45a640956c1cf1246e47f289ba5"
+        }
+      },
+      "measured_solves": 28,
+      "unique_rhs_cases": 4
+    },
+    {
+      "run": "recursive_response_repair_n32_20260919",
+      "settings": {
+        "args": {
+          "size": 32,
+          "count": 2,
+          "seed": 1919,
+          "epsilons": [
+            0.1
+          ],
+          "metrics": [
+            "residual"
+          ],
+          "tolerances": [
+            0.001
+          ],
+          "leaf_size": 2,
+          "rank_multiple": 4,
+          "setup_threads": 4,
+          "repeats": 3,
+          "probes": 16,
+          "repair_ranks": [
+            8,
+            32
+          ],
+          "output": "rte/workstation_runs/recursive_response_repair_n32_20260919"
+        },
+        "torch_version": "2.5.1",
+        "platform": "Linux-6.11.0-25-generic-x86_64-with-glibc2.39",
+        "dataset_count": 4,
+        "dataset_sha256": "a4f8c85ea96e8b131ba0c91cd0657311e7cdcf76ab23d286a4f1b3d0935d3c2d",
+        "device": "cpu",
+        "timing": "one CPU thread; paired randomized warmed full solves; teacher setup is separately reported",
+        "scope": "directed recursive H-matrix oracle, not trained AI; all true residuals use unchanged physical FP64 promotion",
+        "grouping": "dense leaves and low-rank far blocks; padding AND int64 index bytes counted",
+        "limitation": "small fixed sample; shared host; no scalability or NN speedup claim; QR block bounds are not global bounds"
+      },
+      "measured_solves": 234,
+      "unique_rhs_cases": 6
+    }
+  ],
+  "scope": "small development samples; media/resolutions/regimes/sources correlated; no trained AI or general speedup claim",
+  "timing": "median over repeats before averaging cases; setup+warm is an estimate, NOT a measured cold solve",
+  "baseline": "best successful reported classical candidate in pooled regime, chosen for exploration only; all methods/failures retained",
+  "mode_history": "coarse_response_pilot_n64_20260919 used recover_odd_rhs=True; later --harmonic-only excludes odd RHS reset"
+}

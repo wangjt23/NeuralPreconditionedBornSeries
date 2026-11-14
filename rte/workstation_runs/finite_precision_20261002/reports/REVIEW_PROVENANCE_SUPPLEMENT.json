@@ -1,0 +1,11 @@
+{
+  "issue": "Location/version materialization gap between staged preceding implementation note and final local guard review; no executed-code mismatch",
+  "executed_driver_sha256": "d7149407412392cbdbdf548af907ee4348d242e709c6f882b39036f2462027c7",
+  "final_local_implementation_review_sha256": "059e96c467cd36c73491bffd0904b27e1911f571ff3793a67e04147ea59fff1a",
+  "staged_preceding_implementation_review_sha256": "90a124b0cae2de5c82cf8efeeecaabff158c3f8292c302cc0cb0a574dd0a83dc",
+  "final_protocol_sha256": "6e52e283bc1c16264b2b74d98310f1e319cff46cb4ccc646e457fc5e82b95b4c",
+  "final_local_review_pinned_before_execution": true,
+  "raw_receipt_and_both_versions_preserved": true,
+  "remote_final_local_review_destination": "rte/workstation_runs/finite_precision_20261002/reports/PRIMITIVE_IMPLEMENTATION_REVIEW.md",
+  "no_change_to_arithmetic_counts_policy_or_old_failed_gate": true
+}

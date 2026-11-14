@@ -1,0 +1,157 @@
+{
+  "result": "POSTCOARSE_BUDGET_NO_GO",
+  "selected_method": "coarse64",
+  "accepted_solutions": 16,
+  "batches": [
+    {
+      "label": "01_coarse64",
+      "method": "coarse64",
+      "setup_seconds": 3.0046285041607916,
+      "first_RHS_seconds": 7.773363769985735,
+      "four_RHS_seconds": 22.745312883052975,
+      "classical_calls": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "stage_counts": [
+        192,
+        192,
+        192,
+        192
+      ],
+      "preconditioner_seconds": 14.051910612965003,
+      "inner_seconds": 3.6438241177238524,
+      "inner_iterations": [
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ]
+      ],
+      "max_residual": 2.0712061601612065e-06,
+      "non_setup_preconditioner_inner_seconds": 2.0449496482033283,
+      "slowdown_vs_incumbent_percent": 0.0
+    },
+    {
+      "label": "02_coarse64_then8",
+      "method": "coarse64_then8",
+      "setup_seconds": 2.8343152781017125,
+      "first_RHS_seconds": 7.753222438041121,
+      "four_RHS_seconds": 24.2916937940754,
+      "classical_calls": [
+        12,
+        14,
+        12,
+        15
+      ],
+      "stage_counts": [
+        152,
+        168,
+        152,
+        176
+      ],
+      "preconditioner_seconds": 11.93294431315735,
+      "inner_seconds": 3.4055014229379594,
+      "inner_iterations": [
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ]
+      ],
+      "max_residual": 9.620305206139209e-06,
+      "non_setup_preconditioner_inner_seconds": 6.118932779878378,
+      "slowdown_vs_incumbent_percent": 6.798679442104305
+    },
+    {
+      "label": "03_plain64_then8",
+      "method": "plain64_then8",
+      "setup_seconds": 0.13722129398956895,
+      "first_RHS_seconds": 6.833760846871883,
+      "four_RHS_seconds": 28.206123548792675,
+      "classical_calls": [
+        25,
+        26,
+        25,
+        25
+      ],
+      "stage_counts": [
+        256,
+        264,
+        256,
+        256
+      ],
+      "preconditioner_seconds": 18.810435308143497,
+      "inner_seconds": 0,
+      "inner_iterations": [
+        [],
+        [],
+        [],
+        []
+      ],
+      "max_residual": 9.530732078169402e-06,
+      "non_setup_preconditioner_inner_seconds": 9.25846694665961,
+      "slowdown_vs_incumbent_percent": 24.008509769977394
+    },
+    {
+      "label": "04_coarse8",
+      "method": "coarse8",
+      "setup_seconds": 2.708892381982878,
+      "first_RHS_seconds": 8.456999365938827,
+      "four_RHS_seconds": 24.624604522949085,
+      "classical_calls": [
+        18,
+        18,
+        18,
+        18
+      ],
+      "stage_counts": [
+        144,
+        144,
+        144,
+        144
+      ],
+      "preconditioner_seconds": 10.51677039731294,
+      "inner_seconds": 3.6207859667483717,
+      "inner_iterations": [
+        [
+          4
+        ],
+        [
+          5
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ]
+      ],
+      "max_residual": 8.404831502172583e-06,
+      "non_setup_preconditioner_inner_seconds": 7.778155776904896,
+      "slowdown_vs_incumbent_percent": 8.262324855932523
+    }
+  ],
+  "paired_comparisons": [],
+  "max_original_residual": 9.620305206139209e-06,
+  "max_evaluated_bound": 4.506032323545804e-05,
+  "max_field_difference": 3.507691367254463e-07,
+  "research_wall_seconds": 100.9080797128845,
+  "raw_sha256": "9a9d8fac908566c6e19313442b97ac19ed6917a3a9476b9bf70be469742ce07a"
+}

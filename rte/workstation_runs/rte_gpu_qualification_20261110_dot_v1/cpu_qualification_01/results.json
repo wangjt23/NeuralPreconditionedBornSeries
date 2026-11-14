@@ -1,0 +1,25 @@
+{
+  "complete": true,
+  "device": "cpu",
+  "affinity": [
+    0
+  ],
+  "grid": 32,
+  "mode_count": 17,
+  "bitwise_equal_to_sealed_implementation": true,
+  "relative_difference": 0.0,
+  "original_background_residual": 2.124318661220874e-14,
+  "output_ownership_pass": true,
+  "partial_setup_stop_pass": true,
+  "partial_stop_stages": [
+    null,
+    -1
+  ],
+  "wall_seconds": 0.38766547408886254,
+  "source_hashes": {
+    "qualify_cpu.py": "bf605de18e9731828e9c97b679c9b74d17fab64c48895e49dc8eb39193733e0f",
+    "qualified_exact_modes.py": "a41bd3ee014d35f4e942539b66f63535d68f8123e499c81798bc887c3f3d6d80"
+  },
+  "sealed_source_sha256": "b560e467e0b81a8293adfa2fc71bd5570ec875a797fea67696083f1430ba3a77",
+  "scope": "Small CPU algebra/output ownership and early-stop qualification only; no GPU initialization or performance inference."
+}

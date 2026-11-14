@@ -1,0 +1,4 @@
+elapsed_seconds=69.55
+user_cpu_seconds=60.06
+system_cpu_seconds=5.79
+maximum_RSS_KiB=2024352

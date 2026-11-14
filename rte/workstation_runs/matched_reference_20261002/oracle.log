@@ -1,0 +1,48 @@
+Traceback (most recent call last):
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/matched_reference_20261002/code/direct_full_graph.py", line 19, in _capture_full_action
+    graph.capture_end()
+  File "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/graphs.py", line 84, in capture_end
+    super().capture_end()
+RuntimeError: CUDA error: operation failed due to a previous error during capture
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/matched_reference_20261002/code/matched_screen.py", line 156, in <module>
+    if __name__=='__main__':run()
+                            ^^^^^
+  File "/data1/software/miniconda3/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/matched_reference_20261002/code/matched_screen.py", line 77, in run
+    sync();t=time.perf_counter();literal=ReferenceDefectAction(shallow,shallow,harmonics=harmonics);w=RawReferenceDefectGraph(literal,low.source);sync();capture[kind+'_raw']=time.perf_counter()-t;wrappers[kind+'_raw']=w;actions[kind]=literal
+                                                                                                      ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/matched_reference_20261002/code/matched_reference.py", line 245, in __init__
+    static_output = _capture_full_action(self.graph, action, static_input, side)
+                    ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/matched_reference_20261002/code/direct_full_graph.py", line 21, in _capture_full_action
+    raise body_error from end_error
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/matched_reference_20261002/code/direct_full_graph.py", line 16, in _capture_full_action
+    static_output=base(static_input)
+                  ^^^^^^^^^^^^^^^^^^
+  File "/data1/software/miniconda3/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/matched_reference_20261002/code/matched_reference.py", line 163, in __call__
+    correction = self.reference.reference_transport_solve(defect, harmonics=self.harmonics)
+                 ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/models.py", line 318, in reference_transport_solve
+    rhs = self.angular_project(rhs, harmonics=harmonics)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/models.py", line 308, in angular_project
+    mask[0] = 1.0
+    ~~~~^^^
+RuntimeError: CUDA error: operation not permitted when stream is capturing
+CUDA kernel errors might be asynchronously reported at some other API call, so the stacktrace below might be incorrect.
+For debugging consider passing CUDA_LAUNCH_BLOCKING=1
+Compile with `TORCH_USE_CUDA_DSA` to enable device-side assertions.
+

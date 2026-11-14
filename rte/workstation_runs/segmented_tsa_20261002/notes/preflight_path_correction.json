@@ -1,0 +1,10 @@
+{
+  "prior_preflight_exit": 1,
+  "phase": "read-only before staging",
+  "error": "FileNotFoundError: warm_start",
+  "cause": "input hashes keyed by labels, corrected through recorded input_paths",
+  "original_files_modified": false,
+  "GPU_launched": false,
+  "corrected_preservation_files": 191,
+  "second_read_only_failure": "FileNotFoundError: HANDOFF.md, relative prior-bundle handoff corrected to recorded remote root"
+}

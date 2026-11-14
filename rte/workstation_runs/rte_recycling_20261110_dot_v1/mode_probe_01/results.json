@@ -1,0 +1,53 @@
+{
+  "complete": true,
+  "pid": 1247220,
+  "affinity": [
+    0
+  ],
+  "device": "cpu",
+  "threads": 1,
+  "source_id": 0,
+  "grid": 128,
+  "L": 12,
+  "g": 0.65,
+  "modes": [
+    0,
+    1,
+    8
+  ],
+  "total_factor_setup_seconds": 1.1105150438379496,
+  "base_setup_seconds": 0.13647312787361443,
+  "wall_seconds": 2.942656459985301,
+  "factor_bytes": 113264640,
+  "rows": [
+    {
+      "k": 0,
+      "factor_seconds": 0.29991452605463564,
+      "action_seconds": 0.007359941024333239,
+      "original_background_block_residual": 6.134496159385146e-14,
+      "physical_selected_rhs_defect": 0.1486711988785087,
+      "retained_prefix_residual_energy": 0.31840390012948977,
+      "original_quotient_residual_ratio": 0.6922395719249379
+    },
+    {
+      "k": 1,
+      "factor_seconds": 0.3053140048868954,
+      "action_seconds": 0.005839047022163868,
+      "original_background_block_residual": 1.2673579706921482e-14,
+      "physical_selected_rhs_defect": 0.10802248657793688,
+      "retained_prefix_residual_energy": 0.24965550405932363,
+      "original_quotient_residual_ratio": 0.7520173566135478
+    },
+    {
+      "k": 8,
+      "factor_seconds": 0.302287827944383,
+      "action_seconds": 0.005644181044772267,
+      "original_background_block_residual": 1.1912121175820129e-14,
+      "physical_selected_rhs_defect": 0.042382650449777244,
+      "retained_prefix_residual_energy": 8.261744184628611e-07,
+      "original_quotient_residual_ratio": 0.9999991400723117
+    }
+  ],
+  "source_hash": "b560e467e0b81a8293adfa2fc71bd5570ec875a797fea67696083f1430ba3a77",
+  "scope": "CPU algebra/cost screen of three modes only; no full solve speed claim, no neural model, no reserved cases."
+}

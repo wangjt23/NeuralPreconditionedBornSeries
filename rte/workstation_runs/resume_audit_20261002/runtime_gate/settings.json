@@ -1,0 +1,39 @@
+{
+  "args": {
+    "output": "rte/workstation_runs/resume_audit_20261002/runtime_gate",
+    "training": "rte/workstation_runs/resume_audit_20261002/paired_training",
+    "warm_checkpoint": "rte/workstation_runs/tail_direction_pilot_20260926/best.pt",
+    "classical_selection": "rte/workstation_runs/tail_solver_benchmark_20260926/frozen_selection.json",
+    "repeats": 2,
+    "validation_only": false
+  },
+  "complete": true,
+  "scope": "same 16 development validation media at three nested grids; no independent validation draws",
+  "gate": "mixed64_128 zero failures and >=5% mean warm solve saving versus frozen classical at BOTH N128 and N256",
+  "test_condition": "fresh seed 9626 only after validation gate passes; selections frozen before generation",
+  "checkpoint_sha256": {
+    "rte/workstation_runs/tail_direction_pilot_20260926/best.pt": "135aa962f6ebc1a08b1f17c61d85cafed990da68665e1bf12cfedb097ed0775f",
+    "rte/workstation_runs/resume_audit_20261002/paired_training/n64_only/best.pt": "b92f29ed8fd96ad0bd87a911d37546276f54d086ebe6be5ab13c2c47a1b9a997",
+    "rte/workstation_runs/resume_audit_20261002/paired_training/mixed64_128/best.pt": "5b1f192ac4d4a2e50b3391f36ac42f60a0685d19af5fe99ff8f6933eee73d82d"
+  },
+  "classical_selection_sha256": "67cf2328721db970470643fdae52c7df7db7a191a2db2f56731ffb5c63fb6a49",
+  "source_sha256": {
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/resume_audit_20261002/code/benchmark_tail_multiresolution.py": "5064d2919618a3aed2e2f3d0a399390b16b192611ce114168179e502e1e1b654",
+    "rte/benchmark_tail_solver.py": "05424458ec34649a2e592638f2621a7cb4891f280839ae4df55e7da5527b9030",
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/tail_response_network.py": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4"
+  },
+  "timing": "one warmup, synchronized shuffled repeats, then per-media median; preparation separate; no cold-start or training cost in solve seconds",
+  "gpu_processes_before": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n2178834, /data1/software/miniconda3/bin/python, 268 MiB\n",
+  "validation_parent_sha256": {
+    "64": "bbebfd1c7c4808733628ee8fdecac9e9ce09521d70f7664a5d5391c8af10813a",
+    "128": "9ade993bce700505d134fa197ceeee72327790bc6660e670a95bea8c43052de1",
+    "256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "passed": false,
+  "test_generated": false,
+  "measured_validation_solves": 480,
+  "frozen_gate_sha256": "905ac409014052fcce7d7e796bfa1965c24acd47ccda77ed6d7488796fafbbd5",
+  "gpu_processes_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n2178834, /data1/software/miniconda3/bin/python, 6582 MiB\n"
+}

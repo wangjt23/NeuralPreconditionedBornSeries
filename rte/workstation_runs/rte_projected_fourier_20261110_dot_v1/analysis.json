@@ -1,0 +1,184 @@
+{
+  "result": "NO_GO_FORWARD_COMPLETE_COST",
+  "error": null,
+  "stop_reason": null,
+  "wall_seconds": 84.16328713693656,
+  "peak_process_RSS_bytes": 1197809664,
+  "production_and_dependencies_unchanged": true,
+  "reference_seconds": 24.078606299124658,
+  "stages": [
+    {
+      "name": "identity_and_qualification",
+      "status": "completed",
+      "seconds": 4.897858433891088
+    },
+    {
+      "name": "references_and_forward_triplet",
+      "status": "stopped",
+      "seconds": 79.22300034598447
+    }
+  ],
+  "batches": [
+    {
+      "method": "compact4",
+      "repeat": 0,
+      "status": "completed",
+      "physical_seconds": 0.005258938064798713,
+      "TSA_seconds": 0.0981051018461585,
+      "factor_seconds": 2.9167066370137036,
+      "factor_bytes": 302137344,
+      "setup_observed_seconds": 3.0214216669555753,
+      "first_RHS_observed_seconds": 8.040303281042725,
+      "complete_four_RHS_observed_seconds": 20.734828860964626,
+      "online_phase_seconds": 17.699144718470052,
+      "inner_phase_seconds": 0,
+      "calls": [
+        4,
+        3,
+        4,
+        3
+      ],
+      "inner_calls": [],
+      "A_call_counts": {
+        "outer_A": 48,
+        "inner_A": 0,
+        "full_injection_A": 0,
+        "final_A": 4
+      },
+      "process_peak_RSS_bytes": 1197809664,
+      "runtime_inverse_applications": 0,
+      "logical_mode_inversions": 0,
+      "runtime_corrections_histogram": {
+        "0": 0,
+        "1": 0,
+        "2": 0,
+        "3": 0
+      },
+      "max_runtime_original_G_residual": null
+    },
+    {
+      "method": "full_E",
+      "repeat": 0,
+      "status": "completed",
+      "physical_seconds": 0.005226454930379987,
+      "TSA_seconds": 0.09862163499929011,
+      "factor_seconds": 0.9637443581596017,
+      "factor_bytes": 276633928,
+      "mode_qualification_seconds": 0.5471286699175835,
+      "setup_observed_seconds": 1.616126247914508,
+      "first_RHS_observed_seconds": 5.217405149945989,
+      "complete_four_RHS_observed_seconds": 15.746670254971832,
+      "online_phase_seconds": 14.116563621209934,
+      "inner_phase_seconds": 4.186754804104567,
+      "calls": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "inner_calls": [
+        5,
+        5,
+        5,
+        4
+      ],
+      "A_call_counts": {
+        "outer_A": 36,
+        "inner_A": 46,
+        "full_injection_A": 0,
+        "final_A": 4
+      },
+      "process_peak_RSS_bytes": 1197809664,
+      "runtime_inverse_applications": 19,
+      "logical_mode_inversions": 323,
+      "runtime_corrections_histogram": {
+        "0": 0,
+        "1": 323,
+        "2": 0,
+        "3": 0
+      },
+      "max_runtime_original_G_residual": 3.9306100278931025e-12
+    },
+    {
+      "method": "reduced_E",
+      "repeat": 0,
+      "status": "completed",
+      "physical_seconds": 0.005194287979975343,
+      "TSA_seconds": 0.09740107390098274,
+      "factor_seconds": 0.9527532048523426,
+      "factor_bytes": 276633928,
+      "mode_qualification_seconds": 0.5240897031035274,
+      "coefficient_seconds": 0.002527934033423662,
+      "coefficient_bytes": 1606384,
+      "probe_seconds": 2.0824319729581475,
+      "setup_observed_seconds": 3.9325353209860623,
+      "first_RHS_observed_seconds": 7.3367136609740555,
+      "complete_four_RHS_observed_seconds": 17.29470837302506,
+      "online_phase_seconds": 13.348089842125773,
+      "inner_phase_seconds": 3.270407388918102,
+      "calls": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "inner_calls": [
+        5,
+        5,
+        5,
+        4
+      ],
+      "A_call_counts": {
+        "outer_A": 36,
+        "inner_A": 0,
+        "full_injection_A": 4,
+        "final_A": 4,
+        "compressed_A": 46
+      },
+      "process_peak_RSS_bytes": 1197809664,
+      "runtime_inverse_applications": 19,
+      "logical_mode_inversions": 323,
+      "runtime_corrections_histogram": {
+        "0": 0,
+        "1": 323,
+        "2": 0,
+        "3": 0
+      },
+      "max_runtime_original_G_residual": 3.9340454484381146e-12
+    }
+  ],
+  "pairs": [
+    {
+      "repeat": 0,
+      "reduced_vs_full_E_gain": -0.09830891820221188,
+      "reduced_vs_compact_gain": 0.16591024266498455,
+      "inner_reduction": 0.21886818265261332,
+      "reduced_first": 7.3367136609740555,
+      "full_E_first": 5.217405149945989,
+      "compact_first": 8.040303281042725
+    }
+  ],
+  "probe_records": 12,
+  "max_action_difference": 2.9368420845226526e-16,
+  "max_lifted_action_difference": 3.4055951042237787e-16,
+  "max_inverse_field_difference": 8.599120574089652e-14,
+  "max_inverse_original_A_image_difference": 2.6790159458672257e-14,
+  "zero_probe_records": 4,
+  "independent_A0_checks": 51,
+  "max_original_A0_residual": 3.858051886856452e-12,
+  "original_high_A_ledger": {
+    "independent_mode_checks": 51,
+    "action_inverse_probe_calls": 36,
+    "ordinary_reference_calls_source_derived": 48,
+    "measured_batch_calls": 182,
+    "scope": "Visible high.A_op calls: modes/probes/references source-derived; measured solver boundaries instrumented. Excludes internal low-precision TSA stages and matrix-free G repair actions.",
+    "total": 317
+  },
+  "candidate_rows": 12,
+  "accepted_rows": 12,
+  "max_original_A_residual": 9.080373108984482e-06,
+  "max_evaluated_relative_bound": 3.945351606983332e-05,
+  "max_field_difference": 2.6488116999175703e-07,
+  "max_inner_residual": 8.88262499260497e-05,
+  "max_independent_full_projected_inner_residual": 8.882624992605405e-05
+}

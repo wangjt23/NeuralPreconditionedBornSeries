@@ -1,0 +1,41 @@
+strong prefix train_tsa16_n128.pt: 16/128
+strong prefix train_tsa16_n128.pt: 32/128
+strong prefix train_tsa16_n128.pt: 48/128
+strong prefix train_tsa16_n128.pt: 64/128
+strong prefix train_tsa16_n128.pt: 80/128
+strong prefix train_tsa16_n128.pt: 96/128
+strong prefix train_tsa16_n128.pt: 112/128
+strong prefix train_tsa16_n128.pt: 128/128
+strong prefix development_tsa16_n64.pt: 16/16
+strong prefix development_tsa16_n128.pt: 16/16
+cached N64: 0.17s, storage=gpu
+cached N128: 0.33s, storage=gpu
+cached N64: 0.03s, storage=gpu
+cached N128: 0.07s, storage=gpu
+tsa8 update 0: work=7.87500, best=0, training=0.00s
+tsa8 update 250: work=7.93750, best=0, training=32.06s
+tsa8 update 500: work=7.87500, best=0, training=64.01s
+tsa8 update 750: work=7.81250, best=750, training=95.03s
+tsa8 update 1000: work=7.81250, best=1000, training=125.60s
+cached N64: 0.18s, storage=gpu
+cached N128: 0.39s, storage=gpu
+cached N64: 0.02s, storage=gpu
+cached N128: 0.05s, storage=gpu
+tsa16 update 0: work=4.68750, best=0, training=0.00s
+tsa16 update 250: work=4.56250, best=250, training=45.82s
+tsa16 update 500: work=4.56250, best=500, training=91.56s
+tsa16 update 750: work=4.56250, best=500, training=137.20s
+tsa16 update 1000: work=4.56250, best=1000, training=181.75s
+benchmark N64 4/16
+benchmark N64 8/16
+benchmark N64 12/16
+benchmark N64 16/16
+benchmark N128 4/16
+benchmark N128 8/16
+benchmark N128 12/16
+benchmark N128 16/16
+benchmark N256 4/16
+benchmark N256 8/16
+benchmark N256 12/16
+benchmark N256 16/16
+{"passed": false, "scope": "development only;conditional intervals;no confirmatory training-seed or OOD claim", "test_generated": false, "threshold": "5% savings at BOTH128/256;zero failures;interval lower>0", "selected_comparisons": [{"size": 64, "classical": "reference_tail", "neural": "continued_selected", "independent_media": 16, "classical_ms": 133.56421783100814, "neural_ms": 131.5855470020324, "saving_percent": 1.4814378140403206, "saving_percent_ci95": [-2.1129501433572657, 4.7187941962735795], "neural_faster_cases": 9, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}, {"size": 128, "classical": "reference_tail", "neural": "continued_selected", "independent_media": 16, "classical_ms": 144.98534565791488, "neural_ms": 144.56677541602403, "saving_percent": 0.28869830946807173, "saving_percent_ci95": [-3.7261940998420022, 3.735722315455605], "neural_faster_cases": 8, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}, {"size": 256, "classical": "tsa16_zero", "neural": "continued_selected", "independent_media": 16, "classical_ms": 145.9574308246374, "neural_ms": 154.76331184618175, "saving_percent": -6.0331844509679655, "saving_percent_ci95": [-9.807476985138786, -1.679447274661704], "neural_faster_cases": 5, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}]}

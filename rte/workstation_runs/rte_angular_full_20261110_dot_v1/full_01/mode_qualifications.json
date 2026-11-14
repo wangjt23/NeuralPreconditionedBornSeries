@@ -1,0 +1,1917 @@
+[
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "compact4_inject",
+    "records": []
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "dense8_inner",
+    "records": [
+      {
+        "k": -8,
+        "original_A0_residual": 4.368049021139021e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "d501567457c14b0168d4bd219d961c29b61f5a3c99db1c27d55362c1645b09b7"
+      },
+      {
+        "k": -7,
+        "original_A0_residual": 7.01575068138704e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "c6a039c1c9f751f8884af9f29dbfd1b079eaf5bc21873610f6ee4f1cd5bb0edd"
+      },
+      {
+        "k": -6,
+        "original_A0_residual": 7.296623577286309e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "83cde65e5d0bd56b51644af5dfcbd8ed96daaa39cd265ac590f7e1476635c190"
+      },
+      {
+        "k": -5,
+        "original_A0_residual": 9.946972267080393e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "d1486ead9c0095ced10a59bc884d1bb37a7185af9a207582e2fd6fe78cac1e9b"
+      },
+      {
+        "k": -4,
+        "original_A0_residual": 1.387531039931403e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "5c375fac4ab1dfecbccdfa2612a18ae6fb9b9fde1dabe0a0baa185e4fe3f094f"
+      },
+      {
+        "k": -3,
+        "original_A0_residual": 1.1019283069004544e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "166e01ac94eb8c1103e14d366a1ec315c57b388d55c6fd9471fc5e90171da843"
+      },
+      {
+        "k": -2,
+        "original_A0_residual": 1.1963232853988246e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "ab10e33d5e7b601d7ad5b1568c9e605fee68630ec61f45094d755a6fee3ee0b2"
+      },
+      {
+        "k": -1,
+        "original_A0_residual": 3.5184408030290545e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "38dd792c3b6baf61fadcc31bc8d697fbc753caf66a56befded61622f3640178a"
+      },
+      {
+        "k": 0,
+        "original_A0_residual": 2.399415931710863e-13,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "d2b90ae28292e8060cfa3f50a97deec8d1a689a1717853bd861e3fae429fd335"
+      },
+      {
+        "k": 1,
+        "original_A0_residual": 3.908210133053833e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "9c3574409f9041fc2e40bdd488adfec06b144780f78d1e77a098610f6f7c5b48"
+      },
+      {
+        "k": 2,
+        "original_A0_residual": 1.9491406680240094e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "24bf000f1a7582869a81d062d87f30dc1cc61def14729c9cf2ed80518d9bb2da"
+      },
+      {
+        "k": 3,
+        "original_A0_residual": 1.2793695463911324e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "640715b17d5f581387191a857dbfb4327bcb42b8074c1b6b6550a771f5a32856"
+      },
+      {
+        "k": 4,
+        "original_A0_residual": 1.2652841592906772e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "a14b1d902c55f6a13d8d60f61d118b7e39b13b1cded5c3e8d25e00c75512cd0b"
+      },
+      {
+        "k": 5,
+        "original_A0_residual": 7.764488855069218e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "e30f90f3dac3b574cf8b86465ab981e0d668491109c06192065c31c834558536"
+      },
+      {
+        "k": 6,
+        "original_A0_residual": 8.729064446641216e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "09bc766252ce5fe9d660f25f0060322fc8253054c5b6ac25a804fe04e97531d2"
+      },
+      {
+        "k": 7,
+        "original_A0_residual": 6.18296605840595e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "dd9887b62a28aee06a354f3c469152626b06fe533d11aaad8a89d218e911b196"
+      },
+      {
+        "k": 8,
+        "original_A0_residual": 5.7166666554122805e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "2cb5cfe91bcef079b218dc1f82b470e2a2101138d92f75ffc77962e297440de3"
+      }
+    ]
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "angular8_inner",
+    "records": [
+      {
+        "k": -8,
+        "original_A0_residual": 3.759218475515133e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.9195374755878345e-07
+            ],
+            [
+              3.7591710154662526e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d501567457c14b0168d4bd219d961c29b61f5a3c99db1c27d55362c1645b09b7"
+      },
+      {
+        "k": -7,
+        "original_A0_residual": 2.2679293361537997e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.767674584069821e-07
+            ],
+            [
+              2.2679296394997037e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "c6a039c1c9f751f8884af9f29dbfd1b079eaf5bc21873610f6ee4f1cd5bb0edd"
+      },
+      {
+        "k": -6,
+        "original_A0_residual": 1.923235468720434e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.869576626343034e-07
+            ],
+            [
+              1.9228082873821292e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "83cde65e5d0bd56b51644af5dfcbd8ed96daaa39cd265ac590f7e1476635c190"
+      },
+      {
+        "k": -5,
+        "original_A0_residual": 2.8551993697271234e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              8.039908584065924e-07
+            ],
+            [
+              2.854843234254026e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d1486ead9c0095ced10a59bc884d1bb37a7185af9a207582e2fd6fe78cac1e9b"
+      },
+      {
+        "k": -4,
+        "original_A0_residual": 2.450640958421682e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.1812261714885792e-06
+            ],
+            [
+              2.4501398059080865e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "5c375fac4ab1dfecbccdfa2612a18ae6fb9b9fde1dabe0a0baa185e4fe3f094f"
+      },
+      {
+        "k": -3,
+        "original_A0_residual": 1.8862276300873492e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              9.438341378423025e-07
+            ],
+            [
+              1.886874324679035e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "166e01ac94eb8c1103e14d366a1ec315c57b388d55c6fd9471fc5e90171da843"
+      },
+      {
+        "k": -2,
+        "original_A0_residual": 2.841602686511597e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.042308816027519e-06
+            ],
+            [
+              2.8434670335621885e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "ab10e33d5e7b601d7ad5b1568c9e605fee68630ec61f45094d755a6fee3ee0b2"
+      },
+      {
+        "k": -1,
+        "original_A0_residual": 7.855454112052612e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.105222965028638e-06
+            ],
+            [
+              7.854630877084917e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "38dd792c3b6baf61fadcc31bc8d697fbc753caf66a56befded61622f3640178a"
+      },
+      {
+        "k": 0,
+        "original_A0_residual": 3.858051886856452e-12,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.9044210438708088e-05
+            ],
+            [
+              3.859756225588884e-12
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d2b90ae28292e8060cfa3f50a97deec8d1a689a1717853bd861e3fae429fd335"
+      },
+      {
+        "k": 1,
+        "original_A0_residual": 8.965561677320818e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.214949379240119e-06
+            ],
+            [
+              8.965672130301302e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "9c3574409f9041fc2e40bdd488adfec06b144780f78d1e77a098610f6f7c5b48"
+      },
+      {
+        "k": 2,
+        "original_A0_residual": 3.501562641401035e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.6560420090516749e-06
+            ],
+            [
+              3.5037808298721744e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "24bf000f1a7582869a81d062d87f30dc1cc61def14729c9cf2ed80518d9bb2da"
+      },
+      {
+        "k": 3,
+        "original_A0_residual": 2.2382761484417556e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.0950896400995046e-06
+            ],
+            [
+              2.2383858945489211e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "640715b17d5f581387191a857dbfb4327bcb42b8074c1b6b6550a771f5a32856"
+      },
+      {
+        "k": 4,
+        "original_A0_residual": 2.2680944678615498e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.0412596690085176e-06
+            ],
+            [
+              2.268649482164193e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "a14b1d902c55f6a13d8d60f61d118b7e39b13b1cded5c3e8d25e00c75512cd0b"
+      },
+      {
+        "k": 5,
+        "original_A0_residual": 1.8678194009262327e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              6.757060024300503e-07
+            ],
+            [
+              1.8676400581984174e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "e30f90f3dac3b574cf8b86465ab981e0d668491109c06192065c31c834558536"
+      },
+      {
+        "k": 6,
+        "original_A0_residual": 2.255727312763207e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              6.499298607653821e-07
+            ],
+            [
+              2.255795690345983e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "09bc766252ce5fe9d660f25f0060322fc8253054c5b6ac25a804fe04e97531d2"
+      },
+      {
+        "k": 7,
+        "original_A0_residual": 2.8367385869350183e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.142069054560934e-07
+            ],
+            [
+              2.8366366806461525e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "dd9887b62a28aee06a354f3c469152626b06fe533d11aaad8a89d218e911b196"
+      },
+      {
+        "k": 8,
+        "original_A0_residual": 4.129939736656746e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              4.7569953722013467e-07
+            ],
+            [
+              4.12997800617035e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "2cb5cfe91bcef079b218dc1f82b470e2a2101138d92f75ffc77962e297440de3"
+      }
+    ]
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "angular8_inner",
+    "records": [
+      {
+        "k": -8,
+        "original_A0_residual": 3.759218475515133e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.9195374755878345e-07
+            ],
+            [
+              3.7591710154662526e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d501567457c14b0168d4bd219d961c29b61f5a3c99db1c27d55362c1645b09b7"
+      },
+      {
+        "k": -7,
+        "original_A0_residual": 2.2679293361537997e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.767674584069821e-07
+            ],
+            [
+              2.2679296394997037e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "c6a039c1c9f751f8884af9f29dbfd1b079eaf5bc21873610f6ee4f1cd5bb0edd"
+      },
+      {
+        "k": -6,
+        "original_A0_residual": 1.923235468720434e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.869576626343034e-07
+            ],
+            [
+              1.9228082873821292e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "83cde65e5d0bd56b51644af5dfcbd8ed96daaa39cd265ac590f7e1476635c190"
+      },
+      {
+        "k": -5,
+        "original_A0_residual": 2.8551993697271234e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              8.039908584065924e-07
+            ],
+            [
+              2.854843234254026e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d1486ead9c0095ced10a59bc884d1bb37a7185af9a207582e2fd6fe78cac1e9b"
+      },
+      {
+        "k": -4,
+        "original_A0_residual": 2.450640958421682e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.1812261714885792e-06
+            ],
+            [
+              2.4501398059080865e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "5c375fac4ab1dfecbccdfa2612a18ae6fb9b9fde1dabe0a0baa185e4fe3f094f"
+      },
+      {
+        "k": -3,
+        "original_A0_residual": 1.8862276300873492e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              9.438341378423025e-07
+            ],
+            [
+              1.886874324679035e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "166e01ac94eb8c1103e14d366a1ec315c57b388d55c6fd9471fc5e90171da843"
+      },
+      {
+        "k": -2,
+        "original_A0_residual": 2.841602686511597e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.042308816027519e-06
+            ],
+            [
+              2.8434670335621885e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "ab10e33d5e7b601d7ad5b1568c9e605fee68630ec61f45094d755a6fee3ee0b2"
+      },
+      {
+        "k": -1,
+        "original_A0_residual": 7.855454112052612e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.105222965028638e-06
+            ],
+            [
+              7.854630877084917e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "38dd792c3b6baf61fadcc31bc8d697fbc753caf66a56befded61622f3640178a"
+      },
+      {
+        "k": 0,
+        "original_A0_residual": 3.858051886856452e-12,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.9044210438708088e-05
+            ],
+            [
+              3.859756225588884e-12
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d2b90ae28292e8060cfa3f50a97deec8d1a689a1717853bd861e3fae429fd335"
+      },
+      {
+        "k": 1,
+        "original_A0_residual": 8.965561677320818e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.214949379240119e-06
+            ],
+            [
+              8.965672130301302e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "9c3574409f9041fc2e40bdd488adfec06b144780f78d1e77a098610f6f7c5b48"
+      },
+      {
+        "k": 2,
+        "original_A0_residual": 3.501562641401035e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.6560420090516749e-06
+            ],
+            [
+              3.5037808298721744e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "24bf000f1a7582869a81d062d87f30dc1cc61def14729c9cf2ed80518d9bb2da"
+      },
+      {
+        "k": 3,
+        "original_A0_residual": 2.2382761484417556e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.0950896400995046e-06
+            ],
+            [
+              2.2383858945489211e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "640715b17d5f581387191a857dbfb4327bcb42b8074c1b6b6550a771f5a32856"
+      },
+      {
+        "k": 4,
+        "original_A0_residual": 2.2680944678615498e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.0412596690085176e-06
+            ],
+            [
+              2.268649482164193e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "a14b1d902c55f6a13d8d60f61d118b7e39b13b1cded5c3e8d25e00c75512cd0b"
+      },
+      {
+        "k": 5,
+        "original_A0_residual": 1.8678194009262327e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              6.757060024300503e-07
+            ],
+            [
+              1.8676400581984174e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "e30f90f3dac3b574cf8b86465ab981e0d668491109c06192065c31c834558536"
+      },
+      {
+        "k": 6,
+        "original_A0_residual": 2.255727312763207e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              6.499298607653821e-07
+            ],
+            [
+              2.255795690345983e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "09bc766252ce5fe9d660f25f0060322fc8253054c5b6ac25a804fe04e97531d2"
+      },
+      {
+        "k": 7,
+        "original_A0_residual": 2.8367385869350183e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.142069054560934e-07
+            ],
+            [
+              2.8366366806461525e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "dd9887b62a28aee06a354f3c469152626b06fe533d11aaad8a89d218e911b196"
+      },
+      {
+        "k": 8,
+        "original_A0_residual": 4.129939736656746e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              4.7569953722013467e-07
+            ],
+            [
+              4.12997800617035e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "2cb5cfe91bcef079b218dc1f82b470e2a2101138d92f75ffc77962e297440de3"
+      }
+    ]
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "dense8_inner",
+    "records": [
+      {
+        "k": -8,
+        "original_A0_residual": 4.368049021139021e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "d501567457c14b0168d4bd219d961c29b61f5a3c99db1c27d55362c1645b09b7"
+      },
+      {
+        "k": -7,
+        "original_A0_residual": 7.01575068138704e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "c6a039c1c9f751f8884af9f29dbfd1b079eaf5bc21873610f6ee4f1cd5bb0edd"
+      },
+      {
+        "k": -6,
+        "original_A0_residual": 7.296623577286309e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "83cde65e5d0bd56b51644af5dfcbd8ed96daaa39cd265ac590f7e1476635c190"
+      },
+      {
+        "k": -5,
+        "original_A0_residual": 9.946972267080393e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "d1486ead9c0095ced10a59bc884d1bb37a7185af9a207582e2fd6fe78cac1e9b"
+      },
+      {
+        "k": -4,
+        "original_A0_residual": 1.387531039931403e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "5c375fac4ab1dfecbccdfa2612a18ae6fb9b9fde1dabe0a0baa185e4fe3f094f"
+      },
+      {
+        "k": -3,
+        "original_A0_residual": 1.1019283069004544e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "166e01ac94eb8c1103e14d366a1ec315c57b388d55c6fd9471fc5e90171da843"
+      },
+      {
+        "k": -2,
+        "original_A0_residual": 1.1963232853988246e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "ab10e33d5e7b601d7ad5b1568c9e605fee68630ec61f45094d755a6fee3ee0b2"
+      },
+      {
+        "k": -1,
+        "original_A0_residual": 3.5184408030290545e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "38dd792c3b6baf61fadcc31bc8d697fbc753caf66a56befded61622f3640178a"
+      },
+      {
+        "k": 0,
+        "original_A0_residual": 2.399415931710863e-13,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "d2b90ae28292e8060cfa3f50a97deec8d1a689a1717853bd861e3fae429fd335"
+      },
+      {
+        "k": 1,
+        "original_A0_residual": 3.908210133053833e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "9c3574409f9041fc2e40bdd488adfec06b144780f78d1e77a098610f6f7c5b48"
+      },
+      {
+        "k": 2,
+        "original_A0_residual": 1.9491406680240094e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "24bf000f1a7582869a81d062d87f30dc1cc61def14729c9cf2ed80518d9bb2da"
+      },
+      {
+        "k": 3,
+        "original_A0_residual": 1.2793695463911324e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "640715b17d5f581387191a857dbfb4327bcb42b8074c1b6b6550a771f5a32856"
+      },
+      {
+        "k": 4,
+        "original_A0_residual": 1.2652841592906772e-14,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "a14b1d902c55f6a13d8d60f61d118b7e39b13b1cded5c3e8d25e00c75512cd0b"
+      },
+      {
+        "k": 5,
+        "original_A0_residual": 7.764488855069218e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "e30f90f3dac3b574cf8b86465ab981e0d668491109c06192065c31c834558536"
+      },
+      {
+        "k": 6,
+        "original_A0_residual": 8.729064446641216e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "09bc766252ce5fe9d660f25f0060322fc8253054c5b6ac25a804fe04e97531d2"
+      },
+      {
+        "k": 7,
+        "original_A0_residual": 6.18296605840595e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "dd9887b62a28aee06a354f3c469152626b06fe533d11aaad8a89d218e911b196"
+      },
+      {
+        "k": 8,
+        "original_A0_residual": 5.7166666554122805e-15,
+        "repair_status": {
+          "success": true,
+          "corrections": 0
+        },
+        "RHS_sha256": "2cb5cfe91bcef079b218dc1f82b470e2a2101138d92f75ffc77962e297440de3"
+      }
+    ]
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "compact4_inject",
+    "records": []
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 0,
+    "method": "compact4_inject",
+    "records": []
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 0,
+    "method": "angular8_inner",
+    "records": [
+      {
+        "k": -8,
+        "original_A0_residual": 3.759218475515133e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.9195374755878345e-07
+            ],
+            [
+              3.7591710154662526e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d501567457c14b0168d4bd219d961c29b61f5a3c99db1c27d55362c1645b09b7"
+      },
+      {
+        "k": -7,
+        "original_A0_residual": 2.2679293361537997e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.767674584069821e-07
+            ],
+            [
+              2.2679296394997037e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "c6a039c1c9f751f8884af9f29dbfd1b079eaf5bc21873610f6ee4f1cd5bb0edd"
+      },
+      {
+        "k": -6,
+        "original_A0_residual": 1.923235468720434e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.869576626343034e-07
+            ],
+            [
+              1.9228082873821292e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "83cde65e5d0bd56b51644af5dfcbd8ed96daaa39cd265ac590f7e1476635c190"
+      },
+      {
+        "k": -5,
+        "original_A0_residual": 2.8551993697271234e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              8.039908584065924e-07
+            ],
+            [
+              2.854843234254026e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d1486ead9c0095ced10a59bc884d1bb37a7185af9a207582e2fd6fe78cac1e9b"
+      },
+      {
+        "k": -4,
+        "original_A0_residual": 2.450640958421682e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.1812261714885792e-06
+            ],
+            [
+              2.4501398059080865e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "5c375fac4ab1dfecbccdfa2612a18ae6fb9b9fde1dabe0a0baa185e4fe3f094f"
+      },
+      {
+        "k": -3,
+        "original_A0_residual": 1.8862276300873492e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              9.438341378423025e-07
+            ],
+            [
+              1.886874324679035e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "166e01ac94eb8c1103e14d366a1ec315c57b388d55c6fd9471fc5e90171da843"
+      },
+      {
+        "k": -2,
+        "original_A0_residual": 2.841602686511597e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.042308816027519e-06
+            ],
+            [
+              2.8434670335621885e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "ab10e33d5e7b601d7ad5b1568c9e605fee68630ec61f45094d755a6fee3ee0b2"
+      },
+      {
+        "k": -1,
+        "original_A0_residual": 7.855454112052612e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.105222965028638e-06
+            ],
+            [
+              7.854630877084917e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "38dd792c3b6baf61fadcc31bc8d697fbc753caf66a56befded61622f3640178a"
+      },
+      {
+        "k": 0,
+        "original_A0_residual": 3.858051886856452e-12,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.9044210438708088e-05
+            ],
+            [
+              3.859756225588884e-12
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d2b90ae28292e8060cfa3f50a97deec8d1a689a1717853bd861e3fae429fd335"
+      },
+      {
+        "k": 1,
+        "original_A0_residual": 8.965561677320818e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.214949379240119e-06
+            ],
+            [
+              8.965672130301302e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "9c3574409f9041fc2e40bdd488adfec06b144780f78d1e77a098610f6f7c5b48"
+      },
+      {
+        "k": 2,
+        "original_A0_residual": 3.501562641401035e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.6560420090516749e-06
+            ],
+            [
+              3.5037808298721744e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "24bf000f1a7582869a81d062d87f30dc1cc61def14729c9cf2ed80518d9bb2da"
+      },
+      {
+        "k": 3,
+        "original_A0_residual": 2.2382761484417556e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.0950896400995046e-06
+            ],
+            [
+              2.2383858945489211e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "640715b17d5f581387191a857dbfb4327bcb42b8074c1b6b6550a771f5a32856"
+      },
+      {
+        "k": 4,
+        "original_A0_residual": 2.2680944678615498e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.0412596690085176e-06
+            ],
+            [
+              2.268649482164193e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "a14b1d902c55f6a13d8d60f61d118b7e39b13b1cded5c3e8d25e00c75512cd0b"
+      },
+      {
+        "k": 5,
+        "original_A0_residual": 1.8678194009262327e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              6.757060024300503e-07
+            ],
+            [
+              1.8676400581984174e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "e30f90f3dac3b574cf8b86465ab981e0d668491109c06192065c31c834558536"
+      },
+      {
+        "k": 6,
+        "original_A0_residual": 2.255727312763207e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              6.499298607653821e-07
+            ],
+            [
+              2.255795690345983e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "09bc766252ce5fe9d660f25f0060322fc8253054c5b6ac25a804fe04e97531d2"
+      },
+      {
+        "k": 7,
+        "original_A0_residual": 2.8367385869350183e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.142069054560934e-07
+            ],
+            [
+              2.8366366806461525e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "dd9887b62a28aee06a354f3c469152626b06fe533d11aaad8a89d218e911b196"
+      },
+      {
+        "k": 8,
+        "original_A0_residual": 4.129939736656746e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              4.7569953722013467e-07
+            ],
+            [
+              4.12997800617035e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "2cb5cfe91bcef079b218dc1f82b470e2a2101138d92f75ffc77962e297440de3"
+      }
+    ]
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 1,
+    "method": "angular8_inner",
+    "records": [
+      {
+        "k": -8,
+        "original_A0_residual": 3.759218475515133e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.9195374755878345e-07
+            ],
+            [
+              3.7591710154662526e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d501567457c14b0168d4bd219d961c29b61f5a3c99db1c27d55362c1645b09b7"
+      },
+      {
+        "k": -7,
+        "original_A0_residual": 2.2679293361537997e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.767674584069821e-07
+            ],
+            [
+              2.2679296394997037e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "c6a039c1c9f751f8884af9f29dbfd1b079eaf5bc21873610f6ee4f1cd5bb0edd"
+      },
+      {
+        "k": -6,
+        "original_A0_residual": 1.923235468720434e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.869576626343034e-07
+            ],
+            [
+              1.9228082873821292e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "83cde65e5d0bd56b51644af5dfcbd8ed96daaa39cd265ac590f7e1476635c190"
+      },
+      {
+        "k": -5,
+        "original_A0_residual": 2.8551993697271234e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              8.039908584065924e-07
+            ],
+            [
+              2.854843234254026e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d1486ead9c0095ced10a59bc884d1bb37a7185af9a207582e2fd6fe78cac1e9b"
+      },
+      {
+        "k": -4,
+        "original_A0_residual": 2.450640958421682e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.1812261714885792e-06
+            ],
+            [
+              2.4501398059080865e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "5c375fac4ab1dfecbccdfa2612a18ae6fb9b9fde1dabe0a0baa185e4fe3f094f"
+      },
+      {
+        "k": -3,
+        "original_A0_residual": 1.8862276300873492e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              9.438341378423025e-07
+            ],
+            [
+              1.886874324679035e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "166e01ac94eb8c1103e14d366a1ec315c57b388d55c6fd9471fc5e90171da843"
+      },
+      {
+        "k": -2,
+        "original_A0_residual": 2.841602686511597e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.042308816027519e-06
+            ],
+            [
+              2.8434670335621885e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "ab10e33d5e7b601d7ad5b1568c9e605fee68630ec61f45094d755a6fee3ee0b2"
+      },
+      {
+        "k": -1,
+        "original_A0_residual": 7.855454112052612e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.105222965028638e-06
+            ],
+            [
+              7.854630877084917e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "38dd792c3b6baf61fadcc31bc8d697fbc753caf66a56befded61622f3640178a"
+      },
+      {
+        "k": 0,
+        "original_A0_residual": 3.858051886856452e-12,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.9044210438708088e-05
+            ],
+            [
+              3.859756225588884e-12
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d2b90ae28292e8060cfa3f50a97deec8d1a689a1717853bd861e3fae429fd335"
+      },
+      {
+        "k": 1,
+        "original_A0_residual": 8.965561677320818e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.214949379240119e-06
+            ],
+            [
+              8.965672130301302e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "9c3574409f9041fc2e40bdd488adfec06b144780f78d1e77a098610f6f7c5b48"
+      },
+      {
+        "k": 2,
+        "original_A0_residual": 3.501562641401035e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.6560420090516749e-06
+            ],
+            [
+              3.5037808298721744e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "24bf000f1a7582869a81d062d87f30dc1cc61def14729c9cf2ed80518d9bb2da"
+      },
+      {
+        "k": 3,
+        "original_A0_residual": 2.2382761484417556e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.0950896400995046e-06
+            ],
+            [
+              2.2383858945489211e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "640715b17d5f581387191a857dbfb4327bcb42b8074c1b6b6550a771f5a32856"
+      },
+      {
+        "k": 4,
+        "original_A0_residual": 2.2680944678615498e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.0412596690085176e-06
+            ],
+            [
+              2.268649482164193e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "a14b1d902c55f6a13d8d60f61d118b7e39b13b1cded5c3e8d25e00c75512cd0b"
+      },
+      {
+        "k": 5,
+        "original_A0_residual": 1.8678194009262327e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              6.757060024300503e-07
+            ],
+            [
+              1.8676400581984174e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "e30f90f3dac3b574cf8b86465ab981e0d668491109c06192065c31c834558536"
+      },
+      {
+        "k": 6,
+        "original_A0_residual": 2.255727312763207e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              6.499298607653821e-07
+            ],
+            [
+              2.255795690345983e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "09bc766252ce5fe9d660f25f0060322fc8253054c5b6ac25a804fe04e97531d2"
+      },
+      {
+        "k": 7,
+        "original_A0_residual": 2.8367385869350183e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.142069054560934e-07
+            ],
+            [
+              2.8366366806461525e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "dd9887b62a28aee06a354f3c469152626b06fe533d11aaad8a89d218e911b196"
+      },
+      {
+        "k": 8,
+        "original_A0_residual": 4.129939736656746e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              4.7569953722013467e-07
+            ],
+            [
+              4.12997800617035e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "2cb5cfe91bcef079b218dc1f82b470e2a2101138d92f75ffc77962e297440de3"
+      }
+    ]
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 1,
+    "method": "compact4_inject",
+    "records": []
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 2,
+    "method": "compact4_inject",
+    "records": []
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 2,
+    "method": "angular8_inner",
+    "records": [
+      {
+        "k": -8,
+        "original_A0_residual": 3.759218475515133e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.9195374755878345e-07
+            ],
+            [
+              3.7591710154662526e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d501567457c14b0168d4bd219d961c29b61f5a3c99db1c27d55362c1645b09b7"
+      },
+      {
+        "k": -7,
+        "original_A0_residual": 2.2679293361537997e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.767674584069821e-07
+            ],
+            [
+              2.2679296394997037e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "c6a039c1c9f751f8884af9f29dbfd1b079eaf5bc21873610f6ee4f1cd5bb0edd"
+      },
+      {
+        "k": -6,
+        "original_A0_residual": 1.923235468720434e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.869576626343034e-07
+            ],
+            [
+              1.9228082873821292e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "83cde65e5d0bd56b51644af5dfcbd8ed96daaa39cd265ac590f7e1476635c190"
+      },
+      {
+        "k": -5,
+        "original_A0_residual": 2.8551993697271234e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              8.039908584065924e-07
+            ],
+            [
+              2.854843234254026e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d1486ead9c0095ced10a59bc884d1bb37a7185af9a207582e2fd6fe78cac1e9b"
+      },
+      {
+        "k": -4,
+        "original_A0_residual": 2.450640958421682e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.1812261714885792e-06
+            ],
+            [
+              2.4501398059080865e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "5c375fac4ab1dfecbccdfa2612a18ae6fb9b9fde1dabe0a0baa185e4fe3f094f"
+      },
+      {
+        "k": -3,
+        "original_A0_residual": 1.8862276300873492e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              9.438341378423025e-07
+            ],
+            [
+              1.886874324679035e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "166e01ac94eb8c1103e14d366a1ec315c57b388d55c6fd9471fc5e90171da843"
+      },
+      {
+        "k": -2,
+        "original_A0_residual": 2.841602686511597e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.042308816027519e-06
+            ],
+            [
+              2.8434670335621885e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "ab10e33d5e7b601d7ad5b1568c9e605fee68630ec61f45094d755a6fee3ee0b2"
+      },
+      {
+        "k": -1,
+        "original_A0_residual": 7.855454112052612e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.105222965028638e-06
+            ],
+            [
+              7.854630877084917e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "38dd792c3b6baf61fadcc31bc8d697fbc753caf66a56befded61622f3640178a"
+      },
+      {
+        "k": 0,
+        "original_A0_residual": 3.858051886856452e-12,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.9044210438708088e-05
+            ],
+            [
+              3.859756225588884e-12
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "d2b90ae28292e8060cfa3f50a97deec8d1a689a1717853bd861e3fae429fd335"
+      },
+      {
+        "k": 1,
+        "original_A0_residual": 8.965561677320818e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              3.214949379240119e-06
+            ],
+            [
+              8.965672130301302e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "9c3574409f9041fc2e40bdd488adfec06b144780f78d1e77a098610f6f7c5b48"
+      },
+      {
+        "k": 2,
+        "original_A0_residual": 3.501562641401035e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.6560420090516749e-06
+            ],
+            [
+              3.5037808298721744e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "24bf000f1a7582869a81d062d87f30dc1cc61def14729c9cf2ed80518d9bb2da"
+      },
+      {
+        "k": 3,
+        "original_A0_residual": 2.2382761484417556e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.0950896400995046e-06
+            ],
+            [
+              2.2383858945489211e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "640715b17d5f581387191a857dbfb4327bcb42b8074c1b6b6550a771f5a32856"
+      },
+      {
+        "k": 4,
+        "original_A0_residual": 2.2680944678615498e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              1.0412596690085176e-06
+            ],
+            [
+              2.268649482164193e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "a14b1d902c55f6a13d8d60f61d118b7e39b13b1cded5c3e8d25e00c75512cd0b"
+      },
+      {
+        "k": 5,
+        "original_A0_residual": 1.8678194009262327e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              6.757060024300503e-07
+            ],
+            [
+              1.8676400581984174e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "e30f90f3dac3b574cf8b86465ab981e0d668491109c06192065c31c834558536"
+      },
+      {
+        "k": 6,
+        "original_A0_residual": 2.255727312763207e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              6.499298607653821e-07
+            ],
+            [
+              2.255795690345983e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "09bc766252ce5fe9d660f25f0060322fc8253054c5b6ac25a804fe04e97531d2"
+      },
+      {
+        "k": 7,
+        "original_A0_residual": 2.8367385869350183e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              5.142069054560934e-07
+            ],
+            [
+              2.8366366806461525e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "dd9887b62a28aee06a354f3c469152626b06fe533d11aaad8a89d218e911b196"
+      },
+      {
+        "k": 8,
+        "original_A0_residual": 4.129939736656746e-13,
+        "repair_status": {
+          "corrections": 1,
+          "success": true,
+          "residual_trace": [
+            [
+              4.7569953722013467e-07
+            ],
+            [
+              4.12997800617035e-13
+            ]
+          ],
+          "zero_columns": 0
+        },
+        "RHS_sha256": "2cb5cfe91bcef079b218dc1f82b470e2a2101138d92f75ffc77962e297440de3"
+      }
+    ]
+  }
+]

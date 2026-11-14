@@ -1,0 +1,124 @@
+{
+  "complete": true,
+  "pid": 1268511,
+  "affinity": [
+    0
+  ],
+  "device": "cpu",
+  "records": [
+    {
+      "k": -8,
+      "all_zero": {
+        "corrections": 0,
+        "success": true,
+        "residual_trace": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "zero_columns": 2
+      },
+      "mixed": {
+        "corrections": 1,
+        "success": true,
+        "residual_trace": [
+          [
+            0.0,
+            4.694073569652927e-07,
+            4.694073562352828e-07,
+            0.0
+          ],
+          [
+            0.0,
+            3.853932364328273e-13,
+            3.8543832092996186e-13,
+            0.0
+          ]
+        ],
+        "zero_columns": 2
+      },
+      "zero_output_exact": true,
+      "tiny_nonzero_scale": 1e-200,
+      "tiny_nonzero_not_discarded": true
+    },
+    {
+      "k": 0,
+      "all_zero": {
+        "corrections": 0,
+        "success": true,
+        "residual_trace": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "zero_columns": 2
+      },
+      "mixed": {
+        "corrections": 1,
+        "success": true,
+        "residual_trace": [
+          [
+            0.0,
+            2.4874437798613535e-06,
+            2.4874437787618726e-06,
+            0.0
+          ],
+          [
+            0.0,
+            2.0791022459911774e-12,
+            2.0789149916788415e-12,
+            0.0
+          ]
+        ],
+        "zero_columns": 2
+      },
+      "zero_output_exact": true,
+      "tiny_nonzero_scale": 1e-200,
+      "tiny_nonzero_not_discarded": true
+    },
+    {
+      "k": 8,
+      "all_zero": {
+        "corrections": 0,
+        "success": true,
+        "residual_trace": [
+          [
+            0.0,
+            0.0
+          ]
+        ],
+        "zero_columns": 2
+      },
+      "mixed": {
+        "corrections": 1,
+        "success": true,
+        "residual_trace": [
+          [
+            0.0,
+            4.543895354988156e-07,
+            4.54389537744566e-07,
+            0.0
+          ],
+          [
+            0.0,
+            4.0483217270057906e-13,
+            4.0483215286654194e-13,
+            0.0
+          ]
+        ],
+        "zero_columns": 2
+      },
+      "zero_output_exact": true,
+      "tiny_nonzero_scale": 1e-200,
+      "tiny_nonzero_not_discarded": true
+    }
+  ],
+  "wall_seconds": 0.3155998869333416,
+  "source_hashes": {
+    "qualify_zero_columns.py": "642ee1796eb4d83329ba0874bdc21a53de7731310404aafc9db0002fcc82db9e",
+    "angular_modes.py": "d152afea90179efa8342a4f12631979951503785330f3aab08d4b7f1fe32a481"
+  },
+  "scope": "Strict zero columns and mixed zero/nonzero/tiny-nonzero columns; nonzero relative target remains1e-10 without absolute floors."
+}

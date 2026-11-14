@@ -1,0 +1,13 @@
+{
+  "run": "rte/workstation_runs/ct_n32_data4096_seed101",
+  "indices": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "split": "validation",
+  "device": "cpu",
+  "power_steps": 30,
+  "interpretation": "exploratory witnesses; no checkpoint selection or norm certificate"
+}

@@ -1,0 +1,11 @@
+{
+  "scope": "diagnostic fixed TRAIN8 residual panels only; never train/select; no full solver claim; no old-prefix mixed-context rollout",
+  "white": "8 independent full-space complex Gaussian r per medium (NOT Ae), CPU seed147901, each L2 normalized; evaluate mean norm AND mean squared norm",
+  "old": "32 frozen before-model true residuals from source/TSA1/FGMRES2/8",
+  "witness": "12 saved before/after/CT4 power witnesses, 4TRAIN, no new power",
+  "input_hash": "57b51dffc04b203b60173230c4b33270f958113e1688a4b82760b2e170ddb695",
+  "old_bank_hash": "4beb4d9e1a7b7d182d76c1a9c22f6a2bb7a44776acae481bf4b20f733857774c",
+  "train_fingerprint": "e1cdc6ddae56ef024a7a089bb08466007e3182e356f53391b4bfaffeb70d94e8",
+  "source_hash": "21f8a93ac972656d9bf6b96f1486b5b8403aeb99057bbe2b97473468b0ed7656",
+  "count": 108
+}

@@ -1,0 +1,1335 @@
+{
+  "complete": true,
+  "A": {
+    "all_eight_accepted": true,
+    "positive_pairs": 6,
+    "rigorous_negative_pairs": 6,
+    "four_distinct_N256_engineering_fields": true,
+    "no_original_source_N256_solver_admission": true
+  },
+  "B": {
+    "all_four_numerically_identical": true,
+    "comparisons": [
+      {
+        "size": 256,
+        "index": 0,
+        "role": "baseline",
+        "identical_numerical_certificate": true,
+        "A_seconds": 33.23573028109968,
+        "B_seconds": 29.12721067108214,
+        "descriptive_call_saving_fraction": 0.12361755181151979
+      },
+      {
+        "size": 256,
+        "index": 0,
+        "role": "positive",
+        "identical_numerical_certificate": true,
+        "A_seconds": 32.803660629317164,
+        "B_seconds": 29.378309309482574,
+        "descriptive_call_saving_fraction": 0.10441978895408088
+      },
+      {
+        "size": 256,
+        "index": 3,
+        "role": "baseline",
+        "identical_numerical_certificate": true,
+        "A_seconds": 35.733160357922316,
+        "B_seconds": 28.78571460954845,
+        "descriptive_call_saving_fraction": 0.19442572889676024
+      },
+      {
+        "size": 256,
+        "index": 3,
+        "role": "positive",
+        "identical_numerical_certificate": true,
+        "A_seconds": 34.3953277207911,
+        "B_seconds": 28.596509097144008,
+        "descriptive_call_saving_fraction": 0.1685932075053861
+      }
+    ],
+    "A_matched_N256_helper_seconds": 136.16787898913026,
+    "B_matched_N256_helper_seconds": 115.88774368725717,
+    "concurrent_load_and_unequal_total_job_case_counts": true,
+    "controlled_cold_throughput_benchmark": false
+  },
+  "certificate_evidence": [
+    {
+      "arm": "A",
+      "size": 64,
+      "index": 0,
+      "role": "baseline",
+      "call_seconds": 1.8503316696733236,
+      "accepted": true,
+      "relative_residual_upper": 6.876064510027165e-10,
+      "relative_radius_upper": 5.612242495858733e-12,
+      "reserve_usage_fraction": 5.612242495858733e-05,
+      "relative_solution_error_upper": 5.071642093415813e-09,
+      "paired_relative_upper": 0.0
+    },
+    {
+      "arm": "A",
+      "size": 64,
+      "index": 3,
+      "role": "baseline",
+      "call_seconds": 1.6007790304720402,
+      "accepted": true,
+      "relative_residual_upper": 6.493906488500963e-10,
+      "relative_radius_upper": 2.2363775762743735e-12,
+      "reserve_usage_fraction": 2.2363775762743736e-05,
+      "relative_solution_error_upper": 5.380231150202957e-09,
+      "paired_relative_upper": 0.0
+    },
+    {
+      "arm": "A",
+      "size": 128,
+      "index": 0,
+      "role": "baseline",
+      "call_seconds": 7.176792096346617,
+      "accepted": true,
+      "relative_residual_upper": 7.330976981630692e-10,
+      "relative_radius_upper": 1.1511065683066891e-11,
+      "reserve_usage_fraction": 0.0001151106568306689,
+      "relative_solution_error_upper": 5.409531542050039e-09,
+      "paired_relative_upper": 0.0
+    },
+    {
+      "arm": "A",
+      "size": 128,
+      "index": 3,
+      "role": "baseline",
+      "call_seconds": 7.184882817789912,
+      "accepted": true,
+      "relative_residual_upper": 6.476491883757245e-10,
+      "relative_radius_upper": 4.5994816156755026e-12,
+      "reserve_usage_fraction": 4.599481615675502e-05,
+      "relative_solution_error_upper": 5.365150118108865e-09,
+      "paired_relative_upper": 0.0
+    },
+    {
+      "arm": "A",
+      "size": 256,
+      "index": 0,
+      "role": "baseline",
+      "call_seconds": 33.23573028109968,
+      "accepted": true,
+      "relative_residual_upper": 2.4702245392535454e-11,
+      "relative_radius_upper": 2.4603895311676053e-11,
+      "reserve_usage_fraction": 0.0002460389531167605,
+      "relative_solution_error_upper": 1.8367870312073785e-10,
+      "paired_relative_upper": 0.0
+    },
+    {
+      "arm": "A",
+      "size": 256,
+      "index": 0,
+      "role": "positive",
+      "call_seconds": 32.803660629317164,
+      "accepted": true,
+      "relative_residual_upper": 9.536989208387161e-07,
+      "relative_radius_upper": 2.460442175191406e-11,
+      "reserve_usage_fraction": 0.0002460442175191406,
+      "relative_solution_error_upper": 7.091470970106123e-06,
+      "paired_relative_upper": 9.536743164062532e-07
+    },
+    {
+      "arm": "A",
+      "size": 256,
+      "index": 3,
+      "role": "baseline",
+      "call_seconds": 35.733160357922316,
+      "accepted": true,
+      "relative_residual_upper": 9.957626618220886e-12,
+      "relative_radius_upper": 9.904573217643449e-12,
+      "reserve_usage_fraction": 9.904573217643447e-05,
+      "relative_solution_error_upper": 8.274982860403646e-11,
+      "paired_relative_upper": 0.0
+    },
+    {
+      "arm": "A",
+      "size": 256,
+      "index": 3,
+      "role": "positive",
+      "call_seconds": 34.3953277207911,
+      "accepted": true,
+      "relative_residual_upper": 9.536842220660432e-07,
+      "relative_radius_upper": 9.905647394196663e-12,
+      "reserve_usage_fraction": 9.905647394196661e-05,
+      "relative_solution_error_upper": 7.925358031870377e-06,
+      "paired_relative_upper": 9.536743164062534e-07
+    },
+    {
+      "arm": "B",
+      "size": 256,
+      "index": 0,
+      "role": "baseline",
+      "call_seconds": 29.12721067108214,
+      "accepted": true,
+      "relative_residual_upper": 2.4702245392535454e-11,
+      "relative_radius_upper": 2.4603895311676053e-11,
+      "reserve_usage_fraction": 0.0002460389531167605,
+      "relative_solution_error_upper": 1.8367870312073785e-10,
+      "paired_relative_upper": 0.0
+    },
+    {
+      "arm": "B",
+      "size": 256,
+      "index": 0,
+      "role": "positive",
+      "call_seconds": 29.378309309482574,
+      "accepted": true,
+      "relative_residual_upper": 9.536989208387161e-07,
+      "relative_radius_upper": 2.460442175191406e-11,
+      "reserve_usage_fraction": 0.0002460442175191406,
+      "relative_solution_error_upper": 7.091470970106123e-06,
+      "paired_relative_upper": 9.536743164062532e-07
+    },
+    {
+      "arm": "B",
+      "size": 256,
+      "index": 3,
+      "role": "baseline",
+      "call_seconds": 28.78571460954845,
+      "accepted": true,
+      "relative_residual_upper": 9.957626618220886e-12,
+      "relative_radius_upper": 9.904573217643449e-12,
+      "reserve_usage_fraction": 9.904573217643447e-05,
+      "relative_solution_error_upper": 8.274982860403646e-11,
+      "paired_relative_upper": 0.0
+    },
+    {
+      "arm": "B",
+      "size": 256,
+      "index": 3,
+      "role": "positive",
+      "call_seconds": 28.596509097144008,
+      "accepted": true,
+      "relative_residual_upper": 9.536842220660432e-07,
+      "relative_radius_upper": 9.905647394196663e-12,
+      "reserve_usage_fraction": 9.905647394196661e-05,
+      "relative_solution_error_upper": 7.925358031870377e-06,
+      "paired_relative_upper": 9.536743164062534e-07
+    }
+  ],
+  "physics_verdicts": {
+    "C": {
+      "all_strata_screen_passed": false,
+      "passing_strata": 0,
+      "strata": 4,
+      "fullsolver_or_learning_admission": false
+    },
+    "D": {
+      "all_strata_screen_passed": false,
+      "passing_strata": 2,
+      "strata": 4,
+      "fullsolver_or_learning_admission": false
+    }
+  },
+  "physics_strata": [
+    {
+      "job": "C",
+      "size": 128,
+      "context": "source",
+      "means": {
+        "strong": {
+          "mean_actual_line_ratio": 0.282863015630228,
+          "mean_squared_actual_line_ratio": 0.08212635144578764,
+          "mean_apply_seconds": 0.0033239591866731644
+        },
+        "material_local": {
+          "mean_actual_line_ratio": 0.9802118723359976,
+          "mean_squared_actual_line_ratio": 0.9608163219801633,
+          "mean_apply_seconds": 0.0009898915886878967
+        },
+        "reference": {
+          "mean_actual_line_ratio": 0.9603519513986714,
+          "mean_squared_actual_line_ratio": 0.9222763020964051,
+          "mean_apply_seconds": 0.00030562933534383774
+        }
+      },
+      "quality_screen": false,
+      "component_cost_screen": false,
+      "screen_passed": false
+    },
+    {
+      "job": "C",
+      "size": 128,
+      "context": "one_strong_action_defect",
+      "means": {
+        "strong": {
+          "mean_actual_line_ratio": 0.26739590103947597,
+          "mean_squared_actual_line_ratio": 0.08198140123987092,
+          "mean_apply_seconds": 0.0033332491293549538
+        },
+        "material_local": {
+          "mean_actual_line_ratio": 0.9802197312308525,
+          "mean_squared_actual_line_ratio": 0.9608693406726423,
+          "mean_apply_seconds": 0.0009403610602021217
+        },
+        "reference": {
+          "mean_actual_line_ratio": 0.8231181758703429,
+          "mean_squared_actual_line_ratio": 0.6815765693975262,
+          "mean_apply_seconds": 0.00027198437601327896
+        }
+      },
+      "quality_screen": false,
+      "component_cost_screen": false,
+      "screen_passed": false
+    },
+    {
+      "job": "C",
+      "size": 256,
+      "context": "source",
+      "means": {
+        "strong": {
+          "mean_actual_line_ratio": 0.08407238398660664,
+          "mean_squared_actual_line_ratio": 0.00894481893013046,
+          "mean_apply_seconds": 0.017919573932886124
+        },
+        "material_local": {
+          "mean_actual_line_ratio": 0.989520371418332,
+          "mean_squared_actual_line_ratio": 0.9791507586990713,
+          "mean_apply_seconds": 0.001932697370648384
+        },
+        "reference": {
+          "mean_actual_line_ratio": 0.9608985336956908,
+          "mean_squared_actual_line_ratio": 0.9233261786134478,
+          "mean_apply_seconds": 0.0008148979395627975
+        }
+      },
+      "quality_screen": false,
+      "component_cost_screen": true,
+      "screen_passed": false
+    },
+    {
+      "job": "C",
+      "size": 256,
+      "context": "one_strong_action_defect",
+      "means": {
+        "strong": {
+          "mean_actual_line_ratio": 0.11935867710820153,
+          "mean_squared_actual_line_ratio": 0.017957411163787365,
+          "mean_apply_seconds": 0.018165423534810543
+        },
+        "material_local": {
+          "mean_actual_line_ratio": 0.9860311572355869,
+          "mean_squared_actual_line_ratio": 0.9723077143360779,
+          "mean_apply_seconds": 0.0020076194778084755
+        },
+        "reference": {
+          "mean_actual_line_ratio": 0.8128179676868476,
+          "mean_squared_actual_line_ratio": 0.6636018228291409,
+          "mean_apply_seconds": 0.0008251266553997993
+        }
+      },
+      "quality_screen": false,
+      "component_cost_screen": true,
+      "screen_passed": false
+    },
+    {
+      "job": "D",
+      "size": 128,
+      "context": "source",
+      "means": {
+        "reference_column": {
+          "mean_actual_line_ratio": 0.9603502950927654,
+          "mean_squared_actual_line_ratio": 0.9222731188611246,
+          "mean_apply_seconds": 1.410115510225296e-05
+        },
+        "teacher_column": {
+          "mean_actual_line_ratio": 0.7152187766990179,
+          "mean_squared_actual_line_ratio": 0.5196544750600253,
+          "mean_apply_seconds": 1.4386139810085297e-05
+        }
+      },
+      "squared_information_gain": 0.40261864380109935,
+      "information_screen_passed": true,
+      "acquisition_cost_unknown_not_zero": true
+    },
+    {
+      "job": "D",
+      "size": 128,
+      "context": "one_strong_action_defect",
+      "means": {
+        "reference_column": {
+          "mean_actual_line_ratio": 0.9989445819339084,
+          "mean_squared_actual_line_ratio": 0.9978902898893867,
+          "mean_apply_seconds": 1.408252865076065e-05
+        },
+        "teacher_column": {
+          "mean_actual_line_ratio": 0.9996294146789471,
+          "mean_squared_actual_line_ratio": 0.9992590422733153,
+          "mean_apply_seconds": 1.416727900505066e-05
+        }
+      },
+      "squared_information_gain": -0.0013687523839286397,
+      "information_screen_passed": false,
+      "acquisition_cost_unknown_not_zero": true
+    },
+    {
+      "job": "D",
+      "size": 256,
+      "context": "source",
+      "means": {
+        "reference_column": {
+          "mean_actual_line_ratio": 0.9607253563262425,
+          "mean_squared_actual_line_ratio": 0.9229935709609302,
+          "mean_apply_seconds": 1.4279969036579132e-05
+        },
+        "teacher_column": {
+          "mean_actual_line_ratio": 0.7842122999596456,
+          "mean_squared_actual_line_ratio": 0.6212916469452077,
+          "mean_apply_seconds": 1.4585442841053009e-05
+        }
+      },
+      "squared_information_gain": 0.3017019240157225,
+      "information_screen_passed": true,
+      "acquisition_cost_unknown_not_zero": true
+    },
+    {
+      "job": "D",
+      "size": 256,
+      "context": "one_strong_action_defect",
+      "means": {
+        "reference_column": {
+          "mean_actual_line_ratio": 0.9998495662531914,
+          "mean_squared_actual_line_ratio": 0.9996991707560163,
+          "mean_apply_seconds": 1.401267945766449e-05
+        },
+        "teacher_column": {
+          "mean_actual_line_ratio": 0.9996938036245913,
+          "mean_squared_actual_line_ratio": 0.999387769726723,
+          "mean_apply_seconds": 1.4145858585834503e-05
+        }
+      },
+      "squared_information_gain": 0.00031140102929327895,
+      "information_screen_passed": false,
+      "acquisition_cost_unknown_not_zero": true
+    }
+  ],
+  "commutator_summary": {
+    "streaming_penalty_relative_min": 6.274595993912001,
+    "streaming_penalty_relative_max": 98.19175678675067,
+    "reference_closure_relative_max": 9.52537840682627e-13,
+    "local_collision_closure_relative_max": 3.987343443972353e-13,
+    "identity_discrepancy_relative_max": 1.1293221715324142e-12
+  },
+  "costs": {
+    "batch_supervisor_wall_seconds": 173.80375097319484,
+    "external_job_processes": [
+      {
+        "name": "freeze",
+        "pid": 2403550,
+        "returncode": 0,
+        "timeout": false,
+        "external_process_seconds": 6.75300931558013,
+        "hard_seconds": 60,
+        "command": [
+          "/data1/software/miniconda3/bin/python",
+          "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobA/code/stagewise_driver.py",
+          "freeze"
+        ],
+        "completed_utc": "2026-10-04T08:28:49.875824+00:00"
+      },
+      {
+        "name": "C_local",
+        "pid": 2403612,
+        "returncode": 0,
+        "timeout": false,
+        "external_process_seconds": 25.74613226391375,
+        "hard_seconds": 120,
+        "command": [
+          "/data1/software/miniconda3/bin/python",
+          "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/code/gpu_direction_jobs.py",
+          "local"
+        ],
+        "completed_utc": "2026-10-04T08:29:15.660522+00:00"
+      },
+      {
+        "name": "D_coarse",
+        "pid": 2403692,
+        "returncode": 0,
+        "timeout": false,
+        "external_process_seconds": 20.711033644154668,
+        "hard_seconds": 120,
+        "command": [
+          "/data1/software/miniconda3/bin/python",
+          "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/code/gpu_direction_jobs.py",
+          "coarse"
+        ],
+        "completed_utc": "2026-10-04T08:29:36.541054+00:00"
+      },
+      {
+        "name": "B_optimized",
+        "pid": 2403611,
+        "returncode": 0,
+        "timeout": false,
+        "external_process_seconds": 119.35002559237182,
+        "hard_seconds": 180,
+        "command": [
+          "/data1/software/miniconda3/bin/python",
+          "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/code/optimized_job.py"
+        ],
+        "completed_utc": "2026-10-04T08:30:49.263897+00:00"
+      },
+      {
+        "name": "A_stagewise",
+        "pid": 2403610,
+        "returncode": 0,
+        "timeout": false,
+        "external_process_seconds": 166.73613240756094,
+        "hard_seconds": 240,
+        "command": [
+          "/data1/software/miniconda3/bin/python",
+          "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobA/code/stagewise_driver.py",
+          "check"
+        ],
+        "completed_utc": "2026-10-04T08:31:36.649348+00:00"
+      }
+    ],
+    "submission_seconds": 51.879721166566014,
+    "preservation_preflight_seconds": 36.48990331962705,
+    "compile_seconds": 0.3552320133894682,
+    "tests_seconds": 13.509224884212017,
+    "A_internal": {
+      "complete": true,
+      "error": null,
+      "certificates": 8,
+      "paired_controls": 12,
+      "costs": {
+        "readback_hash_seconds": 2.184686852619052,
+        "certificates_seconds": 153.98066460341215,
+        "direct_pair_controls_seconds": 2.8118642438203096,
+        "final_snapshot_hash_seconds": 1.6266413312405348,
+        "json_persistence_seconds": 3.8427119962871075
+      },
+      "elapsed_seconds": 166.5248489137739,
+      "first_checker_ready_seconds": 0.24909919686615467,
+      "ledger_load_seconds": 0.0029351897537708282,
+      "snapshot_ledger_sha256": "29f9ec208e25d74204ae8a12663fb3f8b240e99eb304aebe7b04e14e99fa2b83",
+      "native_guard": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "native_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+      "cpu_peak_rss_kib": 474916,
+      "full_solves": 0,
+      "training_steps": 0,
+      "source_arrays_exported": false,
+      "paired_solver_comparison": false,
+      "global_gpu_contract_established": false,
+      "cost_scope": "Entire fresh CPU checker process including imports/startup, readback/hash, both N256 certificates, direct paired gates and JSON; generation/transfers/snapshot costs separately recorded and included by orchestrator"
+    },
+    "B_internal": {
+      "complete": true,
+      "error": null,
+      "costs": {
+        "readback_and_hash_seconds": 1.5994281880557537,
+        "certificate_seconds": 115.88774368725717,
+        "post_hash_seconds": 1.0676021911203861
+      },
+      "certificates": 4,
+      "elapsed_seconds": 119.22679629176855,
+      "first_checker_ready_seconds": 0.2423283364623785,
+      "cpu_peak_rss_kib": 473116,
+      "ledger_sha256": "29f9ec208e25d74204ae8a12663fb3f8b240e99eb304aebe7b04e14e99fa2b83",
+      "native_guard": {
+        "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+        "architecture": "x86-MXCSR",
+        "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+        "compilation_provenance_must_be_recorded_by_executor": true,
+        "guard_flags": 127,
+        "control_register": 8098,
+        "floating_control_modes_modified": false,
+        "sticky_exception_flags_may_change_in_arithmetic": true
+      },
+      "native_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+      "full_solves": 0,
+      "training_steps": 0,
+      "H_actions": 0,
+      "M_actions": 0,
+      "input_bits_shared_with_jobA": true,
+      "cost_scope": "Entire cold process/imports, common frozen fixture readback/hashes, all four complete certificates including paired gates and serialization"
+    },
+    "fixture_generation": {
+      "complete": true,
+      "all_snapshots_persisted_before_checker": true,
+      "fixtures": [
+        {
+          "size": 64,
+          "index": 0,
+          "kind": "saved_teacher",
+          "path": "fixtures/n64_id0.npz",
+          "sha256": "186320dee3feef5848ded11c9dd93c5b29c17fa04ba538451bcf9f1814289734",
+          "bytes": 4787886,
+          "arrays": {
+            "source": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                64,
+                64
+              ],
+              "bytes": 786432,
+              "sha256": "0b3916a45c184d7c326db743989bf3965ad448d9f0427275a073277524282aa5"
+            },
+            "baseline": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                64,
+                64
+              ],
+              "bytes": 786432,
+              "sha256": "1e5c8e476873430dbcb0d85d05635ea9efa82248b2ee7f5f08ca2984d2adb9c3"
+            },
+            "positive": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                64,
+                64
+              ],
+              "bytes": 786432,
+              "sha256": "12bc590c283e2c7f858d7fa61289abb0b218331ba912fe1d427ca301d7ea8f73"
+            },
+            "negative": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                64,
+                64
+              ],
+              "bytes": 786432,
+              "sha256": "9fb41bceb77825d2bd21a66c50f72b882b55b3e7bff57d56352c20c70719aee2"
+            },
+            "original_source": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                64,
+                64
+              ],
+              "bytes": 786432,
+              "sha256": "0b3916a45c184d7c326db743989bf3965ad448d9f0427275a073277524282aa5"
+            },
+            "stream_symbol": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                64,
+                64
+              ],
+              "bytes": 786432,
+              "sha256": "45236f973cc0bb0c75d18593cd039f47f36f6a70ff1c2ebaed767b69f847970c"
+            },
+            "sigma_t": {
+              "dtype": "float64",
+              "shape": [
+                1,
+                1,
+                64,
+                64
+              ],
+              "bytes": 32768,
+              "sha256": "4807a4e1e3859f238bebf873031f4819a4c163ca4de6595ebc0489b1ccb5f4d0"
+            },
+            "sigma_s": {
+              "dtype": "float64",
+              "shape": [
+                1,
+                1,
+                64,
+                64
+              ],
+              "bytes": 32768,
+              "sha256": "a0fb81630e46b0823fd8c1c7a3fbd01b909077591393e4ce66a941e1509e83ee"
+            },
+            "phase": {
+              "dtype": "float64",
+              "shape": [
+                12,
+                12
+              ],
+              "bytes": 1152,
+              "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff"
+            },
+            "weights": {
+              "dtype": "float64",
+              "shape": [
+                12
+              ],
+              "bytes": 96,
+              "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6"
+            }
+          },
+          "parent": {
+            "path": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+            "sha256": "858f73d0066333dd9a4b4366d7ff48dc5f160650e5e326c33b1d28b03079efed"
+          },
+          "provenance": "Saved development teacher",
+          "paired_role": "Manufactured engineering perturbations only; no independent baseline/candidate solver comparison",
+          "positive_scale_rational": "1048577/1048576",
+          "negative_scale_rational": "257/256"
+        },
+        {
+          "size": 64,
+          "index": 3,
+          "kind": "saved_teacher",
+          "path": "fixtures/n64_id3.npz",
+          "sha256": "80104ce31590e0d1c9062cbce81a15d27310afd78abab22d18bd69b527940279",
+          "bytes": 4787886,
+          "arrays": {
+            "source": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                64,
+                64
+              ],
+              "bytes": 786432,
+              "sha256": "d1bbd0a30630c58e77d361544a44eb31dbd10dd72d231a2091a38b948c61c473"
+            },
+            "baseline": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                64,
+                64
+              ],
+              "bytes": 786432,
+              "sha256": "5756bbaa67afcdea5750b8dad1c3110d6722244323831797b1c90d298f95d7e4"
+            },
+            "positive": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                64,
+                64
+              ],
+              "bytes": 786432,
+              "sha256": "7f4b96365a5636b1a7f7df4523531c3e9c9a4fe71281a200397b995453abc0e7"
+            },
+            "negative": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                64,
+                64
+              ],
+              "bytes": 786432,
+              "sha256": "833fa31a58e46f219ce0314372b2b3eaaa18bf311edabd5591982104e7525fc3"
+            },
+            "original_source": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                64,
+                64
+              ],
+              "bytes": 786432,
+              "sha256": "d1bbd0a30630c58e77d361544a44eb31dbd10dd72d231a2091a38b948c61c473"
+            },
+            "stream_symbol": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                64,
+                64
+              ],
+              "bytes": 786432,
+              "sha256": "45236f973cc0bb0c75d18593cd039f47f36f6a70ff1c2ebaed767b69f847970c"
+            },
+            "sigma_t": {
+              "dtype": "float64",
+              "shape": [
+                1,
+                1,
+                64,
+                64
+              ],
+              "bytes": 32768,
+              "sha256": "c2b59c7efa0d13da23c7501240bd22954d2e1f774d27be1fe89050d56f441c10"
+            },
+            "sigma_s": {
+              "dtype": "float64",
+              "shape": [
+                1,
+                1,
+                64,
+                64
+              ],
+              "bytes": 32768,
+              "sha256": "dd5363711e755d2cfabe4d04fcac5fcc0b063ce8f7a0312f990041a068fc6784"
+            },
+            "phase": {
+              "dtype": "float64",
+              "shape": [
+                12,
+                12
+              ],
+              "bytes": 1152,
+              "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff"
+            },
+            "weights": {
+              "dtype": "float64",
+              "shape": [
+                12
+              ],
+              "bytes": 96,
+              "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6"
+            }
+          },
+          "parent": {
+            "path": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+            "sha256": "858f73d0066333dd9a4b4366d7ff48dc5f160650e5e326c33b1d28b03079efed"
+          },
+          "provenance": "Saved development teacher",
+          "paired_role": "Manufactured engineering perturbations only; no independent baseline/candidate solver comparison",
+          "positive_scale_rational": "1048577/1048576",
+          "negative_scale_rational": "257/256"
+        },
+        {
+          "size": 128,
+          "index": 0,
+          "kind": "saved_teacher",
+          "path": "fixtures/n128_id0.npz",
+          "sha256": "052f5b07ad862b80d29693f829989cdda0bb7fb9d4e5911a00e18ca88151f6aa",
+          "bytes": 19140270,
+          "arrays": {
+            "source": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                128,
+                128
+              ],
+              "bytes": 3145728,
+              "sha256": "62684f15f9bf8d61534597f9a0a0e4f8102dd01c6aa859d13631c11cd879cd35"
+            },
+            "baseline": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                128,
+                128
+              ],
+              "bytes": 3145728,
+              "sha256": "d57578f20cc9883a4dcc71d7860b1a785f0db56346d38d83e2f01fdbd10d21e0"
+            },
+            "positive": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                128,
+                128
+              ],
+              "bytes": 3145728,
+              "sha256": "0ed943ca3cf80d2828c61f64af1433e7d91e722422bc5a1203378fa5fd71e57e"
+            },
+            "negative": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                128,
+                128
+              ],
+              "bytes": 3145728,
+              "sha256": "c98d41b63ba20eeb3c4fee2c044bf414d090995ccc76dd5f9faa58a8ddcd91a4"
+            },
+            "original_source": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                128,
+                128
+              ],
+              "bytes": 3145728,
+              "sha256": "62684f15f9bf8d61534597f9a0a0e4f8102dd01c6aa859d13631c11cd879cd35"
+            },
+            "stream_symbol": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                128,
+                128
+              ],
+              "bytes": 3145728,
+              "sha256": "460ad151505e8c2dd9406409185a54c5d6b46da729dd8efa9db176539f7da737"
+            },
+            "sigma_t": {
+              "dtype": "float64",
+              "shape": [
+                1,
+                1,
+                128,
+                128
+              ],
+              "bytes": 131072,
+              "sha256": "f7b96221e93c0b91ed84e25ff8aef49abd4761699ec8a1e30f3ca2761e34933e"
+            },
+            "sigma_s": {
+              "dtype": "float64",
+              "shape": [
+                1,
+                1,
+                128,
+                128
+              ],
+              "bytes": 131072,
+              "sha256": "9b0f81ea3d671df4dbaf18b1858d08100ca9324d819879c516cc2cc60e779371"
+            },
+            "phase": {
+              "dtype": "float64",
+              "shape": [
+                12,
+                12
+              ],
+              "bytes": 1152,
+              "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff"
+            },
+            "weights": {
+              "dtype": "float64",
+              "shape": [
+                12
+              ],
+              "bytes": 96,
+              "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6"
+            }
+          },
+          "parent": {
+            "path": "rte/workstation_runs/tail_multiresolution_bank_20260926/validation.pt",
+            "sha256": "58f8e2f069ea1fa1c0c8f490b441c7acfc91a6592d045a7a7a52eea7bf08aeb4"
+          },
+          "provenance": "Saved development teacher",
+          "paired_role": "Manufactured engineering perturbations only; no independent baseline/candidate solver comparison",
+          "positive_scale_rational": "1048577/1048576",
+          "negative_scale_rational": "257/256"
+        },
+        {
+          "size": 128,
+          "index": 3,
+          "kind": "saved_teacher",
+          "path": "fixtures/n128_id3.npz",
+          "sha256": "8b2acd7a90ff6a46fc68f2d171a4439814d86deb1ed2ed088d9567449a4f98dd",
+          "bytes": 19140270,
+          "arrays": {
+            "source": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                128,
+                128
+              ],
+              "bytes": 3145728,
+              "sha256": "aadd185e963b0b130bbe10259408a77cdf7c1f776cc3e61508c59e67e2fac7af"
+            },
+            "baseline": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                128,
+                128
+              ],
+              "bytes": 3145728,
+              "sha256": "7fef81f9c52e42b08b88eae505233786db844e2e0e5b6d584419d12279b8717a"
+            },
+            "positive": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                128,
+                128
+              ],
+              "bytes": 3145728,
+              "sha256": "b2b3351518542a565844933cda933d6017e7497775ce502f5906425ebefb4973"
+            },
+            "negative": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                128,
+                128
+              ],
+              "bytes": 3145728,
+              "sha256": "e4c95a4b1c00e3cd7f162ee23fa06fc3f417ad1ddb33d79b2624ac398bd4cc6a"
+            },
+            "original_source": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                128,
+                128
+              ],
+              "bytes": 3145728,
+              "sha256": "aadd185e963b0b130bbe10259408a77cdf7c1f776cc3e61508c59e67e2fac7af"
+            },
+            "stream_symbol": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                128,
+                128
+              ],
+              "bytes": 3145728,
+              "sha256": "460ad151505e8c2dd9406409185a54c5d6b46da729dd8efa9db176539f7da737"
+            },
+            "sigma_t": {
+              "dtype": "float64",
+              "shape": [
+                1,
+                1,
+                128,
+                128
+              ],
+              "bytes": 131072,
+              "sha256": "abe2c1f95cc012a3d7a95fed37aa30d9a444581939766884e23da04c3bf932b9"
+            },
+            "sigma_s": {
+              "dtype": "float64",
+              "shape": [
+                1,
+                1,
+                128,
+                128
+              ],
+              "bytes": 131072,
+              "sha256": "2937371ae252311e84e3988f161897632845481a292fafc62a3325d06272c4e6"
+            },
+            "phase": {
+              "dtype": "float64",
+              "shape": [
+                12,
+                12
+              ],
+              "bytes": 1152,
+              "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff"
+            },
+            "weights": {
+              "dtype": "float64",
+              "shape": [
+                12
+              ],
+              "bytes": 96,
+              "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6"
+            }
+          },
+          "parent": {
+            "path": "rte/workstation_runs/tail_multiresolution_bank_20260926/validation.pt",
+            "sha256": "58f8e2f069ea1fa1c0c8f490b441c7acfc91a6592d045a7a7a52eea7bf08aeb4"
+          },
+          "provenance": "Saved development teacher",
+          "paired_role": "Manufactured engineering perturbations only; no independent baseline/candidate solver comparison",
+          "positive_scale_rational": "1048577/1048576",
+          "negative_scale_rational": "257/256"
+        },
+        {
+          "size": 256,
+          "index": 0,
+          "kind": "new_manufactured_M_source",
+          "path": "fixtures/n256_id0.npz",
+          "sha256": "e81c7f236dd810e9379d0968f6f439422b5a6f101171e1618a7cb108c19d01dc",
+          "bytes": 76549806,
+          "arrays": {
+            "source": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                256,
+                256
+              ],
+              "bytes": 12582912,
+              "sha256": "241612e4c115fd4db706cdd098a02aee6c2ab22eb9f18a8746bb6d1b71ee654d"
+            },
+            "baseline": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                256,
+                256
+              ],
+              "bytes": 12582912,
+              "sha256": "8d8f6a75e24d67c073e237e0afdf84f8ef2d78f88880385e9f9208ee3d732d8c"
+            },
+            "positive": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                256,
+                256
+              ],
+              "bytes": 12582912,
+              "sha256": "65f093ec45941d81e968a9cc45103d425a72f196366bb74b4edf3e4b55c8a71c"
+            },
+            "negative": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                256,
+                256
+              ],
+              "bytes": 12582912,
+              "sha256": "8d585a93448ccb9c81a09ce63b5d47895ebbc7f3f1e80fffc37da196db483e78"
+            },
+            "original_source": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                256,
+                256
+              ],
+              "bytes": 12582912,
+              "sha256": "3a7aece93ec0a73c843471348f05f64c9792d3a5c2a2d6b6d3aca4c01d0d4fc6"
+            },
+            "stream_symbol": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                256,
+                256
+              ],
+              "bytes": 12582912,
+              "sha256": "46333b7b19994e9fe525c83aed3463b40a0b3cfc725150a26161cd57ddec0323"
+            },
+            "sigma_t": {
+              "dtype": "float64",
+              "shape": [
+                1,
+                1,
+                256,
+                256
+              ],
+              "bytes": 524288,
+              "sha256": "990790ef4989633ca7aa8175d127a16ea9aa41b3931d4e86c161b80bf77bb8f6"
+            },
+            "sigma_s": {
+              "dtype": "float64",
+              "shape": [
+                1,
+                1,
+                256,
+                256
+              ],
+              "bytes": 524288,
+              "sha256": "7062ab2586b05cd1216f488b3107337dc781997dbc4a12ff40f80c84c0a3c542"
+            },
+            "phase": {
+              "dtype": "float64",
+              "shape": [
+                12,
+                12
+              ],
+              "bytes": 1152,
+              "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff"
+            },
+            "weights": {
+              "dtype": "float64",
+              "shape": [
+                12
+              ],
+              "bytes": 96,
+              "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6"
+            }
+          },
+          "parent": {
+            "path": "rte/workstation_runs/resume_audit_20261002/runtime_gate/validation_n256.pt",
+            "sha256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+          },
+          "provenance": "New M(original stored source), q=rounded GPU H(b); exact newly persisted bits; no old transient replay claim",
+          "paired_role": "Manufactured engineering perturbations only; no independent baseline/candidate solver comparison",
+          "positive_scale_rational": "1048577/1048576",
+          "negative_scale_rational": "257/256"
+        },
+        {
+          "size": 256,
+          "index": 3,
+          "kind": "new_manufactured_M_source",
+          "path": "fixtures/n256_id3.npz",
+          "sha256": "2b614bceb334d0316ab3a565c08781523cffeda1e66fc0a42ef122f9a3cd9079",
+          "bytes": 76549806,
+          "arrays": {
+            "source": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                256,
+                256
+              ],
+              "bytes": 12582912,
+              "sha256": "953cc98c5a3321fdd051091d97b34921126baf0f47236bd91c75ce7f37bf64c8"
+            },
+            "baseline": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                256,
+                256
+              ],
+              "bytes": 12582912,
+              "sha256": "937d71bcb27807a44ba6f77b08c4c097205b87f9be3f99013e1a6e2b28abb5f3"
+            },
+            "positive": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                256,
+                256
+              ],
+              "bytes": 12582912,
+              "sha256": "061e8fed2124393205e20bbaa01c35a8d61cf3e3feb89d9a59ffe2100ac8c7d8"
+            },
+            "negative": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                256,
+                256
+              ],
+              "bytes": 12582912,
+              "sha256": "40061719e839b35fba348ab441fdaa27474c44d7d418641680a634b846863324"
+            },
+            "original_source": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                256,
+                256
+              ],
+              "bytes": 12582912,
+              "sha256": "698a1baed2f50516c85c86b8b6849333be0681e37bacfb59e4ea6fdfdb8c81d6"
+            },
+            "stream_symbol": {
+              "dtype": "complex128",
+              "shape": [
+                1,
+                12,
+                256,
+                256
+              ],
+              "bytes": 12582912,
+              "sha256": "46333b7b19994e9fe525c83aed3463b40a0b3cfc725150a26161cd57ddec0323"
+            },
+            "sigma_t": {
+              "dtype": "float64",
+              "shape": [
+                1,
+                1,
+                256,
+                256
+              ],
+              "bytes": 524288,
+              "sha256": "5310a2ea2953739a38769ff9abde58d86c24860976669c628e30a00fbd8f4b68"
+            },
+            "sigma_s": {
+              "dtype": "float64",
+              "shape": [
+                1,
+                1,
+                256,
+                256
+              ],
+              "bytes": 524288,
+              "sha256": "98ccd230057133a34f5e05aa93357c46a2af94beef970e2f619796d5ab4054f5"
+            },
+            "phase": {
+              "dtype": "float64",
+              "shape": [
+                12,
+                12
+              ],
+              "bytes": 1152,
+              "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff"
+            },
+            "weights": {
+              "dtype": "float64",
+              "shape": [
+                12
+              ],
+              "bytes": 96,
+              "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6"
+            }
+          },
+          "parent": {
+            "path": "rte/workstation_runs/resume_audit_20261002/runtime_gate/validation_n256.pt",
+            "sha256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+          },
+          "provenance": "New M(original stored source), q=rounded GPU H(b); exact newly persisted bits; no old transient replay claim",
+          "paired_role": "Manufactured engineering perturbations only; no independent baseline/candidate solver comparison",
+          "positive_scale_rational": "1048577/1048576",
+          "negative_scale_rational": "257/256"
+        }
+      ],
+      "costs": {
+        "parent_hash_load": 0.7245433125644922,
+        "physical_setup": 0.26419435627758503,
+        "capture_setup": 0.1413811482489109,
+        "M": 0.0356624461710453,
+        "H": 0.09207446686923504,
+        "transfers": 0.17352112755179405,
+        "snapshot_save": 0.33046685345470905,
+        "snapshot_hash": 1.2792450562119484
+      },
+      "counts": {
+        "full_solves": 0,
+        "training_steps": 0,
+        "new_seed_generation": 0,
+        "M": 2,
+        "H": 2
+      },
+      "elapsed_seconds": 5.9065913911908865,
+      "cpu_peak_rss_kib": 1003424,
+      "gpu_peak_allocated_bytes": 268459520,
+      "gpu_peak_reserved_bytes": 513802240,
+      "source_arrays_exported": false,
+      "checker_calls": 0,
+      "torch": "2.5.1",
+      "numpy": "1.26.4",
+      "cuda": "12.4"
+    }
+  },
+  "exact_predicates_recomputed": true,
+  "stage_radius_propagation_checked": true,
+  "original_N256_NO_CERTIFICATE_preserved": true,
+  "full_solves": 0,
+  "training_steps": 0
+}

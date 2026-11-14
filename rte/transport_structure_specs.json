@@ -1,0 +1,6 @@
+[
+  {"label":"hss4","mode":"compiled_hss","depth":4},
+  {"label":"ct64","checkpoint":"rte/workstation_runs/ct4_krylov_n64_seed402_20260912/best.pt"},
+  {"label":"sct64","checkpoint":"rte/workstation_runs/sct4_krylov_n64_seed402_20260912/best.pt"},
+  {"label":"nto64","checkpoint":"rte/workstation_runs/nto4_krylov_n64_seed402_20260912/best.pt"}
+]

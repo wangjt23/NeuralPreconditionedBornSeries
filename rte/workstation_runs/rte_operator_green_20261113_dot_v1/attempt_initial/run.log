@@ -1,0 +1,18 @@
+{"event": "finished", "complete": false, "result": null, "seconds": 3.169375451048836, "error": "RuntimeError(\"view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead.\")"}
+Traceback (most recent call last):
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_operator_green_20261113_dot_v1/run_operator_green.py", line 149, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data1/software/miniconda3/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_operator_green_20261113_dot_v1/run_operator_green.py", line 99, in main
+    report['source_hashes']={f.name:p.digest(f) for f in HERE.glob('*.py')};report['plan_sha256']=p.digest(HERE/'OPERATOR_GREEN_PLAN.md');report['unit']=unit();save();emit('algebra_unit_passed',**{k:v for k,v in report['unit'].items() if k!='records'})
+                                                                                                                                                         ^^^^^^
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_operator_green_20261113_dot_v1/run_operator_green.py", line 80, in unit
+    tree=ScalarTree(D,1e-12,leaf=2);fac=GreenFactor(tree,V,normal);G=torch.kron(D,torch.diag(normal.to(DT)))+torch.block_diag(*V.unbind());q=rnd(24,3);x=fac.apply(q);ref=torch.linalg.solve(G,q)
+                                        ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_operator_green_20261113_dot_v1/run_operator_green.py", line 49, in __init__
+    t=time.perf_counter();self.WL=self.a.apply(torch.kron(tree.L,torch.diag(normal.to(DT))));self.WR=self.b.apply(-torch.kron(tree.R,torch.diag(normal.to(DT))))
+                                               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: view size is not compatible with input tensor's size and stride (at least one dimension spans across two contiguous subspaces). Use .reshape(...) instead.

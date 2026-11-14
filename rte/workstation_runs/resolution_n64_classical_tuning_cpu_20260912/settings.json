@@ -1,0 +1,368 @@
+{
+  "args": {
+    "specs": "rte/workstation_runs/resolution_classical_specs_20260912.json",
+    "size": 64,
+    "n_angles": 12,
+    "g": 0.65,
+    "selection_count": 6,
+    "count": 1,
+    "seed": 542,
+    "solver_steps": 60,
+    "tol": 1e-05,
+    "repeats": 1,
+    "tuning_repeats": 1,
+    "device": "cpu",
+    "precision": "mixed",
+    "scope": "exploratory resolution/architecture screen, not confirmatory",
+    "output": "rte/workstation_runs/resolution_n64_classical_tuning_cpu_20260912"
+  },
+  "specs": [
+    {
+      "label": "compiled_hss_d2_s0.5",
+      "group": "compiled_hss",
+      "mode": "compiled_hss",
+      "family": "compiled_hss",
+      "depth": 2,
+      "scale": 0.5
+    },
+    {
+      "label": "compiled_hss_d2_s1.0",
+      "group": "compiled_hss",
+      "mode": "compiled_hss",
+      "family": "compiled_hss",
+      "depth": 2,
+      "scale": 1.0
+    },
+    {
+      "label": "compiled_hss_d2_s2.0",
+      "group": "compiled_hss",
+      "mode": "compiled_hss",
+      "family": "compiled_hss",
+      "depth": 2,
+      "scale": 2.0
+    },
+    {
+      "label": "compiled_hss_d4_s0.5",
+      "group": "compiled_hss",
+      "mode": "compiled_hss",
+      "family": "compiled_hss",
+      "depth": 4,
+      "scale": 0.5
+    },
+    {
+      "label": "compiled_hss_d4_s1.0",
+      "group": "compiled_hss",
+      "mode": "compiled_hss",
+      "family": "compiled_hss",
+      "depth": 4,
+      "scale": 1.0
+    },
+    {
+      "label": "compiled_hss_d4_s2.0",
+      "group": "compiled_hss",
+      "mode": "compiled_hss",
+      "family": "compiled_hss",
+      "depth": 4,
+      "scale": 2.0
+    },
+    {
+      "label": "compiled_hss_d8_s0.5",
+      "group": "compiled_hss",
+      "mode": "compiled_hss",
+      "family": "compiled_hss",
+      "depth": 8,
+      "scale": 0.5
+    },
+    {
+      "label": "compiled_hss_d8_s1.0",
+      "group": "compiled_hss",
+      "mode": "compiled_hss",
+      "family": "compiled_hss",
+      "depth": 8,
+      "scale": 1.0
+    },
+    {
+      "label": "compiled_hss_d8_s2.0",
+      "group": "compiled_hss",
+      "mode": "compiled_hss",
+      "family": "compiled_hss",
+      "depth": 8,
+      "scale": 2.0
+    },
+    {
+      "label": "hss_d2_s0.5",
+      "group": "hss",
+      "mode": "classical",
+      "family": "hss",
+      "depth": 2,
+      "scale": 0.5
+    },
+    {
+      "label": "hss_d2_s1.0",
+      "group": "hss",
+      "mode": "classical",
+      "family": "hss",
+      "depth": 2,
+      "scale": 1.0
+    },
+    {
+      "label": "hss_d2_s2.0",
+      "group": "hss",
+      "mode": "classical",
+      "family": "hss",
+      "depth": 2,
+      "scale": 2.0
+    },
+    {
+      "label": "hss_d4_s0.5",
+      "group": "hss",
+      "mode": "classical",
+      "family": "hss",
+      "depth": 4,
+      "scale": 0.5
+    },
+    {
+      "label": "hss_d4_s1.0",
+      "group": "hss",
+      "mode": "classical",
+      "family": "hss",
+      "depth": 4,
+      "scale": 1.0
+    },
+    {
+      "label": "hss_d4_s2.0",
+      "group": "hss",
+      "mode": "classical",
+      "family": "hss",
+      "depth": 4,
+      "scale": 2.0
+    },
+    {
+      "label": "hss_d8_s0.5",
+      "group": "hss",
+      "mode": "classical",
+      "family": "hss",
+      "depth": 8,
+      "scale": 0.5
+    },
+    {
+      "label": "hss_d8_s1.0",
+      "group": "hss",
+      "mode": "classical",
+      "family": "hss",
+      "depth": 8,
+      "scale": 1.0
+    },
+    {
+      "label": "hss_d8_s2.0",
+      "group": "hss",
+      "mode": "classical",
+      "family": "hss",
+      "depth": 8,
+      "scale": 2.0
+    },
+    {
+      "label": "tsa_d2_s0.0",
+      "group": "tsa",
+      "mode": "classical",
+      "family": "tsa",
+      "depth": 2,
+      "scale": 0.0
+    },
+    {
+      "label": "tsa_d2_s0.03",
+      "group": "tsa",
+      "mode": "classical",
+      "family": "tsa",
+      "depth": 2,
+      "scale": 0.03
+    },
+    {
+      "label": "tsa_d4_s0.0",
+      "group": "tsa",
+      "mode": "classical",
+      "family": "tsa",
+      "depth": 4,
+      "scale": 0.0
+    },
+    {
+      "label": "tsa_d4_s0.03",
+      "group": "tsa",
+      "mode": "classical",
+      "family": "tsa",
+      "depth": 4,
+      "scale": 0.03
+    },
+    {
+      "label": "tsa_d8_s0.0",
+      "group": "tsa",
+      "mode": "classical",
+      "family": "tsa",
+      "depth": 8,
+      "scale": 0.0
+    },
+    {
+      "label": "tsa_d8_s0.03",
+      "group": "tsa",
+      "mode": "classical",
+      "family": "tsa",
+      "depth": 8,
+      "scale": 0.03
+    },
+    {
+      "label": "dsa_d2_s0.0",
+      "group": "dsa",
+      "mode": "classical",
+      "family": "dsa",
+      "depth": 2,
+      "scale": 0.0
+    },
+    {
+      "label": "dsa_d2_s0.03",
+      "group": "dsa",
+      "mode": "classical",
+      "family": "dsa",
+      "depth": 2,
+      "scale": 0.03
+    },
+    {
+      "label": "dsa_d4_s0.0",
+      "group": "dsa",
+      "mode": "classical",
+      "family": "dsa",
+      "depth": 4,
+      "scale": 0.0
+    },
+    {
+      "label": "dsa_d4_s0.03",
+      "group": "dsa",
+      "mode": "classical",
+      "family": "dsa",
+      "depth": 4,
+      "scale": 0.03
+    },
+    {
+      "label": "dsa_d8_s0.0",
+      "group": "dsa",
+      "mode": "classical",
+      "family": "dsa",
+      "depth": 8,
+      "scale": 0.0
+    },
+    {
+      "label": "dsa_d8_s0.03",
+      "group": "dsa",
+      "mode": "classical",
+      "family": "dsa",
+      "depth": 8,
+      "scale": 0.03
+    },
+    {
+      "label": "dsa_transport_d2_s0.0",
+      "group": "dsa_transport",
+      "mode": "classical",
+      "family": "dsa_transport",
+      "depth": 2,
+      "scale": 0.0
+    },
+    {
+      "label": "dsa_transport_d2_s0.03",
+      "group": "dsa_transport",
+      "mode": "classical",
+      "family": "dsa_transport",
+      "depth": 2,
+      "scale": 0.03
+    },
+    {
+      "label": "dsa_transport_d4_s0.0",
+      "group": "dsa_transport",
+      "mode": "classical",
+      "family": "dsa_transport",
+      "depth": 4,
+      "scale": 0.0
+    },
+    {
+      "label": "dsa_transport_d4_s0.03",
+      "group": "dsa_transport",
+      "mode": "classical",
+      "family": "dsa_transport",
+      "depth": 4,
+      "scale": 0.03
+    },
+    {
+      "label": "dsa_transport_d8_s0.0",
+      "group": "dsa_transport",
+      "mode": "classical",
+      "family": "dsa_transport",
+      "depth": 8,
+      "scale": 0.0
+    },
+    {
+      "label": "dsa_transport_d8_s0.03",
+      "group": "dsa_transport",
+      "mode": "classical",
+      "family": "dsa_transport",
+      "depth": 8,
+      "scale": 0.03
+    },
+    {
+      "label": "reference_d2_s0.0",
+      "group": "reference",
+      "mode": "classical",
+      "family": "reference",
+      "depth": 2,
+      "scale": 0.0
+    },
+    {
+      "label": "reference_d2_s0.03",
+      "group": "reference",
+      "mode": "classical",
+      "family": "reference",
+      "depth": 2,
+      "scale": 0.03
+    },
+    {
+      "label": "reference_d4_s0.0",
+      "group": "reference",
+      "mode": "classical",
+      "family": "reference",
+      "depth": 4,
+      "scale": 0.0
+    },
+    {
+      "label": "reference_d4_s0.03",
+      "group": "reference",
+      "mode": "classical",
+      "family": "reference",
+      "depth": 4,
+      "scale": 0.03
+    },
+    {
+      "label": "reference_d8_s0.0",
+      "group": "reference",
+      "mode": "classical",
+      "family": "reference",
+      "depth": 8,
+      "scale": 0.0
+    },
+    {
+      "label": "reference_d8_s0.03",
+      "group": "reference",
+      "mode": "classical",
+      "family": "reference",
+      "depth": 8,
+      "scale": 0.03
+    }
+  ],
+  "fingerprints": {
+    "comparison": "5a643b76184065e37d8901defe007e93621a1235a6e87280863316f2139acf52",
+    "selection": "6d8ec94b70051fda70be401281dbdbc1b52c45a05bf57a5489dbc203ed7ff027"
+  },
+  "checkpoint_sha256": {},
+  "torch": "2.5.1",
+  "cuda": "12.4",
+  "timing": "resident process/operator; preparation + first and warmed solve separate; CPU one thread",
+  "scope": "exploratory resolution/architecture screen, not confirmatory",
+  "transfer": "independently generated higher-resolution media, not same material refined",
+  "coarse_operator": "cell-average rediscretization, not Galerkin; all angles, strict coarse spatial band"
+}

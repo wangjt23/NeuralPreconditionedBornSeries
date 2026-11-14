@@ -1,0 +1,176 @@
+{
+  "accepted_rows": 20,
+  "slowdown_twice_vs_once_percent": 31.561662950982594,
+  "once_vs_compact_saving_percent": 6.274997424949036,
+  "batches": [
+    {
+      "method": "tsa64_zero",
+      "setup_seconds": 0.13444609101861715,
+      "first_RHS_seconds": 6.231898083118722,
+      "complete_four_RHS_seconds": 25.064989366102964,
+      "classical_calls": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "injection_calls": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "inner_seconds": 0
+    },
+    {
+      "method": "compact4",
+      "setup_seconds": 3.2632459059823304,
+      "first_RHS_seconds": 8.306341134011745,
+      "complete_four_RHS_seconds": 24.124873246066272,
+      "classical_calls": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "injection_calls": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "inner_seconds": 0
+    },
+    {
+      "method": "tsa16_zero",
+      "setup_seconds": 0.13555229804478586,
+      "first_RHS_seconds": 6.3454499510116875,
+      "complete_four_RHS_seconds": 26.111315618036315,
+      "classical_calls": [
+        17,
+        17,
+        17,
+        17
+      ],
+      "injection_calls": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "inner_seconds": 0
+    },
+    {
+      "method": "E_once",
+      "setup_seconds": 2.769771224120632,
+      "first_RHS_seconds": 7.601560081122443,
+      "complete_four_RHS_seconds": 22.611038071103394,
+      "classical_calls": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "injection_calls": [
+        1,
+        1,
+        1,
+        1
+      ],
+      "inner_seconds": 3.7902426649816334
+    },
+    {
+      "method": "E_twice",
+      "setup_seconds": 3.0028908599633723,
+      "first_RHS_seconds": 8.888983957935125,
+      "complete_four_RHS_seconds": 29.747457696823403,
+      "classical_calls": [
+        3,
+        4,
+        3,
+        4
+      ],
+      "injection_calls": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "inner_seconds": 7.615820479113609
+    }
+  ],
+  "max_residual": 8.633489561201245e-06,
+  "max_bound": 4.565272670861428e-05,
+  "max_field_difference": 2.66769143563434e-07,
+  "diagnostics": [
+    {
+      "source": 0,
+      "outside_fraction": 0.9837248171811115,
+      "P8_drop_factor": 69.13260390989446,
+      "outside_ratio": 1.0002145260029391,
+      "residual_before": 2.373114015661571e-05,
+      "residual_after": 2.354232371078922e-05
+    },
+    {
+      "source": 4,
+      "outside_fraction": 0.9768335458466186,
+      "P8_drop_factor": 210.48917526227584,
+      "outside_ratio": 1.0000545293514234,
+      "residual_before": 7.528894125269883e-05,
+      "residual_after": 7.441581972069124e-05
+    },
+    {
+      "source": 7,
+      "outside_fraction": 0.9648592005335118,
+      "P8_drop_factor": 83.34916484031298,
+      "outside_ratio": 1.0004160169178165,
+      "residual_before": 3.347281487145421e-05,
+      "residual_after": 3.289318900748525e-05
+    },
+    {
+      "source": 14,
+      "outside_fraction": 0.9734642320516771,
+      "P8_drop_factor": 179.643016430521,
+      "outside_ratio": 1.0000785516146764,
+      "residual_before": 7.537708662834142e-05,
+      "residual_after": 7.437614141750822e-05
+    }
+  ],
+  "frontier_diagnostic": [
+    {
+      "label": "01_E_once",
+      "source_id": 0,
+      "relative_differences": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    },
+    {
+      "label": "02_E_once",
+      "source_id": 0,
+      "relative_differences": [
+        0.0,
+        1.645954016244227e-13,
+        0.00011962039783723279
+      ]
+    },
+    {
+      "label": "03_E_preserve",
+      "source_id": 0,
+      "relative_differences": [
+        0.0,
+        0.0,
+        0.0
+      ]
+    }
+  ],
+  "frontier_partial_error": "RuntimeError('Preserved classical inputs do not match original one-shot path')",
+  "partial_research_wall": 62.1112622031942,
+  "total_recorded_research_wall": 230.77633562637493,
+  "source_sha256": {
+    "results/results.json": "ad1e6a35694cac6a71085ad5c69a338b7ffe55c13d28e4bd5ac174c5ad90d22f",
+    "frontier_results/results.json": "55277a6fd841833e3e9f531d3130a65f504b590cfb9a38a368163361f7da4dec",
+    "frontier_diagnostic_v2/results.json": "5a7cc05c830dfbe84bdaa9c58839318ffb46af5c2bf832910bf8493cad1df7b0"
+  }
+}

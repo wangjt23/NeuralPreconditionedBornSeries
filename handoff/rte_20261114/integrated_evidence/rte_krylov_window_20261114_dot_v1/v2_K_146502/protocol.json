@@ -1,0 +1,22 @@
+{
+  "version": "ProV2",
+  "arm": "K",
+  "seed": 146502,
+  "updates": 2048,
+  "batch": 2,
+  "checkpoint_every": 128,
+  "initial": "physical_2048.pt",
+  "optimizer": "AdamW",
+  "weight_decay": 1e-05,
+  "lr": 0.0003,
+  "eta_min": 1e-05,
+  "clip": "none; finite grad checked",
+  "restart": 20,
+  "maxiter": 100,
+  "physical_tolerance": 1e-05,
+  "source_sha256": "602659cafc4b958cf328d521515f4d0bff6c40695b7961f05d8fed674bdbcf0a",
+  "draw_sha256": "3668a7355b52c6e4d4afefa39216a8a196255b25d8c432b56d0a6b87f3f91ba2",
+  "scope": "stopgrad full prefix; independent material bases; K full suffix Arnoldi LS gradient",
+  "selection": "fixed2048; DEV endpoint only",
+  "early": "T0 retained; short q retained; j beyond q reuses terminal; no retries"
+}

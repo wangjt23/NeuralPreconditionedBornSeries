@@ -1,0 +1,9 @@
+{
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/classical_tsa_algebra_20261002/code/run_focused_tests.py",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/classical_tsa_algebra_20261002/focused_tests.json"
+  ],
+  "exit_code": 0,
+  "whole_process_seconds": 5.038936482742429
+}

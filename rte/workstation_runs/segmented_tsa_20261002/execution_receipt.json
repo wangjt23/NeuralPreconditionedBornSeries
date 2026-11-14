@@ -1,0 +1,9 @@
+{
+  "host": "FWI-Standard-PC-i440FX-PIIX-1996",
+  "phase": "segmented_screen",
+  "hard_seconds": 110,
+  "gpu_before": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "exit_code": 0,
+  "wall_seconds": 30.890804843977094,
+  "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n"
+}

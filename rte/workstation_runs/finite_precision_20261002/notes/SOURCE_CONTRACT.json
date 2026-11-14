@@ -1,0 +1,325 @@
+{
+  "date": "2026-10-02",
+  "scope": "Read-only source-contract and existing scalar-receipt analysis, plus documentation reconciliation with the prospective scalar model; no numerical RTE experiment, SSH or original-source export",
+  "sources": [
+    {
+      "path": "remote_reference/rte/models.py",
+      "sha256": "6cd887b332ed48409bcffa2d2bad6ca9654c97ff7071c13a6443278f583b04d1",
+      "matches_recorded_FWI_staging_hash": true,
+      "symbols": {
+        "PeriodicRTE2D.__init__": [
+          41,
+          79
+        ],
+        "PeriodicRTE2D.setup": [
+          103,
+          176
+        ],
+        "PeriodicRTE2D._stream_symbol": [
+          189,
+          195
+        ],
+        "PeriodicRTE2D.streaming_op": [
+          197,
+          200
+        ],
+        "PeriodicRTE2D.scattering_op": [
+          182,
+          187
+        ],
+        "PeriodicRTE2D.A_op": [
+          202,
+          204
+        ],
+        "PeriodicRTE2D.G": [
+          215,
+          221
+        ],
+        "PeriodicRTE2D._reference_transport_matrix": [
+          258,
+          274
+        ],
+        "PeriodicRTE2D._build_reference_transport_inverse": [
+          244,
+          248
+        ],
+        "PeriodicRTE2D.reference_transport_solve": [
+          315,
+          333
+        ]
+      }
+    },
+    {
+      "path": "remote_reference/rte/mixed_precision_transport.py",
+      "sha256": "9c6793ed0bffad5bf803253ac0ada097026c653c02f6498e82fb0974dfc9765a",
+      "matches_recorded_FWI_staging_hash": true,
+      "symbols": {
+        "high_precision_copy": [
+          9,
+          17
+        ]
+      }
+    },
+    {
+      "path": "remote_reference/rte/transport_baselines.py",
+      "sha256": "05f6984eb24962409ff25e42313e9c1ac740df86b59ef7b498faff715cfd62ec",
+      "matches_recorded_FWI_staging_hash": true,
+      "symbols": {
+        "ClassicalTransportStack.__init__": [
+          18,
+          31
+        ],
+        "ClassicalTransportStack.prepare": [
+          34,
+          50
+        ],
+        "ClassicalTransportStack.single": [
+          52,
+          62
+        ],
+        "ClassicalTransportStack.forward": [
+          64,
+          70
+        ]
+      }
+    },
+    {
+      "path": "remote_reference/rte/train_source_predictor.py",
+      "sha256": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4",
+      "matches_recorded_FWI_staging_hash": true,
+      "symbols": {
+        "material_operator": [
+          50,
+          55
+        ],
+        "build_base": [
+          121,
+          128
+        ]
+      }
+    },
+    {
+      "path": "remote_reference/rte/benchmark_tail_solver.py",
+      "sha256": "05424458ec34649a2e592638f2621a7cb4891f280839ae4df55e7da5527b9030",
+      "matches_recorded_FWI_staging_hash": true,
+      "symbols": {
+        "solve": [
+          80,
+          109
+        ]
+      }
+    },
+    {
+      "path": "remote_reference/rte/global_source_predictor.py",
+      "sha256": "8e90c95245bb13796f6fff324224d7d504062e52ed08f8bda14988afa808f2e5",
+      "matches_recorded_FWI_staging_hash": true,
+      "symbols": {
+        "balance_integrated_source": [
+          75,
+          85
+        ]
+      }
+    },
+    {
+      "path": "remote_reference/rte/source_initialization.py",
+      "sha256": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af",
+      "matches_recorded_FWI_staging_hash": true,
+      "symbols": {
+        "solve_from_initial": [
+          12,
+          31
+        ]
+      }
+    },
+    {
+      "path": "remote_reference/rte/npbs_unet_ablation.py",
+      "sha256": "4da8fb3a2998a02b45d508f7e8387b12c99849cfc06ff8363327b667aa17d5f2",
+      "matches_recorded_FWI_staging_hash": true,
+      "symbols": {
+        "fgmres_with_trace": [
+          2372,
+          2481
+        ],
+        "complex_to_real_channels": [
+          2484,
+          2485
+        ],
+        "real_channels_to_complex": [
+          2488,
+          2489
+        ],
+        "fgmres_real_stacked_with_trace": [
+          2498,
+          2518
+        ]
+      }
+    },
+    {
+      "path": "remote_reference/rte/augmented_fgmres.py",
+      "sha256": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "matches_recorded_FWI_staging_hash": true,
+      "symbols": {
+        "augmented_fgmres": [
+          32,
+          141
+        ]
+      }
+    },
+    {
+      "path": "remote_reference/rte/run_large_angular_spectral_experiments.py",
+      "sha256": "7a3e61e7fa294094c8e1528ad588d64b5559eb4890ea2c8d8196375fd795970e",
+      "matches_recorded_FWI_staging_hash": true,
+      "symbols": {
+        "make_operator": [
+          287,
+          302
+        ],
+        "source_from_data": [
+          379,
+          388
+        ]
+      }
+    },
+    {
+      "path": "deliverables/complex_krylov/complex_augmented_fgmres.py",
+      "sha256": "d517306d65f796b923c08735be235f7d56b615614e8a068fcd35349a592bfe4e",
+      "matches_frozen_complex_policy": true,
+      "symbols": {
+        "_small_lstsq": [
+          27,
+          38
+        ],
+        "complex_augmented_fgmres": [
+          42,
+          239
+        ]
+      }
+    }
+  ],
+  "units": {
+    "unit_roundoff32": "2^-24 (conditional round-to-nearest normal arithmetic)",
+    "unit_roundoff64": "2^-53 (conditional round-to-nearest normal arithmetic)",
+    "machine_epsilon32": "2^-23",
+    "machine_epsilon64": "2^-52",
+    "gamma_n": "n*u/(1-n*u), only if n*u<1 and stated operation assumptions hold"
+  },
+  "material_contract": {
+    "source_data_dtype": "float32",
+    "epsilon": 0.1,
+    "transformed_t_s": "formed in data dtype before make_operator/setup",
+    "low_float_dtype": "float32",
+    "low_application_dtype": "complex64",
+    "high_float_dtype": "float64",
+    "high_application_dtype": "complex128",
+    "high_buffers": "exact entry promotion of stored low directions/weights/phase/kx/ky and t/s/source; stream products are reassembled64",
+    "high_target": "stored discrete promoted-buffer action, not continuum or newly generated double geometry",
+    "low_native128": "complex128 application with original low float32 stream formation and promoted original cache; not high.A_op"
+  },
+  "operation_contract": {
+    "stream_symbol": "two real stored-coefficient products and one real addition in operator.float_dtype, then imaginary embedding",
+    "streaming": "one spatial fftn and ifftn, backward normalization",
+    "scattering": "weight*field, phase einsum, then sigma_s multiplication, in field dtype",
+    "physical_action": "streaming plus total collision then subtract scattering",
+    "reference_setup": "means in low float_dtype; phase*weight formed32 before complex64 reference matrix/inverse",
+    "reference_application": "inverse cache promoted to RHS dtype without reinversion; one spatial FFT/IFFT pair",
+    "tsa_single_counts": {
+      "G": 1,
+      "low_A": 1,
+      "R0": 1,
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "tsa_depth_counts": {
+      "G": "d",
+      "R0": "d",
+      "low_A": "2*d-1",
+      "fftn": "4*d-1",
+      "ifftn": "4*d-1"
+    },
+    "TSA8": {
+      "G": 8,
+      "R0": 8,
+      "low_A": 15,
+      "fftn": 31,
+      "ifftn": 31
+    },
+    "TSA16": {
+      "G": 16,
+      "R0": 16,
+      "low_A": 31,
+      "fftn": 63,
+      "ifftn": 63
+    }
+  },
+  "outer_contract": {
+    "rhs_and_fields": "complex128",
+    "deployed_M": "complex128 input cast64, original fixed TSA8/16, fresh owned128 return",
+    "physical_images": "original high.A_op of each actual returned Z; no low-HZ substitution",
+    "original_real_geometry": "float64 concatenated real/imaginary channels; no real-field restriction",
+    "complex_geometry": "complex128 Hermitian MGS and small SVD",
+    "norm_result_dtype": "float64 for deployed128 fields",
+    "complex_SVD_rcond": "max(small_matrix.shape)*torch.finfo(matrix.real.dtype).eps",
+    "intermediate_residual": "rounded initial defect minus high action of correction",
+    "final_residual": "fresh source minus high action of rounded initial-plus-correction field",
+    "accepted_residual_source_relative": 1e-05,
+    "restart": 25,
+    "maxiter": 100,
+    "absolute_breakdown_cutoff": 1e-14
+  },
+  "existing_entry_evidence": {
+    "receipt_root": "receipts/complex_execution",
+    "implementation_checks_passed": 112,
+    "admissibility_records": 108,
+    "low_H64_failures": 8,
+    "low_H64_cap": 2e-06,
+    "low_H64_worst": 5.036133085028879e-06,
+    "physical_H128_worst": 9.780658689441165e-15,
+    "deployed_M_worst": 1.5461635644353718e-05,
+    "full_complex_solves": 0,
+    "application_roundoff_certificate": false
+  },
+  "not_recorded_by_frozen_driver": [
+    "CUDA FFT forward/backward error constants",
+    "inverse/scattering reduction backward-error constants",
+    "SVD backward-error constant",
+    "autocast enabled state",
+    "CUDA matmul/reduction precision flags",
+    "global default dtype and flush/subnormal behavior",
+    "uniform original-high application-error bound"
+  ],
+  "prospective_budget_model": {
+    "implementation_path": "deliverables/finite_precision_20261002/error_model.py",
+    "implementation_sha256": "5628afcaa039b0a1fb88d68c4c73ea381fc5c961b0f4481ccbe9f705fa863015",
+    "hypothesis": "Uniform original-physical-high action error norm(e_H(x)) <= epsilon_H*norm(x); conditional scalar/kernel contracts are not inferred globally from finite probes",
+    "tau": 1e-05,
+    "unchanged_target": true,
+    "ordinary_solver_stop_and_evaluated_acceptance": 1e-05,
+    "relative_budget_fraction": 0.01,
+    "hypothetical_measured_residual_ceiling": "rho_hat=(1-f)*tau with f=0.01; conditional certificate slack only, not a changed solver stopping rule",
+    "norm_contract": "abs(n_hat-n)<=nu*n; nu_r=nu_q=gamma_(4*D+16)(u64), D=complex field count; assumed effective norm/reduction contract, not a validated backend theorem",
+    "rho_upper": "rho_hat*(1+nu_q)/(1-nu_r), requiring nu_r<1",
+    "residual_subtraction_contract": "norm(delta_sub)<=mu_sub*(norm(q)+norm(Hhat(x))); assumed mu_sub=u64 in the current model",
+    "a": "mu_sub",
+    "b": "epsilon_H+mu_sub*(Lambda+epsilon_H)",
+    "unchanged_exact_tau_sufficient_condition": "b<=m*(tau-rho_upper-a)/(1+tau), requiring a positive available allowance",
+    "epsilon_H_allow": "[m*(tau-rho_upper-a)/(1+tau)-mu_sub*Lambda]/(1+mu_sub)",
+    "physical_Lambda": "max(abs(s_high))+max(t)+max(s)*upper_norm(P), including the model conservative symbol-formation allowance",
+    "physical_m": "min(t-s*upper_norm(P)) with certified outward/exact operations",
+    "P_upper_norm": "sqrt(max_row_abs_sum(P)*max_column_abs_sum(P))",
+    "required_fft_contract": "Largest sufficient equal relative forward/inverse FFT64 allowance found against the declared conditional_action_bound; derived before measurements, not fitted; not an established global backend contract",
+    "budget_reserve": "All physical-action, residual-subtraction and norm uncertainty are paid inside the fixed one-percent reserve; no enlarged exact target or separate allowance outside the reserve",
+    "enlarged_target_sensitivity_is_prospective_gate": false,
+    "global_backend_contract_established": false,
+    "empirical_reference_checks_can_certify_this_contract": false,
+    "primitive_plan_counts": {
+      "full_grid_GPU_H": 72,
+      "fixture_GPU_H": 24,
+      "total_GPU_H": 96,
+      "existing_M": 8,
+      "NumPy_reference_actions": 48,
+      "exact_4x4_fixture_cases": 12
+    },
+    "fixture_scope": "New4x4 toy from copied stored geometry/sample coefficients; exact roots-of-unity oracle for that toy only, not full-N authority or global cuFFT bound",
+    "status": "Source/math proposal only; parent owns prospective protocol and execution. Prior failed mandatory protocol and results remain unchanged."
+  }
+}

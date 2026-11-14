@@ -1,0 +1,27 @@
+{"event": "bridge_passed", "difference": 2.0556526462458512e-13, "seconds": 12.590256875846535}
+{"event": "source_done", "label": "01_tsa64_zero", "source_id": 0, "calls": 5, "attempts": 0, "inner_iterations": [], "residual": 1.1586580744021447e-06}
+{"event": "source_done", "label": "01_tsa64_zero", "source_id": 4, "calls": 5, "attempts": 0, "inner_iterations": [], "residual": 1.7939331845442614e-06}
+{"event": "source_done", "label": "01_tsa64_zero", "source_id": 7, "calls": 5, "attempts": 0, "inner_iterations": [], "residual": 1.4443039988216158e-06}
+{"event": "source_done", "label": "01_tsa64_zero", "source_id": 14, "calls": 5, "attempts": 0, "inner_iterations": [], "residual": 1.693204272728414e-06}
+{"event": "batch_done", "method": "tsa64_zero", "label": "01_tsa64_zero", "seconds": 25.064989366102964, "calls": [5, 5, 5, 5], "attempts": [0, 0, 0, 0]}
+{"event": "source_done", "label": "02_compact4", "source_id": 0, "calls": 4, "attempts": 1, "inner_iterations": [], "residual": 1.133821722240705e-06}
+{"event": "source_done", "label": "02_compact4", "source_id": 4, "calls": 4, "attempts": 1, "inner_iterations": [], "residual": 1.438231869368797e-06}
+{"event": "source_done", "label": "02_compact4", "source_id": 7, "calls": 4, "attempts": 1, "inner_iterations": [], "residual": 2.27093411392186e-06}
+{"event": "source_done", "label": "02_compact4", "source_id": 14, "calls": 4, "attempts": 1, "inner_iterations": [], "residual": 1.5251470415061112e-06}
+{"event": "batch_done", "method": "compact4", "label": "02_compact4", "seconds": 24.124873246066272, "calls": [4, 4, 4, 4], "attempts": [1, 1, 1, 1]}
+{"event": "source_done", "label": "03_tsa16_zero", "source_id": 0, "calls": 17, "attempts": 0, "inner_iterations": [], "residual": 5.901983052564862e-06}
+{"event": "source_done", "label": "03_tsa16_zero", "source_id": 4, "calls": 17, "attempts": 0, "inner_iterations": [], "residual": 8.614471257951949e-06}
+{"event": "source_done", "label": "03_tsa16_zero", "source_id": 7, "calls": 17, "attempts": 0, "inner_iterations": [], "residual": 6.778327690571549e-06}
+{"event": "source_done", "label": "03_tsa16_zero", "source_id": 14, "calls": 17, "attempts": 0, "inner_iterations": [], "residual": 8.080188313313259e-06}
+{"event": "batch_done", "method": "tsa16_zero", "label": "03_tsa16_zero", "seconds": 26.111315618036315, "calls": [17, 17, 17, 17], "attempts": [0, 0, 0, 0]}
+{"event": "source_done", "label": "04_E_once", "source_id": 0, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 4.788854474086031e-07}
+{"event": "source_done", "label": "04_E_once", "source_id": 4, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 1.9250488510191964e-06}
+{"event": "source_done", "label": "04_E_once", "source_id": 7, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 7.764020570190981e-07}
+{"event": "source_done", "label": "04_E_once", "source_id": 14, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 2.0712061601345542e-06}
+{"event": "batch_done", "method": "E_once", "label": "04_E_once", "seconds": 22.611038071103394, "calls": [3, 3, 3, 3], "attempts": [1, 1, 1, 1]}
+{"event": "source_done", "label": "05_E_twice", "source_id": 0, "calls": 3, "attempts": 2, "inner_iterations": [4, 4], "residual": 8.633489561201245e-06}
+{"event": "source_done", "label": "05_E_twice", "source_id": 4, "calls": 4, "attempts": 2, "inner_iterations": [4, 4], "residual": 1.635726719966661e-06}
+{"event": "source_done", "label": "05_E_twice", "source_id": 7, "calls": 3, "attempts": 2, "inner_iterations": [4, 4], "residual": 7.946767216065977e-06}
+{"event": "source_done", "label": "05_E_twice", "source_id": 14, "calls": 4, "attempts": 2, "inner_iterations": [4, 4], "residual": 1.5695299216281835e-06}
+{"event": "batch_done", "method": "E_twice", "label": "05_E_twice", "seconds": 29.747457696823403, "calls": [3, 4, 3, 4], "attempts": [2, 2, 2, 2]}
+{"event": "finished", "complete": true, "result": "NO_CLASSICAL_WORK_REMOVED", "error": null, "seconds": 142.63196985097602}

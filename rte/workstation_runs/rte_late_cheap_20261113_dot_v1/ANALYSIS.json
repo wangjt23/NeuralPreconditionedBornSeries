@@ -1,0 +1,165 @@
+{
+  "result": "LATE_CHEAP_NO_GO",
+  "summary": [
+    {
+      "method": "one_shot_P8",
+      "complete_four_RHS_seconds": 27.689791335957125,
+      "setup_seconds": 3.470090606948361,
+      "inner_seconds": 3.939721287926659,
+      "preconditioner_seconds": 14.41234033415094,
+      "cheap_seconds": 0,
+      "remaining_seconds": 5.867639106931165,
+      "classical_calls": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "cheap_stages_per_RHS": [
+        0,
+        0,
+        0,
+        0
+      ],
+      "total_transport_stages_per_RHS": [
+        192,
+        192,
+        192,
+        192
+      ],
+      "cheap_core_seconds": 0,
+      "cheap_projection_seconds": 0
+    },
+    {
+      "method": "late_full8",
+      "complete_four_RHS_seconds": 24.39141554082744,
+      "setup_seconds": 2.82437509088777,
+      "inner_seconds": 3.9278111041057855,
+      "preconditioner_seconds": 14.724744270322844,
+      "cheap_seconds": 0.592886044178158,
+      "remaining_seconds": 2.3215990313328803,
+      "classical_calls": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "cheap_stages_per_RHS": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "total_transport_stages_per_RHS": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "cheap_core_seconds": 0.5928402121644467,
+      "cheap_projection_seconds": 0.0
+    },
+    {
+      "method": "late_shell8",
+      "complete_four_RHS_seconds": 26.277598903048784,
+      "setup_seconds": 3.0126644079573452,
+      "inner_seconds": 3.7804849981330335,
+      "preconditioner_seconds": 14.577510082861409,
+      "cheap_seconds": 0.6416105071548373,
+      "remaining_seconds": 4.265328906942159,
+      "classical_calls": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "cheap_stages_per_RHS": [
+        8,
+        8,
+        8,
+        8
+      ],
+      "total_transport_stages_per_RHS": [
+        200,
+        200,
+        200,
+        200
+      ],
+      "cheap_core_seconds": 0.6008248650468886,
+      "cheap_projection_seconds": 0.040734895737841725
+    }
+  ],
+  "states": [
+    {
+      "method": "late_full8",
+      "source": 0,
+      "after_second_source_relative_residual": 1.544868167643325e-05,
+      "final_residual": 3.388360664137495e-07,
+      "classical_calls": 3
+    },
+    {
+      "method": "late_full8",
+      "source": 4,
+      "after_second_source_relative_residual": 4.829706859197017e-05,
+      "final_residual": 1.3842070133482597e-06,
+      "classical_calls": 3
+    },
+    {
+      "method": "late_full8",
+      "source": 7,
+      "after_second_source_relative_residual": 1.690252109549229e-05,
+      "final_residual": 4.910019757616972e-07,
+      "classical_calls": 3
+    },
+    {
+      "method": "late_full8",
+      "source": 14,
+      "after_second_source_relative_residual": 4.631980359225779e-05,
+      "final_residual": 1.3786603705954778e-06,
+      "classical_calls": 3
+    },
+    {
+      "method": "late_shell8",
+      "source": 0,
+      "after_second_source_relative_residual": 1.5673353586787715e-05,
+      "final_residual": 3.5216869023195793e-07,
+      "classical_calls": 3
+    },
+    {
+      "method": "late_shell8",
+      "source": 4,
+      "after_second_source_relative_residual": 4.967398057531752e-05,
+      "final_residual": 1.4865504080248026e-06,
+      "classical_calls": 3
+    },
+    {
+      "method": "late_shell8",
+      "source": 7,
+      "after_second_source_relative_residual": 1.76778850815952e-05,
+      "final_residual": 5.376544785907829e-07,
+      "classical_calls": 3
+    },
+    {
+      "method": "late_shell8",
+      "source": 14,
+      "after_second_source_relative_residual": 4.7984205130399354e-05,
+      "final_residual": 1.4982460860934724e-06,
+      "classical_calls": 3
+    }
+  ],
+  "checks": {
+    "true_residual": 2.071206638211945e-06,
+    "evaluated_relative_bound": 8.998959817025618e-06,
+    "relative_field_difference": 3.776178020625459e-08
+  },
+  "full_process": {
+    "elapsed_seconds": 82.89,
+    "user_cpu_seconds": 77.22,
+    "system_cpu_seconds": 3.0,
+    "maximum_RSS_KiB": 1036732.0
+  },
+  "prior_selection_diagnostic_and_exact_shell_seconds": 143.97,
+  "total_three_process_seconds": 226.86,
+  "raw_sha256": "01e2891f610ba2c84a5bef714f9b81fa37e72efd10296599cf2246bce841d7a9",
+  "interpretation": "No heavy-call reduction; predeclared mechanism gate failed. Forward wall times are retained but no confirmed speedup is inferred from single-order shared-host timing."
+}

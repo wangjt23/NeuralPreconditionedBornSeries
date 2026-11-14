@@ -1,0 +1,7 @@
+{
+  "checkpoint": "rte/workstation_runs/nto4_hss_n32_seed401_20260912/best.pt",
+  "selected_step": 800,
+  "device": "cpu",
+  "repeats": 20,
+  "scope": "same cached map; application only on first four validation media"
+}

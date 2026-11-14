@@ -1,0 +1,21 @@
+{
+  "scope": "existing saved training3626 and reused development4626 only;9626 untouched",
+  "phase1": {
+    "main_updates": 3000,
+    "control_updates": 1000,
+    "same_scheduler_horizon": 3000,
+    "lr": [
+      0.00015,
+      5e-05
+    ],
+    "warm": "resume_audit_20261002/paired_training/mixed64_128/best.pt",
+    "batch": 4,
+    "wall_cap_seconds": 900,
+    "gpu_memory_cap_gib": 14,
+    "selection": "all16 development media at64/128; failures then mean calls+0.5injection then residual",
+    "timing": "separate synchronized paired randomized development evaluation after training",
+    "fixed_panels": "first16 eligible training IDs and all13 eligible development IDs each grid; phase0; 2/4/6 horizon diagnostics"
+  },
+  "phase2": "separate matched TSA8/TSA16-prefix study on existing training labels if warranted; change prefix only at matched budget before changing horizon",
+  "safety": "no new holdout/source families, no original edits, no job cancellation, serial GPU jobs"
+}

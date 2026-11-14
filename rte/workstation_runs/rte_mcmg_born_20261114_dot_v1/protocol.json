@@ -1,0 +1,31 @@
+{
+  "train_count": 256,
+  "validation_count": 32,
+  "train_seed": 141401,
+  "validation_seed": 142401,
+  "updates": 2048,
+  "batch": 8,
+  "initialization_seed": 141401,
+  "draw_seed": 143401,
+  "size": 64,
+  "angles": 12,
+  "g": 0.65,
+  "G0": "op.G: identical input and metric map",
+  "arms": [
+    "physical",
+    "matched"
+  ],
+  "train_fp": "e1cdc6ddae56ef024a7a089bb08466007e3182e356f53391b4bfaffeb70d94e8",
+  "dev_fp": "2d6a0cce79f0fb9e72949cb703548d6a6ff1c08761e3c61b6329351a4c8c0a34",
+  "parameters": 123824,
+  "source_hash": "a25fcc4bb0746f781e99c6143dc950f2bec404d43828630cd8c75edb6cb7bc1a",
+  "purpose": "new full-channel residual-linear learned V-cycle; loss pairing is control, not novel claim",
+  "test_access": false,
+  "selection": "fixed final endpoint; no best selection",
+  "physical_stop": "subsequent original-equation relative residual <=1e-5 with FP64 acceptance",
+  "known_scope": "periodic 2D L12 g=.65 mixed materials; no angular or physical OOD claim",
+  "qualification": {
+    "analytic_restore": 0.0,
+    "real_linearity": 2.615888661239296e-07
+  }
+}

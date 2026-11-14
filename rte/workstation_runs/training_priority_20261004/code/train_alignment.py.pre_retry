@@ -1,0 +1,114 @@
+"""Matched TSA8-balanced versus TSA16-zero context training; no new teachers."""
+import argparse,hashlib,json,pathlib,sys,time
+import torch
+import train_adequacy as ta
+from rte.audit_tail_injection import operator_from_bank
+from rte.augmented_fgmres import augmented_fgmres
+from rte.transport_baselines import ClassicalTransportStack
+
+ROOT=ta.REPO
+PARENTS={
+ 64:{'train':'rte/workstation_runs/source_predictor_pilot_20260926/train.pt','development':ta.PATHS['parent64']},
+ 128:{'train':'rte/workstation_runs/tail_multiresolution_bank_20260926/train.pt','development':ta.PATHS['parent128']}}
+
+@torch.no_grad()
+def prepare_strong(parent_path,output,deadline):
+ saved=torch.load(parent_path,map_location='cpu',weights_only=True);bank=saved['bank']
+ entries={k:[] for k in ['t','s','q','rhs_exact','reference','target','image_basis']};ids=[];norms=[];rows=[]
+ for index in range(len(bank['q'])):
+  if time.perf_counter()>=deadline:raise TimeoutError('alignment context acquisition cap')
+  low,high,_,_=operator_from_bank(bank,index,'cuda')
+  base=ClassicalTransportStack(low,'tsa',16,0.)
+  target=bank['target'][index:index+1].to('cuda');rhs=high.source
+  teacher_error=float((high.A_op(target)-rhs).norm()/rhs.norm())
+  if teacher_error>2e-9:raise ValueError('saved teacher / original-RHS identity mismatch')
+  contexts=[]
+  _,status=augmented_fgmres(high.A_op,rhs,lambda r:base(r.to(torch.complex64)).to(torch.complex128),None,maxiter=4,capture_prefix=contexts.append)
+  eligible=status['true_residual']>1e-5
+  row=dict(index=index,eligible=int(eligible),prefix_residual=status['true_residual'],prefix_calls=status['classical_calls'],teacher_residual=teacher_error)
+  if eligible:
+   if len(contexts)!=1:raise ValueError('eligible prefix not captured; refuse silent exclusion')
+   c=contexts[0];r=c['residual'];basis=c['image_basis'].transpose(0,1);tail=target-c['solution']
+   reference=base.reference.reference_transport_solve(r.to(torch.complex64))
+   row['tail_equation_error_original_rhs']=float((high.A_op(tail)-r).norm()/rhs.norm())
+   if row['tail_equation_error_original_rhs']>3e-9:raise ValueError('tail equation mismatch')
+   for k,v in [('t',low.sigma_t),('s',low.sigma_s),('q',r.to(torch.complex64)),('rhs_exact',r),('reference',reference),('target',tail),('image_basis',basis)]:entries[k].append(v.cpu())
+   ids.append(index);norms.append(float(rhs.norm()))
+  rows.append(row)
+  if (index+1)%16==0:print(f'strong prefix {output.name}: {index+1}/{len(bank["q"])}',flush=True)
+ if not ids:raise ValueError('no eligible contexts')
+ prepared={k:torch.cat(v) for k,v in entries.items()};prepared['indices']=torch.tensor(ids);prepared['original_rhs_norm']=torch.tensor(norms,dtype=torch.float64)
+ value={'bank':prepared,'data':saved['data'],'parent':str(parent_path),'parent_sha256':ta.helper.file_digest(parent_path),'scope':'existing train or reused development;TSA16-zero four-call prefix'}
+ ta.helper.save_checkpoint(output,value);ta.helper.write_rows(output.with_suffix('.csv'),rows)
+ return value
+
+def restrict(saved,ids):
+ original=saved['bank']['indices'].tolist();mapping={x:i for i,x in enumerate(original)}
+ positions=torch.tensor([mapping[x] for x in ids])
+ result=dict(saved);result['bank']={k:v[positions] for k,v in saved['bank'].items()}
+ assert result['bank']['indices'].tolist()==ids
+ return result
+
+@torch.no_grad()
+def validate_strong(model,parent,device):
+ model.eval();rows=[]
+ for index in range(len(parent['bank']['q'])):
+  low,high,_,_=operator_from_bank(parent['bank'],index,device);base=ClassicalTransportStack(low,'tsa',16,0.)
+  def inject(x,r):
+   ref=base.reference.reference_transport_solve(r.to(torch.complex64))
+   return model(low.sigma_t,low.sigma_s,r.to(torch.complex64),ref).to(torch.complex128)
+  _,status=augmented_fgmres(high.A_op,high.source,lambda r:base(r.to(torch.complex64)).to(torch.complex128),None,inject=inject)
+  status.pop('trace');rows.append(dict(index=index,**status))
+ return None,rows
+
+def main(args):
+ torch.set_num_threads(1);torch.cuda.reset_peak_memory_stats();start=time.perf_counter();deadline=start+args.wall_seconds
+ out=pathlib.Path(args.output);out.mkdir(exist_ok=False);args.batch=4;args.cache_mode='auto';args.width=32;args.blocks=4;args.modes=6;args.smoke=False
+ parents={grid:{split:torch.load(path,map_location='cpu',weights_only=True) for split,path in paths.items()} for grid,paths in PARENTS.items()}
+ strong={split:{} for split in ['train','development']}
+ for split in ['train','development']:
+  for grid in [64,128]:strong[split][grid]=prepare_strong(PARENTS[grid][split],out/f'{split}_tsa16_n{grid}.pt',deadline)
+ oldtrain={g:torch.load(ta.PATHS[f'train{g}'],map_location='cpu',weights_only=True) for g in [64,128]}
+ oldpanel={g:torch.load(ta.PATHS[f'panel{g}'],map_location='cpu',weights_only=True) for g in [64,128]}
+ common=sorted(set(oldtrain[64]['bank']['indices'].tolist())&set(oldtrain[128]['bank']['indices'].tolist())&set(strong['train'][64]['bank']['indices'].tolist())&set(strong['train'][128]['bank']['indices'].tolist()))
+ if len(common)<16:raise ValueError('fewer than16 common eligible training identities; retain negative context result and stop')
+ traincontexts={'tsa8':{g:restrict(oldtrain[g],common) for g in [64,128]},'tsa16':{g:restrict(strong['train'][g],common) for g in [64,128]}}
+ for variant in traincontexts:ta.helper.check_paired_identity(traincontexts[variant][64],traincontexts[variant][128],contexts=True)
+ provenance={'warm_start':ta.WARM,'warm_sha256':ta.helper.file_digest(ta.WARM),'parent_sha256':{f'{g}_{s}':ta.helper.file_digest(p) for g,paths in PARENTS.items() for s,p in paths.items()},
+  'new_context_sha256':{str(p):ta.helper.file_digest(p) for p in out.glob('*.pt')},'code_sha256':ta.helper.file_digest(__file__),
+  'common_training_ids':common,'common_training_count':len(common)}
+ settings={'args':vars(args),'provenance':provenance,'complete':False,'scope':'existing training3626 and repeatedly reused development4626; no9626/test access',
+  'comparison':'same warm weights, original training IDs, phases, architecture, LR1.5e-4, cosine1000 horizon, batch4, two-step loss; ONLY classical prefix (TSA8-balanced vsTSA16-zero) changes',
+  'selection':'each arm selected with its own matched deployment prefix on all16 media at64/128; selection scores are not cross-prefix runtime rankings',
+  'limitations':'eligible intersection changes the distribution from phase1; prefix includes both depth and initialization; one conditional warm-start seed; no causal claim about depth alone',
+  'context_seconds':time.perf_counter()-start,'arms':[]}
+ ta.helper.write_json(out/'settings.json',settings)
+ ta.helper.save_checkpoint(out/'matched_original_ids.pt',torch.tensor(common))
+ ta.helper.reset_rng(args.seed);plan=ta.helper.build_sampling_plan(torch.tensor(common),args.horizon,4,args.seed)
+ ta.helper.save_checkpoint(out/'sampling_plan.pt',plan)
+ settings['identity_phase_sha256']=plan['identity_phase_sha256']
+ del oldtrain
+ original_batch=ta.batch_fields;original_validate=ta.validate
+ try:
+  for variant in ['tsa8','tsa16']:
+   if time.perf_counter()>=deadline:break
+   banks,cache=ta.helper.normalize_and_cache(traincontexts[variant],args,'cuda')
+   rawpanel=oldpanel if variant=='tsa8' else strong['development']
+   panels,pcache=ta.helper.normalize_and_cache(rawpanel,args,'cuda')
+   depth=8 if variant=='tsa8' else 16
+   ta.batch_fields=lambda bank,ids,ops,phase=None,depth_arg=depth:original_batch(bank,ids,ops,phase,depth_arg)
+   ta.validate=original_validate if variant=='tsa8' else validate_strong
+   arm_provenance=dict(provenance,prefix=variant,sampling_identity_phase_sha256=plan['identity_phase_sha256'])
+   result=ta.run_arm(args,variant,1000,.00015,banks,panels,{g:parents[g]['development'] for g in [64,128]},plan,deadline,arm_provenance)
+   settings['arms'].append(result);ta.helper.write_json(out/'settings.json',settings)
+   del banks,panels;torch.cuda.empty_cache()
+   if not result['complete']:break
+  settings['complete']=len(settings['arms'])==2 and all(r['complete'] for r in settings['arms'])
+ finally:
+  ta.batch_fields=original_batch;ta.validate=original_validate
+  settings['wall_seconds']=time.perf_counter()-start;ta.helper.write_json(out/'settings.json',settings)
+
+if __name__=='__main__':
+ p=argparse.ArgumentParser();p.add_argument('--output',required=True);p.add_argument('--wall-seconds',type=float,default=900)
+ p.add_argument('--max-gpu-gib',type=float,default=14);p.add_argument('--seed',type=int,default=41005);p.add_argument('--horizon',type=int,default=1000)
+ main(p.parse_args())

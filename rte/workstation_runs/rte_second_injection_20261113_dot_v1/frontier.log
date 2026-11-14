@@ -1,0 +1,28 @@
+{"event": "source_done", "label": "01_E_once", "source_id": 0, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 4.788854686370721e-07}
+{"event": "source_done", "label": "01_E_once", "source_id": 4, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 1.9250497252313336e-06}
+{"event": "source_done", "label": "01_E_once", "source_id": 7, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 7.764020570258882e-07}
+{"event": "source_done", "label": "01_E_once", "source_id": 14, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 2.0712069782923105e-06}
+{"event": "batch_done", "method": "E_once", "label": "01_E_once", "seconds": 23.580202330835164, "calls": [3, 3, 3, 3], "attempts": [1, 1, 1, 1]}
+{"event": "source_done", "label": "02_E_twice", "source_id": 0, "calls": 3, "attempts": 2, "inner_iterations": [4, 4], "residual": 8.633487443036606e-06}
+{"event": "source_done", "label": "02_E_twice", "source_id": 4, "calls": 4, "attempts": 2, "inner_iterations": [4, 4], "residual": 1.6357263766470409e-06}
+{"event": "source_done", "label": "02_E_twice", "source_id": 7, "calls": 3, "attempts": 2, "inner_iterations": [4, 4], "residual": 7.946768348586478e-06}
+{"event": "source_done", "label": "02_E_twice", "source_id": 14, "calls": 4, "attempts": 2, "inner_iterations": [4, 4], "residual": 1.5695312963231261e-06}
+{"event": "batch_done", "method": "E_twice", "label": "02_E_twice", "seconds": 28.820472782943398, "calls": [3, 4, 3, 4], "attempts": [2, 2, 2, 2]}
+{"event": "finished", "complete": false, "result": null, "error": "RuntimeError('Preserved classical inputs do not match original one-shot path')", "seconds": 62.1112622031942}
+Traceback (most recent call last):
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_second_injection_20261113_dot_v1/run_frontier.py", line 130, in <module>
+    if __name__=='__main__':main()
+                            ^^^^^^
+  File "/data1/software/miniconda3/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_second_injection_20261113_dot_v1/run_frontier.py", line 121, in main
+    once=run('E_once');skipped=run('E_twice');kept=run('E_preserve')
+                                                   ^^^^^^^^^^^^^^^^^
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_second_injection_20261113_dot_v1/run_frontier.py", line 110, in run
+    if method=='E_preserve':check(max(pre_differences[:3])<=1e-10,'Preserved classical inputs do not match original one-shot path')
+                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_second_injection_20261113_dot_v1/run_frontier.py", line 23, in check
+    if not cond:raise RuntimeError(message)
+                ^^^^^^^^^^^^^^^^^^^^^^^^^^^
+RuntimeError: Preserved classical inputs do not match original one-shot path

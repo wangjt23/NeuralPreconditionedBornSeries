@@ -1,0 +1,39 @@
+{
+  "architecture": "CharacteristicSourcePredictor, three fine-grid directional scales",
+  "command": [
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/train_characteristic_source.py",
+    "--output",
+    "rte/workstation_runs/source_predictor_characteristic_20260926",
+    "--warm-start",
+    "rte/workstation_runs/source_predictor_terminal6_20260926/best.pt",
+    "--reuse-train",
+    "rte/workstation_runs/source_predictor_pilot_20260926/train.pt",
+    "--steps",
+    "1000",
+    "--supervised-steps",
+    "0",
+    "--krylov-steps",
+    "6",
+    "--terminal-target",
+    "1e-5",
+    "--lr",
+    "0.0002",
+    "--eval-every",
+    "200",
+    "--test-offset",
+    "5000",
+    "--validation-repeats",
+    "1",
+    "--test-sizes",
+    "64",
+    "128",
+    "256"
+  ],
+  "source_sha256": {
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4",
+    "rte/global_source_predictor.py": "8e90c95245bb13796f6fff324224d7d504062e52ed08f8bda14988afa808f2e5",
+    "rte/characteristic_source_predictor.py": "53f33dbb8d323c530c843c0a6edc39942d16898dec96bcedf14449feed37e40d",
+    "rte/train_characteristic_source.py": "2c2d34c72280b337235fff045f5bce9650fd9ceac596743a8bded7d86d234d51"
+  },
+  "upgrade": "base weights accepted only with missing characteristic.* keys; zero branch output preserves base prediction"
+}

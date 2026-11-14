@@ -1,0 +1,5 @@
+{"event": "case_done", "n": 128, "k": 0, "passed": false, "inverse_F_error": 0.00015873794294779403, "original_defect_RMS": 0.028146210633642345, "factor_storage_ratio": 0.296875, "seconds": 6.5674958128947765}
+{"event": "case_done", "n": 128, "k": 8, "passed": false, "inverse_F_error": 0.0028688089954424898, "original_defect_RMS": 0.02688575471046923, "factor_storage_ratio": 0.296875, "seconds": 4.369808268966153}
+{"event": "case_done", "n": 256, "k": 0, "passed": false, "inverse_F_error": 0.00015379052790924662, "original_defect_RMS": 0.03908573031213837, "factor_storage_ratio": 0.171875, "seconds": 26.147171688033268}
+{"event": "case_done", "n": 256, "k": 8, "passed": false, "inverse_F_error": 0.0027271853645199095, "original_defect_RMS": 0.03686684174556677, "factor_storage_ratio": 0.171875, "seconds": 27.0669525959529}
+{"event": "finished", "complete": true, "result": "FIXED_NORMAL_GREEN_RANK12_NO_GO", "seconds": 68.52787819202058, "error": null}

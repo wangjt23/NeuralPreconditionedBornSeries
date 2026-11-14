@@ -1,0 +1,114 @@
+[
+  {
+    "material": 0,
+    "relative_probe_errors": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "pass": true
+  },
+  {
+    "material": 1,
+    "relative_probe_errors": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "pass": true
+  },
+  {
+    "material": 2,
+    "relative_probe_errors": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "pass": true
+  },
+  {
+    "material": 3,
+    "relative_probe_errors": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "pass": true
+  },
+  {
+    "material": 4,
+    "relative_probe_errors": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "pass": true
+  },
+  {
+    "material": 5,
+    "relative_probe_errors": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "pass": true
+  },
+  {
+    "material": 6,
+    "relative_probe_errors": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "pass": true
+  },
+  {
+    "material": 7,
+    "relative_probe_errors": [
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0,
+      0.0
+    ],
+    "pass": true
+  }
+]

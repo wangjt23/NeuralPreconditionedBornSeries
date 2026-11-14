@@ -1,0 +1,9 @@
+matched entries N128 ID0 passed
+matched entries N128 ID3 passed
+matched entries N256 ID0 passed
+matched entries N256 ID3 passed
+matched full solves N128 ID0 complete
+matched full solves N128 ID3 complete
+matched full solves N256 ID0 complete
+matched full solves N256 ID3 complete
+{"complete": true, "wall_seconds": 61.918750051409006, "full_solves": 160, "measured_full_solves": 120, "global_entry_checks": 252, "geometry_targets": 8, "truncated_prefix_solves": 4, "all_accuracy_passed": true, "all_entry_passed": true, "all_same_recipe_backend_checks_passed": true, "training": false, "test9626_touched": false, "original_source_exported": false, "peak_allocated_bytes": 2682390528, "peak_reserved_bytes": 9718202368, "scope": "MatchedFP32M4+R0full/q3input information controls; five strong controls; actualsetup+warmaccepted costs; geometry/2spanoracle separatechargeddiagnostics, no rangeoptimality/learned claim"}

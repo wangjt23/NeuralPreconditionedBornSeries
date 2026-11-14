@@ -1,0 +1,7 @@
+{
+  "timing_status": "shared_gpu_observed",
+  "observation": "During the completed paired evaluation, nvidia-smi listed this evaluator (PID 3398662) and an unrelated Helmholtz training job (PID 3399024) on the same RTX A6000, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1.",
+  "scope": "Numerical convergence results retained. Timings are descriptive under changing shared-GPU load; not a clean performance ranking. Exact contention start/end were not continuously recorded.",
+  "action": "No unrelated process was interrupted. Rerun unchanged weights, tuning and cases on an uncontended GPU before making N32 speed claims.",
+  "tuning_scope": "Loaded tuning CSV was produced on 32 validation media by the original training runner; evaluator validation-count=8 was not used for retuning."
+}

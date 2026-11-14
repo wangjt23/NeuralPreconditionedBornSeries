@@ -1,0 +1,69 @@
+{
+  "complete": true,
+  "pid": 1251473,
+  "affinity": [
+    0
+  ],
+  "threads": 1,
+  "device": "cpu",
+  "orders": [
+    [
+      "compact4_inject",
+      "exact8_inner"
+    ],
+    [
+      "exact8_inner",
+      "compact4_inject"
+    ],
+    [
+      "compact4_inject",
+      "exact8_inner"
+    ]
+  ],
+  "source_ids": [
+    0,
+    4,
+    7,
+    14
+  ],
+  "grid": 128,
+  "L": 12,
+  "g": 0.65,
+  "prefix": 1,
+  "tangent_cut": 8,
+  "inner_tolerance": 0.0001,
+  "inner_maxiter": 8,
+  "outer_tolerance": 1e-05,
+  "outer_maxiter": 100,
+  "heldout9626": false,
+  "neural_training": false,
+  "new_accurate_teachers": false,
+  "wall_limit": 450,
+  "source_hashes": {
+    "confirm_coupled_cpu.py": "9220ace95a9720e3bbec33a708b71b76916324f44ac7825168cd68fce4b4e86a",
+    "exact_mode_probe.py": "b560e467e0b81a8293adfa2fc71bd5570ec875a797fea67696083f1430ba3a77"
+  },
+  "scope": "Same-instance CPU confirmation only: every paired batch rebuilds and pays all setup. No source/workload expansion, material generalization or GPU result.",
+  "production_hashes": {
+    "rte/models.py": "6cd887b332ed48409bcffa2d2bad6ca9654c97ff7071c13a6443278f583b04d1",
+    "rte/source_initialization.py": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af",
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4"
+  },
+  "rhs_sha256": {
+    "0": "29ea6512fa2516dd4bc1896f7a352ee62164ab86f205bb94214b254b98fd8d77",
+    "4": "6743df55c26fddf731dabc45f4275a2a02f58d24b9fa8762cb3a8869eb9b1436",
+    "7": "7bffceb871908f220c4ec223e1e6893abb9997051ef6ffa6804c9b553c724177",
+    "14": "7283255ec15dbda6bc7c8adab8ef92023e8dce830d5bd5ef6ab4c59431d8b7d8"
+  },
+  "reference_research_seconds": 24.288081089034677,
+  "wall_seconds": 141.089551046025,
+  "attempts": 24,
+  "failures": 0,
+  "production_hashes_after": {
+    "rte/models.py": "6cd887b332ed48409bcffa2d2bad6ca9654c97ff7071c13a6443278f583b04d1",
+    "rte/source_initialization.py": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af",
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4"
+  }
+}

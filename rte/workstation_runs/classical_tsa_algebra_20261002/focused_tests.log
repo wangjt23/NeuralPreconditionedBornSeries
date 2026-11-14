@@ -1,0 +1,19 @@
+test_eliminated_defect_matches_physical_defect (test_algebraic_tsa.AlgebraicTSATests.test_eliminated_defect_matches_physical_defect) ... ok
+test_field_parity_across_dtype_shift_depth_and_material (test_algebraic_tsa.AlgebraicTSATests.test_field_parity_across_dtype_shift_depth_and_material) ... ok
+test_guard_cache_reuse_invalidation_and_material_refresh (test_algebraic_tsa.AlgebraicTSATests.test_guard_cache_reuse_invalidation_and_material_refresh) ... ok
+test_guard_rejects_changed_stored_stream_phase_and_weights (test_algebraic_tsa.AlgebraicTSATests.test_guard_rejects_changed_stored_stream_phase_and_weights) ... ok
+test_phase_additivity_and_zero (test_algebraic_tsa.AlgebraicTSATests.test_phase_additivity_and_zero) ... ok
+test_spatial_fft_pair_counts (test_algebraic_tsa.AlgebraicTSATests.test_spatial_fft_pair_counts) ... ok
+
+----------------------------------------------------------------------
+Ran 6 tests in 1.324s
+
+OK
+{
+  "tests": 6,
+  "subtests": 58,
+  "passed": true,
+  "failures": 0,
+  "errors": 0,
+  "seconds": 4.4120536390692
+}

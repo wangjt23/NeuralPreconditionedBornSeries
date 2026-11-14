@@ -1,0 +1,50 @@
+{
+  "grids": [
+    128,
+    256
+  ],
+  "development_ids": [
+    0,
+    3
+  ],
+  "development_seed": 4626,
+  "modes": [
+    0,
+    1,
+    -1
+  ],
+  "soft_budget_seconds": 240,
+  "hard_owned_process_budget_seconds": 260,
+  "inner_tolerance": 1e-08,
+  "inner_cap": 100,
+  "range_cgls_cap": 100,
+  "range_normal_target": 1e-08,
+  "full_tolerance": 1e-05,
+  "full_restart": 25,
+  "full_cap": 100,
+  "warmups": 1,
+  "measured_repeats": 3,
+  "max_full_solves": 112,
+  "headroom_gate": "cached accuratelyverified proposal >=10% paired warm mean bothgrids; noaccuracyfail or >10% case regression; acquisitionexcludedoptimistic",
+  "q5_allowed": "only if q3range inadequacy AND headroom",
+  "code_sha256": {
+    "code/angular_galerkin.py": "94478b049abac3c534742b056a7e1854dce247d7f64f90031a7496c82e94e114",
+    "code/test_angular_galerkin.py": "fc62196a98fcdaa5c5d3ab1b05fec68cc2d8135fe45ad9748ff376332dca0876",
+    "code/graph_classical.py": "4e3db886b8ce23c1d6ccb1d6df8f071741c40f6b59b4993be3e85563f3c961e4",
+    "code/instrumented_fgmres.py": "808fef99167e34f4ebab18e9a9070ff94e6288f094dc747d0c887dd2a59a28f7",
+    "code/angular_oracle_v2.py": "7d550d5045bf3ee21ee0d4cf63e356f956b1cf2475934e090dc5b5ebf2355a7c"
+  },
+  "development_parent_sha256": {
+    "128": "9ade993bce700505d134fa197ceeee72327790bc6660e670a95bea8c43052de1",
+    "256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "range_bounds": "rawHQ ordinaryFP64mGram bracket only; AZprojected attainableupper only; underresolved retained",
+  "graph_scope": "v1 exactunchangedfloatingstages, fixedoperator objects and buffers nevermutated, sequentialonly; generalguardfix separatev2",
+  "source_initial_arm": "cachedq3Galerkinsource initial with fulloriginalcontinuation; acquisitionexcluded, cloneincluded; originalreference_tail atN128",
+  "training": false,
+  "test9626_touched": false,
+  "scope": "8existingdevcontexts, nofineteachers, noalgorithmicsuperiorityclaim",
+  "reproducibility": "FWI actualoperator original source /setup hashes; unit tests before GPU",
+  "revision": "pre-execution review adds attained-range cached timing and norms; no substantive GPU experiment preceded this revision",
+  "range_capped_proposal_timing": "feasible attained directions only, no optimality/range exclusion"
+}

@@ -1,0 +1,57 @@
+{
+  "native_repeat_bitwise": true,
+  "hook_bitwise": true,
+  "native_repeat_difference": 0.0,
+  "hook_difference": 0.0,
+  "statuses": [
+    {
+      "iterations": 2,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 0,
+      "injection_rejected": 1,
+      "true_residual": 0.0,
+      "failed": 0,
+      "trace": [
+        1.0,
+        0.3162277660168379,
+        0.0
+      ]
+    },
+    {
+      "iterations": 2,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 0,
+      "injection_rejected": 1,
+      "true_residual": 0.0,
+      "failed": 0,
+      "trace": [
+        1.0,
+        0.3162277660168379,
+        0.0
+      ]
+    },
+    {
+      "iterations": 2,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 0,
+      "injection_rejected": 1,
+      "true_residual": 0.0,
+      "failed": 0,
+      "trace": [
+        1.0,
+        0.3162277660168379,
+        0.0
+      ]
+    }
+  ],
+  "events": [
+    "commit",
+    "reject",
+    "commit",
+    "final_start",
+    "final_end"
+  ]
+}

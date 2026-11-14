@@ -1,0 +1,127 @@
+[
+  {
+    "stage": "start",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453963, python, 610 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "selection_0_before",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453963, python, 610 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "selection_0_after",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453963, python, 732 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "selection_1_before",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453963, python, 732 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "selection_1_after",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "selection_2_before",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "selection_2_after",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3456454, python, 2140 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "selection_3_before",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3456454, python, 2140 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "selection_3_after",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3456454, python, 2140 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "selection_4_before",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3456454, python, 2140 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "selection_4_after",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "selection_5_before",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "selection_5_after",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "comparison_0_hss_d8_s1.0_before",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "comparison_0_hss_d8_s1.0_after",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "comparison_0_dsa_d8_s0.0_before",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "comparison_0_dsa_d8_s0.0_after",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "comparison_0_tsa_d8_s0.0_before",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "comparison_0_tsa_d8_s0.0_after",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "comparison_0_reference_d8_s0.03_before",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "comparison_0_reference_d8_s0.03_after",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "comparison_0_dsa_transport_d8_s0.0_before",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "comparison_0_dsa_transport_d8_s0.0_after",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "comparison_0_compiled_hss_d8_s1.0_before",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  },
+  {
+    "stage": "comparison_0_compiled_hss_d8_s1.0_after",
+    "pid": 3453971,
+    "gpu_processes": "pid, process_name, used_gpu_memory [MiB], gpu_uuid\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 6 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1\n3453759, /data1/software/miniconda3/envs/xll/bin/python, 744 MiB, GPU-4743f3d5-16c7-fdb2-4b19-5f0a354103e1"
+  }
+]

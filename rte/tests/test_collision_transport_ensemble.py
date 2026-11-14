@@ -38,7 +38,18 @@ class CollisionEnsembleTests(unittest.TestCase):
             a = torch.load(root / "full" / "last.pt", weights_only=True)
             b = torch.load(root / "split" / "last.pt", weights_only=True)
             self.assertEqual(a["updates"], 4)  # Includes the partial final minibatch.
-            self.assertEqual(a["history"], b["history"])
+            for left, right in zip(a["history"], b["history"]):
+                # CPU LAPACK's least-squares final residual can vary by a few
+                # float32 ulps; restart state/training weights remain exact.
+                self.assertEqual({k: v for k, v in left.items() if k != "validation_final"},
+                                 {k: v for k, v in right.items() if k != "validation_final"})
+                self.assertAlmostEqual(left["validation_final"], right["validation_final"], delta=1e-7)
+            self.assertEqual(len(a["history"]), len(b["history"]))
+            self.assertEqual(a["scheduler"], b["scheduler"])
+            self.assertEqual(a["optimizer"]["param_groups"], b["optimizer"]["param_groups"])
+            for index, state in a["optimizer"]["state"].items():
+                for key, value in state.items():
+                    torch.testing.assert_close(value, b["optimizer"]["state"][index][key], atol=0, rtol=0)
             for key in a["model"]:
                 torch.testing.assert_close(a["model"][key], b["model"][key], atol=0, rtol=0)
             self.assertFalse((root / "split" / "test_fingerprint.txt").exists())

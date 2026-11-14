@@ -1,0 +1,218 @@
+[
+  {
+    "method": "compact4_inject",
+    "source_id": 0,
+    "solve_seconds": 0.14002703502774239,
+    "check_seconds": 0.0012200321070849895,
+    "accepted_seconds": 0.14124706713482738,
+    "setup_seconds": 0.5061526806093752,
+    "Q1_seconds": 0.6473997477442026,
+    "status": {
+      "iterations": 5,
+      "classical_calls": 4,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 2.6423048948209637e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 2.6423048948209637e-06,
+    "evaluated_relative_bound": 1.1503738227739843e-05,
+    "relative_field_difference": 7.07817000705172e-08
+  },
+  {
+    "method": "compact4_inject",
+    "source_id": 4,
+    "solve_seconds": 0.06545802811160684,
+    "check_seconds": 0.0012280161026865244,
+    "accepted_seconds": 0.06668604421429336,
+    "setup_seconds": 0.5061526806093752,
+    "Q1_seconds": 0.5728387248236686,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 3,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 8.66699675814284e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 8.66699675814284e-06,
+    "evaluated_relative_bound": 3.391000880892254e-05,
+    "relative_field_difference": 2.2024625307970635e-07
+  },
+  {
+    "method": "compact4_inject",
+    "source_id": 7,
+    "solve_seconds": 0.08731279405765235,
+    "check_seconds": 0.0013480719644576311,
+    "accepted_seconds": 0.08866086602210999,
+    "setup_seconds": 0.5061526806093752,
+    "Q1_seconds": 0.5948135466314852,
+    "status": {
+      "iterations": 5,
+      "classical_calls": 4,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 3.764560001164465e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 3.764560001164465e-06,
+    "evaluated_relative_bound": 2.162501959370329e-05,
+    "relative_field_difference": 1.353879657518593e-07
+  },
+  {
+    "method": "compact4_inject",
+    "source_id": 14,
+    "solve_seconds": 0.06908126920461655,
+    "check_seconds": 0.0013221269473433495,
+    "accepted_seconds": 0.0704033961519599,
+    "setup_seconds": 0.5061526806093752,
+    "Q1_seconds": 0.5765560767613351,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 3,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 9.079992594814956e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 9.079992594814956e-06,
+    "evaluated_relative_bound": 3.945186266639892e-05,
+    "relative_field_difference": 2.647045339192413e-07
+  },
+  {
+    "method": "exact8_inner",
+    "source_id": 0,
+    "solve_seconds": 0.13413874502293766,
+    "check_seconds": 0.001320917857810855,
+    "accepted_seconds": 0.1354596628807485,
+    "setup_seconds": 0.8489189925603569,
+    "Q1_seconds": 0.9843786554411054,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.6215858351923995e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.4279160010455246e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.08683181484229863
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.6215858351923993e-06,
+    "evaluated_relative_bound": 7.059827324182941e-06,
+    "relative_field_difference": 5.782793187315579e-08
+  },
+  {
+    "method": "exact8_inner",
+    "source_id": 4,
+    "solve_seconds": 0.1334792950656265,
+    "check_seconds": 0.001326786121353507,
+    "accepted_seconds": 0.13480608118698,
+    "setup_seconds": 0.8489189925603569,
+    "Q1_seconds": 0.9837250737473369,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.41857555164865e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 1.1682543657909331e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.08688577101565897
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.41857555164865e-06,
+    "evaluated_relative_bound": 2.9025363703854113e-05,
+    "relative_field_difference": 1.5563732189554314e-07
+  },
+  {
+    "method": "exact8_inner",
+    "source_id": 7,
+    "solve_seconds": 0.13439713907428086,
+    "check_seconds": 0.0013115350157022476,
+    "accepted_seconds": 0.1357086740899831,
+    "setup_seconds": 0.8489189925603569,
+    "Q1_seconds": 0.98462766665034,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.3549799724715256e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.8319511502735364e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.08700526994653046
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.3549799724715256e-06,
+    "evaluated_relative_bound": 7.783396534430557e-06,
+    "relative_field_difference": 8.825231758788056e-08
+  },
+  {
+    "method": "exact8_inner",
+    "source_id": 14,
+    "solve_seconds": 0.11732823611237109,
+    "check_seconds": 0.0013356669805943966,
+    "accepted_seconds": 0.11866390309296548,
+    "setup_seconds": 0.8489189925603569,
+    "Q1_seconds": 0.9675828956533223,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.408427586844545e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 4,
+        "true_residual": 8.882492715001654e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.07021314697340131
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.408427586844545e-06,
+    "evaluated_relative_bound": 3.218880987661808e-05,
+    "relative_field_difference": 1.6264675887218393e-07
+  }
+]

@@ -1,0 +1,36 @@
+{
+  "files": [
+    {
+      "file_name": "RTE_FWI_Complex_Krylov_Entry_2026_10_02.md",
+      "library_file_id": "libfile_0286f45e7cb88191bec411e01fc5b6dd",
+      "file_id": "file_0000000093f881fdb0d6811b655f118c",
+      "bytes": 19314,
+      "sha256": "882d08572b92d48ea864f289af582b1b07d2211ee1eadfd15b41412a4d3d5879",
+      "exact_pinned_version_byte_match": true,
+      "local_metadata_exit": 0
+    },
+    {
+      "file_name": "RTE_FWI_Complex_Krylov_Entry_2026_10_02.zip",
+      "library_file_id": "libfile_a637ff3e052081918bb5753585ac0b7d",
+      "file_id": "file_00000000670c81fb9ceaa4a02d404bb6",
+      "bytes": 342155,
+      "sha256": "74c3d58f5a6fc0cfec607dfb1b7677d7426bebea783544a756d565c208a52742",
+      "exact_pinned_version_byte_match": true,
+      "local_metadata_exit": 0
+    }
+  ],
+  "verified_payloads": 57,
+  "zip_entries": 58,
+  "all_payload_sha256_verified": true,
+  "zip_crc_passed": true,
+  "root_analysis_reproduced_byte_exact": true,
+  "independent_analysis_reproduced_exact": true,
+  "receipt_audits_need_original_sources_or_GPU": false,
+  "private_library_saved": true,
+  "original_source_exported": false,
+  "full_solves": 0,
+  "entry_obstruction": true,
+  "transfer_scope": "Fresh materialization of exact pinned Library IDs/file IDs returned by current tools; no previous helper or cross-executor path used.",
+  "prepared_upload_reservations_finalized": false,
+  "library_create_route": "documented host-managed create_library_file; current prepared-upload CLI unavailable"
+}

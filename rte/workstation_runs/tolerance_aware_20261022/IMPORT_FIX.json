@@ -1,0 +1,5 @@
+{
+  "reason": "child Python script directory hid repository package; add process-local PYTHONPATH to exact existing root",
+  "scientific_parameters_changed": false,
+  "no_model_or_solver_was_started": true
+}

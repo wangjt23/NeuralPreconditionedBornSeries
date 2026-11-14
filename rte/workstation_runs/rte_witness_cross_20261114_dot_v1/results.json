@@ -1,0 +1,366 @@
+{
+  "scope": "same stored witnesses cross-evaluated; no new power iteration, no optimization; actual gain lower witnesses, not certified global norms or sole FGMRES cause",
+  "complete": true,
+  "rows": [
+    {
+      "index": 0,
+      "origin": "before",
+      "target": "before",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_0_before.pt",
+      "input_hash": "aa28927815290a1d7d62f9f761f0cc8f12f02d444c868c568771410ea926342e",
+      "gain_FP32": 1.5406608581542969,
+      "gain_A64": 1.5406611137783996,
+      "diagonal_saved_output_relative_error": 0.0
+    },
+    {
+      "index": 0,
+      "origin": "before",
+      "target": "after",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_0_before.pt",
+      "input_hash": "aa28927815290a1d7d62f9f761f0cc8f12f02d444c868c568771410ea926342e",
+      "gain_FP32": 1.398469090461731,
+      "gain_A64": 1.3984692634558507,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 0,
+      "origin": "before",
+      "target": "CT4",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_0_before.pt",
+      "input_hash": "aa28927815290a1d7d62f9f761f0cc8f12f02d444c868c568771410ea926342e",
+      "gain_FP32": 0.1505136787891388,
+      "gain_A64": 0.15051384806198392,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 0,
+      "origin": "after",
+      "target": "before",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_0_after.pt",
+      "input_hash": "2d07ac7c710ae81cda8a076b5f660655f932030ea9137e70452845f09202ac6c",
+      "gain_FP32": 0.7618937492370605,
+      "gain_A64": 0.7618937070892591,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 0,
+      "origin": "after",
+      "target": "after",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_0_after.pt",
+      "input_hash": "2d07ac7c710ae81cda8a076b5f660655f932030ea9137e70452845f09202ac6c",
+      "gain_FP32": 20.635602951049805,
+      "gain_A64": 20.635604425713527,
+      "diagonal_saved_output_relative_error": 0.0
+    },
+    {
+      "index": 0,
+      "origin": "after",
+      "target": "CT4",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_0_after.pt",
+      "input_hash": "2d07ac7c710ae81cda8a076b5f660655f932030ea9137e70452845f09202ac6c",
+      "gain_FP32": 0.22224032878875732,
+      "gain_A64": 0.2222403719060148,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 0,
+      "origin": "CT4",
+      "target": "before",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_0_CT4.pt",
+      "input_hash": "14569e206fd7941f9c2f9b8cb6b9f4e260640cba9da11337bd218606f8248c20",
+      "gain_FP32": 0.8340855836868286,
+      "gain_A64": 0.8340855999719432,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 0,
+      "origin": "CT4",
+      "target": "after",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_0_CT4.pt",
+      "input_hash": "14569e206fd7941f9c2f9b8cb6b9f4e260640cba9da11337bd218606f8248c20",
+      "gain_FP32": 1.726297378540039,
+      "gain_A64": 1.72629750409744,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 0,
+      "origin": "CT4",
+      "target": "CT4",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_0_CT4.pt",
+      "input_hash": "14569e206fd7941f9c2f9b8cb6b9f4e260640cba9da11337bd218606f8248c20",
+      "gain_FP32": 0.4588288366794586,
+      "gain_A64": 0.458829122431676,
+      "diagonal_saved_output_relative_error": 0.0
+    },
+    {
+      "index": 1,
+      "origin": "before",
+      "target": "before",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_1_before.pt",
+      "input_hash": "dfa761c3ede1b157bc9ef2435623de0303ff727cb14d14f0f481bd4e669929b0",
+      "gain_FP32": 1.2050292491912842,
+      "gain_A64": 1.2050293031819201,
+      "diagonal_saved_output_relative_error": 0.0
+    },
+    {
+      "index": 1,
+      "origin": "before",
+      "target": "after",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_1_before.pt",
+      "input_hash": "dfa761c3ede1b157bc9ef2435623de0303ff727cb14d14f0f481bd4e669929b0",
+      "gain_FP32": 1.8220001459121704,
+      "gain_A64": 1.8220002426275383,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 1,
+      "origin": "before",
+      "target": "CT4",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_1_before.pt",
+      "input_hash": "dfa761c3ede1b157bc9ef2435623de0303ff727cb14d14f0f481bd4e669929b0",
+      "gain_FP32": 0.09948574751615524,
+      "gain_A64": 0.09948564522457465,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 1,
+      "origin": "after",
+      "target": "before",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_1_after.pt",
+      "input_hash": "0c2384ca7a3980209e65e4b0715a1d311d552b6b3577f74b5af1306a091e6ea0",
+      "gain_FP32": 0.7693979144096375,
+      "gain_A64": 0.7693979236899804,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 1,
+      "origin": "after",
+      "target": "after",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_1_after.pt",
+      "input_hash": "0c2384ca7a3980209e65e4b0715a1d311d552b6b3577f74b5af1306a091e6ea0",
+      "gain_FP32": 15.93191146850586,
+      "gain_A64": 15.931911554758853,
+      "diagonal_saved_output_relative_error": 0.0
+    },
+    {
+      "index": 1,
+      "origin": "after",
+      "target": "CT4",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_1_after.pt",
+      "input_hash": "0c2384ca7a3980209e65e4b0715a1d311d552b6b3577f74b5af1306a091e6ea0",
+      "gain_FP32": 0.06317860633134842,
+      "gain_A64": 0.06317874644128352,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 1,
+      "origin": "CT4",
+      "target": "before",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_1_CT4.pt",
+      "input_hash": "f1ed21bdac03f43b3ce5d1d162c846728aeda95c34e237b0b49ef24f6e1dad50",
+      "gain_FP32": 0.7888289093971252,
+      "gain_A64": 0.7888288590466654,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 1,
+      "origin": "CT4",
+      "target": "after",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_1_CT4.pt",
+      "input_hash": "f1ed21bdac03f43b3ce5d1d162c846728aeda95c34e237b0b49ef24f6e1dad50",
+      "gain_FP32": 1.1725468635559082,
+      "gain_A64": 1.1725468157661165,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 1,
+      "origin": "CT4",
+      "target": "CT4",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_1_CT4.pt",
+      "input_hash": "f1ed21bdac03f43b3ce5d1d162c846728aeda95c34e237b0b49ef24f6e1dad50",
+      "gain_FP32": 0.3580549955368042,
+      "gain_A64": 0.3580551732667329,
+      "diagonal_saved_output_relative_error": 0.0
+    },
+    {
+      "index": 2,
+      "origin": "before",
+      "target": "before",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_2_before.pt",
+      "input_hash": "6e8584a0043efd445852ea8522b7ab8d59726b60446ef0bc9dd01eead1990803",
+      "gain_FP32": 1.3004416227340698,
+      "gain_A64": 1.3004417587883574,
+      "diagonal_saved_output_relative_error": 0.0
+    },
+    {
+      "index": 2,
+      "origin": "before",
+      "target": "after",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_2_before.pt",
+      "input_hash": "6e8584a0043efd445852ea8522b7ab8d59726b60446ef0bc9dd01eead1990803",
+      "gain_FP32": 1.114682674407959,
+      "gain_A64": 1.114682783492266,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 2,
+      "origin": "before",
+      "target": "CT4",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_2_before.pt",
+      "input_hash": "6e8584a0043efd445852ea8522b7ab8d59726b60446ef0bc9dd01eead1990803",
+      "gain_FP32": 0.13767100870609283,
+      "gain_A64": 0.1376709669478068,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 2,
+      "origin": "after",
+      "target": "before",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_2_after.pt",
+      "input_hash": "b32bfb2161a5d55f95b879dd4de6154ca6fcc8fc16e7fbae6b618336da6d9647",
+      "gain_FP32": 0.6909241080284119,
+      "gain_A64": 0.6909241013583952,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 2,
+      "origin": "after",
+      "target": "after",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_2_after.pt",
+      "input_hash": "b32bfb2161a5d55f95b879dd4de6154ca6fcc8fc16e7fbae6b618336da6d9647",
+      "gain_FP32": 14.924968719482422,
+      "gain_A64": 14.924968768965655,
+      "diagonal_saved_output_relative_error": 0.0
+    },
+    {
+      "index": 2,
+      "origin": "after",
+      "target": "CT4",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_2_after.pt",
+      "input_hash": "b32bfb2161a5d55f95b879dd4de6154ca6fcc8fc16e7fbae6b618336da6d9647",
+      "gain_FP32": 0.173152893781662,
+      "gain_A64": 0.1731528608928026,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 2,
+      "origin": "CT4",
+      "target": "before",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_2_CT4.pt",
+      "input_hash": "e551bf13eec6839c3cbb48fb107b2a980342cecd47473f0e8d39d936c5a6739f",
+      "gain_FP32": 0.8094033002853394,
+      "gain_A64": 0.8094033389505492,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 2,
+      "origin": "CT4",
+      "target": "after",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_2_CT4.pt",
+      "input_hash": "e551bf13eec6839c3cbb48fb107b2a980342cecd47473f0e8d39d936c5a6739f",
+      "gain_FP32": 1.2587392330169678,
+      "gain_A64": 1.2587392683256178,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 2,
+      "origin": "CT4",
+      "target": "CT4",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_2_CT4.pt",
+      "input_hash": "e551bf13eec6839c3cbb48fb107b2a980342cecd47473f0e8d39d936c5a6739f",
+      "gain_FP32": 0.4325052499771118,
+      "gain_A64": 0.4325020483027951,
+      "diagonal_saved_output_relative_error": 0.0
+    },
+    {
+      "index": 3,
+      "origin": "before",
+      "target": "before",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_3_before.pt",
+      "input_hash": "aa21cb1ca7a4854bb35bafdcb32c5c1c8bd90545f9c7c5246f3f48a7866e1453",
+      "gain_FP32": 1.3449783325195312,
+      "gain_A64": 1.3449783776006847,
+      "diagonal_saved_output_relative_error": 0.0
+    },
+    {
+      "index": 3,
+      "origin": "before",
+      "target": "after",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_3_before.pt",
+      "input_hash": "aa21cb1ca7a4854bb35bafdcb32c5c1c8bd90545f9c7c5246f3f48a7866e1453",
+      "gain_FP32": 1.153886079788208,
+      "gain_A64": 1.1538861529660995,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 3,
+      "origin": "before",
+      "target": "CT4",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_3_before.pt",
+      "input_hash": "aa21cb1ca7a4854bb35bafdcb32c5c1c8bd90545f9c7c5246f3f48a7866e1453",
+      "gain_FP32": 0.08640706539154053,
+      "gain_A64": 0.08640711723061983,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 3,
+      "origin": "after",
+      "target": "before",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_3_after.pt",
+      "input_hash": "7d774a184d7f91c0686a90cf8790aebd619d487b5b757b6b13343aad6dac2f80",
+      "gain_FP32": 0.6849417686462402,
+      "gain_A64": 0.6849417239427498,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 3,
+      "origin": "after",
+      "target": "after",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_3_after.pt",
+      "input_hash": "7d774a184d7f91c0686a90cf8790aebd619d487b5b757b6b13343aad6dac2f80",
+      "gain_FP32": 14.419363975524902,
+      "gain_A64": 14.419364323708244,
+      "diagonal_saved_output_relative_error": 0.0
+    },
+    {
+      "index": 3,
+      "origin": "after",
+      "target": "CT4",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_3_after.pt",
+      "input_hash": "7d774a184d7f91c0686a90cf8790aebd619d487b5b757b6b13343aad6dac2f80",
+      "gain_FP32": 0.11823631078004837,
+      "gain_A64": 0.11823626692904142,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 3,
+      "origin": "CT4",
+      "target": "before",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_3_CT4.pt",
+      "input_hash": "ae26dd1b85d38221849d4166af2a7ce7910e3f3e7e92d51f9f15960f00f0741b",
+      "gain_FP32": 0.770033597946167,
+      "gain_A64": 0.7700335559191646,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 3,
+      "origin": "CT4",
+      "target": "after",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_3_CT4.pt",
+      "input_hash": "ae26dd1b85d38221849d4166af2a7ce7910e3f3e7e92d51f9f15960f00f0741b",
+      "gain_FP32": 1.3686341047286987,
+      "gain_A64": 1.368634107219245,
+      "diagonal_saved_output_relative_error": null
+    },
+    {
+      "index": 3,
+      "origin": "CT4",
+      "target": "CT4",
+      "input_file": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_mcmg_fit8_20261114_dot_v1/witness_3_CT4.pt",
+      "input_hash": "ae26dd1b85d38221849d4166af2a7ce7910e3f3e7e92d51f9f15960f00f0741b",
+      "gain_FP32": 0.31325793266296387,
+      "gain_A64": 0.3132568645043092,
+      "diagonal_saved_output_relative_error": 0.0
+    }
+  ]
+}

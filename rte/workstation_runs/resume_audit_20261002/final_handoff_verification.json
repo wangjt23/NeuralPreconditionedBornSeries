@@ -1,0 +1,20 @@
+{
+  "report_sha256": {
+    "rte/workstation_runs/resume_audit_20261002/HANDOFF.md": "e19da2e11da44456c44e013a7073ee2ef5006da76fb35e3395c867199a6bf248",
+    "docs/research/RTE_RESUME_AUDIT_2026_10_02.md": "e19da2e11da44456c44e013a7073ee2ef5006da76fb35e3395c867199a6bf248",
+    "rte/workstation_runs/resume_audit_20261002/code/independent_audit.md": "af3fe77ced127d40854c4d4ba35df18a2196ecbfbf4eb32c91ba5dc76cca6cf9",
+    "rte/workstation_runs/resume_audit_20261002/code/rte_error_certificate_design.md": "366749d78d41acf921ba54e092fbf095a887ea05dcf25aeb2bfcb06e8c6470f6",
+    "rte/workstation_runs/resume_audit_20261002/independent_audit.md": "af3fe77ced127d40854c4d4ba35df18a2196ecbfbf4eb32c91ba5dc76cca6cf9",
+    "rte/workstation_runs/resume_audit_20261002/rte_error_certificate_design.md": "366749d78d41acf921ba54e092fbf095a887ea05dcf25aeb2bfcb06e8c6470f6",
+    "rte/workstation_runs/resume_audit_20261002/literature_audit.md": "c84107dc885dbbda7ad7fa1ef7c14efa1a0b7e673942663ea68255368f69536b",
+    "rte/workstation_runs/resume_audit_20261002/prior_results_reaggregation.json": "2244bd59184d77ad532246379a915f22efd861bfdd14181135c3abc1b3fface8"
+  },
+  "source_files_verified": 155,
+  "source_mismatches": [],
+  "input_files_verified": 7,
+  "input_mismatches": [],
+  "branch": "main",
+  "head": "028caea3f35d100225f656e2b1e910c1366aaafe",
+  "gpu_processes": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "reserved_seed_test_files": []
+}

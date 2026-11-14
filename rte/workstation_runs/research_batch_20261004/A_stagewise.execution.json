@@ -1,0 +1,14 @@
+{
+  "name": "A_stagewise",
+  "pid": 2403610,
+  "returncode": 0,
+  "timeout": false,
+  "external_process_seconds": 166.73613240756094,
+  "hard_seconds": 240,
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobA/code/stagewise_driver.py",
+    "check"
+  ],
+  "completed_utc": "2026-10-04T08:31:36.649348+00:00"
+}

@@ -1,0 +1,153 @@
+{
+  "complete": true,
+  "pid": 1249102,
+  "affinity": [
+    0
+  ],
+  "common_assembly_seconds": 0.17055290401913226,
+  "total_assembly_seconds": 1.3653427297249436,
+  "total_LU_seconds": 4.103477535536513,
+  "cross_device_copy_seconds": 0.0,
+  "factor_bytes": 641832960,
+  "wall_seconds": 5.478784726001322,
+  "rows": [
+    {
+      "k": -8,
+      "assembly_seconds": 0.0645604410674423,
+      "LU_seconds": 0.24772000801749527,
+      "total_seconds": 0.3122804490849376,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": -7,
+      "assembly_seconds": 0.06849274388514459,
+      "LU_seconds": 0.23460045806132257,
+      "total_seconds": 0.30309320194646716,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": -6,
+      "assembly_seconds": 0.07228321395814419,
+      "LU_seconds": 0.23773578694090247,
+      "total_seconds": 0.31001900089904666,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": -5,
+      "assembly_seconds": 0.07100088708102703,
+      "LU_seconds": 0.23724981304258108,
+      "total_seconds": 0.3082507001236081,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": -4,
+      "assembly_seconds": 0.07078634412027895,
+      "LU_seconds": 0.23585882899351418,
+      "total_seconds": 0.30664517311379313,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": -3,
+      "assembly_seconds": 0.07124628592282534,
+      "LU_seconds": 0.2504810949321836,
+      "total_seconds": 0.32172738085500896,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": -2,
+      "assembly_seconds": 0.07110013300552964,
+      "LU_seconds": 0.24402267090044916,
+      "total_seconds": 0.3151228039059788,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": -1,
+      "assembly_seconds": 0.07106355903670192,
+      "LU_seconds": 0.24191772495396435,
+      "total_seconds": 0.31298128399066627,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": 0,
+      "assembly_seconds": 0.07110110321082175,
+      "LU_seconds": 0.24390634102746844,
+      "total_seconds": 0.3150074442382902,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": 1,
+      "assembly_seconds": 0.07129494496621192,
+      "LU_seconds": 0.2422521288972348,
+      "total_seconds": 0.3135470738634467,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": 2,
+      "assembly_seconds": 0.07102443417534232,
+      "LU_seconds": 0.2389519070275128,
+      "total_seconds": 0.3099763412028551,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": 3,
+      "assembly_seconds": 0.07114078686572611,
+      "LU_seconds": 0.23932479810900986,
+      "total_seconds": 0.310465584974736,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": 4,
+      "assembly_seconds": 0.07063013105653226,
+      "LU_seconds": 0.2391947819851339,
+      "total_seconds": 0.30982491304166615,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": 5,
+      "assembly_seconds": 0.06959418999031186,
+      "LU_seconds": 0.24082954577170312,
+      "total_seconds": 0.310423735762015,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": 6,
+      "assembly_seconds": 0.06990237114951015,
+      "LU_seconds": 0.24292508698999882,
+      "total_seconds": 0.31282745813950896,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": 7,
+      "assembly_seconds": 0.069865110097453,
+      "LU_seconds": 0.24398228502832353,
+      "total_seconds": 0.31384739512577653,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    },
+    {
+      "k": 8,
+      "assembly_seconds": 0.06970314611680806,
+      "LU_seconds": 0.24252427485771477,
+      "total_seconds": 0.31222742097452283,
+      "cross_device_copy_seconds": 0.0,
+      "factor_bytes": 37754880
+    }
+  ],
+  "source_hash": "45450682d1496db78de9af90c5fa59ac34fadaba0086d1fcb24aba118f61fe59",
+  "scope": "Separate same-material cost decomposition. Main benchmark retains its actually paid total setup; this calibration is additional research cost, not subtracted from or freely substituted into benchmark."
+}

@@ -1,0 +1,21 @@
+{
+  "stage": "diagnostic",
+  "utc": "2026-10-22T16:04:02.117346+00:00",
+  "host": "FWI-Standard-PC-i440FX-PIIX-1996",
+  "pid": 3689282,
+  "wall_cap_seconds": 120.0,
+  "admitted": true,
+  "locks": [
+    "/home/wjt/codex-schur-sisc-20260925/numerical-transfer.lock",
+    "/home/wjt/codex-schur-sisc-20260925/directional_linux_20260929/numerical.lock"
+  ],
+  "frozen_manifest_sha256": "c66659e495c72a32d794626296b6ebe2d8f0811b0e130c0b1b844346f4ee535d",
+  "conflicting_jobs": [],
+  "gpu_before": "37, 0",
+  "started_utc": "2026-10-22T16:04:02.202366+00:00",
+  "state": "failed",
+  "child_pid": 3689298,
+  "returncode": 1,
+  "finished_utc": "2026-10-22T16:04:06.291072+00:00",
+  "gpu_after": "37 MiB, 0 %"
+}

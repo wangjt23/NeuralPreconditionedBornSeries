@@ -1,0 +1,32 @@
+{
+  "args": {
+    "output": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/benchmark_joint",
+    "wall_seconds": 900,
+    "alignment": true,
+    "alignment_directory": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry"
+  },
+  "complete": true,
+  "scope": "same16 repeatedly reused development media4626;no test or new data draws",
+  "checkpoint_sha256": {
+    "frozen": "5b1f192ac4d4a2e50b3391f36ac42f60a0685d19af5fe99ff8f6933eee73d82d",
+    "continued_selected": "7b34fe73ce42fc2b4546edc483f8684d095f5804e739a80920099d0df2866140",
+    "continued_final": "c901eb6cbb32fc3e5caba9d12c9a30036e80f10198e8d3bbcc1c9ebf982255e3",
+    "low_lr1000": "ada48859332a40333a905b05179b7a400efd7647a286a7abd366dcfa81b6e4aa",
+    "aligned8": "a76a2426b69df98083619673505682ec775e89fc159481fa9eaf4058b6442785",
+    "aligned16": "ee2cb777fc2945b5779078e6b7dee22b9c7ee4f4e96e0f85719c69b8c2a7f3b9",
+    "aligned8_final": "703d3b0796bbf108dece5a076a5d83a4c6b803a40c1ff542f0c8f79fb6196831",
+    "aligned16_final": "b966c87ef4df3809b153231ed595ae6dbd06834bdc72cea91696fd490e2ec41f"
+  },
+  "classical_selection_sha256": "67cf2328721db970470643fdae52c7df7db7a191a2db2f56731ffb5c63fb6a49",
+  "original_solver": "augmented_fgmres, original-RHS tolerance1e-5, max100, restart25",
+  "timing": "one warmup+3 randomized synchronized repeats; per-media median; includes initialization,inference,projection,final residual check; setup separate",
+  "gpu_before": "1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n2412696, /data1/software/miniconda3/bin/python, 282 MiB\n",
+  "data_sha256": {
+    "64": "bbebfd1c7c4808733628ee8fdecac9e9ce09521d70f7664a5d5391c8af10813a",
+    "128": "9ade993bce700505d134fa197ceeee72327790bc6660e670a95bea8c43052de1",
+    "256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "wall_seconds": 380.6902326159179,
+  "measured_solves": 1920,
+  "gpu_after": "1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n2412696, /data1/software/miniconda3/bin/python, 6634 MiB\n"
+}

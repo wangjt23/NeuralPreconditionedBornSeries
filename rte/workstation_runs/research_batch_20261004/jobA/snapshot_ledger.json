@@ -1,0 +1,770 @@
+{
+  "complete": true,
+  "all_snapshots_persisted_before_checker": true,
+  "fixtures": [
+    {
+      "size": 64,
+      "index": 0,
+      "kind": "saved_teacher",
+      "path": "fixtures/n64_id0.npz",
+      "sha256": "186320dee3feef5848ded11c9dd93c5b29c17fa04ba538451bcf9f1814289734",
+      "bytes": 4787886,
+      "arrays": {
+        "source": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "bytes": 786432,
+          "sha256": "0b3916a45c184d7c326db743989bf3965ad448d9f0427275a073277524282aa5"
+        },
+        "baseline": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "bytes": 786432,
+          "sha256": "1e5c8e476873430dbcb0d85d05635ea9efa82248b2ee7f5f08ca2984d2adb9c3"
+        },
+        "positive": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "bytes": 786432,
+          "sha256": "12bc590c283e2c7f858d7fa61289abb0b218331ba912fe1d427ca301d7ea8f73"
+        },
+        "negative": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "bytes": 786432,
+          "sha256": "9fb41bceb77825d2bd21a66c50f72b882b55b3e7bff57d56352c20c70719aee2"
+        },
+        "original_source": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "bytes": 786432,
+          "sha256": "0b3916a45c184d7c326db743989bf3965ad448d9f0427275a073277524282aa5"
+        },
+        "stream_symbol": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "bytes": 786432,
+          "sha256": "45236f973cc0bb0c75d18593cd039f47f36f6a70ff1c2ebaed767b69f847970c"
+        },
+        "sigma_t": {
+          "dtype": "float64",
+          "shape": [
+            1,
+            1,
+            64,
+            64
+          ],
+          "bytes": 32768,
+          "sha256": "4807a4e1e3859f238bebf873031f4819a4c163ca4de6595ebc0489b1ccb5f4d0"
+        },
+        "sigma_s": {
+          "dtype": "float64",
+          "shape": [
+            1,
+            1,
+            64,
+            64
+          ],
+          "bytes": 32768,
+          "sha256": "a0fb81630e46b0823fd8c1c7a3fbd01b909077591393e4ce66a941e1509e83ee"
+        },
+        "phase": {
+          "dtype": "float64",
+          "shape": [
+            12,
+            12
+          ],
+          "bytes": 1152,
+          "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff"
+        },
+        "weights": {
+          "dtype": "float64",
+          "shape": [
+            12
+          ],
+          "bytes": 96,
+          "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6"
+        }
+      },
+      "parent": {
+        "path": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+        "sha256": "858f73d0066333dd9a4b4366d7ff48dc5f160650e5e326c33b1d28b03079efed"
+      },
+      "provenance": "Saved development teacher",
+      "paired_role": "Manufactured engineering perturbations only; no independent baseline/candidate solver comparison",
+      "positive_scale_rational": "1048577/1048576",
+      "negative_scale_rational": "257/256"
+    },
+    {
+      "size": 64,
+      "index": 3,
+      "kind": "saved_teacher",
+      "path": "fixtures/n64_id3.npz",
+      "sha256": "80104ce31590e0d1c9062cbce81a15d27310afd78abab22d18bd69b527940279",
+      "bytes": 4787886,
+      "arrays": {
+        "source": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "bytes": 786432,
+          "sha256": "d1bbd0a30630c58e77d361544a44eb31dbd10dd72d231a2091a38b948c61c473"
+        },
+        "baseline": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "bytes": 786432,
+          "sha256": "5756bbaa67afcdea5750b8dad1c3110d6722244323831797b1c90d298f95d7e4"
+        },
+        "positive": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "bytes": 786432,
+          "sha256": "7f4b96365a5636b1a7f7df4523531c3e9c9a4fe71281a200397b995453abc0e7"
+        },
+        "negative": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "bytes": 786432,
+          "sha256": "833fa31a58e46f219ce0314372b2b3eaaa18bf311edabd5591982104e7525fc3"
+        },
+        "original_source": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "bytes": 786432,
+          "sha256": "d1bbd0a30630c58e77d361544a44eb31dbd10dd72d231a2091a38b948c61c473"
+        },
+        "stream_symbol": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            64,
+            64
+          ],
+          "bytes": 786432,
+          "sha256": "45236f973cc0bb0c75d18593cd039f47f36f6a70ff1c2ebaed767b69f847970c"
+        },
+        "sigma_t": {
+          "dtype": "float64",
+          "shape": [
+            1,
+            1,
+            64,
+            64
+          ],
+          "bytes": 32768,
+          "sha256": "c2b59c7efa0d13da23c7501240bd22954d2e1f774d27be1fe89050d56f441c10"
+        },
+        "sigma_s": {
+          "dtype": "float64",
+          "shape": [
+            1,
+            1,
+            64,
+            64
+          ],
+          "bytes": 32768,
+          "sha256": "dd5363711e755d2cfabe4d04fcac5fcc0b063ce8f7a0312f990041a068fc6784"
+        },
+        "phase": {
+          "dtype": "float64",
+          "shape": [
+            12,
+            12
+          ],
+          "bytes": 1152,
+          "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff"
+        },
+        "weights": {
+          "dtype": "float64",
+          "shape": [
+            12
+          ],
+          "bytes": 96,
+          "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6"
+        }
+      },
+      "parent": {
+        "path": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+        "sha256": "858f73d0066333dd9a4b4366d7ff48dc5f160650e5e326c33b1d28b03079efed"
+      },
+      "provenance": "Saved development teacher",
+      "paired_role": "Manufactured engineering perturbations only; no independent baseline/candidate solver comparison",
+      "positive_scale_rational": "1048577/1048576",
+      "negative_scale_rational": "257/256"
+    },
+    {
+      "size": 128,
+      "index": 0,
+      "kind": "saved_teacher",
+      "path": "fixtures/n128_id0.npz",
+      "sha256": "052f5b07ad862b80d29693f829989cdda0bb7fb9d4e5911a00e18ca88151f6aa",
+      "bytes": 19140270,
+      "arrays": {
+        "source": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            128,
+            128
+          ],
+          "bytes": 3145728,
+          "sha256": "62684f15f9bf8d61534597f9a0a0e4f8102dd01c6aa859d13631c11cd879cd35"
+        },
+        "baseline": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            128,
+            128
+          ],
+          "bytes": 3145728,
+          "sha256": "d57578f20cc9883a4dcc71d7860b1a785f0db56346d38d83e2f01fdbd10d21e0"
+        },
+        "positive": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            128,
+            128
+          ],
+          "bytes": 3145728,
+          "sha256": "0ed943ca3cf80d2828c61f64af1433e7d91e722422bc5a1203378fa5fd71e57e"
+        },
+        "negative": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            128,
+            128
+          ],
+          "bytes": 3145728,
+          "sha256": "c98d41b63ba20eeb3c4fee2c044bf414d090995ccc76dd5f9faa58a8ddcd91a4"
+        },
+        "original_source": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            128,
+            128
+          ],
+          "bytes": 3145728,
+          "sha256": "62684f15f9bf8d61534597f9a0a0e4f8102dd01c6aa859d13631c11cd879cd35"
+        },
+        "stream_symbol": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            128,
+            128
+          ],
+          "bytes": 3145728,
+          "sha256": "460ad151505e8c2dd9406409185a54c5d6b46da729dd8efa9db176539f7da737"
+        },
+        "sigma_t": {
+          "dtype": "float64",
+          "shape": [
+            1,
+            1,
+            128,
+            128
+          ],
+          "bytes": 131072,
+          "sha256": "f7b96221e93c0b91ed84e25ff8aef49abd4761699ec8a1e30f3ca2761e34933e"
+        },
+        "sigma_s": {
+          "dtype": "float64",
+          "shape": [
+            1,
+            1,
+            128,
+            128
+          ],
+          "bytes": 131072,
+          "sha256": "9b0f81ea3d671df4dbaf18b1858d08100ca9324d819879c516cc2cc60e779371"
+        },
+        "phase": {
+          "dtype": "float64",
+          "shape": [
+            12,
+            12
+          ],
+          "bytes": 1152,
+          "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff"
+        },
+        "weights": {
+          "dtype": "float64",
+          "shape": [
+            12
+          ],
+          "bytes": 96,
+          "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6"
+        }
+      },
+      "parent": {
+        "path": "rte/workstation_runs/tail_multiresolution_bank_20260926/validation.pt",
+        "sha256": "58f8e2f069ea1fa1c0c8f490b441c7acfc91a6592d045a7a7a52eea7bf08aeb4"
+      },
+      "provenance": "Saved development teacher",
+      "paired_role": "Manufactured engineering perturbations only; no independent baseline/candidate solver comparison",
+      "positive_scale_rational": "1048577/1048576",
+      "negative_scale_rational": "257/256"
+    },
+    {
+      "size": 128,
+      "index": 3,
+      "kind": "saved_teacher",
+      "path": "fixtures/n128_id3.npz",
+      "sha256": "8b2acd7a90ff6a46fc68f2d171a4439814d86deb1ed2ed088d9567449a4f98dd",
+      "bytes": 19140270,
+      "arrays": {
+        "source": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            128,
+            128
+          ],
+          "bytes": 3145728,
+          "sha256": "aadd185e963b0b130bbe10259408a77cdf7c1f776cc3e61508c59e67e2fac7af"
+        },
+        "baseline": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            128,
+            128
+          ],
+          "bytes": 3145728,
+          "sha256": "7fef81f9c52e42b08b88eae505233786db844e2e0e5b6d584419d12279b8717a"
+        },
+        "positive": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            128,
+            128
+          ],
+          "bytes": 3145728,
+          "sha256": "b2b3351518542a565844933cda933d6017e7497775ce502f5906425ebefb4973"
+        },
+        "negative": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            128,
+            128
+          ],
+          "bytes": 3145728,
+          "sha256": "e4c95a4b1c00e3cd7f162ee23fa06fc3f417ad1ddb33d79b2624ac398bd4cc6a"
+        },
+        "original_source": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            128,
+            128
+          ],
+          "bytes": 3145728,
+          "sha256": "aadd185e963b0b130bbe10259408a77cdf7c1f776cc3e61508c59e67e2fac7af"
+        },
+        "stream_symbol": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            128,
+            128
+          ],
+          "bytes": 3145728,
+          "sha256": "460ad151505e8c2dd9406409185a54c5d6b46da729dd8efa9db176539f7da737"
+        },
+        "sigma_t": {
+          "dtype": "float64",
+          "shape": [
+            1,
+            1,
+            128,
+            128
+          ],
+          "bytes": 131072,
+          "sha256": "abe2c1f95cc012a3d7a95fed37aa30d9a444581939766884e23da04c3bf932b9"
+        },
+        "sigma_s": {
+          "dtype": "float64",
+          "shape": [
+            1,
+            1,
+            128,
+            128
+          ],
+          "bytes": 131072,
+          "sha256": "2937371ae252311e84e3988f161897632845481a292fafc62a3325d06272c4e6"
+        },
+        "phase": {
+          "dtype": "float64",
+          "shape": [
+            12,
+            12
+          ],
+          "bytes": 1152,
+          "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff"
+        },
+        "weights": {
+          "dtype": "float64",
+          "shape": [
+            12
+          ],
+          "bytes": 96,
+          "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6"
+        }
+      },
+      "parent": {
+        "path": "rte/workstation_runs/tail_multiresolution_bank_20260926/validation.pt",
+        "sha256": "58f8e2f069ea1fa1c0c8f490b441c7acfc91a6592d045a7a7a52eea7bf08aeb4"
+      },
+      "provenance": "Saved development teacher",
+      "paired_role": "Manufactured engineering perturbations only; no independent baseline/candidate solver comparison",
+      "positive_scale_rational": "1048577/1048576",
+      "negative_scale_rational": "257/256"
+    },
+    {
+      "size": 256,
+      "index": 0,
+      "kind": "new_manufactured_M_source",
+      "path": "fixtures/n256_id0.npz",
+      "sha256": "e81c7f236dd810e9379d0968f6f439422b5a6f101171e1618a7cb108c19d01dc",
+      "bytes": 76549806,
+      "arrays": {
+        "source": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            256,
+            256
+          ],
+          "bytes": 12582912,
+          "sha256": "241612e4c115fd4db706cdd098a02aee6c2ab22eb9f18a8746bb6d1b71ee654d"
+        },
+        "baseline": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            256,
+            256
+          ],
+          "bytes": 12582912,
+          "sha256": "8d8f6a75e24d67c073e237e0afdf84f8ef2d78f88880385e9f9208ee3d732d8c"
+        },
+        "positive": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            256,
+            256
+          ],
+          "bytes": 12582912,
+          "sha256": "65f093ec45941d81e968a9cc45103d425a72f196366bb74b4edf3e4b55c8a71c"
+        },
+        "negative": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            256,
+            256
+          ],
+          "bytes": 12582912,
+          "sha256": "8d585a93448ccb9c81a09ce63b5d47895ebbc7f3f1e80fffc37da196db483e78"
+        },
+        "original_source": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            256,
+            256
+          ],
+          "bytes": 12582912,
+          "sha256": "3a7aece93ec0a73c843471348f05f64c9792d3a5c2a2d6b6d3aca4c01d0d4fc6"
+        },
+        "stream_symbol": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            256,
+            256
+          ],
+          "bytes": 12582912,
+          "sha256": "46333b7b19994e9fe525c83aed3463b40a0b3cfc725150a26161cd57ddec0323"
+        },
+        "sigma_t": {
+          "dtype": "float64",
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "bytes": 524288,
+          "sha256": "990790ef4989633ca7aa8175d127a16ea9aa41b3931d4e86c161b80bf77bb8f6"
+        },
+        "sigma_s": {
+          "dtype": "float64",
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "bytes": 524288,
+          "sha256": "7062ab2586b05cd1216f488b3107337dc781997dbc4a12ff40f80c84c0a3c542"
+        },
+        "phase": {
+          "dtype": "float64",
+          "shape": [
+            12,
+            12
+          ],
+          "bytes": 1152,
+          "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff"
+        },
+        "weights": {
+          "dtype": "float64",
+          "shape": [
+            12
+          ],
+          "bytes": 96,
+          "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6"
+        }
+      },
+      "parent": {
+        "path": "rte/workstation_runs/resume_audit_20261002/runtime_gate/validation_n256.pt",
+        "sha256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+      },
+      "provenance": "New M(original stored source), q=rounded GPU H(b); exact newly persisted bits; no old transient replay claim",
+      "paired_role": "Manufactured engineering perturbations only; no independent baseline/candidate solver comparison",
+      "positive_scale_rational": "1048577/1048576",
+      "negative_scale_rational": "257/256"
+    },
+    {
+      "size": 256,
+      "index": 3,
+      "kind": "new_manufactured_M_source",
+      "path": "fixtures/n256_id3.npz",
+      "sha256": "2b614bceb334d0316ab3a565c08781523cffeda1e66fc0a42ef122f9a3cd9079",
+      "bytes": 76549806,
+      "arrays": {
+        "source": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            256,
+            256
+          ],
+          "bytes": 12582912,
+          "sha256": "953cc98c5a3321fdd051091d97b34921126baf0f47236bd91c75ce7f37bf64c8"
+        },
+        "baseline": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            256,
+            256
+          ],
+          "bytes": 12582912,
+          "sha256": "937d71bcb27807a44ba6f77b08c4c097205b87f9be3f99013e1a6e2b28abb5f3"
+        },
+        "positive": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            256,
+            256
+          ],
+          "bytes": 12582912,
+          "sha256": "061e8fed2124393205e20bbaa01c35a8d61cf3e3feb89d9a59ffe2100ac8c7d8"
+        },
+        "negative": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            256,
+            256
+          ],
+          "bytes": 12582912,
+          "sha256": "40061719e839b35fba348ab441fdaa27474c44d7d418641680a634b846863324"
+        },
+        "original_source": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            256,
+            256
+          ],
+          "bytes": 12582912,
+          "sha256": "698a1baed2f50516c85c86b8b6849333be0681e37bacfb59e4ea6fdfdb8c81d6"
+        },
+        "stream_symbol": {
+          "dtype": "complex128",
+          "shape": [
+            1,
+            12,
+            256,
+            256
+          ],
+          "bytes": 12582912,
+          "sha256": "46333b7b19994e9fe525c83aed3463b40a0b3cfc725150a26161cd57ddec0323"
+        },
+        "sigma_t": {
+          "dtype": "float64",
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "bytes": 524288,
+          "sha256": "5310a2ea2953739a38769ff9abde58d86c24860976669c628e30a00fbd8f4b68"
+        },
+        "sigma_s": {
+          "dtype": "float64",
+          "shape": [
+            1,
+            1,
+            256,
+            256
+          ],
+          "bytes": 524288,
+          "sha256": "98ccd230057133a34f5e05aa93357c46a2af94beef970e2f619796d5ab4054f5"
+        },
+        "phase": {
+          "dtype": "float64",
+          "shape": [
+            12,
+            12
+          ],
+          "bytes": 1152,
+          "sha256": "307a2cff660ae90822726e223eb48085b1eb4ac603541b899dc5623fc2b76cff"
+        },
+        "weights": {
+          "dtype": "float64",
+          "shape": [
+            12
+          ],
+          "bytes": 96,
+          "sha256": "aa09d419fee34a11c4fa8d436fd8ef888c489e50bc58cf4e0e5979986cfaa9a6"
+        }
+      },
+      "parent": {
+        "path": "rte/workstation_runs/resume_audit_20261002/runtime_gate/validation_n256.pt",
+        "sha256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+      },
+      "provenance": "New M(original stored source), q=rounded GPU H(b); exact newly persisted bits; no old transient replay claim",
+      "paired_role": "Manufactured engineering perturbations only; no independent baseline/candidate solver comparison",
+      "positive_scale_rational": "1048577/1048576",
+      "negative_scale_rational": "257/256"
+    }
+  ],
+  "costs": {
+    "parent_hash_load": 0.7245433125644922,
+    "physical_setup": 0.26419435627758503,
+    "capture_setup": 0.1413811482489109,
+    "M": 0.0356624461710453,
+    "H": 0.09207446686923504,
+    "transfers": 0.17352112755179405,
+    "snapshot_save": 0.33046685345470905,
+    "snapshot_hash": 1.2792450562119484
+  },
+  "counts": {
+    "full_solves": 0,
+    "training_steps": 0,
+    "new_seed_generation": 0,
+    "M": 2,
+    "H": 2
+  },
+  "elapsed_seconds": 5.9065913911908865,
+  "cpu_peak_rss_kib": 1003424,
+  "gpu_peak_allocated_bytes": 268459520,
+  "gpu_peak_reserved_bytes": 513802240,
+  "source_arrays_exported": false,
+  "checker_calls": 0,
+  "torch": "2.5.1",
+  "numpy": "1.26.4",
+  "cuda": "12.4"
+}

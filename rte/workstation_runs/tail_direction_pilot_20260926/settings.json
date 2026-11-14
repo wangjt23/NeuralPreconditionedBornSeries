@@ -1,0 +1,34 @@
+{
+  "args": {
+    "output": "rte/workstation_runs/tail_direction_pilot_20260926",
+    "context": "rte/workstation_runs/tail_injection_gate_20260926/train_context.pt",
+    "validation_parent": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+    "steps": 2000,
+    "supervised_steps": 800,
+    "eval_every": 200,
+    "batch": 8,
+    "width": 32,
+    "blocks": 4,
+    "modes": 6,
+    "lr": 0.001,
+    "seed": 26927
+  },
+  "complete": true,
+  "scope": "tail-direction training and validation only; zero test access",
+  "selection": "failures, mean classical calls + 0.5*neural calls, then physical residual; all 16 validation cases",
+  "architecture": "TailResponseNetwork, global/local plus characteristic filters, reference-RMS scaling",
+  "source_sha256": {
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/tail_response_network.py": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+    "rte/train_tail_direction.py": "3f42e44b9bed2d508ed2b7b7be1a3dca65bbe9d893f40bba642c45c0436c7c59"
+  },
+  "selected_step": 800,
+  "validation_score": [
+    0,
+    8.03125,
+    5.518636462276647e-06
+  ],
+  "parameters": 670811,
+  "training_seconds": 100.77968081273139,
+  "context_sha256": "1e34233b172224ed18b59184a74aec41111ed68184b8068a9c9ddfe9cd62e72f"
+}

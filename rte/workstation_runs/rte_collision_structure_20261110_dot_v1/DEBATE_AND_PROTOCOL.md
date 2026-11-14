@@ -1,0 +1,13 @@
+# Exact collision structure audit before a Woodbury implementation
+
+## Debate round 1: do the required identities hold for the actual code?
+Three distinct possibilities are (A) exact rank-Ny isotropic Woodbury, (B) exact full-angular-rank Woodbury, and (C) an iterative split treating isotropic collision separately from anisotropic coupling. Only A would justify the proposed cheap Ny-dimensional direct correction without a new approximation. The class docstring says isotropic, but executed _make_phase_matrix uses g=.65 and a normalized full angular Poisson kernel. Therefore inspect the actual stored matrix rather than the docstring. No g change, angular truncation or new approximation is permitted by this audit.
+
+The transport/total part is angle-block-diagonal: each angle has its own Ny-by-Ny stored Fourier normal derivative plus diagonal material and tangent-streaming shift. Scattering multiplies by a positive spatial diagonal and the full stored phase-times-weights matrix. Boundary handling is periodic Fourier throughout; no inflow/outflow boundary rows require a separate correction. Audit whether the angular matrix has rank1. If rank r>1 and the spatial diagonal is full-rank Ny, collision rank is r Ny, so Ny-column Woodbury cannot represent it exactly for the stated split.
+
+## Debate round 2: cheapest decisive evidence and strong controls
+Freeze modes[0,1,8], N128, L12, g=.65 and the original selected material. Compute singular values and inverse-residual certificates of the stored12x12 angular kernel and an off-diagonal6x6 submatrix, checking that diagonal collision reassignment cannot silently restore rank1. Check angular Fourier/circulant defects without rounding them to zero.
+
+For three seeded complex RHS vectors per fixed mode, verify the explicit transport-minus-collision block action against the original A0 operator. As a diagnostic counterfactual only, implement the exact rank-Ny formula for the actual stored g=0 kernel, and compare with dense g=0 LU. Also apply that rank1 formula to the true g=.65 equation and retain the mismatch. This establishes which premise fails; it is not a candidate preconditioner benchmark or a change of the research workload. Report paid construction/application/storage costs for these bounded algebra tests.
+
+If actual rank exceeds1, do not build a purported Ny-rank exact solver for g=.65 or sweep ranks. Give the exact general formula with r Ny reduced dimension and state its cost obstruction. Any anisotropic iterative correction or angular-coordinate representation is a separately debated future direction, not a silently introduced approximation. GPU remains disabled; CPU0 only; A/B/C packages are untouched.

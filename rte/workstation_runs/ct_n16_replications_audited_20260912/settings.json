@@ -1,0 +1,17 @@
+{
+  "training_runs": [
+    "rte/results/collision_transport_ensemble_seed1",
+    "rte/workstation_runs/ct_n16_data256_seed2_gpu_20260912",
+    "rte/workstation_runs/ct_n16_data256_seed3_gpu_20260912"
+  ],
+  "evaluation_runs": [
+    "rte/workstation_runs/ct_seed1_saved_gpu_eval_20260912",
+    "rte/workstation_runs/ct_n16_data256_seed2_gpu_eval_20260912",
+    "rte/workstation_runs/ct_n16_data256_seed3_gpu_eval_20260912"
+  ],
+  "bootstrap_samples": 10000,
+  "dataset_fingerprints_unique": true,
+  "fingerprint_limit": "different whole-split hashes do not prove per-medium disjointness",
+  "pooled_interval": "hierarchical by trained-model seed then paired medium; few seeds",
+  "speed_comparison": "conditional on both methods succeeding; failed pairs explicitly retained"
+}

@@ -1,0 +1,13 @@
+# C: GPU cost qualification, scheduled only in a natural exclusive window
+
+## Debate round 1: which uncertainty is now decisive?
+A/B established a same-instance CPU gain and one predetermined inclusion-strength perturbation. They do not establish GPU economics. The A6000 has very different FP64 factorization, graph launch, FFT and triangular-solve costs. Three competing actions are: (1) translate the frozen candidate with synchronized setup/application accounting; (2) optimize factor precision/rank/cutoff; (3) expand physical/material tests. Select(1). Precision/rank changes would obscure whether the current result transfers; broader material evidence cannot repair an uneconomic GPU implementation. Do not start a GPU process during GB's planned training.
+
+## Debate round 2: strongest control, output ownership and early stopping
+Use same-machine DirectSegmentedTSA64 and captured compact4 as the paid decision control. Both use private mutable graph state and fresh output storage; the inspected CapturedAction returns output.clone(), so retained Krylov directions cannot alias later replays. The exact candidate uses the same original4RHS, prefix1, P8, inner tolerance1e-4/max8, and original outer acceptance. Do not expand RHS reuse or alter tolerances.
+
+Synchronize around GPU timers. Charge host-to-device source staging, material/acceptance construction, TSA capture, exact block assembly/LU, graph setup/warmup/validation, every inner/outer application and original-equation checks. No cross-device factor pipeline is assumed. Process/CUDA initialization is separately disclosed and common. GPU source/field differences are verified against the original contract; CPU timings are never a denominator.
+
+First run an actual complete compact4 four-RHS batch. During the exact fresh setup, elapsed nonnegative construction cost provides a lower bound: if paid exact setup already exceeds that complete compact4 batch, stop the present realization immediately. A partial-factor stop is reported as a lower bound, not a full17-block timing or a numeric failure. Do not pay for remaining blocks or enlarge RHS count to manufacture a win. If factor setup fits, pay capture/action qualification and recheck the lower bound before running exact8_inner. Only a complete paid gain with all original acceptance tests passes this minimal GPU qualification; confirmation would still require counterbalanced repeats.
+
+CPU/static qualification may run while GB is active. It tests algebra and output ownership without initializing CUDA. A/B evidence remains sealed and untouched. No GPU launch until the GB coordinator explicitly identifies a natural idle window; no high-frequency polling.

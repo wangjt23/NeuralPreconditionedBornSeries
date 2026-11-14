@@ -1,0 +1,32 @@
+{
+  "host": "FWI-Standard-PC-i440FX-PIIX-1996",
+  "user": "wjt",
+  "workspace": "/data/wjt/NeuralPreconditionedBornSeries",
+  "branch": "main",
+  "head": "028caea3f35d100225f656e2b1e910c1366aaafe",
+  "source_files_verified": 155,
+  "source_mismatches": [],
+  "input_files_verified": 7,
+  "input_mismatches": [],
+  "model_mismatches": [],
+  "development_parent_mismatches": [],
+  "executed_code_mismatches": [],
+  "report_and_new_files_sha256": {
+    "rte/workstation_runs/direction_diagnostic_20261002/HANDOFF.md": "365b4994e7844ea683f58575043a50726de1448aed7b986bc42c8a79b2721f2e",
+    "docs/research/RTE_DIRECTION_DIAGNOSTIC_2026_10_02.md": "365b4994e7844ea683f58575043a50726de1448aed7b986bc42c8a79b2721f2e",
+    "rte/workstation_runs/direction_diagnostic_20261002/notes/acceptance_phase_note.md": "f58ea3f95570aa7adbd2901f3b5e4207906892676d14d96ec098c1fff3753662",
+    "rte/workstation_runs/direction_diagnostic_20261002/notes/verification_note.md": "9c4561edf97e1946cf6ef73466fa62131f30c2000c12dfc2304168d791cb70ea",
+    "rte/workstation_runs/direction_diagnostic_20261002/notes/continuation_acceptance_test_report.md": "128bc2231f61fdfe363215cebe5d46be0ad9a202a7911c644c637e29f2eda50b",
+    "rte/workstation_runs/direction_diagnostic_20261002/notes/direction_runtime.png": "5b8e357245c98e24798942c64006f05d41abaa7fb84ef2bd76c39298d4ec1311",
+    "rte/workstation_runs/direction_diagnostic_20261002/notes/direction_runtime.svg": "bdc938bbc7651c6cfbc046a8fd23f8c76cf2953818214c584dfd59e450b154bc",
+    "rte/workstation_runs/direction_diagnostic_20261002/code/plot_direction_results.py": "6c50302fa11a658938ef2fbfedebc4af7c3b3203e1fc17596fb3bd19f3cb63a3"
+  },
+  "previous_october_docs_sha256": {
+    "rte/workstation_runs/resume_audit_20261002/HANDOFF.md": "e19da2e11da44456c44e013a7073ee2ef5006da76fb35e3395c867199a6bf248",
+    "docs/research/RTE_RESUME_AUDIT_2026_10_02.md": "e19da2e11da44456c44e013a7073ee2ef5006da76fb35e3395c867199a6bf248"
+  },
+  "gpu_processes_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "gpu_after": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]\nNVIDIA RTX A6000, 49140 MiB, 37 MiB, 0 %\n",
+  "reserved_seed_test_files": [],
+  "test_generated": false
+}

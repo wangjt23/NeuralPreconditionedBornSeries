@@ -1,0 +1,17 @@
+# Static prepared batched GPU gate
+
+Prepared only. No GPU run, CUDA initialization or numerical qualification has occurred in this directory. Explicit coordinator admission after GB release and the prioritized Schur window is required. The environment admission flag is an accidental-launch guard, not authorization by itself.
+
+The unchanged F batched inverse is imported by its frozen SHA256. Complex128, all17 signed modes, original full phase, corner closure, per-mode/per-column target1e-10/max3, strict zeros and inner1e-4/max8 remain fixed. N128, inclusion amplitude3, original sources[0,4,7,14], outer1e-5 and field/bound checks remain fixed. No conjugate reuse, new samples or tuning.
+
+The first debate favors the CPU-qualified batched execution over the unqualified literal17-loop GPU port, but recognizes that synchronous residual decisions and sequential angular stages may still lose. The second debate rejects inferred GPU speed from CPU construction or dispatch counts: only synchronized, paid same-machine complete costs answer the question.
+
+Use a device-warm convention for both methods. CUDA initialization and common neutral primitive warm-up are recorded separately and excluded equally. Neutral inputs do not contain the material or measured sources; no warm-up factors survive. Ordinary accepted reference solves are separately recorded and never become candidate inputs. Every measured batch builds fresh physical/TSA/factor objects and pays all source/operator copies, factor construction, capture if required, all17 original-A0 validation for the candidate, repairs and final checks. First RHS and complete four RHS have direct synchronized observed wall timestamps in addition to phase sums.
+
+The physical low and high operators are constructed on CPU from the same stored coefficients used in F, then all buffers and plain tensor fields are transferred. This avoids regenerating material coefficients on GPU and changing the frozen instance through rounding. All copy bytes and times, including exact-value verification copies, are recorded and charged symmetrically. No saved factor is reused across batches.
+
+The F class's internal setup timers are explicitly labeled host dispatch only on GPU. Actual setup/factor/qualification/online costs use external CUDA synchronization. No internal dispatch value may be reported as a GPU LU, chain or corner execution time. Outer observed wall includes all work and synchronization before the boundary; there is no unpaid asynchronous work shifted to the next phase.
+
+Fixed orders are compact4 then batched candidate; only if the candidate fully passes and wins, candidate then compact4. A candidate setup lower bound is checked after base preparation, factor construction and all17 validation. If it exceeds the prior matched compact4 complete four-RHS wall, stop the implementation. If the first complete pair has no cost advantage, stop without a reverse rescue run. If the reverse pair disagrees, report the unresolved result. No extra RHS or threshold changes. The gate has a180-second alarm and1CPU thread on CPU0.
+
+Strong control is captured compact4 plus the existing DirectSegmentedTSA64 path, with fresh setup and capture charged. The candidate remains eager batched execution with its actual correction checks charged. No additional capture variant is introduced in this gate. All outputs are original-operator accepted; CPU and GPU seconds are never combined into a speedup claim.

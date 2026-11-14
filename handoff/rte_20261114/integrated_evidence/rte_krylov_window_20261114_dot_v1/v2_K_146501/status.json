@@ -1,0 +1,130 @@
+{
+  "pid": 2364965,
+  "complete": true,
+  "update": 2048,
+  "records": [
+    {
+      "material": 0,
+      "c": 2,
+      "U": 0.5136390812440754,
+      "T": 27,
+      "s": 20,
+      "q": 7,
+      "reason": "converged",
+      "trajectory": {
+        "A": {
+          "calls": 56,
+          "seconds": 0.062236525816842914
+        },
+        "M": {
+          "calls": 27,
+          "seconds": 0.1336374341044575
+        },
+        "wall": 0.32940761209465563
+      },
+      "prefix_seconds": 0.24884780193679035,
+      "setup_generation": 4095,
+      "input_hashes": [
+        "68bf2b76da109637cc18ccd3ab968e8ff7482260ba00a01e60ea09eab98a6941",
+        "51c44a698a82dc3264ead41bb1107768fa376010a30ac6479c7c8257f5d5266e",
+        "9ef0da0a593953e8b4b4a7204e861aaa2cdbf5c57d171bff8e7387a23bedd9bf",
+        "bcd6f04d83f7908bb3d32188fba119749aec7105c5e3199a03467d24d9cb2cf0",
+        "64c874bd24a80a939557fb51a4e2404a4cdb5d251c2fad226a1cc7ee15adbbfa",
+        "bc5b245ad8f033c38e359e6be92ef7183da774136fac10ff4a4bf0bd52f7a688",
+        "37789296f0e73ad90f75d89f01effaa466bc6c0201d1463d5305a5746b518e46"
+      ],
+      "loss": 1.4968746024478066,
+      "actual_calls": 7,
+      "logical_fill": 1,
+      "gradient_seconds": 0.2495418379548937,
+      "gradient_A_calls": 15,
+      "gradient_M_calls": 7,
+      "A_total": {
+        "calls": 71,
+        "seconds": 0.08307805540971458
+      },
+      "M_total": {
+        "calls": 34,
+        "seconds": 0.18715082481503487
+      }
+    },
+    {
+      "material": 1,
+      "c": 0,
+      "U": 0.6240839269732662,
+      "T": 19,
+      "s": 0,
+      "q": 8,
+      "reason": "converged",
+      "trajectory": {
+        "A": {
+          "calls": 39,
+          "seconds": 0.04343749559484422
+        },
+        "M": {
+          "calls": 19,
+          "seconds": 0.09429704560898244
+        },
+        "wall": 0.23184796888381243
+      },
+      "prefix_seconds": 0.0,
+      "setup_generation": 4096,
+      "input_hashes": [
+        "2b6466b22a4c718032f2f9842deb22499c43d083e6a4eed7b9e9cfc718f22723",
+        "3a8566f8ee1b867a386ea15c0e0bbc81892ac3ac9e3f191818f1433824121ba0",
+        "e12f671d62fc91f399197df5c0d38b2207bbbeacb876822d00ed813d61f56296",
+        "258beebc64a777bf0f37717dc5921e316563c9900e5d3a9368263fa283bb4b84",
+        "0c3e29bab25f818272b2cc4cee31daaf9851f52e171702c31728ccc707754f4b",
+        "c979c8406bb4a1fd8436308eec5ed6f703eaf7b34ea14d707cc986e458dc0893",
+        "c0cc5f16e0a3df6991e869ce504e97734a22d6d1dfb30969209a35c22bc007e2",
+        "32ebd7057aca70257abd6224ac014e114d5fcec5c31151a95a8dcc8b6313613a"
+      ],
+      "loss": 14.741472960262058,
+      "actual_calls": 8,
+      "logical_fill": 0,
+      "gradient_seconds": 0.26258316286839545,
+      "gradient_A_calls": 16,
+      "gradient_M_calls": 8,
+      "A_total": {
+        "calls": 55,
+        "seconds": 0.059188619488850236
+      },
+      "M_total": {
+        "calls": 27,
+        "seconds": 0.1533663917798549
+      }
+    }
+  ],
+  "gradnorm": 38.146785736083984,
+  "clip_applied": false,
+  "optimizer_step": true,
+  "lr": 1e-05,
+  "wall": 2872.7010683550034,
+  "counts": {
+    "7:0": 164,
+    "1:1": 190,
+    "7:2": 167,
+    "5:0": 154,
+    "0:1": 170,
+    "0:2": 173,
+    "6:0": 164,
+    "0:0": 180,
+    "7:1": 165,
+    "1:2": 170,
+    "2:1": 178,
+    "4:2": 169,
+    "5:2": 173,
+    "5:1": 161,
+    "1:0": 165,
+    "3:0": 192,
+    "4:1": 165,
+    "2:2": 162,
+    "6:1": 159,
+    "3:1": 177,
+    "2:0": 165,
+    "4:0": 182,
+    "3:2": 184,
+    "6:2": 167
+  },
+  "peak_memory": 497945600
+}

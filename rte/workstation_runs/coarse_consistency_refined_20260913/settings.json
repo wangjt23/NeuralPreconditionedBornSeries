@@ -1,0 +1,9 @@
+{
+  "args": {
+    "dataset": "rte/workstation_runs/sct4_krylov_n128_seed402_20260912/validation.pt",
+    "count": 4,
+    "output": "rte/workstation_runs/coarse_consistency_refined_20260913"
+  },
+  "scope": "development oracle diagnostic, not a practical timed solver",
+  "inner_failures": "inspect inner residual; a capped inner solve is not exact"
+}

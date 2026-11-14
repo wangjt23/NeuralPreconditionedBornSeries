@@ -1,0 +1,58 @@
+[
+  {
+    "size": 128,
+    "index": 0,
+    "copy_only_graph_setup_seconds": 0.06787963770329952,
+    "copy_only_replay_seconds": [
+      4.592910408973694e-05,
+      4.278309643268585e-05,
+      5.3921714425086975e-05,
+      4.241056740283966e-05,
+      4.377029836177826e-05
+    ],
+    "diagnostic_only": true,
+    "method_specific_cold_rank": false
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "copy_only_graph_setup_seconds": 0.0779283419251442,
+    "copy_only_replay_seconds": [
+      4.190579056739807e-05,
+      4.354119300842285e-05,
+      4.182010889053345e-05,
+      4.3526291847229004e-05,
+      4.137307405471802e-05
+    ],
+    "diagnostic_only": true,
+    "method_specific_cold_rank": false
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "copy_only_graph_setup_seconds": 0.0842269454151392,
+    "copy_only_replay_seconds": [
+      4.915706813335419e-05,
+      5.2656978368759155e-05,
+      4.887580871582031e-05,
+      5.046837031841278e-05,
+      4.8808753490448e-05
+    ],
+    "diagnostic_only": true,
+    "method_specific_cold_rank": false
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "copy_only_graph_setup_seconds": 0.07124260254204273,
+    "copy_only_replay_seconds": [
+      5.087442696094513e-05,
+      5.043298006057739e-05,
+      5.044601857662201e-05,
+      5.0185248255729675e-05,
+      4.988349974155426e-05
+    ],
+    "diagnostic_only": true,
+    "method_specific_cold_rank": false
+  }
+]

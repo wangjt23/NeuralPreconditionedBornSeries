@@ -1,0 +1,11 @@
+{
+  "specs": "rte/resolution_precision_specs.json",
+  "sizes": [
+    64,
+    128
+  ],
+  "count": 2,
+  "seed": 2402,
+  "device": "cpu",
+  "output": "rte/workstation_runs/resolution_precision_audit_20260912"
+}

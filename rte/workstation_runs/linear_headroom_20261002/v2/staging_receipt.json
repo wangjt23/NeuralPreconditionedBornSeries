@@ -1,0 +1,26 @@
+{
+  "stage_complete": true,
+  "CPU_tests_passed": true,
+  "CPU_test_exit_code": 0,
+  "CPU_test_wall_seconds": 3.5518790669739246,
+  "CPU_test_stdout": "",
+  "CPU_test_stderr": "test_alias_and_production_constructor_do_not_enable_cpu_graph_capture (test_graph_classical_v2.GraphClassicalV2Tests.test_alias_and_production_constructor_do_not_enable_cpu_graph_capture) ... ok\ntest_base_and_operator_identity_changes_reject_even_when_tensors_are_identical (test_graph_classical_v2.GraphClassicalV2Tests.test_base_and_operator_identity_changes_reject_even_when_tensors_are_identical) ... ok\ntest_captured_cache_has_a_strong_reference_after_owner_replacement (test_graph_classical_v2.GraphClassicalV2Tests.test_captured_cache_has_a_strong_reference_after_owner_replacement) ... ok\ntest_equal_storage_tensor_identity_and_equal_value_clone_replacements_reject (test_graph_classical_v2.GraphClassicalV2Tests.test_equal_storage_tensor_identity_and_equal_value_clone_replacements_reject) ... ok\ntest_in_place_tensor_version_changes_are_rejected_before_replay (test_graph_classical_v2.GraphClassicalV2Tests.test_in_place_tensor_version_changes_are_rejected_before_replay) ... ok\ntest_material_and_inverse_transpose_views_reject_before_replay_then_restore (test_graph_classical_v2.GraphClassicalV2Tests.test_material_and_inverse_transpose_views_reject_before_replay_then_restore) ... ok\ntest_missing_inverse_is_rejected_without_property_access_or_cache_rebuild (test_graph_classical_v2.GraphClassicalV2Tests.test_missing_inverse_is_rejected_without_property_access_or_cache_rebuild) ... ok\ntest_native_complex128_fallback_preserves_original_precision_and_skips_replay (test_graph_classical_v2.GraphClassicalV2Tests.test_native_complex128_fallback_preserves_original_precision_and_skips_replay) ... ok\ntest_nonzero_storage_offset_views_with_matching_values_are_rejected (test_graph_classical_v2.GraphClassicalV2Tests.test_nonzero_storage_offset_views_with_matching_values_are_rejected) ... ok\ntest_returned_outputs_have_owned_storage_and_survive_subsequent_replay (test_graph_classical_v2.GraphClassicalV2Tests.test_returned_outputs_have_owned_storage_and_survive_subsequent_replay) ... ok\ntest_settings_and_generation_changes_reject_and_depth_restore_resumes (test_graph_classical_v2.GraphClassicalV2Tests.test_settings_and_generation_changes_reject_and_depth_restore_resumes) ... ok\ntest_static_buffer_layout_changes_reject_but_copy_versions_can_advance (test_graph_classical_v2.GraphClassicalV2Tests.test_static_buffer_layout_changes_reject_but_copy_versions_can_advance) ... ok\ntest_wrong_shape_and_device_reject_before_replay (test_graph_classical_v2.GraphClassicalV2Tests.test_wrong_shape_and_device_reject_before_replay) ... ok\n\n----------------------------------------------------------------------\nRan 13 tests in 0.554s\n\nOK\n",
+  "host": "FWI-Standard-PC-i440FX-PIIX-1996",
+  "user": "wjt",
+  "remote_repository": "/data/wjt/NeuralPreconditionedBornSeries",
+  "remote_stage": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/linear_headroom_20261002/v2",
+  "policy_sha256": "f08fb914327d23f8975cfad7ec50b93ddf4455959ca7cb45bea6147f30359c72",
+  "code_sha256": {
+    "graph_classical_v2.py": "cb142084d28b1a0b5236e92b6b5e14f4d7aca3d67b8d7d41e3f65d2d76c0db3e",
+    "test_graph_classical_v2.py": "2e2ed3714a8cd91ff60d2aa8e9add45e51fd08c6ab92bd2bea4e23a4a9ccc01a",
+    "verify_graph_full16_v2.py": "222c5d34d33f5980337a9f38693bb4b9a1a5210e2f17b22454684968df584de6",
+    "execute_graph_full16_v2.py": "01e01bdcad18a48bb5746407e686889938d5c2402e312c761ae54464cdd5ec19"
+  },
+  "original_sources_verified": 155,
+  "original_sources_unchanged": true,
+  "frozen_v1_unchanged": true,
+  "development_parents_unchanged": true,
+  "GPU_executed": false,
+  "training_run": false,
+  "test_touched": false
+}

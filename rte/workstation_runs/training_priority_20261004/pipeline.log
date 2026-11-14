@@ -1,0 +1,41 @@
+strong prefix train_tsa16_n64.pt: 16/128
+strong prefix train_tsa16_n64.pt: 32/128
+strong prefix train_tsa16_n64.pt: 48/128
+strong prefix train_tsa16_n64.pt: 64/128
+strong prefix train_tsa16_n64.pt: 80/128
+strong prefix train_tsa16_n64.pt: 96/128
+strong prefix train_tsa16_n64.pt: 112/128
+strong prefix train_tsa16_n64.pt: 128/128
+Traceback (most recent call last):
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/train_alignment.py", line 114, in <module>
+    main(p.parse_args())
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/train_alignment.py", line 70, in main
+    for grid in [64,128]:strong[split][grid]=prepare_strong(PARENTS[grid][split],out/f'{split}_tsa16_n{grid}.pt',deadline)
+                                             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data1/software/miniconda3/lib/python3.12/site-packages/torch/utils/_contextlib.py", line 116, in decorate_context
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/train_alignment.py", line 42, in prepare_strong
+    ta.helper.save_checkpoint(output,value);ta.helper.write_rows(output.with_suffix('.csv'),rows)
+                                            ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/resume_audit_20261002/code/train_tail_multiresolution.py", line 71, in write_rows
+    writer.writerows(rows)
+  File "/data1/software/miniconda3/lib/python3.12/csv.py", line 167, in writerows
+    return self.writer.writerows(map(self._dict_to_list, rowdicts))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data1/software/miniconda3/lib/python3.12/csv.py", line 159, in _dict_to_list
+    raise ValueError("dict contains fields not in fieldnames: "
+ValueError: dict contains fields not in fieldnames: 'tail_equation_error_original_rhs'
+benchmark N64 4/16
+benchmark N64 8/16
+benchmark N64 12/16
+benchmark N64 16/16
+benchmark N128 4/16
+benchmark N128 8/16
+benchmark N128 12/16
+benchmark N128 16/16
+benchmark N256 4/16
+benchmark N256 8/16
+benchmark N256 12/16
+benchmark N256 16/16
+{"passed": false, "scope": "development only;conditional intervals;no confirmatory training-seed or OOD claim", "test_generated": false, "threshold": "5% savings at BOTH128/256;zero failures;interval lower>0", "selected_comparisons": [{"size": 64, "classical": "reference_tail", "neural": "continued_selected", "independent_media": 16, "classical_ms": 132.8106946311891, "neural_ms": 132.0006945170462, "saving_percent": 0.6098907293514588, "saving_percent_ci95": [-2.0338708628693056, 3.1094712030219505], "neural_faster_cases": 9, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}, {"size": 128, "classical": "reference_tail", "neural": "continued_selected", "independent_media": 16, "classical_ms": 134.43444459699094, "neural_ms": 135.11891826055944, "saving_percent": -0.5091505124452445, "saving_percent_ci95": [-4.304786304846763, 2.791343936625486], "neural_faster_cases": 8, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}, {"size": 256, "classical": "tsa16_zero", "neural": "continued_selected", "independent_media": 16, "classical_ms": 144.82320426031947, "neural_ms": 153.9578535594046, "saving_percent": -6.307448689414175, "saving_percent_ci95": [-10.127112440696905, -1.7480587242219938], "neural_faster_cases": 5, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}]}

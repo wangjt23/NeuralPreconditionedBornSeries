@@ -1,0 +1,43 @@
+[
+  {
+    "size": 64,
+    "index": 0,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 0.02096292548510077,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 4.791506794397187e-14,
+    "image_gram_defect": 6.052313839587163e-16,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "prefix": "tsa16_zero",
+    "eligible": true,
+    "prefix_true_residual": 0.001112029470730953,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 4.4463805153603163e-13,
+    "image_gram_defect": 1.3472767980416682e-15,
+    "frontier_norm": 0.9999999999999999
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "prefix": "tsa8_balanced",
+    "eligible": true,
+    "prefix_true_residual": 0.0006217547328554563,
+    "prefix_classical_calls": 4,
+    "residual_basis_overlap": 8.347034170610998e-13,
+    "image_gram_defect": 8.789617960554248e-16,
+    "frontier_norm": 1.0
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "prefix": "tsa16_zero",
+    "eligible": false,
+    "prefix_true_residual": 1.362828748030858e-06,
+    "prefix_classical_calls": 4
+  }
+]

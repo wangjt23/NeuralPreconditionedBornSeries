@@ -1,0 +1,28 @@
+{
+  "arm": "n64_only",
+  "complete": true,
+  "updates": 2,
+  "presentations": 8,
+  "presentations_n64": 8,
+  "presentations_n128": 0,
+  "selected_step": 2,
+  "validation_score": [
+    0,
+    8.0625,
+    5.204880682989605e-06
+  ],
+  "timing": {
+    "training_seconds": 0.5353329684585333,
+    "validation_seconds": 9.594913184642792,
+    "checkpoint_seconds": 1.2350015807896852
+  },
+  "identity_phase_sha256": "701007ad85910e4bafae6275e0a4b57c24a07475c05f9653fbdb55b5e0f9edd2",
+  "memory": {
+    "allocated_bytes": 6052695040,
+    "reserved_bytes": 9005170688,
+    "free_bytes": 41458139136,
+    "total_bytes": 50908823552,
+    "peak_allocated_bytes": 8262390784,
+    "peak_reserved_bytes": 9005170688
+  }
+}

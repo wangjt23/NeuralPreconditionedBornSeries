@@ -1,0 +1,24 @@
+{
+  "scope": "all-parameter gradient direction, fixed stopgrad prefix16, window crossing restart20",
+  "rows": [
+    {
+      "eps": 0.003,
+      "autograd": 5.668550491333008,
+      "finite_difference": 5.685172718010316,
+      "relative_error": 0.002923785696897061
+    },
+    {
+      "eps": 0.001,
+      "autograd": 5.668550491333008,
+      "finite_difference": 5.654620001535271,
+      "relative_error": 0.0024575047569984575
+    },
+    {
+      "eps": 0.0003,
+      "autograd": 5.668550491333008,
+      "finite_difference": 5.769853692679424,
+      "relative_error": 0.01755732584258528
+    }
+  ],
+  "pass_best": true
+}

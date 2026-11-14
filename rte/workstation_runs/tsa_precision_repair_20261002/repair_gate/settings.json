@@ -1,0 +1,162 @@
+{
+  "scope": "two fixed development IDs [0,3], three nested grids, two operator probes, two input precisions; one selective sum-precision repair; no full solves/timing comparison/training/new source dataset/test access",
+  "device": "cuda",
+  "gate": "all finite; complex64 relative field and original-physical-image differences <=1e-4; complex128-input differences <=1e-9; exact FFT counts 6d+2(d-1) versus 4d+2(d-1)",
+  "input_precision_note": "complex128-input checks retain actual stored FP32 material/geometry/reference inverse; not a fully double-precision rebuilt operator",
+  "script_sha256": "30acea5481c605ff7fcd1655784638a6e8c6ebfba2368e86d6e8e8dc136ece42",
+  "helper_sha256": "274c94dd0ca5fa6e36ffd51ab9b0036a2a7df32b40041d3e9200457378460b6b",
+  "development_parent_sha256": {
+    "64": "bbebfd1c7c4808733628ee8fdecac9e9ce09521d70f7664a5d5391c8af10813a",
+    "128": "9ade993bce700505d134fa197ceeee72327790bc6660e670a95bea8c43052de1",
+    "256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "rows": [],
+  "test_generated": false,
+  "gpu_before": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "complete": true,
+  "checks": 48,
+  "all_passed": false,
+  "wall_seconds": 8.535166980698705,
+  "max_field_difference_by_dtype": {
+    "torch.complex64": 5.039867926917046e-06,
+    "torch.complex128": 9.391070762393184e-15
+  },
+  "max_image_difference_by_dtype": {
+    "torch.complex64": 0.0005180029635181334,
+    "torch.complex128": 1.4294981204936225e-12
+  },
+  "spatial_transform_reduction_tsa16": 0.25396825396825395,
+  "setup_records": [
+    {
+      "size": 64,
+      "index": 0,
+      "depth": 1,
+      "original_setup_seconds": 0.06795065850019455,
+      "alternative_setup_and_guard_seconds": 0.004367327317595482,
+      "original_inverse_bytes": 4718592,
+      "alternative_inverse_bytes": 4718592,
+      "persistent_extra_precision_cache_bytes": 0
+    },
+    {
+      "size": 64,
+      "index": 0,
+      "depth": 16,
+      "original_setup_seconds": 0.0030484963208436966,
+      "alternative_setup_and_guard_seconds": 0.0033641867339611053,
+      "original_inverse_bytes": 4718592,
+      "alternative_inverse_bytes": 4718592,
+      "persistent_extra_precision_cache_bytes": 0
+    },
+    {
+      "size": 64,
+      "index": 3,
+      "depth": 1,
+      "original_setup_seconds": 0.0026380252093076706,
+      "alternative_setup_and_guard_seconds": 0.0032013598829507828,
+      "original_inverse_bytes": 4718592,
+      "alternative_inverse_bytes": 4718592,
+      "persistent_extra_precision_cache_bytes": 0
+    },
+    {
+      "size": 64,
+      "index": 3,
+      "depth": 16,
+      "original_setup_seconds": 0.003001689910888672,
+      "alternative_setup_and_guard_seconds": 0.0032637659460306168,
+      "original_inverse_bytes": 4718592,
+      "alternative_inverse_bytes": 4718592,
+      "persistent_extra_precision_cache_bytes": 0
+    },
+    {
+      "size": 128,
+      "index": 0,
+      "depth": 1,
+      "original_setup_seconds": 0.0038939621299505234,
+      "alternative_setup_and_guard_seconds": 0.004068613052368164,
+      "original_inverse_bytes": 18874368,
+      "alternative_inverse_bytes": 18874368,
+      "persistent_extra_precision_cache_bytes": 0
+    },
+    {
+      "size": 128,
+      "index": 0,
+      "depth": 16,
+      "original_setup_seconds": 0.0039947498589754105,
+      "alternative_setup_and_guard_seconds": 0.0038347654044628143,
+      "original_inverse_bytes": 18874368,
+      "alternative_inverse_bytes": 18874368,
+      "persistent_extra_precision_cache_bytes": 0
+    },
+    {
+      "size": 128,
+      "index": 3,
+      "depth": 1,
+      "original_setup_seconds": 0.003021199256181717,
+      "alternative_setup_and_guard_seconds": 0.003654398024082184,
+      "original_inverse_bytes": 18874368,
+      "alternative_inverse_bytes": 18874368,
+      "persistent_extra_precision_cache_bytes": 0
+    },
+    {
+      "size": 128,
+      "index": 3,
+      "depth": 16,
+      "original_setup_seconds": 0.003454389050602913,
+      "alternative_setup_and_guard_seconds": 0.003708876669406891,
+      "original_inverse_bytes": 18874368,
+      "alternative_inverse_bytes": 18874368,
+      "persistent_extra_precision_cache_bytes": 0
+    },
+    {
+      "size": 256,
+      "index": 0,
+      "depth": 1,
+      "original_setup_seconds": 0.006188573315739632,
+      "alternative_setup_and_guard_seconds": 0.006081756204366684,
+      "original_inverse_bytes": 75497472,
+      "alternative_inverse_bytes": 75497472,
+      "persistent_extra_precision_cache_bytes": 0
+    },
+    {
+      "size": 256,
+      "index": 0,
+      "depth": 16,
+      "original_setup_seconds": 0.005685146898031235,
+      "alternative_setup_and_guard_seconds": 0.006039677187800407,
+      "original_inverse_bytes": 75497472,
+      "alternative_inverse_bytes": 75497472,
+      "persistent_extra_precision_cache_bytes": 0
+    },
+    {
+      "size": 256,
+      "index": 3,
+      "depth": 1,
+      "original_setup_seconds": 0.005278291180729866,
+      "alternative_setup_and_guard_seconds": 0.005912652239203453,
+      "original_inverse_bytes": 75497472,
+      "alternative_inverse_bytes": 75497472,
+      "persistent_extra_precision_cache_bytes": 0
+    },
+    {
+      "size": 256,
+      "index": 3,
+      "depth": 16,
+      "original_setup_seconds": 0.005644954741001129,
+      "alternative_setup_and_guard_seconds": 0.005982518196105957,
+      "original_inverse_bytes": 75497472,
+      "alternative_inverse_bytes": 75497472,
+      "persistent_extra_precision_cache_bytes": 0
+    }
+  ],
+  "peak_allocated_bytes": 464159232,
+  "peak_reserved_bytes": 639631360,
+  "precision_policy": "G/scatter/local/R/outerA retain input dtype; stage sums and accumulator/output complex128; accumulator cast to input before outerA; FP32 inverse retained",
+  "extra_precision_transform_calls": 0,
+  "extra_complex64_to_complex128_field_casts_per_tsa16": 32,
+  "extra_complex128_to_complex64_outer_field_casts_per_tsa16": 15,
+  "conceptual_complex64_cast_copy_read_write_bytes_per_tsa16_n256": 887095296,
+  "complex128_accumulator_bytes_n256": 12582912,
+  "accumulator_storage_increase_vs_complex64_bytes_n256": 6291456,
+  "claim": "Selective FP64 sums, original input-dtype outer defects and cached inverse; fewer transforms; no latency or whole-solver speedup claim",
+  "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n2182965, /data1/software/miniconda3/bin/python, 938 MiB\n"
+}

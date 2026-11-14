@@ -1,0 +1,109 @@
+{
+  "complete": true,
+  "pid": 1270333,
+  "affinity": [
+    0
+  ],
+  "device": "cpu",
+  "threads": 1,
+  "shared_host": "GB training on CPU32/34 and GPU; not strictly isolated CPU timing. Short Schur timing allowed to finish before admission.",
+  "source_ids": [
+    0,
+    4,
+    7,
+    14
+  ],
+  "grid": 128,
+  "L": 12,
+  "g": 0.65,
+  "inclusion_amplitude": 3.0,
+  "prefix": 1,
+  "tangent_cut": 8,
+  "inner_tolerance": 0.0001,
+  "inner_maxiter": 8,
+  "outer_tolerance": 1e-05,
+  "outer_maxiter": 100,
+  "block_target": 1e-10,
+  "block_max_corrections": 3,
+  "heldout9626": false,
+  "neural_training": false,
+  "new_accurate_teachers": false,
+  "wall_limit": 720,
+  "screen_orders": [
+    [
+      "compact4_inject",
+      "dense8_inner",
+      "angular8_inner"
+    ],
+    [
+      "angular8_inner",
+      "dense8_inner",
+      "compact4_inject"
+    ]
+  ],
+  "confirmation_orders": [
+    [
+      "compact4_inject",
+      "angular8_inner"
+    ],
+    [
+      "angular8_inner",
+      "compact4_inject"
+    ],
+    [
+      "compact4_inject",
+      "angular8_inner"
+    ]
+  ],
+  "source_hashes": {
+    "run_full_cpu.py": "2450fa79b22f0640fd36cd5cd7571b37a6c219ae9130eab341b901f67de2d5de",
+    "angular_modes.py": "d152afea90179efa8342a4f12631979951503785330f3aab08d4b7f1fe32a481"
+  },
+  "dense_source_sha256": "b560e467e0b81a8293adfa2fc71bd5570ec875a797fea67696083f1430ba3a77",
+  "scope": "Full17-mode same-instance CPU qualification only. Every batch rebuilds and pays setup; dense and angular candidates also pay independent original-A0 validation of every mode.",
+  "production_hashes": {
+    "rte/models.py": "6cd887b332ed48409bcffa2d2bad6ca9654c97ff7071c13a6443278f583b04d1",
+    "rte/source_initialization.py": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af",
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4"
+  },
+  "dependency_hashes": {
+    "rte/workstation_runs/rte_predictability_20261108_dot_v1/screen_structured.py": "b93a74b53eea92cc0fba3134f0aba4dcb19dc7f68966621e69e8e33408bca8bc",
+    "rte/workstation_runs/layered_background_20261108_dot_v1/layered_inverse.py": "aaa026a7ddc59e2b64ed3a6e884ec6f3359f330d9f3cbfa4ce173219a8df4de2",
+    "rte/mixed_precision_transport.py": "9c6793ed0bffad5bf803253ac0ada097026c653c02f6498e82fb0974dfc9765a"
+  },
+  "admission_process_snapshot": [
+    "    PID PSR %CPU COMMAND",
+    "1258521  32 99.0 /data1/software/miniconda3/bin/python -B train.py 202611062101",
+    "1258522  34 99.0 /data1/software/miniconda3/bin/python -B train.py 202611062102",
+    "1270333   0 94.7 /data1/software/miniconda3/bin/python -u run_full_cpu.py",
+    "   1785  35  1.4 /opt/todesk/bin/ToDesk_Service",
+    "1268570  35  0.7 [kworker/u144:3-events_power_efficient]",
+    "1258520  34  0.4 /data1/software/miniconda3/bin/python -B managed.py seed202611062102 6000 train.py 202611062102",
+    "1258519  32  0.4 /data1/software/miniconda3/bin/python -B managed.py seed202611062101 6000 train.py 202611062101",
+    "1270286  12  0.2 sshd: wjt [priv]",
+    "1265666   6  0.1 [kworker/u144:0-events_power_efficient]",
+    "1231551  13  0.0 [kworker/13:2H-kblockd]",
+    "   1235  13  0.0 [jbd2/sda-8]",
+    "    706  13  0.0 [jbd2/sdb3-8]",
+    "    755   5  0.0 /usr/lib/systemd/systemd-journald"
+  ],
+  "rhs_sha256": {
+    "0": "29ea6512fa2516dd4bc1896f7a352ee62164ab86f205bb94214b254b98fd8d77",
+    "4": "6743df55c26fddf731dabc45f4275a2a02f58d24b9fa8762cb3a8869eb9b1436",
+    "7": "7bffceb871908f220c4ec223e1e6893abb9997051ef6ffa6804c9b553c724177",
+    "14": "7283255ec15dbda6bc7c8adab8ef92023e8dce830d5bd5ef6ab4c59431d8b7d8"
+  },
+  "reference_research_seconds": 24.423401325009763,
+  "screen_passed": true,
+  "result": "SCREEN_AND_THREE_PAIRS_COMPLETE",
+  "wall_seconds": 255.60156095703132,
+  "attempts": 48,
+  "failures": 0,
+  "production_hashes_after": {
+    "rte/models.py": "6cd887b332ed48409bcffa2d2bad6ca9654c97ff7071c13a6443278f583b04d1",
+    "rte/source_initialization.py": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af",
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4"
+  }
+}

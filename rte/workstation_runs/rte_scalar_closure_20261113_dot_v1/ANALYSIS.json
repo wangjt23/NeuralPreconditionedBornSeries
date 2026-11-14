@@ -1,0 +1,52 @@
+{
+  "decision": "DIRECT_SCALAR_SWEEP_BASELINE_NOT_EQUIVALENT_TO_CURRENT_DISCRETIZATION",
+  "paper": {
+    "arxiv": "2610.07653v1",
+    "submitted": "2026-10-06",
+    "pages": 28,
+    "primary_url": "https://arxiv.org/pdf/2610.07653v1",
+    "downloaded_PDF_SHA256": "e1246d6e441b8897b2a90c6845a6ba3c3246b93bb51533b49313b7fd08d37d09",
+    "status": "preprint v1 as verified on arXiv and corresponding author publications page"
+  },
+  "original_phase_rank": 12,
+  "original_phase_sigma_min": 0.14998463284582603,
+  "K_mean_zero_norm": 0.6550249551828622,
+  "input_mean_norm": 0.0,
+  "output_mean_norm": 0.020825091287714852,
+  "normalized_output_mean": 0.027054562373670873,
+  "max_directional_original_residual": 6.725648589342552e-16,
+  "FFT_dense_bridge": 3.22693050367022e-16,
+  "cost": {
+    "physical_and_identity_wall_seconds": 0.012117923004552722,
+    "physical_and_identity_CPU_seconds": 0.012118265000000239,
+    "witness_and_small_algebra_seconds": 0.0031177420169115067,
+    "directional_matrix_assembly_seconds": 0.01050389395095408,
+    "twelve_directional_LU_and_solve_wall_seconds": 0.005434849066659808,
+    "twelve_directional_LU_and_solve_CPU_seconds": 0.005437683999999887,
+    "closure_and_original_checks_seconds": 0.003022856079041958
+  },
+  "external": {
+    "wall_seconds": 3.62,
+    "user_seconds": 2.96,
+    "system_seconds": 0.33,
+    "peak_KiB": 437596.0,
+    "peak_bytes": 448098304,
+    "CPU_seconds": 3.29
+  },
+  "internal_process_wall": 2.946051641134545,
+  "internal_process_CPU": 2.8193203469999997,
+  "internal_peak_RSS": 427491328,
+  "logical_bytes": {
+    "D": 262144,
+    "directional_matrices": 3145728,
+    "LU": 3145728,
+    "pivots": 6144,
+    "witness": 24576,
+    "source": 24576,
+    "response": 24576
+  },
+  "results_sha256": "9f8a9a0cde05dbc7e2e5bb83b56a95e37a8665cbbf02cbac82a3f260d62ecf99",
+  "paper_reproduced": false,
+  "full_RTE_solve_performed": false,
+  "extra_experiment_started": false
+}

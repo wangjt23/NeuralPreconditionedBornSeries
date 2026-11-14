@@ -1,0 +1,1534 @@
+[
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "source_id": 0,
+    "solve_seconds": 4.966730779968202,
+    "check_seconds": 0.0282308969181031,
+    "accepted_seconds": 4.994961676886305,
+    "shared_setup_seconds": 3.2398935980163515,
+    "Q1_seconds": 8.234855274902657,
+    "status": {
+      "iterations": 5,
+      "classical_calls": 4,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 2.6420786499104757e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 2.6420786499104757e-06,
+    "evaluated_relative_bound": 1.1502753220723577e-05,
+    "relative_field_difference": 7.077002401518805e-08
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "source_id": 4,
+    "solve_seconds": 3.749656192958355,
+    "check_seconds": 0.02658846299163997,
+    "accepted_seconds": 3.776244655949995,
+    "shared_setup_seconds": 3.2398935980163515,
+    "Q1_seconds": 7.016138253966346,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 3,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 8.67131789408228e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 8.67131789408228e-06,
+    "evaluated_relative_bound": 3.39269160203107e-05,
+    "relative_field_difference": 2.20510369144935e-07
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "source_id": 7,
+    "solve_seconds": 4.933911949861795,
+    "check_seconds": 0.027038546046242118,
+    "accepted_seconds": 4.960950495908037,
+    "shared_setup_seconds": 3.2398935980163515,
+    "Q1_seconds": 8.200844093924388,
+    "status": {
+      "iterations": 5,
+      "classical_calls": 4,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 3.7646746776698456e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 3.7646746776698456e-06,
+    "evaluated_relative_bound": 2.1625678351163565e-05,
+    "relative_field_difference": 1.3538196934486092e-07
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "source_id": 14,
+    "solve_seconds": 3.73927122913301,
+    "check_seconds": 0.02543512894771993,
+    "accepted_seconds": 3.76470635808073,
+    "shared_setup_seconds": 3.2398935980163515,
+    "Q1_seconds": 7.004599956097081,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 3,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 9.08037310901465e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 9.08037310901465e-06,
+    "evaluated_relative_bound": 3.94535160699644e-05,
+    "relative_field_difference": 2.648811699921223e-07
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "dense8_inner",
+    "method_order": 1,
+    "source_id": 0,
+    "solve_seconds": 3.181419646833092,
+    "check_seconds": 0.030124220997095108,
+    "accepted_seconds": 3.211543867830187,
+    "shared_setup_seconds": 5.855998201062903,
+    "Q1_seconds": 9.06754206889309,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.6202855843583233e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.4279097684392316e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.7160000239964575
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.6202855843583233e-06,
+    "evaluated_relative_bound": 7.054166436390218e-06,
+    "relative_field_difference": 5.777262476181527e-08
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "dense8_inner",
+    "method_order": 1,
+    "source_id": 4,
+    "solve_seconds": 3.14090866711922,
+    "check_seconds": 0.033814818132668734,
+    "accepted_seconds": 3.1747234852518886,
+    "shared_setup_seconds": 5.855998201062903,
+    "Q1_seconds": 9.030721686314791,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.418934708111116e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 1.1682281628724123e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.7028137389570475
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.418934708111116e-06,
+    "evaluated_relative_bound": 2.9026768954013294e-05,
+    "relative_field_difference": 1.556213280536228e-07
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "dense8_inner",
+    "method_order": 1,
+    "source_id": 7,
+    "solve_seconds": 3.1760032209567726,
+    "check_seconds": 0.03404544712975621,
+    "accepted_seconds": 3.210048668086529,
+    "shared_setup_seconds": 5.855998201062903,
+    "Q1_seconds": 9.066046869149432,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.354289958722732e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.8319697912345138e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.7107641950715333
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.354289958722732e-06,
+    "evaluated_relative_bound": 7.779432865164283e-06,
+    "relative_field_difference": 8.823256958213833e-08
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "dense8_inner",
+    "method_order": 1,
+    "source_id": 14,
+    "solve_seconds": 3.0118831859435886,
+    "check_seconds": 0.026418499881401658,
+    "accepted_seconds": 3.0383016858249903,
+    "shared_setup_seconds": 5.855998201062903,
+    "Q1_seconds": 8.894299886887893,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.405871737590911e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 4,
+        "true_residual": 8.882624992600656e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.5578837550710887
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.405871737590911e-06,
+    "evaluated_relative_bound": 3.217770463110091e-05,
+    "relative_field_difference": 1.6261163533040198e-07
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "angular8_inner",
+    "method_order": 2,
+    "source_id": 0,
+    "solve_seconds": 3.68383706593886,
+    "check_seconds": 0.027158596087247133,
+    "accepted_seconds": 3.7109956620261073,
+    "shared_setup_seconds": 1.8655031500384212,
+    "Q1_seconds": 5.5764988120645285,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.6202853408460503e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.4279097684410168e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.1115533758420497
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.6202853408460503e-06,
+    "evaluated_relative_bound": 7.054165376208055e-06,
+    "relative_field_difference": 5.7772660873136605e-08,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 2.5450902172768292e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "angular8_inner",
+    "method_order": 2,
+    "source_id": 4,
+    "solve_seconds": 3.6150893601588905,
+    "check_seconds": 0.02710609813220799,
+    "accepted_seconds": 3.6421954582910985,
+    "shared_setup_seconds": 1.8655031500384212,
+    "Q1_seconds": 5.50769860832952,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.41893422612079e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 1.1682281628726693e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.0946838990785182
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.41893422612079e-06,
+    "evaluated_relative_bound": 2.9026767068149287e-05,
+    "relative_field_difference": 1.5562135185427594e-07,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 3.1520098828437954e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "angular8_inner",
+    "method_order": 2,
+    "source_id": 7,
+    "solve_seconds": 3.5999213710892946,
+    "check_seconds": 0.03140081302262843,
+    "accepted_seconds": 3.631322184111923,
+    "shared_setup_seconds": 1.8655031500384212,
+    "Q1_seconds": 5.496825334150344,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.3542900803940398e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.831969791236235e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.0798465798143297
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.3542900803940398e-06,
+    "evaluated_relative_bound": 7.779433564086727e-06,
+    "relative_field_difference": 8.823267344996371e-08,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 3.008544203669155e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "angular8_inner",
+    "method_order": 2,
+    "source_id": 14,
+    "solve_seconds": 3.38953501987271,
+    "check_seconds": 0.027121362974867225,
+    "accepted_seconds": 3.4166563828475773,
+    "shared_setup_seconds": 1.8655031500384212,
+    "Q1_seconds": 5.2821595328859985,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.405872967842319e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 4,
+        "true_residual": 8.882624992604929e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.877139549003914
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.405872967842319e-06,
+    "evaluated_relative_bound": 3.217770997654196e-05,
+    "relative_field_difference": 1.6261150600683096e-07,
+    "mode_inverse_calls": 4,
+    "mode_repair_max_residual": 3.9306100278931025e-12,
+    "mode_repair_corrections": 68
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "angular8_inner",
+    "method_order": 0,
+    "source_id": 0,
+    "solve_seconds": 3.575715876184404,
+    "check_seconds": 0.026871280977502465,
+    "accepted_seconds": 3.6025871571619064,
+    "shared_setup_seconds": 1.6009307552594692,
+    "Q1_seconds": 5.2035179124213755,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.6202856180900994e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.427909768441499e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.1121992371045053
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.6202856180900994e-06,
+    "evaluated_relative_bound": 7.054166583245501e-06,
+    "relative_field_difference": 5.77726465456339e-08,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 2.5450902172768292e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "angular8_inner",
+    "method_order": 0,
+    "source_id": 4,
+    "solve_seconds": 3.5692516940180212,
+    "check_seconds": 0.02692799409851432,
+    "accepted_seconds": 3.5961796881165355,
+    "shared_setup_seconds": 1.6009307552594692,
+    "Q1_seconds": 5.197110443376005,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.418932940305423e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 1.1682281628723371e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.0914056240580976
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.418932940305423e-06,
+    "evaluated_relative_bound": 2.9026762037221048e-05,
+    "relative_field_difference": 1.5562135958035446e-07,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 3.1520098828437954e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "angular8_inner",
+    "method_order": 0,
+    "source_id": 7,
+    "solve_seconds": 3.571163696004078,
+    "check_seconds": 0.02762207598425448,
+    "accepted_seconds": 3.5987857719883323,
+    "shared_setup_seconds": 1.6009307552594692,
+    "Q1_seconds": 5.199716527247801,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.3542903128360866e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.8319697912357647e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.1161214509047568
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.3542903128360866e-06,
+    "evaluated_relative_bound": 7.779434899313488e-06,
+    "relative_field_difference": 8.823276018622723e-08,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 3.008544203669155e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "angular8_inner",
+    "method_order": 0,
+    "source_id": 14,
+    "solve_seconds": 3.3568716729059815,
+    "check_seconds": 0.026672830805182457,
+    "accepted_seconds": 3.383544503711164,
+    "shared_setup_seconds": 1.6009307552594692,
+    "Q1_seconds": 4.984475258970633,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.405872528648415e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 4,
+        "true_residual": 8.882624992604353e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.885124176973477
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.405872528648415e-06,
+    "evaluated_relative_bound": 3.21777080682913e-05,
+    "relative_field_difference": 1.6261168461139586e-07,
+    "mode_inverse_calls": 4,
+    "mode_repair_max_residual": 3.9306100278931025e-12,
+    "mode_repair_corrections": 68
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "dense8_inner",
+    "method_order": 1,
+    "source_id": 0,
+    "solve_seconds": 3.0627426609862596,
+    "check_seconds": 0.027308677090331912,
+    "accepted_seconds": 3.0900513380765915,
+    "shared_setup_seconds": 5.439292215043679,
+    "Q1_seconds": 8.52934355312027,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.620285500619198e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.4279097684398164e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.638795391889289
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.620285500619198e-06,
+    "evaluated_relative_bound": 7.054166071809947e-06,
+    "relative_field_difference": 5.777266869983834e-08
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "dense8_inner",
+    "method_order": 1,
+    "source_id": 4,
+    "solve_seconds": 3.05741760507226,
+    "check_seconds": 0.027091823983937502,
+    "accepted_seconds": 3.0845094290561974,
+    "shared_setup_seconds": 5.439292215043679,
+    "Q1_seconds": 8.523801644099876,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.418934533947093e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 1.1682281628721247e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.6316750850528479
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.418934533947093e-06,
+    "evaluated_relative_bound": 2.902676827255405e-05,
+    "relative_field_difference": 1.5562133812478216e-07
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "dense8_inner",
+    "method_order": 1,
+    "source_id": 7,
+    "solve_seconds": 3.0504616431426257,
+    "check_seconds": 0.029002771014347672,
+    "accepted_seconds": 3.0794644141569734,
+    "shared_setup_seconds": 5.439292215043679,
+    "Q1_seconds": 8.518756629200652,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.3542902438982822e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.8319697912356102e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.6231186417862773
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.3542902438982822e-06,
+    "evaluated_relative_bound": 7.779434503309554e-06,
+    "relative_field_difference": 8.823262931621062e-08
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "dense8_inner",
+    "method_order": 1,
+    "source_id": 14,
+    "solve_seconds": 2.922451493097469,
+    "check_seconds": 0.02708729892037809,
+    "accepted_seconds": 2.9495387920178473,
+    "shared_setup_seconds": 5.439292215043679,
+    "Q1_seconds": 8.388831007061526,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.405872539295235e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 4,
+        "true_residual": 8.882624992600495e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.5072401121724397
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.405872539295235e-06,
+    "evaluated_relative_bound": 3.217770811450634e-05,
+    "relative_field_difference": 1.6261157289529308e-07
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "compact4_inject",
+    "method_order": 2,
+    "source_id": 0,
+    "solve_seconds": 4.927660795161501,
+    "check_seconds": 0.02585036586970091,
+    "accepted_seconds": 4.9535111610312015,
+    "shared_setup_seconds": 3.1771428547799587,
+    "Q1_seconds": 8.13065401581116,
+    "status": {
+      "iterations": 5,
+      "classical_calls": 4,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 2.642078649921411e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 2.642078649921411e-06,
+    "evaluated_relative_bound": 1.1502753220771187e-05,
+    "relative_field_difference": 7.07700240156701e-08
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "compact4_inject",
+    "method_order": 2,
+    "source_id": 4,
+    "solve_seconds": 3.7248135870322585,
+    "check_seconds": 0.025451543042436242,
+    "accepted_seconds": 3.7502651300746948,
+    "shared_setup_seconds": 3.1771428547799587,
+    "Q1_seconds": 6.9274079848546535,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 3,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 8.67131789408228e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 8.67131789408228e-06,
+    "evaluated_relative_bound": 3.39269160203107e-05,
+    "relative_field_difference": 2.20510369144935e-07
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "compact4_inject",
+    "method_order": 2,
+    "source_id": 7,
+    "solve_seconds": 4.912093879887834,
+    "check_seconds": 0.026866900036111474,
+    "accepted_seconds": 4.938960779923946,
+    "shared_setup_seconds": 3.1771428547799587,
+    "Q1_seconds": 8.116103634703904,
+    "status": {
+      "iterations": 5,
+      "classical_calls": 4,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 3.7646746775673343e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 3.7646746775673343e-06,
+    "evaluated_relative_bound": 2.1625678350574677e-05,
+    "relative_field_difference": 1.3538196927343415e-07
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "compact4_inject",
+    "method_order": 2,
+    "source_id": 14,
+    "solve_seconds": 3.7575538179371506,
+    "check_seconds": 0.025603887159377337,
+    "accepted_seconds": 3.783157705096528,
+    "shared_setup_seconds": 3.1771428547799587,
+    "Q1_seconds": 6.960300559876487,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 3,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 9.08037310900606e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 9.08037310900606e-06,
+    "evaluated_relative_bound": 3.945351606992708e-05,
+    "relative_field_difference": 2.648811699921901e-07
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 0,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "source_id": 0,
+    "solve_seconds": 4.935220440849662,
+    "check_seconds": 0.025958108017221093,
+    "accepted_seconds": 4.961178548866883,
+    "shared_setup_seconds": 2.8782821320928633,
+    "Q1_seconds": 7.839460680959746,
+    "status": {
+      "iterations": 5,
+      "classical_calls": 4,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 2.6420786499104757e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 2.6420786499104757e-06,
+    "evaluated_relative_bound": 1.1502753220723577e-05,
+    "relative_field_difference": 7.077002401518805e-08
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 0,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "source_id": 4,
+    "solve_seconds": 3.729909072862938,
+    "check_seconds": 0.026637570932507515,
+    "accepted_seconds": 3.7565466437954456,
+    "shared_setup_seconds": 2.8782821320928633,
+    "Q1_seconds": 6.634828775888309,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 3,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 8.67131789408228e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 8.67131789408228e-06,
+    "evaluated_relative_bound": 3.39269160203107e-05,
+    "relative_field_difference": 2.20510369144935e-07
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 0,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "source_id": 7,
+    "solve_seconds": 4.923143275082111,
+    "check_seconds": 0.026848171139135957,
+    "accepted_seconds": 4.949991446221247,
+    "shared_setup_seconds": 2.8782821320928633,
+    "Q1_seconds": 7.828273578314111,
+    "status": {
+      "iterations": 5,
+      "classical_calls": 4,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 3.7646746776705008e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 3.7646746776705008e-06,
+    "evaluated_relative_bound": 2.162567835116733e-05,
+    "relative_field_difference": 1.3538196934494925e-07
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 0,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "source_id": 14,
+    "solve_seconds": 3.740729056065902,
+    "check_seconds": 0.025799213908612728,
+    "accepted_seconds": 3.766528269974515,
+    "shared_setup_seconds": 2.8782821320928633,
+    "Q1_seconds": 6.644810402067378,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 3,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 9.080373109025708e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 9.080373109025708e-06,
+    "evaluated_relative_bound": 3.945351607001243e-05,
+    "relative_field_difference": 2.6488117001986216e-07
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 0,
+    "method": "angular8_inner",
+    "method_order": 1,
+    "source_id": 0,
+    "solve_seconds": 3.6061888691037893,
+    "check_seconds": 0.026619840878993273,
+    "accepted_seconds": 3.6328087099827826,
+    "shared_setup_seconds": 1.7414899407885969,
+    "Q1_seconds": 5.3742986507713795,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.6202855227998907e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.427909768441078e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.1015199690591544
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.6202855227998907e-06,
+    "evaluated_relative_bound": 7.054166168380525e-06,
+    "relative_field_difference": 5.77726486488667e-08,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 2.5450902172768292e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 0,
+    "method": "angular8_inner",
+    "method_order": 1,
+    "source_id": 4,
+    "solve_seconds": 3.628884283825755,
+    "check_seconds": 0.02650770405307412,
+    "accepted_seconds": 3.6553919878788292,
+    "shared_setup_seconds": 1.7414899407885969,
+    "Q1_seconds": 5.396881928667426,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.4189341695563295e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 1.1682281628719e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.1042883119080216
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.4189341695563295e-06,
+    "evaluated_relative_bound": 2.9026766846829868e-05,
+    "relative_field_difference": 1.556213449102676e-07,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 3.1520098828437954e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 0,
+    "method": "angular8_inner",
+    "method_order": 1,
+    "source_id": 7,
+    "solve_seconds": 3.609641400165856,
+    "check_seconds": 0.02623246004804969,
+    "accepted_seconds": 3.6358738602139056,
+    "shared_setup_seconds": 1.7414899407885969,
+    "Q1_seconds": 5.377363801002502,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.3542903128382637e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.8319697912357647e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.121564919129014
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.3542903128382637e-06,
+    "evaluated_relative_bound": 7.779434899325993e-06,
+    "relative_field_difference": 8.823276018622846e-08,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 3.008544203669155e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 0,
+    "method": "angular8_inner",
+    "method_order": 1,
+    "source_id": 14,
+    "solve_seconds": 3.4029120639897883,
+    "check_seconds": 0.027128965826705098,
+    "accepted_seconds": 3.4300410298164934,
+    "shared_setup_seconds": 1.7414899407885969,
+    "Q1_seconds": 5.17153097060509,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.4058706146438535e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 4,
+        "true_residual": 8.882624992604583e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.8926567481830716
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.4058706146438535e-06,
+    "evaluated_relative_bound": 3.2177699751838735e-05,
+    "relative_field_difference": 1.6261157172685232e-07,
+    "mode_inverse_calls": 4,
+    "mode_repair_max_residual": 3.9306100278931025e-12,
+    "mode_repair_corrections": 68
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 1,
+    "method": "angular8_inner",
+    "method_order": 0,
+    "source_id": 0,
+    "solve_seconds": 3.6006036561448127,
+    "check_seconds": 0.027059011859819293,
+    "accepted_seconds": 3.627662668004632,
+    "shared_setup_seconds": 1.8015315071679652,
+    "Q1_seconds": 5.429194175172597,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.620285610515974e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.4279097684411076e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.1035522620659322
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.620285610515974e-06,
+    "evaluated_relative_bound": 7.054166550271655e-06,
+    "relative_field_difference": 5.7772625067391066e-08,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 2.5450902172768292e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 1,
+    "method": "angular8_inner",
+    "method_order": 0,
+    "source_id": 4,
+    "solve_seconds": 3.559773265849799,
+    "check_seconds": 0.026689890073612332,
+    "accepted_seconds": 3.5864631559234113,
+    "shared_setup_seconds": 1.8015315071679652,
+    "Q1_seconds": 5.387994663091376,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.418934726761799e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 1.1682281628723911e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.099260828923434
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.418934726761799e-06,
+    "evaluated_relative_bound": 2.9026769026942824e-05,
+    "relative_field_difference": 1.5562134764465134e-07,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 3.1520098828437954e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 1,
+    "method": "angular8_inner",
+    "method_order": 0,
+    "source_id": 7,
+    "solve_seconds": 3.585424171993509,
+    "check_seconds": 0.02804250898770988,
+    "accepted_seconds": 3.613466680981219,
+    "shared_setup_seconds": 1.8015315071679652,
+    "Q1_seconds": 5.414998188149184,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.3542901707083243e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.8319697912360276e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.087045018794015
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.3542901707083243e-06,
+    "evaluated_relative_bound": 7.779434082882914e-06,
+    "relative_field_difference": 8.823269625206319e-08,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 3.008544203669155e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 1,
+    "method": "angular8_inner",
+    "method_order": 0,
+    "source_id": 14,
+    "solve_seconds": 3.3172953319735825,
+    "check_seconds": 0.0315465999301523,
+    "accepted_seconds": 3.348841931903735,
+    "shared_setup_seconds": 1.8015315071679652,
+    "Q1_seconds": 5.1503734390717,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.4058706146438535e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 4,
+        "true_residual": 8.882624992604583e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.8574714830610901
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.4058706146438535e-06,
+    "evaluated_relative_bound": 3.2177699751838735e-05,
+    "relative_field_difference": 1.6261157172685232e-07,
+    "mode_inverse_calls": 4,
+    "mode_repair_max_residual": 3.9306100278931025e-12,
+    "mode_repair_corrections": 68
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 1,
+    "method": "compact4_inject",
+    "method_order": 1,
+    "source_id": 0,
+    "solve_seconds": 4.9266449140850455,
+    "check_seconds": 0.026422674069181085,
+    "accepted_seconds": 4.9530675881542265,
+    "shared_setup_seconds": 2.851812567329034,
+    "Q1_seconds": 7.804880155483261,
+    "status": {
+      "iterations": 5,
+      "classical_calls": 4,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 2.6420786499225917e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 2.6420786499225917e-06,
+    "evaluated_relative_bound": 1.1502753220776326e-05,
+    "relative_field_difference": 7.077002401565233e-08
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 1,
+    "method": "compact4_inject",
+    "method_order": 1,
+    "source_id": 4,
+    "solve_seconds": 3.735113314120099,
+    "check_seconds": 0.025566135067492723,
+    "accepted_seconds": 3.7606794491875917,
+    "shared_setup_seconds": 2.851812567329034,
+    "Q1_seconds": 6.612492016516626,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 3,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 8.67131789408228e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 8.67131789408228e-06,
+    "evaluated_relative_bound": 3.39269160203107e-05,
+    "relative_field_difference": 2.20510369144935e-07
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 1,
+    "method": "compact4_inject",
+    "method_order": 1,
+    "source_id": 7,
+    "solve_seconds": 4.940425547072664,
+    "check_seconds": 0.026042429031804204,
+    "accepted_seconds": 4.966467976104468,
+    "shared_setup_seconds": 2.851812567329034,
+    "Q1_seconds": 7.818280543433502,
+    "status": {
+      "iterations": 5,
+      "classical_calls": 4,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 3.7646746776707117e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 3.7646746776707117e-06,
+    "evaluated_relative_bound": 2.162567835116854e-05,
+    "relative_field_difference": 1.3538196934494923e-07
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 1,
+    "method": "compact4_inject",
+    "method_order": 1,
+    "source_id": 14,
+    "solve_seconds": 3.754181995987892,
+    "check_seconds": 0.025874430080875754,
+    "accepted_seconds": 3.780056426068768,
+    "shared_setup_seconds": 2.851812567329034,
+    "Q1_seconds": 6.631868993397802,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 3,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 9.080373108989376e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 9.080373108989376e-06,
+    "evaluated_relative_bound": 3.945351606985458e-05,
+    "relative_field_difference": 2.648811699921728e-07
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 2,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "source_id": 0,
+    "solve_seconds": 4.858392436057329,
+    "check_seconds": 0.025603557005524635,
+    "accepted_seconds": 4.883995993062854,
+    "shared_setup_seconds": 2.9195027051027864,
+    "Q1_seconds": 7.80349869816564,
+    "status": {
+      "iterations": 5,
+      "classical_calls": 4,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 2.642078649921411e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 2.642078649921411e-06,
+    "evaluated_relative_bound": 1.1502753220771187e-05,
+    "relative_field_difference": 7.07700240156701e-08
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 2,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "source_id": 4,
+    "solve_seconds": 3.671259365044534,
+    "check_seconds": 0.02581339911557734,
+    "accepted_seconds": 3.6970727641601115,
+    "shared_setup_seconds": 2.9195027051027864,
+    "Q1_seconds": 6.616575469262898,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 3,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 8.671317894110116e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 8.671317894110116e-06,
+    "evaluated_relative_bound": 3.392691602041962e-05,
+    "relative_field_difference": 2.2051036914489623e-07
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 2,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "source_id": 7,
+    "solve_seconds": 4.837386732921004,
+    "check_seconds": 0.025725236861035228,
+    "accepted_seconds": 4.8631119697820395,
+    "shared_setup_seconds": 2.9195027051027864,
+    "Q1_seconds": 7.782614674884826,
+    "status": {
+      "iterations": 5,
+      "classical_calls": 4,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 3.764674677697434e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 3.764674677697434e-06,
+    "evaluated_relative_bound": 2.162567835132204e-05,
+    "relative_field_difference": 1.3538196934542544e-07
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 2,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "source_id": 14,
+    "solve_seconds": 3.6790799300651997,
+    "check_seconds": 0.026506289839744568,
+    "accepted_seconds": 3.7055862199049443,
+    "shared_setup_seconds": 2.9195027051027864,
+    "Q1_seconds": 6.625088925007731,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 3,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 9.080373108984482e-06,
+      "failed": 0
+    },
+    "inner_records": [],
+    "accepted": true,
+    "true_residual": 9.080373108984482e-06,
+    "evaluated_relative_bound": 3.945351606983332e-05,
+    "relative_field_difference": 2.648811699921735e-07
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 2,
+    "method": "angular8_inner",
+    "method_order": 1,
+    "source_id": 0,
+    "solve_seconds": 3.521901977946982,
+    "check_seconds": 0.027461917139589787,
+    "accepted_seconds": 3.5493638950865716,
+    "shared_setup_seconds": 1.594298210926354,
+    "Q1_seconds": 5.1436621060129255,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.6202855227990623e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.427909768441078e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.0864158880431205
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.6202855227990623e-06,
+    "evaluated_relative_bound": 7.054166168376917e-06,
+    "relative_field_difference": 5.777264864886649e-08,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 2.5450902172768292e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 2,
+    "method": "angular8_inner",
+    "method_order": 1,
+    "source_id": 4,
+    "solve_seconds": 3.502681734971702,
+    "check_seconds": 0.02738968306221068,
+    "accepted_seconds": 3.5300714180339128,
+    "shared_setup_seconds": 1.594298210926354,
+    "Q1_seconds": 5.124369628960267,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.418934726801571e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 1.1682281628723911e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.0819924040697515
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.418934726801571e-06,
+    "evaluated_relative_bound": 2.902676902709844e-05,
+    "relative_field_difference": 1.5562134764465986e-07,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 3.1520098828437954e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 2,
+    "method": "angular8_inner",
+    "method_order": 1,
+    "source_id": 7,
+    "solve_seconds": 3.497891468927264,
+    "check_seconds": 0.026983617804944515,
+    "accepted_seconds": 3.5248750867322087,
+    "shared_setup_seconds": 1.594298210926354,
+    "Q1_seconds": 5.119173297658563,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 1.354290079288227e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 5,
+        "true_residual": 2.8319697912362543e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 1.081560246879235
+      }
+    ],
+    "accepted": true,
+    "true_residual": 1.354290079288227e-06,
+    "evaluated_relative_bound": 7.779433557730563e-06,
+    "relative_field_difference": 8.823244847637476e-08,
+    "mode_inverse_calls": 5,
+    "mode_repair_max_residual": 3.008544203669155e-12,
+    "mode_repair_corrections": 85
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 2,
+    "method": "angular8_inner",
+    "method_order": 1,
+    "source_id": 14,
+    "solve_seconds": 3.312072455883026,
+    "check_seconds": 0.027064051013439894,
+    "accepted_seconds": 3.339136506896466,
+    "shared_setup_seconds": 1.594298210926354,
+    "Q1_seconds": 4.93343471782282,
+    "status": {
+      "iterations": 3,
+      "classical_calls": 2,
+      "injection_calls": 1,
+      "injection_accepted": 1,
+      "injection_rejected": 0,
+      "true_residual": 7.405870614635407e-06,
+      "failed": 0
+    },
+    "inner_records": [
+      {
+        "iterations": 4,
+        "true_residual": 8.882624992604583e-05,
+        "initial_residual": 1.0,
+        "failed": 0,
+        "seconds": 0.8665585468988866
+      }
+    ],
+    "accepted": true,
+    "true_residual": 7.405870614635407e-06,
+    "evaluated_relative_bound": 3.2177699751802035e-05,
+    "relative_field_difference": 1.6261157172698213e-07,
+    "mode_inverse_calls": 4,
+    "mode_repair_max_residual": 3.9306100278931025e-12,
+    "mode_repair_corrections": 68
+  }
+]

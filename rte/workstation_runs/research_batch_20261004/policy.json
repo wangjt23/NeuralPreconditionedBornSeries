@@ -1,0 +1,87 @@
+{
+  "phase": "RTE_bounded_four_job_batch_20261004",
+  "head": "028caea3f35d100225f656e2b1e910c1366aaafe",
+  "development_ids": [
+    0,
+    3
+  ],
+  "development_cohort": "Existing stored development4626 only",
+  "new_seed_generation": false,
+  "training": false,
+  "source_export": false,
+  "max_full_solves": 0,
+  "freeze_hard_seconds": 60,
+  "stagewise_hard_seconds": 240,
+  "optimized_soft_seconds": 160,
+  "optimized_hard_seconds": 180,
+  "gpu_job_soft_seconds": 90,
+  "gpu_job_hard_seconds": 120,
+  "max_gpu_reserved_bytes": 4294967296,
+  "max_gpu_job_snapshot_bytes": 536870912,
+  "max_gpu_job_H_actions": 60,
+  "max_cpu_workers": 3,
+  "gpu_lane_serial": true,
+  "frozen_capture_code": "rte/workstation_runs/finite_precision_20261002/code",
+  "prior_preservation_files": 576,
+  "acceptance": {
+    "residual_rational": [
+      1,
+      100000
+    ],
+    "reserve_rational": [
+      1,
+      100
+    ],
+    "solution_rational": [
+      1,
+      1000
+    ],
+    "paired_rational": [
+      1,
+      10000
+    ]
+  },
+  "jobs": {
+    "A": "8 stagewisecertificates savedN64/N128 teachers and newlyfrozenN256 engineering b/a;12pairedcontrols",
+    "B": "4 optimizedcertificates exactsamefrozenN256 b/a;equivalencevsA",
+    "C": "Fixedmean fullFP64Rref plus fullstoredlocalcollision scaling vsRref anddirectTSA8/16;4contexts2inputs3maps3applyrepeats",
+    "D": "SavedN64fullteacher versus savedN64homogeneousreference, identicalstrict-bandprolongation, N128/N256 currentIDs0/3;source andoneMdefect"
+  },
+  "gates": {
+    "A": "All fixed exactresidual/reserve/solution/pairedpredicates and6positive6negativepairedcontrols; noactualfullsolvers",
+    "B": "Identical numerical upperbounds/radii/policyresults withA. Timings descriptiveonecallperfield,coldscopeincluded",
+    "C": "Eachgrid/context mean material_local actual-line squared residual <=strong+.02, and meanapplycost<=.25strong; eigencond<=100,reconstruction<=1e-12,referenceclosure<=1e-10. These screencriteria do not establish solverbenefit",
+    "D": "Eachgrid/context mean reference_line_ratio_squared minus teacher_line_ratio_squared >=.02. Unknown historicalteacheracquisition cost is chargedunknown, neverzero;information gateonly"
+  },
+  "prohibited": [
+    "Training",
+    "New seeds",
+    "Heldout8626/9626 numericalevaluation",
+    "Fullsolvercomparison",
+    "Originalsourceexport",
+    "Gitmodification",
+    "Unrelatedjobcancellation",
+    "Dependencyinstallation",
+    "Toleranceweakening"
+  ],
+  "cost_scope": "Whole externalprocess wall includingstartupimports,readback,transfers,snapshots,H/linechecks;nativecompile/tests andpreservationaudit separately. Warmapplytimings arecomponents only. No deployment claim frompartialcosts",
+  "code_sha256": {
+    "code/batch_gpu_common.py": "d5c77eb7273cfc26bb51619ef49a7760cc69c558e80f895b062ce1aa61ef8ab9",
+    "code/batch_supervisor.py": "52fc35a8e485ca2429c73cdc9e2700a3958e48eafde0a10ba7997b93930fdc8b",
+    "code/certified_twiddles.py": "c1cb5f8744e96013c326114bdbe67819a24088fe2bc31772ae5a875c7d3d18f2",
+    "code/cpu_interval_primitives.cpp": "8a9a2eccfa3b85c4caa33958a1db0c67db2c97ecd340dd1c8f5294fa0608d53a",
+    "code/gpu_direction_jobs.py": "9bc7c683f1ef6377584195c16f9bbf4cd79a418b1c1fd1ab049650cabc122b4e",
+    "code/interval_fft.py": "a150f0680fa98d7f627f9abbbfae1e45d62c5ad6f89b96a9197134743a88ea41",
+    "code/mloc.py": "c73d22314665204b5a6657aa00bbafeb19850a54296ee36a01a4e94cdc920bd0",
+    "code/optimized_job.py": "76b66e4c734cd9e73fb7b98c424ce22cf15d4be7e1cb02eccde52160801ce345",
+    "code/optimized_stagewise.py": "2aebdb5b5fc1bd95cf15101cf5f43d14243ed32de038a00018cb5f6a3c3236f0",
+    "code/stagewise_driver.py": "abe6365c6cf06d7f2b1d76ae2cbe9c4931475e26544d9e2f398baeda015f8990",
+    "code/stagewise_fft.py": "09ba78f81a900db6bd6ed2a225ad2d6c216adae4e6878f4fde9b23ec3738820e",
+    "code/test_batch_prolong.py": "52a8a4b7b9ac0f5b8e187968d0fc006e6a815b214db485bc1acd0045fb080096",
+    "code/test_certified_twiddles.py": "44c765b8f676fc747de7827a9b5559639ae30ccfa20a2fd48439bb085e8cb2f9",
+    "code/test_interval_fft.py": "380cab6f47c6f75b2432f3804c3eaf43dd9dfdf28954a6566e7e2ace10438428",
+    "code/test_mloc.py": "9c072beb9e98d7ec1d0c8d9929d727c948c794b4535daec25ca75c214c2182b2",
+    "code/test_optimized_stagewise.py": "27e892ccef7eb9e960a0bad72cd0936ea9a729bdc9ac5437537c131dfd583eea",
+    "code/test_stagewise_fft_audit.py": "4d59a843c9a704cfde7c3e8400b16bc6ead29733f63d5e8a908352423693a01d"
+  }
+}

@@ -1,0 +1,1122 @@
+[
+  {
+    "size": 128,
+    "index": 0,
+    "method": "context_full",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "context_segmented",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "direct_full",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "direct_segmented",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "context_full",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "context_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "direct_full",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "direct_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "context_full",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "context_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "direct_full",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "direct_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "context_full",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "context_segmented",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "direct_full",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "direct_segmented",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "context_full",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "context_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "direct_full",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "direct_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "context_full",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "context_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "direct_full",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "direct_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "context_full",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "context_segmented",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "direct_full",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "direct_segmented",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "direct_segmented",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "direct_full",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "context_segmented",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "context_full",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "direct_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "direct_full",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "context_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "context_full",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "direct_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "direct_full",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "context_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "context_full",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "direct_segmented",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "direct_full",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "context_segmented",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "context_full",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "direct_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "direct_full",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "context_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "context_full",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "direct_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "direct_full",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "context_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "context_full",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "direct_segmented",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "direct_full",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "context_segmented",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "context_full",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "context_full",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "context_segmented",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "direct_full",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "direct_segmented",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "context_full",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "context_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "direct_full",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "direct_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "context_full",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "context_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "direct_full",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "direct_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "context_full",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "context_segmented",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "direct_full",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "direct_segmented",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "context_full",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "context_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "direct_full",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "direct_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "context_full",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "context_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "direct_full",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "direct_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "context_full",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "context_segmented",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "direct_full",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "direct_segmented",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "direct_segmented",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "direct_full",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "context_segmented",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "context_full",
+    "probe": "source",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "direct_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "direct_full",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "context_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "context_full",
+    "probe": "grazing",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "direct_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "direct_full",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "context_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "context_full",
+    "probe": "mixed",
+    "dtype": "torch.complex64",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "direct_segmented",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "direct_full",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "context_segmented",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "context_full",
+    "probe": "source",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "direct_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "direct_full",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "context_segmented",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "context_full",
+    "probe": "grazing",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "direct_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "direct_full",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "context_segmented",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "context_full",
+    "probe": "mixed",
+    "dtype": "torch.complex128",
+    "bitwise_equal": true,
+    "finite": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "direct_segmented",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "direct_full",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "context_segmented",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "context_full",
+    "kind": "ownership_cache_view",
+    "ownership": true,
+    "guard": true,
+    "restored": true,
+    "passed": true
+  }
+]

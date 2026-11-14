@@ -1,0 +1,36 @@
+{
+  "args": {
+    "sizes": [
+      64,
+      128
+    ],
+    "coarse_sizes": [
+      16
+    ],
+    "epsilons": [
+      0.1
+    ],
+    "count": 2,
+    "seed": 1919,
+    "sources": 1,
+    "repeats": 1,
+    "setup_threads": 4,
+    "hierarchy": false,
+    "harmonic_only": true,
+    "cache_kinds": [
+      "dense"
+    ],
+    "tolerance": 0.001,
+    "output": "rte/workstation_runs/coarse_response_harmonic_20260919"
+  },
+  "device": "cpu",
+  "torch_version": "2.5.1",
+  "dataset_count": 4,
+  "scope": "development opportunity check, not AI; exact Galerkin response with fine HSS complement",
+  "timing": "one CPU thread, shuffled paired warmed solves, shared host; teacher costs separately reported",
+  "physics": "original stored FP32 geometry promoted unchanged to FP64; true outer tolerance 1e-5",
+  "datasets": {
+    "64": "dbd86174abc7f6a3c499ee3ff03ac291457f92d3ca5155731c9404b89900a50c",
+    "128": "dd04f929dfa9def5748d76ce8db4489fba6ed45a640956c1cf1246e47f289ba5"
+  }
+}

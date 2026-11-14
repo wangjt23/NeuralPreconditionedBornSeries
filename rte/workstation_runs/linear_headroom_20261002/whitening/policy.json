@@ -1,0 +1,39 @@
+{
+  "scope": "single LS numerical-preconditioner repair; exactsameq3range/IDs0,3/N128,256/source+prefix4; noq5/training/test",
+  "modes": [
+    0,
+    1,
+    -1
+  ],
+  "development_ids": [
+    0,
+    3
+  ],
+  "max_CGLS_iterations_per_context": 100,
+  "normal_target": 1e-08,
+  "soft_seconds": 120,
+  "hard_owned_process_seconds": 140,
+  "max_full_solves": 48,
+  "measured_repeats": 3,
+  "warmups": 1,
+  "whitening_identity_gate": 1e-08,
+  "adjoint_gate": 1e-10,
+  "headroom_gate": "attainedcached >=10% paired warm mean at bothgrids, noaccuracyfail or>10%case regression; boundeddevelopmentonly",
+  "raw_gap_scope": "unchangedphysicalmGram conditionalordinaryFP64; AZ projected upperonly",
+  "code_sha256": {
+    "code/angular_galerkin.py": "94478b049abac3c534742b056a7e1854dce247d7f64f90031a7496c82e94e114",
+    "code/image_whitening.py": "b723da004d21f11ebeac8e6a814009777bd419cb9392d739e20b0c3288fdb4bc",
+    "code/test_image_whitening.py": "f04dd1ed97aaf150bb55bff7407572192fb218ca394c139c56d242cb66ab760d",
+    "code/graph_classical_v2.py": "cb142084d28b1a0b5236e92b6b5e14f4d7aca3d67b8d7d41e3f65d2d76c0db3e",
+    "code/whitened_range_oracle.py": "b373589f6fcf2b3a7c209f20ac60524f40e90a073081685ed7bf844ab2dd2b53",
+    "code/instrumented_fgmres.py": "808fef99167e34f4ebab18e9a9070ff94e6288f094dc747d0c887dd2a59a28f7",
+    "code/test_angular_galerkin.py": "fc62196a98fcdaa5c5d3ab1b05fec68cc2d8135fe45ad9748ff376332dca0876"
+  },
+  "development_parent_sha256": {
+    "128": "9ade993bce700505d134fa197ceeee72327790bc6660e670a95bea8c43052de1",
+    "256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "cost": "cachedacquisitionexcludedoptimistically, clone/physicalimages/LS/init/finalcheckincluded; setupandacquisitionseparatelyrecorded, notactualdeploylatency",
+  "reserved_seed9626_touched": false,
+  "pre_execution_staging_repair": "missing shared test fixture staged, initial failure log retained; no algorithm/data change or prior GPU experiment"
+}

@@ -283,3 +283,7 @@ python inference_newton.py \
 
 # Compare against DST-preconditioned baseline
 python inference_dst.py --log_dir ./dst.log --batch_size 1 --max_iter 100 --tol 1e-4
+
+## RTE research handoff (2026-11-14)
+
+See [the source-first handoff](handoff/rte_20261114/HANDOFF.md), its [complete inventory](handoff/rte_20261114/SOURCE_INVENTORY.json), and [explicit external binary dependencies](handoff/rte_20261114/BINARY_DEPENDENCIES.md). This branch snapshots ongoing work; it does not overwrite remote main or claim all historical raw data is in Git.

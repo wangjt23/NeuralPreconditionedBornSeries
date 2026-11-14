@@ -1,0 +1,242 @@
+[
+  {
+    "split": "validation",
+    "index": 0,
+    "setup_seconds": 0.3635367648676038,
+    "label_regauging_error": 3.9523101236227376e-08,
+    "feature_regauging_error": 4.4312237434951385e-08,
+    "v2_full_visible_feature_counterfactual_difference": 8.079372098375361e-15,
+    "phase_counterfactual_difference": 0.0,
+    "pod_projection_errors": {
+      "8": 0.3784872974126392,
+      "16": 0.3188819404550527,
+      "32": 0.24784129513895087,
+      "96": 0.1807566869974832
+    }
+  },
+  {
+    "split": "validation",
+    "index": 1,
+    "setup_seconds": 0.022501287050545216,
+    "label_regauging_error": 4.334435033115369e-08,
+    "feature_regauging_error": 4.265919884005598e-08,
+    "v2_full_visible_feature_counterfactual_difference": 3.23598794196244e-19,
+    "phase_counterfactual_difference": 5.551115123125783e-17,
+    "pod_projection_errors": {
+      "8": 0.49814830406936805,
+      "16": 0.47426853634346466,
+      "32": 0.416332127999406,
+      "96": 0.2512793982210469
+    }
+  },
+  {
+    "split": "validation",
+    "index": 2,
+    "setup_seconds": 0.022257722914218903,
+    "label_regauging_error": 3.982650653711062e-08,
+    "feature_regauging_error": 4.342612669461232e-08,
+    "v2_full_visible_feature_counterfactual_difference": 8.530580371320828e-21,
+    "phase_counterfactual_difference": 8.131516293641283e-20,
+    "pod_projection_errors": {
+      "8": 0.6526539870664352,
+      "16": 0.5209723737782999,
+      "32": 0.47375249062947755,
+      "96": 0.28711967418996603
+    }
+  },
+  {
+    "split": "validation",
+    "index": 3,
+    "setup_seconds": 0.022411763900890946,
+    "label_regauging_error": 4.527872832227331e-08,
+    "feature_regauging_error": 4.365452710430873e-08,
+    "v2_full_visible_feature_counterfactual_difference": 1.6284494708100096e-14,
+    "phase_counterfactual_difference": 2.220446049250313e-16,
+    "pod_projection_errors": {
+      "8": 0.7090359037150141,
+      "16": 0.657318629739966,
+      "32": 0.5950125967963575,
+      "96": 0.5328977380331508
+    }
+  },
+  {
+    "split": "validation",
+    "index": 4,
+    "setup_seconds": 0.022249273024499416,
+    "label_regauging_error": 3.801580916729108e-08,
+    "feature_regauging_error": 4.2620612816790526e-08,
+    "v2_full_visible_feature_counterfactual_difference": 3.156043437980543e-17,
+    "phase_counterfactual_difference": 5.377642775528102e-17,
+    "pod_projection_errors": {
+      "8": 0.32137009770184066,
+      "16": 0.2868069839073593,
+      "32": 0.2614567042451074,
+      "96": 0.18268512800033584
+    }
+  },
+  {
+    "split": "validation",
+    "index": 5,
+    "setup_seconds": 0.022252098890021443,
+    "label_regauging_error": 4.613975690404004e-08,
+    "feature_regauging_error": 4.721443147559512e-08,
+    "v2_full_visible_feature_counterfactual_difference": 3.466319382057551e-18,
+    "phase_counterfactual_difference": 1.2412670766236366e-16,
+    "pod_projection_errors": {
+      "8": 0.7801995380281876,
+      "16": 0.6559427831096813,
+      "32": 0.576384258221711,
+      "96": 0.47392771888923857
+    }
+  },
+  {
+    "split": "validation",
+    "index": 6,
+    "setup_seconds": 0.022088050842285156,
+    "label_regauging_error": 5.099026978427901e-08,
+    "feature_regauging_error": 4.8339558134102845e-08,
+    "v2_full_visible_feature_counterfactual_difference": 5.049607561484601e-16,
+    "phase_counterfactual_difference": 0.0,
+    "pod_projection_errors": {
+      "8": 0.5917402402047268,
+      "16": 0.5563382919860894,
+      "32": 0.5333726872715258,
+      "96": 0.45033823359454794
+    }
+  },
+  {
+    "split": "validation",
+    "index": 7,
+    "setup_seconds": 0.022970902966335416,
+    "label_regauging_error": 4.30692921327136e-08,
+    "feature_regauging_error": 4.241837103791113e-08,
+    "v2_full_visible_feature_counterfactual_difference": 3.556738494815723e-18,
+    "phase_counterfactual_difference": 1.1102230246251565e-16,
+    "pod_projection_errors": {
+      "8": 0.47451490260675266,
+      "16": 0.4260925128190302,
+      "32": 0.3668885807407419,
+      "96": 0.17949006294322556
+    }
+  },
+  {
+    "split": "validation",
+    "index": 8,
+    "setup_seconds": 0.022315503796562552,
+    "label_regauging_error": 4.32805826733329e-08,
+    "feature_regauging_error": 4.157012511996072e-08,
+    "v2_full_visible_feature_counterfactual_difference": 3.1165491619668005e-18,
+    "phase_counterfactual_difference": 5.551115123125783e-17,
+    "pod_projection_errors": {
+      "8": 0.6001171078749369,
+      "16": 0.571798547300739,
+      "32": 0.5045281597798438,
+      "96": 0.2803494843192906
+    }
+  },
+  {
+    "split": "validation",
+    "index": 9,
+    "setup_seconds": 0.022255911026149988,
+    "label_regauging_error": 5.0312994659407195e-08,
+    "feature_regauging_error": 4.853869128851329e-08,
+    "v2_full_visible_feature_counterfactual_difference": 4.664710529383551e-18,
+    "phase_counterfactual_difference": 0.0,
+    "pod_projection_errors": {
+      "8": 0.534415609581086,
+      "16": 0.5145197384216481,
+      "32": 0.49130389798501356,
+      "96": 0.3561660626084381
+    }
+  },
+  {
+    "split": "validation",
+    "index": 10,
+    "setup_seconds": 0.022322532953694463,
+    "label_regauging_error": 4.5249333169294914e-08,
+    "feature_regauging_error": 4.327188207753352e-08,
+    "v2_full_visible_feature_counterfactual_difference": 1.7078529919918136e-20,
+    "phase_counterfactual_difference": 2.2204471080412447e-16,
+    "pod_projection_errors": {
+      "8": 0.7405147175222745,
+      "16": 0.679531036563208,
+      "32": 0.5965521017058648,
+      "96": 0.5035075658372105
+    }
+  },
+  {
+    "split": "validation",
+    "index": 11,
+    "setup_seconds": 0.022177533013746142,
+    "label_regauging_error": 4.276756726540043e-08,
+    "feature_regauging_error": 4.242801665554907e-08,
+    "v2_full_visible_feature_counterfactual_difference": 6.864652996364522e-19,
+    "phase_counterfactual_difference": 2.482534153247273e-16,
+    "pod_projection_errors": {
+      "8": 0.9369672123349444,
+      "16": 0.9125390474671289,
+      "32": 0.8564393539010872,
+      "96": 0.7423451504164796
+    }
+  },
+  {
+    "split": "validation",
+    "index": 12,
+    "setup_seconds": 0.02282122801989317,
+    "label_regauging_error": 4.294456346087827e-08,
+    "feature_regauging_error": 4.395173291982246e-08,
+    "v2_full_visible_feature_counterfactual_difference": 1.4854991491038346e-21,
+    "phase_counterfactual_difference": 5.421010862427522e-20,
+    "pod_projection_errors": {
+      "8": 0.9385221324709893,
+      "16": 0.884720393467051,
+      "32": 0.853210910987322,
+      "96": 0.6786828240381917
+    }
+  },
+  {
+    "split": "validation",
+    "index": 13,
+    "setup_seconds": 0.022796669974923134,
+    "label_regauging_error": 5.311253659101567e-08,
+    "feature_regauging_error": 4.2114407960980316e-08,
+    "v2_full_visible_feature_counterfactual_difference": 1.98071366317181e-21,
+    "phase_counterfactual_difference": 0.0,
+    "pod_projection_errors": {
+      "8": 0.7808867670985111,
+      "16": 0.672366363668052,
+      "32": 0.6141602174932288,
+      "96": 0.4506714682830499
+    }
+  },
+  {
+    "split": "validation",
+    "index": 14,
+    "setup_seconds": 0.022363743977621198,
+    "label_regauging_error": 4.002381714940384e-08,
+    "feature_regauging_error": 4.3853447095898446e-08,
+    "v2_full_visible_feature_counterfactual_difference": 2.0199050697572267e-15,
+    "phase_counterfactual_difference": 3.37661150723213e-16,
+    "pod_projection_errors": {
+      "8": 0.38730215432835263,
+      "16": 0.28269747570764425,
+      "32": 0.2549749584926218,
+      "96": 0.20599915477842803
+    }
+  },
+  {
+    "split": "validation",
+    "index": 15,
+    "setup_seconds": 0.02236684295348823,
+    "label_regauging_error": 4.2128096566784734e-08,
+    "feature_regauging_error": 4.324560975987879e-08,
+    "v2_full_visible_feature_counterfactual_difference": 8.504771366856893e-21,
+    "phase_counterfactual_difference": 2.2204555783505224e-16,
+    "pod_projection_errors": {
+      "8": 0.6046085290341653,
+      "16": 0.5299714385576468,
+      "32": 0.49021453542498405,
+      "96": 0.37996753198760846
+    }
+  }
+]

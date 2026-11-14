@@ -1,0 +1,36 @@
+{
+  "complete": true,
+  "private": true,
+  "public_sharing": false,
+  "items": [
+    {
+      "local_path": "/Users/hxchen/Documents/Codex/2026-10-02/task-3/deliverables/certifier_20261002/RTE_FWI_Residual_Certifier_2026_10_02.md",
+      "library_file_id": "libfile_7831518cd33c8191999a05988e1687f1",
+      "file_id": "file_00000000b3fc81fb9c5e5f8331993c98",
+      "file_name": "RTE_FWI_Residual_Certifier_2026_10_02.md",
+      "path": "/RTE_FWI_Residual_Certifier_2026_10_02.md",
+      "current_version_number": 0,
+      "file_size_bytes": 16853,
+      "library_artifact_type": "report",
+      "downloaded_path": "/Users/hxchen/Documents/Codex/2026-10-02/task-3/receipts/library_certifier_exact_downloads/RTE_FWI_Residual_Certifier_2026_10_02.md",
+      "expected_sha256": "7ec100e105f0f700e0f4a74357a4d95bcb98509ef346314dd599c223a73d49bf",
+      "exact_bytes_verified": true,
+      "local_and_download_identity_verified": true
+    },
+    {
+      "local_path": "/Users/hxchen/Documents/Codex/2026-10-02/task-3/deliverables/certifier_20261002/RTE_FWI_Residual_Certifier_Evidence_2026_10_02.zip",
+      "library_file_id": "libfile_5e2ea00d259481919e2569db1c7e9246",
+      "file_id": "file_00000000c71881fb8edd1892fd182ac9",
+      "file_name": "RTE_FWI_Residual_Certifier_Evidence_2026_10_02.zip",
+      "path": "/RTE_FWI_Residual_Certifier_Evidence_2026_10_02.zip",
+      "current_version_number": 0,
+      "file_size_bytes": 478450,
+      "library_artifact_type": "other",
+      "downloaded_path": "/Users/hxchen/Documents/Codex/2026-10-02/task-3/receipts/library_certifier_exact_downloads/RTE_FWI_Residual_Certifier_Evidence_2026_10_02.zip",
+      "expected_sha256": "0b096f9fcab092a142563424bacced4755ad2e96dee77a17315012bb4c4f0325",
+      "exact_bytes_verified": true,
+      "local_and_download_identity_verified": true
+    }
+  ],
+  "source_arrays_or_original_source_included": false
+}

@@ -145,6 +145,9 @@ class PeriodicRTE2D(nn.Module):
         self.diffusion_coeff = diffusion_coeff
         self.eta = eta
         self.sigma0 = sigma_ref + eta
+        # Pointer/version pairs can repeat when an allocator recycles a freed
+        # coefficient tensor. Consumers must distinguish successive setups.
+        self.setup_generation = getattr(self, "setup_generation", 0) + 1
         # DSA and Born only need scalar Fourier divisions. A full angular
         # inverse at every coefficient batch wastes O(B H W n_angles^3) work.
         self._reference_transport_inverse = None

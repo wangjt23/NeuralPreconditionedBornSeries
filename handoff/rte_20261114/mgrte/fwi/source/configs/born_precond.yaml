@@ -1,0 +1,41 @@
+data:
+  data_type: diffusion
+  num_coef: 1000
+  num_data: 10000
+  mesh_size: 16
+  N: 1
+  tol_exp: 5
+  kernel_g: "0"
+
+model:
+  u_channels_list: [16, 32, 64, 128]
+  a_channels_list: [16, 32, 64, 128]
+  mg_levels: [2, 2, 2, 4]
+
+train:
+  seed: 1234
+  cuda_device: cuda:0
+  lr: 0.001
+  batch_size: 256
+  num_epochs: 1000
+  val_steps: 5
+  num_workers: 0
+  loss_type: born_mixed
+  preconditioner_form: direct
+  physical_loss_weight: 0.1
+  rhs_mode: random
+  loss_normalization: relative
+
+scheduler:
+  scheduler_name: CosineAnnealingLR
+  T_max: 100
+  eta_min: 0.000001
+
+inference:
+  num_test: 3
+  tol: 0.000001
+  max_iter: 50
+  restart: 50
+  preconditioners: [block_jacobi, mgnet_raw, mgnet_born]
+  preconditioner_form: direct
+  output: outputs/born_precond_inference_summary.json

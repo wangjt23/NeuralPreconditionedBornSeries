@@ -1,0 +1,34 @@
+{
+  "scope": "Necessary cost-model allowance for the ENTIRE warm accepted solve with the recorded selected full setup, zero additional construction/acquisition/inference and no offline training cost. It is not proposal-only budget, an achievable bound, or evidence for learned superiority. Original five gate already failed; all accepted ten strengthen subsequent same-case denominator. No new control was confirmed across16media. The per-case minimum is a benchmark comparison envelope, not a deployed free algorithm chooser. Timing is exploratory and includes recorded first-use/order effects; no matched process-cold claim.",
+  "formula": "allowance=min(0.9*mean(min eligible classical Q1 per case)-mean(candidate setup),0.9*mean(min eligible classical warm per case)); future setup/inference/acquisition lowers this allowance.",
+  "grids": [
+    {
+      "size": 128,
+      "same_context_all_ten_classical_mean_minimum_q1_ms": 270.0178315863013,
+      "all_ten_classical_mean_minimum_warm_ms": 50.68083666265011,
+      "selected_full_backend": "full_raw",
+      "candidate_recorded_mean_setup_ms": 210.34921519458294,
+      "candidate_recorded_mean_warm_ms": 72.28022161871195,
+      "q1_10pct_fixed_setup_total_warm_allowance_ms": 32.666833233088255,
+      "warm_10pct_total_warm_allowance_ms": 45.6127529963851,
+      "binding_zero_extra_cost_total_warm_allowance_ms": 32.666833233088255,
+      "minimum_further_total_warm_reduction_ms": 39.61338838562369,
+      "minimum_further_total_warm_reduction_fraction": 0.5480529458610369
+    },
+    {
+      "size": 256,
+      "same_context_all_ten_classical_mean_minimum_q1_ms": 164.76668324321508,
+      "all_ten_classical_mean_minimum_warm_ms": 130.54522033780813,
+      "selected_full_backend": "full_segmented",
+      "candidate_recorded_mean_setup_ms": 29.18940130621195,
+      "candidate_recorded_mean_warm_ms": 210.9586587175727,
+      "q1_10pct_fixed_setup_total_warm_allowance_ms": 119.10061361268163,
+      "warm_10pct_total_warm_allowance_ms": 117.49069830402732,
+      "binding_zero_extra_cost_total_warm_allowance_ms": 117.49069830402732,
+      "minimum_further_total_warm_reduction_ms": 93.46796041354537,
+      "minimum_further_total_warm_reduction_fraction": 0.44306292513301593
+    }
+  ],
+  "training": false,
+  "test9626_touched": false
+}

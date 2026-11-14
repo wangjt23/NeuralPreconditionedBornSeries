@@ -1,0 +1,163 @@
+{
+  "result": "MULTIPLICATIVE_NO_GO",
+  "accepted_solutions": 16,
+  "pairs": [
+    {
+      "order": "one-shot before multiplicative",
+      "one_shot_seconds": 22.653948756167665,
+      "multiplicative_seconds": 23.070610059890896,
+      "saving_percent": -1.8392436047591554
+    }
+  ],
+  "batches": [
+    {
+      "label": "01_E_once",
+      "method": "E_once",
+      "setup_seconds": 2.9782109721563756,
+      "first_RHS_seconds": 7.740021604113281,
+      "four_RHS_seconds": 22.653948756167665,
+      "classical_calls": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "inner_seconds": 3.6232063772622496,
+      "smoothing_seconds": 0,
+      "composition_A_seconds": 0,
+      "A_counts": {
+        "outer_A": 44,
+        "inner_A": 40,
+        "final_A": 4,
+        "composition_A": 0,
+        "smoothing_calls": 0,
+        "smoothing_stages": 0
+      },
+      "inner_iterations": [
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ]
+      ]
+    },
+    {
+      "label": "02_fine_only",
+      "method": "fine_only",
+      "setup_seconds": 0.1320879179984331,
+      "first_RHS_seconds": 6.443497217958793,
+      "four_RHS_seconds": 26.099935391917825,
+      "classical_calls": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "inner_seconds": 0,
+      "smoothing_seconds": 0.5792876768391579,
+      "composition_A_seconds": 0,
+      "A_counts": {
+        "outer_A": 60,
+        "inner_A": 0,
+        "final_A": 4,
+        "composition_A": 0,
+        "smoothing_calls": 4,
+        "smoothing_stages": 32
+      },
+      "inner_iterations": [
+        [],
+        [],
+        [],
+        []
+      ]
+    },
+    {
+      "label": "03_additive",
+      "method": "additive",
+      "setup_seconds": 2.8264369759708643,
+      "first_RHS_seconds": 9.065551771782339,
+      "four_RHS_seconds": 28.043404129799455,
+      "classical_calls": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "inner_seconds": 3.525969356065616,
+      "smoothing_seconds": 0.5807237587869167,
+      "composition_A_seconds": 0,
+      "A_counts": {
+        "outer_A": 52,
+        "inner_A": 40,
+        "final_A": 4,
+        "composition_A": 0,
+        "smoothing_calls": 4,
+        "smoothing_stages": 32
+      },
+      "inner_iterations": [
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ]
+      ]
+    },
+    {
+      "label": "04_multiplicative",
+      "method": "multiplicative",
+      "setup_seconds": 2.529758377932012,
+      "first_RHS_seconds": 7.521487328922376,
+      "four_RHS_seconds": 23.070610059890896,
+      "classical_calls": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "inner_seconds": 3.5726329777389765,
+      "smoothing_seconds": 0.5821224572136998,
+      "composition_A_seconds": 0.03346663084812462,
+      "A_counts": {
+        "outer_A": 44,
+        "inner_A": 40,
+        "final_A": 4,
+        "composition_A": 4,
+        "smoothing_calls": 4,
+        "smoothing_stages": 32
+      },
+      "inner_iterations": [
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ],
+        [
+          4
+        ]
+      ]
+    }
+  ],
+  "max_original_residual": 4.7190968314526e-06,
+  "max_evaluated_bound": 1.891742344137131e-05,
+  "max_field_difference": 1.897580231987916e-07,
+  "research_wall_seconds": 101.30329575901851,
+  "raw_sha256": "cd32c61683231639fb60cfe138498b853b3503a2be922f33eb2085dd01f124da"
+}

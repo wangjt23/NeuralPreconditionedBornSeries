@@ -1,0 +1,7 @@
+{"event": "source_done", "label": "01_E_once", "source_id": 0, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 4.788853813849454e-07}
+{"event": "batch_done", "method": "E_once", "label": "01_E_once", "seconds": 8.308749906020239, "calls": [3], "attempts": [1]}
+{"event": "source_done", "label": "02_E_once", "source_id": 0, "calls": 3, "attempts": 1, "inner_iterations": [4], "residual": 4.788854686453486e-07}
+{"event": "batch_done", "method": "E_once", "label": "02_E_once", "seconds": 7.737704947125167, "calls": [3], "attempts": [1]}
+{"event": "source_done", "label": "03_E_preserve", "source_id": 0, "calls": 3, "attempts": 2, "inner_iterations": [4, 4], "residual": 4.784633898744864e-07}
+{"event": "batch_done", "method": "E_preserve", "label": "03_E_preserve", "seconds": 8.959388891002163, "calls": [3], "attempts": [2]}
+{"event": "finished", "complete": true, "result": "SINGLE_SOURCE_DIAGNOSTIC_ONLY", "error": null, "seconds": 26.03310357220471}

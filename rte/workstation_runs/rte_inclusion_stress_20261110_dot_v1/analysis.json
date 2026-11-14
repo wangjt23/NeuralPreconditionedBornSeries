@@ -1,0 +1,102 @@
+{
+  "complete": true,
+  "scope": "One predeclared inclusion-strength perturbation only: amplitude3 to6, all other physics/source/numerical settings unchanged. Fixed compact-then-exact order and fresh fully paid setup. Not material generalization or GPU evidence.",
+  "frozen_settings_verified": true,
+  "source_arrays_unchanged": true,
+  "production_hashes_unchanged": true,
+  "material_identity": {
+    "amplitude3_byte_equal_original": true,
+    "stress_info": {
+      "periods": 1,
+      "beta": 3.3333333333333335,
+      "inclusion_amplitude": 6.0,
+      "inclusion_center": [
+        0.34,
+        0.6
+      ],
+      "inclusion_width": 0.08,
+      "transition_physical_width": 0.015625
+    },
+    "baseline_total_sha256": "9d9256eedd9242ad1d13f3853a9149b5d5e29a4fbfe6c63caf5a0e012f714b74",
+    "stress_total_sha256": "ff8f1415243874d4d483a18439a23b8c2b193e5c59665ff88e635e645eeeb85e",
+    "baseline_scatter_sha256": "5539f482895689656b2ee0dc05722c6428d3f08b8a3eb3c75f7050f2e8eaf356",
+    "stress_scatter_sha256": "12f896ee1a7bbad64d762abd599c62424ad54e97ac5b84edcb1fa71e4e369b0a",
+    "max_total_change": 9.974245071411133
+  },
+  "methods": {
+    "compact4_inject": {
+      "repeat": 0,
+      "method": "compact4_inject",
+      "method_order": 0,
+      "physical_setup_seconds": 0.005154207814484835,
+      "tsa_setup_seconds": 0.12237817398272455,
+      "factor_setup_seconds": 3.0625053059775382,
+      "setup_seconds": 3.1900376877747476,
+      "online_four_rhs_seconds": 20.133315274724737,
+      "batch_complete_seconds": 23.323352962499484,
+      "observed_batch_wall_seconds": 23.337934725917876,
+      "calls": [
+        4,
+        4,
+        4,
+        4
+      ],
+      "inner_calls": [],
+      "accepted": true
+    },
+    "exact8_inner": {
+      "repeat": 0,
+      "method": "exact8_inner",
+      "method_order": 1,
+      "physical_setup_seconds": 0.005023187026381493,
+      "tsa_setup_seconds": 0.09783191094174981,
+      "factor_setup_seconds": 5.095767471008003,
+      "setup_seconds": 5.198622568976134,
+      "online_four_rhs_seconds": 15.351910700788721,
+      "batch_complete_seconds": 20.550533269764856,
+      "observed_batch_wall_seconds": 20.565138736041263,
+      "calls": [
+        2,
+        3,
+        2,
+        3
+      ],
+      "inner_calls": [
+        6,
+        6,
+        6,
+        6
+      ],
+      "accepted": true
+    }
+  },
+  "gain_percent": 11.888598081043122,
+  "observed_wall_gain_percent": 11.881068408325323,
+  "extra_setup_seconds": 2.0085848812013865,
+  "online_savings_seconds": 4.781404573936015,
+  "attempts": 8,
+  "failures": 0,
+  "inner_calls": [
+    6,
+    6,
+    6,
+    6
+  ],
+  "inner_residuals": [
+    8.919349788990922e-05,
+    4.0437766563881286e-05,
+    9.829862663405952e-05,
+    4.006224904015579e-05
+  ],
+  "inner_failures": 0,
+  "max_original_residual": 4.754804767129978e-06,
+  "max_evaluated_bound": 2.731433314125968e-05,
+  "max_field_difference": 1.7273661997065252e-07,
+  "reference_attempts": 4,
+  "reference_research_seconds": 24.585455921012908,
+  "wall_seconds": 72.27751186210662,
+  "source_hashes": {
+    "stress_inclusion_cpu.py": "62fed575d02f34676b916dfe1678c561b0970ad97d364e7424bb3bd75284eb74",
+    "exact_mode_probe.py": "b560e467e0b81a8293adfa2fc71bd5570ec875a797fea67696083f1430ba3a77"
+  }
+}

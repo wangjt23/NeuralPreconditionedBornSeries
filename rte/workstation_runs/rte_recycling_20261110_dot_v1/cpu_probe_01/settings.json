@@ -1,0 +1,68 @@
+{
+  "complete": true,
+  "pid": 1245035,
+  "device": "cpu",
+  "threads": 1,
+  "source_ids": [
+    0,
+    4,
+    7,
+    14
+  ],
+  "grid": 128,
+  "L": 12,
+  "g": 0.65,
+  "heldout9626": false,
+  "neural_training": false,
+  "new_teachers": false,
+  "source_hash": "beb5850cd8e77721019522215465447427fc3cfef7745c82681ea4dfecac6604",
+  "methods": [
+    "native",
+    "capture_control",
+    "solution_init",
+    "krylov_init",
+    "gcro"
+  ],
+  "contract": "Original stored A64: residual<=1e-5, evaluated coercivity relative-error bound<=1e-3, field difference<=1e-4 vs paired native.",
+  "cost": "First RHS, all captured A images, cloning, basis construction/update, initial projection, projected preconditioning, native solver and final acceptance charged. No test-source teachers. Shared physical/TSA setup charged once per batch. CPU timings are not comparable to Nov8 GPU results.",
+  "repeats": 0,
+  "software": {
+    "torch": "2.5.1",
+    "python": "3.12.4 | packaged by Anaconda, Inc. | (main, Jun 18 2024, 15:12:24) [GCC 11.2.0]"
+  },
+  "git_revision": "028caea3f35d100225f656e2b1e910c1366aaafe",
+  "production_hashes": {
+    "rte/models.py": "6cd887b332ed48409bcffa2d2bad6ca9654c97ff7071c13a6443278f583b04d1",
+    "rte/source_initialization.py": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af",
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4"
+  },
+  "rhs_sha256": {
+    "0": "29ea6512fa2516dd4bc1896f7a352ee62164ab86f205bb94214b254b98fd8d77",
+    "4": "6743df55c26fddf731dabc45f4275a2a02f58d24b9fa8762cb3a8869eb9b1436",
+    "7": "7bffceb871908f220c4ec223e1e6893abb9997051ef6ffa6804c9b553c724177",
+    "14": "7283255ec15dbda6bc7c8adab8ef92023e8dce830d5bd5ef6ab4c59431d8b7d8"
+  },
+  "physical_setup_seconds": 0.015061486046761274,
+  "tsa_setup_seconds": 0.6310070999898016,
+  "coercivity_margin": 0.049961549161480434,
+  "medium": {
+    "periods": 1,
+    "layers": 2,
+    "beta": 3.3333333333333335,
+    "transition_physical_width": 0.015625,
+    "low_plateau_total": 6.55,
+    "high_plateau_total_without_inclusion": 666.55,
+    "inclusion_amplitude_before_scaling": 3.0,
+    "inclusion_width": 0.08
+  },
+  "wall_seconds": 133.1813324331306,
+  "attempts": 20,
+  "failures": 0,
+  "production_hashes_after": {
+    "rte/models.py": "6cd887b332ed48409bcffa2d2bad6ca9654c97ff7071c13a6443278f583b04d1",
+    "rte/source_initialization.py": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af",
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4"
+  }
+}

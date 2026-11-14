@@ -1,0 +1,14 @@
+{
+  "complete": true,
+  "private_library_report_version0_bytes_verified": true,
+  "report_sha256": "4ee8593cabf69d7d3809b2bbe6d42ed112690373b0ffc9778e7071ae5758c5c6",
+  "prior721_preserved_in_postcheck": true,
+  "final18_handoff_files_verified": true,
+  "library_metadata_files_verified": 2,
+  "sha256": {
+    "library_artifact_receipt.json": "d1ea460c532b8e890de37fda447da49c659722393061a4971e2e036d7e60d947",
+    "LIBRARY_ARTIFACTS.md": "0acea991ccd09343aff6e80b599a8079a58a4f0ac2c0d9c8fd068199aa5cbf09"
+  },
+  "original_tracked_dirty_unchanged": true,
+  "no_new_research_jobs": true
+}

@@ -1,0 +1,15 @@
+{
+  "args": {
+    "output": "rte/workstation_runs/tail_generalization_20260926",
+    "contexts": "rte/workstation_runs/tail_injection_gate_20260926",
+    "tail_checkpoint": "rte/workstation_runs/tail_direction_pilot_20260926/best.pt",
+    "optical_checkpoint": "rte/workstation_runs/tail_optical_moment_20260926/last.pt"
+  },
+  "complete": true,
+  "scope": "training and validation only; eligible prefixes; not online timing or held-out speed",
+  "source_sha256": "cd6ff8dc800161db6b147d7efbb0d513cd068eb20a21f014ffda5788747b06dd",
+  "checkpoint_sha256": {
+    "rte/workstation_runs/tail_direction_pilot_20260926/best.pt": "135aa962f6ebc1a08b1f17c61d85cafed990da68665e1bf12cfedb097ed0775f",
+    "rte/workstation_runs/tail_optical_moment_20260926/last.pt": "48b6db082762994080fc620dd2812f43b742ca43f4e8aa18c04e2f56e58d1323"
+  }
+}

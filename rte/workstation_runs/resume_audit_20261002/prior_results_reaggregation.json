@@ -1,0 +1,35 @@
+{
+  "scope": "Independent arithmetic reaggregation of compact saved per-media timing tables, not a new experiment; same32 fields across3 grids",
+  "results": [
+    {
+      "size": 64,
+      "classical": "reference_tail",
+      "classical_ms": 133.20970369386487,
+      "neural_ms": 139.57854773616418,
+      "saving_percent": -4.781066142850854,
+      "failed_case_method_rows": 0,
+      "independent_media": 32,
+      "source_sha256": "4fa839d7946ca61e9e6dfae43e19a9661fc6637f87caa761acf9ed4becc74b45"
+    },
+    {
+      "size": 128,
+      "classical": "reference_tail",
+      "classical_ms": 134.7126393520739,
+      "neural_ms": 142.5840299925767,
+      "saving_percent": -5.843097335455494,
+      "failed_case_method_rows": 0,
+      "independent_media": 32,
+      "source_sha256": "40b38483efb78ec395bbee46eabc71ef5bb83c9a5cf611be10cacb61ccdcab61"
+    },
+    {
+      "size": 256,
+      "classical": "tsa16_zero",
+      "classical_ms": 142.96805032063276,
+      "neural_ms": 157.33253280632198,
+      "saving_percent": -10.047337466989426,
+      "failed_case_method_rows": 0,
+      "independent_media": 32,
+      "source_sha256": "0f793e4c4ae98b4ff10986ac1d8217d2e8e56c480868c62cc599e6c7c34d5d77"
+    }
+  ]
+}

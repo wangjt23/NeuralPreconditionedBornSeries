@@ -1,0 +1,37 @@
+{
+  "all_other_ast_identical": true,
+  "ast_only_changes": [
+    "module descriptive docstring",
+    "new local_norm_upper helper",
+    "_recenter local error calls upper-only helper"
+  ],
+  "command": "PYTHONDONTWRITEBYTECODE=1 PYTHONPATH=deliverables/stagewise_certifier_20261002 /usr/bin/python3 -m unittest -q test_optimized_stagewise",
+  "files": {
+    "UPPER_ONLY_OPTIMIZATION.md": {
+      "bytes": 2642,
+      "sha256": "c877a3382b3d8f06dc75ec3f2cb49045eb12897eeff0052978a17736a04ae77f"
+    },
+    "optimized_stagewise.py": {
+      "bytes": 23732,
+      "sha256": "2aebdb5b5fc1bd95cf15101cf5f43d14243ed32de038a00018cb5f6a3c3236f0"
+    },
+    "test_optimized_stagewise.py": {
+      "bytes": 5964,
+      "sha256": "27e892ccef7eb9e960a0bad72cd0936ea9a729bdc9ac5437537c131dfd583eea"
+    }
+  },
+  "global_monkeypatch_or_mode_change": false,
+  "independent_exact_fraction_enclosure_tests": true,
+  "local_norm_upper_bitwise_identical_in_tiny_tests": true,
+  "margin_cache_implemented": false,
+  "optimized_sha256": "2aebdb5b5fc1bd95cf15101cf5f43d14243ed32de038a00018cb5f6a3c3236f0",
+  "passed": true,
+  "paused_files_verified_unchanged": 15,
+  "python": "3.9.6 (default, Apr 17 2026, 18:15:52) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "scope": "Tiny native CPU tests and source-change audit only; no SSH/GPU/fullgrid/transport solve",
+  "source_snapshot_sha256": "09ba78f81a900db6bd6ed2a225ad2d6c216adae4e6878f4fde9b23ec3738820e",
+  "stdout": "Ran 7 tests in 1.483s\nOK\n",
+  "tests": 7,
+  "unittest_seconds": 1.483,
+  "working_directory": "deliverables/batch_20261004"
+}

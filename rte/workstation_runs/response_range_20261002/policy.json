@@ -1,0 +1,40 @@
+{
+  "phase": "cost",
+  "grids": [
+    128,
+    256
+  ],
+  "development_ids": [
+    0,
+    3
+  ],
+  "development_seed": 4626,
+  "development_parent_sha256": {
+    "64": "bbebfd1c7c4808733628ee8fdecac9e9ce09521d70f7664a5d5391c8af10813a",
+    "128": "9ade993bce700505d134fa197ceeee72327790bc6660e670a95bea8c43052de1",
+    "256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "code_sha256": {
+    "code/transport_response_range.py": "da661216434aaac695a8bc215e5d785b523ef68a4d85e6d771028a1afb2493bd",
+    "code/test_transport_response_range.py": "2981ae0426791f0652b2fc93950ab7da0ab7b2bd1dc720c9a140a6625b37201a",
+    "code/response_oracle.py": "4723e3d429038b9a584d03929fd17bab805b27ad3e8c2bb0fbd0d6efc708c242",
+    "code/graph_classical_v2.py": "cb142084d28b1a0b5236e92b6b5e14f4d7aca3d67b8d7d41e3f65d2d76c0db3e"
+  },
+  "timed_repeats": 3,
+  "warmup_repeats": 1,
+  "soft_seconds": 85,
+  "hard_seconds": 110,
+  "inner_cap": 50,
+  "inner_normal_tolerance": 1e-06,
+  "maxiter": 100,
+  "restart": 25,
+  "tolerance": 1e-05,
+  "error_bound_limit": 0.001,
+  "field_difference_limit": 0.0001,
+  "primary_workload": "One RHS per material (Q1); no amortized reuse assumed",
+  "cost_scope": "Full material/mean-reference/coercivity/response/graph-constructor setup plus initial guess, solve and extra independent residual/error acceptance; dataset deserialization and process cold start excluded equally; QA parity excluded",
+  "continuation_gate": "Before CGLS, inspect measured complete accepted times and optimistic input-action/setup budget on both grids; all cases and regressions retained. No teacher acquisition if budget nonpositive on all candidates at either grid.",
+  "training": false,
+  "test9626_touched": false,
+  "physical_operator": "unchanged promoted-FP32-buffers FP64 original operator"
+}

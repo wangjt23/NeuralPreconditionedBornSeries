@@ -1,0 +1,1074 @@
+[
+  {
+    "size": 128,
+    "index": 12,
+    "physical_seconds": 0.26553133875131607,
+    "base_seconds": 0.07167479954659939,
+    "acceptance_setup_seconds": 0.07570543512701988,
+    "graph_constructor_seconds": {
+      "full_graph": 0.14744507521390915,
+      "segmented": 0.059124795719981194,
+      "direct_full": 0.057867590337991714,
+      "direct": 0.012528140097856522
+    },
+    "constructor_order": [
+      "full_graph",
+      "segmented",
+      "direct_full",
+      "direct"
+    ],
+    "evaluated_margin": 0.020869962639253004,
+    "depth": 8,
+    "capture_fft_counts": {
+      "full_graph": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "direct": {
+        "fftn": 4,
+        "ifftn": 4
+      }
+    },
+    "segmented_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 7,
+      "original_depth": 8,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "same_dtype_copy_calls_per_application": 9,
+      "extra_state_copy_calls_vs_full_graph": 8,
+      "same_dtype_copy_payload_bytes": 1572864,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "setup_includes_final_host_binding": true
+    },
+    "direct_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 7,
+      "original_depth": 8,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "same_dtype_copy_calls_per_application": 9,
+      "extra_state_copy_calls_vs_full_graph": 8,
+      "same_dtype_copy_payload_bytes": 1572864,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "capture_api": "CUDAGraph.capture_begin/capture_end",
+      "capture_error_mode": "global",
+      "graph_pool": "private; no pool hint supplied",
+      "same_explicit_warmup_and_capture_stream": true,
+      "context_manager_capture_used": false,
+      "garbage_collector_modified": false,
+      "explicit_gc_collect_calls": 0,
+      "explicit_empty_cache_calls": 0,
+      "persistent_cuda_settings_modified": false,
+      "capture_failure_fallback": false,
+      "setup_includes_final_host_binding": true,
+      "explicit_setup_synchronizations": 2
+    }
+  },
+  {
+    "size": 128,
+    "index": 13,
+    "physical_seconds": 0.005263013765215874,
+    "base_seconds": 0.0028111934661865234,
+    "acceptance_setup_seconds": 0.001041702926158905,
+    "graph_constructor_seconds": {
+      "direct": 0.012871496379375458,
+      "direct_full": 0.06344211101531982,
+      "segmented": 0.08491897769272327,
+      "full_graph": 0.10137246735394001
+    },
+    "constructor_order": [
+      "direct",
+      "direct_full",
+      "segmented",
+      "full_graph"
+    ],
+    "evaluated_margin": 0.028146151181374535,
+    "depth": 8,
+    "capture_fft_counts": {
+      "direct": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "full_graph": {
+        "fftn": 31,
+        "ifftn": 31
+      }
+    },
+    "segmented_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 7,
+      "original_depth": 8,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "same_dtype_copy_calls_per_application": 9,
+      "extra_state_copy_calls_vs_full_graph": 8,
+      "same_dtype_copy_payload_bytes": 1572864,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "setup_includes_final_host_binding": true
+    },
+    "direct_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 7,
+      "original_depth": 8,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "same_dtype_copy_calls_per_application": 9,
+      "extra_state_copy_calls_vs_full_graph": 8,
+      "same_dtype_copy_payload_bytes": 1572864,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "capture_api": "CUDAGraph.capture_begin/capture_end",
+      "capture_error_mode": "global",
+      "graph_pool": "private; no pool hint supplied",
+      "same_explicit_warmup_and_capture_stream": true,
+      "context_manager_capture_used": false,
+      "garbage_collector_modified": false,
+      "explicit_gc_collect_calls": 0,
+      "explicit_empty_cache_calls": 0,
+      "persistent_cuda_settings_modified": false,
+      "capture_failure_fallback": false,
+      "setup_includes_final_host_binding": true,
+      "explicit_setup_synchronizations": 2
+    }
+  },
+  {
+    "size": 128,
+    "index": 14,
+    "physical_seconds": 0.005814716219902039,
+    "base_seconds": 0.002857787534594536,
+    "acceptance_setup_seconds": 0.0024620164185762405,
+    "graph_constructor_seconds": {
+      "full_graph": 0.10395780019462109,
+      "segmented": 0.05732637643814087,
+      "direct_full": 0.0575445257127285,
+      "direct": 0.012413790449500084
+    },
+    "constructor_order": [
+      "full_graph",
+      "segmented",
+      "direct_full",
+      "direct"
+    ],
+    "evaluated_margin": 0.019761674658214545,
+    "depth": 8,
+    "capture_fft_counts": {
+      "full_graph": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "direct": {
+        "fftn": 4,
+        "ifftn": 4
+      }
+    },
+    "segmented_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 7,
+      "original_depth": 8,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "same_dtype_copy_calls_per_application": 9,
+      "extra_state_copy_calls_vs_full_graph": 8,
+      "same_dtype_copy_payload_bytes": 1572864,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "setup_includes_final_host_binding": true
+    },
+    "direct_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 7,
+      "original_depth": 8,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "same_dtype_copy_calls_per_application": 9,
+      "extra_state_copy_calls_vs_full_graph": 8,
+      "same_dtype_copy_payload_bytes": 1572864,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "capture_api": "CUDAGraph.capture_begin/capture_end",
+      "capture_error_mode": "global",
+      "graph_pool": "private; no pool hint supplied",
+      "same_explicit_warmup_and_capture_stream": true,
+      "context_manager_capture_used": false,
+      "garbage_collector_modified": false,
+      "explicit_gc_collect_calls": 0,
+      "explicit_empty_cache_calls": 0,
+      "persistent_cuda_settings_modified": false,
+      "capture_failure_fallback": false,
+      "setup_includes_final_host_binding": true,
+      "explicit_setup_synchronizations": 2
+    }
+  },
+  {
+    "size": 128,
+    "index": 15,
+    "physical_seconds": 0.005656426772475243,
+    "base_seconds": 0.002898378297686577,
+    "acceptance_setup_seconds": 0.001048469915986061,
+    "graph_constructor_seconds": {
+      "direct": 0.012944977730512619,
+      "direct_full": 0.05805901437997818,
+      "segmented": 0.06919472478330135,
+      "full_graph": 0.11309173330664635
+    },
+    "constructor_order": [
+      "direct",
+      "direct_full",
+      "segmented",
+      "full_graph"
+    ],
+    "evaluated_margin": 0.062350238309036854,
+    "depth": 8,
+    "capture_fft_counts": {
+      "direct": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "full_graph": {
+        "fftn": 31,
+        "ifftn": 31
+      }
+    },
+    "segmented_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 7,
+      "original_depth": 8,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "same_dtype_copy_calls_per_application": 9,
+      "extra_state_copy_calls_vs_full_graph": 8,
+      "same_dtype_copy_payload_bytes": 1572864,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "setup_includes_final_host_binding": true
+    },
+    "direct_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 7,
+      "original_depth": 8,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "same_dtype_copy_calls_per_application": 9,
+      "extra_state_copy_calls_vs_full_graph": 8,
+      "same_dtype_copy_payload_bytes": 1572864,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "capture_api": "CUDAGraph.capture_begin/capture_end",
+      "capture_error_mode": "global",
+      "graph_pool": "private; no pool hint supplied",
+      "same_explicit_warmup_and_capture_stream": true,
+      "context_manager_capture_used": false,
+      "garbage_collector_modified": false,
+      "explicit_gc_collect_calls": 0,
+      "explicit_empty_cache_calls": 0,
+      "persistent_cuda_settings_modified": false,
+      "capture_failure_fallback": false,
+      "setup_includes_final_host_binding": true,
+      "explicit_setup_synchronizations": 2
+    }
+  },
+  {
+    "size": 256,
+    "index": 12,
+    "physical_seconds": 0.006138438358902931,
+    "base_seconds": 0.005631187930703163,
+    "acceptance_setup_seconds": 0.0011462774127721786,
+    "graph_constructor_seconds": {
+      "full_graph": 0.18469535745680332,
+      "segmented": 0.06327221542596817,
+      "direct_full": 0.12117034569382668,
+      "direct": 0.013725077733397484
+    },
+    "constructor_order": [
+      "full_graph",
+      "segmented",
+      "direct_full",
+      "direct"
+    ],
+    "evaluated_margin": 0.020869962638059292,
+    "depth": 16,
+    "capture_fft_counts": {
+      "full_graph": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "direct": {
+        "fftn": 4,
+        "ifftn": 4
+      }
+    },
+    "segmented_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 15,
+      "original_depth": 16,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "same_dtype_copy_calls_per_application": 17,
+      "extra_state_copy_calls_vs_full_graph": 16,
+      "same_dtype_copy_payload_bytes": 6291456,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "setup_includes_final_host_binding": true
+    },
+    "direct_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 15,
+      "original_depth": 16,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "same_dtype_copy_calls_per_application": 17,
+      "extra_state_copy_calls_vs_full_graph": 16,
+      "same_dtype_copy_payload_bytes": 6291456,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "capture_api": "CUDAGraph.capture_begin/capture_end",
+      "capture_error_mode": "global",
+      "graph_pool": "private; no pool hint supplied",
+      "same_explicit_warmup_and_capture_stream": true,
+      "context_manager_capture_used": false,
+      "garbage_collector_modified": false,
+      "explicit_gc_collect_calls": 0,
+      "explicit_empty_cache_calls": 0,
+      "persistent_cuda_settings_modified": false,
+      "capture_failure_fallback": false,
+      "setup_includes_final_host_binding": true,
+      "explicit_setup_synchronizations": 2
+    }
+  },
+  {
+    "size": 256,
+    "index": 13,
+    "physical_seconds": 0.0069166794419288635,
+    "base_seconds": 0.005135525017976761,
+    "acceptance_setup_seconds": 0.0011088494211435318,
+    "graph_constructor_seconds": {
+      "direct": 0.013934614136815071,
+      "direct_full": 0.11859277822077274,
+      "segmented": 0.07643484883010387,
+      "full_graph": 0.16796142421662807
+    },
+    "constructor_order": [
+      "direct",
+      "direct_full",
+      "segmented",
+      "full_graph"
+    ],
+    "evaluated_margin": 0.02814615118077768,
+    "depth": 16,
+    "capture_fft_counts": {
+      "direct": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "full_graph": {
+        "fftn": 63,
+        "ifftn": 63
+      }
+    },
+    "segmented_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 15,
+      "original_depth": 16,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "same_dtype_copy_calls_per_application": 17,
+      "extra_state_copy_calls_vs_full_graph": 16,
+      "same_dtype_copy_payload_bytes": 6291456,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "setup_includes_final_host_binding": true
+    },
+    "direct_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 15,
+      "original_depth": 16,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "same_dtype_copy_calls_per_application": 17,
+      "extra_state_copy_calls_vs_full_graph": 16,
+      "same_dtype_copy_payload_bytes": 6291456,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "capture_api": "CUDAGraph.capture_begin/capture_end",
+      "capture_error_mode": "global",
+      "graph_pool": "private; no pool hint supplied",
+      "same_explicit_warmup_and_capture_stream": true,
+      "context_manager_capture_used": false,
+      "garbage_collector_modified": false,
+      "explicit_gc_collect_calls": 0,
+      "explicit_empty_cache_calls": 0,
+      "persistent_cuda_settings_modified": false,
+      "capture_failure_fallback": false,
+      "setup_includes_final_host_binding": true,
+      "explicit_setup_synchronizations": 2
+    }
+  },
+  {
+    "size": 256,
+    "index": 14,
+    "physical_seconds": 0.009326986968517303,
+    "base_seconds": 0.005154214799404144,
+    "acceptance_setup_seconds": 0.0011544935405254364,
+    "graph_constructor_seconds": {
+      "full_graph": 0.17447206191718578,
+      "segmented": 0.0651302132755518,
+      "direct_full": 0.11948904395103455,
+      "direct": 0.013587059453129768
+    },
+    "constructor_order": [
+      "full_graph",
+      "segmented",
+      "direct_full",
+      "direct"
+    ],
+    "evaluated_margin": 0.019761674658214545,
+    "depth": 16,
+    "capture_fft_counts": {
+      "full_graph": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "direct": {
+        "fftn": 4,
+        "ifftn": 4
+      }
+    },
+    "segmented_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 15,
+      "original_depth": 16,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "same_dtype_copy_calls_per_application": 17,
+      "extra_state_copy_calls_vs_full_graph": 16,
+      "same_dtype_copy_payload_bytes": 6291456,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "setup_includes_final_host_binding": true
+    },
+    "direct_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 15,
+      "original_depth": 16,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "same_dtype_copy_calls_per_application": 17,
+      "extra_state_copy_calls_vs_full_graph": 16,
+      "same_dtype_copy_payload_bytes": 6291456,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "capture_api": "CUDAGraph.capture_begin/capture_end",
+      "capture_error_mode": "global",
+      "graph_pool": "private; no pool hint supplied",
+      "same_explicit_warmup_and_capture_stream": true,
+      "context_manager_capture_used": false,
+      "garbage_collector_modified": false,
+      "explicit_gc_collect_calls": 0,
+      "explicit_empty_cache_calls": 0,
+      "persistent_cuda_settings_modified": false,
+      "capture_failure_fallback": false,
+      "setup_includes_final_host_binding": true,
+      "explicit_setup_synchronizations": 2
+    }
+  },
+  {
+    "size": 256,
+    "index": 15,
+    "physical_seconds": 0.006775233894586563,
+    "base_seconds": 0.005148554220795631,
+    "acceptance_setup_seconds": 0.001165088266134262,
+    "graph_constructor_seconds": {
+      "direct": 0.013756703585386276,
+      "direct_full": 0.11839369684457779,
+      "segmented": 0.07561905309557915,
+      "full_graph": 0.1807022038847208
+    },
+    "constructor_order": [
+      "direct",
+      "direct_full",
+      "segmented",
+      "full_graph"
+    ],
+    "evaluated_margin": 0.062350238309036854,
+    "depth": 16,
+    "capture_fft_counts": {
+      "direct": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "full_graph": {
+        "fftn": 63,
+        "ifftn": 63
+      }
+    },
+    "segmented_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 15,
+      "original_depth": 16,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "same_dtype_copy_calls_per_application": 17,
+      "extra_state_copy_calls_vs_full_graph": 16,
+      "same_dtype_copy_payload_bytes": 6291456,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "setup_includes_final_host_binding": true
+    },
+    "direct_info": {
+      "chunk": 1,
+      "capture_first": false,
+      "first_stage_eager": true,
+      "first_graph_replays_per_application": 0,
+      "subsequent_graph_replays_per_application": 15,
+      "original_depth": 16,
+      "original_depth_reassigned": false,
+      "first_stage_algorithm_fft_counts": {
+        "fftn": 3,
+        "ifftn": 3
+      },
+      "subsequent_stage_algorithm_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "capture_fft_counts_by_graph": {
+        "first": {
+          "fftn": 0,
+          "ifftn": 0
+        },
+        "step": {
+          "fftn": 4,
+          "ifftn": 4
+        }
+      },
+      "capture_fft_counts": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "application_fft_counts": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "same_dtype_copy_calls_per_application": 17,
+      "extra_state_copy_calls_vs_full_graph": 16,
+      "same_dtype_copy_payload_bytes": 6291456,
+      "serial_application_only": true,
+      "original_arithmetic_preserved": true,
+      "side_stream_warmup_rounds": 3,
+      "capture_api": "CUDAGraph.capture_begin/capture_end",
+      "capture_error_mode": "global",
+      "graph_pool": "private; no pool hint supplied",
+      "same_explicit_warmup_and_capture_stream": true,
+      "context_manager_capture_used": false,
+      "garbage_collector_modified": false,
+      "explicit_gc_collect_calls": 0,
+      "explicit_empty_cache_calls": 0,
+      "persistent_cuda_settings_modified": false,
+      "capture_failure_fallback": false,
+      "setup_includes_final_host_binding": true,
+      "explicit_setup_synchronizations": 2
+    }
+  }
+]

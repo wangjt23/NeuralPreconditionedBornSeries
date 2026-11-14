@@ -1,0 +1,415 @@
+{
+  "archive_sha256": "3373c0fe68a3cafbf54c59f1a5d5ed00ec4ff7f27de0ad7a80e5fad83b657106",
+  "archive_bytes": 68632,
+  "hashes_verified": 10,
+  "settings": {
+    "complete": true,
+    "phase": "cost",
+    "wall_seconds": 36.52544790133834,
+    "total_timed_and_warm_solves": 96,
+    "measured_solves": 72,
+    "all_accuracy_passed": true,
+    "all_checks_passed": true,
+    "independent_media": 2,
+    "training": false,
+    "test9626_touched": false,
+    "workload": "primary Q1permedium; current four inputs, offlineacquisition charged separately; conditionalQ16 sensitivity only",
+    "peak_allocated_bytes": 1721286656,
+    "peak_reserved_bytes": 8017412096,
+    "scope": "6 classical arms with fully charged extra acceptance checks before any CGLS acquisition"
+  },
+  "cases": [
+    {
+      "size": 128,
+      "index": 0,
+      "legacy_best_ms": 531.4330998808146,
+      "all_classical_best_ms": 531.4330998808146,
+      "methods": {
+        "cheap_eager": {
+          "accepted_ms": 236.05705052614212,
+          "setup_ms": 428.9945960044861,
+          "total_ms": 665.0516465306282,
+          "iterations": [
+            23,
+            23,
+            23
+          ],
+          "calls": [
+            23,
+            23,
+            23
+          ]
+        },
+        "cheap_graph": {
+          "accepted_ms": 92.9395854473114,
+          "setup_ms": 569.4371908903122,
+          "total_ms": 662.3767763376236,
+          "iterations": [
+            23,
+            23,
+            23
+          ],
+          "calls": [
+            23,
+            23,
+            23
+          ]
+        },
+        "homogeneous_eager": {
+          "accepted_ms": 264.2695363610983,
+          "setup_ms": 570.8052106201649,
+          "total_ms": 835.0747469812632,
+          "iterations": [
+            23,
+            23,
+            23
+          ],
+          "calls": [
+            23,
+            23,
+            23
+          ]
+        },
+        "homogeneous_graph": {
+          "accepted_ms": 120.55675499141216,
+          "setup_ms": 711.247805505991,
+          "total_ms": 831.8045604974031,
+          "iterations": [
+            23,
+            23,
+            23
+          ],
+          "calls": [
+            23,
+            23,
+            23
+          ]
+        },
+        "strong_eager": {
+          "accepted_ms": 207.0592325180769,
+          "setup_ms": 356.91922158002853,
+          "total_ms": 563.9784540981054,
+          "iterations": [
+            13,
+            13,
+            13
+          ],
+          "calls": [
+            12,
+            12,
+            12
+          ]
+        },
+        "strong_graph": {
+          "accepted_ms": 60.789722949266434,
+          "setup_ms": 470.6433769315481,
+          "total_ms": 531.4330998808146,
+          "iterations": [
+            13,
+            13,
+            13
+          ],
+          "calls": [
+            12,
+            12,
+            12
+          ]
+        }
+      }
+    },
+    {
+      "size": 128,
+      "index": 3,
+      "legacy_best_ms": 149.64699931442738,
+      "all_classical_best_ms": 149.64699931442738,
+      "methods": {
+        "cheap_eager": {
+          "accepted_ms": 160.58701276779175,
+          "setup_ms": 9.391233325004578,
+          "total_ms": 169.97824609279633,
+          "iterations": [
+            16,
+            16,
+            16
+          ],
+          "calls": [
+            16,
+            16,
+            16
+          ]
+        },
+        "cheap_graph": {
+          "accepted_ms": 60.57583540678024,
+          "setup_ms": 145.12384124100208,
+          "total_ms": 205.69967664778233,
+          "iterations": [
+            16,
+            16,
+            16
+          ],
+          "calls": [
+            16,
+            16,
+            16
+          ]
+        },
+        "homogeneous_eager": {
+          "accepted_ms": 168.5284525156021,
+          "setup_ms": 16.114484518766403,
+          "total_ms": 184.64293703436852,
+          "iterations": [
+            15,
+            15,
+            15
+          ],
+          "calls": [
+            15,
+            15,
+            15
+          ]
+        },
+        "homogeneous_graph": {
+          "accepted_ms": 74.22656193375587,
+          "setup_ms": 151.8470924347639,
+          "total_ms": 226.07365436851978,
+          "iterations": [
+            15,
+            15,
+            15
+          ],
+          "calls": [
+            15,
+            15,
+            15
+          ]
+        },
+        "strong_eager": {
+          "accepted_ms": 139.55598697066307,
+          "setup_ms": 10.091012343764305,
+          "total_ms": 149.64699931442738,
+          "iterations": [
+            9,
+            9,
+            9
+          ],
+          "calls": [
+            8,
+            8,
+            8
+          ]
+        },
+        "strong_graph": {
+          "accepted_ms": 41.76183417439461,
+          "setup_ms": 114.86110650002956,
+          "total_ms": 156.62294067442417,
+          "iterations": [
+            9,
+            9,
+            9
+          ],
+          "calls": [
+            8,
+            8,
+            8
+          ]
+        }
+      }
+    },
+    {
+      "size": 256,
+      "index": 0,
+      "legacy_best_ms": 246.11062370240688,
+      "all_classical_best_ms": 246.11062370240688,
+      "methods": {
+        "cheap_eager": {
+          "accepted_ms": 328.9962522685528,
+          "setup_ms": 12.923359870910645,
+          "total_ms": 341.9196121394634,
+          "iterations": [
+            24,
+            24,
+            24
+          ],
+          "calls": [
+            24,
+            24,
+            24
+          ]
+        },
+        "cheap_graph": {
+          "accepted_ms": 263.57412710785866,
+          "setup_ms": 146.6243378818035,
+          "total_ms": 410.19846498966217,
+          "iterations": [
+            24,
+            24,
+            24
+          ],
+          "calls": [
+            24,
+            24,
+            24
+          ]
+        },
+        "homogeneous_eager": {
+          "accepted_ms": 365.03899469971657,
+          "setup_ms": 30.313992872834206,
+          "total_ms": 395.3529875725508,
+          "iterations": [
+            23,
+            23,
+            23
+          ],
+          "calls": [
+            23,
+            23,
+            23
+          ]
+        },
+        "homogeneous_graph": {
+          "accepted_ms": 303.40535566210747,
+          "setup_ms": 164.01497088372707,
+          "total_ms": 467.42032654583454,
+          "iterations": [
+            23,
+            23,
+            23
+          ],
+          "calls": [
+            23,
+            23,
+            23
+          ]
+        },
+        "strong_eager": {
+          "accepted_ms": 233.59680362045765,
+          "setup_ms": 12.513820081949234,
+          "total_ms": 246.11062370240688,
+          "iterations": [
+            7,
+            7,
+            7
+          ],
+          "calls": [
+            7,
+            7,
+            7
+          ]
+        },
+        "strong_graph": {
+          "accepted_ms": 151.10833942890167,
+          "setup_ms": 192.25595146417618,
+          "total_ms": 343.36429089307785,
+          "iterations": [
+            7,
+            7,
+            7
+          ],
+          "calls": [
+            7,
+            7,
+            7
+          ]
+        }
+      }
+    },
+    {
+      "size": 256,
+      "index": 3,
+      "legacy_best_ms": 181.7764900624752,
+      "all_classical_best_ms": 181.7764900624752,
+      "methods": {
+        "cheap_eager": {
+          "accepted_ms": 204.00497689843178,
+          "setup_ms": 13.788212090730667,
+          "total_ms": 217.79318898916245,
+          "iterations": [
+            16,
+            16,
+            16
+          ],
+          "calls": [
+            16,
+            16,
+            16
+          ]
+        },
+        "cheap_graph": {
+          "accepted_ms": 160.95842979848385,
+          "setup_ms": 189.31345455348492,
+          "total_ms": 350.27188435196877,
+          "iterations": [
+            16,
+            16,
+            16
+          ],
+          "calls": [
+            16,
+            16,
+            16
+          ]
+        },
+        "homogeneous_eager": {
+          "accepted_ms": 242.03615449368954,
+          "setup_ms": 31.341850757598877,
+          "total_ms": 273.3780052512884,
+          "iterations": [
+            16,
+            16,
+            16
+          ],
+          "calls": [
+            16,
+            16,
+            16
+          ]
+        },
+        "homogeneous_graph": {
+          "accepted_ms": 197.6009849458933,
+          "setup_ms": 206.86709322035313,
+          "total_ms": 404.4680781662464,
+          "iterations": [
+            16,
+            16,
+            16
+          ],
+          "calls": [
+            16,
+            16,
+            16
+          ]
+        },
+        "strong_eager": {
+          "accepted_ms": 166.20693914592266,
+          "setup_ms": 15.569550916552544,
+          "total_ms": 181.7764900624752,
+          "iterations": [
+            5,
+            5,
+            5
+          ],
+          "calls": [
+            5,
+            5,
+            5
+          ]
+        },
+        "strong_graph": {
+          "accepted_ms": 108.97630825638771,
+          "setup_ms": 201.19317062199116,
+          "total_ms": 310.16947887837887,
+          "iterations": [
+            5,
+            5,
+            5
+          ],
+          "calls": [
+            5,
+            5,
+            5
+          ]
+        }
+      }
+    }
+  ]
+}

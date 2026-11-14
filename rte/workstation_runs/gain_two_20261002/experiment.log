@@ -1,0 +1,9 @@
+gain-two entries N128 ID0 passed
+gain-two entries N128 ID3 passed
+gain-two entries N256 ID0 passed
+gain-two entries N256 ID3 passed
+gain-two full solves N128 ID0 complete
+gain-two full solves N128 ID3 complete
+gain-two full solves N256 ID0 complete
+gain-two full solves N256 ID3 complete
+{"complete": true, "wall_seconds": 67.29600744880736, "full_solves": 176, "measured_full_solves": 132, "global_entry_checks": 280, "geometry_targets": 8, "truncated_prefix_solves": 4, "all_accuracy_passed": true, "all_entry_passed": true, "all_same_recipe_backend_checks_passed": true, "training": false, "test9626_touched": false, "original_source_exported": false, "peak_allocated_bytes": 2725646336, "peak_reserved_bytes": 10215227392, "fixed_gain": 2, "candidate_backend_by_grid": {"128": "raw", "256": "direct_segmented"}, "scope": "Onefixedgain2literalFP32M4+R0(2d-Pid); alltenclassicalcontrols; actualsetup+warmacceptedcosts; allnewdiagnosticacquisitionrecorded separately, nooraclefit/rangeoptimum/learnedclaim"}

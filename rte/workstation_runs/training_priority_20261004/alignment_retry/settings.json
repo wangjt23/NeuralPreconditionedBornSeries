@@ -1,0 +1,154 @@
+{
+  "args": {
+    "output": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry",
+    "wall_seconds": 900,
+    "max_gpu_gib": 14,
+    "seed": 41005,
+    "horizon": 1000,
+    "reuse_strong_train64": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment/train_tsa16_n64.pt",
+    "batch": 4,
+    "cache_mode": "auto",
+    "width": 32,
+    "blocks": 4,
+    "modes": 6,
+    "smoke": false
+  },
+  "provenance": {
+    "warm_start": "rte/workstation_runs/resume_audit_20261002/paired_training/mixed64_128/best.pt",
+    "warm_sha256": "5b1f192ac4d4a2e50b3391f36ac42f60a0685d19af5fe99ff8f6933eee73d82d",
+    "parent_sha256": {
+      "64_train": "44a80f5ed30aa2085119925f55a8b5dea072f2d8c48dcc023c9d29e785db6e96",
+      "64_development": "858f73d0066333dd9a4b4366d7ff48dc5f160650e5e326c33b1d28b03079efed",
+      "128_train": "c5fcf9241f434552ccc7f00a4d4393b70bfac2c30cab889b80dd6e8a45fac310",
+      "128_development": "58f8e2f069ea1fa1c0c8f490b441c7acfc91a6592d045a7a7a52eea7bf08aeb4"
+    },
+    "new_context_sha256": {
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/development_tsa16_n64.pt": "fa75f3428f0cf6a30b691c8f332e5b974c4685d9a4a8818da4cd1e36e959c821",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/development_tsa16_n128.pt": "f3bc438cd7b49e0e848ed460050f754ba920648d510d3f4684f638d2a31174d4",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/train_tsa16_n64.pt": "626dbf07a9c6bcfdca396cc4ff6687dc04ffc2c0bc756049a2eba86cd497159f",
+      "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/train_tsa16_n128.pt": "3300919ccd68200299fab7ce212498520154e8cd2cf7742c4df872890303b07c"
+    },
+    "code_sha256": "590e2fd41a8da1e510f8a4d5a520446fc670221a985d3e89dc4a6c8f097de03a",
+    "common_training_ids": [
+      4,
+      7,
+      10,
+      12,
+      20,
+      26,
+      28,
+      29,
+      30,
+      36,
+      38,
+      39,
+      40,
+      42,
+      45,
+      50,
+      51,
+      54,
+      56,
+      57,
+      59,
+      60,
+      61,
+      63,
+      64,
+      65,
+      67,
+      71,
+      73,
+      74,
+      75,
+      76,
+      78,
+      79,
+      80,
+      83,
+      88,
+      89,
+      93,
+      95,
+      97,
+      98,
+      100,
+      103,
+      107,
+      111,
+      112,
+      114,
+      116,
+      117,
+      118,
+      119,
+      121,
+      122,
+      124,
+      127
+    ],
+    "common_training_count": 56
+  },
+  "complete": true,
+  "scope": "existing training3626 and repeatedly reused development4626; no9626/test access",
+  "comparison": "same warm weights, original training IDs, phases, architecture, LR1.5e-4, cosine1000 horizon, batch4, two-step loss; ONLY classical prefix (TSA8-balanced vsTSA16-zero) changes",
+  "selection": "each arm selected with its own matched deployment prefix on all16 media at64/128; selection scores are not cross-prefix runtime rankings",
+  "limitations": "eligible intersection changes the distribution from phase1; prefix includes both depth and initialization; one conditional warm-start seed; no causal claim about depth alone",
+  "context_seconds": 59.418575808405876,
+  "arms": [
+    {
+      "arm": "tsa8",
+      "complete": true,
+      "updates": 1000,
+      "selected_step": 1000,
+      "best_score": [
+        0,
+        7.8125,
+        6.0887964050910065e-06
+      ],
+      "timing": {
+        "training": 125.59725455008447,
+        "validation": 23.536794548854232,
+        "panel": 9.733211755752563,
+        "checkpoint": 1.9902856145054102
+      },
+      "peak_allocated_bytes": 4654253568,
+      "peak_reserved_bytes": 5278531584,
+      "stopping_reason": "planned budget",
+      "checkpoint_sha256": {
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa8/step0.pt": "ec7a1fc3a3d2379cf7a04a01d7106ef9a4a6bf22dca58db91cc11e8e3543df13",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa8/best.pt": "a76a2426b69df98083619673505682ec775e89fc159481fa9eaf4058b6442785",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa8/last.pt": "703d3b0796bbf108dece5a076a5d83a4c6b803a40c1ff542f0c8f79fb6196831",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa8/step1000.pt": "30278eb1d0707bf35f437491535e3463dcc0f18d322a42cf88f74b151df99f1f"
+      }
+    },
+    {
+      "arm": "tsa16",
+      "complete": true,
+      "updates": 1000,
+      "selected_step": 1000,
+      "best_score": [
+        0,
+        4.5625,
+        2.811719955260004e-06
+      ],
+      "timing": {
+        "training": 181.75105884298682,
+        "validation": 24.083007477223873,
+        "panel": 11.793396836146712,
+        "checkpoint": 2.5321842283010483
+      },
+      "peak_allocated_bytes": 4654253568,
+      "peak_reserved_bytes": 5278531584,
+      "stopping_reason": "planned budget",
+      "checkpoint_sha256": {
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa16/last.pt": "b966c87ef4df3809b153231ed595ae6dbd06834bdc72cea91696fd490e2ec41f",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa16/step1000.pt": "8d72baa0337a6b5e5ca5a9418c4d6a4fe5db0433a1209998e28fdc875c94d4e3",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa16/best.pt": "ee2cb777fc2945b5779078e6b7dee22b9c7ee4f4e96e0f85719c69b8c2a7f3b9",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa16/step0.pt": "e0cc79a17855495846dd015e56b9a4f51d21d757d39fdeeabf70b7e617ef180c"
+      }
+    }
+  ],
+  "identity_phase_sha256": "528dd231ccdf1bbcb22bd7e87c281d9e8697ed1eb347fce08a92b64b71217734",
+  "wall_seconds": 454.87909394316375
+}

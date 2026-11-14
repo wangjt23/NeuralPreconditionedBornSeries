@@ -121,6 +121,15 @@ This ablation uses the repository's matrix-free periodic RTE NPBS operator, not 
 - Size `64`, case `mixed`, base `transport_tsa`, split `train`: best learned method `ScaleGatedUNet-defect2-w1` reached eval 1-step residual 1.322e-01 vs `tsa2` 1.719e-01 vs `tsa4` 9.809e-02 (3.408e-02 above `tsa4`) ; stationary final residual 1.149e-04 and FGMRES final residual 7.921e-06.
 - Size `64`, case `mixed`, base `transport_tsa`, split `heldout`: best learned method `ScaleGatedUNet-defect2-w1` reached eval 1-step residual 1.389e-01 vs `tsa2` 1.790e-01 vs `tsa4` 1.145e-01 (2.443e-02 above `tsa4`) ; stationary final residual 1.610e-05 and FGMRES final residual 7.743e-06.
 
+## Analysis
+
+- This continuation materially improved the plain scale-aware branch on both train and heldout. Relative to the original 2400-step plain run, train eval one-step residual improved from `1.542639583e-01` to `1.321714520e-01`, a gain of about `2.21e-02`, and heldout improved from `1.480529010e-01` to `1.388919652e-01`, a gain of about `9.16e-03`.
+- The extra horizon also made the plain scale-aware branch clearly better than the routed scale-aware run. Train improved from the routed branch's `1.353527158e-01` to `1.321714520e-01`, and heldout improved from `1.482840925e-01` to `1.388919652e-01`.
+- Even after this gain, the branch is still well behind the current best legacy continuation. The remaining gap to the legacy best checkpoint is about `3.06e-02` on train (`1.3217e-01` vs `1.0159e-01`) and about `3.11e-02` on heldout (`1.3889e-01` vs `1.0777e-01`).
+- Solver behavior is mixed. FGMRES stayed in the classical range on both splits, and heldout stationary residual is still small (`1.61e-05`). However, train stationary residual worsened substantially from the previous plain run's `7.89e-06` to `1.15e-04`, so this continuation improved one-step quality while sacrificing some stationary fixed-point quality on the train split.
+- The sampled minibatch diagnostics improved only slightly over the continuation (`2.307e-01` to `2.215e-01` for train batch one-step residual and `1.063e-01` to `1.039e-01` for the train objective), but the explicit full-source evaluation improved much more strongly. As with the legacy branch, minibatch diagnostics remain weak proxies for the actual eval one-step target.
+- Conclusion: longer horizon helps the plain scale-aware architecture more than the routed variant helped, so another continuation is justified. The next retry should lower the peak LR to keep pressing the one-step metric while avoiding further stationary regression.
+
 ## Results
 
 | Grid | Base | TSA harmonics | FGMRES mode | Case | Split | Method | Eval 1-step residual | Eval 1-step base-metric ratio | Stationary final residual | FGMRES final residual | Stationary time to tol | FGMRES time to tol | Train batch residual start | Train batch residual end | Train objective start | Train objective end |

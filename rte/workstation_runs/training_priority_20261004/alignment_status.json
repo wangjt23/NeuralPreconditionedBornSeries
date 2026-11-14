@@ -1,0 +1,15 @@
+{
+  "mode": "alignment",
+  "pid": 2410905,
+  "started": 1791107522.205839,
+  "complete": false,
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/train_alignment.py",
+    "--output",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment"
+  ],
+  "returncode": 1,
+  "finished": 1791107547.4752228,
+  "seconds": 25.269383907318115
+}

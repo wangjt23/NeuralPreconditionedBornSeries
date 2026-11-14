@@ -1,0 +1,18 @@
+{
+  "args": {
+    "train_bank": "rte/workstation_runs/source_predictor_pilot_20260926/train.pt",
+    "validation_bank": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+    "repeats": 3,
+    "output": "rte/workstation_runs/tail_injection_gate_20260926"
+  },
+  "complete": true,
+  "gpu_before": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "scope": "validation information ceiling and prefix-bank preparation; no trained AI speed claim",
+  "timing": "shuffled synchronized warm solves; common analytical initialization/setup excluded for this integration gate",
+  "source_sha256": {
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/tail_response_network.py": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+    "rte/audit_tail_injection.py": "6eb42830f4f5a05d996987dc03862cd440604894ebe406bff795b18b1dc49be9"
+  },
+  "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n1400405, python, 488 MiB\n"
+}

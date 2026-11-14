@@ -1,0 +1,78 @@
+[
+  {
+    "source_id": 0,
+    "exact_background_residual": 3.7564260553985083e-14,
+    "retained_residual_energy": 0.9999899995703637,
+    "directions": {
+      "exact8": {
+        "quotient_residual_ratio": 0.019833277731288457,
+        "raw_original_residual_fraction": 0.14622540153170993
+      },
+      "exact8_born": {
+        "quotient_residual_ratio": 0.0030077567262744233,
+        "raw_original_residual_fraction": 0.05485065362960584
+      },
+      "compact4": {
+        "quotient_residual_ratio": 0.3112301589999078,
+        "raw_original_residual_fraction": 0.6875395261927134
+      }
+    }
+  },
+  {
+    "source_id": 4,
+    "exact_background_residual": 7.552155235717143e-14,
+    "retained_residual_energy": 0.9999898680208955,
+    "directions": {
+      "exact8": {
+        "quotient_residual_ratio": 0.0032720208637849564,
+        "raw_original_residual_fraction": 0.05768497286523954
+      },
+      "exact8_born": {
+        "quotient_residual_ratio": 0.0004605366782816227,
+        "raw_original_residual_fraction": 0.02146197565667859
+      },
+      "compact4": {
+        "quotient_residual_ratio": 0.49364907622241494,
+        "raw_original_residual_fraction": 0.997961552229181
+      }
+    }
+  },
+  {
+    "source_id": 7,
+    "exact_background_residual": 1.5495427182901415e-14,
+    "retained_residual_energy": 0.9999967831901687,
+    "directions": {
+      "exact8": {
+        "quotient_residual_ratio": 0.02422141291633657,
+        "raw_original_residual_fraction": 0.16383633836470754
+      },
+      "exact8_born": {
+        "quotient_residual_ratio": 0.004017823199104047,
+        "raw_original_residual_fraction": 0.06394711374280632
+      },
+      "compact4": {
+        "quotient_residual_ratio": 0.2993456600194834,
+        "raw_original_residual_fraction": 0.6662001298286739
+      }
+    }
+  },
+  {
+    "source_id": 14,
+    "exact_background_residual": 7.003469697912623e-14,
+    "retained_residual_energy": 0.9999882381993281,
+    "directions": {
+      "exact8": {
+        "quotient_residual_ratio": 0.004838308050175947,
+        "raw_original_residual_fraction": 0.07099491026870346
+      },
+      "exact8_born": {
+        "quotient_residual_ratio": 0.0005009529441916362,
+        "raw_original_residual_fraction": 0.022406106060063557
+      },
+      "compact4": {
+        "quotient_residual_ratio": 0.565469313832249,
+        "raw_original_residual_fraction": 1.161175553868109
+      }
+    }
+  }
+]

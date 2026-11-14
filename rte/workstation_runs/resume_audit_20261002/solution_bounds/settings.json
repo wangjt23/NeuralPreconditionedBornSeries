@@ -1,0 +1,44 @@
+{
+  "args": {
+    "manufactured_test": false,
+    "classical_selection": "rte/workstation_runs/tail_solver_benchmark_20260926/frozen_selection.json",
+    "sizes": [
+      64,
+      128,
+      256
+    ],
+    "count": 16,
+    "device": "cuda:0",
+    "output": "rte/workstation_runs/resume_audit_20261002/solution_bounds"
+  },
+  "complete": true,
+  "validation_seed": 4626,
+  "generated_validation_count": 16,
+  "classical_choices": {
+    "64": "reference_tail",
+    "128": "reference_tail",
+    "256": "tsa16_zero"
+  },
+  "frozen_selection_sha256": "67cf2328721db970470643fdae52c7df7db7a191a2db2f56731ffb5c63fb6a49",
+  "script_sha256": "b33ad4d1fb2a046c6e4d53b7fa92658096976828aa3024af4a7930108e665024",
+  "torch": "2.5.1",
+  "scope": "existing validation family only; no teacher, neural training, tuning or test generation",
+  "timing": "single diagnostic solve and setup durations; NOT warm benchmark timings",
+  "theorem": "discrete exact-arithmetic coercivity; numerical FP64 evaluation without interval rounding",
+  "streaming": "pure-imaginary Fourier symbol with real stored directions/wavenumbers is skew-Hermitian",
+  "source_sha256": {
+    "rte/models.py": "6cd887b332ed48409bcffa2d2bad6ca9654c97ff7071c13a6443278f583b04d1",
+    "rte/mixed_precision_transport.py": "9c6793ed0bffad5bf803253ac0ada097026c653c02f6498e82fb0974dfc9765a",
+    "rte/benchmark_tail_solver.py": "05424458ec34649a2e592638f2621a7cb4891f280839ae4df55e7da5527b9030",
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4",
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/source_initialization.py": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af"
+  },
+  "validation_fingerprints": {
+    "64": "f853fc09695aca0f804bacaf12b910ff9534b1a844d0e91619e61d76e231b8bd",
+    "128": "58787f0df6153d30d45077cdd0e3b71371e2e0fa9f59cf3bc12dcc66406c571d",
+    "256": "e81d7d1f486caa44a615ce672b195215c24cb62b9fb281b1c5cafb634c552c8c"
+  },
+  "cases": 48,
+  "solve_or_audit_failures": 0
+}

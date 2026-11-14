@@ -1,0 +1,17 @@
+label,group,failures,quality,seconds
+compiled_hss_d8_s1.0,compiled_hss,0,0.0,0.1976879108697176
+hss_d8_s1.0,hss,0,0.0,0.14683502338205776
+tsa_d4_s0.0,tsa,0,0.0,0.2146424539387226
+dsa_d8_s0.0,dsa,0,0.0,0.2999643298486869
+dsa_transport_d8_s0.0,dsa_transport,0,0.0,0.3011914958866934
+reference_d8_s0.03,reference,0,0.0,0.23689512458319464
+sct64_r1,sct64,0,0.0,0.14053783984854817
+sct64_r2,sct64,0,0.0,0.11654258969550331
+ct64_krylov_r1,ct64_krylov,0,0.0,0.14705785969272256
+ct64_krylov_r2,ct64_krylov,0,0.0,0.11495586639891069
+nto64_krylov_r1,nto64_krylov,0,0.0,0.21972078240166107
+nto64_krylov_r2,nto64_krylov,0,0.0,0.2519779714445273
+ct64_original_r1,ct64_original,0,0.0,0.15631821968903145
+ct64_original_r2,ct64_original,0,0.0,0.13243689434602857
+nto64_original_r1,nto64_original,0,0.0,0.2634838316589594
+nto64_original_r2,nto64_original,0,0.0,0.33366363992293674

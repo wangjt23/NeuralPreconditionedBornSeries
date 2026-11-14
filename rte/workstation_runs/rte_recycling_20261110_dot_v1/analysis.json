@@ -1,0 +1,516 @@
+{
+  "recycling": {
+    "attempts": 20,
+    "failures": 0,
+    "wall_seconds": 133.1813324331306,
+    "scope": "One CPU mechanism pass (recorded repeat=-1), not a repeated timing confirmation.",
+    "methods": {
+      "native": {
+        "batch_seconds": 24.95617247885093,
+        "calls": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "rank": 0,
+        "AU_C_max": 0.0,
+        "orthogonality_defect": 0.0,
+        "basis_bytes": 0
+      },
+      "krylov_init": {
+        "batch_seconds": 25.624710753327236,
+        "calls": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "rank": 15,
+        "AU_C_max": 4.3066189104761123e-13,
+        "orthogonality_defect": 2.070334209162435e-14,
+        "basis_bytes": 94371840
+      },
+      "solution_init": {
+        "batch_seconds": 24.721306735184044,
+        "calls": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "rank": 3,
+        "AU_C_max": 4.873799769877796e-13,
+        "orthogonality_defect": 8.043073763569411e-14,
+        "basis_bytes": 18874368
+      },
+      "gcro": {
+        "batch_seconds": 26.16291927313432,
+        "calls": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "rank": 15,
+        "AU_C_max": 4.306837750307016e-13,
+        "orthogonality_defect": 1.8054765714192447e-14,
+        "basis_bytes": 94371840
+      },
+      "capture_control": {
+        "batch_seconds": 25.25173821626231,
+        "calls": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "rank": 0,
+        "AU_C_max": 0.0,
+        "orthogonality_defect": 0.0,
+        "basis_bytes": 0
+      }
+    }
+  },
+  "exact_background_01": {
+    "attempts": 16,
+    "failures": 0,
+    "wall_seconds": 97.37120825890452,
+    "methods": {
+      "native": {
+        "setup_seconds": 0.1459505269303918,
+        "online_four_rhs_seconds": 24.97214484005235,
+        "complete_four_rhs_seconds": 25.118095366982743,
+        "calls": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "Q1_seconds": [
+          6.483759572030976,
+          6.411997796036303,
+          6.2979028779082,
+          6.362286701798439
+        ],
+        "inner_calls": [],
+        "inner_seconds": 0,
+        "inner_failed": 0,
+        "inner_true_residuals": [],
+        "batch_gain_vs_compact4_percent": -21.59280577124929,
+        "estimated_break_even_rhs_vs_compact4": null
+      },
+      "compact4_inject": {
+        "setup_seconds": 3.2329392118845135,
+        "online_four_rhs_seconds": 17.424611378926784,
+        "complete_four_rhs_seconds": 20.657550590811297,
+        "calls": [
+          4,
+          3,
+          4,
+          3
+        ],
+        "Q1_seconds": [
+          8.191322842845693,
+          6.982056132052094,
+          8.180493927793577,
+          7.0024953237734735
+        ],
+        "inner_calls": [],
+        "inner_seconds": 0,
+        "inner_failed": 0,
+        "inner_true_residuals": [],
+        "batch_gain_vs_compact4_percent": 0.0,
+        "estimated_break_even_rhs_vs_compact4": null
+      },
+      "exact8_inject": {
+        "setup_seconds": 5.444300747942179,
+        "online_four_rhs_seconds": 17.23694672412239,
+        "complete_four_rhs_seconds": 22.68124747206457,
+        "calls": [
+          4,
+          3,
+          4,
+          3
+        ],
+        "Q1_seconds": [
+          10.377951443195343,
+          9.18750371481292,
+          10.299294201890007,
+          9.149400355992839
+        ],
+        "inner_calls": [],
+        "inner_seconds": 0,
+        "inner_failed": 0,
+        "inner_true_residuals": [],
+        "batch_gain_vs_compact4_percent": -9.796402881150069,
+        "estimated_break_even_rhs_vs_compact4": 47.13432134277196
+      },
+      "exact8_born": {
+        "setup_seconds": 5.444300747942179,
+        "online_four_rhs_seconds": 17.34023275715299,
+        "complete_four_rhs_seconds": 22.78453350509517,
+        "calls": [
+          4,
+          3,
+          4,
+          3
+        ],
+        "Q1_seconds": [
+          10.370949676958844,
+          9.193816483952105,
+          10.364594497019425,
+          9.188075090991333
+        ],
+        "inner_calls": [],
+        "inner_seconds": 0,
+        "inner_failed": 0,
+        "inner_true_residuals": [],
+        "batch_gain_vs_compact4_percent": -10.296394555267252,
+        "estimated_break_even_rhs_vs_compact4": 104.83041744796333
+      }
+    },
+    "scope": "One-pass development mechanism/cost screen, not timing confirmation. Other research jobs may run on disjoint cores. No GPU timing claim.",
+    "max_residual": 9.080373108984482e-06,
+    "max_bound": 3.945351606983332e-05,
+    "max_field_difference": 2.6488116999193295e-07
+  },
+  "nested_background_01": {
+    "attempts": 16,
+    "failures": 0,
+    "wall_seconds": 90.53583620302379,
+    "methods": {
+      "native": {
+        "setup_seconds": 0.14797413302585483,
+        "online_four_rhs_seconds": 24.31688614282757,
+        "complete_four_rhs_seconds": 24.464860275853425,
+        "calls": [
+          5,
+          5,
+          5,
+          5
+        ],
+        "Q1_seconds": [
+          6.24358581402339,
+          6.230729297967628,
+          6.217740643071011,
+          6.216726919868961
+        ],
+        "inner_calls": [],
+        "inner_seconds": 0,
+        "inner_failed": 0,
+        "inner_true_residuals": [],
+        "batch_gain_vs_compact4_percent": -17.331030614963773,
+        "estimated_break_even_rhs_vs_compact4": null
+      },
+      "compact4_inject": {
+        "setup_seconds": 3.1610352131538093,
+        "online_four_rhs_seconds": 17.690107189351693,
+        "complete_four_rhs_seconds": 20.851142402505502,
+        "calls": [
+          4,
+          3,
+          4,
+          3
+        ],
+        "Q1_seconds": [
+          8.173672506352887,
+          6.970527817029506,
+          8.199172360356897,
+          6.99087535822764
+        ],
+        "inner_calls": [],
+        "inner_seconds": 0,
+        "inner_failed": 0,
+        "inner_true_residuals": [],
+        "batch_gain_vs_compact4_percent": 0.0,
+        "estimated_break_even_rhs_vs_compact4": null
+      },
+      "compact8_inner": {
+        "setup_seconds": 3.1610352131538093,
+        "online_four_rhs_seconds": 22.704671390121803,
+        "complete_four_rhs_seconds": 25.865706603275612,
+        "calls": [
+          4,
+          3,
+          4,
+          3
+        ],
+        "Q1_seconds": [
+          9.451907284324989,
+          8.24632644513622,
+          9.44322691205889,
+          8.207351601216942
+        ],
+        "inner_calls": [
+          8,
+          8,
+          8,
+          8
+        ],
+        "inner_seconds": 5.326006216229871,
+        "inner_failed": 4,
+        "inner_true_residuals": [
+          0.3048879389869616,
+          0.4303298736708254,
+          0.2690034281505254,
+          0.43428203485372613
+        ],
+        "batch_gain_vs_compact4_percent": -24.049349929947027,
+        "estimated_break_even_rhs_vs_compact4": null
+      },
+      "exact8_inner": {
+        "setup_seconds": 5.282033985015005,
+        "online_four_rhs_seconds": 12.642391356406733,
+        "complete_four_rhs_seconds": 17.92442534142174,
+        "calls": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "Q1_seconds": [
+          8.47923058620654,
+          8.506265635136515,
+          8.470169018954039,
+          8.314862056169659
+        ],
+        "inner_calls": [
+          5,
+          5,
+          5,
+          4
+        ],
+        "inner_seconds": 2.625161566771567,
+        "inner_failed": 0,
+        "inner_true_residuals": [
+          2.4279097684396334e-05,
+          1.1682281628714396e-05,
+          2.8319697912347117e-05,
+          8.882624992600656e-05
+        ],
+        "batch_gain_vs_compact4_percent": 14.036243216736588,
+        "estimated_break_even_rhs_vs_compact4": 1.680759251951593
+      }
+    },
+    "scope": "One-pass development mechanism/cost screen, not timing confirmation. Other research jobs may run on disjoint cores. No GPU timing claim.",
+    "max_residual": 9.08037310900606e-06,
+    "max_bound": 3.945351606992708e-05,
+    "max_field_difference": 2.648811699921512e-07
+  },
+  "mode_probe_01": {
+    "complete": true,
+    "pid": 1247220,
+    "affinity": [
+      0
+    ],
+    "device": "cpu",
+    "threads": 1,
+    "source_id": 0,
+    "grid": 128,
+    "L": 12,
+    "g": 0.65,
+    "modes": [
+      0,
+      1,
+      8
+    ],
+    "total_factor_setup_seconds": 1.1105150438379496,
+    "base_setup_seconds": 0.13647312787361443,
+    "wall_seconds": 2.942656459985301,
+    "factor_bytes": 113264640,
+    "rows": [
+      {
+        "k": 0,
+        "factor_seconds": 0.29991452605463564,
+        "action_seconds": 0.007359941024333239,
+        "original_background_block_residual": 6.134496159385146e-14,
+        "physical_selected_rhs_defect": 0.1486711988785087,
+        "retained_prefix_residual_energy": 0.31840390012948977,
+        "original_quotient_residual_ratio": 0.6922395719249379
+      },
+      {
+        "k": 1,
+        "factor_seconds": 0.3053140048868954,
+        "action_seconds": 0.005839047022163868,
+        "original_background_block_residual": 1.2673579706921482e-14,
+        "physical_selected_rhs_defect": 0.10802248657793688,
+        "retained_prefix_residual_energy": 0.24965550405932363,
+        "original_quotient_residual_ratio": 0.7520173566135478
+      },
+      {
+        "k": 8,
+        "factor_seconds": 0.302287827944383,
+        "action_seconds": 0.005644181044772267,
+        "original_background_block_residual": 1.1912121175820129e-14,
+        "physical_selected_rhs_defect": 0.042382650449777244,
+        "retained_prefix_residual_energy": 8.261744184628611e-07,
+        "original_quotient_residual_ratio": 0.9999991400723117
+      }
+    ],
+    "source_hash": "b560e467e0b81a8293adfa2fc71bd5570ec875a797fea67696083f1430ba3a77",
+    "scope": "CPU algebra/cost screen of three modes only; no full solve speed claim, no neural model, no reserved cases."
+  },
+  "block_costs_01": {
+    "complete": true,
+    "pid": 1249102,
+    "affinity": [
+      0
+    ],
+    "common_assembly_seconds": 0.17055290401913226,
+    "total_assembly_seconds": 1.3653427297249436,
+    "total_LU_seconds": 4.103477535536513,
+    "cross_device_copy_seconds": 0.0,
+    "factor_bytes": 641832960,
+    "wall_seconds": 5.478784726001322,
+    "rows": [
+      {
+        "k": -8,
+        "assembly_seconds": 0.0645604410674423,
+        "LU_seconds": 0.24772000801749527,
+        "total_seconds": 0.3122804490849376,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": -7,
+        "assembly_seconds": 0.06849274388514459,
+        "LU_seconds": 0.23460045806132257,
+        "total_seconds": 0.30309320194646716,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": -6,
+        "assembly_seconds": 0.07228321395814419,
+        "LU_seconds": 0.23773578694090247,
+        "total_seconds": 0.31001900089904666,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": -5,
+        "assembly_seconds": 0.07100088708102703,
+        "LU_seconds": 0.23724981304258108,
+        "total_seconds": 0.3082507001236081,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": -4,
+        "assembly_seconds": 0.07078634412027895,
+        "LU_seconds": 0.23585882899351418,
+        "total_seconds": 0.30664517311379313,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": -3,
+        "assembly_seconds": 0.07124628592282534,
+        "LU_seconds": 0.2504810949321836,
+        "total_seconds": 0.32172738085500896,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": -2,
+        "assembly_seconds": 0.07110013300552964,
+        "LU_seconds": 0.24402267090044916,
+        "total_seconds": 0.3151228039059788,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": -1,
+        "assembly_seconds": 0.07106355903670192,
+        "LU_seconds": 0.24191772495396435,
+        "total_seconds": 0.31298128399066627,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": 0,
+        "assembly_seconds": 0.07110110321082175,
+        "LU_seconds": 0.24390634102746844,
+        "total_seconds": 0.3150074442382902,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": 1,
+        "assembly_seconds": 0.07129494496621192,
+        "LU_seconds": 0.2422521288972348,
+        "total_seconds": 0.3135470738634467,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": 2,
+        "assembly_seconds": 0.07102443417534232,
+        "LU_seconds": 0.2389519070275128,
+        "total_seconds": 0.3099763412028551,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": 3,
+        "assembly_seconds": 0.07114078686572611,
+        "LU_seconds": 0.23932479810900986,
+        "total_seconds": 0.310465584974736,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": 4,
+        "assembly_seconds": 0.07063013105653226,
+        "LU_seconds": 0.2391947819851339,
+        "total_seconds": 0.30982491304166615,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": 5,
+        "assembly_seconds": 0.06959418999031186,
+        "LU_seconds": 0.24082954577170312,
+        "total_seconds": 0.310423735762015,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": 6,
+        "assembly_seconds": 0.06990237114951015,
+        "LU_seconds": 0.24292508698999882,
+        "total_seconds": 0.31282745813950896,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": 7,
+        "assembly_seconds": 0.069865110097453,
+        "LU_seconds": 0.24398228502832353,
+        "total_seconds": 0.31384739512577653,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      },
+      {
+        "k": 8,
+        "assembly_seconds": 0.06970314611680806,
+        "LU_seconds": 0.24252427485771477,
+        "total_seconds": 0.31222742097452283,
+        "cross_device_copy_seconds": 0.0,
+        "factor_bytes": 37754880
+      }
+    ],
+    "source_hash": "45450682d1496db78de9af90c5fa59ac34fadaba0086d1fcb24aba118f61fe59",
+    "scope": "Separate same-material cost decomposition. Main benchmark retains its actually paid total setup; this calibration is additional research cost, not subtracted from or freely substituted into benchmark."
+  },
+  "accounting": {
+    "complete_outer_solves": 52,
+    "failed_outer_solves": 0,
+    "total_recorded_main_wall_seconds": 329.5098180810455,
+    "GPU_used": false,
+    "neural_training": false,
+    "new_teachers": false,
+    "heldout9626": false
+  }
+}

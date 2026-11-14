@@ -1,0 +1,38 @@
+[
+  {
+    "source_id": 0,
+    "status": {
+      "iterations": 5,
+      "true_residual": 1.2457977780353443e-06,
+      "initial_residual": 1.0,
+      "failed": 0
+    }
+  },
+  {
+    "source_id": 4,
+    "status": {
+      "iterations": 5,
+      "true_residual": 1.780481880396378e-06,
+      "initial_residual": 1.0,
+      "failed": 0
+    }
+  },
+  {
+    "source_id": 7,
+    "status": {
+      "iterations": 5,
+      "true_residual": 1.5428302638505897e-06,
+      "initial_residual": 1.0,
+      "failed": 0
+    }
+  },
+  {
+    "source_id": 14,
+    "status": {
+      "iterations": 5,
+      "true_residual": 1.7122714393423105e-06,
+      "initial_residual": 1.0,
+      "failed": 0
+    }
+  }
+]

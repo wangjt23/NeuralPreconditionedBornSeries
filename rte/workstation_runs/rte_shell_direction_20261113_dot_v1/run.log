@@ -1,0 +1,16 @@
+{"event": "source_done", "method": "one_shot_P8", "source_id": 0, "calls": 3, "injections": 1, "inner_iterations": [4], "residual": 4.788854474019154e-07}
+{"event": "source_done", "method": "one_shot_P8", "source_id": 4, "calls": 3, "injections": 1, "inner_iterations": [4], "residual": 1.9250497252313336e-06}
+{"event": "source_done", "method": "one_shot_P8", "source_id": 7, "calls": 3, "injections": 1, "inner_iterations": [4], "residual": 7.764024034911851e-07}
+{"event": "source_done", "method": "one_shot_P8", "source_id": 14, "calls": 3, "injections": 1, "inner_iterations": [4], "residual": 2.071206729598433e-06}
+{"event": "batch_done", "method": "one_shot_P8", "seconds": 22.866175475064665, "calls": [3, 3, 3, 3]}
+{"event": "source_done", "method": "repeat_P8", "source_id": 0, "calls": 3, "injections": 2, "inner_iterations": [4, 4], "residual": 8.633488740020677e-06}
+{"event": "source_done", "method": "repeat_P8", "source_id": 4, "calls": 4, "injections": 2, "inner_iterations": [4, 4], "residual": 1.6357277932619288e-06}
+{"event": "source_done", "method": "repeat_P8", "source_id": 7, "calls": 3, "injections": 2, "inner_iterations": [4, 4], "residual": 7.946761980069202e-06}
+{"event": "source_done", "method": "repeat_P8", "source_id": 14, "calls": 4, "injections": 2, "inner_iterations": [4, 4], "residual": 1.5695315819296748e-06}
+{"event": "batch_done", "method": "repeat_P8", "seconds": 29.040547814918682, "calls": [3, 4, 3, 4]}
+{"event": "source_done", "method": "shell_second", "source_id": 0, "calls": 2, "injections": 2, "inner_iterations": [4, 4], "residual": 3.83578023143123e-06}
+{"event": "source_done", "method": "shell_second", "source_id": 4, "calls": 3, "injections": 2, "inner_iterations": [4, 3], "residual": 5.822250669520963e-07}
+{"event": "source_done", "method": "shell_second", "source_id": 7, "calls": 2, "injections": 2, "inner_iterations": [4, 4], "residual": 6.696454072892935e-06}
+{"event": "source_done", "method": "shell_second", "source_id": 14, "calls": 3, "injections": 2, "inner_iterations": [4, 3], "residual": 6.345829648574568e-07}
+{"event": "batch_done", "method": "shell_second", "seconds": 27.467072188854218, "calls": [2, 3, 2, 3]}
+{"event": "finished", "complete": true, "result": "SHELL_DIRECTION_NO_GO", "seconds": 83.37738263583742, "error": null}

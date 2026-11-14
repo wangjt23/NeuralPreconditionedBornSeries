@@ -1,0 +1,22 @@
+cached N64: 0.56s, storage=gpu
+cached N128: 0.74s, storage=gpu
+cached N64: 0.03s, storage=gpu
+cached N128: 0.09s, storage=gpu
+continuation update 0: work=7.87500, best=0, training=0.00s
+continuation update 250: work=7.87500, best=0, training=31.25s
+continuation update 500: work=7.87500, best=0, training=62.78s
+continuation update 750: work=7.87500, best=0, training=94.27s
+continuation update 1000: work=7.81250, best=1000, training=125.45s
+continuation update 1250: work=7.81250, best=1000, training=154.92s
+continuation update 1500: work=7.81250, best=1000, training=187.36s
+continuation update 1750: work=7.81250, best=1750, training=219.48s
+continuation update 2000: work=7.81250, best=2000, training=249.82s
+continuation update 2250: work=7.81250, best=2000, training=279.83s
+continuation update 2500: work=7.81250, best=2500, training=310.19s
+continuation update 2750: work=7.81250, best=2750, training=342.12s
+continuation update 3000: work=7.81250, best=3000, training=371.84s
+low_lr_control update 0: work=7.87500, best=0, training=0.00s
+low_lr_control update 250: work=7.81250, best=250, training=29.82s
+low_lr_control update 500: work=7.87500, best=250, training=60.78s
+low_lr_control update 750: work=7.81250, best=750, training=92.10s
+low_lr_control update 1000: work=7.81250, best=1000, training=121.44s

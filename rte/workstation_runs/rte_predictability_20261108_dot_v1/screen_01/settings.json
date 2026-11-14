@@ -1,0 +1,57 @@
+{
+  "complete": true,
+  "pid": 967790,
+  "training": false,
+  "new_teachers": false,
+  "heldout9626": false,
+  "grid": 128,
+  "conditions": [
+    {
+      "periods": 1,
+      "beta": 1.0
+    },
+    {
+      "periods": 1,
+      "beta": 3.3333333333333335
+    },
+    {
+      "periods": 4,
+      "beta": 1.0
+    },
+    {
+      "periods": 4,
+      "beta": 3.3333333333333335
+    }
+  ],
+  "source_ids": [
+    0,
+    4,
+    7,
+    14
+  ],
+  "methods": [
+    "tsa8",
+    "tsa16",
+    "tsa32",
+    "hss16s2_eager",
+    "hss16s2_graph"
+  ],
+  "repeats": 3,
+  "maxiter": 100,
+  "wall_limit": 600,
+  "contract": "Same original stored Fourier A64; L12 g=.65, residual1e-5, evaluated bound1e-3, paired field1e-4.",
+  "design": "2x2:2/8 layers x scattering scale1 or10/3; effective absorption fixed .05. Same smooth weak inclusion. Four identical RHS arrays per condition.",
+  "cost": "Q1: physical+acceptance+method setup each RHS. Actual four-RHS batch: setup once plus sum of four solve/acceptance medians.",
+  "source_hash": "b93a74b53eea92cc0fba3134f0aba4dcb19dc7f68966621e69e8e33408bca8bc",
+  "rhs_sha256": {
+    "0": "29ea6512fa2516dd4bc1896f7a352ee62164ab86f205bb94214b254b98fd8d77",
+    "4": "6743df55c26fddf731dabc45f4275a2a02f58d24b9fa8762cb3a8869eb9b1436",
+    "7": "7bffceb871908f220c4ec223e1e6893abb9997051ef6ffa6804c9b553c724177",
+    "14": "7283255ec15dbda6bc7c8adab8ef92023e8dce830d5bd5ef6ab4c59431d8b7d8"
+  },
+  "wall_seconds": 73.8223691440653,
+  "rows": 320,
+  "failures": 0,
+  "peak_allocated_bytes": 602450944,
+  "peak_reserved_bytes": 2680160256
+}

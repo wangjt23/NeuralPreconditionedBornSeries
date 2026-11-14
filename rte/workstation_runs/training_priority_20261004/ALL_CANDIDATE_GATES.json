@@ -1,0 +1,206 @@
+{
+  "aligned16": {
+    "passed": false,
+    "grids": [
+      {
+        "grid": 128,
+        "saving_percent": 0.14395936487131555,
+        "lower_ci": -3.627764801845191,
+        "pass": false
+      },
+      {
+        "grid": 256,
+        "saving_percent": -6.905846463781362,
+        "lower_ci": -10.185102411092126,
+        "pass": false
+      }
+    ]
+  },
+  "aligned16_final": {
+    "passed": false,
+    "grids": [
+      {
+        "grid": 128,
+        "saving_percent": -0.18968156722385388,
+        "lower_ci": -6.361484458535467,
+        "pass": false
+      },
+      {
+        "grid": 256,
+        "saving_percent": -1.6938151614250385,
+        "lower_ci": -4.9365759446570125,
+        "pass": false
+      }
+    ]
+  },
+  "aligned16_tsa16": {
+    "passed": false,
+    "grids": [
+      {
+        "grid": 128,
+        "saving_percent": -1.4383861793639596,
+        "lower_ci": -7.41729943311869,
+        "pass": false
+      },
+      {
+        "grid": 256,
+        "saving_percent": -1.0803519266816553,
+        "lower_ci": -4.284441919726712,
+        "pass": false
+      }
+    ]
+  },
+  "aligned8": {
+    "passed": false,
+    "grids": [
+      {
+        "grid": 128,
+        "saving_percent": 2.6216376503222616,
+        "lower_ci": -1.7026393901032333,
+        "pass": false
+      },
+      {
+        "grid": 256,
+        "saving_percent": -7.497692406074163,
+        "lower_ci": -10.714972171238282,
+        "pass": false
+      }
+    ]
+  },
+  "aligned8_final": {
+    "passed": false,
+    "grids": [
+      {
+        "grid": 128,
+        "saving_percent": 2.296255895293653,
+        "lower_ci": -1.6379911249059873,
+        "pass": false
+      },
+      {
+        "grid": 256,
+        "saving_percent": -7.849132648791968,
+        "lower_ci": -10.869471660422986,
+        "pass": false
+      }
+    ]
+  },
+  "aligned8_tsa16": {
+    "passed": false,
+    "grids": [
+      {
+        "grid": 128,
+        "saving_percent": -5.243078418423219,
+        "lower_ci": -12.165856059971563,
+        "pass": false
+      },
+      {
+        "grid": 256,
+        "saving_percent": -4.222364328267814,
+        "lower_ci": -8.149809052457691,
+        "pass": false
+      }
+    ]
+  },
+  "continued_final": {
+    "passed": false,
+    "grids": [
+      {
+        "grid": 128,
+        "saving_percent": 0.5710001146959409,
+        "lower_ci": -2.9762763826673844,
+        "pass": false
+      },
+      {
+        "grid": 256,
+        "saving_percent": -6.011379164722186,
+        "lower_ci": -9.856692791037002,
+        "pass": false
+      }
+    ]
+  },
+  "continued_selected": {
+    "passed": false,
+    "grids": [
+      {
+        "grid": 128,
+        "saving_percent": 0.28869830946807173,
+        "lower_ci": -3.7261940998420022,
+        "pass": false
+      },
+      {
+        "grid": 256,
+        "saving_percent": -6.0331844509679655,
+        "lower_ci": -9.807476985138786,
+        "pass": false
+      }
+    ]
+  },
+  "continued_tsa16": {
+    "passed": false,
+    "grids": [
+      {
+        "grid": 128,
+        "saving_percent": -2.6362217891905404,
+        "lower_ci": -9.346736387331847,
+        "pass": false
+      },
+      {
+        "grid": 256,
+        "saving_percent": -4.252091196078767,
+        "lower_ci": -8.017111319734012,
+        "pass": false
+      }
+    ]
+  },
+  "frozen": {
+    "passed": false,
+    "grids": [
+      {
+        "grid": 128,
+        "saving_percent": -1.3553947024595558,
+        "lower_ci": -5.2420462101601295,
+        "pass": false
+      },
+      {
+        "grid": 256,
+        "saving_percent": -6.639397920750656,
+        "lower_ci": -10.075614783056192,
+        "pass": false
+      }
+    ]
+  },
+  "frozen_tsa16": {
+    "passed": false,
+    "grids": [
+      {
+        "grid": 128,
+        "saving_percent": -4.167657220305854,
+        "lower_ci": -11.008175917098665,
+        "pass": false
+      },
+      {
+        "grid": 256,
+        "saving_percent": -4.5912473164503975,
+        "lower_ci": -8.928309659034134,
+        "pass": false
+      }
+    ]
+  },
+  "low_lr1000": {
+    "passed": false,
+    "grids": [
+      {
+        "grid": 128,
+        "saving_percent": 2.3940638031814454,
+        "lower_ci": -1.3542735935928463,
+        "pass": false
+      },
+      {
+        "grid": 256,
+        "saving_percent": -7.679440292845241,
+        "lower_ci": -11.175228648028552,
+        "pass": false
+      }
+    ]
+  }
+}

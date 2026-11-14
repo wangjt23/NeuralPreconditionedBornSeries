@@ -1,0 +1,21 @@
+{
+  "complete": true,
+  "utc": "2026-10-04T08:37:34.633447+00:00",
+  "prior_files_preserved": 576,
+  "staged_files_preserved": 42,
+  "native_binary_preserved": true,
+  "frozen_fixtures_preserved": 6,
+  "candidate_fields_preserved": 96,
+  "candidate_bytes": 755094144,
+  "total_verified_preserved_files": 721,
+  "git_head": "028caea3f35d100225f656e2b1e910c1366aaafe",
+  "git_branch": "main",
+  "original_nine_tracked_dirty_entries_unchanged": true,
+  "owned_jobs_running": [],
+  "gpu_after": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]\nNVIDIA RTX A6000, 49140 MiB, 37 MiB, 0 %\n",
+  "elapsed_seconds": 23.831817213445902,
+  "full_solves": 0,
+  "training_steps": 0,
+  "new_seed_generation": 0,
+  "original_source_or_fields_exported": false
+}

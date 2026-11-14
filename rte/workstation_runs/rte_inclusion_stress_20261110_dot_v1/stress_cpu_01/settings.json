@@ -1,0 +1,82 @@
+{
+  "complete": true,
+  "pid": 1252928,
+  "affinity": [
+    0
+  ],
+  "threads": 1,
+  "device": "cpu",
+  "orders": [
+    [
+      "compact4_inject",
+      "exact8_inner"
+    ]
+  ],
+  "source_ids": [
+    0,
+    4,
+    7,
+    14
+  ],
+  "grid": 128,
+  "L": 12,
+  "g": 0.65,
+  "prefix": 1,
+  "tangent_cut": 8,
+  "inner_tolerance": 0.0001,
+  "inner_maxiter": 8,
+  "outer_tolerance": 1e-05,
+  "outer_maxiter": 100,
+  "heldout9626": false,
+  "neural_training": false,
+  "new_accurate_teachers": false,
+  "wall_limit": 450,
+  "source_hashes": {
+    "stress_inclusion_cpu.py": "62fed575d02f34676b916dfe1678c561b0970ad97d364e7424bb3bd75284eb74",
+    "exact_mode_probe.py": "b560e467e0b81a8293adfa2fc71bd5570ec875a797fea67696083f1430ba3a77"
+  },
+  "inclusion_amplitude": 6.0,
+  "baseline_inclusion_amplitude": 3.0,
+  "scope": "One predeclared inclusion-strength perturbation only: amplitude3 to6, all other physics/source/numerical settings unchanged. Fixed compact-then-exact order and fresh fully paid setup. Not material generalization or GPU evidence.",
+  "production_hashes": {
+    "rte/models.py": "6cd887b332ed48409bcffa2d2bad6ca9654c97ff7071c13a6443278f583b04d1",
+    "rte/source_initialization.py": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af",
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4"
+  },
+  "material_identity": {
+    "amplitude3_byte_equal_original": true,
+    "stress_info": {
+      "periods": 1,
+      "beta": 3.3333333333333335,
+      "inclusion_amplitude": 6.0,
+      "inclusion_center": [
+        0.34,
+        0.6
+      ],
+      "inclusion_width": 0.08,
+      "transition_physical_width": 0.015625
+    },
+    "baseline_total_sha256": "9d9256eedd9242ad1d13f3853a9149b5d5e29a4fbfe6c63caf5a0e012f714b74",
+    "stress_total_sha256": "ff8f1415243874d4d483a18439a23b8c2b193e5c59665ff88e635e645eeeb85e",
+    "baseline_scatter_sha256": "5539f482895689656b2ee0dc05722c6428d3f08b8a3eb3c75f7050f2e8eaf356",
+    "stress_scatter_sha256": "12f896ee1a7bbad64d762abd599c62424ad54e97ac5b84edcb1fa71e4e369b0a",
+    "max_total_change": 9.974245071411133
+  },
+  "rhs_sha256": {
+    "0": "29ea6512fa2516dd4bc1896f7a352ee62164ab86f205bb94214b254b98fd8d77",
+    "4": "6743df55c26fddf731dabc45f4275a2a02f58d24b9fa8762cb3a8869eb9b1436",
+    "7": "7bffceb871908f220c4ec223e1e6893abb9997051ef6ffa6804c9b553c724177",
+    "14": "7283255ec15dbda6bc7c8adab8ef92023e8dce830d5bd5ef6ab4c59431d8b7d8"
+  },
+  "reference_research_seconds": 24.585455921012908,
+  "wall_seconds": 72.27751186210662,
+  "attempts": 8,
+  "failures": 0,
+  "production_hashes_after": {
+    "rte/models.py": "6cd887b332ed48409bcffa2d2bad6ca9654c97ff7071c13a6443278f583b04d1",
+    "rte/source_initialization.py": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af",
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4"
+  }
+}

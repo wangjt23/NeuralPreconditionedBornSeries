@@ -1,0 +1,125 @@
+{
+  "pid": 2364965,
+  "complete": false,
+  "update": 1346,
+  "records": [
+    {
+      "material": 3,
+      "c": 2,
+      "U": 0.7831218993367451,
+      "T": 19,
+      "s": 17,
+      "q": 2,
+      "reason": "converged",
+      "trajectory": {
+        "A": {
+          "calls": 39,
+          "seconds": 0.0341311851516366
+        },
+        "M": {
+          "calls": 19,
+          "seconds": 0.10387816955335438
+        },
+        "wall": 0.20566942496225238
+      },
+      "prefix_seconds": 0.1804222259670496,
+      "setup_generation": 2691,
+      "input_hashes": [
+        "5ee1f61cac9fc1cc27cbefd8fb1396ea6f866ec490eb38cb0803829665055dbd",
+        "f0f266a85529263ae381c8a46cad5e4bfa2c57a44ceada4bac7d85b39208c24a"
+      ],
+      "loss": 0.0,
+      "actual_calls": 2,
+      "logical_fill": 2,
+      "gradient_seconds": 0.0763613530434668,
+      "gradient_A_calls": 4,
+      "gradient_M_calls": 2,
+      "A_total": {
+        "calls": 43,
+        "seconds": 0.03808098309673369
+      },
+      "M_total": {
+        "calls": 21,
+        "seconds": 0.11995324771851301
+      }
+    },
+    {
+      "material": 3,
+      "c": 0,
+      "U": 0.3640820252031084,
+      "T": 19,
+      "s": 0,
+      "q": 8,
+      "reason": "converged",
+      "trajectory": {
+        "A": {
+          "calls": 39,
+          "seconds": 0.04950937279500067
+        },
+        "M": {
+          "calls": 19,
+          "seconds": 0.1133095109835267
+        },
+        "wall": 0.24721215199679136
+      },
+      "prefix_seconds": 0.0,
+      "setup_generation": 2692,
+      "input_hashes": [
+        "df7772f288419da562c84efadd771c91d348a38d923b0872b28e57c5916febdb",
+        "06ab9a763f453f7fe9e0feb5d00769e56ccac0ae126c2b13a2c4d443caf86de1",
+        "8f3b2fbaa7b41ec2f605051d6239c22dab0e022987fa5c20e5ec49d03b1491a2",
+        "7e886d4fd6980361a43b83f503956a1c9e2d8ff341728547f756f2ab2dfb19bf",
+        "2517da1c654e3b5de8f3edbd2b5ef06238ee004e3a98f48fd0c54d3406083b37",
+        "c1c3bb8f4a2d258b1db86b0885ebf37e40e02d60b37dcd34cc8c16ee50b683d6",
+        "1db1ec42e9611725ab770e6e22e8da016b8b0e840cf0da50959a90dccd7531bd",
+        "5d2ded824b00bcf52350218a2af53a1c3adfd6e1aa05162cd1ef0453d096a5cc"
+      ],
+      "loss": 14.021435538130419,
+      "actual_calls": 8,
+      "logical_fill": 0,
+      "gradient_seconds": 0.27409160090610385,
+      "gradient_A_calls": 16,
+      "gradient_M_calls": 8,
+      "A_total": {
+        "calls": 55,
+        "seconds": 0.0684676575474441
+      },
+      "M_total": {
+        "calls": 27,
+        "seconds": 0.17989250202663243
+      }
+    }
+  ],
+  "gradnorm": 39.33537673950195,
+  "clip_applied": false,
+  "optimizer_step": true,
+  "lr": 8.625546887567024e-05,
+  "wall": 1941.0279063570779,
+  "counts": {
+    "7:0": 108,
+    "1:1": 121,
+    "7:2": 112,
+    "5:0": 109,
+    "0:1": 112,
+    "0:2": 121,
+    "6:0": 98,
+    "0:0": 118,
+    "7:1": 110,
+    "1:2": 122,
+    "2:1": 111,
+    "4:2": 96,
+    "5:2": 112,
+    "5:1": 106,
+    "1:0": 109,
+    "3:0": 133,
+    "4:1": 121,
+    "2:2": 108,
+    "6:1": 97,
+    "3:1": 119,
+    "2:0": 105,
+    "4:0": 118,
+    "3:2": 119,
+    "6:2": 107
+  },
+  "peak_memory": 497945600
+}

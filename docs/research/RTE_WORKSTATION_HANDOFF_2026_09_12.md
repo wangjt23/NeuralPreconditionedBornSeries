@@ -1,5 +1,117 @@
 # RTE Workstation Handoff, 2026-09-12
 
+**Latest continuation, September 26: Krylov-tail models, stronger runtime audit, and paired N128 bank completed.**
+See the [Krylov-tail results, objective audit, and concrete next study](RTE_KRYLOV_TAIL_RESULTS_2026_09_26.md).
+The one-shot augmented FGMRES path is implemented and tested, including
+search-image projection, rejection safeguards, and exact-teacher happy breakdown.
+Three neural training budgets total 5,000 updates, plus a one-update smoke test.
+On 32 new independent material/source cases at N64/N128/N256, the validation-
+selected neural solver is slower than frozen tuned classical controls by 4.8%,
+5.8%, and 10.0%. All 1,440 measured held-out solves meet the original tolerance.
+The exact-tail information ceiling remains promising, but is not an AI result.
+
+Training through two subsequent classical steps improves N64 work by 0.25
+classical calls per solve; this falls to 0.0625 at N128 and zero at N256.
+Its measured validation runtime gate fails, so new test seed 9626 is untouched.
+Optical-distance attention, four-moment recombination, and a preserved-frontier
+variant do not produce the desired runtime improvement. Do not repeat them
+under the same immediate-residual objective or cite an iteration-only win.
+
+The next priority is a controlled **mixed-N64/N128 continuation-loss training**
+study, keeping architecture fixed to isolate resolution transfer. Paired N128
+teachers/contexts are ready in `rte/workstation_runs/tail_multiresolution_bank_20260926/`:
+128 train cases (112 eligible) and 16 validation cases (13 eligible), all teacher
+residuals below 1e-9, exact nested material/source-parameter identity. Mixed-grid
+neural training has not yet run. The next architecture ablation is nonlinear
+material conditioning with a complex-linear, projection-consistent residual
+path; see the report for safeguards against repeating failed fixed-coarse trials.
+
+Full suite: 144 tests and 66 subtests passed. No RTE job remains running.
+All earlier artifacts are preserved. The former main handoff is byte-identically
+saved in `rte/workstation_runs/tail_solver_report_20260926/previous_handoff_snapshot.md`;
+the old 168-entry manifest uses that explicit mapping for its handoff entry.
+Original 178/49/77-entry manifests also verify. New provenance and hashes are in
+`rte/workstation_runs/tail_solver_report_20260926/`. No commit or push was made.
+The broad research objective remains unachieved. Earlier states below are historical.
+
+**Historical continuation, earlier September 26: global-response neural pilots and larger-grid tests completed.**
+See the [bigger-picture review, measured results and next architecture target](RTE_SOURCE_INITIALIZATION_REVIEW_2026_09_26.md).
+Two validation-selected neural initializers were tested on separate cohorts
+of 24 independent media. The directional variant is tied at N64 and slower
+by 1.6% at N128 and 2.0% at N256, with inference included and no failed solves.
+There is no significant learned speedup. The campaign has 1,512 measured
+held-out solves, not 1,512 independent problems. Exact fine-directional
+information helps, but neither simple filtering nor much lower full-field
+MSE supplies the needed correction reliably.
+
+The next priority is a **one-shot learned Krylov-tail search direction after
+four classical steps**, not another full-flux initializer or dense inverse.
+Retain the existing Krylov basis, skip AI on already-converged cases, and
+train on projected physical residual reduction. New exact-tail datasets
+are ready: 128 training cases (112 eligible) and 16 validation cases (13
+eligible). No tail network has been trained and the augmented FGMRES path
+still needs implementation and an exact-teacher gate. See the review for
+the important happy-breakdown/search-image projection distinction.
+
+Full suite: 127 tests and 66 subtests passed. All budgets and diagnostics
+are complete; no RTE experiment is left running. Original September 12
+handoff and September 19/September 26 base-report hash manifests verify.
+All failed/smoke/partial runs and old checkpoints are preserved. No commit
+or push was made. Earlier states below are historical.
+
+**Historical continuation, September 19: recursive response deployment tests completed.**
+See the [recursive-response results and next factor hypothesis](RTE_RECURSIVE_RESPONSE_RESULTS_2026_09_19.md).
+The actual recursive residual-weighted operator helps at N16 but is slower
+than TSA at N32 on the two stiff development media. Its FP32 N32 cache still
+uses about 127 MiB. Energy weighting and rank8/32 global repair do not clear
+the training gate. Exact fixed-band coarse responses also fail to beat the
+classical controls at N64/N128; full odd-reset compositions are particularly
+bad and are preserved as negative controls. No neural model was trained.
+Next untested hypothesis: a direction-aware nested factor of the
+reference-normalized Schur operator, not independent raw inverse blocks.
+All 1,080 measured solves completed; these include repeats, not 1,080
+independent problems. Full suite: 118 tests and 66 subtests passed. No RTE
+experiment is left running. Earlier reports and handoff artifacts are intact.
+
+**Historical update, September 19: structural continuation completed.** See the
+[review, parity/response investigations, and stronger classical-depth audit](RTE_PARITY_STRUCTURE_REVIEW_2026_09_19.md).
+The old AI timing advantage did not survive expanded classical tuning on the
+same 24 N128 cases (later GPU timings are contended). The best new research
+lead is residual-weighted hierarchical response compression in stiff media:
+a small-grid teacher oracle helps iterations, but is not yet compact or fast
+enough for deployment. No new neural model was trained and no RTE experiment
+is left running. September 13 and earlier states below are historical.
+The full RTE suite passes 105 tests; the original handoff remains intact.
+
+**Historical update, September 13: resumed campaign completed.** See
+[high-resolution results and structural audit](RTE_STRUCTURE_AND_RESOLUTION_RESULTS_2026_09_13.md)
+and the [next structure-driven plan](RTE_STRUCTURE_DRIVEN_PLAN_2026_09_13.md).
+Latest architecture investigation: [learned global/hierarchical response
+design and negative teacher-space pilot](RTE_LEARNED_GLOBAL_RESPONSE_DESIGN_2026_09_13.md).
+The rank-2/4/8 global-space pilot saved no iterations on 12 held-out source
+translations. Next test hierarchical response-block compressibility before
+committing to a larger network. The full suite now passes 96 tests.
+No RTE job is left running. The two previously suspended timing processes were
+replaced by fresh runs; their saved partial outputs remain preserved. The pause
+state below is historical, not the current process state.
+
+**Historical pause, September 12 at 21:08.**
+See [the pause record](RTE_HIGH_RESOLUTION_PAUSE_2026_09_12.md) for suspended
+PIDs, completed N64/N128 checkpoints, partial results and timing-resume cautions.
+Do not resume experiments without a new instruction. Older stop states below
+are preserved historical records.
+
+New architecture continuation: [NTO design](RTE_NEURAL_TRANSPORT_OPERATOR_DESIGN_2026_09_12.md)
+and [matched AI-operator pilots](RTE_NEURAL_TRANSPORT_OPERATOR_RESULTS_2026_09_12.md).
+The four-stage neural operator is the next candidate; all four matched pilot
+training budgets are complete, with no RTE job left running.
+
+Workstation continuation: see [the diagnostic audit and updated experiment plan](RTE_DIAGNOSTIC_AUDIT_2026_09_12.md).
+N16 replications and the N32 training budget are complete. A coefficient-cache
+fault invalidated parts of the original GPU test evaluation; corrected results
+and measurement limitations are documented there. The handoff below retains its
+original stop-state description and historical evidence.
+
 ## Stop State
 
 Local training is stopped. The shared collision/transport (CT) run had already

@@ -1,0 +1,67 @@
+{
+  "selected_backend_by_grid": {
+    "128": "direct",
+    "256": "direct"
+  },
+  "screen_policy_sha256": "b5f430a0287b331c814c3d8987ee8d0a9d6b3cf8b5f8fdd22795139a875537e2",
+  "screen_execution_receipt_sha256": "d21defcd276aeb1482a9b042fc02c1513985adf076a8799c7bd440da7649e958",
+  "screen_archive_sha256": "69bec6d050eb63835b97b53484fc9c88fc71fcc02ecda8f0b65d759f86b75964",
+  "screen_audit_sha256": "4461e5d4fa82ba5ab737109754775de6152c5cadeca4ddf4ac41fee9d974d231",
+  "grids": [
+    128,
+    256
+  ],
+  "confirmation_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ],
+  "development_seed": 4626,
+  "shards": [
+    [
+      0,
+      1,
+      2,
+      3
+    ],
+    [
+      4,
+      5,
+      6,
+      7
+    ],
+    [
+      8,
+      9,
+      10,
+      11
+    ],
+    [
+      12,
+      13,
+      14,
+      15
+    ]
+  ],
+  "gate": "Same >=5%Q1 at BOTHgrids/no individualregression>10%, fixedbackenddirect; allfivecomparators retained",
+  "shard_hard_seconds": 120,
+  "shard_soft_seconds": 100,
+  "total_max_full_solves": 640,
+  "timed_repeats": 3,
+  "warmup_repeats": 1,
+  "training": false,
+  "test9626_touched": false
+}

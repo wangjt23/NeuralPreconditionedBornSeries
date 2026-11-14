@@ -1,0 +1,38 @@
+[
+  {
+    "size": 128,
+    "index": 0,
+    "physical_seconds": 0.25501878187060356,
+    "base_seconds": 0.06960002146661282,
+    "graph_seconds": 0.15892727673053741,
+    "coarse_seconds": 0.5794568490236998,
+    "coarse_inverse_bytes": 2359296
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "physical_seconds": 0.005242185667157173,
+    "base_seconds": 0.0028936881572008133,
+    "graph_seconds": 0.14027532376348972,
+    "coarse_seconds": 0.002669278532266617,
+    "coarse_inverse_bytes": 2359296
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "physical_seconds": 0.005710301920771599,
+    "base_seconds": 0.005841827020049095,
+    "graph_seconds": 0.21464738622307777,
+    "coarse_seconds": 0.00337296724319458,
+    "coarse_inverse_bytes": 9437184
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "physical_seconds": 0.006062064319849014,
+    "base_seconds": 0.005168214440345764,
+    "graph_seconds": 0.23672113195061684,
+    "coarse_seconds": 0.003162078559398651,
+    "coarse_inverse_bytes": 9437184
+  }
+]

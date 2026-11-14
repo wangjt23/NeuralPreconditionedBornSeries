@@ -1,0 +1,85 @@
+{
+  "status": "STATIC_ANALYSIS_ONLY_NO_NEW_NUMERICAL_RUN",
+  "sources": {
+    "deliverables/benchmark_tail_multiresolution.py": "5064d2919618a3aed2e2f3d0a399390b16b192611ce114168179e502e1e1b654",
+    "deliverables/RTE_FWI_HANDOFF_2026_10_02.md": "660c49f351a295642d3d2dfae334c85f873727fe611141453f506ff133274336",
+    "deliverables/production_faithful_runtime_20261025/HANDOFF.md": "0b701e6312c7e367d4f2a0f8702fd344304adf0de43c9d2df84af5cd8743c252",
+    "deliverables/rte_angular_full_20261110_dot_v1/angular_modes.py": "d152afea90179efa8342a4f12631979951503785330f3aab08d4b7f1fe32a481",
+    "deliverables/rte_angular_full_20261110_dot_v1/run_full_cpu.py": "2450fa79b22f0640fd36cd5cd7571b37a6c219ae9130eab341b901f67de2d5de",
+    "deliverables/rte_angular_full_20261110_dot_v1/full_01/settings.json": "206270c3138ed10a3ae6e5decfc4bc1bbc82f05b0912b268a2fe169acd21fece",
+    "deliverables/rte_angular_full_20261110_dot_v1/full_01/rows.json": "b4cde731e8e8183083d6bc38ac3352c23d61a7ebc209dad7c64df5ca505d888d",
+    "deliverables/rte_angular_full_20261110_dot_v1/full_01/batches.json": "24c1a4997ca4d2bd6d20ab1e20250bfd3e3c5ca3f1563d3c94a3e69c1a16996e",
+    "deliverables/rte_E_stress_20261110_dot_v1/stress_01/results.json": "aab8f94f94182bc1eb5496747315f753eba44e22079b390fd6a849fae38ab5d8",
+    "deliverables/rte_batched_gpu_20261110_dot_v1/gpu_gate_01/results.json": "a9acc3164c14929913eee9d81f68a8a378334274f4eefc57b78164cde36f8f56",
+    "deliverables/layered_background_20261108_dot_v1/layered_inverse.py": "aaa026a7ddc59e2b64ed3a6e884ec6f3359f330d9f3cbfa4ce173219a8df4de2"
+  },
+  "live_readonly_verified": {
+    "HEAD": "028caea3f35d100225f656e2b1e910c1366aaafe",
+    "sources": {
+      "rte/models.py": "6cd887b332ed48409bcffa2d2bad6ca9654c97ff7071c13a6443278f583b04d1",
+      "rte/source_initialization.py": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af",
+      "rte/npbs_unet_ablation.py": "4da8fb3a2998a02b45d508f7e8387b12c99849cfc06ff8363327b667aa17d5f2",
+      "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "E/angular_modes.py": "d152afea90179efa8342a4f12631979951503785330f3aab08d4b7f1fe32a481"
+    }
+  },
+  "E_inner_ceiling": [
+    {
+      "repeat": 0,
+      "complete_observed": 16.109862331999466,
+      "inner_seconds": 4.220029948279262,
+      "conditional_free_inner_remainder": 11.889832383720204,
+      "inner_fraction": 0.2619531974458217
+    },
+    {
+      "repeat": 1,
+      "complete_observed": 15.992239168845117,
+      "inner_seconds": 4.147329592844471,
+      "conditional_free_inner_remainder": 11.844909576000646,
+      "inner_fraction": 0.25933388996107487
+    },
+    {
+      "repeat": 2,
+      "complete_observed": 15.55202276003547,
+      "inner_seconds": 4.1165270858909935,
+      "conditional_free_inner_remainder": 11.435495674144477,
+      "inner_fraction": 0.26469399829257995
+    }
+  ],
+  "H_inner_ceiling": [
+    {
+      "repeat": 0,
+      "complete_observed": 19.589872430078685,
+      "source_field": "complete_four_RHS_observed_seconds",
+      "inner_seconds": 5.220161879668012,
+      "conditional_free_inner_remainder": 14.369710550410673
+    },
+    {
+      "repeat": 1,
+      "complete_observed": 19.470190585125238,
+      "source_field": "complete_four_RHS_observed_seconds",
+      "inner_seconds": 5.265492196427658,
+      "conditional_free_inner_remainder": 14.20469838869758
+    }
+  ],
+  "G_GPU_compact_first": 0.2464355370029807,
+  "G_GPU_compact_complete": 0.46131288702599704,
+  "G_initialization": {
+    "context_seconds": 0.28425129409879446,
+    "neutral_library_seconds": 51.228094924008474,
+    "convention": "Device warm for both methods. Common neutral warm-up excluded equally; no measured material/RHS or retained factors."
+  },
+  "E_and_G_RHS_hashes_equal": true,
+  "rhs_sha256": {
+    "0": "29ea6512fa2516dd4bc1896f7a352ee62164ab86f205bb94214b254b98fd8d77",
+    "4": "6743df55c26fddf731dabc45f4275a2a02f58d24b9fa8762cb3a8869eb9b1436",
+    "7": "7bffceb871908f220c4ec223e1e6893abb9997051ef6ffa6804c9b553c724177",
+    "14": "7283255ec15dbda6bc7c8adab8ef92023e8dce830d5bd5ef6ab4c59431d8b7d8"
+  },
+  "restrictions": {
+    "seed9626": "Reserved, previous frozen dual-grid gate failed, not released by H",
+    "N256": "Previously used nested seed4626 development grid, untested for E, not automatically an untouched dataset",
+    "seed8626": "Historically tested, not fresh heldout"
+  },
+  "numerical_action": "None; JSON arithmetic, source reads and hashing only"
+}

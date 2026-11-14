@@ -1,0 +1,11 @@
+forward {'start': 0, 'solution_relative_error': 1.4591375473093597e-16, 'residual_absolute_difference': 3.469446951953614e-18, 'native_calls': 8, 'window_final': 0.01636650881160439}
+forward {'start': 8, 'solution_relative_error': 2.0040884976704262e-16, 'residual_absolute_difference': 4.336808689942018e-18, 'native_calls': 16, 'window_final': 0.0011085768879526415}
+forward {'start': 16, 'solution_relative_error': 1.5507465462310944e-08, 'residual_absolute_difference': 8.116399864482524e-11, 'native_calls': 24, 'window_final': 0.0003026702497690836}
+forward {'start': 20, 'solution_relative_error': 2.009673198347172e-08, 'residual_absolute_difference': 1.4940652430788393e-09, 'native_calls': 28, 'window_final': 0.00013046912650237867}
+fd {'epsilon': 0.01, 'autograd': 0.8887093422578078, 'finite_difference': 0.8887701303111006, 'relative_error': 6.839569785217126e-05}
+fd {'epsilon': 0.003, 'autograd': 0.8887093422578078, 'finite_difference': 0.8937863644526978, 'relative_error': 0.005680353154636449}
+fd {'epsilon': 0.001, 'autograd': 0.8887093422578078, 'finite_difference': 0.8725285169186581, 'relative_error': 0.018207106159187688}
+fd {'epsilon': 0.0003, 'autograd': 0.8887093422578078, 'finite_difference': 0.9114316264661564, 'relative_error': 0.02493032230673013}
+time {'arm': 'O', 'forward_backward_seconds': 0.3355140939820558, 'loss': 0.486458014901207, 'gradient_norm': 3.179929494857788, 'peak_memory': 318036480}
+time {'arm': 'K', 'forward_backward_seconds': 0.26795497187413275, 'loss': -3.707209308639122, 'gradient_norm': 5.658829689025879, 'peak_memory': 357562880}
+COMPLETE

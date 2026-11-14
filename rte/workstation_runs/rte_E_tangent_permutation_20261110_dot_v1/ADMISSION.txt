@@ -1,0 +1,24 @@
+2026-11-10T14:01:18+08:00
+               total        used        free      shared  buff/cache   available
+Mem:          188683        3966        3516          80      182972      184716
+Swap:           8191           0        8191
+    PID PSR %CPU   RSS COMMAND
+   1785  35  1.4 246108 /opt/todesk/bin/ToDesk_Service
+1289759  11  0.6 10204 sshd: wjt [priv]
+1260407  17  0.0     0 [kworker/u144:2-flush-8:0]
+   1235  16  0.0     0 [jbd2/sda-8]
+    706  13  0.0     0 [jbd2/sdb3-8]
+1285369   8  0.0     0 [kworker/u144:4-flush-8:16]
+    755  15  0.0 16416 /usr/lib/systemd/systemd-journald
+1088528   5  0.0 46700 /usr/lib/snapd/snapd
+   2829   0  0.0 123416 /usr/sbin/lightdm-gtk-greeter
+1289388   5  0.0     0 [kworker/u144:0-ipv6_addrconf]
+   1951   6  0.0 74344 /usr/bin/dockerd -H fd:// --containerd=/run/containerd/containerd.sock
+      1  12  0.0 14820 /sbin/init splash
+   1778  14  0.0 49036 /usr/bin/containerd
+1098202  19  0.0     0 [kworker/19:1H-kblockd]
+   3080   8  0.0  8024 sshd: /usr/sbin/sshd -D [listener] 1 of 10-100 startups
+     17   4  0.0     0 [rcu_preempt]
+1120066  12  0.0     0 [kworker/12:2H-kblockd]
+1092198   7  0.0     0 [kworker/7:2H-kblockd]
+1120254  32  0.0     0 [kworker/32:2-events]

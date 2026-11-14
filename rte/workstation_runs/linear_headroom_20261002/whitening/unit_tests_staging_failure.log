@@ -1,0 +1,21 @@
+test_image_whitening (unittest.loader._FailedTest.test_image_whitening) ... ERROR
+
+======================================================================
+ERROR: test_image_whitening (unittest.loader._FailedTest.test_image_whitening)
+----------------------------------------------------------------------
+ImportError: Failed to import test module: test_image_whitening
+Traceback (most recent call last):
+  File "/data1/software/miniconda3/lib/python3.12/unittest/loader.py", line 396, in _find_test_path
+    module = self._get_module_from_name(name)
+             ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/data1/software/miniconda3/lib/python3.12/unittest/loader.py", line 339, in _get_module_from_name
+    __import__(name)
+  File "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/linear_headroom_20261002/whitening/code/test_image_whitening.py", line 13, in <module>
+    import test_angular_galerkin as galerkin_tests
+ModuleNotFoundError: No module named 'test_angular_galerkin'
+
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (errors=1)

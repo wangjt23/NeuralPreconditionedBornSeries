@@ -1,0 +1,31 @@
+{
+  "complete": true,
+  "error": null,
+  "costs": {
+    "readback_and_hash_seconds": 1.5994281880557537,
+    "certificate_seconds": 115.88774368725717,
+    "post_hash_seconds": 1.0676021911203861
+  },
+  "certificates": 4,
+  "elapsed_seconds": 119.22679629176855,
+  "first_checker_ready_seconds": 0.2423283364623785,
+  "cpu_peak_rss_kib": 473116,
+  "ledger_sha256": "29f9ec208e25d74204ae8a12663fb3f8b240e99eb304aebe7b04e14e99fa2b83",
+  "native_guard": {
+    "library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+    "architecture": "x86-MXCSR",
+    "compilation_contract": "-O2 -std=c++17 -fno-fast-math -ffp-contract=off",
+    "compilation_provenance_must_be_recorded_by_executor": true,
+    "guard_flags": 127,
+    "control_register": 8098,
+    "floating_control_modes_modified": false,
+    "sticky_exception_flags_may_change_in_arithmetic": true
+  },
+  "native_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+  "full_solves": 0,
+  "training_steps": 0,
+  "H_actions": 0,
+  "M_actions": 0,
+  "input_bits_shared_with_jobA": true,
+  "cost_scope": "Entire cold process/imports, common frozen fixture readback/hashes, all four complete certificates including paired gates and serialization"
+}

@@ -1,0 +1,309 @@
+{
+  "old_manifests": [
+    {
+      "manifest": "rte/handoff/2026-09-12/SHA256SUMS.tsv",
+      "count": 178,
+      "mismatches": [],
+      "explicit_snapshot_mapping": []
+    },
+    {
+      "manifest": "rte/workstation_runs/recursive_response_report_20260919/artifact_hashes.csv",
+      "count": 49,
+      "mismatches": [],
+      "explicit_snapshot_mapping": []
+    },
+    {
+      "manifest": "rte/workstation_runs/source_initialization_report_20260926/artifact_hashes.csv",
+      "count": 77,
+      "mismatches": [],
+      "explicit_snapshot_mapping": []
+    },
+    {
+      "manifest": "rte/workstation_runs/source_characteristic_report_20260926/artifact_hashes.csv",
+      "count": 168,
+      "mismatches": [],
+      "explicit_snapshot_mapping": [
+        {
+          "original": "docs/research/RTE_WORKSTATION_HANDOFF_2026_09_12.md",
+          "preserved_snapshot": "rte/workstation_runs/tail_solver_report_20260926/previous_handoff_snapshot.md",
+          "sha256": "c1c8099a2182d562aec2f2112d393e6f836179ac189548cac5c9ac17b9b02ebd"
+        }
+      ]
+    }
+  ],
+  "executed_sources": [
+    {
+      "run": "tail_injection_gate_20260926",
+      "original": "rte/augmented_fgmres.py",
+      "resolved": "rte/augmented_fgmres.py",
+      "expected": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "actual": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "matches": true
+    },
+    {
+      "run": "tail_injection_gate_20260926",
+      "original": "rte/tail_response_network.py",
+      "resolved": "rte/tail_response_network.py",
+      "expected": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+      "actual": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+      "matches": true
+    },
+    {
+      "run": "tail_injection_gate_20260926",
+      "original": "rte/audit_tail_injection.py",
+      "resolved": "rte/audit_tail_injection.py",
+      "expected": "6eb42830f4f5a05d996987dc03862cd440604894ebe406bff795b18b1dc49be9",
+      "actual": "6eb42830f4f5a05d996987dc03862cd440604894ebe406bff795b18b1dc49be9",
+      "matches": true
+    },
+    {
+      "run": "tail_direction_pilot_20260926",
+      "original": "rte/augmented_fgmres.py",
+      "resolved": "rte/augmented_fgmres.py",
+      "expected": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "actual": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "matches": true
+    },
+    {
+      "run": "tail_direction_pilot_20260926",
+      "original": "rte/tail_response_network.py",
+      "resolved": "rte/tail_response_network.py",
+      "expected": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+      "actual": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+      "matches": true
+    },
+    {
+      "run": "tail_direction_pilot_20260926",
+      "original": "rte/train_tail_direction.py",
+      "resolved": "rte/workstation_runs/tail_direction_pilot_20260926/train_tail_direction_snapshot.py",
+      "expected": "3f42e44b9bed2d508ed2b7b7be1a3dca65bbe9d893f40bba642c45c0436c7c59",
+      "actual": "3f42e44b9bed2d508ed2b7b7be1a3dca65bbe9d893f40bba642c45c0436c7c59",
+      "matches": true
+    },
+    {
+      "run": "tail_optical_moment_20260926",
+      "original": "rte/augmented_fgmres.py",
+      "resolved": "rte/augmented_fgmres.py",
+      "expected": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "actual": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "matches": true
+    },
+    {
+      "run": "tail_optical_moment_20260926",
+      "original": "rte/tail_response_network.py",
+      "resolved": "rte/tail_response_network.py",
+      "expected": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+      "actual": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+      "matches": true
+    },
+    {
+      "run": "tail_optical_moment_20260926",
+      "original": "rte/optical_tail_network.py",
+      "resolved": "rte/optical_tail_network.py",
+      "expected": "54047cae9ef96a5d072625e26050898f2bc8ee417de4456e4dcc3bf5e8c6928e",
+      "actual": "54047cae9ef96a5d072625e26050898f2bc8ee417de4456e4dcc3bf5e8c6928e",
+      "matches": true
+    },
+    {
+      "run": "tail_optical_moment_20260926",
+      "original": "rte/tail_moment_space.py",
+      "resolved": "rte/tail_moment_space.py",
+      "expected": "55afc159d7c3d9c9c689ae3f9b31ccc8cd4175bb733dff757c2558cb12b1cee5",
+      "actual": "55afc159d7c3d9c9c689ae3f9b31ccc8cd4175bb733dff757c2558cb12b1cee5",
+      "matches": true
+    },
+    {
+      "run": "tail_optical_moment_20260926",
+      "original": "rte/train_tail_direction.py",
+      "resolved": "rte/train_tail_direction.py",
+      "expected": "506c5e4b912222f69ffd9e09fe4ff059849ec740843fc995a14ebe1a118d360d",
+      "actual": "506c5e4b912222f69ffd9e09fe4ff059849ec740843fc995a14ebe1a118d360d",
+      "matches": true
+    },
+    {
+      "run": "tail_solver_benchmark_20260926",
+      "original": "rte/benchmark_tail_solver.py",
+      "resolved": "rte/benchmark_tail_solver.py",
+      "expected": "05424458ec34649a2e592638f2621a7cb4891f280839ae4df55e7da5527b9030",
+      "actual": "05424458ec34649a2e592638f2621a7cb4891f280839ae4df55e7da5527b9030",
+      "matches": true
+    },
+    {
+      "run": "tail_solver_benchmark_20260926",
+      "original": "rte/augmented_fgmres.py",
+      "resolved": "rte/augmented_fgmres.py",
+      "expected": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "actual": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "matches": true
+    },
+    {
+      "run": "tail_solver_benchmark_20260926",
+      "original": "rte/tail_response_network.py",
+      "resolved": "rte/tail_response_network.py",
+      "expected": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+      "actual": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+      "matches": true
+    },
+    {
+      "run": "tail_solver_benchmark_20260926",
+      "original": "rte/optical_tail_network.py",
+      "resolved": "rte/optical_tail_network.py",
+      "expected": "54047cae9ef96a5d072625e26050898f2bc8ee417de4456e4dcc3bf5e8c6928e",
+      "actual": "54047cae9ef96a5d072625e26050898f2bc8ee417de4456e4dcc3bf5e8c6928e",
+      "matches": true
+    },
+    {
+      "run": "tail_solver_benchmark_20260926",
+      "original": "rte/tail_moment_space.py",
+      "resolved": "rte/tail_moment_space.py",
+      "expected": "55afc159d7c3d9c9c689ae3f9b31ccc8cd4175bb733dff757c2558cb12b1cee5",
+      "actual": "55afc159d7c3d9c9c689ae3f9b31ccc8cd4175bb733dff757c2558cb12b1cee5",
+      "matches": true
+    },
+    {
+      "run": "tail_solver_benchmark_20260926",
+      "original": "rte/train_source_predictor.py",
+      "resolved": "rte/train_source_predictor.py",
+      "expected": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4",
+      "actual": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4",
+      "matches": true
+    },
+    {
+      "run": "tail_solver_benchmark_20260926",
+      "original": "rte/source_initialization.py",
+      "resolved": "rte/source_initialization.py",
+      "expected": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af",
+      "actual": "d839a76c104cdedf0017d6b19b3aecb837067d4170819939b137efe07b6543af",
+      "matches": true
+    },
+    {
+      "run": "tail_lookahead_smoke_20260926",
+      "original": "rte/train_tail_lookahead.py",
+      "resolved": "rte/train_tail_lookahead.py",
+      "expected": "210b4e2e00e5923d31a3b4d561fa3816dced9e9090f7595967a84be23d983fe3",
+      "actual": "210b4e2e00e5923d31a3b4d561fa3816dced9e9090f7595967a84be23d983fe3",
+      "matches": true
+    },
+    {
+      "run": "tail_lookahead_smoke_20260926",
+      "original": "rte/tail_lookahead.py",
+      "resolved": "rte/tail_lookahead.py",
+      "expected": "b979dfb964b681f7695171faf80c8bee6fe129e4ffc064effc045d52fe044e2f",
+      "actual": "b979dfb964b681f7695171faf80c8bee6fe129e4ffc064effc045d52fe044e2f",
+      "matches": true
+    },
+    {
+      "run": "tail_lookahead_smoke_20260926",
+      "original": "rte/train_tail_direction.py",
+      "resolved": "rte/train_tail_direction.py",
+      "expected": "506c5e4b912222f69ffd9e09fe4ff059849ec740843fc995a14ebe1a118d360d",
+      "actual": "506c5e4b912222f69ffd9e09fe4ff059849ec740843fc995a14ebe1a118d360d",
+      "matches": true
+    },
+    {
+      "run": "tail_lookahead_smoke_20260926",
+      "original": "rte/augmented_fgmres.py",
+      "resolved": "rte/augmented_fgmres.py",
+      "expected": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "actual": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "matches": true
+    },
+    {
+      "run": "tail_lookahead_smoke_20260926",
+      "original": "rte/global_source_predictor.py",
+      "resolved": "rte/global_source_predictor.py",
+      "expected": "8e90c95245bb13796f6fff324224d7d504062e52ed08f8bda14988afa808f2e5",
+      "actual": "8e90c95245bb13796f6fff324224d7d504062e52ed08f8bda14988afa808f2e5",
+      "matches": true
+    },
+    {
+      "run": "tail_lookahead_20260926",
+      "original": "rte/train_tail_lookahead.py",
+      "resolved": "rte/train_tail_lookahead.py",
+      "expected": "210b4e2e00e5923d31a3b4d561fa3816dced9e9090f7595967a84be23d983fe3",
+      "actual": "210b4e2e00e5923d31a3b4d561fa3816dced9e9090f7595967a84be23d983fe3",
+      "matches": true
+    },
+    {
+      "run": "tail_lookahead_20260926",
+      "original": "rte/tail_lookahead.py",
+      "resolved": "rte/tail_lookahead.py",
+      "expected": "b979dfb964b681f7695171faf80c8bee6fe129e4ffc064effc045d52fe044e2f",
+      "actual": "b979dfb964b681f7695171faf80c8bee6fe129e4ffc064effc045d52fe044e2f",
+      "matches": true
+    },
+    {
+      "run": "tail_lookahead_20260926",
+      "original": "rte/train_tail_direction.py",
+      "resolved": "rte/train_tail_direction.py",
+      "expected": "506c5e4b912222f69ffd9e09fe4ff059849ec740843fc995a14ebe1a118d360d",
+      "actual": "506c5e4b912222f69ffd9e09fe4ff059849ec740843fc995a14ebe1a118d360d",
+      "matches": true
+    },
+    {
+      "run": "tail_lookahead_20260926",
+      "original": "rte/augmented_fgmres.py",
+      "resolved": "rte/augmented_fgmres.py",
+      "expected": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "actual": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "matches": true
+    },
+    {
+      "run": "tail_lookahead_20260926",
+      "original": "rte/global_source_predictor.py",
+      "resolved": "rte/global_source_predictor.py",
+      "expected": "8e90c95245bb13796f6fff324224d7d504062e52ed08f8bda14988afa808f2e5",
+      "actual": "8e90c95245bb13796f6fff324224d7d504062e52ed08f8bda14988afa808f2e5",
+      "matches": true
+    },
+    {
+      "run": "tail_lookahead_gate_20260926",
+      "original": "rte/benchmark_tail_lookahead.py",
+      "resolved": "rte/benchmark_tail_lookahead.py",
+      "expected": "415051c98cde57d4000c526b186a6e70310343ced4cf9754da5ad4d6356898b5",
+      "actual": "415051c98cde57d4000c526b186a6e70310343ced4cf9754da5ad4d6356898b5",
+      "matches": true
+    },
+    {
+      "run": "tail_lookahead_gate_20260926",
+      "original": "rte/benchmark_tail_solver.py",
+      "resolved": "rte/benchmark_tail_solver.py",
+      "expected": "05424458ec34649a2e592638f2621a7cb4891f280839ae4df55e7da5527b9030",
+      "actual": "05424458ec34649a2e592638f2621a7cb4891f280839ae4df55e7da5527b9030",
+      "matches": true
+    },
+    {
+      "run": "tail_multiresolution_bank_20260926",
+      "original": "rte/prepare_tail_multiresolution.py",
+      "resolved": "rte/prepare_tail_multiresolution.py",
+      "expected": "e707854cc8e45f1c9384d3a18cdb58addbce532d87bcc747238d750525dffb11",
+      "actual": "e707854cc8e45f1c9384d3a18cdb58addbce532d87bcc747238d750525dffb11",
+      "matches": true
+    },
+    {
+      "run": "tail_multiresolution_bank_20260926",
+      "original": "rte/train_source_predictor.py",
+      "resolved": "rte/train_source_predictor.py",
+      "expected": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4",
+      "actual": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4",
+      "matches": true
+    },
+    {
+      "run": "tail_multiresolution_bank_20260926",
+      "original": "rte/audit_tail_injection.py",
+      "resolved": "rte/audit_tail_injection.py",
+      "expected": "6eb42830f4f5a05d996987dc03862cd440604894ebe406bff795b18b1dc49be9",
+      "actual": "6eb42830f4f5a05d996987dc03862cd440604894ebe406bff795b18b1dc49be9",
+      "matches": true
+    },
+    {
+      "run": "tail_multiresolution_bank_20260926",
+      "original": "rte/augmented_fgmres.py",
+      "resolved": "rte/augmented_fgmres.py",
+      "expected": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "actual": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+      "matches": true
+    }
+  ],
+  "note": "Historical manifests are unmodified. The evolving handoff is verified at its byte-identical pre-continuation snapshot; the original tail training script also has an exact execution snapshot."
+}

@@ -1,0 +1,274 @@
+[
+  {
+    "classical": "frozen_classical",
+    "neural": "tsa8_reference_cost",
+    "independent_media": 16,
+    "classical_ms": 135.82995033357292,
+    "neural_ms": 140.7130816951394,
+    "saving_percent": -3.595032869830561,
+    "saving_percent_ci95": [
+      -5.296138226056997,
+      -1.916941683069309
+    ],
+    "neural_faster_cases": 4,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "frozen_classical",
+    "neural": "tsa8_reference_phase4_cost",
+    "independent_media": 16,
+    "classical_ms": 135.82995033357292,
+    "neural_ms": 160.52371414843947,
+    "saving_percent": -18.17991080334145,
+    "saving_percent_ci95": [
+      -23.621872972476165,
+      -13.795763126681857
+    ],
+    "neural_faster_cases": 1,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "frozen_classical",
+    "neural": "tsa8_mixed",
+    "independent_media": 16,
+    "classical_ms": 135.82995033357292,
+    "neural_ms": 135.3070930344984,
+    "saving_percent": 0.38493520596193376,
+    "saving_percent_ci95": [
+      -2.6666452789360835,
+      2.956014739630934
+    ],
+    "neural_faster_cases": 6,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "frozen_classical",
+    "neural": "tsa8_phase4",
+    "independent_media": 16,
+    "classical_ms": 135.82995033357292,
+    "neural_ms": 151.0329310549423,
+    "saving_percent": -11.192657204124501,
+    "saving_percent_ci95": [
+      -17.054062375452666,
+      -6.687606792487053
+    ],
+    "neural_faster_cases": 2,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "frozen_classical",
+    "neural": "tsa16_plain",
+    "independent_media": 16,
+    "classical_ms": 135.82995033357292,
+    "neural_ms": 137.7230790676549,
+    "saving_percent": -1.3937491175052497,
+    "saving_percent_ci95": [
+      -6.282467336720031,
+      2.0143075177809795
+    ],
+    "neural_faster_cases": 6,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "frozen_classical",
+    "neural": "tsa16_noop_cost",
+    "independent_media": 16,
+    "classical_ms": 135.82995033357292,
+    "neural_ms": 141.24810742214322,
+    "saving_percent": -3.9889266507602494,
+    "saving_percent_ci95": [
+      -8.464028430634258,
+      -0.5818439843793293
+    ],
+    "neural_faster_cases": 3,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "frozen_classical",
+    "neural": "tsa16_reference",
+    "independent_media": 16,
+    "classical_ms": 135.82995033357292,
+    "neural_ms": 140.1125588454306,
+    "saving_percent": -3.1529191473164797,
+    "saving_percent_ci95": [
+      -7.914234607186672,
+      0.4257977095374817
+    ],
+    "neural_faster_cases": 3,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "frozen_classical",
+    "neural": "tsa16_reference_cost",
+    "independent_media": 16,
+    "classical_ms": 135.82995033357292,
+    "neural_ms": 144.0974974539131,
+    "saving_percent": -6.086689349467189,
+    "saving_percent_ci95": [
+      -10.947773827652231,
+      -2.203175633120762
+    ],
+    "neural_faster_cases": 2,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "frozen_classical",
+    "neural": "tsa16_mixed",
+    "independent_media": 16,
+    "classical_ms": 135.82995033357292,
+    "neural_ms": 142.44065270759165,
+    "saving_percent": -4.866895966452223,
+    "saving_percent_ci95": [
+      -10.835967520063285,
+      -0.24738761504557194
+    ],
+    "neural_faster_cases": 3,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "tsa8_reference_cost",
+    "neural": "tsa8_mixed",
+    "independent_media": 16,
+    "classical_ms": 140.7130816951394,
+    "neural_ms": 135.3070930344984,
+    "saving_percent": 3.8418522254763166,
+    "saving_percent_ci95": [
+      0.31141858792686405,
+      6.712664785248062
+    ],
+    "neural_faster_cases": 12,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "tsa8_reference_phase4_cost",
+    "neural": "tsa8_phase4",
+    "independent_media": 16,
+    "classical_ms": 160.52371414843947,
+    "neural_ms": 151.0329310549423,
+    "saving_percent": 5.912386929149194,
+    "saving_percent_ci95": [
+      2.8126039250064747,
+      9.446465157625722
+    ],
+    "neural_faster_cases": 10,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "tsa8_mixed",
+    "neural": "tsa8_phase4",
+    "independent_media": 16,
+    "classical_ms": 135.3070930344984,
+    "neural_ms": 151.0329310549423,
+    "saving_percent": -11.622330853294137,
+    "saving_percent_ci95": [
+      -16.52300785056998,
+      -6.9261058671057505
+    ],
+    "neural_faster_cases": 2,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "tsa16_plain",
+    "neural": "tsa16_noop_cost",
+    "independent_media": 16,
+    "classical_ms": 137.7230790676549,
+    "neural_ms": 141.24810742214322,
+    "saving_percent": -2.5595044623978325,
+    "saving_percent_ci95": [
+      -3.9452059811910094,
+      -1.1057721334683503
+    ],
+    "neural_faster_cases": 5,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "tsa16_noop_cost",
+    "neural": "tsa16_mixed",
+    "independent_media": 16,
+    "classical_ms": 141.24810742214322,
+    "neural_ms": 142.44065270759165,
+    "saving_percent": -0.8442911605776926,
+    "saving_percent_ci95": [
+      -4.934432856398492,
+      3.2875260161059487
+    ],
+    "neural_faster_cases": 7,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "tsa16_reference",
+    "neural": "tsa16_reference_cost",
+    "independent_media": 16,
+    "classical_ms": 140.1125588454306,
+    "neural_ms": 144.0974974539131,
+    "saving_percent": -2.8440980889361756,
+    "saving_percent_ci95": [
+      -4.167468391354491,
+      -1.4620213393699872
+    ],
+    "neural_faster_cases": 4,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "tsa16_reference_cost",
+    "neural": "tsa16_mixed",
+    "independent_media": 16,
+    "classical_ms": 144.0974974539131,
+    "neural_ms": 142.44065270759165,
+    "saving_percent": 1.1498081337959043,
+    "saving_percent_ci95": [
+      -2.6311255524238177,
+      5.0332991263891085
+    ],
+    "neural_faster_cases": 10,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  },
+  {
+    "classical": "tsa16_reference",
+    "neural": "tsa16_mixed",
+    "independent_media": 16,
+    "classical_ms": 140.1125588454306,
+    "neural_ms": 142.44065270759165,
+    "saving_percent": -1.661588283980553,
+    "saving_percent_ci95": [
+      -5.83140716085965,
+      2.217467167196165
+    ],
+    "neural_faster_cases": 6,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "size": 128,
+    "failed": 0
+  }
+]

@@ -1,0 +1,1506 @@
+[
+  {
+    "index": 0,
+    "axis": 0,
+    "teacher_residual": 7.215861657325212e-10,
+    "prefix_original_residual": 0.12755369604444142,
+    "physical_setup": 0.2611344938632101,
+    "acceptance_setup": 0.08995443093590438,
+    "tsa_setup": 0.020442541921511292,
+    "tsa_capture": 0.04987486102618277,
+    "axis_setup": 0.0076426181476563215,
+    "prefix_acquisition_seconds": 0.09375310898758471,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 7.215860578541907e-10,
+        "optimal_quotient_residual_ratio": 3.2002961707804375e-17,
+        "decoder_seconds": 3.813090734183788e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.668148401956277e-08,
+        "raw_original_residual": 8.344051282592124e-07,
+        "optimal_quotient_residual_ratio": 4.279251709676728e-11,
+        "decoder_seconds": 5.461880937218666e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.33778554949338097,
+        "raw_original_residual": 0.4758413792669269,
+        "optimal_quotient_residual_ratio": 0.9999926666595753,
+        "decoder_seconds": 0.0001187578309327364
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.32387081375593524,
+        "raw_original_residual": 0.5250284937625455,
+        "optimal_quotient_residual_ratio": 0.9997583796541067,
+        "decoder_seconds": 0.00024628383107483387
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.07519398071104141,
+        "raw_original_residual": 0.6140574549794979,
+        "optimal_quotient_residual_ratio": 0.9765952053401683,
+        "decoder_seconds": 0.0003400510177016258
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.051795490882407064,
+        "raw_original_residual": 0.4237430614493605,
+        "optimal_quotient_residual_ratio": 0.941060788366205,
+        "decoder_seconds": 0.0003436880651861429
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.3255082708653615,
+        "raw_original_residual": 0.2747561226426338,
+        "optimal_quotient_residual_ratio": 0.9995871158350035,
+        "decoder_seconds": 0.0005050390027463436
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.32464857201406794,
+        "raw_original_residual": 0.306252013886539,
+        "optimal_quotient_residual_ratio": 0.9995702946472947,
+        "decoder_seconds": 0.0004956340417265892
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 0.00014716302858517444,
+        "raw_original_residual": 0.00027169419470294295,
+        "optimal_quotient_residual_ratio": 4.537059180066466e-06,
+        "decoder_seconds": 0.00032948097214102745
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.32387082312804055,
+        "raw_original_residual": 0.5250282225036049,
+        "optimal_quotient_residual_ratio": 0.9997583866650109,
+        "decoder_seconds": 0.0004926810506731272
+      }
+    }
+  },
+  {
+    "index": 1,
+    "axis": 0,
+    "teacher_residual": 8.328490344659601e-10,
+    "prefix_original_residual": 0.03190266709615509,
+    "physical_setup": 0.005647151032462716,
+    "acceptance_setup": 0.0007416540756821632,
+    "tsa_setup": 0.0033324710093438625,
+    "tsa_capture": 0.012267214013263583,
+    "axis_setup": 0.00040286406874656677,
+    "prefix_acquisition_seconds": 0.010450968984514475,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 8.328490314745983e-10,
+        "optimal_quotient_residual_ratio": 6.815199696760216e-16,
+        "decoder_seconds": 3.5936012864112854e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.4589934316917783e-08,
+        "raw_original_residual": 3.922508085573941e-08,
+        "optimal_quotient_residual_ratio": 1.5117234308857727e-12,
+        "decoder_seconds": 5.455687642097473e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.48397571633067793,
+        "raw_original_residual": 0.036797532212768214,
+        "optimal_quotient_residual_ratio": 0.9999642150572795,
+        "decoder_seconds": 0.00011981395073235035
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.46101015671802187,
+        "raw_original_residual": 0.040537643296554175,
+        "optimal_quotient_residual_ratio": 0.9977478611769265,
+        "decoder_seconds": 0.00016737007535994053
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.08722954562376826,
+        "raw_original_residual": 0.05384457050814631,
+        "optimal_quotient_residual_ratio": 0.8332549217143549,
+        "decoder_seconds": 0.00023029488511383533
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.05657779859915586,
+        "raw_original_residual": 0.04003310529065358,
+        "optimal_quotient_residual_ratio": 0.6947538990161315,
+        "decoder_seconds": 0.0002329039853066206
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.46229158345554255,
+        "raw_original_residual": 0.035107595572308053,
+        "optimal_quotient_residual_ratio": 0.9942950684905438,
+        "decoder_seconds": 0.00035264785401523113
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.4615922250289627,
+        "raw_original_residual": 0.03534317315800738,
+        "optimal_quotient_residual_ratio": 0.9944389421636883,
+        "decoder_seconds": 0.0003549419343471527
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 0.0001138194454500558,
+        "raw_original_residual": 0.00011837343762596543,
+        "optimal_quotient_residual_ratio": 1.376748239336488e-05,
+        "decoder_seconds": 0.000230276957154274
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.4610101607855661,
+        "raw_original_residual": 0.040537678388497166,
+        "optimal_quotient_residual_ratio": 0.9977482184836373,
+        "decoder_seconds": 0.0003491220995783806
+      }
+    }
+  },
+  {
+    "index": 2,
+    "axis": 0,
+    "teacher_residual": 4.217198511665994e-10,
+    "prefix_original_residual": 0.0005570819632883567,
+    "physical_setup": 0.0053603018168359995,
+    "acceptance_setup": 0.0007671029306948185,
+    "tsa_setup": 0.003399686887860298,
+    "tsa_capture": 0.012952825054526329,
+    "axis_setup": 0.0004454490263015032,
+    "prefix_acquisition_seconds": 0.011525774141773582,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 4.217199388329265e-10,
+        "optimal_quotient_residual_ratio": 5.730731676451215e-13,
+        "decoder_seconds": 3.651878796517849e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.4847691017990387e-08,
+        "raw_original_residual": 8.23822710470523e-10,
+        "optimal_quotient_residual_ratio": 2.1869004720790687e-12,
+        "decoder_seconds": 5.21061010658741e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.6484488714317382,
+        "raw_original_residual": 0.0006230325407402416,
+        "optimal_quotient_residual_ratio": 0.9999795504313311,
+        "decoder_seconds": 0.00010971096344292164
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.5224385201716363,
+        "raw_original_residual": 0.0007136711292575272,
+        "optimal_quotient_residual_ratio": 0.9815015581686819,
+        "decoder_seconds": 0.00014774594455957413
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.07050421029908067,
+        "raw_original_residual": 0.00042432109383046013,
+        "optimal_quotient_residual_ratio": 0.42198083383563917,
+        "decoder_seconds": 0.00022969604469835758
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.04628819660803224,
+        "raw_original_residual": 0.0003232371562248872,
+        "optimal_quotient_residual_ratio": 0.2796892206130501,
+        "decoder_seconds": 0.00023207813501358032
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.5238734958161207,
+        "raw_original_residual": 0.0006173124672442334,
+        "optimal_quotient_residual_ratio": 0.9778714037399064,
+        "decoder_seconds": 0.0003346360754221678
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.5230947168924611,
+        "raw_original_residual": 0.0006235143716450871,
+        "optimal_quotient_residual_ratio": 0.9763241774252336,
+        "decoder_seconds": 0.00033550593070685863
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 0.002299425661949337,
+        "raw_original_residual": 5.779869703808058e-05,
+        "optimal_quotient_residual_ratio": 0.010764600080280759,
+        "decoder_seconds": 0.00023497804068028927
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.5224400954318091,
+        "raw_original_residual": 0.000714285348909329,
+        "optimal_quotient_residual_ratio": 0.9823125100550866,
+        "decoder_seconds": 0.0003357729874551296
+      }
+    }
+  },
+  {
+    "index": 3,
+    "axis": 1,
+    "teacher_residual": 6.430497998019388e-10,
+    "prefix_original_residual": 0.040209938700436806,
+    "physical_setup": 0.005614080931991339,
+    "acceptance_setup": 0.0007333669345825911,
+    "tsa_setup": 0.003443945897743106,
+    "tsa_capture": 0.012709847884252667,
+    "axis_setup": 0.00038222596049308777,
+    "prefix_acquisition_seconds": 0.010681600077077746,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 6.430496539425502e-10,
+        "optimal_quotient_residual_ratio": 2.5575385913109886e-16,
+        "decoder_seconds": 3.9187027141451836e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.582200698100064e-08,
+        "raw_original_residual": 5.2321055975481844e-08,
+        "optimal_quotient_residual_ratio": 1.6931134888560582e-12,
+        "decoder_seconds": 5.294615402817726e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.6921885235196938,
+        "raw_original_residual": 0.05227512188436435,
+        "optimal_quotient_residual_ratio": 0.9999642840571842,
+        "decoder_seconds": 0.00010738102719187737
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.626425581524815,
+        "raw_original_residual": 0.06290267985807071,
+        "optimal_quotient_residual_ratio": 0.9959739079928471,
+        "decoder_seconds": 0.00015488802455365658
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.12715547190160564,
+        "raw_original_residual": 0.08241244229834559,
+        "optimal_quotient_residual_ratio": 0.9053370170649685,
+        "decoder_seconds": 0.00024004490114748478
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.08032732559409188,
+        "raw_original_residual": 0.06027670203698308,
+        "optimal_quotient_residual_ratio": 0.7914218346543725,
+        "decoder_seconds": 0.00022510206326842308
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.628857925814848,
+        "raw_original_residual": 0.05068065587510191,
+        "optimal_quotient_residual_ratio": 0.9976004628078808,
+        "decoder_seconds": 0.0003402379807084799
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.6274153299234525,
+        "raw_original_residual": 0.05165426345971046,
+        "optimal_quotient_residual_ratio": 0.9964746837127936,
+        "decoder_seconds": 0.00034076510928571224
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 4.9635750890097905e-05,
+        "raw_original_residual": 4.4886987746522036e-05,
+        "optimal_quotient_residual_ratio": 1.246160835278394e-06,
+        "decoder_seconds": 0.00025098701007664204
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.6264255819493172,
+        "raw_original_residual": 0.06290268028368814,
+        "optimal_quotient_residual_ratio": 0.9959739390951855,
+        "decoder_seconds": 0.00035484996624290943
+      }
+    }
+  },
+  {
+    "index": 4,
+    "axis": 0,
+    "teacher_residual": 9.744856585545338e-10,
+    "prefix_original_residual": 0.21206151045094376,
+    "physical_setup": 0.005567904096096754,
+    "acceptance_setup": 0.000736182788386941,
+    "tsa_setup": 0.0033968649804592133,
+    "tsa_capture": 0.012429543072357774,
+    "axis_setup": 0.0004465270321816206,
+    "prefix_acquisition_seconds": 0.010857804911211133,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 9.744857559599692e-10,
+        "optimal_quotient_residual_ratio": 2.1098685983026706e-17,
+        "decoder_seconds": 3.53911891579628e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.6301024219962544e-08,
+        "raw_original_residual": 1.321683886682088e-06,
+        "optimal_quotient_residual_ratio": 3.8844664489339024e-11,
+        "decoder_seconds": 5.4592033848166466e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.18422860114083803,
+        "raw_original_residual": 0.4036558802461517,
+        "optimal_quotient_residual_ratio": 0.9999322276028643,
+        "decoder_seconds": 0.00012191198766231537
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.17743696229140382,
+        "raw_original_residual": 0.2891023372469433,
+        "optimal_quotient_residual_ratio": 0.9976161587530592,
+        "decoder_seconds": 0.0001696520484983921
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.030697703008292283,
+        "raw_original_residual": 0.8032280294899853,
+        "optimal_quotient_residual_ratio": 0.9745777331351797,
+        "decoder_seconds": 0.0002292119897902012
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.019610659666862606,
+        "raw_original_residual": 0.6001156151300255,
+        "optimal_quotient_residual_ratio": 0.9393135065023674,
+        "decoder_seconds": 0.0002272778656333685
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.17765137533271344,
+        "raw_original_residual": 0.25527873976903287,
+        "optimal_quotient_residual_ratio": 0.9934919428431737,
+        "decoder_seconds": 0.00034844898618757725
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.17753400199231806,
+        "raw_original_residual": 0.25422430649572664,
+        "optimal_quotient_residual_ratio": 0.9936976814356979,
+        "decoder_seconds": 0.0003443760797381401
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 1.653278848757547e-05,
+        "raw_original_residual": 0.00022441113004578294,
+        "optimal_quotient_residual_ratio": 1.1198630041054733e-06,
+        "decoder_seconds": 0.000225801020860672
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.17743696300312495,
+        "raw_original_residual": 0.2891023267231697,
+        "optimal_quotient_residual_ratio": 0.9976161682298685,
+        "decoder_seconds": 0.0003402968868613243
+      }
+    }
+  },
+  {
+    "index": 5,
+    "axis": 1,
+    "teacher_residual": 4.612236007782249e-10,
+    "prefix_original_residual": 0.009049946104836422,
+    "physical_setup": 0.005507031921297312,
+    "acceptance_setup": 0.0006990230176597834,
+    "tsa_setup": 0.0033296539913862944,
+    "tsa_capture": 0.012385830050334334,
+    "axis_setup": 0.0004293180536478758,
+    "prefix_acquisition_seconds": 0.010673145996406674,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 4.61223712116683e-10,
+        "optimal_quotient_residual_ratio": 2.5973547364788143e-15,
+        "decoder_seconds": 3.525102511048317e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.493419032144611e-08,
+        "raw_original_residual": 5.2137608313884555e-09,
+        "optimal_quotient_residual_ratio": 3.3190137322856587e-13,
+        "decoder_seconds": 5.3377123549580574e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.9052903141715748,
+        "raw_original_residual": 0.010364818843573468,
+        "optimal_quotient_residual_ratio": 0.9998589474995728,
+        "decoder_seconds": 0.00012352503836154938
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.8569391132862184,
+        "raw_original_residual": 0.010536324413916439,
+        "optimal_quotient_residual_ratio": 0.9954378373350107,
+        "decoder_seconds": 0.000168902100995183
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.14787788783439534,
+        "raw_original_residual": 0.013190351636615834,
+        "optimal_quotient_residual_ratio": 0.8293594681867533,
+        "decoder_seconds": 0.0002199739683419466
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.09491746838247699,
+        "raw_original_residual": 0.010248963986210023,
+        "optimal_quotient_residual_ratio": 0.6816057375014727,
+        "decoder_seconds": 0.0002391499001532793
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.8580820118334871,
+        "raw_original_residual": 0.009450400087143748,
+        "optimal_quotient_residual_ratio": 0.9893987472519822,
+        "decoder_seconds": 0.00035171909257769585
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.8575299273783993,
+        "raw_original_residual": 0.009520086840152944,
+        "optimal_quotient_residual_ratio": 0.9897842891713788,
+        "decoder_seconds": 0.00035658106207847595
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 0.00048510853622016846,
+        "raw_original_residual": 8.172457284768071e-05,
+        "optimal_quotient_residual_ratio": 8.154799975274052e-05,
+        "decoder_seconds": 0.0002391610760241747
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.8569391525321257,
+        "raw_original_residual": 0.010536389639388683,
+        "optimal_quotient_residual_ratio": 0.9954416782400084,
+        "decoder_seconds": 0.0003497388679534197
+      }
+    }
+  },
+  {
+    "index": 6,
+    "axis": 0,
+    "teacher_residual": 3.1448336005082597e-10,
+    "prefix_original_residual": 0.0623250806405128,
+    "physical_setup": 0.005672861123457551,
+    "acceptance_setup": 0.0007731840014457703,
+    "tsa_setup": 0.003506684908643365,
+    "tsa_capture": 0.012403544969856739,
+    "axis_setup": 0.00038676708936691284,
+    "prefix_acquisition_seconds": 0.010487015126273036,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 3.1448345909789253e-10,
+        "optimal_quotient_residual_ratio": 2.5460675222370935e-17,
+        "decoder_seconds": 3.70820052921772e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.469468424689096e-08,
+        "raw_original_residual": 9.098892530043327e-08,
+        "optimal_quotient_residual_ratio": 2.1313330376391922e-12,
+        "decoder_seconds": 5.307584069669247e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.5439939814674372,
+        "raw_original_residual": 0.0875328331609678,
+        "optimal_quotient_residual_ratio": 0.9999250108104668,
+        "decoder_seconds": 0.0001145459245890379
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.517472760494339,
+        "raw_original_residual": 0.09259944421087288,
+        "optimal_quotient_residual_ratio": 0.9972782510414931,
+        "decoder_seconds": 0.00015329685993492603
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.09993193758429679,
+        "raw_original_residual": 0.1544695023224453,
+        "optimal_quotient_residual_ratio": 0.9296765602555466,
+        "decoder_seconds": 0.00023315590806305408
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.06413234779392939,
+        "raw_original_residual": 0.11475849468315139,
+        "optimal_quotient_residual_ratio": 0.8478408875221197,
+        "decoder_seconds": 0.0002286259550601244
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.5186403978752963,
+        "raw_original_residual": 0.07533689834469304,
+        "optimal_quotient_residual_ratio": 0.994894746615602,
+        "decoder_seconds": 0.00035919505171477795
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.5179961520102717,
+        "raw_original_residual": 0.07693884005719348,
+        "optimal_quotient_residual_ratio": 0.9948731798743687,
+        "decoder_seconds": 0.0003362600691616535
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 0.004568167865693958,
+        "raw_original_residual": 0.0007361410233398906,
+        "optimal_quotient_residual_ratio": 0.00013950698411433756,
+        "decoder_seconds": 0.0002268119715154171
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.5174778182577581,
+        "raw_original_residual": 0.09258959303874946,
+        "optimal_quotient_residual_ratio": 0.9972795738212188,
+        "decoder_seconds": 0.0003439560532569885
+      }
+    }
+  },
+  {
+    "index": 7,
+    "axis": 1,
+    "teacher_residual": 4.890906117857884e-10,
+    "prefix_original_residual": 0.05154978015747816,
+    "physical_setup": 0.005676573840901256,
+    "acceptance_setup": 0.0007375678978860378,
+    "tsa_setup": 0.0035653039813041687,
+    "tsa_capture": 0.012667242204770446,
+    "axis_setup": 0.00043729692697525024,
+    "prefix_acquisition_seconds": 0.010676014004275203,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 4.890895106219181e-10,
+        "optimal_quotient_residual_ratio": 9.001669475391875e-17,
+        "decoder_seconds": 3.5845907405018806e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.4952852781616855e-08,
+        "raw_original_residual": 8.778951998344376e-08,
+        "optimal_quotient_residual_ratio": 2.9002171603480136e-12,
+        "decoder_seconds": 5.484186112880707e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.4913844253953196,
+        "raw_original_residual": 0.07739232225830792,
+        "optimal_quotient_residual_ratio": 0.9999267182280963,
+        "decoder_seconds": 0.0001133340410888195
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.47853170795802286,
+        "raw_original_residual": 0.08072424150758761,
+        "optimal_quotient_residual_ratio": 0.9992833892633991,
+        "decoder_seconds": 0.0001499829813838005
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.0975265329129706,
+        "raw_original_residual": 0.13981073105180744,
+        "optimal_quotient_residual_ratio": 0.9560783025006164,
+        "decoder_seconds": 0.00022902805358171463
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.06493456863026031,
+        "raw_original_residual": 0.10378271541155978,
+        "optimal_quotient_residual_ratio": 0.8914667075776966,
+        "decoder_seconds": 0.00022972398437559605
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.48002086600738214,
+        "raw_original_residual": 0.0572274916469479,
+        "optimal_quotient_residual_ratio": 0.9937336535995582,
+        "decoder_seconds": 0.0003474301192909479
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.4792607433363686,
+        "raw_original_residual": 0.05950496970798426,
+        "optimal_quotient_residual_ratio": 0.9955447074594954,
+        "decoder_seconds": 0.00034550786949694157
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 2.9956013581766665e-05,
+        "raw_original_residual": 9.410554616212572e-05,
+        "optimal_quotient_residual_ratio": 3.3325509592313986e-06,
+        "decoder_seconds": 0.0002390530426055193
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.4785317083424443,
+        "raw_original_residual": 0.08072423496977336,
+        "optimal_quotient_residual_ratio": 0.9992834267160735,
+        "decoder_seconds": 0.0003486890345811844
+      }
+    }
+  },
+  {
+    "index": 8,
+    "axis": 0,
+    "teacher_residual": 3.837130152977778e-10,
+    "prefix_original_residual": 0.02343722904292583,
+    "physical_setup": 0.005483645014464855,
+    "acceptance_setup": 0.000767907127737999,
+    "tsa_setup": 0.003656639950349927,
+    "tsa_capture": 0.012612455990165472,
+    "axis_setup": 0.00040104822255671024,
+    "prefix_acquisition_seconds": 0.010856784181669354,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 3.8371303407950585e-10,
+        "optimal_quotient_residual_ratio": 2.6804059600070734e-16,
+        "decoder_seconds": 3.5125063732266426e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.519466290060876e-08,
+        "raw_original_residual": 2.3195422350143756e-08,
+        "optimal_quotient_residual_ratio": 9.79471763098711e-13,
+        "decoder_seconds": 5.405698902904987e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.6733985164235824,
+        "raw_original_residual": 0.03197789263926343,
+        "optimal_quotient_residual_ratio": 0.9998917006947535,
+        "decoder_seconds": 0.0001225669402629137
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.6691453907046485,
+        "raw_original_residual": 0.032908099046123,
+        "optimal_quotient_residual_ratio": 0.9997912907537109,
+        "decoder_seconds": 0.00017137196846306324
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.12603017570510622,
+        "raw_original_residual": 0.04901775212862661,
+        "optimal_quotient_residual_ratio": 0.8965680321414286,
+        "decoder_seconds": 0.00023002689704298973
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.08917161703897072,
+        "raw_original_residual": 0.03843045106235478,
+        "optimal_quotient_residual_ratio": 0.8096924286293798,
+        "decoder_seconds": 0.00022315490059554577
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.6708187427717773,
+        "raw_original_residual": 0.024346305668357965,
+        "optimal_quotient_residual_ratio": 0.9975052395657299,
+        "decoder_seconds": 0.0003555391449481249
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.6701462758123349,
+        "raw_original_residual": 0.025014663514702697,
+        "optimal_quotient_residual_ratio": 0.9983563051888823,
+        "decoder_seconds": 0.0003497328143566847
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 0.0001473110859235604,
+        "raw_original_residual": 0.00010765092395630574,
+        "optimal_quotient_residual_ratio": 2.1097111324284936e-05,
+        "decoder_seconds": 0.00023311516270041466
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.669145397665464,
+        "raw_original_residual": 0.03290814069593777,
+        "optimal_quotient_residual_ratio": 0.999791457951822,
+        "decoder_seconds": 0.0003385399468243122
+      }
+    }
+  },
+  {
+    "index": 9,
+    "axis": 0,
+    "teacher_residual": 6.532091587071398e-10,
+    "prefix_original_residual": 0.039935558565344864,
+    "physical_setup": 0.00563626317307353,
+    "acceptance_setup": 0.0007282679434865713,
+    "tsa_setup": 0.0035226522013545036,
+    "tsa_capture": 0.012977756094187498,
+    "axis_setup": 0.00042373710311949253,
+    "prefix_acquisition_seconds": 0.01088170986622572,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 6.532091951606831e-10,
+        "optimal_quotient_residual_ratio": 2.675377393340932e-16,
+        "decoder_seconds": 3.709178417921066e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.5246906851369773e-08,
+        "raw_original_residual": 4.6025678610419853e-08,
+        "optimal_quotient_residual_ratio": 1.3282519520922504e-12,
+        "decoder_seconds": 5.495990626513958e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.5491585040814302,
+        "raw_original_residual": 0.04533438009731591,
+        "optimal_quotient_residual_ratio": 0.9998927758084128,
+        "decoder_seconds": 0.00011247186921536922
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.5277620033882503,
+        "raw_original_residual": 0.04640550769173614,
+        "optimal_quotient_residual_ratio": 0.9961425221156843,
+        "decoder_seconds": 0.00016824807971715927
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.08798342243755022,
+        "raw_original_residual": 0.07662229664426973,
+        "optimal_quotient_residual_ratio": 0.8946588270442081,
+        "decoder_seconds": 0.00022709905169904232
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.05509966947630462,
+        "raw_original_residual": 0.05841287734157809,
+        "optimal_quotient_residual_ratio": 0.7835590681892642,
+        "decoder_seconds": 0.0002431210596114397
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.5282621215774604,
+        "raw_original_residual": 0.04234100021047314,
+        "optimal_quotient_residual_ratio": 0.9914651695309151,
+        "decoder_seconds": 0.0003546548541635275
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.5280159891514031,
+        "raw_original_residual": 0.042625181604181335,
+        "optimal_quotient_residual_ratio": 0.991848494878304,
+        "decoder_seconds": 0.0003649359568953514
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 7.073864053004213e-05,
+        "raw_original_residual": 0.00010911941409625342,
+        "optimal_quotient_residual_ratio": 7.465940397909231e-06,
+        "decoder_seconds": 0.0002464200370013714
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.5277620047828154,
+        "raw_original_residual": 0.046405523310128545,
+        "optimal_quotient_residual_ratio": 0.9961427858399093,
+        "decoder_seconds": 0.00035547115840017796
+      }
+    }
+  },
+  {
+    "index": 10,
+    "axis": 0,
+    "teacher_residual": 1.636331567866299e-10,
+    "prefix_original_residual": 0.0004969518768364962,
+    "physical_setup": 0.005501314997673035,
+    "acceptance_setup": 0.0007276320829987526,
+    "tsa_setup": 0.003300720127299428,
+    "tsa_capture": 0.012846543919295073,
+    "axis_setup": 0.0004357770085334778,
+    "prefix_acquisition_seconds": 0.010818540817126632,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 1.636331263683024e-10,
+        "optimal_quotient_residual_ratio": 1.0842109311665332e-13,
+        "decoder_seconds": 3.5427045077085495e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.5015333847911535e-08,
+        "raw_original_residual": 4.6491152103220306e-10,
+        "optimal_quotient_residual_ratio": 8.752083435512885e-13,
+        "decoder_seconds": 5.468213930726051e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.7990129704678937,
+        "raw_original_residual": 0.001259754837697069,
+        "optimal_quotient_residual_ratio": 0.9997679683726616,
+        "decoder_seconds": 0.00012445682659745216
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.7914425433448885,
+        "raw_original_residual": 0.0012938246601526752,
+        "optimal_quotient_residual_ratio": 0.9995682661549069,
+        "decoder_seconds": 0.00016103102825582027
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.2603014113026157,
+        "raw_original_residual": 0.000709211644216675,
+        "optimal_quotient_residual_ratio": 0.7526456213924604,
+        "decoder_seconds": 0.00023116311058402061
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.21039714445600502,
+        "raw_original_residual": 0.0005953944221879317,
+        "optimal_quotient_residual_ratio": 0.6632473870166677,
+        "decoder_seconds": 0.00022486504167318344
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.8002009326698296,
+        "raw_original_residual": 0.0005584682094726056,
+        "optimal_quotient_residual_ratio": 0.9991549374493256,
+        "decoder_seconds": 0.00034900009632110596
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.7969398729885584,
+        "raw_original_residual": 0.0006251028613782874,
+        "optimal_quotient_residual_ratio": 0.9992692866123147,
+        "decoder_seconds": 0.0003500119782984257
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 0.006429361633068672,
+        "raw_original_residual": 0.00010477109848170481,
+        "optimal_quotient_residual_ratio": 0.044448214473211366,
+        "decoder_seconds": 0.00022754911333322525
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.7914502664986184,
+        "raw_original_residual": 0.0012946866812918833,
+        "optimal_quotient_residual_ratio": 0.9997319917047105,
+        "decoder_seconds": 0.00034536514431238174
+      }
+    }
+  },
+  {
+    "index": 11,
+    "axis": 0,
+    "teacher_residual": 2.547523026588618e-10,
+    "prefix_original_residual": 0.0026224645242185047,
+    "physical_setup": 0.005483034998178482,
+    "acceptance_setup": 0.0007682398427277803,
+    "tsa_setup": 0.003713595913723111,
+    "tsa_capture": 0.012928721029311419,
+    "axis_setup": 0.00040193996392190456,
+    "prefix_acquisition_seconds": 0.011021753074601293,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 2.547523596056572e-10,
+        "optimal_quotient_residual_ratio": 9.4366356387705e-15,
+        "decoder_seconds": 3.7144869565963745e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.5273028728482077e-08,
+        "raw_original_residual": 1.9244979318080582e-09,
+        "optimal_quotient_residual_ratio": 5.385371249086817e-13,
+        "decoder_seconds": 5.251402035355568e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.9012826373581168,
+        "raw_original_residual": 0.0037632273088382484,
+        "optimal_quotient_residual_ratio": 0.9998611160193202,
+        "decoder_seconds": 0.00011398200877010822
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.8505178307867638,
+        "raw_original_residual": 0.0038946125756812748,
+        "optimal_quotient_residual_ratio": 0.9975390330659957,
+        "decoder_seconds": 0.00016443012282252312
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.17774229821969803,
+        "raw_original_residual": 0.003351524224038577,
+        "optimal_quotient_residual_ratio": 0.6696170421441073,
+        "decoder_seconds": 0.00022680009715259075
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.1250186686480424,
+        "raw_original_residual": 0.00251844770884798,
+        "optimal_quotient_residual_ratio": 0.5117753757745742,
+        "decoder_seconds": 0.00023722113110125065
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.8536832619654924,
+        "raw_original_residual": 0.0027902058280821107,
+        "optimal_quotient_residual_ratio": 0.9907048905327811,
+        "decoder_seconds": 0.0003528750967234373
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.8521876644796128,
+        "raw_original_residual": 0.002890534218415043,
+        "optimal_quotient_residual_ratio": 0.9923581133036682,
+        "decoder_seconds": 0.00034449598751962185
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 0.0009195924025978796,
+        "raw_original_residual": 5.5686188946280166e-05,
+        "optimal_quotient_residual_ratio": 0.0004508953402795517,
+        "decoder_seconds": 0.00023266486823558807
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.8505179825402401,
+        "raw_original_residual": 0.0038947067415613227,
+        "optimal_quotient_residual_ratio": 0.997549395121293,
+        "decoder_seconds": 0.0003555158618837595
+      }
+    }
+  },
+  {
+    "index": 12,
+    "axis": 0,
+    "teacher_residual": 1.458242932088875e-10,
+    "prefix_original_residual": 0.008637859855120372,
+    "physical_setup": 0.005405594129115343,
+    "acceptance_setup": 0.0007443651556968689,
+    "tsa_setup": 0.003585540922358632,
+    "tsa_capture": 0.01282795099541545,
+    "axis_setup": 0.0004448618274182081,
+    "prefix_acquisition_seconds": 0.011334360111504793,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 1.458243771262675e-10,
+        "optimal_quotient_residual_ratio": 2.8500202969166383e-16,
+        "decoder_seconds": 3.803404979407787e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.553511774290915e-08,
+        "raw_original_residual": 7.890479369973343e-09,
+        "optimal_quotient_residual_ratio": 8.344374053978841e-13,
+        "decoder_seconds": 5.349493585526943e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.9051504935658566,
+        "raw_original_residual": 0.012085204350909212,
+        "optimal_quotient_residual_ratio": 0.9999891749531666,
+        "decoder_seconds": 0.00011142110452055931
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.8476434675277559,
+        "raw_original_residual": 0.013638743281258997,
+        "optimal_quotient_residual_ratio": 0.9987154442644646,
+        "decoder_seconds": 0.00016213883645832539
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.167595273248613,
+        "raw_original_residual": 0.013930481056021845,
+        "optimal_quotient_residual_ratio": 0.8031094989059954,
+        "decoder_seconds": 0.00022114510647952557
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.11212685170695794,
+        "raw_original_residual": 0.010105379576852046,
+        "optimal_quotient_residual_ratio": 0.644261719140081,
+        "decoder_seconds": 0.00024329801090061665
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.8505874893253688,
+        "raw_original_residual": 0.010242276769209836,
+        "optimal_quotient_residual_ratio": 0.9985882058566886,
+        "decoder_seconds": 0.00035287695936858654
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.8490194589033109,
+        "raw_original_residual": 0.010535118749107114,
+        "optimal_quotient_residual_ratio": 0.9981723885154675,
+        "decoder_seconds": 0.000346573069691658
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 0.0003745964893218219,
+        "raw_original_residual": 0.00010748300523070191,
+        "optimal_quotient_residual_ratio": 0.00015483434079879092,
+        "decoder_seconds": 0.0002266101073473692
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.8476434925697969,
+        "raw_original_residual": 0.013638834012264789,
+        "optimal_quotient_residual_ratio": 0.9987175784098233,
+        "decoder_seconds": 0.0003470329102128744
+      }
+    }
+  },
+  {
+    "index": 13,
+    "axis": 1,
+    "teacher_residual": 6.659014061717092e-10,
+    "prefix_original_residual": 0.04249725853786791,
+    "physical_setup": 0.005315645132213831,
+    "acceptance_setup": 0.0007848080713301897,
+    "tsa_setup": 0.003523563966155052,
+    "tsa_capture": 0.012852461775764823,
+    "axis_setup": 0.0004450608976185322,
+    "prefix_acquisition_seconds": 0.01129763014614582,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 6.659015679171914e-10,
+        "optimal_quotient_residual_ratio": 2.4552642766324024e-16,
+        "decoder_seconds": 3.611994907259941e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.5480546509512442e-08,
+        "raw_original_residual": 3.8795689323973435e-08,
+        "optimal_quotient_residual_ratio": 8.333838044081748e-13,
+        "decoder_seconds": 5.573383532464504e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.9079356851095177,
+        "raw_original_residual": 0.050433671390130004,
+        "optimal_quotient_residual_ratio": 0.9999635785027523,
+        "decoder_seconds": 0.0001292990054935217
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.7410455353291723,
+        "raw_original_residual": 0.06468234595298995,
+        "optimal_quotient_residual_ratio": 0.991850018269625,
+        "decoder_seconds": 0.00015816488303244114
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.15959962016872623,
+        "raw_original_residual": 0.09221854437888811,
+        "optimal_quotient_residual_ratio": 0.9338791815051515,
+        "decoder_seconds": 0.00023268279619514942
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.10280407343916273,
+        "raw_original_residual": 0.06894598055902654,
+        "optimal_quotient_residual_ratio": 0.8347602297644946,
+        "decoder_seconds": 0.00023183715529739857
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.7452722769792757,
+        "raw_original_residual": 0.05518162542223128,
+        "optimal_quotient_residual_ratio": 0.9979370185139136,
+        "decoder_seconds": 0.000351207097992301
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.7428036021078291,
+        "raw_original_residual": 0.05440344673210751,
+        "optimal_quotient_residual_ratio": 0.9956955726884605,
+        "decoder_seconds": 0.0003464571200311184
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 0.00111066878400425,
+        "raw_original_residual": 0.0003331320948174612,
+        "optimal_quotient_residual_ratio": 6.144632459763621e-05,
+        "decoder_seconds": 0.0002400821540504694
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.741045659144053,
+        "raw_original_residual": 0.06468231358593865,
+        "optimal_quotient_residual_ratio": 0.9918502113807858,
+        "decoder_seconds": 0.0003539249300956726
+      }
+    }
+  },
+  {
+    "index": 14,
+    "axis": 1,
+    "teacher_residual": 5.382501873933075e-10,
+    "prefix_original_residual": 0.08394834951569535,
+    "physical_setup": 0.005185618065297604,
+    "acceptance_setup": 0.0007266541942954063,
+    "tsa_setup": 0.003451160853728652,
+    "tsa_capture": 0.012662495020776987,
+    "axis_setup": 0.0003951599355787039,
+    "prefix_acquisition_seconds": 0.011001823004335165,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 5.382504464817734e-10,
+        "optimal_quotient_residual_ratio": 4.1083321955739624e-17,
+        "decoder_seconds": 3.6634039133787155e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.4544948744994997e-08,
+        "raw_original_residual": 2.4660182279410825e-07,
+        "optimal_quotient_residual_ratio": 8.629152546909318e-12,
+        "decoder_seconds": 5.580089055001736e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.3739538424142509,
+        "raw_original_residual": 0.13330465535840827,
+        "optimal_quotient_residual_ratio": 0.9999477128796321,
+        "decoder_seconds": 0.00011564581654965878
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.36699461557130914,
+        "raw_original_residual": 0.13032393284259056,
+        "optimal_quotient_residual_ratio": 0.9987522877141464,
+        "decoder_seconds": 0.00016977009363472462
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.06376820323241113,
+        "raw_original_residual": 0.2829595954354612,
+        "optimal_quotient_residual_ratio": 0.981404576916737,
+        "decoder_seconds": 0.000234619015827775
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.04199554560155882,
+        "raw_original_residual": 0.2140454363524067,
+        "optimal_quotient_residual_ratio": 0.9433691105060791,
+        "decoder_seconds": 0.00022896798327565193
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.3675300377594384,
+        "raw_original_residual": 0.09353918495819312,
+        "optimal_quotient_residual_ratio": 0.9924103700370541,
+        "decoder_seconds": 0.0003564930520951748
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.36726316108285295,
+        "raw_original_residual": 0.09740061930392094,
+        "optimal_quotient_residual_ratio": 0.9942202279363727,
+        "decoder_seconds": 0.0003485921770334244
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 1.2093434037405984e-05,
+        "raw_original_residual": 0.00010073254968933349,
+        "optimal_quotient_residual_ratio": 1.4398436204181808e-06,
+        "decoder_seconds": 0.000246688025072217
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.3669946156463193,
+        "raw_original_residual": 0.13032387997499073,
+        "optimal_quotient_residual_ratio": 0.9987523077986606,
+        "decoder_seconds": 0.0003609920386224985
+      }
+    }
+  },
+  {
+    "index": 15,
+    "axis": 0,
+    "teacher_residual": 1.816559394260917e-10,
+    "prefix_original_residual": 0.0066777700662777615,
+    "physical_setup": 0.005247196881100535,
+    "acceptance_setup": 0.0007404698990285397,
+    "tsa_setup": 0.0034255660139024258,
+    "tsa_capture": 0.01253604399971664,
+    "axis_setup": 0.0003947499208152294,
+    "prefix_acquisition_seconds": 0.010583732975646853,
+    "representations": {
+      "exact64": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 0.0,
+        "raw_original_residual": 1.8165594592463508e-10,
+        "optimal_quotient_residual_ratio": 7.40007827030678e-16,
+        "decoder_seconds": 3.67029570043087e-05
+      },
+      "full32": {
+        "coefficient_complex_count": 196608,
+        "dof_fraction": 1.0,
+        "field_relative_error": 2.477426403388823e-08,
+        "raw_original_residual": 5.795205359490865e-09,
+        "optimal_quotient_residual_ratio": 7.531379889308106e-13,
+        "decoder_seconds": 5.5077020078897476e-05
+      },
+      "p0_full": {
+        "coefficient_complex_count": 16384,
+        "dof_fraction": 0.08333333333333333,
+        "field_relative_error": 0.9269136532879856,
+        "raw_original_residual": 0.012556805504877925,
+        "optimal_quotient_residual_ratio": 0.9999650187336421,
+        "decoder_seconds": 0.00011584698222577572
+      },
+      "p1_full": {
+        "coefficient_complex_count": 49152,
+        "dof_fraction": 0.25,
+        "field_relative_error": 0.9184260318493177,
+        "raw_original_residual": 0.013136692430504351,
+        "optimal_quotient_residual_ratio": 0.9998510843524505,
+        "decoder_seconds": 0.00015359907411038876
+      },
+      "all_f8": {
+        "coefficient_complex_count": 3468,
+        "dof_fraction": 0.01763916015625,
+        "field_relative_error": 0.2067353947473816,
+        "raw_original_residual": 0.012322275845614976,
+        "optimal_quotient_residual_ratio": 0.8642456171146465,
+        "decoder_seconds": 0.00023053796030580997
+      },
+      "all_f16": {
+        "coefficient_complex_count": 13068,
+        "dof_fraction": 0.06646728515625,
+        "field_relative_error": 0.15066685452787149,
+        "raw_original_residual": 0.009718715224101025,
+        "optimal_quotient_residual_ratio": 0.7628969584171006,
+        "decoder_seconds": 0.00023455312475562096
+      },
+      "p1_f8": {
+        "coefficient_complex_count": 867,
+        "dof_fraction": 0.0044097900390625,
+        "field_relative_error": 0.9229514648764139,
+        "raw_original_residual": 0.007461118080840702,
+        "optimal_quotient_residual_ratio": 0.9997043732168371,
+        "decoder_seconds": 0.0003535368014127016
+      },
+      "p1_f16": {
+        "coefficient_complex_count": 3267,
+        "dof_fraction": 0.0166168212890625,
+        "field_relative_error": 0.9208148831341781,
+        "raw_original_residual": 0.008109881093772283,
+        "optimal_quotient_residual_ratio": 0.9996438600564606,
+        "decoder_seconds": 0.0003463849425315857
+      },
+      "all_layer8": {
+        "coefficient_complex_count": 26112,
+        "dof_fraction": 0.1328125,
+        "field_relative_error": 0.0004736389857187174,
+        "raw_original_residual": 0.00010953806458772163,
+        "optimal_quotient_residual_ratio": 0.000269071189742883,
+        "decoder_seconds": 0.00022732303477823734
+      },
+      "p1_layer8": {
+        "coefficient_complex_count": 6528,
+        "dof_fraction": 0.033203125,
+        "field_relative_error": 0.9184260725417216,
+        "raw_original_residual": 0.013136824178435546,
+        "optimal_quotient_residual_ratio": 0.9998522087513692,
+        "decoder_seconds": 0.00035536615177989006
+      }
+    }
+  }
+]

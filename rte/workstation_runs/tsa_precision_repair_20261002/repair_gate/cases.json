@@ -1,0 +1,962 @@
+[
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 5.8695550489586156e-08,
+    "relative_original_physical_image_difference": 1.5293196826333885e-05,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 5.039867926917046e-06,
+    "relative_original_physical_image_difference": 3.1731874863618956e-07,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 1.1423746180290772e-16,
+    "relative_original_physical_image_difference": 7.71161024203732e-14,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 9.391070762393184e-15,
+    "relative_original_physical_image_difference": 1.012942582063649e-15,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 6.737993222174706e-07,
+    "relative_original_physical_image_difference": 0.00013806063286393461,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": false,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 5.752711610226545e-07,
+    "relative_original_physical_image_difference": 1.861661290232695e-06,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 4.094850707270897e-16,
+    "relative_original_physical_image_difference": 3.4560101644520253e-13,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 7.93580888300853e-16,
+    "relative_original_physical_image_difference": 4.6269040874533814e-15,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 5.582098552242781e-08,
+    "relative_original_physical_image_difference": 8.58843850376106e-06,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 2.1644498305199053e-07,
+    "relative_original_physical_image_difference": 3.1107187943729895e-07,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 1.1824470266399784e-16,
+    "relative_original_physical_image_difference": 3.275569923482999e-14,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 5.51097651966633e-16,
+    "relative_original_physical_image_difference": 1.132939401092113e-15,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 1.7070392103810298e-06,
+    "relative_original_physical_image_difference": 5.898694574940696e-05,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 1.3257246600511e-07,
+    "relative_original_physical_image_difference": 3.0233499300552545e-06,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 1.2462047563689174e-15,
+    "relative_original_physical_image_difference": 1.404086058506367e-13,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 2.448569926832216e-16,
+    "relative_original_physical_image_difference": 7.846771641940588e-15,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 9.694892696373217e-08,
+    "relative_original_physical_image_difference": 3.083469443284643e-05,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 1.9160052754267432e-07,
+    "relative_original_physical_image_difference": 6.387899179640908e-07,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 1.6941051762714944e-16,
+    "relative_original_physical_image_difference": 1.2127530687653737e-13,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 4.706037290116076e-16,
+    "relative_original_physical_image_difference": 2.2441381838189046e-15,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 8.603625425218189e-07,
+    "relative_original_physical_image_difference": 0.0002575576046690446,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": false,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 1.7105526309051992e-07,
+    "relative_original_physical_image_difference": 3.972574138616419e-06,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 1.3934377476686545e-15,
+    "relative_original_physical_image_difference": 7.042798711253319e-13,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 9.229586533892746e-16,
+    "relative_original_physical_image_difference": 1.0058549056799005e-14,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 1.4260286675783285e-07,
+    "relative_original_physical_image_difference": 1.7615633722072922e-05,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 2.804758500710632e-06,
+    "relative_original_physical_image_difference": 5.817756099112645e-07,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 2.0422325879311785e-16,
+    "relative_original_physical_image_difference": 8.853752917743792e-14,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 2.4023852051188667e-16,
+    "relative_original_physical_image_difference": 1.8486160283111123e-15,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 2.193436106717537e-07,
+    "relative_original_physical_image_difference": 0.000101275647826981,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": false,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 1.2601089409155636e-07,
+    "relative_original_physical_image_difference": 5.700400317304473e-06,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 1.2922562911541805e-15,
+    "relative_original_physical_image_difference": 2.798177507268095e-13,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 2.514088806433448e-16,
+    "relative_original_physical_image_difference": 1.5978078344187924e-14,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 5.164982851357706e-08,
+    "relative_original_physical_image_difference": 4.706973888242918e-05,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 3.7681251553051115e-07,
+    "relative_original_physical_image_difference": 1.286426502683357e-06,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 1.4801367832961947e-16,
+    "relative_original_physical_image_difference": 2.769005710346722e-13,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 2.0559313139062923e-16,
+    "relative_original_physical_image_difference": 4.48533452337853e-15,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 3.340665763215593e-07,
+    "relative_original_physical_image_difference": 0.0005180029635181334,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": false,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 1.9767141926094637e-07,
+    "relative_original_physical_image_difference": 8.359197513776541e-06,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 6.246211262919013e-16,
+    "relative_original_physical_image_difference": 1.4294981204936225e-12,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 9.131598629205842e-16,
+    "relative_original_physical_image_difference": 2.1511699935125175e-14,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 8.065201139519856e-08,
+    "relative_original_physical_image_difference": 2.8129275362367634e-05,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 7.290046530200674e-08,
+    "relative_original_physical_image_difference": 9.611524496019742e-07,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 1.4114207656897643e-16,
+    "relative_original_physical_image_difference": 1.4880708558614896e-13,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 5.2585901426772244e-15,
+    "relative_original_physical_image_difference": 3.892451168568301e-15,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "alternative_fft_counts": {
+      "fftn": 2,
+      "ifftn": 2
+    }
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 1.9120045041792826e-07,
+    "relative_original_physical_image_difference": 0.00023087521684107473,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": false,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 1.712340423327047e-07,
+    "relative_original_physical_image_difference": 1.2751085888333853e-05,
+    "finite": true,
+    "parity_limit": 0.0001,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "relative_field_difference": 3.413544938861262e-16,
+    "relative_original_physical_image_difference": 5.325214438978234e-13,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "relative_field_difference": 5.279573400353365e-16,
+    "relative_original_physical_image_difference": 3.2952400794316545e-14,
+    "finite": true,
+    "parity_limit": 1e-09,
+    "passed": true,
+    "original_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "alternative_fft_counts": {
+      "fftn": 47,
+      "ifftn": 47
+    }
+  }
+]

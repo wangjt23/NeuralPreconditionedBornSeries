@@ -1,0 +1,387 @@
+{
+  "date": "2026-10-02",
+  "audit_scope": "Independent stdlib scalar/hash/count recomputation; no RTE action, field or solve rerun",
+  "protocol_verified": true,
+  "receipt_root": "receipts/finite_execution",
+  "policy_sha256": "426fe29b012c7e275a1587e315f0f2f23efe2989f63cf00b13a2a02869f67d08",
+  "driver_sha256": "d7149407412392cbdbdf548af907ee4348d242e709c6f882b39036f2462027c7",
+  "sealed_code_hashes_verified": 8,
+  "all_staging_payload_hashes_verified": 23,
+  "before_execution_preservation_receipt_count": 458,
+  "execution_review_header_all_hashes_match": true,
+  "execution_review_header_all_staged_note_hashes_match": false,
+  "final_local_implementation_review_and_pin_verified": true,
+  "provenance_metadata_anomalies": [
+    {
+      "name": "PRIMITIVE_IMPLEMENTATION_REVIEW.md",
+      "execution_header_sha256": "059e96c467cd36c73491bffd0904b27e1911f571ff3793a67e04147ea59fff1a",
+      "actual_and_staging_sha256": "90a124b0cae2de5c82cf8efeeecaabff158c3f8292c302cc0cb0a574dd0a83dc",
+      "final_local_review_path": "deliverables/finite_precision_20261002/PRIMITIVE_IMPLEMENTATION_REVIEW.md",
+      "final_local_review_sha256": "059e96c467cd36c73491bffd0904b27e1911f571ff3793a67e04147ea59fff1a",
+      "before_execution_pin_path": "receipts/finite_final_review_before_execution.json",
+      "before_execution_pin_sha256": "05db05124f03789853e3635db1905c6260922b7b9b89f12cf82bd4280cce030b",
+      "scope": "Final local d714 implementation review pinned in execution header; older d830 staged note retained. Distinct location/version, no code/policy mismatch."
+    }
+  ],
+  "remote_preservation_independently_reexecuted": false,
+  "cpu_test_counts": [
+    5,
+    12,
+    12
+  ],
+  "cpu_test_total": 29,
+  "counters": {
+    "full_grid_gpu_H_actions": 72,
+    "fixture_gpu_H_actions": 24,
+    "preconditioner_actions": 8,
+    "numpy_fp64_references": 48,
+    "exact_fixture_cases": 12,
+    "exact_fixture_apply_calls": 24,
+    "full_solves": 0
+  },
+  "all_four_ownership_and_source_checks": true,
+  "all_scalars_finite": true,
+  "all_input_cast_ledgers_zero": true,
+  "full_grid_matched_nominal": {
+    "absolute_error_per_input_norm": {
+      "original_low_complex64": {
+        "count": 24,
+        "minimum": 1.57926863712019e-06,
+        "maximum": 0.00014398523829380706,
+        "witness": {
+          "size": 256,
+          "index": 0,
+          "probe": "unit_complex_random"
+        }
+      },
+      "original_low_native_complex128_cast_shadow": {
+        "count": 24,
+        "minimum": 0.0,
+        "maximum": 2.613638189353445e-13,
+        "witness": {
+          "size": 256,
+          "index": 3,
+          "probe": "unit_complex_random"
+        }
+      },
+      "physical_high_complex128": {
+        "count": 24,
+        "minimum": 0.0,
+        "maximum": 2.614384896591421e-13,
+        "witness": {
+          "size": 256,
+          "index": 0,
+          "probe": "unit_complex_random"
+        }
+      }
+    },
+    "error_over_Lambda_input_norm": {
+      "original_low_complex64": {
+        "count": 24,
+        "minimum": 1.1903751456899687e-09,
+        "maximum": 1.0759893341934528e-07,
+        "witness": {
+          "size": 256,
+          "index": 0,
+          "probe": "unit_complex_random"
+        }
+      },
+      "original_low_native_complex128_cast_shadow": {
+        "count": 24,
+        "minimum": 0.0,
+        "maximum": 1.9527687900409142e-16,
+        "witness": {
+          "size": 256,
+          "index": 0,
+          "probe": "unit_complex_random"
+        }
+      },
+      "physical_high_complex128": {
+        "count": 24,
+        "minimum": 0.0,
+        "maximum": 1.95370740608054e-16,
+        "witness": {
+          "size": 256,
+          "index": 0,
+          "probe": "unit_complex_random"
+        }
+      }
+    },
+    "image_relative_error": {
+      "original_low_complex64": {
+        "count": 24,
+        "minimum": 1.9758632590376964e-09,
+        "maximum": 0.000380238750606516,
+        "witness": {
+          "size": 256,
+          "index": 0,
+          "probe": "M_source"
+        }
+      },
+      "original_low_native_complex128_cast_shadow": {
+        "count": 24,
+        "minimum": 0.0,
+        "maximum": 8.395371244514521e-14,
+        "witness": {
+          "size": 256,
+          "index": 0,
+          "probe": "M_source"
+        }
+      },
+      "physical_high_complex128": {
+        "count": 24,
+        "minimum": 0.0,
+        "maximum": 8.403796983085537e-14,
+        "witness": {
+          "size": 256,
+          "index": 0,
+          "probe": "M_source"
+        }
+      }
+    },
+    "image_cancellation_condition_indicator": {
+      "original_low_complex64": {
+        "count": 24,
+        "minimum": 1.6598660230699296,
+        "maximum": 10581.122379838593,
+        "witness": {
+          "size": 256,
+          "index": 0,
+          "probe": "M_source"
+        }
+      },
+      "original_low_native_complex128_cast_shadow": {
+        "count": 24,
+        "minimum": 1.6598660230699296,
+        "maximum": 10581.122379838593,
+        "witness": {
+          "size": 256,
+          "index": 0,
+          "probe": "M_source"
+        }
+      },
+      "physical_high_complex128": {
+        "count": 24,
+        "minimum": 1.6598660230699296,
+        "maximum": 10581.122372140768,
+        "witness": {
+          "size": 256,
+          "index": 0,
+          "probe": "M_source"
+        }
+      }
+    }
+  },
+  "full_grid_overall_physical": {
+    "original_low_complex64": {
+      "count": 24,
+      "minimum": 1.57926863712019e-06,
+      "maximum": 0.0001449304410301055,
+      "witness": {
+        "size": 256,
+        "index": 0,
+        "probe": "unit_complex_random"
+      }
+    },
+    "original_low_native_complex128_cast_shadow": {
+      "count": 24,
+      "minimum": 0.0,
+      "maximum": 1.5010017741666062e-05,
+      "witness": {
+        "size": 256,
+        "index": 0,
+        "probe": "unit_complex_random"
+      }
+    },
+    "physical_high_complex128": {
+      "count": 24,
+      "minimum": 0.0,
+      "maximum": 2.614384896591421e-13,
+      "witness": {
+        "size": 256,
+        "index": 0,
+        "probe": "unit_complex_random"
+      }
+    }
+  },
+  "exact_toy_matched": {
+    "original_low_complex64": {
+      "count": 12,
+      "minimum": 1.9982115830826433e-06,
+      "maximum": 7.436655359630473e-06,
+      "witness": {
+        "size": 128,
+        "index": 3,
+        "probe": "dense_dyadic"
+      }
+    },
+    "physical_high_complex128": {
+      "count": 12,
+      "minimum": 3.0190078167314398e-15,
+      "maximum": 1.4157154068711116e-14,
+      "witness": {
+        "size": 128,
+        "index": 0,
+        "probe": "sparse_dyadic"
+      }
+    }
+  },
+  "exact_toy_overall": {
+    "original_low_complex64": {
+      "count": 12,
+      "minimum": 1.9982115830826433e-06,
+      "maximum": 7.435900748580753e-06,
+      "witness": {
+        "size": 128,
+        "index": 3,
+        "probe": "dense_dyadic"
+      }
+    },
+    "physical_high_complex128": {
+      "count": 12,
+      "minimum": 3.0190078167314398e-15,
+      "maximum": 1.4157154068711116e-14,
+      "witness": {
+        "size": 128,
+        "index": 0,
+        "probe": "sparse_dyadic"
+      }
+    }
+  },
+  "budgets": [
+    {
+      "size": 128,
+      "index": 0,
+      "coercivity_lower": 0.017008103633554643,
+      "operator_norm_upper": 788.8545959973894,
+      "allowed_outer_absolute_error_per_field_norm": 1.7007057436767327e-09,
+      "required_equal_fft_contract": 1.5464858536291096e-12,
+      "empirical_high_numpy_gap_per_input_norm_max": 1.2104016190622356e-13,
+      "empirical_gap_over_conditional_budget": 7.117054925947888e-05,
+      "exact_scalar_budget_reproduced": true,
+      "certified_backend_contract": false
+    },
+    {
+      "size": 128,
+      "index": 3,
+      "coercivity_lower": 0.04077052551699245,
+      "operator_norm_upper": 836.7889777747173,
+      "allowed_outer_absolute_error_per_field_norm": 4.076918804332558e-09,
+      "required_equal_fft_contract": 3.709133315012397e-12,
+      "empirical_high_numpy_gap_per_input_norm_max": 1.2068129899632295e-13,
+      "empirical_gap_over_conditional_budget": 2.960110436049755e-05,
+      "exact_scalar_budget_reproduced": true,
+      "certified_backend_contract": false
+    },
+    {
+      "size": 256,
+      "index": 0,
+      "coercivity_lower": 0.017008103633554643,
+      "operator_norm_upper": 1338.1660367640768,
+      "allowed_outer_absolute_error_per_field_norm": 1.7006446696475199e-09,
+      "required_equal_fft_contract": 7.730763532162243e-13,
+      "empirical_high_numpy_gap_per_input_norm_max": 2.614384896591421e-13,
+      "empirical_gap_over_conditional_budget": 0.0001537290501215216,
+      "exact_scalar_budget_reproduced": true,
+      "certified_backend_contract": false
+    },
+    {
+      "size": 256,
+      "index": 3,
+      "coercivity_lower": 0.04077052551699245,
+      "operator_norm_upper": 1386.1004185414047,
+      "allowed_outer_absolute_error_per_field_norm": 4.076857607065467e-09,
+      "required_equal_fft_contract": 1.8544000278218546e-12,
+      "empirical_high_numpy_gap_per_input_norm_max": 2.612032163870285e-13,
+      "empirical_gap_over_conditional_budget": 6.406974232662573e-05,
+      "exact_scalar_budget_reproduced": true,
+      "certified_backend_contract": false
+    }
+  ],
+  "budget_scalar_arithmetic_reproduced": true,
+  "cost": {
+    "process_wall_seconds": 52.0705827716738,
+    "settings_clock_seconds": 50.66211526095867,
+    "component_seconds": {
+      "parent_load_seconds": 0.2648876868188381,
+      "physical_setup_seconds": 0.2783894520252943,
+      "base_setup_seconds": 0.08631406724452972,
+      "capture_setup_seconds": 0.09737986139953136,
+      "source_api_setup_seconds": 0.0,
+      "probe_setup_seconds": 0.04550394229590893,
+      "explicit_gpu_action_seconds": 0.38321883231401443,
+      "transfers_seconds": 0.5645671579986811,
+      "numpy_reference_seconds": 3.0587479807436466,
+      "exact_reference_seconds": 3.032836891710758,
+      "exact_scalar_accounting_seconds": 0.4496025200933218,
+      "scalar_model_seconds": 3.5121158249676228,
+      "fixture_setup_seconds": 0.11189907789230347,
+      "fixture_model_seconds": 0.012847943231463432,
+      "coefficient_transfer_seconds": 0.07897958345711231,
+      "json_save_seconds": 28.026089096441865
+    },
+    "component_timer_sum_seconds": 40.00337991863489,
+    "process_minus_component_sum_seconds": 12.067202853038907,
+    "direct_H_seconds": 0.2967909388244152,
+    "factor_application_seconds": 0.08642789348959923,
+    "peak_allocated_bytes": 361017856,
+    "peak_reserved_bytes": 731906048,
+    "json_save_fraction_of_process": 0.5382326758149508,
+    "timer_scope": "Component scopes are partial; context/toy duplicate timing fields must not be summed again. Settings clock precedes final receipt flush."
+  },
+  "original_acceptance_unchanged": true,
+  "old_entry_failure_preserved": true,
+  "diagnostic_only": true,
+  "certified_backend_contract": false,
+  "certified_solver_admission": false,
+  "full_solver_accuracy_evaluated": false,
+  "full_solver_performance_evaluated": false,
+  "training": false,
+  "test9626_touched": false,
+  "limits": [
+    "NumPy reference uncertainty is not bounded; observed full-grid discrepancies do not certify absolute H error.",
+    "Exact-toy bracket arithmetic and code are audited; raw scalar receipts do not contain GPU bits/coefficient fields for rerunning the exact discrepancy.",
+    "Toy normalized-Lambda ratios lack the toy-Lambda scalar in raw receipts and were not independently rederived; primary per-input-norm ratios were rederived.",
+    "Stored coefficient lower/norm estimates are audited via source/model and sealed hashes, not reexecuted from unexported original coefficients.",
+    "Finite probes do not establish uniform FFT/angular/norm contracts or cover unknown future Arnoldi coefficients.",
+    "All six full-grid inputs originateC64; zero cast ledgers do not cover genuinely nonrepresentableC128 inputs.",
+    "96 direct H probes exclude additional H work inside8M applications and capture construction; these remain costed."
+  ],
+  "receipt_sha256": {
+    "code/direct_segmented_tsa.py": "98eb806b8482990c1727cb80de3a2182c520be01090a512b742feb0417e0d1d1",
+    "code/error_model.py": "5628afcaa039b0a1fb88d68c4c73ea381fc5c961b0f4481ccbe9f705fa863015",
+    "code/exact_rational_rte.py": "871e53c1e3f0ec66fbbd4458e3d19aaa0539765a47ad96731337580b0134d697",
+    "code/primitive_driver.py": "d7149407412392cbdbdf548af907ee4348d242e709c6f882b39036f2462027c7",
+    "code/segmented_tsa.py": "a95ed61b4c282353e48b8dad6f5aebd993a50f130f10d8aaca6e8aa2c883ba29",
+    "code/test_error_model.py": "a33445ffc559155bd6fc1e95e2d0442f5826451acf662b91615fe6fb3b466284",
+    "code/test_error_model_audit.py": "5155a1faf016eeaafa18e0652872ac97c0940a5a04302a6fbc603aa80a6b678c",
+    "code/test_exact_rational_rte.py": "ed6100247119aa47663a57840b0ae9bf272962a4a14bc7cb09177be56112ebc0",
+    "cpu_tests.log": "b6ecf4b19e135b9a06ffb403640760ee554192b29e7ee8c048e339e4c790263e",
+    "execution_receipt.json": "de1cc5045d9788565ab7bbf0377b99454557a84fbc0577a08b97050310beafdb",
+    "experiment.log": "4537de8c65b53589f51ac9acfc3731d37826b877e2ce348f7619da092ae5e6ec",
+    "notes/ARNOLDI_REVIEW.md": "1fa29f1dde7c238d81678075dea77209192a2da155540a143a2e9fbc9a1d2555",
+    "notes/CRITICAL_REVIEW.md": "a0b232d66b494adf9400ed19ec4c6b535573207e4439c459e32f72cb2bfe8713",
+    "notes/INDEPENDENT_MODEL_AUDIT.md": "ae0072f58d5e60683fe4ecf7c1636f064f797f48dc2b61e00a481f13518d7822",
+    "notes/MODEL_REVIEW.md": "6d9816fb0518f8a4cadbd337feebff9dd390074015f15cbfb9e636dc7f5c4509",
+    "notes/PRIMARY_BIBLIOGRAPHY.md": "00a588b024ff0338ab89d35fc273bc18c362ad3b875d6242da29ffb6cbfc96ea",
+    "notes/PRIMITIVE_IMPLEMENTATION_REVIEW.md": "90a124b0cae2de5c82cf8efeeecaabff158c3f8292c302cc0cb0a574dd0a83dc",
+    "notes/PRIMITIVE_MATH_REVIEW.md": "7cb847dd0e385993d4265b9d243b41ffb4de2b6798a44872fac0a9264d86dca2",
+    "notes/PRIMITIVE_PROTOCOL_REVIEW.md": "6e52e283bc1c16264b2b74d98310f1e319cff46cb4ccc646e457fc5e82b95b4c",
+    "notes/ROOT_PROPOSAL_REVIEW.md": "283b64fd685724331484852b541f5d7dab6432ec0b59a11d737ff5639ec4d82b",
+    "notes/SCALAR_CONTEXT.json": "18f92ad9d9ad04bd52e7144e94b55dd13f1fde97669ba19fac967616b18a2d69",
+    "notes/SOURCE_ASSUMPTIONS.md": "526de5f03551a350fced5ad845648fa9b84bc5b57a095c00b76a5a7988a02497",
+    "notes/SOURCE_AUDIT.md": "f83fb9c38ca908df83805825fcf3be42401e46a339785cf0538b1bae4a69f26b",
+    "notes/SOURCE_CONTRACT.json": "1b7a8370f45837588ffbaa5c3ecab5ad2fb60e7bcf2de60e17e791f8d5c3fb38",
+    "notes/THEORY.md": "8accf0a51e9c1ac30b7f61b0d644c199c933caf7884143ff166f279890e4718e",
+    "policy.json": "426fe29b012c7e275a1587e315f0f2f23efe2989f63cf00b13a2a02869f67d08",
+    "results/actions.json": "82504efdefda00f4867551b03e308a94708754cad79970e7def0e392abe683c5",
+    "results/checks.json": "e3b0e007b42f0a1053972c59ec84c6dd52e430a5feee4b53a4e8e4432184243d",
+    "results/contexts.json": "8f1f1fa4a074f00b870efb4befaf2996c01e637f6a18dced3ef7c80cdd448b23",
+    "results/exact_fixture.json": "fdc478abf8feb7d6bc7afd683972b15b82f69ca078e0dd8ac81903149f2c1c2d",
+    "results/settings.json": "5e1e5334a0dd15832682ea9e8bfecdf2ee64e57d453f91b974e8c139de472fbc",
+    "staging_receipt.json": "dc32209d30b94d02f91a41802fc5fa8efcd5a6a6a3a5501cfb455b04f6e048db"
+  },
+  "root_summary_arithmetic_agrees": true,
+  "compared_root_summary_path": "deliverables/finite_precision_20261002/RESULT_ANALYSIS.json",
+  "compared_root_summary_sha256": "cb45a87fd2cba22f80321bc7599321ecfc51a54d141236a89f03b48c1029c8b7"
+}

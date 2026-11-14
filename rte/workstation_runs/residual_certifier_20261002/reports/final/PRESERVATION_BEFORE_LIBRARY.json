@@ -1,0 +1,22 @@
+{
+  "prior_verified_files": 563,
+  "new_final_files": 8,
+  "total_verified_files": 571,
+  "new_sha256": {
+    "rte/workstation_runs/residual_certifier_20261002/code/final/analyze_certifier.py": "e3edf9631014baf51c1477b1470ce22798a76de25f7402695a4b0f25f9553ceb",
+    "rte/workstation_runs/residual_certifier_20261002/reports/final/SCALAR_ANALYSIS.json": "1aead6cef0a185de2353cbc0b82d24d886a1b116667c19d8574a173596d1e42d",
+    "rte/workstation_runs/residual_certifier_20261002/reports/final/ANALYSIS_VERSION_NOTE.md": "994a56dcf74eee71c2af614280dd4f95c0e82ebc5c623bf1ce1c71c497caa492",
+    "rte/workstation_runs/residual_certifier_20261002/reports/final/COST_AND_SCALAR_SUMMARY.md": "13b504180b63bc7658b202498b137292bef166fe489fecb107161e177dcf24a3",
+    "rte/workstation_runs/residual_certifier_20261002/code/build_certifier_bundle.py": "a78219850e615d4347038bd28d4746f4b894f36735969270a0f25cb2387d1019",
+    "rte/workstation_runs/residual_certifier_20261002/code/reproduce_scalar_evidence.py": "7bde173258b5a36c5bbd49365599ec2713190df2691d31291b33e9d57df84155",
+    "rte/workstation_runs/residual_certifier_20261002/artifacts/RTE_FWI_Residual_Certifier_Evidence_2026_10_02.zip": "0b096f9fcab092a142563424bacced4755ad2e96dee77a17315012bb4c4f0325",
+    "rte/workstation_runs/residual_certifier_20261002/reports/final/BUNDLE_VERIFICATION.json": "3678be6f52ae1bafe4e3ed8016c1aec8682a892af8adbfc012070f5d4be1eba2"
+  },
+  "tracked_dirty_unchanged": true,
+  "other_research_processes": [],
+  "gpu_after": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]\nNVIDIA RTX A6000, 49140 MiB, 37 MiB, 0 %\n",
+  "full_solves": 0,
+  "original_source_exported": false,
+  "initial_analysis_snapshot_preserved": true,
+  "final_analysis_staged_separately": true
+}

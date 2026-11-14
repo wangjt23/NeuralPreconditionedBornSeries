@@ -1,0 +1,74 @@
+{
+  "passed": true,
+  "scope": "Exact run() depth selection and constructor-call AST executed against stubs; no operator or numerical solver. This is an interface test, not an accuracy qualification.",
+  "old_sha256": "56ecfe633cec19c8bc080ffd2e7d5372a39770db3e7cd74207e86c8656520074",
+  "new_sha256": "4507fe32246b091cc30d7e76961d12f08557fdfbf6a4c39f44e111e22d762198",
+  "methods": [
+    {
+      "method": "tsa64_zero",
+      "original": {
+        "requested": 64,
+        "passed_argument": 64,
+        "guard_present": false,
+        "blocked": false
+      },
+      "repaired": {
+        "requested": 64,
+        "passed_argument": 64,
+        "guard_present": true,
+        "blocked": false
+      }
+    },
+    {
+      "method": "compact4",
+      "original": {
+        "requested": 64,
+        "passed_argument": 64,
+        "guard_present": false,
+        "blocked": false
+      },
+      "repaired": {
+        "requested": 64,
+        "passed_argument": 64,
+        "guard_present": true,
+        "blocked": false
+      }
+    },
+    {
+      "method": "tsa16_zero",
+      "original": {
+        "requested": 16,
+        "passed_argument": 64,
+        "guard_present": false,
+        "blocked": false
+      },
+      "repaired": {
+        "requested": 16,
+        "passed_argument": 16,
+        "guard_present": true,
+        "blocked": false
+      }
+    },
+    {
+      "method": "E",
+      "original": {
+        "requested": 64,
+        "passed_argument": 64,
+        "guard_present": false,
+        "blocked": false
+      },
+      "repaired": {
+        "requested": 64,
+        "passed_argument": 64,
+        "guard_present": true,
+        "blocked": false
+      }
+    }
+  ],
+  "deliberate_bad_return": {
+    "requested": 16,
+    "passed_argument": 16,
+    "guard_present": true,
+    "blocked": true
+  }
+}

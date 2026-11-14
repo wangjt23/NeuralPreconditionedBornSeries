@@ -1,0 +1,56 @@
+{
+  "passed": false,
+  "scope": "development only;conditional intervals;no confirmatory training-seed or OOD claim",
+  "test_generated": false,
+  "threshold": "5% savings at BOTH128/256;zero failures;interval lower>0",
+  "selected_comparisons": [
+    {
+      "size": 64,
+      "classical": "reference_tail",
+      "neural": "continued_selected",
+      "independent_media": 16,
+      "classical_ms": 133.56421783100814,
+      "neural_ms": 131.5855470020324,
+      "saving_percent": 1.4814378140403206,
+      "saving_percent_ci95": [
+        -2.1129501433572657,
+        4.7187941962735795
+      ],
+      "neural_faster_cases": 9,
+      "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+      "failed": 0
+    },
+    {
+      "size": 128,
+      "classical": "reference_tail",
+      "neural": "continued_selected",
+      "independent_media": 16,
+      "classical_ms": 144.98534565791488,
+      "neural_ms": 144.56677541602403,
+      "saving_percent": 0.28869830946807173,
+      "saving_percent_ci95": [
+        -3.7261940998420022,
+        3.735722315455605
+      ],
+      "neural_faster_cases": 8,
+      "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+      "failed": 0
+    },
+    {
+      "size": 256,
+      "classical": "tsa16_zero",
+      "neural": "continued_selected",
+      "independent_media": 16,
+      "classical_ms": 145.9574308246374,
+      "neural_ms": 154.76331184618175,
+      "saving_percent": -6.0331844509679655,
+      "saving_percent_ci95": [
+        -9.807476985138786,
+        -1.679447274661704
+      ],
+      "neural_faster_cases": 5,
+      "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+      "failed": 0
+    }
+  ]
+}

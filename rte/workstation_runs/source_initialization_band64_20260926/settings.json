@@ -1,0 +1,24 @@
+{
+  "args": {
+    "sizes": [
+      128
+    ],
+    "bands": [
+      64
+    ],
+    "count": 4,
+    "seed": 1919,
+    "epsilon": 0.1,
+    "repeats": 3,
+    "device": "cuda",
+    "output": "rte/workstation_runs/source_initialization_band64_20260926"
+  },
+  "torch_version": "2.5.1",
+  "scope": "development opportunity oracle, not AI; fine teacher acquisition excluded from oracle online time, explicitly reported",
+  "tolerance": "unchanged FP64 physical A, 1e-5 relative to original RHS",
+  "dataset_count": 4,
+  "controls": "TSA8 fixed stiff-regime refinement; zero/constant/coarse RTE initialization",
+  "timing": "paired shuffled synchronized solves; initialization cost included; teacher upper bounds are NOT deployable speedups",
+  "gpu_processes_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n1395376, python, 2284 MiB\n",
+  "complete": true
+}

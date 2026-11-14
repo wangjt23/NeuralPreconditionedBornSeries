@@ -1,0 +1,7 @@
+paired training/validation identity verified; shared ID/phase schedule 701007ad85910e4bafae6275e0a4b57c24a07475c05f9653fbdb55b5e0f9edd2
+cached N64: 0.55s, storage=gpu
+cached N128: 0.73s, storage=gpu
+n64_only step 0: pooled=(0, 8.0625, 5.310164066819701e-06), per_grid={'64': (0, 8.03125, 5.518636462276647e-06), '128': (0, 8.09375, 5.101691671362755e-06)}, best=0, validation=5.12s
+n64_only step 2: pooled=(0, 8.0625, 5.204880682989605e-06), per_grid={'64': (0, 8.03125, 5.455432578408893e-06), '128': (0, 8.09375, 4.954328787570317e-06)}, best=2, validation=4.48s
+mixed64_128 step 0: pooled=(0, 8.0625, 5.310164066819701e-06), per_grid={'64': (0, 8.03125, 5.518636462276647e-06), '128': (0, 8.09375, 5.101691671362755e-06)}, best=0, validation=4.57s
+mixed64_128 step 2: pooled=(0, 8.0625, 5.206676416109349e-06), per_grid={'64': (0, 8.03125, 5.45665880634067e-06), '128': (0, 8.09375, 4.956694025878028e-06)}, best=2, validation=4.55s

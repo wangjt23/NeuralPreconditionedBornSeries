@@ -1,0 +1,304 @@
+{
+  "result": "STOP_STAGE_WALL_OR_OWNED_TERMINATION",
+  "error": null,
+  "stop_reason": "Signal 15",
+  "worker_wall_seconds": 371.9039176229853,
+  "controller": {
+    "controller_pid": 1285906,
+    "worker_pid": 1285908,
+    "total_wall_limit_seconds": 600,
+    "RSS_limit_bytes": 6442450944,
+    "poll_seconds": 0.25,
+    "affinity": [
+      0
+    ],
+    "returncode": 0,
+    "stop_reason": null,
+    "elapsed_seconds": 375.6764374298509,
+    "observed_worker_peak_RSS_bytes": 3175354368,
+    "reaped": true
+  },
+  "worker_peak_RSS_bytes": 3209269248,
+  "sources_unchanged": true,
+  "source_identity": [
+    {
+      "id": 0,
+      "file_sha256": "650ea639ca8194850fcace3dbb400d868916f2c85896ca2a8e987bc86cc18d14",
+      "q256_sha256": "d34000fb222dac5966ef9cd08e987ebafea1dd624699c6df11cad96d9f774be4",
+      "q128_sha256": "b95ee7c68a7b29621962b635316e288436a3e9da8f4d6b898510311a61adc3e4",
+      "exact_nested": true,
+      "neural_field_used": false
+    },
+    {
+      "id": 4,
+      "file_sha256": "c8bb2673949eaddc50c481b8454763ce3bf269dbd9791683fd97382156fb5b03",
+      "q256_sha256": "748b2810cf18cbdfc9a2b9bd0227821bdb0d30c3173d4648c10da4c8f249e3c9",
+      "q128_sha256": "671f3618b79476e3ec295f81f3eca126a6816395ac752dbe063dc71e8dc0fe92",
+      "exact_nested": true,
+      "neural_field_used": false
+    },
+    {
+      "id": 7,
+      "file_sha256": "115530e66c02a7036a95c99452cba3f88615999e5cd1f330c11201474e4513df",
+      "q256_sha256": "cdd502702282f0f76caca97a4559f01c1a5d44e9425975dc798cfb85f2d96f50",
+      "q128_sha256": "296fe23d8b9e6db9b88a970105bf9d9acfd950b48209a3d6866fddba1db4f1c7",
+      "exact_nested": true,
+      "neural_field_used": false
+    },
+    {
+      "id": 14,
+      "file_sha256": "921d5e946c896c6b5ad9ca1905b445e490b4173fb0af93568cbf2ba2dda5d0eb",
+      "q256_sha256": "d376a2a728ed814923bd5b2019749de60ccb2121e14ecaf594d5d86dc2f8304c",
+      "q128_sha256": "edb562bca456bc5641b8ed7492664a4b880056ce665801c98f405af21ab9fa06",
+      "exact_nested": true,
+      "neural_field_used": false
+    }
+  ],
+  "material_identity": {
+    "total256_sha256": "22703485ebf1a4e3bd4eba553a4a3f714b7d31253109c22d7af2108f4cc4d7b4",
+    "scatter256_sha256": "9750a48fb0a4734805c6824640566b36e5536d6fe2322470a211e47a40c2db31",
+    "total128_sha256": "9d9256eedd9242ad1d13f3853a9149b5d5e29a4fbfe6c63caf5a0e012f714b74",
+    "scatter128_sha256": "5539f482895689656b2ee0dc05722c6428d3f08b8a3eb3c75f7050f2e8eaf356",
+    "exact_nested": true,
+    "parameters": {
+      "periods": 1,
+      "layers": 2,
+      "beta": 3.3333333333333335,
+      "transition_physical_width": 0.015625,
+      "low_plateau_total": 6.55,
+      "high_plateau_total_without_inclusion": 666.55,
+      "inclusion_amplitude_before_scaling": 3.0,
+      "inclusion_width": 0.08
+    }
+  },
+  "background_identity": {
+    "axis": 0,
+    "total_sha256": "a4289ae8ce23fe0e91dbe1a89e43c2aac2af430e0b0d6ccc4bd54341a232347c",
+    "scatter_sha256": "4b99abec1782b55fbe1c4ff3bfc14cf71037f722f4fb490636477b6047dfee70",
+    "score": 65883.96875
+  },
+  "stages": [
+    {
+      "name": "identity_and_all17_qualification",
+      "status": "completed",
+      "seconds": 17.602628523949534
+    },
+    {
+      "name": "batch_tsa64_zero",
+      "status": "completed",
+      "seconds": 110.77129077585414
+    },
+    {
+      "name": "batch_compact4",
+      "status": "completed",
+      "seconds": 99.51018184190616
+    },
+    {
+      "name": "batch_tsa16_zero",
+      "status": "completed",
+      "seconds": 110.13064792007208
+    },
+    {
+      "name": "batch_E",
+      "status": "stopped",
+      "seconds": 33.638584684813395
+    }
+  ],
+  "qualification": {
+    "initial_factor_seconds": 6.814668299164623,
+    "initial_qualification_seconds": 8.506637428887188,
+    "logical_factor_bytes": 1105707336,
+    "mode_records": 34,
+    "boundary_records": 12,
+    "original_A0_columns": 70,
+    "max_original_A0_residual": 8.013796204339805e-12,
+    "max_qualification_corrections": 1,
+    "all_zero_columns_exact": true,
+    "all_tiny_preserved": true
+  },
+  "batches": [
+    {
+      "method": "tsa64_zero",
+      "status": "completed",
+      "common": {
+        "physical_seconds": 0.009231478907167912,
+        "TSA_seconds": 0.41191333206370473,
+        "depth": 64,
+        "material_info": {
+          "periods": 1,
+          "layers": 2,
+          "beta": 3.3333333333333335,
+          "transition_physical_width": 0.015625,
+          "low_plateau_total": 6.55,
+          "high_plateau_total_without_inclusion": 666.55,
+          "inclusion_amplitude_before_scaling": 3.0,
+          "inclusion_width": 0.08
+        }
+      },
+      "setup_observed_seconds": 0.42509003705345094,
+      "first_RHS_observed_seconds": 28.165097129996866,
+      "complete_four_RHS_observed_seconds": 110.65428977715783,
+      "online_phase_seconds": 109.56472310097888,
+      "inner_phase_seconds": 0,
+      "calls": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "inner_calls": [],
+      "A_call_counts": {
+        "outer_or_native_A": 48,
+        "inner_A": 0,
+        "final_A": 4
+      },
+      "peak_process_RSS_bytes": 2216361984,
+      "expected_depth": 64,
+      "recorded_constructor_depth": 64,
+      "method_binding_valid": true
+    },
+    {
+      "method": "compact4",
+      "status": "completed",
+      "common": {
+        "physical_seconds": 0.009515519021078944,
+        "TSA_seconds": 0.42802004306577146,
+        "depth": 64,
+        "material_info": {
+          "periods": 1,
+          "layers": 2,
+          "beta": 3.3333333333333335,
+          "transition_physical_width": 0.015625,
+          "low_plateau_total": 6.55,
+          "high_plateau_total_without_inclusion": 666.55,
+          "inclusion_amplitude_before_scaling": 3.0,
+          "inclusion_width": 0.08
+        }
+      },
+      "factor_seconds": 19.65843432303518,
+      "factor_bytes": 1359249408,
+      "setup_observed_seconds": 20.10020198393613,
+      "first_RHS_observed_seconds": 41.687924368074164,
+      "complete_four_RHS_observed_seconds": 99.06847105710767,
+      "online_phase_seconds": 78.27238806104288,
+      "inner_phase_seconds": 0,
+      "calls": [
+        4,
+        3,
+        4,
+        3
+      ],
+      "inner_calls": [],
+      "A_call_counts": {
+        "outer_or_native_A": 48,
+        "inner_A": 0,
+        "final_A": 4
+      },
+      "peak_process_RSS_bytes": 3209269248,
+      "expected_depth": 64,
+      "recorded_constructor_depth": 64,
+      "method_binding_valid": true
+    },
+    {
+      "method": "tsa16_zero",
+      "status": "completed",
+      "common": {
+        "physical_seconds": 0.009531536139547825,
+        "TSA_seconds": 0.38475558697246015,
+        "depth": 64,
+        "material_info": {
+          "periods": 1,
+          "layers": 2,
+          "beta": 3.3333333333333335,
+          "transition_physical_width": 0.015625,
+          "low_plateau_total": 6.55,
+          "high_plateau_total_without_inclusion": 666.55,
+          "inclusion_amplitude_before_scaling": 3.0,
+          "inclusion_width": 0.08
+        }
+      },
+      "setup_observed_seconds": 0.3980878640431911,
+      "first_RHS_observed_seconds": 27.584562835050747,
+      "complete_four_RHS_observed_seconds": 109.65439320006408,
+      "online_phase_seconds": 108.6774426146876,
+      "inner_phase_seconds": 0,
+      "calls": [
+        5,
+        5,
+        5,
+        5
+      ],
+      "inner_calls": [],
+      "A_call_counts": {
+        "outer_or_native_A": 48,
+        "inner_A": 0,
+        "final_A": 4
+      },
+      "peak_process_RSS_bytes": 3209269248,
+      "expected_depth": 16,
+      "recorded_constructor_depth": 64,
+      "method_binding_valid": false
+    },
+    {
+      "method": "E",
+      "status": "stopped",
+      "common": {
+        "physical_seconds": 0.009836472105234861,
+        "TSA_seconds": 0.38903740514069796,
+        "depth": 64,
+        "material_info": {
+          "periods": 1,
+          "layers": 2,
+          "beta": 3.3333333333333335,
+          "transition_physical_width": 0.015625,
+          "low_plateau_total": 6.55,
+          "high_plateau_total_without_inclusion": 666.55,
+          "inclusion_amplitude_before_scaling": 3.0,
+          "inclusion_width": 0.08
+        }
+      },
+      "factor_seconds": 6.000404037069529,
+      "factor_bytes": 1105707336,
+      "setup_observed_seconds": 14.707437524106354,
+      "first_RHS_observed_seconds": 31.009167035110295,
+      "expected_depth": 64,
+      "recorded_constructor_depth": 64,
+      "method_binding_valid": true,
+      "qualification_seconds": 8.255827920045704
+    }
+  ],
+  "strongest_control": "compact4",
+  "strongest_control_seconds": 99.06847105710767,
+  "accuracy": {
+    "rows": 13,
+    "accepted_rows": 13,
+    "max_original_A_residual": 8.043828298779324e-06,
+    "max_evaluated_relative_bound": 3.332855851609801e-05,
+    "max_field_difference": 2.2836349206757065e-07,
+    "max_inner_original_projected_residual": 2.428313430627236e-05
+  },
+  "method_accuracy": {
+    "tsa16_zero": {
+      "max_original_A_residual": 1.7769348243706966e-06,
+      "max_evaluated_bound": 8.86049572378924e-06,
+      "max_field_difference": 1.0906105429919302e-17
+    },
+    "E": {
+      "max_original_A_residual": 1.5977131161109902e-06,
+      "max_evaluated_bound": 6.9553894158376256e-06,
+      "max_field_difference": 5.760142586856235e-08
+    },
+    "tsa64_zero": {
+      "max_original_A_residual": 1.7769348243468674e-06,
+      "max_evaluated_bound": 8.86049572378924e-06,
+      "max_field_difference": 0.0
+    },
+    "compact4": {
+      "max_original_A_residual": 8.043828298779324e-06,
+      "max_evaluated_bound": 3.332855851609801e-05,
+      "max_field_difference": 2.2836349206757065e-07
+    }
+  },
+  "all_method_bindings_valid": false,
+  "interpretation": "MECHANICAL_METHOD_BINDING_FAILURE: the tsa16_zero-labelled batch used depth64. Do not treat it as TSA16 evidence or promote this incomplete attempt."
+}

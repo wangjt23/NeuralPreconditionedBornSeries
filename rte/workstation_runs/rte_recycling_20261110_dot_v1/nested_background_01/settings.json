@@ -1,0 +1,48 @@
+{
+  "complete": true,
+  "pid": 1249578,
+  "affinity": [
+    0
+  ],
+  "device": "cpu",
+  "threads": 1,
+  "source_ids": [
+    0,
+    4,
+    7,
+    14
+  ],
+  "grid": 128,
+  "L": 12,
+  "g": 0.65,
+  "methods": [
+    "native",
+    "compact4_inject",
+    "compact8_inner",
+    "exact8_inner"
+  ],
+  "repeats": 1,
+  "interpretation": "One-pass development mechanism/cost screen, not timing confirmation. Other research jobs may run on disjoint cores. No GPU timing claim.",
+  "neural_training": false,
+  "new_teachers": false,
+  "heldout9626": false,
+  "source_hashes": {
+    "nested_background_gate.py": "bc334fbae9b3e66fb164780660dbc82ba7833d668b45ec0bf5cfdf2d10c58492",
+    "exact_mode_probe.py": "b560e467e0b81a8293adfa2fc71bd5570ec875a797fea67696083f1430ba3a77"
+  },
+  "physical_setup_seconds": 0.009821678977459669,
+  "tsa_setup_seconds": 0.13815245404839516,
+  "compact_setup_seconds": 3.0130610801279545,
+  "exact_setup_seconds": 5.13405985198915,
+  "exact_factor_bytes": 641832960,
+  "coercivity_margin": 0.049961549161480434,
+  "method_shared_setup_seconds": {
+    "native": 0.14797413302585483,
+    "compact4_inject": 3.1610352131538093,
+    "compact8_inner": 3.1610352131538093,
+    "exact8_inner": 5.282033985015005
+  },
+  "wall_seconds": 90.53583620302379,
+  "attempts": 16,
+  "failures": 0
+}

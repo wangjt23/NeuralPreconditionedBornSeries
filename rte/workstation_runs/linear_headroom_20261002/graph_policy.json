@@ -1,0 +1,45 @@
+{
+  "scope": "Exact-original classical replay and shallow-reference headroom oracle; no learned superiority claim",
+  "development_ids": [
+    0,
+    3
+  ],
+  "grids": [
+    64,
+    128,
+    256
+  ],
+  "parity_checks": 48,
+  "parity_limits": {
+    "complex64": 0.0001,
+    "complex128": 1e-09
+  },
+  "production_input": "complex64",
+  "owned_output": "complex128",
+  "original_algorithm_fft_counts_depth16": 126,
+  "original_physics_and_solver_unchanged": true,
+  "full_solves_only_after_all48_parity_pass": true,
+  "method_names": [
+    "frozen_original",
+    "frozen_graph",
+    "reference1_zero",
+    "reference2_zero"
+  ],
+  "warmups": 1,
+  "timed_repeats": 3,
+  "max_full_solves": 96,
+  "tolerance": 1e-05,
+  "restart": 25,
+  "maxiter": 100,
+  "field_difference_limit": 0.0001,
+  "evaluated_relative_error_bound_limit": 0.001,
+  "development_warm_headroom_gate": ">=5% at bothN128/N256, noindividualregression>10%; screenonly two reuseddevmedia",
+  "setup_scope": "materialoperator/base preparation and graphwarmup+capture included; reportsingleRHSandbreak-even RHS count; repeatedtimingsnotnewRHS",
+  "soft_process_budget_seconds": 300,
+  "reserved_seed9626_touched": false,
+  "training": false,
+  "code_sha256": {
+    "code/graph_classical.py": "4e3db886b8ce23c1d6ccb1d6df8f071741c40f6b59b4993be3e85563f3c961e4",
+    "code/graph_oracle.py": "c9aadab70295445e5239a4266a1839b391cfebfc119f8d0c54cf3be221e51045"
+  }
+}

@@ -1,0 +1,5 @@
+Read-only SSH check after numerical completion:
+2026-11-10T13:46:23+08:00
+$ ps -p 1287840,1287842 -o pid,psr,stat,args
+    PID PSR STAT COMMAND
+No matching process rows. WATCHDOG.json records returncode0 and reaped=true.

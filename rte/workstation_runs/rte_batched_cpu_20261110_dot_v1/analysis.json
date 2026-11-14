@@ -1,0 +1,84 @@
+{
+  "passed": true,
+  "stages_seconds": [
+    10.587625423911959,
+    40.18873934797011
+  ],
+  "total_numerical_wall_seconds": 50.77636477188207,
+  "peak_process_RSS_bytes": [
+    1545756672,
+    1268060160
+  ],
+  "max_original_action_vs_sequential": 0.0,
+  "max_independent_original_A0_action_difference": 3.256265801105684e-16,
+  "max_sequential_inverse_difference": 6.898000482803263e-14,
+  "max_qualified_original_G_inverse_residual": 3.859507687564813e-12,
+  "max_qualified_independent_A0_inverse_residual": 3.860256465721391e-12,
+  "qualification_cases": [
+    "locked_vectors",
+    "all_zero",
+    "mixed_columns",
+    "mixed_inactive_modes"
+  ],
+  "inverse_qualification_columns": 187,
+  "qualified_strict_zero_columns": 108,
+  "full_batch": {
+    "complete_four_RHS_seconds": 15.19468303071335,
+    "online_four_RHS_seconds": 13.140786273637787,
+    "observed_batch_wall_seconds": 15.218737790128216,
+    "first_RHS_seconds": 5.387908322038129,
+    "outer_calls": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "inner_calls": [
+      5,
+      5,
+      5,
+      4
+    ],
+    "batched_inverse_applications": 19,
+    "logical_mode_inverse_applications": 323,
+    "batched_raw_calls": 38,
+    "batched_original_G_calls": 38
+  },
+  "full_setup": {
+    "physical_seconds": 0.004885341040790081,
+    "TSA_seconds": 0.1321864810306579,
+    "factor_seconds": 1.36604970600456,
+    "original_A0_validation_seconds": 0.5507752289995551,
+    "complete_seconds": 2.053896757075563
+  },
+  "unallocated_observed_batch_seconds": 0.024054759414866567,
+  "first_RHS_phase_seconds": 5.387908322038129,
+  "first_RHS_conservative_upper_seconds": 5.4119630814529955,
+  "max_outer_original_residual": 7.418933540356738e-06,
+  "max_evaluated_relative_bound": 3.217770337434575e-05,
+  "max_field_difference": 1.6261145278480961e-07,
+  "max_inner_original_projected_residual": 8.88262499260328e-05,
+  "max_runtime_original_G_residual": 3.9308428937698815e-12,
+  "max_runtime_corrections": 1,
+  "full_factor_logical_bytes": 276427472,
+  "reference_research_seconds": 24.55585501017049,
+  "source_hashes": {
+    "qualify_batched.py": "793a6a97cdbeb50c055e66616abb229e9c45821ab55e8b56a46876b063c078ac",
+    "batched_angular.py": "b9aed56b4962ba1620bac5ff9693f7d63ce20e1909f8c5083b4065973b84bec7",
+    "full_batched_cpu.py": "f35dfdc9751ceeedb9821dfe5ede4c1440ca93143be9e0b10c341dd639f013ec",
+    "bridge_common.py": "8a3538783916f68456aad644d3a799a70cea992dc25c7344a7799f06d18c88cc"
+  },
+  "production_hashes_unchanged": true,
+  "source_derived_call_counts": {
+    "note": "Static counts from frozen solver source and successful no-restart/no-rejection statuses, not independent runtime counters or GPU kernel-launch counts.",
+    "candidate_outer_original_A_and_final_checks": 40,
+    "candidate_inner_projected_original_A": 46,
+    "candidate_independent_setup_original_A0": 17,
+    "ordinary_reference_original_A": 48,
+    "ordinary_reference_TSA64": 20,
+    "qualification_stage_original_A0": 85,
+    "candidate_setup_batched_LU": 13,
+    "candidate_setup_batched_LU_solve": 23,
+    "candidate_online_batched_LU_solve": 494
+  }
+}

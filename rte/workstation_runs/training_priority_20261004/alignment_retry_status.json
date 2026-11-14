@@ -1,0 +1,17 @@
+{
+  "mode": "alignment_retry",
+  "pid": 2411570,
+  "started": 1791107834.905102,
+  "complete": true,
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/train_alignment.py",
+    "--output",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry",
+    "--reuse-strong-train64",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment/train_tsa16_n64.pt"
+  ],
+  "returncode": 0,
+  "finished": 1791108294.1293259,
+  "seconds": 459.2242238521576
+}

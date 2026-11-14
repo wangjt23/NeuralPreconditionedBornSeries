@@ -1,0 +1,150 @@
+{
+  "phase": "complex_krylov_screen",
+  "grids": [
+    128,
+    256
+  ],
+  "development_ids": [
+    0,
+    3
+  ],
+  "development_seed": 4626,
+  "development_parent_sha256": {
+    "64": "bbebfd1c7c4808733628ee8fdecac9e9ce09521d70f7664a5d5391c8af10813a",
+    "128": "9ade993bce700505d134fa197ceeee72327790bc6660e670a95bea8c43052de1",
+    "256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "code_sha256": {
+    "code/complex_screen.py": "efc7d6f95598e1a7b02c60c1740ab52660a2a48e19cc9d67e90f76564bacb3bf",
+    "code/complex_augmented_fgmres.py": "d517306d65f796b923c08735be235f7d56b615614e8a068fcd35349a592bfe4e",
+    "code/test_complex_augmented_fgmres.py": "3222ecad4a617b6184bc0a2970f4927f77108bff0382f7d6b21555d28182a1b8",
+    "code/admissibility.py": "c7a76527ee259b0aca5e9620248574bb46d73864a0719ccaadb65da7591280a4",
+    "code/test_admissibility.py": "4a10411660b0d45f6b3bbbf55b3ee1dfeb36a17b5965d47d9499369ef32d56e4",
+    "code/graph_classical_v2.py": "cb142084d28b1a0b5236e92b6b5e14f4d7aca3d67b8d7d41e3f65d2d76c0db3e",
+    "code/segmented_tsa.py": "a95ed61b4c282353e48b8dad6f5aebd993a50f130f10d8aaca6e8aa2c883ba29",
+    "code/direct_segmented_tsa.py": "98eb806b8482990c1727cb80de3a2182c520be01090a512b742feb0417e0d1d1",
+    "code/direct_full_graph.py": "cf29f0b3d4b2dfe773660ac06a33385216719f6fcf363c1a33d44973ab372cd0"
+  },
+  "methods": [
+    "eager",
+    "context_full",
+    "context_segmented",
+    "direct_full",
+    "direct_segmented",
+    "complex_direct_segmented"
+  ],
+  "candidate": "complex_direct_segmented",
+  "candidate_backend": "direct_segmented",
+  "strong_factors": {
+    "128": "tsa8/reference_tail",
+    "256": "tsa16/zero"
+  },
+  "timed_repeats": 3,
+  "warmup_repeats": 1,
+  "max_full_solves": 96,
+  "primary_paired_full_solves": 32,
+  "global_entry_checks": 112,
+  "admissibility_records": 108,
+  "admissibility_action_calls": 1080,
+  "same_real_recipe_full_pairs": 64,
+  "soft_seconds": 95,
+  "hard_seconds": 120,
+  "max_reserved_bytes": 12884901888,
+  "maxiter": 100,
+  "restart": 25,
+  "inject_after": 4,
+  "tolerance": 1e-05,
+  "relative_error_bound_limit": 0.001,
+  "paired_field_difference_limit": 0.0001,
+  "admissibility_tolerances": {
+    "physical_H128": 1e-12,
+    "low_H64": 2e-06,
+    "reference_G64": 5e-06,
+    "reference_R064": 5e-06,
+    "strong_eager64": 0.0001,
+    "strong_eager128": 1e-12,
+    "deployed_backcast128": 0.0001,
+    "segmented_native128": 1e-12,
+    "physical_H_after_deployed": 0.001
+  },
+  "admissibility_probe_pairs": [
+    "source_mixed",
+    "nyquist_source",
+    "unit_complex_random"
+  ],
+  "probe_seed_rule": "91731+N+ID, private CUDA Generator; two unit normalized complex random fields",
+  "alpha": [
+    0.73,
+    0.29
+  ],
+  "beta": [
+    -0.41,
+    0.37
+  ],
+  "phase_angle": 0.37,
+  "real_scale": -1.7,
+  "actual_action_paths": {
+    "physical_H128": "original high promoted-buffer complex128 A_op",
+    "low_H64": "original low A_op complex64",
+    "reference_G64": "fixed original G complex64",
+    "reference_R064": "original cached R0 complex64, full angles",
+    "strong_eager64": "original fixed TSA depth8/16 complex64",
+    "strong_eager128": "same original TSA native128, original cached64 inverse promoted",
+    "deployed_backcast128": "r128->cast64->same direct-segmented strong TSA->owned128",
+    "segmented_native128": "native128 original eager fallback after frozen-state guards",
+    "physical_H_after_deployed": "original high.A_op(actual128->64->direct-segmented->128)"
+  },
+  "entry_rule": "Every112own-literal/cache/ownership check and108 finite-probe records must pass, source must be bitwise preserved/exactly real, common start and original reference cache shared. Any failure=>0 full solves; no threshold/operator/precision/factor/backend waiver. Fixed caps are engineering roundoff consistency, not global exact linearity or solve residual bounds.",
+  "normalization": "Unprojected reference-output sum |alpha|norm(Ax)+|beta|norm(Ay); both-probe i/phase/real scaling denominators use scaled reference norms. Symmetric ratios diagnostic only. Exact zero, finite and consistent dtype/shape/device contract required. Actual combination construction and action/output rounding are retained.",
+  "physical_admissibility": "Original real-stacked fields contain both real and imaginary channels, no real-field/positivity projection. Real source and possible Nyquist imaginary response recorded; no continuum real-intensity validity inferred. Original complex discrete H remains unchanged for all accepted fields.",
+  "complex_solver": "One Hermitian single-MGS companion, actual returned Z and original HZ, tiny complex SVD LS rcond=max(matrix_shape)*machine_epsilon, complex rank-aware injection/dependence and rank-loss stopping, absolute1e-14 breakdown. SVD/rank safeguards differ from original real lstsq and are charged; no pure coefficient-only numerical attribution.",
+  "source_start_injection": "Both primary arms receive identical direct-segmented factors, original physical source and input/output precision. N128 original balanced R0 source start and attempt-once full R0 reference proposal after4classical calls; N256 zero/no injection. Physical original-RHS normalization and final acceptance unchanged.",
+  "cost_scope": "Entire physical/material/coercivity/base/capture setup charged each arm; own real-lstsq/complex-SVD library preparation charged, casts/clones/arithmetic/orthogonalization/rank/rejected work/all allocations/full solve+physicalresidual/error/finite+imag diagnostics timed. Common mandatory admissibility acquisition charged to all6arms once percontext without amortization. Operational setup+warm ledger separately reported. SourceIO/interpreterstartup/comparativeQA excluded and disclosed as research process costs. Q1 is recorded setup+warm accepted, not matched process cold.",
+  "decision": "Unchanged10% mean Q1 and mean warm improvement at BOTHgrids, worstindividualQ1regression<=10%, zero candidate accuracy failures inclwarmups. Require contemporarysuccessfuloriginal5 fullycharged envelope AND storedprior11 historical fullycharged sensitivity; primarypair reported too. Operational ledgers also shown. Historical11 notclockmatched; no learned/global11portfolio claim from this screen.",
+  "historical_prior_eleven": [
+    {
+      "size": 128,
+      "index": 0,
+      "q1_method": "gain_two",
+      "q1_seconds": 0.47873740643262863,
+      "warm_method": "context_full",
+      "warm_seconds": 0.06327980384230614
+    },
+    {
+      "size": 128,
+      "index": 3,
+      "q1_method": "direct_segmented",
+      "q1_seconds": 0.07946890965104103,
+      "warm_method": "direct_full",
+      "warm_seconds": 0.045074691995978355
+    },
+    {
+      "size": 256,
+      "index": 0,
+      "q1_method": "direct_segmented",
+      "q1_seconds": 0.18783854506909847,
+      "warm_method": "context_full",
+      "warm_seconds": 0.15106401778757572
+    },
+    {
+      "size": 256,
+      "index": 3,
+      "q1_method": "direct_segmented",
+      "q1_seconds": 0.14202940464019775,
+      "warm_method": "context_full",
+      "warm_seconds": 0.10810590907931328
+    }
+  ],
+  "historical_receipt_sha256": "44d7a8f08bb3f9ffd960b680508f3c2a06f3db8d54cf51fe248146cb97500b1c",
+  "historical_scope": "Preserved prior11 results as historical sensitivity only; includes numericallyvalid gain2 but NO rerun of stopped TSA4/full/q3/gain2 or other scalarvariants.",
+  "selection": false,
+  "parameter_sweep": false,
+  "new_teacher": false,
+  "optional_span_fit": false,
+  "training": false,
+  "test9626_touched": false,
+  "original_source_exported": false,
+  "git_write": false,
+  "new_package": false,
+  "large_campaign": false
+}

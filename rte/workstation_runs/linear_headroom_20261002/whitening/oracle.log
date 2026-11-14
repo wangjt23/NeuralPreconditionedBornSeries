@@ -1,0 +1,5 @@
+whitened q3 N128 ID0 complete
+whitened q3 N128 ID3 complete
+whitened q3 N256 ID0 complete
+whitened q3 N256 ID3 complete
+{"complete": true, "wall_seconds": 22.23687732592225, "all_checks_passed": true, "all_full_accuracy": true, "independent_media": 2, "total_full_solves": 48, "measured_full_solves": 36, "all_range_normal_targets_reached": false, "optimality_claim": false, "training": false, "test9626_touched": false, "peak_allocated_bytes": 1745692160, "peak_reserved_bytes": 2871001088}

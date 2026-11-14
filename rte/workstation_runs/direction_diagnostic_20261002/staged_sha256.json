@@ -1,0 +1,9 @@
+{
+  "test_continuation_acceptance.py": "3e12535ca8880dbbc78b822c1d03b8967c596e88137f86a2f61bb3feefd37293",
+  "continuation_acceptance_test_report.md": "7ea93f4f3212bb4eb15606de9661be544cf345377cf98904b88e00746f4bb888",
+  "acceptance_phase_note.md": "f58ea3f95570aa7adbd2901f3b5e4207906892676d14d96ec098c1fff3753662",
+  "continuation_acceptance.py": "31ed66a3d4b040f2fcf2e4c698bb8b1352ac63be1153acc544a5bc77d8958123",
+  "test_instrumented_fgmres.py": "c3f2a9462ae9c9e4aaf33d9208e53bdac5573d207082fba6550987ffacca1be4",
+  "diagnose_tail_directions.py": "60c93d1bac2040af1d19490080ae0c5c5beb1b2d226e19f6c160aaf6896a609a",
+  "instrumented_fgmres.py": "808fef99167e34f4ebab18e9a9070ff94e6288f094dc747d0c887dd2a59a28f7"
+}

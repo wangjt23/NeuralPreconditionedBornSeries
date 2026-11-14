@@ -1,0 +1,41 @@
+{
+  "args": {
+    "output": "rte/workstation_runs/tail_optical_moment_20260926",
+    "context": "rte/workstation_runs/tail_injection_gate_20260926/train_context.pt",
+    "validation_parent": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+    "steps": 2000,
+    "supervised_steps": 0,
+    "eval_every": 200,
+    "batch": 8,
+    "width": 32,
+    "blocks": 4,
+    "modes": 6,
+    "lr": 0.0003,
+    "seed": 26927,
+    "moments": true,
+    "warm_start": "rte/workstation_runs/tail_direction_pilot_20260926/best.pt",
+    "optical": true
+  },
+  "complete": true,
+  "scope": "tail-direction training and validation only; zero test access",
+  "selection": "failures, mean classical calls + 0.5*neural calls, then physical residual; all 16 validation cases",
+  "architecture": "OpticalTailNetwork",
+  "source_sha256": {
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/tail_response_network.py": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+    "rte/optical_tail_network.py": "54047cae9ef96a5d072625e26050898f2bc8ee417de4456e4dcc3bf5e8c6928e",
+    "rte/tail_moment_space.py": "55afc159d7c3d9c9c689ae3f9b31ccc8cd4175bb733dff757c2558cb12b1cee5",
+    "rte/train_tail_direction.py": "506c5e4b912222f69ffd9e09fe4ff059849ec740843fc995a14ebe1a118d360d"
+  },
+  "warm_start_sha256": "135aa962f6ebc1a08b1f17c61d85cafed990da68665e1bf12cfedb097ed0775f",
+  "warm_start_mode": "weights only; optimizer/schedule/sampling reset",
+  "selected_step": 0,
+  "validation_score": [
+    0,
+    8.03125,
+    5.4260853108804305e-06
+  ],
+  "parameters": 675683,
+  "training_seconds": 307.6933554969728,
+  "context_sha256": "1e34233b172224ed18b59184a74aec41111ed68184b8068a9c9ddfe9cd62e72f"
+}

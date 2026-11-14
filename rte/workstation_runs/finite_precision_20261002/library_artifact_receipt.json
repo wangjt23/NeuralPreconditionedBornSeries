@@ -1,0 +1,36 @@
+{
+  "all_exact_pinned_versions_verified": true,
+  "artifacts": [
+    {
+      "tag": "report",
+      "local_path": "/Users/hxchen/Documents/Codex/2026-10-02/task-3/deliverables/finite_precision_20261002/RTE_FWI_Finite_Precision_2026_10_02.md",
+      "library_file_id": "libfile_dca074e71f408191b7ff60d4314163c7",
+      "file_id": "file_0000000003d881fbad6537c5af67b87f",
+      "file_name": "RTE_FWI_Finite_Precision_2026_10_02.md",
+      "current_version_number": 0,
+      "size_bytes": 19453,
+      "sha256": "53dd19c7e2c36fdf879f202f42d382cc82a2ce1585b23fdbfd7fa7ce4c400387",
+      "download_byte_exact": true,
+      "local_library_identity_verified": true,
+      "download_library_identity_verified": true
+    },
+    {
+      "tag": "bundle",
+      "local_path": "/Users/hxchen/Documents/Codex/2026-10-02/task-3/deliverables/RTE_FWI_Finite_Precision_2026_10_02.zip",
+      "library_file_id": "libfile_25b5c934876481918a1abc9626ca8b19",
+      "file_id": "file_00000000ec4081fbb60066d567cfdbd8",
+      "file_name": "RTE_FWI_Finite_Precision_2026_10_02.zip",
+      "current_version_number": 0,
+      "size_bytes": 760613,
+      "sha256": "186612fafd7268c40032f20043be567225a5afacd4482d8fced8f7c2a93a46e9",
+      "download_byte_exact": true,
+      "local_library_identity_verified": true,
+      "download_library_identity_verified": true
+    }
+  ],
+  "private_library_save": true,
+  "public_sharing": false,
+  "prepared_helper_unavailable_before_any_upload": true,
+  "ordered_direct_creates_and_current_metadata_helper_succeeded": true,
+  "original_source_exported": false
+}

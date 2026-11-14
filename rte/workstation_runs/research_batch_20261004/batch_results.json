@@ -1,0 +1,80 @@
+{
+  "complete": true,
+  "all_processes_successful": true,
+  "jobs": [
+    {
+      "name": "freeze",
+      "pid": 2403550,
+      "returncode": 0,
+      "timeout": false,
+      "external_process_seconds": 6.75300931558013,
+      "hard_seconds": 60,
+      "command": [
+        "/data1/software/miniconda3/bin/python",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobA/code/stagewise_driver.py",
+        "freeze"
+      ],
+      "completed_utc": "2026-10-04T08:28:49.875824+00:00"
+    },
+    {
+      "name": "C_local",
+      "pid": 2403612,
+      "returncode": 0,
+      "timeout": false,
+      "external_process_seconds": 25.74613226391375,
+      "hard_seconds": 120,
+      "command": [
+        "/data1/software/miniconda3/bin/python",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/code/gpu_direction_jobs.py",
+        "local"
+      ],
+      "completed_utc": "2026-10-04T08:29:15.660522+00:00"
+    },
+    {
+      "name": "D_coarse",
+      "pid": 2403692,
+      "returncode": 0,
+      "timeout": false,
+      "external_process_seconds": 20.711033644154668,
+      "hard_seconds": 120,
+      "command": [
+        "/data1/software/miniconda3/bin/python",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/code/gpu_direction_jobs.py",
+        "coarse"
+      ],
+      "completed_utc": "2026-10-04T08:29:36.541054+00:00"
+    },
+    {
+      "name": "B_optimized",
+      "pid": 2403611,
+      "returncode": 0,
+      "timeout": false,
+      "external_process_seconds": 119.35002559237182,
+      "hard_seconds": 180,
+      "command": [
+        "/data1/software/miniconda3/bin/python",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/code/optimized_job.py"
+      ],
+      "completed_utc": "2026-10-04T08:30:49.263897+00:00"
+    },
+    {
+      "name": "A_stagewise",
+      "pid": 2403610,
+      "returncode": 0,
+      "timeout": false,
+      "external_process_seconds": 166.73613240756094,
+      "hard_seconds": 240,
+      "command": [
+        "/data1/software/miniconda3/bin/python",
+        "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobA/code/stagewise_driver.py",
+        "check"
+      ],
+      "completed_utc": "2026-10-04T08:31:36.649348+00:00"
+    }
+  ],
+  "elapsed_seconds": 173.80375097319484,
+  "max_cpu_workers": 3,
+  "gpu_lane_serial": true,
+  "full_solves": 0,
+  "training_steps": 0
+}

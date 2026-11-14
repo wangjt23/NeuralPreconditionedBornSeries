@@ -1,0 +1,22 @@
+{
+  "request_id": "RTE-PRO-V1-20261114",
+  "state": "result_verified",
+  "target_tab": "740265279",
+  "model": "Pro 5 of 5",
+  "source_attachment": "none; narrowed self-contained decision review explicitly disclosed",
+  "observer": "/root/rte_48h",
+  "attempt": 1,
+  "attachment": "request-v1.txt",
+  "attachment_sha256": "1da91327696f96dd8c7bed3c95cb6b15c216897917c4d71ea7b2f370eca140df",
+  "upload": "visible completed attachment chip",
+  "sending_at": "2026-11-14T01:57:18.753466+00:00",
+  "scope": "narrowed decision review; no complete source packet",
+  "target": "https://chatgpt.com/c/6af7bfca-fe30-83ea-8cf0-4d53daa4a65c",
+  "verified_submission_at": "2026-11-14T01:58:02.325767+00:00",
+  "last_checked_at": "2026-11-14T01:58:02.325767+00:00",
+  "next_check_at": null,
+  "delivery": "visible outgoing exact request and attachment; Pro thinking/acknowledgement visible",
+  "ingestion": "Pro identifies exact FIT8 .3191 -> .1767 and 35.75 ->79.625,8/8->4/8; full response read via browser main text, with Response complete",
+  "verified_complete_at": "2026-11-14T02:20:13.954718+00:00",
+  "decision": "prioritize actual Arnoldi coverage O vs differentiable 8-step FGMRES K on TRAIN8; structural explanations remain open"
+}

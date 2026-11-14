@@ -1,0 +1,5 @@
+{"event": "algebra_unit_passed", "seconds": 0.018668128876015544, "action_residual": 2.7144470643795076e-16, "relative_solution_difference": 3.4434115544509877e-16, "root_low_rank": true}
+{"event": "derivative_bound", "qbound": 0.0003381829210819728, "ranks": [33, 14, 8, 6, 6, 8, 6, 6, 14, 8, 6, 6, 8, 6, 6], "bytes": 141312}
+{"event": "case_done", "k": 0, "passed": true, "setup": 0.24181617586873472, "bytes": 34499952, "rawmax": 1.8200227048152454e-07, "floatingmax": 7.687840362997378e-13, "repairs": 1, "seconds": 17.993438160046935}
+{"event": "case_done", "k": 8, "passed": true, "setup": 0.23459572182036936, "bytes": 34499952, "rawmax": 2.9193993863973147e-08, "floatingmax": 5.513882257710075e-15, "repairs": 1, "seconds": 1.2142490718979388}
+{"event": "finished", "complete": true, "result": "OPERATOR_FIRST_WEIGHTED_CONCEPT_QUALIFIED_ON_PROBES", "seconds": 27.565937743987888, "error": null}

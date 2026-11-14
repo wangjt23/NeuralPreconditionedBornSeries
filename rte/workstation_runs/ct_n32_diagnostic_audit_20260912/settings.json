@@ -1,0 +1,20 @@
+{
+  "run": "rte/workstation_runs/ct_n32_data4096_seed101",
+  "checkpoint_sha256": "d93b635ebe7d8dc387bda250c26184b7f801156ea31b3608fe4a0d8b98535465",
+  "selected_epoch": 200,
+  "last_epoch": 1000,
+  "updates": 128000,
+  "test_fingerprint": "9fe8222fb28998311cb2e99705f0ccc1bec640066d31e95d6b73805eb9ad2818",
+  "validation_fingerprint": "f91c168bd5dcec6924923b6830b62eaa784e1c6b103ed2f4139259f714138ea9",
+  "device": "cuda:0",
+  "torch": "2.5.1",
+  "precision_indices": [
+    4,
+    18,
+    54,
+    120,
+    152
+  ],
+  "scope": "diagnosis on reused test; validation compares retained selected and last only",
+  "cache_guard": "setup_generation_and_retained_inputs_v3"
+}

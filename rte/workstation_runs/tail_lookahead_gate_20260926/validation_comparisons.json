@@ -1,0 +1,50 @@
+[
+  {
+    "size": 64,
+    "classical": "reference_tail",
+    "neural": "lookahead_tail",
+    "independent_media": 16,
+    "classical_ms": 132.41032828227617,
+    "neural_ms": 132.1818822179921,
+    "saving_percent": 0.17252888596201998,
+    "saving_percent_ci95": [
+      -2.6536569397842973,
+      2.6347456018482065
+    ],
+    "neural_faster_cases": 9,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "failed": 0
+  },
+  {
+    "size": 128,
+    "classical": "reference_tail",
+    "neural": "lookahead_tail",
+    "independent_media": 16,
+    "classical_ms": 132.15752359246835,
+    "neural_ms": 134.46800503879786,
+    "saving_percent": -1.7482784055899092,
+    "saving_percent_ci95": [
+      -4.30994674698077,
+      0.7591648467537403
+    ],
+    "neural_faster_cases": 5,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "failed": 0
+  },
+  {
+    "size": 256,
+    "classical": "tsa16_zero",
+    "neural": "lookahead_tail",
+    "independent_media": 16,
+    "classical_ms": 146.03226925828494,
+    "neural_ms": 159.7326718037948,
+    "saving_percent": -9.381763780769692,
+    "saving_percent_ci95": [
+      -14.491801725270307,
+      -4.086493095174346
+    ],
+    "neural_faster_cases": 3,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+    "failed": 0
+  }
+]

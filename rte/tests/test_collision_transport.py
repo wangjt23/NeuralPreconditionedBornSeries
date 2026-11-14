@@ -1,4 +1,5 @@
 import unittest
+import weakref
 
 import torch
 
@@ -196,6 +197,38 @@ class CollisionTransportTests(unittest.TestCase):
             model.gain_net[-1].bias.add_(.2)
             model(residual)
             self.assertFalse(torch.equal(before, model._prepared_filters[0]))
+
+    def test_cache_retains_input_storage_across_intervening_setups(self):
+        rte = self.make(8, 7, torch.float32)
+        model = CollisionTransportPreconditioner(rte, depth=4, learned=True).eval()
+        with torch.no_grad():
+            model.prepare()
+            original = weakref.ref(rte.sigma_t)
+            signature = model._prepared_signature
+            # Other methods can change the medium without invoking this CT.
+            for _ in range(3):
+                rte.setup(rte.sigma_t + .4, rte.sigma_s, rte.source)
+            self.assertIsNotNone(original())  # Old storage cannot be recycled.
+            self.assertNotEqual(signature, model._signature())
+            result = model(rte.source)
+            self.assertIsNone(original())  # Released on refresh.
+            model.train()
+            torch.testing.assert_close(result, model(rte.source), atol=1e-6, rtol=1e-5)
+
+    def test_setup_invalidates_even_when_pointer_and_version_repeat(self):
+        rte = self.make(8, 7, torch.float32)
+        model = CollisionTransportPreconditioner(rte, depth=4, learned=True).eval()
+        with torch.no_grad():
+            model.prepare()
+            before = model._prepared_signature
+            # NumPy writes model the same-address/version ABA failure without
+            # relying on nondeterministic allocator reuse in a unit test.
+            rte.sigma_t.numpy()[:] += .5
+            rte.setup(rte.sigma_t, rte.sigma_s, rte.source)
+            self.assertNotEqual(before, model._signature())
+            cached = model(rte.source)
+            model.train()
+            torch.testing.assert_close(cached, model(rte.source), atol=1e-6, rtol=1e-5)
 
 
 if __name__ == "__main__":

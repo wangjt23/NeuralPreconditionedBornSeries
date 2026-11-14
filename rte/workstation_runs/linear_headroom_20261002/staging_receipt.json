@@ -1,0 +1,11 @@
+{
+  "host": "FWI-Standard-PC-i440FX-PIIX-1996",
+  "source_files_verified": 155,
+  "no_other_research_processes": true,
+  "code_sha256": {
+    "code/graph_classical.py": "4e3db886b8ce23c1d6ccb1d6df8f071741c40f6b59b4993be3e85563f3c961e4",
+    "code/graph_oracle.py": "c9aadab70295445e5239a4266a1839b391cfebfc119f8d0c54cf3be221e51045",
+    "graph_policy.json": "cd92222deed649c3d2b3af525a2bc27133a1e237b4049e09d6b0e43e1074e30e"
+  },
+  "gpu_before": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]\nNVIDIA RTX A6000, 49140 MiB, 37 MiB, 0 %\n"
+}

@@ -1,0 +1,28 @@
+{
+  "complete": true,
+  "started": true,
+  "host": "FWI-Standard-PC-i440FX-PIIX-1996",
+  "policy_sha256": "f08fb914327d23f8975cfad7ec50b93ddf4455959ca7cb45bea6147f30359c72",
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "-u",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/linear_headroom_20261002/v2/verify_graph_full16_v2.py",
+    "--policy",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/linear_headroom_20261002/v2/graph_full16_v2_policy.json",
+    "--output",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/linear_headroom_20261002/v2/full16",
+    "--max-wall-seconds",
+    "300.0"
+  ],
+  "max_process_wall_seconds": 300.0,
+  "gpu_before": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "other_research_processes_before": [],
+  "training_run": false,
+  "test_touched": false,
+  "exit_code": 0,
+  "process_timed_out": false,
+  "process_wall_seconds": 218.32425891421735,
+  "source_files_verified": 155,
+  "original_sources_unchanged": true,
+  "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n"
+}

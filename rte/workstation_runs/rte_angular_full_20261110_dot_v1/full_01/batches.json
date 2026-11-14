@@ -1,0 +1,313 @@
+[
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "physical_setup_seconds": 0.01172061706893146,
+    "TSA_setup_seconds": 0.13692379998974502,
+    "factor_setup_seconds": 3.0912481190171093,
+    "independent_validation_seconds": 1.0619405657052994e-06,
+    "setup_seconds": 3.2398935980163515,
+    "online_four_rhs_seconds": 17.496863186825067,
+    "complete_four_rhs_seconds": 20.73675678484142,
+    "observed_batch_wall_seconds": 20.751261617057025,
+    "factor_or_logical_stored_bytes": 302137344,
+    "calls": [
+      4,
+      3,
+      4,
+      3
+    ],
+    "inner_calls": [],
+    "accepted": true
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "dense8_inner",
+    "method_order": 1,
+    "physical_setup_seconds": 0.009684232994914055,
+    "TSA_setup_seconds": 0.16304576816037297,
+    "factor_setup_seconds": 5.22945866198279,
+    "independent_validation_seconds": 0.45380953792482615,
+    "setup_seconds": 5.855998201062903,
+    "online_four_rhs_seconds": 12.634617706993595,
+    "complete_four_rhs_seconds": 18.490615908056498,
+    "observed_batch_wall_seconds": 18.504594729980454,
+    "factor_or_logical_stored_bytes": 641832960,
+    "calls": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "inner_calls": [
+      5,
+      5,
+      5,
+      4
+    ],
+    "accepted": true
+  },
+  {
+    "stage": "screen",
+    "repeat": 0,
+    "method": "angular8_inner",
+    "method_order": 2,
+    "physical_setup_seconds": 0.007424338022246957,
+    "TSA_setup_seconds": 0.15038151596672833,
+    "factor_setup_seconds": 1.178169758990407,
+    "independent_validation_seconds": 0.5295275370590389,
+    "setup_seconds": 1.8655031500384212,
+    "online_four_rhs_seconds": 14.401169687276706,
+    "complete_four_rhs_seconds": 16.266672837315127,
+    "observed_batch_wall_seconds": 16.281011220999062,
+    "factor_or_logical_stored_bytes": 276633928,
+    "calls": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "inner_calls": [
+      5,
+      5,
+      5,
+      4
+    ],
+    "accepted": true
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "angular8_inner",
+    "method_order": 0,
+    "physical_setup_seconds": 0.009734339080750942,
+    "TSA_setup_seconds": 0.09821102605201304,
+    "factor_setup_seconds": 0.9639074050355703,
+    "independent_validation_seconds": 0.5290779850911349,
+    "setup_seconds": 1.6009307552594692,
+    "online_four_rhs_seconds": 14.181097120977938,
+    "complete_four_rhs_seconds": 15.782027876237407,
+    "observed_batch_wall_seconds": 15.796243236167356,
+    "factor_or_logical_stored_bytes": 276633928,
+    "calls": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "inner_calls": [
+      5,
+      5,
+      5,
+      4
+    ],
+    "accepted": true
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "dense8_inner",
+    "method_order": 1,
+    "physical_setup_seconds": 0.009954791981726885,
+    "TSA_setup_seconds": 0.09706626902334392,
+    "factor_setup_seconds": 4.8894962600898,
+    "independent_validation_seconds": 0.4427748939488083,
+    "setup_seconds": 5.439292215043679,
+    "online_four_rhs_seconds": 12.20356397330761,
+    "complete_four_rhs_seconds": 17.64285618835129,
+    "observed_batch_wall_seconds": 17.656678282190114,
+    "factor_or_logical_stored_bytes": 641832960,
+    "calls": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "inner_calls": [
+      5,
+      5,
+      5,
+      4
+    ],
+    "accepted": true
+  },
+  {
+    "stage": "screen",
+    "repeat": 1,
+    "method": "compact4_inject",
+    "method_order": 2,
+    "physical_setup_seconds": 0.007257682038471103,
+    "TSA_setup_seconds": 0.1545834648422897,
+    "factor_setup_seconds": 3.015300293918699,
+    "independent_validation_seconds": 1.4139804989099503e-06,
+    "setup_seconds": 3.1771428547799587,
+    "online_four_rhs_seconds": 17.42589477612637,
+    "complete_four_rhs_seconds": 20.60303763090633,
+    "observed_batch_wall_seconds": 20.61719200317748,
+    "factor_or_logical_stored_bytes": 302137344,
+    "calls": [
+      4,
+      3,
+      4,
+      3
+    ],
+    "inner_calls": [],
+    "accepted": true
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 0,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "physical_setup_seconds": 0.00842348812147975,
+    "TSA_setup_seconds": 0.1170067978091538,
+    "factor_setup_seconds": 2.7528508570976555,
+    "independent_validation_seconds": 9.890645742416382e-07,
+    "setup_seconds": 2.8782821320928633,
+    "online_four_rhs_seconds": 17.43424490885809,
+    "complete_four_rhs_seconds": 20.312527040950954,
+    "observed_batch_wall_seconds": 20.326993067050353,
+    "factor_or_logical_stored_bytes": 302137344,
+    "calls": [
+      4,
+      3,
+      4,
+      3
+    ],
+    "inner_calls": [],
+    "accepted": true
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 0,
+    "method": "angular8_inner",
+    "method_order": 1,
+    "physical_setup_seconds": 0.006271202815696597,
+    "TSA_setup_seconds": 0.10143475886434317,
+    "factor_setup_seconds": 1.1028067469596863,
+    "independent_validation_seconds": 0.5309772321488708,
+    "setup_seconds": 1.7414899407885969,
+    "online_four_rhs_seconds": 14.35411558789201,
+    "complete_four_rhs_seconds": 16.095605528680608,
+    "observed_batch_wall_seconds": 16.109862331999466,
+    "factor_or_logical_stored_bytes": 276633928,
+    "calls": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "inner_calls": [
+      5,
+      5,
+      5,
+      4
+    ],
+    "accepted": true
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 1,
+    "method": "angular8_inner",
+    "method_order": 0,
+    "physical_setup_seconds": 0.008523602038621902,
+    "TSA_setup_seconds": 0.11337016895413399,
+    "factor_setup_seconds": 1.1507891521323472,
+    "independent_validation_seconds": 0.5288485840428621,
+    "setup_seconds": 1.8015315071679652,
+    "online_four_rhs_seconds": 14.176434436812997,
+    "complete_four_rhs_seconds": 15.977965943980962,
+    "observed_batch_wall_seconds": 15.992239168845117,
+    "factor_or_logical_stored_bytes": 276633928,
+    "calls": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "inner_calls": [
+      5,
+      5,
+      5,
+      4
+    ],
+    "accepted": true
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 1,
+    "method": "compact4_inject",
+    "method_order": 1,
+    "physical_setup_seconds": 0.004966919077560306,
+    "TSA_setup_seconds": 0.10344274109229445,
+    "factor_setup_seconds": 2.7434020719956607,
+    "independent_validation_seconds": 8.351635187864304e-07,
+    "setup_seconds": 2.851812567329034,
+    "online_four_rhs_seconds": 17.460271439515054,
+    "complete_four_rhs_seconds": 20.31208400684409,
+    "observed_batch_wall_seconds": 20.326235009822994,
+    "factor_or_logical_stored_bytes": 302137344,
+    "calls": [
+      4,
+      3,
+      4,
+      3
+    ],
+    "inner_calls": [],
+    "accepted": true
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 2,
+    "method": "compact4_inject",
+    "method_order": 0,
+    "physical_setup_seconds": 0.004910058807581663,
+    "TSA_setup_seconds": 0.09702213713899255,
+    "factor_setup_seconds": 2.8175691179931164,
+    "independent_validation_seconds": 1.391163095831871e-06,
+    "setup_seconds": 2.9195027051027864,
+    "online_four_rhs_seconds": 17.14976694690995,
+    "complete_four_rhs_seconds": 20.069269652012736,
+    "observed_batch_wall_seconds": 20.08472318109125,
+    "factor_or_logical_stored_bytes": 302137344,
+    "calls": [
+      4,
+      3,
+      4,
+      3
+    ],
+    "inner_calls": [],
+    "accepted": true
+  },
+  {
+    "stage": "confirmation",
+    "repeat": 2,
+    "method": "angular8_inner",
+    "method_order": 1,
+    "physical_setup_seconds": 0.014176620868965983,
+    "TSA_setup_seconds": 0.10184608190320432,
+    "factor_setup_seconds": 0.9534441391006112,
+    "independent_validation_seconds": 0.5248313690535724,
+    "setup_seconds": 1.594298210926354,
+    "online_four_rhs_seconds": 13.943446906749159,
+    "complete_four_rhs_seconds": 15.537745117675513,
+    "observed_batch_wall_seconds": 15.55202276003547,
+    "factor_or_logical_stored_bytes": 276633928,
+    "calls": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "inner_calls": [
+      5,
+      5,
+      5,
+      4
+    ],
+    "accepted": true
+  }
+]

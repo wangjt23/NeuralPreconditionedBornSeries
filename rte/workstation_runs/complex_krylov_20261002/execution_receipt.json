@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "owned_process_timed_out": false,
+  "process_wall_seconds": 87.90946039371192,
+  "gpu_before": "1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "training": false,
+  "test9626_touched": false,
+  "policy_sha256": "acd73134c63839726d3b699c60e795b8da90d14709a9529fb94e905ce59ebd93",
+  "original_source_exported": false,
+  "cost_scope": "Operational setup plus accepted solve; fully charged setup adds the unique mandatory entry acquisition once per context to every arm, without amortization. Startup, source IO, cross-arm QA and CPU fixtures excluded and disclosed."
+}

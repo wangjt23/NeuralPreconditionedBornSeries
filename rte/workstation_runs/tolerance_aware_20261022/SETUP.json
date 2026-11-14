@@ -1,0 +1,27 @@
+{
+  "time_utc": "2026-10-22T16:04:01.522837+00:00",
+  "head": "028caea3f35d100225f656e2b1e910c1366aaafe",
+  "branch": "main",
+  "tracked_dirty": [
+    "docs/research/RTE_WORKSTATION_HANDOFF_2026_09_12.md",
+    "rte/NPBS_UNET_ABLATION_FULL12_SCALEAWARE_CHANNELMIX_TEACHERPHYSICAL_ONECYCLE_XLARGEBANK_MIXED_SIZE64_FROM2400_LR2E3_STEPS2400.md",
+    "rte/collision_transport.py",
+    "rte/models.py",
+    "rte/spectral_sparse_reference.py",
+    "rte/tests/test_collision_transport.py",
+    "rte/tests/test_collision_transport_ensemble.py",
+    "rte/train_collision_transport_ensemble.py",
+    "rte/transport_baselines.py"
+  ],
+  "files": {
+    "SOURCE_REVIEW.md": "1c96d7f2ee720bf2755e894aab9bc7d8e596cd213cc1fdbac4a8ef17622ffef4",
+    "THEORY_REVIEW.md": "1cbe223f03eaa75abdae397bf77133f8f8557750cbf9943e691e295774564ce5",
+    "PROTOCOL.json": "7a6aed2400421bdfd1e3f3ce30b56bb1abc097dc2aaeda9e484b4c2e19d68d95",
+    "code/objective.py": "778081ae47d49a630bdbec35abb9428cbe461243c7e6e82305196c8b98d535c5",
+    "code/train_tolerance.py": "a6886c8cd7e2017dccb97fb1e259600e69bf37dea3f0e1d0ca620f17aaa9aea4",
+    "code/admit.py": "98161f2368a82b87420389fa81ba3f67f54f9f7c540838a641e641e742227a0d",
+    "code/test_objective.py": "5b7d4b45f80542163a1f561c10bcccbc9f1515c4d8b793e3da1d4c9a7822e134",
+    "code/benchmark_tolerance.py": "56cd092e1d2bb58a3206381138a02f1b06d22af97e970d1c18f5dca112f22240",
+    "FROZEN_MANIFEST.json": "c66659e495c72a32d794626296b6ebe2d8f0811b0e130c0b1b844346f4ee535d"
+  }
+}

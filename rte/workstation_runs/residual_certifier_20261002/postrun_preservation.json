@@ -1,0 +1,18 @@
+{
+  "prior528_preserved": true,
+  "preservation_after_seconds": 18.8064705170691,
+  "tracked_dirty_unchanged": true,
+  "other_research_processes": [],
+  "gpu_after": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]\nNVIDIA RTX A6000, 49140 MiB, 37 MiB, 0 %\n",
+  "payload_sha256": {
+    "policy.json": "2e078e210664ed59e065b3815bb706e4fe933d72b901f36880fae53e7224841f",
+    "preflight_receipt.json": "043c186b90933500c8047144900b78709475b94f66d37eaee61ad48b6a841858",
+    "execution_receipt.json": "502e7b4965d1e31892eb20a10b23f92fb6c25103452ad572ab3d20c837abf457",
+    "driver_stdout.txt": "f77b6fb1e6e0e3ccdd85453505cad0ebc7c95f864ba15a662d2c31fa29498e61",
+    "driver_stderr.txt": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "results/certificates.json": "5a66559f04c23ae33b3bf7b90fe29dc24dcdbf90cb6235d547f556fb789d41b2",
+    "results/settings.json": "979599138d461d706730cfc33d10616314ac56bfe0c545ae4237a0ba1aaff8fc"
+  },
+  "source_exported": false,
+  "full_solves": 0
+}

@@ -1,0 +1,28 @@
+{
+  "arm": "continuation",
+  "complete": true,
+  "updates": 3000,
+  "selected_step": 3000,
+  "best_score": [
+    0,
+    7.8125,
+    5.766905992710603e-06
+  ],
+  "timing": {
+    "training": 371.84362943843007,
+    "validation": 58.75639115460217,
+    "panel": 17.233214495703578,
+    "checkpoint": 5.013410069048405
+  },
+  "peak_allocated_bytes": 8262390784,
+  "peak_reserved_bytes": 9281994752,
+  "stopping_reason": "planned budget",
+  "checkpoint_sha256": {
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/training/continuation/step0.pt": "e10d64195a951729fddd51301ea4e839ed706f44756b4150814385db018dcbd7",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/training/continuation/step3000.pt": "78c6384f026a7f120166da657bfd25addb053467d5289f0d15a84028c9aec80e",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/training/continuation/last.pt": "c901eb6cbb32fc3e5caba9d12c9a30036e80f10198e8d3bbcc1c9ebf982255e3",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/training/continuation/step2000.pt": "3d6a80ce494df24ec0a9784159cf40963c9d11949fd6a58960c6e143b49c3f6c",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/training/continuation/step1000.pt": "ccc82ca0d9ba079a87c29229e2006becab5cf902eb7b56dd7337745e3ffc912d",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/training/continuation/best.pt": "7b34fe73ce42fc2b4546edc483f8684d095f5804e739a80920099d0df2866140"
+  }
+}

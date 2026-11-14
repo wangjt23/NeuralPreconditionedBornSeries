@@ -1,0 +1,10 @@
+{
+  "reason": "training adequacy requires final trained endpoints even when proxy chooses warm step0",
+  "timing": "declared before alignment training finished or joint timing began",
+  "extra_controls": [
+    "aligned8_final at TSA8-balanced",
+    "aligned16_final at TSA16-zero"
+  ],
+  "selection": "supplemental fixed endpoints only; no checkpoint selection by runtime",
+  "scope": "same development only; no heldout selection or access"
+}

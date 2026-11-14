@@ -1,0 +1,9 @@
+# Retained preflight failure and isolated repair
+
+The original frozen policy was 2e3014b6c5817dc2e619e176c453072397eff7d1aed029a04de814fa915f168c in FWI `rte/workstation_runs/matched_reference_20261002`. All 20 CPU tests passed. Its GPU process exited 1 after 4.698431890457869 s, without timeout, while capturing the q3 correction. CUDA rejected the original angular projector's scalar assignment to its temporary mask. No global entry check or full solve had been recorded; its results directory was empty. The GPU returned to the same desktop-only process. This supplies no angular-information or solver-performance evidence.
+
+Version 2 uses a fresh run directory and fresh policy/code hashes. It preconstructs the identical index-DFT mask before graph capture and includes that work in the compound constructor timing. The frozen mask is guarded like other operator tensors. Projection uses the same angular FFT, mask multiplication and inverse FFT, then calls the unchanged reference solver with `harmonics=None`. Native128 uses its correctly promoted mask and the original promoted inverse cache. No original function is monkeypatched or source edited.
+
+Before any complete solve, every GPU wrapper is compared bitwise against the independently evaluated original eager compound, including original `reference_transport_solve(..., harmonics=1)` for q3, rather than against the repaired projector itself. Spatial/angular FFT counts, native128 behavior, ownership and changed-cache rejection retain their original checks. The scientific information and accuracy budgets, comparators, 160-solve/8-target bounds, 95/120 s envelope and 12 GiB limit remain unchanged. Both versions' receipts are retained.
+
+No original source was exported to the Mac. Original FWI sources remain runtime dependencies, identified by hashes and Git provenance. No training, seed9626 use, Git write or unrelated process cancellation occurred.

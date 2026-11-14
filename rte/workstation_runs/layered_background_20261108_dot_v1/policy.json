@@ -1,0 +1,17 @@
+{
+  "task": "Layered-background RTE representation, no learning",
+  "date": "2026-11-08",
+  "repository": "/data/wjt/NeuralPreconditionedBornSeries",
+  "physical_contract": "Original stored Fourier PeriodicRTE2D, L12 g=.65 epsilon=.1, original-RHS tolerance1e-5, independent FP64 residual and field comparison.",
+  "data": "Existing reused development4626; existing accurate teacher banks only. Reserved9626 untouched.",
+  "candidate": "Tangential FFT plus material-specific periodic block PCR of compact4 normal derivative, optional exact Nyquist rank-L repair. Upwind is a discretization control.",
+  "sequence": [
+    "CPU algebra and periodic/axis/Nyquist tests",
+    "GPU factor/action fidelity and setup/action costs on diagnostic IDs0,4,7,14 atN128",
+    "Full solve and physical-q oracle against same-block optimizedTSA16 and same-G Born/shortGMRES",
+    "N128/N256 all16 development only if implementation reliable; retain failures and stop representation if cost/noinformation margin closes"
+  ],
+  "accounting": "Single RHS per material. Charge method-specific factor, capture, incident/reconstruction actions, projections, checks and fallback. Shared physical construction charged equally; separate warm/reused-material and completeQ1 metrics. No process-cold claim.",
+  "resources": "Existing FWI A6000, one serial GPU worker and one CPU thread; inspect actual GPU competition before cases, yield/stop our work if others appear. Never cancel others. No new paid resources.",
+  "training": false
+}

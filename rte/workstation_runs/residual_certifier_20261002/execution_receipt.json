@@ -1,0 +1,16 @@
+{
+  "utc": "2026-10-02T22:22:44.715218+00:00",
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "-B",
+    "rte/workstation_runs/residual_certifier_20261002/code/certifier_driver.py"
+  ],
+  "returncode": 0,
+  "timed_out": false,
+  "owned_driver_seconds_including_imports": 122.26218813844025,
+  "preservation_before_seconds": 18.593000972643495,
+  "policy_sha256": "2e078e210664ed59e065b3815bb706e4fe933d72b901f36880fae53e7224841f",
+  "native_library_sha256": "bf5f5d04c2821e508f83cdbd630758b1cc7b3c1ee4a1250d7ef42859a0f84786",
+  "new_full_solves": 0,
+  "source_exported": false
+}

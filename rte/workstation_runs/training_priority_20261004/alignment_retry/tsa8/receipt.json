@@ -1,0 +1,26 @@
+{
+  "arm": "tsa8",
+  "complete": true,
+  "updates": 1000,
+  "selected_step": 1000,
+  "best_score": [
+    0,
+    7.8125,
+    6.0887964050910065e-06
+  ],
+  "timing": {
+    "training": 125.59725455008447,
+    "validation": 23.536794548854232,
+    "panel": 9.733211755752563,
+    "checkpoint": 1.9902856145054102
+  },
+  "peak_allocated_bytes": 4654253568,
+  "peak_reserved_bytes": 5278531584,
+  "stopping_reason": "planned budget",
+  "checkpoint_sha256": {
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa8/step0.pt": "ec7a1fc3a3d2379cf7a04a01d7106ef9a4a6bf22dca58db91cc11e8e3543df13",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa8/best.pt": "a76a2426b69df98083619673505682ec775e89fc159481fa9eaf4058b6442785",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa8/last.pt": "703d3b0796bbf108dece5a076a5d83a4c6b803a40c1ff542f0c8f79fb6196831",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa8/step1000.pt": "30278eb1d0707bf35f437491535e3463dcc0f18d322a42cf88f74b151df99f1f"
+  }
+}

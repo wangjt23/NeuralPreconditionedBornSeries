@@ -1,0 +1,31 @@
+{
+  "scope": "two fixed development IDs [0,3], three nested grids, two operator probes, two input precisions; no full solves/timing comparison/training/new source dataset/test access",
+  "device": "cuda",
+  "gate": "all finite; complex64 relative field and original-physical-image differences <=1e-4; complex128-input differences <=1e-9; exact FFT counts 6d+2(d-1) versus 4d+2(d-1)",
+  "input_precision_note": "complex128-input checks retain actual stored FP32 material/geometry/reference inverse; not a fully double-precision rebuilt operator",
+  "script_sha256": "0f6d14f8558497776b4c0382d061a210044d7e52cdcebd62428566d9d3121531",
+  "helper_sha256": "85ca74f338091c645ca77b198d74f011eca09ec62b86d27d732ba92126de5e81",
+  "development_parent_sha256": {
+    "64": "bbebfd1c7c4808733628ee8fdecac9e9ce09521d70f7664a5d5391c8af10813a",
+    "128": "9ade993bce700505d134fa197ceeee72327790bc6660e670a95bea8c43052de1",
+    "256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "rows": [],
+  "test_generated": false,
+  "gpu_before": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "complete": true,
+  "checks": 48,
+  "all_passed": false,
+  "wall_seconds": 7.892534056678414,
+  "max_field_difference_by_dtype": {
+    "torch.complex64": 5.039646566729061e-06,
+    "torch.complex128": 9.391070762393184e-15
+  },
+  "max_image_difference_by_dtype": {
+    "torch.complex64": 0.0005386726405103414,
+    "torch.complex128": 1.4294981204936225e-12
+  },
+  "spatial_transform_reduction_tsa16": 0.25396825396825395,
+  "claim": "Exact-arithmetic action preserved and fewer transforms observed; no measured latency or whole-solver speedup claim",
+  "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n2181654, /data1/software/miniconda3/bin/python, 938 MiB\n"
+}

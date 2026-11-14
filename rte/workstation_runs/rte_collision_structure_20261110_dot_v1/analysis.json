@@ -1,0 +1,59 @@
+{
+  "status": "SCOPED OBSTRUCTION for rank-Ny isotropic collision; CONCEPT MILESTONE for repaired angular cyclic blocks.",
+  "actual_angular_rank": 12,
+  "actual_collision_rank": 1536,
+  "lower_bound_even_after_angular_diagonal_reassignment": 768,
+  "g": 0.65,
+  "original_matrix_free_vs_dense_max": 4.515496682890626e-16,
+  "raw_band_original_residual_max": 1.1343929159696672e-05,
+  "repaired_original_residual_max": 2.7536605635485166e-12,
+  "dense_solution_difference_max": 4.201718027149335e-12,
+  "unique_qualified_vectors": 9,
+  "all_qualified": true,
+  "mode_records": [
+    {
+      "k": 0,
+      "dense_complete_setup_seconds": 0.34965472598560154,
+      "band_complete_setup_seconds": 0.09212656295858324,
+      "dense_median_apply_three_rhs_seconds": 0.011227037059143186,
+      "band_median_apply_three_rhs_seconds": 0.01095965993590653,
+      "dense_factor_bytes": 37754880,
+      "band_stored_bytes": 16272584,
+      "max_raw_original_residual": 1.1343929159696672e-05,
+      "max_repaired_original_residual": 2.7536605635485166e-12,
+      "max_difference_vs_dense": 4.201718027149335e-12,
+      "corrections": 1
+    },
+    {
+      "k": 1,
+      "dense_complete_setup_seconds": 0.3362533759791404,
+      "band_complete_setup_seconds": 0.08132311305962503,
+      "dense_median_apply_three_rhs_seconds": 0.010929097887128592,
+      "band_median_apply_three_rhs_seconds": 0.011264536064118147,
+      "dense_factor_bytes": 37754880,
+      "band_stored_bytes": 16272584,
+      "max_raw_original_residual": 5.135299737347417e-06,
+      "max_repaired_original_residual": 1.0761286839645275e-12,
+      "max_difference_vs_dense": 1.623038091700848e-12,
+      "corrections": 1
+    },
+    {
+      "k": 8,
+      "dense_complete_setup_seconds": 0.3277806949336082,
+      "band_complete_setup_seconds": 0.0598391171079129,
+      "dense_median_apply_three_rhs_seconds": 0.010483816964551806,
+      "band_median_apply_three_rhs_seconds": 0.010663948021829128,
+      "dense_factor_bytes": 37754880,
+      "band_stored_bytes": 16272584,
+      "max_raw_original_residual": 5.024133940946615e-07,
+      "max_repaired_original_residual": 3.6277912734220113e-13,
+      "max_difference_vs_dense": 2.7011475025352405e-12,
+      "corrections": 1
+    }
+  ],
+  "total_recorded_main_wall_seconds": 5.878173239994794,
+  "GPU_used": false,
+  "new_full_PDE_solves": false,
+  "full17_mode_build": false,
+  "A_B_C_unchanged": true
+}

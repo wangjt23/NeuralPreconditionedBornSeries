@@ -1,0 +1,159 @@
+{
+  "host": "FWI-Standard-PC-i440FX-PIIX-1996",
+  "user": "wjt",
+  "workspace": "/data/wjt/NeuralPreconditionedBornSeries",
+  "head": {
+    "returncode": 0,
+    "stdout": "028caea3f35d100225f656e2b1e910c1366aaafe",
+    "stderr": ""
+  },
+  "branch": {
+    "returncode": 0,
+    "stdout": "main",
+    "stderr": ""
+  },
+  "tracked_status": {
+    "returncode": 0,
+    "stdout": "docs/research/RTE_WORKSTATION_HANDOFF_2026_09_12.md\nrte/NPBS_UNET_ABLATION_FULL12_SCALEAWARE_CHANNELMIX_TEACHERPHYSICAL_ONECYCLE_XLARGEBANK_MIXED_SIZE64_FROM2400_LR2E3_STEPS2400.md\nrte/collision_transport.py\nrte/models.py\nrte/spectral_sparse_reference.py\nrte/tests/test_collision_transport.py\nrte/tests/test_collision_transport_ensemble.py\nrte/train_collision_transport_ensemble.py\nrte/transport_baselines.py",
+    "stderr": ""
+  },
+  "gpu": {
+    "returncode": 0,
+    "stdout": "NVIDIA RTX A6000, 49140 MiB, 37 MiB, 0 %",
+    "stderr": ""
+  },
+  "gpu_processes": {
+    "returncode": 0,
+    "stdout": "1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB",
+    "stderr": ""
+  },
+  "rte_jobs": [],
+  "other_research_job_counts": {
+    "schur": 0
+  },
+  "instructions": [],
+  "context_files": {
+    "tail_injection_gate_20260926": [
+      {
+        "name": "train_context.csv",
+        "bytes": 11673
+      },
+      {
+        "name": "train_context.pt",
+        "bytes": 624442081
+      },
+      {
+        "name": "validation_context.csv",
+        "bytes": 1508
+      },
+      {
+        "name": "validation_context.pt",
+        "bytes": 72522826
+      },
+      {
+        "name": "gate.csv",
+        "bytes": 23856
+      },
+      {
+        "name": "settings.json",
+        "bytes": 1178
+      }
+    ],
+    "tail_multiresolution_bank_20260926": [
+      {
+        "name": "train_context.csv",
+        "bytes": 11674
+      },
+      {
+        "name": "validation_context.csv",
+        "bytes": 1507
+      },
+      {
+        "name": "validation_teachers.csv",
+        "bytes": 997
+      },
+      {
+        "name": "validation_context.pt",
+        "bytes": 290069642
+      },
+      {
+        "name": "train.pt",
+        "bytes": 838871757
+      },
+      {
+        "name": "train_context.pt",
+        "bytes": 2497723105
+      },
+      {
+        "name": "validation.pt",
+        "bytes": 104863202
+      },
+      {
+        "name": "settings.json",
+        "bytes": 1624
+      },
+      {
+        "name": "train_teachers.csv",
+        "bytes": 7583
+      }
+    ],
+    "source_tail_validation_20260926": [
+      {
+        "name": "settings.json",
+        "bytes": 893
+      },
+      {
+        "name": "validation.pt",
+        "bytes": 26220002
+      },
+      {
+        "name": "cases.csv",
+        "bytes": 1655
+      },
+      {
+        "name": "validation_tail.pt",
+        "bytes": 38804166
+      },
+      {
+        "name": "validation_teachers.csv",
+        "bytes": 997
+      }
+    ]
+  },
+  "prior_input_sha256": {
+    "warm_start": "135aa962f6ebc1a08b1f17c61d85cafed990da68665e1bf12cfedb097ed0775f",
+    "train_context_n64": "1e34233b172224ed18b59184a74aec41111ed68184b8068a9c9ddfe9cd62e72f",
+    "train_context_n128": "fe98917ec481a92d1b7437289fe209b358c5e7ad8c7326a7c60d9d9db5f8ce8f",
+    "validation_parent_n64": "858f73d0066333dd9a4b4366d7ff48dc5f160650e5e326c33b1d28b03079efed",
+    "validation_parent_n128": "58f8e2f069ea1fa1c0c8f490b441c7acfc91a6592d045a7a7a52eea7bf08aeb4",
+    "train_parent_n64": "44a80f5ed30aa2085119925f55a8b5dea072f2d8c48dcc023c9d29e785db6e96",
+    "train_parent_n128": "c5fcf9241f434552ccc7f00a4d4393b70bfac2c30cab889b80dd6e8a45fac310"
+  },
+  "prior_source_matches": {
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/resume_audit_20261002/code/train_tail_multiresolution.py": true,
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/train_tail_lookahead.py": true,
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/tail_lookahead.py": true,
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/train_tail_direction.py": true,
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/augmented_fgmres.py": true,
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/audit_tail_injection.py": true,
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/global_source_predictor.py": true,
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/tail_response_network.py": true,
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/train_source_predictor.py": true,
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/mixed_precision_transport.py": true,
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/transport_baselines.py": true,
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/run_large_angular_spectral_experiments.py": true,
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/RTE_mgmodel.py": true,
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/source_initialization.py": true
+  },
+  "tracked_sha256": {
+    "docs/research/RTE_WORKSTATION_HANDOFF_2026_09_12.md": "b3e3d7fb21407c90e14caeac5932c0340c8474f209be193b580d89066753a421",
+    "rte/NPBS_UNET_ABLATION_FULL12_SCALEAWARE_CHANNELMIX_TEACHERPHYSICAL_ONECYCLE_XLARGEBANK_MIXED_SIZE64_FROM2400_LR2E3_STEPS2400.md": "34d4e52b0a0863e32c0cd6224f14ea6279c2da71fbf9acbe72cf7769e73ed7dc",
+    "rte/collision_transport.py": "8f900f0e90d242e8ba09f1bdf4c725689ae08ce6fd80ec1bc53a5c983c9d560f",
+    "rte/models.py": "6cd887b332ed48409bcffa2d2bad6ca9654c97ff7071c13a6443278f583b04d1",
+    "rte/spectral_sparse_reference.py": "851a6a15627c35b3a70a44a48cf8e5b31f6daae68ff737663a6ff8e1f19e12d0",
+    "rte/tests/test_collision_transport.py": "8c6a546ff8fcfa42f427528136bd8d85771341bd76132d10684fccb463646367",
+    "rte/tests/test_collision_transport_ensemble.py": "3bf7a9f76b2d1d95436bddf852ac302c911ca6dc68c5127b2b59df2d2146c6f1",
+    "rte/train_collision_transport_ensemble.py": "0a9c92b926016c867d2a3c000685f275b6689448b3a59ba9f850b4de6eb61031",
+    "rte/transport_baselines.py": "05f6984eb24962409ff25e42313e9c1ac740df86b59ef7b498faff715cfd62ec"
+  }
+}

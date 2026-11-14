@@ -1,0 +1,16 @@
+[
+  {
+    "filename": "rte_A_sealed_cpu_evidence.zip",
+    "local_path": "/Users/hxchen/Documents/Codex/2026-10-02/task-3/deliverables/rte_evidence_bundles_20261110/rte_A_sealed_cpu_evidence.zip",
+    "bytes": 66350,
+    "sha256": "f22dd8b72133aa42992b9b7f7f2b4077c165348b788a19c07bff7b592d721782",
+    "remote_path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_evidence_bundles_20261110/rte_A_sealed_cpu_evidence.zip"
+  },
+  {
+    "filename": "rte_B_inclusion_stress_evidence.zip",
+    "local_path": "/Users/hxchen/Documents/Codex/2026-10-02/task-3/deliverables/rte_evidence_bundles_20261110/rte_B_inclusion_stress_evidence.zip",
+    "bytes": 19596,
+    "sha256": "0a2b13351f7aec140d9e985f0f8c2144c439e1089f95efebe5a515369726ccb1",
+    "remote_path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_evidence_bundles_20261110/rte_B_inclusion_stress_evidence.zip"
+  }
+]

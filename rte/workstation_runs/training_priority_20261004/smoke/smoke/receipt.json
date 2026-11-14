@@ -1,0 +1,25 @@
+{
+  "arm": "smoke",
+  "complete": true,
+  "updates": 2,
+  "selected_step": 2,
+  "best_score": [
+    0,
+    7.84375,
+    5.908482280315962e-06
+  ],
+  "timing": {
+    "training": 0.4476237017661333,
+    "validation": 9.359028933569789,
+    "panel": 7.3037549294531345,
+    "checkpoint": 0.7539584264159203
+  },
+  "peak_allocated_bytes": 8262390784,
+  "peak_reserved_bytes": 9279897600,
+  "stopping_reason": "planned budget",
+  "checkpoint_sha256": {
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/smoke/smoke/last.pt": "e492e51cead26a406cc56bc33e9c46f866bd515df2544db6e344e858c98013eb",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/smoke/smoke/best.pt": "9b7cb9a881a2292f14be2fb950fef517d951077190509c09b073ad209a0ee68f",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/smoke/smoke/step0.pt": "f6487b865a928cbdfc80927948e832f74124a375210f4aab24ba633f5119a435"
+  }
+}

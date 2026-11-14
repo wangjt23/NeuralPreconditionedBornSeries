@@ -1,0 +1,254 @@
+[
+  {
+    "size": 128,
+    "index": 0,
+    "strong_name": "tsa8",
+    "recipe": "reference_tail",
+    "depth": 8,
+    "base_parameters": {
+      "kind": "tsa",
+      "depth": 8,
+      "eta_scale": 0.0,
+      "relaxation": 1.0
+    },
+    "physical_seconds": 0.24175603315234184,
+    "base_seconds": 0.06853505037724972,
+    "constructor_seconds": {
+      "context_full": 0.15647870115935802,
+      "context_segmented": 0.055410588160157204,
+      "direct_full": 0.05811978131532669,
+      "direct_segmented": 0.012629786506295204
+    },
+    "acceptance_setup_seconds": 0.0727308988571167,
+    "mandatory_admissibility_seconds": 14.884353663772345,
+    "solver_preparation_seconds": {
+      "real": 0.005692912265658379,
+      "complex": 0.058548975735902786
+    },
+    "source_start_qa": {
+      "source_imaginary_norm": 0.0,
+      "source_is_exactly_real": true,
+      "H_source_imaginary_relative": 0.0015583206264460161,
+      "H_nyquist_imaginary_relative": 0.0,
+      "M_source_imaginary_relative": 4.013086331137887e-05,
+      "real_field_constraint_in_original_solver": false,
+      "source_bitwise_equal": true,
+      "initialization_bitwise_equal": true,
+      "reference_cache_shared": true
+    },
+    "evaluated_margin": 0.017008218598520308,
+    "capture_fft_counts": {
+      "context_full": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "context_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "direct_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      }
+    },
+    "actual_vector_real_storage_equal": true,
+    "max_real_hessenberg_bytes": 5200,
+    "max_complex_hessenberg_bytes": 10400,
+    "complex_capture_ZW": false,
+    "complex_current_raw_image_live": true,
+    "reference_inverse_bytes": 18874368
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "strong_name": "tsa8",
+    "recipe": "reference_tail",
+    "depth": 8,
+    "base_parameters": {
+      "kind": "tsa",
+      "depth": 8,
+      "eta_scale": 0.0,
+      "relaxation": 1.0
+    },
+    "physical_seconds": 0.0053512658923864365,
+    "base_seconds": 0.0029311832040548325,
+    "constructor_seconds": {
+      "direct_segmented": 0.012805547565221786,
+      "direct_full": 0.05673742666840553,
+      "context_segmented": 0.07481536455452442,
+      "context_full": 0.10172650218009949
+    },
+    "acceptance_setup_seconds": 0.001123923808336258,
+    "mandatory_admissibility_seconds": 16.04903608560562,
+    "solver_preparation_seconds": {
+      "complex": 0.0016053076833486557,
+      "real": 0.00048017315566539764
+    },
+    "source_start_qa": {
+      "source_imaginary_norm": 0.0,
+      "source_is_exactly_real": true,
+      "H_source_imaginary_relative": 3.364486328919513e-06,
+      "H_nyquist_imaginary_relative": 0.0,
+      "M_source_imaginary_relative": 7.027476897378355e-05,
+      "real_field_constraint_in_original_solver": false,
+      "source_bitwise_equal": true,
+      "initialization_bitwise_equal": true,
+      "reference_cache_shared": true
+    },
+    "evaluated_margin": 0.04077080126764265,
+    "capture_fft_counts": {
+      "direct_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 31,
+        "ifftn": 31
+      },
+      "context_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "context_full": {
+        "fftn": 31,
+        "ifftn": 31
+      }
+    },
+    "actual_vector_real_storage_equal": true,
+    "max_real_hessenberg_bytes": 5200,
+    "max_complex_hessenberg_bytes": 10400,
+    "complex_capture_ZW": false,
+    "complex_current_raw_image_live": true,
+    "reference_inverse_bytes": 18874368
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "strong_name": "tsa16",
+    "recipe": "tsa16_zero",
+    "depth": 16,
+    "base_parameters": {
+      "kind": "tsa",
+      "depth": 16,
+      "eta_scale": 0.0,
+      "relaxation": 1.0
+    },
+    "physical_seconds": 0.005406582728028297,
+    "base_seconds": 0.006026897579431534,
+    "constructor_seconds": {
+      "context_full": 0.24508079141378403,
+      "context_segmented": 0.06110222078859806,
+      "direct_full": 0.11883737705647945,
+      "direct_segmented": 0.014059983193874359
+    },
+    "acceptance_setup_seconds": 0.0011949911713600159,
+    "mandatory_admissibility_seconds": 20.235574325546622,
+    "solver_preparation_seconds": {
+      "real": 0.0005954485386610031,
+      "complex": 0.0015963781625032425
+    },
+    "source_start_qa": {
+      "source_imaginary_norm": 0.0,
+      "source_is_exactly_real": true,
+      "H_source_imaginary_relative": 0.001425030332146193,
+      "H_nyquist_imaginary_relative": 0.0,
+      "M_source_imaginary_relative": 1.0250827554756711e-05,
+      "real_field_constraint_in_original_solver": false,
+      "source_bitwise_equal": true,
+      "initialization_bitwise_equal": true,
+      "reference_cache_shared": true
+    },
+    "evaluated_margin": 0.017008218598520308,
+    "capture_fft_counts": {
+      "context_full": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "context_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "direct_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      }
+    },
+    "actual_vector_real_storage_equal": true,
+    "max_real_hessenberg_bytes": 5200,
+    "max_complex_hessenberg_bytes": 10400,
+    "complex_capture_ZW": false,
+    "complex_current_raw_image_live": true,
+    "reference_inverse_bytes": 75497472
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "strong_name": "tsa16",
+    "recipe": "tsa16_zero",
+    "depth": 16,
+    "base_parameters": {
+      "kind": "tsa",
+      "depth": 16,
+      "eta_scale": 0.0,
+      "relaxation": 1.0
+    },
+    "physical_seconds": 0.005866551771759987,
+    "base_seconds": 0.005149567499756813,
+    "constructor_seconds": {
+      "direct_segmented": 0.014128614217042923,
+      "direct_full": 0.11726192757487297,
+      "context_segmented": 0.08719137869775295,
+      "context_full": 0.16848669946193695
+    },
+    "acceptance_setup_seconds": 0.0013561584055423737,
+    "mandatory_admissibility_seconds": 22.389895787462592,
+    "solver_preparation_seconds": {
+      "complex": 0.001667991280555725,
+      "real": 0.0005577877163887024
+    },
+    "source_start_qa": {
+      "source_imaginary_norm": 0.0,
+      "source_is_exactly_real": true,
+      "H_source_imaginary_relative": 2.9266429949043703e-06,
+      "H_nyquist_imaginary_relative": 0.0,
+      "M_source_imaginary_relative": 1.8521686442909375e-05,
+      "real_field_constraint_in_original_solver": false,
+      "source_bitwise_equal": true,
+      "initialization_bitwise_equal": true,
+      "reference_cache_shared": true
+    },
+    "evaluated_margin": 0.04077080126764265,
+    "capture_fft_counts": {
+      "direct_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "direct_full": {
+        "fftn": 63,
+        "ifftn": 63
+      },
+      "context_segmented": {
+        "fftn": 4,
+        "ifftn": 4
+      },
+      "context_full": {
+        "fftn": 63,
+        "ifftn": 63
+      }
+    },
+    "actual_vector_real_storage_equal": true,
+    "max_real_hessenberg_bytes": 5200,
+    "max_complex_hessenberg_bytes": 10400,
+    "complex_capture_ZW": false,
+    "complex_current_raw_image_live": true,
+    "reference_inverse_bytes": 75497472
+  }
+]

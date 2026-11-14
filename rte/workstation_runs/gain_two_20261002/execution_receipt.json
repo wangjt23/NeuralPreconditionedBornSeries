@@ -1,0 +1,12 @@
+{
+  "exit_code": 0,
+  "owned_process_timed_out": false,
+  "process_wall_seconds": 70.93590439483523,
+  "gpu_before": "1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "training": false,
+  "test9626_touched": false,
+  "policy_sha256": "7adf90dd59c439d5b17e3b47513ebdbaaf1cf3f7b3a5f31d75e44c977e912832",
+  "original_source_exported": false,
+  "cost_scope": "Recorded setup+warm accepted solve plus separate unique acquisition and conservative no-amortization research sensitivity; startup/sourceIO/QA excluded from algorithm costs."
+}

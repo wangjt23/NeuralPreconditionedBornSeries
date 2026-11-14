@@ -1,0 +1,71 @@
+{
+  "args": {
+    "output": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/smoke",
+    "sizes": [
+      64
+    ],
+    "count": 2,
+    "repeats": 1,
+    "profile_count": 1,
+    "max_wall_seconds": 180.0
+  },
+  "complete": true,
+  "scope": "development-only; same 16 physical media nested across resolutions; zero teachers/training/test access",
+  "model_sha256": {
+    "n64_only": "b92f29ed8fd96ad0bd87a911d37546276f54d086ebe6be5ab13c2c47a1b9a997",
+    "mixed64_128": "5b1f192ac4d4a2e50b3391f36ac42f60a0685d19af5fe99ff8f6933eee73d82d"
+  },
+  "classical_selection_sha256": "67cf2328721db970470643fdae52c7df7db7a191a2db2f56731ffb5c63fb6a49",
+  "phases": [
+    0,
+    1,
+    2,
+    3
+  ],
+  "prefixes": [
+    "tsa8_balanced",
+    "tsa16_zero"
+  ],
+  "custom_methods": [
+    "tsa8_reference",
+    "tsa8_reference_cost",
+    "tsa8_mixed",
+    "tsa8_phase4",
+    "tsa16_plain",
+    "tsa16_noop_cost",
+    "tsa16_reference",
+    "tsa16_mixed"
+  ],
+  "decision_rule": "stop this fixed nonlinear one-shot mechanism unless an already specified learned candidate is zero-failure and >=5% faster than frozen classical at BOTH N128/N256 with paired intervals above zero; this reused development diagnostic never generates held-out test data",
+  "timing": "original uninstrumented solver; reference initialization, every neural call/projection/operator/final original-RHS check included; physical/base setup separately; resident model loading separately; profiling excluded",
+  "profiling": "synchronized perturbed execution only; callback reference/model sub-times overlap the enclosing neural_callback category",
+  "source_sha256": {
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/code/continuation_acceptance.py": "31ed66a3d4b040f2fcf2e4c698bb8b1352ac63be1153acc544a5bc77d8958123",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/code/test_continuation_acceptance.py": "3e12535ca8880dbbc78b822c1d03b8967c596e88137f86a2f61bb3feefd37293",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/code/test_instrumented_fgmres.py": "c3f2a9462ae9c9e4aaf33d9208e53bdac5573d207082fba6550987ffacca1be4",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/code/instrumented_fgmres.py": "808fef99167e34f4ebab18e9a9070ff94e6288f094dc747d0c887dd2a59a28f7",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/code/diagnose_tail_directions.py": "60c93d1bac2040af1d19490080ae0c5c5beb1b2d226e19f6c160aaf6896a609a"
+  },
+  "original_source_sha256": {
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742",
+    "rte/tail_lookahead.py": "b979dfb964b681f7695171faf80c8bee6fe129e4ffc064effc045d52fe044e2f",
+    "rte/benchmark_tail_solver.py": "05424458ec34649a2e592638f2621a7cb4891f280839ae4df55e7da5527b9030",
+    "rte/tail_response_network.py": "a70ce75536d02a5dcac26186a6b51a45f535b5fed9cfbf10307a3cf346449f9a",
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4"
+  },
+  "gpu_processes_before": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "torch": "2.5.1",
+  "model_loading_seconds": {
+    "n64_only": 0.252517431974411,
+    "mixed64_128": 0.20858954265713692
+  },
+  "validation_parent_sha256": {
+    "64": "bbebfd1c7c4808733628ee8fdecac9e9ce09521d70f7664a5d5391c8af10813a"
+  },
+  "measured_solves": 16,
+  "test_generated": false,
+  "measured_failures": 0,
+  "learned_candidates_passing_development_rule": [],
+  "wall_seconds": 20.52107223495841,
+  "gpu_processes_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n2179959, /data1/software/miniconda3/bin/python, 492 MiB\n"
+}

@@ -1,0 +1,16 @@
+{"event": "source_done", "method": "one_shot_P8", "source_id": 0, "calls": 3, "injections": 1, "inner_iterations": [4], "residual": 4.788854686451709e-07}
+{"event": "source_done", "method": "one_shot_P8", "source_id": 4, "calls": 3, "injections": 1, "inner_iterations": [4], "residual": 1.9250491986737386e-06}
+{"event": "source_done", "method": "one_shot_P8", "source_id": 7, "calls": 3, "injections": 1, "inner_iterations": [4], "residual": 7.764024034753387e-07}
+{"event": "source_done", "method": "one_shot_P8", "source_id": 14, "calls": 3, "injections": 1, "inner_iterations": [4], "residual": 2.071206638211945e-06}
+{"event": "batch_done", "method": "one_shot_P8", "seconds": 27.689791335957125, "calls": [3, 3, 3, 3]}
+{"event": "source_done", "method": "late_full8", "source_id": 0, "calls": 3, "injections": 2, "inner_iterations": [4], "residual": 3.388360664137495e-07}
+{"event": "source_done", "method": "late_full8", "source_id": 4, "calls": 3, "injections": 2, "inner_iterations": [4], "residual": 1.3842070133482597e-06}
+{"event": "source_done", "method": "late_full8", "source_id": 7, "calls": 3, "injections": 2, "inner_iterations": [4], "residual": 4.910019757616972e-07}
+{"event": "source_done", "method": "late_full8", "source_id": 14, "calls": 3, "injections": 2, "inner_iterations": [4], "residual": 1.3786603705954778e-06}
+{"event": "batch_done", "method": "late_full8", "seconds": 24.39141554082744, "calls": [3, 3, 3, 3]}
+{"event": "source_done", "method": "late_shell8", "source_id": 0, "calls": 3, "injections": 2, "inner_iterations": [4], "residual": 3.5216869023195793e-07}
+{"event": "source_done", "method": "late_shell8", "source_id": 4, "calls": 3, "injections": 2, "inner_iterations": [4], "residual": 1.4865504080248026e-06}
+{"event": "source_done", "method": "late_shell8", "source_id": 7, "calls": 3, "injections": 2, "inner_iterations": [4], "residual": 5.376544785907829e-07}
+{"event": "source_done", "method": "late_shell8", "source_id": 14, "calls": 3, "injections": 2, "inner_iterations": [4], "residual": 1.4982460860934724e-06}
+{"event": "batch_done", "method": "late_shell8", "seconds": 26.277598903048784, "calls": [3, 3, 3, 3]}
+{"event": "finished", "complete": true, "result": "LATE_CHEAP_NO_GO", "seconds": 82.09312806394883, "error": null}

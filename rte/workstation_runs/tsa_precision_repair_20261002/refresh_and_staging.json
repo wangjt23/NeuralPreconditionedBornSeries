@@ -1,0 +1,13 @@
+{
+  "host": "FWI-Standard-PC-i440FX-PIIX-1996",
+  "workspace": "/data/wjt/NeuralPreconditionedBornSeries",
+  "original_sources_verified": 155,
+  "original_reports_verified": 11,
+  "new_file_sha256": {
+    "code/diagnose_precision.py": "7e9f4f12ba4718805a24a513656844402333fb00dba3aadaac51f5f37ce24fb9",
+    "code/algebraic_tsa.py": "85ca74f338091c645ca77b198d74f011eca09ec62b86d27d732ba92126de5e81"
+  },
+  "other_research_processes": [],
+  "gate_changed": false,
+  "test_touched": false
+}

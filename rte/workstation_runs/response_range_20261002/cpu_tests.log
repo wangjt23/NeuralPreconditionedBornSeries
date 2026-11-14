@@ -1,0 +1,14 @@
+test_actual_h0_uses_full_angular_phase_weights_geometry_and_nyquist (__main__.TransportResponseRangeTests.test_actual_h0_uses_full_angular_phase_weights_geometry_and_nyquist) ... ok
+test_frozen_cache_identity_layout_versions_and_setup_are_guarded (__main__.TransportResponseRangeTests.test_frozen_cache_identity_layout_versions_and_setup_are_guarded) ... ok
+test_heterogeneous_physical_images_and_all_adjoint_identities (__main__.TransportResponseRangeTests.test_heterogeneous_physical_images_and_all_adjoint_identities) ... ok
+test_homogeneous_full_physical_image_is_q_on_both_stored_precisions (__main__.TransportResponseRangeTests.test_homogeneous_full_physical_image_is_q_on_both_stored_precisions) ... ok
+test_image_norm_bound_is_positive_conservative_and_not_oblique_claim (__main__.TransportResponseRangeTests.test_image_norm_bound_is_positive_conservative_and_not_oblique_claim) ... ok
+test_invalid_precision_fields_and_modes_are_rejected (__main__.TransportResponseRangeTests.test_invalid_precision_fields_and_modes_are_rejected) ... ok
+test_legacy_harmonic_input_reference_is_same_mean_response (__main__.TransportResponseRangeTests.test_legacy_harmonic_input_reference_is_same_mean_response) ... ok
+test_material_batch_broadcast_and_individual_reference_agree (__main__.TransportResponseRangeTests.test_material_batch_broadcast_and_individual_reference_agree) ... ok
+test_zero_complex_linearity_and_source_independence (__main__.TransportResponseRangeTests.test_zero_complex_linearity_and_source_independence) ... ok
+
+----------------------------------------------------------------------
+Ran 9 tests in 0.187s
+
+OK

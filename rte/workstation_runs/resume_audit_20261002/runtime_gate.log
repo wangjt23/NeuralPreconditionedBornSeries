@@ -1,0 +1,22 @@
+multiresolution_validation N64: 4/16
+multiresolution_validation N64: 8/16
+multiresolution_validation N64: 12/16
+multiresolution_validation N64: 16/16
+{"size": 64, "classical": "reference_tail", "neural": "n64_only", "independent_media": 16, "classical_ms": 133.8180234306492, "neural_ms": 134.31694835890085, "saving_percent": -0.3728383632195964, "saving_percent_ci95": [-3.4029481059966518, 2.883645600912238], "neural_faster_cases": 9, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}
+{"size": 64, "classical": "reference_tail", "neural": "mixed64_128", "independent_media": 16, "classical_ms": 133.8180234306492, "neural_ms": 133.9629166177474, "saving_percent": -0.10827628699305869, "saving_percent_ci95": [-3.0723830253437048, 2.673130902475427], "neural_faster_cases": 7, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}
+{"size": 64, "classical": "n64_only", "neural": "mixed64_128", "independent_media": 16, "classical_ms": 134.31694835890085, "neural_ms": 133.9629166177474, "saving_percent": 0.26357935128742405, "saving_percent_ci95": [-2.3280138028875816, 2.2552149228468443], "neural_faster_cases": 7, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}
+multiresolution_validation N128: 4/16
+multiresolution_validation N128: 8/16
+multiresolution_validation N128: 12/16
+multiresolution_validation N128: 16/16
+{"size": 128, "classical": "reference_tail", "neural": "n64_only", "independent_media": 16, "classical_ms": 133.21077782893553, "neural_ms": 135.23657427867875, "saving_percent": -1.5207451549788864, "saving_percent_ci95": [-4.186102021048537, 1.0460682980505935], "neural_faster_cases": 5, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}
+{"size": 128, "classical": "reference_tail", "neural": "mixed64_128", "independent_media": 16, "classical_ms": 133.21077782893553, "neural_ms": 134.11443965742365, "saving_percent": -0.6783699061111648, "saving_percent_ci95": [-3.5388959967033555, 1.9522683091410125], "neural_faster_cases": 7, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}
+{"size": 128, "classical": "n64_only", "neural": "mixed64_128", "independent_media": 16, "classical_ms": 135.23657427867875, "neural_ms": 134.11443965742365, "saving_percent": 0.8297567630948244, "saving_percent_ci95": [-0.23902298827334797, 2.687845652931197], "neural_faster_cases": 10, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}
+multiresolution_validation N256: 4/16
+multiresolution_validation N256: 8/16
+multiresolution_validation N256: 12/16
+multiresolution_validation N256: 16/16
+{"size": 256, "classical": "tsa16_zero", "neural": "n64_only", "independent_media": 16, "classical_ms": 145.74068365618587, "neural_ms": 158.39207882527262, "saving_percent": -8.68075739162335, "saving_percent_ci95": [-12.999743634960707, -3.9274271894026604], "neural_faster_cases": 3, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}
+{"size": 256, "classical": "tsa16_zero", "neural": "mixed64_128", "independent_media": 16, "classical_ms": 145.74068365618587, "neural_ms": 155.89054278098047, "saving_percent": -6.964327921460112, "saving_percent_ci95": [-10.376912413148984, -2.845705148480687], "neural_faster_cases": 4, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}
+{"size": 256, "classical": "n64_only", "neural": "mixed64_128", "independent_media": 16, "classical_ms": 158.39207882527262, "neural_ms": 155.89054278098047, "saving_percent": 1.579331531503969, "saving_percent_ci95": [-0.0902778861569814, 3.4492488865302295], "neural_faster_cases": 10, "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median", "failed": 0}
+Mixed-resolution gate passed=False; test_generated=False

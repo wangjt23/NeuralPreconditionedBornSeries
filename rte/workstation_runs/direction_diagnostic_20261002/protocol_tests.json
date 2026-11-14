@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/code/test_instrumented_fgmres.py",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/code/test_continuation_acceptance.py"
+  ],
+  "exit_code": 0,
+  "seconds": 6.318848434835672
+}

@@ -1,0 +1,28 @@
+{
+  "arm": "mixed64_128",
+  "complete": true,
+  "updates": 2,
+  "presentations": 8,
+  "presentations_n64": 4,
+  "presentations_n128": 4,
+  "selected_step": 2,
+  "validation_score": [
+    0,
+    8.0625,
+    5.206676416109349e-06
+  ],
+  "timing": {
+    "training_seconds": 0.2912526596337557,
+    "validation_seconds": 9.11931379698217,
+    "checkpoint_seconds": 0.7716074790805578
+  },
+  "identity_phase_sha256": "701007ad85910e4bafae6275e0a4b57c24a07475c05f9653fbdb55b5e0f9edd2",
+  "memory": {
+    "allocated_bytes": 6181669888,
+    "reserved_bytes": 8025800704,
+    "free_bytes": 42437509120,
+    "total_bytes": 50908823552,
+    "peak_allocated_bytes": 8262390784,
+    "peak_reserved_bytes": 9005170688
+  }
+}

@@ -1,0 +1,42 @@
+[
+  {
+    "source_id": 0,
+    "seconds": 6.059086171910167,
+    "status": {
+      "iterations": 5,
+      "true_residual": 1.2457745142240663e-06,
+      "initial_residual": 1.0,
+      "failed": 0
+    }
+  },
+  {
+    "source_id": 4,
+    "seconds": 6.060282364021987,
+    "status": {
+      "iterations": 5,
+      "true_residual": 1.7804733020691434e-06,
+      "initial_residual": 1.0,
+      "failed": 0
+    }
+  },
+  {
+    "source_id": 7,
+    "seconds": 6.026487118098885,
+    "status": {
+      "iterations": 5,
+      "true_residual": 1.5428345346034851e-06,
+      "initial_residual": 1.0,
+      "failed": 0
+    }
+  },
+  {
+    "source_id": 14,
+    "seconds": 5.994589779060334,
+    "status": {
+      "iterations": 5,
+      "true_residual": 1.7122564144652472e-06,
+      "initial_residual": 1.0,
+      "failed": 0
+    }
+  }
+]

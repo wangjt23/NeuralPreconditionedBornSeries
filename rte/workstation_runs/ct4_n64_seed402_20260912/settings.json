@@ -1,0 +1,43 @@
+{
+  "args": {
+    "model": "ct",
+    "depth": 4,
+    "base": "hss",
+    "width": 24,
+    "no_mixing": false,
+    "no_spectral": false,
+    "size": 64,
+    "n_angles": 12,
+    "g": 0.65,
+    "train_size": 512,
+    "val_size": 48,
+    "test_size": 0,
+    "batch_size": 8,
+    "selection_count": 8,
+    "steps": 800,
+    "eval_every": 200,
+    "lr": 0.001,
+    "broad_fraction": 0.2,
+    "rollout_weight": 0.25,
+    "seed": 402,
+    "solver_steps": 60,
+    "tol": 1e-05,
+    "device": "cuda:0",
+    "resume": "",
+    "stop_after": 0,
+    "output": "rte/workstation_runs/ct4_n64_seed402_20260912",
+    "regimes": "mixed",
+    "dataset_dir": ""
+  },
+  "fingerprints": {
+    "train": "f884b6f64cbb4d7be65e7618195e978f05dc6bd14a66333084896ca6958d484e",
+    "validation": "c2390de8c2b47df557d087de49fbe52f38ac311d9b3adc792462b44aaf5248f7"
+  },
+  "parameters": 1340,
+  "torch": "2.5.1",
+  "cuda": "12.4",
+  "scope": "architecture pilot: train/validation only, no confirmatory test",
+  "loss": "L1 + rollout_weight * ||E(E(r))||^2/||r||^2",
+  "sampler": "broad_fraction full-spectrum A e; remainder TSA trajectory/smooth A e (2:1)",
+  "checkpoint_selection": "validation failures, iterations, true residual; timing separately"
+}

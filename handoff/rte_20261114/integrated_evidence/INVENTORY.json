@@ -1,0 +1,2069 @@
+{
+  "captured_utc": "2026-11-14T04:32:26.582317+00:00",
+  "files": [
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/cached_audit/meta.json",
+      "path": "handoff/rte_20261114/integrated_evidence/mgrte_replay_20261114/cached_audit/meta.json",
+      "bytes": 771,
+      "sha256": "678d83656fd2341f35e63826ac94cefecc62efa3bcbc0e4dfe734d6172e11e3f",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/cached_audit/qualification.json",
+      "path": "handoff/rte_20261114/integrated_evidence/mgrte_replay_20261114/cached_audit/qualification.json",
+      "bytes": 1362,
+      "sha256": "9a71939ec42d5b54d77338668039c496c8e399ee0ed3fd97d392873ed059a565",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/cached_audit/results.json",
+      "path": "handoff/rte_20261114/integrated_evidence/mgrte_replay_20261114/cached_audit/results.json",
+      "bytes": 286663,
+      "sha256": "797647a73447527b696fec5b5c5c23cdc5d5259f2bb6c0c3497a9933d5e369ca",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/cached_audit/setup.json",
+      "path": "handoff/rte_20261114/integrated_evidence/mgrte_replay_20261114/cached_audit/setup.json",
+      "bytes": 3203,
+      "sha256": "22c37e8a8e16ecc935f41ad58e8595f7ad039903fa37332d5e914d3208e13e16",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/cached_audit.log",
+      "path": "handoff/rte_20261114/integrated_evidence/mgrte_replay_20261114/cached_audit.log",
+      "bytes": 42370,
+      "sha256": "7f37e2f3fa07a9323d86cd0afc0d7b64b7ce53b85284d50bcceb15cd9bf7cdf1",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/cached_audit.py",
+      "path": "handoff/rte_20261114/integrated_evidence/mgrte_replay_20261114/cached_audit.py",
+      "bytes": 4775,
+      "sha256": "ba76683c85fbebd1cbfdbbb0b8e93d675c238c8b4ca545d4d76cfe5a4a89793d",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/meta.json",
+      "path": "handoff/rte_20261114/integrated_evidence/mgrte_replay_20261114/meta.json",
+      "bytes": 1344,
+      "sha256": "9310eb51f9f2aca6fbaa5fe88ba7e234bfdf719ea8678bf0e73fe2b96f723dfe",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/replay.log",
+      "path": "handoff/rte_20261114/integrated_evidence/mgrte_replay_20261114/replay.log",
+      "bytes": 12926,
+      "sha256": "98360f6165c198536898c4595802b5789d6547d4497df3e94ff1db465f15faad",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/replay.py",
+      "path": "handoff/rte_20261114/integrated_evidence/mgrte_replay_20261114/replay.py",
+      "bytes": 4575,
+      "sha256": "da5530f3744bbb35c2b1e9fbacce78e630b28fd177d4c4850f7292c36a853674",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/results.json",
+      "path": "handoff/rte_20261114/integrated_evidence/mgrte_replay_20261114/results.json",
+      "bytes": 60144,
+      "sha256": "f8197775099dd7c1a7052d09a22e7eaf91ced00413bacdc35d7255708e48c757",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/rhs_0.pt",
+      "path": null,
+      "bytes": 34517,
+      "sha256": "2ad57faf5846e04c041fbce09a7d8cbfd7a2c66c5439b46a39fa992f9a53084c",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/rhs_1.pt",
+      "path": null,
+      "bytes": 34517,
+      "sha256": "c7d31dc0e1deea3c6f19b44979e97cf1dca58e98f3cb4eecb3b069eabfe21a7a",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/rhs_2.pt",
+      "path": null,
+      "bytes": 34517,
+      "sha256": "20373235443d71d6940e4037c3eccb6d85a2f16ae09e6ad33c49c78327b0e031",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/rhs_3.pt",
+      "path": null,
+      "bytes": 34517,
+      "sha256": "bc57268b705d9e71f502f22140691a1b81f9aff7ea87881c6ead8be1e60c9913",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/rhs_4.pt",
+      "path": null,
+      "bytes": 34517,
+      "sha256": "3008a3dd73188f0cc729c8d354cccf604fab07560820989a18b42d2cf7bcf87e",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/rhs_5.pt",
+      "path": null,
+      "bytes": 34517,
+      "sha256": "1d65510d9136f55315b8f833b6c9923ffb8908df0be34373d68eddf9a94a5a86",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/rhs_6.pt",
+      "path": null,
+      "bytes": 34517,
+      "sha256": "167fe5577e9543bff4bf1e97b26df12ef44deb64aa1c51d4120e0198f1af69d6",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data1/wjt/mgrte_replay_20261114/rhs_7.pt",
+      "path": null,
+      "bytes": 34517,
+      "sha256": "49869784ab383bc5ce966848a39692379e06e022e36deff181d7075c1da8b5c9",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/benchmark_concurrency.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/benchmark_concurrency.py",
+      "bytes": 4435,
+      "sha256": "b2147fec33aed593cf591a4a82453d1b6ce0abaf3c1672ae731df14f0543e0c2",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/0_serial/go",
+      "path": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/0_serial/ready_0",
+      "path": null,
+      "bytes": 7,
+      "sha256": "d6881d610813dd6d63d3bedd4d6133fa8da53b9e22978a969f893bb8ffae361f",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/0_serial/result.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/0_serial/result.json",
+      "bytes": 129840,
+      "sha256": "669244e6656eb078f3db4300b95da54972f1bd2671a03bd9570a7290bf05b83b",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/0_serial/worker_0.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/0_serial/worker_0.json",
+      "bytes": 115494,
+      "sha256": "2e54d22d78bc30be8284f79c3530e6762e2b45e68ee0c315982d50b0ebc13c66",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/0_serial/worker_0.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/0_serial/worker_0.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/go",
+      "path": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/ready_0",
+      "path": null,
+      "bytes": 7,
+      "sha256": "5cf1ed97a50e911d3de663d01804503d8b90e7adcf027da8be30378570118d7e",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/ready_1",
+      "path": null,
+      "bytes": 7,
+      "sha256": "003c5bee119c413ea0d09dad6d06ae2f2df70c9215b76107d7019ab6b03ce3c7",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/ready_2",
+      "path": null,
+      "bytes": 7,
+      "sha256": "add853528ec9205bd56bcc0c081499e47ffc0c3a21fa996a6cc7a2481a1e8716",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/ready_3",
+      "path": null,
+      "bytes": 7,
+      "sha256": "9d36540fbc1c292b9db1d25c87881ce07ab21c8f1449218844740de7bd6ca222",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/result.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/result.json",
+      "bytes": 130106,
+      "sha256": "3c887d0e75ce12420d93831f39cf07473bf5b1d56ef108e6cbc6f2aeb26239bd",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_0.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_0.json",
+      "bytes": 28918,
+      "sha256": "1b93b85808e1de5e877a32a69446aa6fa6f91b0fe8bc57c0388b8b040d23b169",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_0.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_0.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_1.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_1.json",
+      "bytes": 28918,
+      "sha256": "4a06a071c2f1b0afe70e639fa4a8596075e9a2908dd84ce684f4c19353d45e08",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_1.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_1.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_2.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_2.json",
+      "bytes": 28932,
+      "sha256": "f51836c54d21c0867cd7d5344924b7a620889bb06fb49f86831a36fa4d37b160",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_2.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_2.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_3.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_3.json",
+      "bytes": 28911,
+      "sha256": "1fb15a85c13b7a75c430d05a291506982f7d4164cbf70a74d3ae77de2a8e22cd",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_3.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/1_parallel/worker_3.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/go",
+      "path": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/ready_0",
+      "path": null,
+      "bytes": 7,
+      "sha256": "9bbe04dd81ab7f885d282e7eefc61f15c22df78e7ba51d428db9f5e1edd67dbb",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/ready_1",
+      "path": null,
+      "bytes": 7,
+      "sha256": "1a5b14bd7bd925c9f2c687d481452f8e68352b49d1e0fbf176c2030358f43655",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/ready_2",
+      "path": null,
+      "bytes": 7,
+      "sha256": "e8c0dab6ebdff4e05013c536a512bff99c67853a99b01b79e1c63f37b0b88609",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/ready_3",
+      "path": null,
+      "bytes": 7,
+      "sha256": "5ab22016ee0d9187d8b89bd6e13bfa350f1bec7a7e84f88ad7a20e3064cd45f1",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/result.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/result.json",
+      "bytes": 130119,
+      "sha256": "e5ad66a93723a063e4f796827e80e48bb9af9c7c370ae68ccff580447b11d09a",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_0.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_0.json",
+      "bytes": 28915,
+      "sha256": "9124195b5f4c95b994da88b37b6c1a907b9d482ac6b176dc2e74054429a05314",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_0.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_0.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_1.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_1.json",
+      "bytes": 28940,
+      "sha256": "11f8f406c5c3b123c17e4e452fea2d0b4142d1e04d6c5be7cd8f3bf854bd6d0a",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_1.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_1.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_2.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_2.json",
+      "bytes": 28895,
+      "sha256": "2f43e5f235f1cb17065765fde0dbae2f55136f743713fe690dd367bfffe4c40e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_2.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_2.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_3.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_3.json",
+      "bytes": 28942,
+      "sha256": "d5c34e9c0fee95e187cc87dff9d176e634ca5dc5486ae58673e801b6b04bd62b",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_3.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/2_parallel/worker_3.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/3_serial/go",
+      "path": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/3_serial/ready_0",
+      "path": null,
+      "bytes": 7,
+      "sha256": "b6c7af8481b58591172d00c0f1bf1720cca804dfcfe0ef31736fc33ef8c6e139",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/3_serial/result.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/3_serial/result.json",
+      "bytes": 129837,
+      "sha256": "a3ad7b115e15dce530b0e4f3ec3efea76e6f17755c80b8a6af3f4b9d6823f995",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/3_serial/worker_0.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/3_serial/worker_0.json",
+      "bytes": 115491,
+      "sha256": "ab703659971a110ac1309b9412fa2d28d6407f76765d560901d2b58d8912ea12",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/3_serial/worker_0.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/3_serial/worker_0.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/4_serial/go",
+      "path": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/4_serial/ready_0",
+      "path": null,
+      "bytes": 7,
+      "sha256": "dba1e0619ebfaa3e42b940ccddf4589234e223f3c2c1e7300b23a94f3f6cae60",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/4_serial/result.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/4_serial/result.json",
+      "bytes": 129836,
+      "sha256": "b754478f5ce22e45f469220ca8d124bd27e98085d312c45ea896f68186f1daef",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/4_serial/worker_0.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/4_serial/worker_0.json",
+      "bytes": 115489,
+      "sha256": "a7775a8fbcbb5d1d2f20160a58110bc2834b633b1ea674977b40e907c0dc79a0",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/4_serial/worker_0.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/4_serial/worker_0.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/go",
+      "path": null,
+      "bytes": 0,
+      "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/ready_0",
+      "path": null,
+      "bytes": 7,
+      "sha256": "abae04f9d90e0da5fba13a5714292fcdca0e892aa253abadcf994b99a2ece8e7",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/ready_1",
+      "path": null,
+      "bytes": 7,
+      "sha256": "bd5392b70e839fc4364545ccda07acdb4ab4abf1e482ce094ad2d723d75e2d63",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/ready_2",
+      "path": null,
+      "bytes": 7,
+      "sha256": "a3e56a3d9ebe823b3fcd260acbba041ed88f8cbef118b4537bd565896dec92c4",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/ready_3",
+      "path": null,
+      "bytes": 7,
+      "sha256": "040920c547924f702128bd7393db0bb8208718fdc40b826bfdbc2a8fcc2e731c",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/result.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/result.json",
+      "bytes": 130109,
+      "sha256": "d09c58de04e681a97c814a4ef8254ddfdb1970c369aef346c6f9b54b4e3658ee",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_0.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_0.json",
+      "bytes": 28926,
+      "sha256": "ea15fb3b6685398ac0c5ef90856b2175771ec91e34283abdba8ea75b6460c00b",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_0.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_0.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_1.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_1.json",
+      "bytes": 28925,
+      "sha256": "4f0a94185c24ee0320117145a752204a89e208bc03b7d97033468105e9d9ee78",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_1.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_1.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_2.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_2.json",
+      "bytes": 28915,
+      "sha256": "51c1f633a8f0c22ed2f4e7903d32e201b536d8ce41949b54fdb799a884691f51",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_2.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_2.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_3.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_3.json",
+      "bytes": 28916,
+      "sha256": "d4dc59163f973a00cee2fc316ffc5a34c324ec041d9878927f22494ab70eda3d",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_3.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/5_parallel/worker_3.log",
+      "bytes": 647,
+      "sha256": "9d6d9dbf145970f3f7a13b605dd601a1a2a7a604ca919a727079994559871b1e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/summary.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/concurrency_final_20261114/summary.json",
+      "bytes": 718,
+      "sha256": "14cc7d7f516d5c7035cd57a01c9c6781b53573eeb4c6a354536340a6623689b1",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/draw_seed146501.pt",
+      "path": null,
+      "bytes": 100108,
+      "sha256": "04845a755fa495702f19833da0c8041164409e435aea950b54a5e682404aa28c",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/draw_seed146502.pt",
+      "path": null,
+      "bytes": 100108,
+      "sha256": "3668a7355b52c6e4d4afefa39216a8a196255b25d8c432b56d0a6b87f3f91ba2",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/eval_queue.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/eval_queue.log",
+      "bytes": 2184,
+      "sha256": "48e2748190c3d3512927a83843d095b54b152c883c05976d70c44dfd1884eb73",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/eval_queue.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/eval_queue.py",
+      "bytes": 4496,
+      "sha256": "1fdbf7210fdae31241dfda01ecd9d5f6ea4e140f7ca5f1343f1158e10dcfc906",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/evaluation_queue_status.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/evaluation_queue_status.json",
+      "bytes": 2305,
+      "sha256": "eb685d04ad2e25f3ec1e51b10cbe9eaeb2b94cdd5eee74115119e7d487541695",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/neural_fd.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/neural_fd.json",
+      "bytes": 622,
+      "sha256": "a74a0661bd35ca07c503da0764620bd90723d24713721ff809724e947672a1ec",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/neural_fd.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/neural_fd.py",
+      "bytes": 2167,
+      "sha256": "3208578684b3e1cbf2abad29c515d3cd7462d232975d18d82086642f0fc6f036",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/onpolicy_history_summary.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/onpolicy_history_summary.json",
+      "bytes": 394644,
+      "sha256": "c31ad0f79ea46f139d622b8498d4e1fcdfce77998d8a18e04401a7ca54588148",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/qualification.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/qualification.json",
+      "bytes": 2288,
+      "sha256": "4bfc5211532d50ef2328b8cf595a76bc8a8a60c799b58a784f6cbca844f2b973",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/qualify.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/qualify.log",
+      "bytes": 1605,
+      "sha256": "a8c88fde044aa4d3ca502eed0365c2a101e56750daa72fa64e06300203574593",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/qualify.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/qualify.py",
+      "bytes": 3965,
+      "sha256": "88ae1e9f168e8ee51433c7703d8a59832dbb29ab445900300b55f7d8e9755171",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/qualify_failed_syntax.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/qualify_failed_syntax.log",
+      "bytes": 439,
+      "sha256": "14fac5c61b8e45da5ea50b6f06f01cbeacfbe5f15bdcb1138ba48926766f785a",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/skeleton_K.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/skeleton_K.log",
+      "bytes": 2404,
+      "sha256": "3fc43a71cdc5f12533bcb66d4c5a777dbaed96bab7eda4e5bd248999c29ab59f",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/skeleton_O.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/skeleton_O.log",
+      "bytes": 2405,
+      "sha256": "a0e522807fe541b09a70d03de1d1c1404637b0b776c9c90fd12e5600d5e5b4f3",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/skeleton_dryrun_K.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/skeleton_dryrun_K.json",
+      "bytes": 3067,
+      "sha256": "f41bfe750a389ca7acee93716bbefce11d52e65387fae285a3a0a8943fa10e72",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/skeleton_dryrun_O.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/skeleton_dryrun_O.json",
+      "bytes": 3068,
+      "sha256": "6dc674e8c4d12d850c77ba4d719413cbdb2b032e457c57553409fced24950fa3",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/summarize_histories.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/summarize_histories.py",
+      "bytes": 1239,
+      "sha256": "0be6655ddfe145c7339ec75bd62ffa8c77e074c4e74a43e3005917e2fd271c4c",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/train_v2.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/train_v2.py",
+      "bytes": 7102,
+      "sha256": "602659cafc4b958cf328d521515f4d0bff6c40695b7961f05d8fed674bdbcf0a",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/trainer_skeleton.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/trainer_skeleton.py",
+      "bytes": 7581,
+      "sha256": "e27ad50e1fdbcfce12f33fcb1d8c3ced9169f88a78943dc75874f6f7ce008178",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_1024.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "118f8098fe822bd4c9af0235b6e211f22ebca16d8fdea320d9b46a3ee9eae6eb",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_1152.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "1b3bc6cfbd1b0ac1dcf8631d3002da90fb52e9ef7f62d9569c6f000b32ffd5b3",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_128.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "61adc5ffc68f03d7eb5413ad79d2abd222bee8e92c545623b8560f3f9fffcba2",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_1280.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "794d51bc42eca09088b2fdccb284370e8540c9c7e7b8cd5a0ed84112a8e7b2d5",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_1408.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "c53e945adfba2eedd4312b62a4e639fad3a9b68fe67375cca270563f0939be9b",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_1536.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "8537fb1465a1f4cf9376cbe71b6a56e84ee839f851fdc036f4b685f2dfbd099c",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_1664.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "2ea828b5dbd4dde9bfc6314322726b6b88b79041d1c97cd0f30d9bae505bb28d",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_1792.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "584a1befda0dfa374b19e8e3277639ddc197ad69e5b626d99cd10fe0195cce18",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_1920.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "48648d20b4cc274aa583dfa920882b3ef6463c82727c7aa7817b3f71df4ea974",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_2048.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "e612e873b4bb790b562fe3a33f31cab5ded2b0308d1be8f2d3a7a2ebfb9dc93c",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_256.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "20398ce4854c81394729fdc15f4de323336d52ea6c364e1389b3245c12421f09",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_384.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "d9d6fc037b7fb40dd82899ed1cc03645f96f34f9d063ba39555ad502010a00ce",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_512.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "61c678fbe9a50f327583df03027eb86d45a535389a4b075c4bf335393ca1f00f",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_640.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "5e74d092b9922b68a01331ad497dbe0600ef91f21331dc3a9fcaabe591b5d0d8",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_768.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "e579c27b1c81853c19653f1eb4c526daf89b0814a0244673b6a12a0ff2c227a1",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/checkpoint_896.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "f22332b29cf74794308dd447c5a33b926b8dea68f74c88e7cacf8ea47d93e2b5",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/draws.jsonl",
+      "path": null,
+      "bytes": 5423887,
+      "sha256": "cd31254c5768d4ca9097f92c0ba29d9267ee5b0dcd36d5cea246699cc58d32d9",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/eval_native_1024.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_K_146501/eval_native_1024.json",
+      "bytes": 42421,
+      "sha256": "b2640675392cda0055fbc5b9d2fd1039bc4ba7691abd66f8d6bb72d20ca4f179",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/eval_native_128.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_K_146501/eval_native_128.json",
+      "bytes": 44412,
+      "sha256": "2673f7f2b96a8aa557a5e3cef0167d8803c65c735a25e2e3c3c978b14d3e48e3",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/eval_native_2048.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_K_146501/eval_native_2048.json",
+      "bytes": 288450,
+      "sha256": "467d85d29a4aa79fe9a373053990b93fa0a22c317945c31293c679700680e03e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/eval_native_512.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_K_146501/eval_native_512.json",
+      "bytes": 43704,
+      "sha256": "2e25eac942bf5d7fae4d4263abe9b81d8f8144a18dd21c606bcdb24f99b837af",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/protocol.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_K_146501/protocol.json",
+      "bytes": 740,
+      "sha256": "1bfd098d55b3460642f996c294db316607b97dca648f545a3720609f7fa2ee77",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501/status.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_K_146501/status.json",
+      "bytes": 3505,
+      "sha256": "048f655df7fb665aaa0bc56cca9bd70d1f3abf7a23b7a5e024a064b5db5a6641",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146501.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_K_146501.log",
+      "bytes": 4114,
+      "sha256": "c25dbe0d53b61ed4686a641a17e500148f2525b486260e264a880533e830e37f",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_1024.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "7b0e95cc59794d25c670d93dda3cf04c535a1fe2f2d9f6baffecaa2514256a88",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_1152.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "dc15a7711a899f1ece4b0437133a0f5ff73fd3b393f6fa633ae698e00f72718f",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_128.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "1b6f2a182ac90a398750be33dc18dc5900a202ba4ffc62355c56863f0e96914d",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_1280.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "20be10fcbe0c8ee6aa2a4d1fc70a7d0340e5a043b83bf78c82ec20a8beaaa3ad",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_1408.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "4d0aa96785245bbbcea623f21b4fcaddb51191994ac5e81591ff22525455ba9a",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_1536.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "568b598fb1aee5a0e552400678be4085afea3e456beed92bf691bc4bab34b8bb",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_1664.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "e3a666b245260fcee0418c1530415c24df882fec9e1a58544a63097a195f6f95",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_1792.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "d80cc322d22e08c82c6695d47305fffb21b24987c676c4f9f569ba90cd31482c",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_1920.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "974c9cded52842713c699e59b6dffac4e7ef3ec9463e11d370cc6954299f92a9",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_2048.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "e0964351ad5e2521beadf7f8164e186a20d87e8fee99906d1a016899a2c701b7",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_256.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "f065a2193cfb7e299cc9eced0c89041f771d20da536e31089683b11c1c682476",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_384.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "2e52eb782304d5acfe1f65656c85189625949fa9d9d11758abca0472f78b95ed",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_512.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "b78cb2d63b7f4ac7289db8fed590766754f734701331af125275a2d51302b34f",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_640.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "bf48f8251f9993bb7b3f33f3b4f385883cc9768a5077a6952033325018b407fd",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_768.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "b09ccb1243a11a5dbad9b74f78ee08fc05e9f5a7e25f504a1b8937219f6d9b91",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/checkpoint_896.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "cc92ee8d8202754a0b952d36d8afeb7cabcfc03de68f0d086c7b40fac08bb12e",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/draws.jsonl",
+      "path": null,
+      "bytes": 5418310,
+      "sha256": "40ee9b2ecaf229b9a1abbdd3a5ad2e3dc1306b2af1b54f274b3fc35a7aa91d8c",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/eval_native_1024.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_K_146502/eval_native_1024.json",
+      "bytes": 42218,
+      "sha256": "730a7e726501f5d89e8196d14de6eed2befe9a724a964e803cfd4e8d69170221",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/eval_native_128.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_K_146502/eval_native_128.json",
+      "bytes": 44273,
+      "sha256": "8a08f64d9599ceb9cb18955a09246ded6514e1acf1b1e8fe47abafe419dd6b18",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/eval_native_2048.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_K_146502/eval_native_2048.json",
+      "bytes": 288394,
+      "sha256": "1690cc4ef11e455745e8a96443634b97511e537e69ee51c3355b49304e9213e9",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/eval_native_512.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_K_146502/eval_native_512.json",
+      "bytes": 41821,
+      "sha256": "bf97466af1777f057db557e2d4df6a19781fd116c41cfda68f7c79be57ca9521",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/protocol.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_K_146502/protocol.json",
+      "bytes": 740,
+      "sha256": "e5c56466bc2267e09d1ee0c79ab595d70b33d784a80302de9c301fbfca27aaaf",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502/status.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_K_146502/status.json",
+      "bytes": 3029,
+      "sha256": "9b2495a9f675c98dcbb9712f85b9c0fcfc5af580fc880a3766cfd51ae5dd597f",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_K_146502.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_K_146502.log",
+      "bytes": 4117,
+      "sha256": "f793e404e3892265b678f51381da81469e2649237951f70420f5c999a31cd3cb",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_1024.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "20aa0a831ce6a0e5bac0e73f3f2c8e05a30e55b22767e85452cb50255743d92b",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_1152.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "7fcb0eb72c6af25386920a35e2961046c33e75bcc3c5d921598e3a90c94ff51f",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_128.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "2e384e9ca106c464f0a41b81c09ec128299ac50d3096c068dc15dd123fa19ff8",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_1280.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "4357ae36183d029fb18f0a4ded5b23fe14109c3bfaa234937008491c1f1b2237",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_1408.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "847141490d119faea49e17cce35e2f3d07ae966a95c545435efe9109fe567789",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_1536.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "5e4a761e61c9203911316a42549932fee75a07858c3f9a1d30435cf15a313baa",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_1664.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "cf59e79426342654084a671f657560a9be61dc1719e29e67241b54afc0f02573",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_1792.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "3cc1c22a9c975a61907f25231850acee08f029529b9db28ca83f8f8ee659b0f4",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_1920.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "90b508e7939893acf37b965f31ccf2646c002b76c99a8fcd91d5fa2d436d4c90",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_2048.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "aacc68d05f1a842b7b6ce103e9d6922b5b610ad830e02cda691f7aa5bf04e4f0",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_256.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "6d1f5997d886157948d7c0ddbd0aebb46a59a6aa1b96ef244e22564380c09475",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_384.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "71abca3cbcbcc2eead3ccd5c71ef166ced7b7011e8f6c8bb7202f63b6798ac98",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_512.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "7a618a4d15a40a84d08baf3df0e329f6aa5008ba29a496afc197b9ef6d70afb4",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_640.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "4c6864a20598930e53108f6a496d92d24d0c025e0cfe03726a2893913bcb1e2a",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_768.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "bdb2a2a6c491630bcce9903253ce2be5b0a33a2e7bd172e7f460936382c9efbd",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/checkpoint_896.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "a73c6f2fd5b327c644d4e02f54507362e3ee3b19cb3db66d2653db3e31e26a96",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/draws.jsonl",
+      "path": null,
+      "bytes": 5462163,
+      "sha256": "70bdcfa8c592788a43f4154a1b851f499fc23f6b065a0074e79970a0e3917045",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/eval_native_1024.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_O_146501/eval_native_1024.json",
+      "bytes": 46015,
+      "sha256": "890d764204d3afc8c2c9ea6511d843189ce5a7e9489f00785139b41c857db564",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/eval_native_128.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_O_146501/eval_native_128.json",
+      "bytes": 47068,
+      "sha256": "8afc79019bf95cb91d286cd1e0efcb3cc61ba4fe081e48e9fb004a07bf30374b",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/eval_native_2048.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_O_146501/eval_native_2048.json",
+      "bytes": 321329,
+      "sha256": "2339367461c1440cb747183f85d2963083f947c09c7afbe39423ce7bf35765fd",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/eval_native_512.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_O_146501/eval_native_512.json",
+      "bytes": 45157,
+      "sha256": "f5e49f46cea780805df7080b242eeeb9c1178c1902b1723736f9c4f77aaf65cc",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/protocol.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_O_146501/protocol.json",
+      "bytes": 740,
+      "sha256": "de71f85728b3095b66e397ff66c925eadd1b0621750860ef94e01161c6e9b135",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501/status.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_O_146501/status.json",
+      "bytes": 3573,
+      "sha256": "83d4a34a1ba0679b42e95f347c8ddee77630ea6167958c8cbe12b3d68339fb21",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146501.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_O_146501.log",
+      "bytes": 4123,
+      "sha256": "0fc82f199354eb9c751b1296799206416732f40c844e521118a0400a3ca427b8",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_1024.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "f45a6c0fd33e6b70e44da61308b0adc597b554ad1d3ab9cc8f2868fcd60b5dbd",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_1152.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "ede737f1a35e1b0b7d962bf111eb6e0ad9fb3ac55f4e83357d802cebb980c18b",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_128.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "cf7d575f2c74eb294ea8703ca58967131c3648232bf2f876fd59ae0ab5d0336b",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_1280.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "3ff43a28360cf9de4a8f3ef3c8f783a4e60825f1d33c50f2ea705a60f7d63b40",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_1408.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "03039eae93fb45af7a25ac6d582201fc4630bb086b35ff904c8978526e9a6e87",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_1536.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "54829c4cf001cb43e57edc21d62709c2a6b1bb4aa0af750ca83b2fd24cc469fc",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_1664.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "ccb241d2458998210b6168eda099a9592f5429223ce0fa0d04ba7633dcf70ef0",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_1792.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "ac2360142b1ca72a3599523e1f241ed1b901e1706f4edca2a1e0ddbec71bb6a3",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_1920.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "bcce1dfbaa0e60f6dcfad3df00e66ecf9e9a8ee0f86e89e679474e5d3f3425a9",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_2048.pt",
+      "path": null,
+      "bytes": 1527781,
+      "sha256": "af5942302a274a336d3dbc03554ac0f0b08f5c495331b835a5ca78d7cec30fe2",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_256.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "ec6760fa857d1321895e32a018c981c54b6a0afadfb516d780472e8a070bcff7",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_384.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "acd0892c607fb47e951aa02e934fc0ab36e33e51acdb79b620a95a353a8e0a7c",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_512.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "9fe5aba43735dcdcb63950c120989898b949e2e6e49be257f70dc6ce7278b624",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_640.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "97b802919b70b2dbde0bc4370fa49952e1ec1597858ddf8ff86387ff2b281b98",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_768.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "b62cbd3b180aaed996f2654f3013df630ddae668c25b4159eda3d3252d132bf8",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/checkpoint_896.pt",
+      "path": null,
+      "bytes": 1527678,
+      "sha256": "6608dbdb4c1496ab06c6905e79fe22056fb43989097e3be59bb1786e6725d3cb",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/draws.jsonl",
+      "path": null,
+      "bytes": 5457158,
+      "sha256": "36c3e20ccb7da0d06f49fb90ecd0e1701e4f417e9a754f7ab7e15af8de563c45",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/eval_native_1024.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_O_146502/eval_native_1024.json",
+      "bytes": 46193,
+      "sha256": "ff8de89d16c2fc0ea3b681ed9e494c444c21ff513511054f5d7660e9489d762e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/eval_native_128.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_O_146502/eval_native_128.json",
+      "bytes": 48123,
+      "sha256": "12d19ad7abff1f1190009eecad938820f96b1962add74c7b1d982f33bdbe6c6e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/eval_native_2048.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_O_146502/eval_native_2048.json",
+      "bytes": 315623,
+      "sha256": "e8002537596f024c19b8f3936d7e29d8b5e879065610a8d4e430014492ab99b2",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/eval_native_512.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_O_146502/eval_native_512.json",
+      "bytes": 48506,
+      "sha256": "ab9b1471f78d0862cb8432b0eacd891de744b542b3db0d3bfcc2dd61ff42ebdd",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/protocol.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_O_146502/protocol.json",
+      "bytes": 740,
+      "sha256": "05f8feaa3112db9dcf4bec9fd97985f40d686df65ce669f31eb88b0f453b5d40",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502/status.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_O_146502/status.json",
+      "bytes": 3043,
+      "sha256": "066a11f6bafc672bcde7463f64eac211e088b3977b680e45941e502c69f00a8f",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_O_146502.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_O_146502.log",
+      "bytes": 4122,
+      "sha256": "69930a29ee124393c67d0e11ec63a9f1a06c1838bb72cbb0264f3d2ceac83537",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/v2_qualification.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/v2_qualification.json",
+      "bytes": 229,
+      "sha256": "980e9f23a08b9c479f91f6b5e8c9f7c1daf4d9dcb6eae88ea4b2b6e22d3f0090",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/window.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/window.py",
+      "bytes": 2572,
+      "sha256": "350c76c81213ffac30e3e28db0b87336287acfdda6ace2fdec34091ce29e5410",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/window_failed_syntax.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_krylov_window_20261114_dot_v1/window_failed_syntax.py",
+      "bytes": 2572,
+      "sha256": "ca9470bc545adf17fdbfc6de05241603a6798862cac33757117c2784d944f019",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/CT4.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/CT4.json",
+      "bytes": 234952,
+      "sha256": "6dbc740d9f0a9d8c6553e8b98460966453e0a91044300f36e9dba3a08d9c9240",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/CT4.partial.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/CT4.partial.json",
+      "bytes": 234953,
+      "sha256": "c2d8d12880565e2f77bd06d59a3dba3d6443322337ff3141ed32e927b3a6a67f",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/K_146501_2048.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/K_146501_2048.json",
+      "bytes": 232235,
+      "sha256": "77c72ea833d5d4c2287f6bc475b20326be243a11e170243a4f07d879d14798e8",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/K_146501_2048.partial.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/K_146501_2048.partial.json",
+      "bytes": 232236,
+      "sha256": "fca824bfd5e5067abf529e6529a4988214a2f037caa54343106e77cc261cfd79",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/K_146502_2048.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/K_146502_2048.json",
+      "bytes": 232236,
+      "sha256": "d3cdbec53a94c3df844d68a8a6b4259d26705693752ba19c4c4cef980ab0d662",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/K_146502_2048.partial.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/K_146502_2048.partial.json",
+      "bytes": 232237,
+      "sha256": "794ce77d639afc3e371ad12864f4e57e5a5dd17a7423991ec9cd2d5313beca46",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/O_146501_2048.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/O_146501_2048.json",
+      "bytes": 232451,
+      "sha256": "a542fbd3da243ea01dca40e8a1210c1f6ea9db24aef4c5a5b342ce122582c3bc",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/O_146501_2048.partial.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/O_146501_2048.partial.json",
+      "bytes": 232452,
+      "sha256": "5795795562d1f8df489b10f20e05a895326cd1e40d07596927715b0a60ba7a9c",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/O_146502_2048.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/O_146502_2048.json",
+      "bytes": 232412,
+      "sha256": "a7a3c82d47fa33332ccd85eead8e62857c080d604bd73c1cc6b081a8943fbc8a",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/O_146502_2048.partial.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/O_146502_2048.partial.json",
+      "bytes": 232413,
+      "sha256": "382ae742614b5958045d65361e378951377857900f37f0e55ed43ec57fab663d",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/after_FIT8.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/after_FIT8.json",
+      "bytes": 231388,
+      "sha256": "21c42c4e71b757b2895d19d0dd8a31861659b20ff970e318aa3a8540c650a142",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/after_FIT8.partial.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/after_FIT8.partial.json",
+      "bytes": 231389,
+      "sha256": "0e97fba9ec727c158f20f5dbd95d273a990bc942f299c7f35b613ffde81bba72",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/before.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/before.json",
+      "bytes": 232283,
+      "sha256": "f6b710113cf86441bf06a60fc66c2e7d71c89e11c5c56d237110eabf39b2cbf3",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/before.partial.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/before.partial.json",
+      "bytes": 232284,
+      "sha256": "f148e393f5065620ff656b4be8feb2ab5759c6a18bb18714e7f130ad39dad3e9",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/evaluate.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/evaluate.py",
+      "bytes": 3543,
+      "sha256": "d019e4bb5636f9193ca7aec2c82cf1b620e41b067655601a777455ee4caa6a80",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/status.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/status.json",
+      "bytes": 249,
+      "sha256": "5fb86b688377380b4aff0170b3d419c279cd504d0ecfc135178c952456fe6771",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/watch.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/watch.log",
+      "bytes": 736,
+      "sha256": "8eb37a06a1a9dc471022d96d0f2147ecccb2b378a1f798971e72fec8d76c0460",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/watch.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_endpoint_arnoldi_20261114_dot_v1/watch.py",
+      "bytes": 1677,
+      "sha256": "003103f9debfed6ea00db57c0b1aac03f5fdfba2ee668c98e9b76726ab6fe4f2",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/results.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_arnoldi_audit_20261114_dot_v1/results.json",
+      "bytes": 741544,
+      "sha256": "16ce1f7eb79aeab4344653aa0ddfbe162f66550b0b42f12115067cb896652b12",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/run.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_arnoldi_audit_20261114_dot_v1/run.log",
+      "bytes": 626,
+      "sha256": "d7955c1b2a6b79d1e97ca636bd34a3c1ef116c09645e0e5a468c52dfe91eb20a",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/run.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_arnoldi_audit_20261114_dot_v1/run.py",
+      "bytes": 4954,
+      "sha256": "882b658783768fe2830e9e73691ab11db54f59eed3915d88491a7090eb0992cc",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train00_after_arnoldi.pt",
+      "path": null,
+      "bytes": 118055418,
+      "sha256": "c3897d8edd903a227257e7fa04f10691a2b3f37dad590305a27d00b9e73b85fa",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train00_before_arnoldi.pt",
+      "path": null,
+      "bytes": 44861304,
+      "sha256": "30da8572c333a992f7e1571cd218c34bc56e01bd42dc0422bf0dab39c88c7e66",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train01_after_arnoldi.pt",
+      "path": null,
+      "bytes": 47222218,
+      "sha256": "10269c00ec5094f825dd03c1829f7ad1d255c5c171a737afd0f875f0c1a548bb",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train01_before_arnoldi.pt",
+      "path": null,
+      "bytes": 33055810,
+      "sha256": "166273cd45691054c639bf03e1f05fefa9b4bc39230dfb413bec5bc6357b1100",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train02_after_arnoldi.pt",
+      "path": null,
+      "bytes": 118055418,
+      "sha256": "7774bcb32425c257bb46fa4b76fe4f7864255f68bc082759a3377eb5a97e2d91",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train02_before_arnoldi.pt",
+      "path": null,
+      "bytes": 48402989,
+      "sha256": "965a53c125be8473d8a1118ccece7b48867cf9c50d82d2fd4b024e132fb8a04a",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train03_after_arnoldi.pt",
+      "path": null,
+      "bytes": 90902718,
+      "sha256": "bf60966b551397ae89943b5b068809f029ab326be5b631a1b83ed3f1f479dd88",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train03_before_arnoldi.pt",
+      "path": null,
+      "bytes": 33055810,
+      "sha256": "9b5c7ef03e52535f89282fe4092c285d29a5d282ce02ac106068c54e6c1ca786",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train04_after_arnoldi.pt",
+      "path": null,
+      "bytes": 72013886,
+      "sha256": "ad833e41c94e111c6af263bd8971fb8ee93bd6637744e4f0da7368502d6e78d9",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train04_before_arnoldi.pt",
+      "path": null,
+      "bytes": 33055810,
+      "sha256": "6c883d250d57479cc6e5710540c6dd7a0c6400f8ccf6bab7ee408e0718a56e51",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train05_after_arnoldi.pt",
+      "path": null,
+      "bytes": 118055418,
+      "sha256": "3fa7c42e152ee0dbb7456bbe3e1f7e4e1bd382a0278945b2e40585dd70be21c3",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train05_before_arnoldi.pt",
+      "path": null,
+      "bytes": 56666878,
+      "sha256": "a20ad9aac9105f6e3b1df35acf20a0d84dc9abbc2d2a9ca836a1384176f70343",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train06_after_arnoldi.pt",
+      "path": null,
+      "bytes": 69652726,
+      "sha256": "92d2094be54a7d6070eb42e97cf6db6064474931c39c249759e1a07e303e537e",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train06_before_arnoldi.pt",
+      "path": null,
+      "bytes": 35416906,
+      "sha256": "4b5340622ea10db85cc8e13fc4d076b4b209c814e52dde5ba9431e780d6e13ef",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train07_after_arnoldi.pt",
+      "path": null,
+      "bytes": 118055418,
+      "sha256": "23b798126bf59bbcd520d22332c207edb4fe35b948b400514eb5a98645a70fb7",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_arnoldi_audit_20261114_dot_v1/train07_before_arnoldi.pt",
+      "path": null,
+      "bytes": 53125193,
+      "sha256": "c30942455b7ec30fb05fff313ded57a2dc11bb1c3a19e3ae0171a935f898d426",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/CT4.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/CT4.json",
+      "bytes": 19137,
+      "sha256": "dbeeb7d8b4bc5d7adfbb2d16e8b13c39438f4679f5df42dffcbf4bbe354ece51",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/K_146501_1024.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/K_146501_1024.json",
+      "bytes": 19016,
+      "sha256": "6fee44386c45104d39ea2d9e11032f0357907f92a4d60983a68bab961578f5ec",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/K_146501_128.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/K_146501_128.json",
+      "bytes": 19009,
+      "sha256": "3aa249ed91c0a4cf2d94d9dae01db411384de92903cde0de49eddd204157d4fd",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/K_146501_2048.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/K_146501_2048.json",
+      "bytes": 19018,
+      "sha256": "ef70702080e38a481c5a1092a5e4a464ee19ed509a2e879a4d831d111bfb8fab",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/K_146501_512.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/K_146501_512.json",
+      "bytes": 19012,
+      "sha256": "25898b0478fd247ad87789f8f15413b9ff9708f6245dfd4ead0b23695146e87b",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/K_146502_1024.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/K_146502_1024.json",
+      "bytes": 19010,
+      "sha256": "e5ab4f456bba0005475fc68b78b4231a141142dc6877728b5f5f31eca2c6b67c",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/K_146502_128.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/K_146502_128.json",
+      "bytes": 19005,
+      "sha256": "a89c816b95e540efb528634c0c6e2739ae6fac3b72cf2bec8af821ce7af4c766",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/K_146502_2048.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/K_146502_2048.json",
+      "bytes": 19017,
+      "sha256": "8aa0857f653f63ae1c5a86c7fcb499cf4b3ca181458aa948dcbc1ffb2e028fb6",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/K_146502_512.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/K_146502_512.json",
+      "bytes": 19026,
+      "sha256": "44cf4dbcd41ecd500015fc5815683b885fcab90dcd0532b97e840630e1125450",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/O_146501_1024.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/O_146501_1024.json",
+      "bytes": 19024,
+      "sha256": "ba31b76a0dbc2547be6a3e6cca9e94d558341696bcd30ec18ec99b86105fd255",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/O_146501_128.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/O_146501_128.json",
+      "bytes": 19026,
+      "sha256": "83fc03fe7a497706f9337a56d248c22982a4bc79272e6a49e91382712830704e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/O_146501_2048.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/O_146501_2048.json",
+      "bytes": 19022,
+      "sha256": "10fb7940cbf0f2e4579ef4ae947f5f16b78a60fb54f476f562f8ab1a4676947d",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/O_146501_512.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/O_146501_512.json",
+      "bytes": 19015,
+      "sha256": "cc6ac54f03ec2df3639f291bf3a3a1790b6ab3ca961e4dedd2f55d48b0ee658c",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/O_146502_1024.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/O_146502_1024.json",
+      "bytes": 19022,
+      "sha256": "1a28f2f2d5f7e6ac29685cfe451337ad6e15f7d35420ccce82f94f2225511414",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/O_146502_128.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/O_146502_128.json",
+      "bytes": 19028,
+      "sha256": "584189ee32ffe57c7e1869344b1fc878276907144aa3c3c7b4f8fc1e178e3c0b",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/O_146502_2048.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/O_146502_2048.json",
+      "bytes": 19030,
+      "sha256": "5e9b4826a3397f87609c8b9901efe6833f173ce49f5cbd8101a3882c1ed43180",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/O_146502_512.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/O_146502_512.json",
+      "bytes": 19034,
+      "sha256": "85408b283b8199126dfdd03bdd294a1468459794b9efe37212c8723c282c80e0",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/before.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/before.json",
+      "bytes": 18969,
+      "sha256": "a4200f32ea4d34a909a0527d04e8d6da8311fab2700840c5aebce57b2e2718a0",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/failed_queue_source.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/failed_queue_source.py",
+      "bytes": 1565,
+      "sha256": "d9cdc76e2e5438ef73ca5d5d84e51db818e66c13ca50be6912a6fd8e180fa4bc",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/inputs.pt",
+      "path": null,
+      "bytes": 50883172,
+      "sha256": "57b51dffc04b203b60173230c4b33270f958113e1688a4b82760b2e170ddb695",
+      "materialized": false,
+      "reason": "external data/weight/binary or large text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/panels.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/panels.py",
+      "bytes": 4307,
+      "sha256": "21f8a93ac972656d9bf6b96f1486b5b8403aeb99057bbe2b97473468b0ed7656",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/protocol.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/protocol.json",
+      "bytes": 816,
+      "sha256": "17431ffc718ce0749c90001828152e8833e5497f0bb0736a47c0d86ba89c84c3",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/queue.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/queue.log",
+      "bytes": 2035,
+      "sha256": "a5aaf81279f8e3964253b01031a8c8bd17d9060850136a8467ed1e2675ddfe08",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/queue_status.json",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/queue_status.json",
+      "bytes": 450,
+      "sha256": "f433806bd1950d228057c66bf2f589312a147244d1abdcbdc2178a226dde1f39",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/watch_panels.log",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/watch_panels.log",
+      "bytes": 1960,
+      "sha256": "5d3d668fe8c5a6392727670b8e03c0e7c3f909acefd646936e33459623cdf81e",
+      "materialized": true,
+      "reason": "small source/text"
+    },
+    {
+      "source": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_fixed_panels_20261114_dot_v1/watch_panels.py",
+      "path": "handoff/rte_20261114/integrated_evidence/rte_fixed_panels_20261114_dot_v1/watch_panels.py",
+      "bytes": 1565,
+      "sha256": "d9cdc76e2e5438ef73ca5d5d84e51db818e66c13ca50be6912a6fd8e180fa4bc",
+      "materialized": true,
+      "reason": "small source/text"
+    }
+  ]
+}

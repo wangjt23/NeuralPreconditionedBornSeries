@@ -1,0 +1,11 @@
+{
+  "best_heldout_fgmres": 9.707959975457925e-06,
+  "checkpoint": "rte/large_angular_spectral_runs/coefficient_ensemble_unet_control_4096_2000/checkpoint.pt",
+  "config": "rte/large_angular_spectral_runs/coefficient_ensemble_unet_control_4096_2000/config.json",
+  "dataset_size": 4096,
+  "elapsed_seconds": 700.9403999238275,
+  "epochs": 2000,
+  "name": "coefficient_ensemble_unet_control_4096_2000",
+  "sample_presentations": 256000,
+  "steps_per_epoch": 2
+}

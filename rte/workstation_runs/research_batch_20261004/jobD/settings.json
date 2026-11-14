@@ -1,0 +1,21 @@
+{
+  "complete": true,
+  "mode": "coarse",
+  "counts": {
+    "H": 36,
+    "M": 4,
+    "S": 0,
+    "full_solves": 0,
+    "training_steps": 0,
+    "new_seed_generation": 0
+  },
+  "elapsed_seconds": 19.77542818337679,
+  "cpu_peak_rss_kib": 1048844,
+  "gpu_peak_allocated_bytes": 439639552,
+  "gpu_peak_reserved_bytes": 847249408,
+  "warm_apply_is_component_only": true,
+  "entire_job_includes_startup_setup_readback_transfers_snapshots_and_H_diagnostics": true,
+  "no_solution_residual_accuracy_or_pair_claim": true,
+  "full_solves": 0,
+  "training_steps": 0
+}

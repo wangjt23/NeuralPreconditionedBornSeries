@@ -1,0 +1,3 @@
+/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_krylov_window_20261114_dot_v1/train_v2.py:40: UserWarning: Converting a tensor with requires_grad=True to a scalar may lead to unexpected behavior.
+Consider using tensor.detach() first. (Triggered internally at /home/task_178054064922485/croot/libtorch_1780540686865/work/torch/csrc/autograd/generated/python_variable_methods.cpp:838.)
+  return dict(**row,loss=float(loss),actual_calls=used,logical_fill=sum(j>used for j in [2,4,8]),gradient_seconds=time.perf_counter()-t,gradient_A_calls=A.calls-before[0],gradient_M_calls=M.calls-before[1],A_total=A.counts(),M_total=M.counts())

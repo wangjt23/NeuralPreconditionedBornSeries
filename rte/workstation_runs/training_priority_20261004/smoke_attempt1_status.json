@@ -1,0 +1,14 @@
+{
+  "mode": "smoke",
+  "pid": 2408547,
+  "started": 1791106527.9759364,
+  "complete": false,
+  "tests_returncode": 5,
+  "error": {
+    "type": "RuntimeError",
+    "message": "existing continuation-loss tests failed"
+  },
+  "returncode": 1,
+  "finished": 1791106531.2044225,
+  "seconds": 3.2284860610961914
+}

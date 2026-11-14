@@ -1,0 +1,11 @@
+{
+  "exit_code": 0,
+  "seconds": 38.54606045782566,
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "-m",
+    "pytest",
+    "-q",
+    "rte/tests"
+  ]
+}

@@ -184,9 +184,14 @@ def run(args):
     out.mkdir(parents=True, exist_ok=True)
     (out / "settings.json").write_text(json.dumps({**vars(args), "fingerprints": fingerprints,
                                                   "torch": str(torch.__version__), "schema": 1,
-                                                  "inference_kernel": "cached_fft_multipliers_v2",
+                                                  "cuda": torch.version.cuda,
+                                                  "device_name": torch.cuda.get_device_name(device) if device.type == "cuda" else "CPU",
+                                                  "inference_kernel": "cached_fft_multipliers_v3",
+                                                  "cache_guard": "setup_generation_and_retained_input_tensors",
                                                   "warm_start_provenance": transfer_info,
                                                   "test_timing": "randomized_method_order_within_each_medium"}, indent=2) + "\n")
+    if device.type == "cuda":
+        torch.cuda.reset_peak_memory_stats(device)
     synchronized(device)
     start = time.perf_counter()
 
@@ -228,9 +233,11 @@ def run(args):
                     "scheduler": scheduler.state_dict(), "rng": capture_rng(generator, device), "epoch": epoch,
                     "history": history, "best": best, "best_state": best_state, "best_epoch": best_epoch,
                     "updates": updates, "fingerprints": fingerprints,
+                    "peak_device_memory_bytes": torch.cuda.max_memory_allocated(device) if device.type == "cuda" else None,
                     "elapsed_seconds": old_elapsed + time.perf_counter() - start})
         if args.stop_after and epoch >= args.stop_after and epoch < args.epochs:
-            return {"status": "paused", "epoch": epoch}
+            return {"status": "paused", "epoch": epoch,
+                    "peak_device_memory_bytes": torch.cuda.max_memory_allocated(device) if device.type == "cuda" else None}
     model.load_state_dict(best_state)
     model.eval()
     torch.save({"model": best_state, "args": vars(args), "selected_epoch": best_epoch,
@@ -269,7 +276,8 @@ def run(args):
     write_csv(out / "selected_losses.csv", [{"split": split, "physical_loss": loss,
                                             "selected_epoch": best_epoch} for split, loss in split_losses.items()])
     (out / "test_fingerprint.txt").write_text(dataset_fingerprint(test) + "\n")
-    return {"status": "complete", "selected_epoch": best_epoch, "losses": split_losses}
+    return {"status": "complete", "selected_epoch": best_epoch, "losses": split_losses,
+            "peak_device_memory_bytes": torch.cuda.max_memory_allocated(device) if device.type == "cuda" else None}
 
 
 def main():

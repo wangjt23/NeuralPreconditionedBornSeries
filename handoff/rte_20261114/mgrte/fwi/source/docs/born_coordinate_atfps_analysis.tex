@@ -1,0 +1,513 @@
+\documentclass[11pt]{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{amsmath,amssymb,mathtools}
+\usepackage{bm}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{xcolor}
+
+\hypersetup{
+  colorlinks=true,
+  linkcolor=blue,
+  citecolor=blue,
+  urlcolor=blue
+}
+
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\A}{\mathcal{A}}
+\newcommand{\D}{\mathcal{D}}
+\newcommand{\G}{\mathcal{G}}
+\newcommand{\V}{\mathcal{V}}
+\newcommand{\norm}[1]{\left\lVert #1 \right\rVert}
+\newcommand{\ip}[2]{\left\langle #1,#2 \right\rangle}
+
+\title{Born-Coordinate ATFPS Preconditioning for mgRTE}
+\author{mgRTE technical note}
+\date{\today}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+This note gives the conclusion and detailed rationale for using a
+Born-coordinate learned preconditioner in the current ATFPS discretization of
+the steady radiative transfer equation (RTE).  The conclusion is that the
+safest and most useful transfer from the Neural Preconditioned Born Series
+(NPBS) Helmholtz code is not to replace ATFPS by a pseudo-spectral Born solver.
+Instead, the current ATFPS block inverse \texttt{funcDinv} should be used as
+the RTE analogue of the Helmholtz Green/reference inverse.  The neural network
+should be trained and evaluated in this preconditioned residual coordinate, and
+FGMRES should remain right-preconditioned with the true ATFPS residual as the
+stopping criterion.
+\end{abstract}
+
+\section{Conclusion}
+
+Let \(A_h\) denote the current matrix-free ATFPS operator implemented by
+\texttt{func\_inflow\_Dirichlet}.  Let \(D_h\) denote its local block-diagonal
+part implemented by \texttt{funcD}, and let
+\[
+  G_D := D_h^{-1}
+\]
+be the local inverse implemented by \texttt{funcDinv}.  The proposed
+Born-coordinate ATFPS preconditioner is
+\[
+  q = G_D r,\qquad z_\theta = P_\theta(q;\sigma_T,\sigma_a,\log\varepsilon),
+\]
+followed by the ATFPS consistency correction
+\[
+  M_\theta(r) = \operatorname{Corr}(z_\theta,r_{\rm unselected}).
+\]
+This \(M_\theta\) is then used as a right preconditioner inside FGMRES:
+\[
+  A_h M_\theta y = b,\qquad x = M_\theta y.
+\]
+
+The key conclusion is:
+\begin{quote}
+\emph{For the current mgRTE repository, Born-coordinate ATFPS is the right
+near-term idea.  It preserves the ATFPS discretization, keeps the existing
+boundary/layer handling, and imports the most important NPBS idea: train the
+network in the same reference-inverse coordinate in which it will be used by
+Krylov acceleration.}
+\end{quote}
+
+This is mathematically more defensible than claiming a drop-in Helmholtz-style
+Convergent Born Series for RTE.  For RTE, a standalone stationary Born iteration
+has no simple scalar damping factor analogous to Helmholtz
+\(\gamma=iV/\eta\), and diffusion/interface regimes can be close to
+noncontractive.  Using the Born/reference inverse as a right preconditioner in
+FGMRES is the safer formulation because convergence is monitored using the true
+residual \(\norm{b-A_h x}\).
+
+\section{The ATFPS Discrete Operator}
+
+After discrete ordinates in angle, a scaled steady RTE can be written
+schematically as
+\begin{equation}
+  c_m \partial_x \psi_m
+  + s_m \partial_y \psi_m
+  + \frac{\sigma_T}{\varepsilon}\psi_m
+  - \left(\frac{\sigma_T}{\varepsilon}
+          - \varepsilon\sigma_a\right)
+    \sum_n \kappa_{mn}\omega_n \psi_n
+  = \varepsilon q_m.
+  \label{eq:dom-rte}
+\end{equation}
+The ATFPS method used in mgRTE constructs local exponential basis functions in
+each cell.  In the code this is visible in the directional blocks
+\begin{equation}
+  B_x =
+  \operatorname{diag}(1/c_m)
+  \left[
+    \left(1-\varepsilon^2\frac{\sigma_a}{\sigma_T}\right)K W
+    - I
+  \right],
+  \qquad
+  B_y =
+  \operatorname{diag}(1/s_m)
+  \left[
+    \left(1-\varepsilon^2\frac{\sigma_a}{\sigma_T}\right)K W
+    - I
+  \right],
+  \label{eq:directional-blocks}
+\end{equation}
+where \(K=(\kappa_{mn})\) and \(W=\operatorname{diag}(\omega_n)\).  The
+functions \texttt{VDXY}, \texttt{FSM}, \texttt{Inflow2alpha},
+\texttt{MLRO\_Dirichlet}, and \texttt{MBTO\_Dirichlet} assemble the local
+basis, boundary-to-coefficient maps, and left/right/bottom/top interface maps.
+
+The unknown used by the current ATFPS solver is not the angular flux
+\(\psi\in\R^{4M I J}\).  It is an inflow/interface basis vector
+\[
+  u \in \R^{8M I J}.
+\]
+The global residual operator is
+\begin{equation}
+  A_h u = r,
+  \label{eq:atfps-operator}
+\end{equation}
+implemented by \texttt{func\_inflow\_Dirichlet}.  The selected ATFPS modes are
+determined by the tensor \texttt{VecSize}; selected and unselected components
+are separated by \texttt{restrict\_basis} and \texttt{squeeze\_basis}.
+
+It is useful to view the global ATFPS operator as
+\begin{equation}
+  A_h = D_h - E_h,
+  \label{eq:block-splitting}
+\end{equation}
+where \(D_h\) contains the local cell/interface blocks and \(E_h\) contains
+neighbor transfer terms.  The code does not explicitly store this matrix, but
+the split is exactly represented by
+\[
+  D_h u = \texttt{funcD}(u),
+  \qquad
+  D_h^{-1}r = \texttt{funcDinv}(r).
+\]
+This is the important object for Born-coordinate training.
+
+\section{Why \texttt{funcDinv} Is the RTE Born Coordinate}
+
+The NPBS Helmholtz implementation uses a reference Green operator \(G_\eta\) to
+map residuals into Born coordinates:
+\[
+  q = G_\eta r.
+\]
+The network is then trained and evaluated in that same coordinate.  The
+analogous ATFPS choice is
+\[
+  G_D = D_h^{-1}.
+\]
+This is not a formal free-space Green function, but it is a better
+discrete-reference inverse for the current repository for three reasons.
+
+\begin{enumerate}[leftmargin=2em]
+  \item \textbf{It matches the implemented unknown.}
+  The network and FGMRES currently operate on ATFPS inflow/interface variables
+  \(u\in\R^{8M I J}\), not on angular flux values.  A Fourier or continuous
+  Green function would naturally live on angular flux variables
+  \(\psi\in\R^{4M I J}\), so using it directly would require a separate
+  discretization backend.
+
+  \item \textbf{It captures local stiff scales.}
+  In diffusion regimes, \(\varepsilon\ll 1\), the local exponential modes and
+  filtered basis selection are the numerically delicate part of the method.
+  \(D_h^{-1}\) uses the same local ATFPS blocks and therefore respects this
+  scaling.
+
+  \item \textbf{It preserves boundary and compression logic.}
+  ATFPS boundary conditions and selected/unselected mode consistency are built
+  into the current operator.  \texttt{funcDinv} and \texttt{correction} work in
+  that same geometry, whereas a naive FFT Green operator would impose periodic
+  structure and ignore inflow boundary treatment.
+\end{enumerate}
+
+Thus the Born coordinate for ATFPS should be
+\begin{equation}
+  q = G_D r = D_h^{-1} r.
+  \label{eq:born-coordinate}
+\end{equation}
+The learned preconditioner should receive \(q\), not \(r\), whenever it is
+trained as a Born-coordinate model.
+
+\section{Training Objectives}
+
+The original raw-residual objective trains a model \(P_\theta\) by minimizing
+\begin{equation}
+  \mathcal{L}_{\rm raw}(\theta)
+  =
+  \norm{
+    S(A_h P_\theta(r)-r)
+  }_2^2,
+  \label{eq:raw-loss}
+\end{equation}
+where \(S\) extracts the selected ATFPS modes.  This is a reasonable baseline,
+but it has a coordinate mismatch: the model must learn both the local stiff
+inverse \(D_h^{-1}\) and the remaining global correction.
+
+The Born-coordinate objective first maps the residual into the local inverse
+coordinate:
+\begin{equation}
+  q = D_h^{-1}r.
+\end{equation}
+Then the network output is interpreted as a candidate solution correction
+\begin{equation}
+  z_\theta = P_\theta(q;\sigma_T,\sigma_a,\log\varepsilon).
+\end{equation}
+The primary Born-coordinate loss is
+\begin{equation}
+  \mathcal{L}_{D}(\theta)
+  =
+  \frac{
+    \norm{
+      S\left(D_h^{-1}A_h z_\theta - q\right)
+    }_2^2
+  }{
+    \norm{S q}_2^2 + \delta
+  },
+  \label{eq:born-loss}
+\end{equation}
+where \(\delta>0\) is a small numerical safeguard.
+
+The mixed loss used for the recommended experiment is
+\begin{equation}
+  \mathcal{L}_{\rm mixed}(\theta)
+  =
+  \mathcal{L}_{D}(\theta)
+  +
+  \lambda
+  \frac{
+    \norm{S(A_h z_\theta-r)}_2^2
+  }{
+    \norm{S r}_2^2 + \delta
+  }.
+  \label{eq:mixed-loss}
+\end{equation}
+The second term prevents the network from only looking good in the
+\(D_h^{-1}\)-metric while still producing a poor true ATFPS residual.  In the
+current implementation \(\lambda=0.1\) is used as a conservative default.
+
+\subsection{Direct and Residual Forms}
+
+There are two useful network interpretations.
+
+\paragraph{Direct form.}
+\begin{equation}
+  z_\theta = P_\theta(q).
+\end{equation}
+This keeps the old model contract: the network directly returns a correction.
+
+\paragraph{Residual-over-reference form.}
+\begin{equation}
+  z_\theta = q + P_\theta(q).
+  \label{eq:residual-form}
+\end{equation}
+This is safer if one wants the learned model to start from block Jacobi and
+learn only the nonlocal correction.  If \(P_\theta\approx0\), then the method
+falls back to \(D_h^{-1}\).  The code supports both forms through
+\texttt{preconditioner\_form=direct} and \texttt{preconditioner\_form=residual}.
+
+\section{FGMRES Evaluation}
+
+The learned preconditioner is nonlinear and may depend on coefficient features,
+so it should be used as a flexible right preconditioner.  FGMRES stores
+\[
+  z_j = M(v_j)
+\]
+for each Arnoldi vector \(v_j\), and reconstructs
+\[
+  x_k = x_0 + \sum_{j=0}^{k-1} y_j z_j.
+\]
+The stopping criterion must remain the true residual
+\begin{equation}
+  \frac{\norm{b-A_h x_k}_2}{\norm{b}_2}.
+  \label{eq:true-residual}
+\end{equation}
+
+For Born-coordinate ATFPS, the preconditioner used by FGMRES is
+\begin{align}
+  q_j &= D_h^{-1}v_j,\\
+  \widetilde z_j &= P_\theta(q_j),\\
+  z_j &= \operatorname{Corr}(\widetilde z_j,(v_j)_{\rm unselected}).
+  \label{eq:fgmres-born-preconditioner}
+\end{align}
+The correction step is important because selected-only training can otherwise
+hide errors in unselected ATFPS modes.  The code implements this pathway in
+\texttt{rte\_preconditioning.py} and exposes it in inference as
+\texttt{mgnet\_born}.  The original raw-residual MgNet mode remains available
+as \texttt{mgnet\_raw}.
+
+The evaluation should compare at least
+\[
+  I,\qquad D_h^{-1},\qquad M_{\theta,{\rm raw}},\qquad M_{\theta,{\rm born}}.
+\]
+Both the true residual \eqref{eq:true-residual} and the reference-coordinate
+metric
+\begin{equation}
+  \frac{\norm{D_h^{-1}(b-A_h x_k)}_2}{\norm{D_h^{-1}b}_2}
+  \label{eq:d-metric}
+\end{equation}
+should be reported.
+
+\section{Relation to a Convergent Born Series}
+
+The block splitting \eqref{eq:block-splitting} yields the fixed-point equation
+\begin{equation}
+  u = D_h^{-1}(r + E_h u).
+\end{equation}
+The corresponding stationary iteration is
+\begin{equation}
+  u^{(n+1)} = D_h^{-1}r + D_h^{-1}E_h u^{(n)}.
+  \label{eq:block-born-iteration}
+\end{equation}
+It converges if
+\begin{equation}
+  \rho(D_h^{-1}E_h) < 1
+  \quad\text{or, more conservatively,}\quad
+  \norm{D_h^{-1}E_h}<1.
+  \label{eq:contraction}
+\end{equation}
+This condition may hold in benign transport/high-absorption regimes, but it is
+not guaranteed in diffusion or interface regimes.  In the diffusion limit,
+scattering ratios approach one and transport/source iteration analogues become
+slow or nearly noncontractive.  Therefore the correct claim is not that
+Born-coordinate ATFPS gives a guaranteed standalone Convergent Born Series.
+The correct claim is that \(D_h^{-1}\) is a strong reference inverse and a
+natural coordinate for a learned right preconditioner.
+
+This distinction matters.  Helmholtz CBS uses a complex shifted reference
+operator and a scalar damping factor designed around the Helmholtz resolvent.
+RTE is dissipative, anisotropic in direction, and boundary driven.  Its
+contraction behavior is governed by absorption, scattering, boundary leakage,
+and diffusion scaling.  FGMRES is therefore the robust outer iteration.
+
+\section{Relation to Pseudo-Spectral RTE}
+
+A pseudo-spectral RTE reference operator can be useful for a separate research
+backend.  For periodic or padded smooth problems, a constant-coefficient DOM
+reference has Fourier symbol
+\begin{equation}
+  \widehat A_0(\xi)
+  =
+  i\,\operatorname{diag}(\Omega_m\cdot \xi)
+  +
+  C_0,
+  \label{eq:pseudospectral-symbol}
+\end{equation}
+where \(C_0\) is a constant angular collision matrix.  The reference inverse is
+\begin{equation}
+  G_0 f =
+  \mathcal{F}^{-1}
+  \left[
+    \widehat A_0(\xi)^{-1}\widehat f(\xi)
+  \right].
+  \label{eq:fft-green}
+\end{equation}
+This is implemented experimentally in \texttt{RTE\_pseudospectral.py}.
+
+However, this operator lives naturally on angular flux states
+\(\psi\in\C^{4M I J}\), not on the ATFPS inflow basis
+\(u\in\R^{8M I J}\).  It also imposes periodic/padded structure unless extra
+boundary treatment is added.  Therefore it should not replace ATFPS for the
+current diffusion/interface benchmarks.  It is best viewed as a separate
+smooth-problem reference or an FFT preconditioner experiment.
+
+\section{Implementation Summary}
+
+The current repository implements the following concrete design.
+
+\begin{itemize}[leftmargin=2em]
+  \item \texttt{rte\_preconditioning.py}: shared ATFPS preconditioner helpers,
+  including raw and Born-coordinate MgNet application.
+
+  \item \texttt{train.py}: training accepts
+  \texttt{loss\_type=raw}, \texttt{loss\_type=born}, and
+  \texttt{loss\_type=born\_mixed}.
+
+  \item \texttt{inference.py}: inference can compare
+  \texttt{block\_jacobi}, \texttt{mgnet\_raw}, and \texttt{mgnet\_born}
+  under right-preconditioned FGMRES.
+
+  \item \texttt{RTE\_mgmodel.py}: \texttt{MG\_precond} now supports custom
+  input/output channels, needed for future \(4M\)-channel pseudo-spectral
+  states while preserving the default \(8M\)-channel ATFPS behavior.
+
+  \item \texttt{RTE\_pseudospectral.py}: an experimental periodic
+  pseudo-spectral DOM operator with matrix-valued FFT Green inverse.
+\end{itemize}
+
+\section{Synthetic Comparison Test}
+
+A small synthetic block-diagonal ATFPS test was added to verify the coordinate
+idea.  In that test, the operator is constructed so that \(D_h^{-1}\) is the
+exact inverse.  An identity ``model'' is then compared in raw and Born
+coordinates.  The observed result was
+\[
+  \mathcal{L}_{\rm raw}=1.149097,
+  \qquad
+  \mathcal{L}_{\rm born\_mixed}=5.64\times 10^{-19}.
+\]
+This test does not prove performance on real heterogeneous RTE instances, but
+it verifies the core mechanism: when the reference inverse is the correct
+coordinate, the Born-coordinate objective removes the local scaling error that
+the raw objective forces the network to learn.
+
+The pseudo-spectral reference test also verifies the separate FFT idea on a
+constant-coefficient periodic problem:
+\[
+  \text{identity residual history}
+  =
+  (1.0,\;9.53\times 10^{-1},\;7.45\times 10^{-1},\;6.89\times 10^{-1}),
+\]
+while the FFT Green preconditioner gives
+\[
+  \text{FFT Green residual history}
+  =
+  (1.0,\;2.89\times 10^{-7}).
+\]
+Again, this validates the reference inverse on its natural problem class, not
+on the full ATFPS boundary-value problem.
+
+\section{Recommended Experiments}
+
+The recommended next experiments are:
+
+\begin{enumerate}[leftmargin=2em]
+  \item Generate the existing ATFPS datasets for diffusion and interface
+  regimes.
+
+  \item Train a raw baseline with \texttt{configs/default.yaml}.
+
+  \item Train a Born-coordinate model with \texttt{configs/born\_precond.yaml}.
+
+  \item Evaluate
+  \[
+    D_h^{-1},\quad M_{\theta,{\rm raw}},\quad M_{\theta,{\rm born}}
+  \]
+  using the same FGMRES tolerance, restart, random seed, and test coefficients.
+
+  \item Report iteration count, final true residual, final \(D_h^{-1}\)-metric
+  residual, and wall-clock cost.
+
+  \item Add replay residuals from partial block-Jacobi or FGMRES runs to the
+  training set if random residuals do not transfer well to solver residuals.
+\end{enumerate}
+
+\section{Risks and Failure Modes}
+
+\begin{itemize}[leftmargin=2em]
+  \item \textbf{Train/inference coordinate mismatch.}
+  A Born-trained model must receive \(D_h^{-1}r\) at inference time.  Feeding
+  raw \(r\) into a Born-trained model invalidates the training objective.
+
+  \item \textbf{Selected-only loss can hide unselected-mode errors.}
+  The correction step should remain in both training and FGMRES
+  preconditioning.
+
+  \item \textbf{\(D_h^{-1}\) can be ill-conditioned.}
+  Diffusion/interface regimes may produce large \(\norm{D_h^{-1}r}\).  Training
+  should monitor NaNs, local solve failures, and the ratio
+  \(\norm{D_h^{-1}r}/\norm{r}\).
+
+  \item \textbf{Random residuals may be insufficient.}
+  A model trained only on random right-hand sides may not see the residual
+  distribution generated by FGMRES.  Replay residuals are a likely improvement.
+
+  \item \textbf{Compression threshold dependence.}
+  Changing \texttt{tol\_exp} changes \texttt{VecSize} and therefore the
+  selected/unselected mode geometry.  Checkpoints should be tied to the
+  compression threshold used for training.
+\end{itemize}
+
+\section{Final Position}
+
+Born-coordinate ATFPS should be treated as the main learned-preconditioner
+direction for the current mgRTE codebase.  It is a conservative refactor:
+it preserves the arXiv:2604.23265-style ATFPS discretization, respects inflow
+boundary handling and filtered modes, and imports the central NPBS lesson that
+the network should be trained in a reference-inverse residual coordinate.
+
+The pseudo-spectral/FFT Green operator is still valuable, but it belongs in a
+parallel research backend.  It is suitable for smooth periodic or padded
+benchmarks and for studying matrix-valued Green preconditioners.  It should not
+be advertised as a replacement for ATFPS in diffusion/interface regimes until
+boundary treatment, asymptotic-preserving behavior, and interface robustness
+are demonstrated.
+
+\begin{thebibliography}{9}
+
+\bibitem{mgRTE-paper}
+arXiv:2604.23265.
+The ATFPS/MgNet radiative transfer equation work referenced by this repository.
+\url{https://arxiv.org/abs/2604.23265}.
+
+\bibitem{npbs-code}
+NeuralPreconditionedBornSeries Helmholtz reference implementation.
+Local reference path:
+\texttt{/Users/hxchen/NeuralPreconditionedBornSeries/helmholtz}.
+
+\end{thebibliography}
+
+\end{document}

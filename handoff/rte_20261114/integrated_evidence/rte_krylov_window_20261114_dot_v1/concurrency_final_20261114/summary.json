@@ -1,0 +1,30 @@
+{
+  "equal_work_and_input_hashes": true,
+  "scope": "64 identical frozen-weight windows per trial, no parameter updates; warmup excluded; S-P-P-S-S-P order, 3 repetitions each; CUDA event spans may include scheduling delays, not isolated kernel busy time",
+  "results": [
+    {
+      "mode": "serial",
+      "seconds": 41.33837399305776
+    },
+    {
+      "mode": "parallel",
+      "seconds": 12.786832037148997
+    },
+    {
+      "mode": "parallel",
+      "seconds": 12.992015830008313
+    },
+    {
+      "mode": "serial",
+      "seconds": 38.12606661999598
+    },
+    {
+      "mode": "serial",
+      "seconds": 37.739154517883435
+    },
+    {
+      "mode": "parallel",
+      "seconds": 12.683669364079833
+    }
+  ]
+}

@@ -1,0 +1,7 @@
+{
+  "materials": 5440,
+  "overlaps": [],
+  "n16_source_rechecks": 96,
+  "max_source_loss_difference": 103621.04572264478,
+  "scope": "exact stored coefficient tensor equality; no claim of distributional independence or geometry equivalence"
+}

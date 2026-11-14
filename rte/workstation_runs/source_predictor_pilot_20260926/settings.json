@@ -1,0 +1,32 @@
+{
+  "args": {
+    "output": "rte/workstation_runs/source_predictor_pilot_20260926",
+    "size": 64,
+    "test_sizes": [
+      64,
+      128
+    ],
+    "train_count": 128,
+    "val_count": 16,
+    "test_count": 24,
+    "validation_limit": 8,
+    "test_repeats": 3,
+    "epsilon": 0.1,
+    "seed": 2626,
+    "width": 32,
+    "blocks": 4,
+    "modes": 6,
+    "steps": 1000,
+    "supervised_steps": 400,
+    "krylov_steps": 3,
+    "eval_every": 100,
+    "batch_size": 8,
+    "lr": 0.001
+  },
+  "device": "NVIDIA RTX A6000",
+  "gpu_before": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "scope": "source-conditioned one-shot initializer; independent material/source splits; no arbitrary-residual neural preconditioner",
+  "accuracy": "unchanged FP32 geometry promoted to FP64; final residual relative to original source",
+  "selection": "validation TSA8 failures then iterations then residual; classical candidates selected on validation timing",
+  "timing": "synchronized, shuffled warm solves; neural/reference initialization included; common physical/preconditioner setup excluded"
+}

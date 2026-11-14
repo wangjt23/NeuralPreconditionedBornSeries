@@ -1,0 +1,6 @@
+{
+  "pid": 806614,
+  "controller_started": true,
+  "target": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/late_time_budget_20261107_v1",
+  "mode": "wait for actual GPU conflict, then one owned measurement; no training"
+}

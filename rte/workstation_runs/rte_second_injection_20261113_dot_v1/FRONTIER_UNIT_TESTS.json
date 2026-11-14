@@ -1,0 +1,120 @@
+{
+  "passed": true,
+  "torch": "2.5.1",
+  "tests": [
+    {
+      "test": "none",
+      "passed": true,
+      "field_difference": 0.0,
+      "counts": {
+        "iterations": 9,
+        "classical_calls": 9,
+        "injection_calls": 0,
+        "injection_accepted": 0,
+        "injection_rejected": 0,
+        "failed": 0
+      }
+    },
+    {
+      "test": "one_shot_zero_rejection",
+      "passed": true,
+      "field_difference": 1.2615919706379927e-15,
+      "counts": {
+        "iterations": 9,
+        "classical_calls": 9,
+        "injection_calls": 1,
+        "injection_accepted": 0,
+        "injection_rejected": 1,
+        "failed": 0
+      }
+    },
+    {
+      "test": "one_shot_nonzero",
+      "passed": true,
+      "field_difference": 0.0,
+      "counts": {
+        "iterations": 9,
+        "classical_calls": 8,
+        "injection_calls": 1,
+        "injection_accepted": 1,
+        "injection_rejected": 0,
+        "failed": 0
+      }
+    },
+    {
+      "test": "legacy_prefix_four",
+      "passed": true,
+      "field_difference": 8.060494619398252e-16,
+      "counts": {
+        "iterations": 9,
+        "classical_calls": 8,
+        "injection_calls": 1,
+        "injection_accepted": 1,
+        "injection_rejected": 0,
+        "failed": 0
+      }
+    },
+    {
+      "test": "two_rejections_attempt_cap",
+      "passed": true,
+      "counts": {
+        "iterations": 9,
+        "classical_calls": 9,
+        "injection_calls": 2,
+        "injection_accepted": 0,
+        "injection_rejected": 2,
+        "true_residual": 7.812718911922796e-16,
+        "failed": 0,
+        "trace": [
+          1.0,
+          0.5509818486633783,
+          0.36543098309942745,
+          0.2738049359031015,
+          0.1636855604498895,
+          0.12533578982351132,
+          0.10087754496634754,
+          0.01029838470626284,
+          0.004764199802588024,
+          7.812718911922796e-16
+        ]
+      }
+    },
+    {
+      "test": "two_accepted_fixed_thresholds",
+      "passed": true,
+      "counts": {
+        "iterations": 9,
+        "classical_calls": 7,
+        "injection_calls": 2,
+        "injection_accepted": 2,
+        "injection_rejected": 0,
+        "true_residual": 3.2711407747319455e-15,
+        "failed": 0,
+        "trace": [
+          1.0,
+          0.5509818486633783,
+          0.3267995771985903,
+          0.17404320169723755,
+          0.12264304102670376,
+          0.12244022149280247,
+          0.11094709633973233,
+          0.050115389249959126,
+          4.775732358458552e-05,
+          3.2711407747319455e-15
+        ]
+      }
+    },
+    {
+      "test": "no_injection_after_convergence",
+      "passed": true
+    },
+    {
+      "test": "zero_rhs",
+      "passed": true
+    },
+    {
+      "test": "invalid_schedules_rejected",
+      "passed": true
+    }
+  ]
+}

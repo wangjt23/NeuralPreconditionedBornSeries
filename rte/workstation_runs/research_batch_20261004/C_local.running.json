@@ -1,0 +1,10 @@
+{
+  "name": "C_local",
+  "pid": 2403612,
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/code/gpu_direction_jobs.py",
+    "local"
+  ],
+  "hard_seconds": 120
+}

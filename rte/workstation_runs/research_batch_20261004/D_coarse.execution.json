@@ -1,0 +1,14 @@
+{
+  "name": "D_coarse",
+  "pid": 2403692,
+  "returncode": 0,
+  "timeout": false,
+  "external_process_seconds": 20.711033644154668,
+  "hard_seconds": 120,
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/code/gpu_direction_jobs.py",
+    "coarse"
+  ],
+  "completed_utc": "2026-10-04T08:29:36.541054+00:00"
+}

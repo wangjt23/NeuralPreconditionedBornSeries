@@ -1,0 +1,326 @@
+[
+  {
+    "size": 64,
+    "index": 0,
+    "prefix": "tsa8_balanced",
+    "phase": "1j",
+    "physical_action_defect": 1.294070547195105e-15,
+    "classical_precondition_defect": 6.878644853713922e-07,
+    "homogeneous_reference_defect": 1.814157002399952e-08
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "prefix": "tsa8_balanced",
+    "phase": "-1.0",
+    "physical_action_defect": 0.0,
+    "classical_precondition_defect": 0.0,
+    "homogeneous_reference_defect": 0.0
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "prefix": "tsa8_balanced",
+    "phase": "(-0-1j)",
+    "physical_action_defect": 1.294070547195105e-15,
+    "classical_precondition_defect": 6.878644853713922e-07,
+    "homogeneous_reference_defect": 1.814157002399952e-08
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "prefix": "tsa8_balanced",
+    "phase": "1j",
+    "physical_action_defect": 1.7691551621529103e-15,
+    "classical_precondition_defect": 2.5572310278221266e-06,
+    "homogeneous_reference_defect": 3.3022804046822785e-08
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "prefix": "tsa8_balanced",
+    "phase": "-1.0",
+    "physical_action_defect": 0.0,
+    "classical_precondition_defect": 0.0,
+    "homogeneous_reference_defect": 0.0
+  },
+  {
+    "size": 64,
+    "index": 1,
+    "prefix": "tsa8_balanced",
+    "phase": "(-0-1j)",
+    "physical_action_defect": 1.7691551621529103e-15,
+    "classical_precondition_defect": 2.5572310278221266e-06,
+    "homogeneous_reference_defect": 3.3022804046822785e-08
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "prefix": "tsa16_zero",
+    "phase": "1j",
+    "physical_action_defect": 1.294070547195105e-15,
+    "classical_precondition_defect": 1.609650439604593e-06,
+    "homogeneous_reference_defect": 1.814157002399952e-08
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "prefix": "tsa16_zero",
+    "phase": "-1.0",
+    "physical_action_defect": 0.0,
+    "classical_precondition_defect": 0.0,
+    "homogeneous_reference_defect": 0.0
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "prefix": "tsa16_zero",
+    "phase": "(-0-1j)",
+    "physical_action_defect": 1.294070547195105e-15,
+    "classical_precondition_defect": 1.609650439604593e-06,
+    "homogeneous_reference_defect": 1.814157002399952e-08
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "prefix": "tsa16_zero",
+    "phase": "1j",
+    "physical_action_defect": 1.3514631220198151e-15,
+    "classical_precondition_defect": 9.873425597106689e-07,
+    "homogeneous_reference_defect": 3.548708704670389e-08
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "prefix": "tsa16_zero",
+    "phase": "-1.0",
+    "physical_action_defect": 0.0,
+    "classical_precondition_defect": 0.0,
+    "homogeneous_reference_defect": 0.0
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "prefix": "tsa16_zero",
+    "phase": "(-0-1j)",
+    "physical_action_defect": 1.3514631220198151e-15,
+    "classical_precondition_defect": 9.873425597106689e-07,
+    "homogeneous_reference_defect": 3.548708704670389e-08
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "prefix": "tsa8_balanced",
+    "phase": "1j",
+    "physical_action_defect": 2.7853139478371114e-15,
+    "classical_precondition_defect": 8.391973551624687e-07,
+    "homogeneous_reference_defect": 2.2704023550090824e-08
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "prefix": "tsa8_balanced",
+    "phase": "-1.0",
+    "physical_action_defect": 0.0,
+    "classical_precondition_defect": 0.0,
+    "homogeneous_reference_defect": 0.0
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "prefix": "tsa8_balanced",
+    "phase": "(-0-1j)",
+    "physical_action_defect": 2.7853139478371114e-15,
+    "classical_precondition_defect": 8.391973551624687e-07,
+    "homogeneous_reference_defect": 2.2704023550090824e-08
+  },
+  {
+    "size": 128,
+    "index": 1,
+    "prefix": "tsa8_balanced",
+    "phase": "1j",
+    "physical_action_defect": 4.139505906776293e-15,
+    "classical_precondition_defect": 2.1472973799063766e-07,
+    "homogeneous_reference_defect": 3.6748282639109675e-08
+  },
+  {
+    "size": 128,
+    "index": 1,
+    "prefix": "tsa8_balanced",
+    "phase": "-1.0",
+    "physical_action_defect": 0.0,
+    "classical_precondition_defect": 0.0,
+    "homogeneous_reference_defect": 0.0
+  },
+  {
+    "size": 128,
+    "index": 1,
+    "prefix": "tsa8_balanced",
+    "phase": "(-0-1j)",
+    "physical_action_defect": 4.139505906776293e-15,
+    "classical_precondition_defect": 2.1472973799063766e-07,
+    "homogeneous_reference_defect": 3.6748282639109675e-08
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "prefix": "tsa16_zero",
+    "phase": "1j",
+    "physical_action_defect": 2.7853139478371114e-15,
+    "classical_precondition_defect": 1.1198571883141994e-06,
+    "homogeneous_reference_defect": 2.2704023550090824e-08
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "prefix": "tsa16_zero",
+    "phase": "-1.0",
+    "physical_action_defect": 0.0,
+    "classical_precondition_defect": 0.0,
+    "homogeneous_reference_defect": 0.0
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "prefix": "tsa16_zero",
+    "phase": "(-0-1j)",
+    "physical_action_defect": 2.7853139478371114e-15,
+    "classical_precondition_defect": 1.1198571883141994e-06,
+    "homogeneous_reference_defect": 2.2704023550090824e-08
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "prefix": "tsa16_zero",
+    "phase": "1j",
+    "physical_action_defect": 2.9688290425626473e-15,
+    "classical_precondition_defect": 2.5686216531539685e-07,
+    "homogeneous_reference_defect": 3.6428730254556285e-08
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "prefix": "tsa16_zero",
+    "phase": "-1.0",
+    "physical_action_defect": 0.0,
+    "classical_precondition_defect": 0.0,
+    "homogeneous_reference_defect": 0.0
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "prefix": "tsa16_zero",
+    "phase": "(-0-1j)",
+    "physical_action_defect": 2.9688290425626473e-15,
+    "classical_precondition_defect": 2.5686216531539685e-07,
+    "homogeneous_reference_defect": 3.6428730254556285e-08
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "prefix": "tsa8_balanced",
+    "phase": "1j",
+    "physical_action_defect": 6.267801553544367e-15,
+    "classical_precondition_defect": 2.59587238815584e-07,
+    "homogeneous_reference_defect": 2.2764529816754475e-08
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "prefix": "tsa8_balanced",
+    "phase": "-1.0",
+    "physical_action_defect": 0.0,
+    "classical_precondition_defect": 0.0,
+    "homogeneous_reference_defect": 0.0
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "prefix": "tsa8_balanced",
+    "phase": "(-0-1j)",
+    "physical_action_defect": 6.267801553544367e-15,
+    "classical_precondition_defect": 2.59587238815584e-07,
+    "homogeneous_reference_defect": 2.2764529816754475e-08
+  },
+  {
+    "size": 256,
+    "index": 1,
+    "prefix": "tsa8_balanced",
+    "phase": "1j",
+    "physical_action_defect": 8.903255626240402e-15,
+    "classical_precondition_defect": 2.6476047310097783e-07,
+    "homogeneous_reference_defect": 3.45883286456683e-08
+  },
+  {
+    "size": 256,
+    "index": 1,
+    "prefix": "tsa8_balanced",
+    "phase": "-1.0",
+    "physical_action_defect": 0.0,
+    "classical_precondition_defect": 0.0,
+    "homogeneous_reference_defect": 0.0
+  },
+  {
+    "size": 256,
+    "index": 1,
+    "prefix": "tsa8_balanced",
+    "phase": "(-0-1j)",
+    "physical_action_defect": 8.903255626240402e-15,
+    "classical_precondition_defect": 2.6476047310097783e-07,
+    "homogeneous_reference_defect": 3.45883286456683e-08
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "prefix": "tsa16_zero",
+    "phase": "1j",
+    "physical_action_defect": 6.267801553544367e-15,
+    "classical_precondition_defect": 3.448523386850866e-07,
+    "homogeneous_reference_defect": 2.2764529816754475e-08
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "prefix": "tsa16_zero",
+    "phase": "-1.0",
+    "physical_action_defect": 0.0,
+    "classical_precondition_defect": 0.0,
+    "homogeneous_reference_defect": 0.0
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "prefix": "tsa16_zero",
+    "phase": "(-0-1j)",
+    "physical_action_defect": 6.267801553544367e-15,
+    "classical_precondition_defect": 3.448523386850866e-07,
+    "homogeneous_reference_defect": 2.2764529816754475e-08
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "prefix": "tsa16_zero",
+    "phase": "1j",
+    "physical_action_defect": 6.668578498927536e-15,
+    "classical_precondition_defect": 1.8343396845921234e-07,
+    "homogeneous_reference_defect": 3.590681174614474e-08
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "prefix": "tsa16_zero",
+    "phase": "-1.0",
+    "physical_action_defect": 0.0,
+    "classical_precondition_defect": 0.0,
+    "homogeneous_reference_defect": 0.0
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "prefix": "tsa16_zero",
+    "phase": "(-0-1j)",
+    "physical_action_defect": 6.668578498927536e-15,
+    "classical_precondition_defect": 1.8343396845921234e-07,
+    "homogeneous_reference_defect": 3.590681174614474e-08
+  }
+]

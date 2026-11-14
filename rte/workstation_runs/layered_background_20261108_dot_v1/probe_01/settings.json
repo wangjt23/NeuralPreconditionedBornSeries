@@ -1,0 +1,16 @@
+{
+  "complete": true,
+  "pid": 945423,
+  "training": false,
+  "heldout9626": false,
+  "scope": "Four diagnostic contexts, existing development data; no new teachers or full PDE solves.",
+  "code_hashes": {
+    "test_layered_cpu.py": "bb99bde30d01335dbe1ecd644ea20d95ff672f743fb0336a96c8883e98627ec7",
+    "probe_layered.py": "b9a2d59eb51d9a16916225374de69f191e2799313c95c7dcbb908f577e202c8e",
+    "layered_inverse.py": "ac19adbd8c3810545fbd17f7a0e33d11f650d95a19b83ebcbfdebfe97b2fec6c"
+  },
+  "wall_seconds": 12.75036884797737,
+  "peak_allocated_bytes": 4240471552,
+  "peak_reserved_bytes": 4563402752,
+  "rows": 16
+}

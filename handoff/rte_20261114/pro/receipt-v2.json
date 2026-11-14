@@ -1,0 +1,16 @@
+{
+  "request_id": "RTE-PRO-V2-20261114",
+  "state": "result_verified",
+  "target": "https://chatgpt.com/c/6af7bfca-fe30-83ea-8cf0-4d53daa4a65c",
+  "baseline": "V1 complete 7m14s; verified 02:18 UTC",
+  "attachment": "none; evidence delta inline",
+  "observer": "/root/rte_48h",
+  "attempt": 1,
+  "verified_idle": "Response complete V1, composer Send enabled",
+  "sending_at": "2026-11-14T02:21:20.790626+00:00",
+  "verified_submission_at": "2026-11-14T02:22:27.021901+00:00",
+  "next_check_at": "2026-11-14T02:42:27.021901+00:00",
+  "delivery": "expanded outgoing exact request_id and evidence; Stop button and Pro acknowledgement visible",
+  "verified_utc": "2026-11-14T02:37:38.603097+00:00",
+  "decision": "Pure O/K two sampling seeds; variable q<=8, retain short trajectories; fixed external draw; K tolerance-clipped true residual; 2048 scheduled batches"
+}

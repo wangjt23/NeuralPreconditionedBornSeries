@@ -1,0 +1,10 @@
+{
+  "pass_qualification": true,
+  "success_calls": 1,
+  "success_K": 0.0,
+  "budget_q3_K": 13.815510557964274,
+  "T0": "occupies slot; no M",
+  "T1": "s0 q1",
+  "failure": "raises; never resamples",
+  "all_sampler_checks": true
+}

@@ -1,0 +1,1106 @@
+[
+  {
+    "size": 128,
+    "index": 0,
+    "probe": "dense_dyadic",
+    "fixture_shape": [
+      4,
+      4
+    ],
+    "fixture_dx": 0.25,
+    "fixture_signed_modes": [
+      0,
+      1,
+      -2,
+      -1
+    ],
+    "original_material_sample_indices": [
+      0,
+      32,
+      64,
+      96
+    ],
+    "angular_count": 12,
+    "coefficient_transfer_seconds": 0.0008414965122938156,
+    "fixture_model_seconds": 0.003219233825802803,
+    "input_sha256": "19b91e4e529fe27533728df1662a256bc3392dbcaff83414148736934da08644",
+    "input_cast_norm_exact_zero": true,
+    "D32_sha256": "f55067684b61286c9a6cea0be850dd41288ddb38418fed99a7b5fed555a9159f",
+    "D64_sha256": "4b4f821a1b5616e65e71738170cbec8242dc7eb50e065837cd038a07a2b9e3dd",
+    "exact_nominal_symbol_difference": {
+      "finite": true,
+      "exact_error_norm_lower": 2.2648866286449337e-06,
+      "exact_error_norm_upper": 2.2648866286449346e-06,
+      "exact_input_norm_lower": 42.730989925345746,
+      "exact_input_norm_upper": 42.73098992534576,
+      "absolute_error_per_input_norm_upper": 5.300337372482739e-08,
+      "error_over_Lambda_input_norm_upper": 2.0826225685944595e-10,
+      "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+    },
+    "scopes": "Exact fixed stored-symbol fixture; no full-grid or uniform-backend inference",
+    "actions": [
+      {
+        "action": "original_low_complex64",
+        "actual_input_dtype": "torch.complex64",
+        "seconds": 0.007669609040021896,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 0.00024877727451013245,
+          "exact_error_norm_upper": 0.00024877727451013255,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 5.821940351598809e-06,
+          "error_over_Lambda_input_norm_upper": 2.2875721896870493e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 0.0002488391841623312,
+          "exact_error_norm_upper": 0.0002488391841623313,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 5.8233891748604965e-06,
+          "error_over_Lambda_input_norm_upper": 2.288141465152109e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      },
+      {
+        "action": "physical_high_complex128",
+        "actual_input_dtype": "torch.complex128",
+        "seconds": 0.07710364274680614,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 4.4706292447836174e-13,
+          "exact_error_norm_upper": 4.4706292447836184e-13,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 1.0462264629474169e-14,
+          "error_over_Lambda_input_norm_upper": 4.1108606688076274e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 4.4706292447836174e-13,
+          "exact_error_norm_upper": 4.4706292447836184e-13,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 1.0462264629474169e-14,
+          "error_over_Lambda_input_norm_upper": 4.1108606688076274e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      }
+    ]
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "probe": "x_nyquist_angle0",
+    "fixture_shape": [
+      4,
+      4
+    ],
+    "fixture_dx": 0.25,
+    "fixture_signed_modes": [
+      0,
+      1,
+      -2,
+      -1
+    ],
+    "original_material_sample_indices": [
+      0,
+      32,
+      64,
+      96
+    ],
+    "angular_count": 12,
+    "coefficient_transfer_seconds": 0.0008414965122938156,
+    "fixture_model_seconds": 0.003219233825802803,
+    "input_sha256": "df10400b8503ff6779fc45f9987e1e5295892cf6e0486f604c690516b18d2e80",
+    "input_cast_norm_exact_zero": true,
+    "D32_sha256": "f55067684b61286c9a6cea0be850dd41288ddb38418fed99a7b5fed555a9159f",
+    "D64_sha256": "4b4f821a1b5616e65e71738170cbec8242dc7eb50e065837cd038a07a2b9e3dd",
+    "exact_nominal_symbol_difference": {
+      "finite": true,
+      "exact_error_norm_lower": 0.0,
+      "exact_error_norm_upper": 0.0,
+      "exact_input_norm_lower": 3.9999999999999996,
+      "exact_input_norm_upper": 4.000000000000001,
+      "absolute_error_per_input_norm_upper": 0.0,
+      "error_over_Lambda_input_norm_upper": 0.0,
+      "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+    },
+    "scopes": "Exact fixed stored-symbol fixture; no full-grid or uniform-backend inference",
+    "actions": [
+      {
+        "action": "original_low_complex64",
+        "actual_input_dtype": "torch.complex64",
+        "seconds": 0.0012018010020256042,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 1.1139087645998757e-05,
+          "exact_error_norm_upper": 1.113908764599876e-05,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 2.7847719114996904e-06,
+          "error_over_Lambda_input_norm_upper": 1.0941999393069907e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 1.1139087645998757e-05,
+          "exact_error_norm_upper": 1.113908764599876e-05,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 2.7847719114996904e-06,
+          "error_over_Lambda_input_norm_upper": 1.0941999393069907e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      },
+      {
+        "action": "physical_high_complex128",
+        "actual_input_dtype": "torch.complex128",
+        "seconds": 0.0008915476500988007,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 1.2076031266925754e-14,
+          "exact_error_norm_upper": 1.2076031266925757e-14,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 3.0190078167314398e-15,
+          "error_over_Lambda_input_norm_upper": 1.1862365302499351e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 1.2076031266925754e-14,
+          "exact_error_norm_upper": 1.2076031266925757e-14,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 3.0190078167314398e-15,
+          "error_over_Lambda_input_norm_upper": 1.1862365302499351e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      }
+    ]
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "probe": "sparse_dyadic",
+    "fixture_shape": [
+      4,
+      4
+    ],
+    "fixture_dx": 0.25,
+    "fixture_signed_modes": [
+      0,
+      1,
+      -2,
+      -1
+    ],
+    "original_material_sample_indices": [
+      0,
+      32,
+      64,
+      96
+    ],
+    "angular_count": 12,
+    "coefficient_transfer_seconds": 0.0008414965122938156,
+    "fixture_model_seconds": 0.003219233825802803,
+    "input_sha256": "431bc227ae882a06aeb18cfed24c37a3fbcdf713a712fd0d9363c44da1c80c2a",
+    "input_cast_norm_exact_zero": true,
+    "D32_sha256": "f55067684b61286c9a6cea0be850dd41288ddb38418fed99a7b5fed555a9159f",
+    "D64_sha256": "4b4f821a1b5616e65e71738170cbec8242dc7eb50e065837cd038a07a2b9e3dd",
+    "exact_nominal_symbol_difference": {
+      "finite": true,
+      "exact_error_norm_lower": 1.0115207513139773e-07,
+      "exact_error_norm_upper": 1.0115207513139776e-07,
+      "exact_input_norm_lower": 0.6404344228724748,
+      "exact_input_norm_upper": 0.640434422872475,
+      "absolute_error_per_input_norm_upper": 1.579429079994026e-07,
+      "error_over_Lambda_input_norm_upper": 6.205934483655651e-10,
+      "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+    },
+    "scopes": "Exact fixed stored-symbol fixture; no full-grid or uniform-backend inference",
+    "actions": [
+      {
+        "action": "original_low_complex64",
+        "actual_input_dtype": "torch.complex64",
+        "seconds": 0.0012118704617023468,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 2.05012327991219e-06,
+          "exact_error_norm_upper": 2.050123279912191e-06,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 3.20114473347167e-06,
+          "error_over_Lambda_input_norm_upper": 1.2578022489429953e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 2.057015311362887e-06,
+          "exact_error_norm_upper": 2.0570153113628877e-06,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 3.211906227864468e-06,
+          "error_over_Lambda_input_norm_upper": 1.2620306837612387e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      },
+      {
+        "action": "physical_high_complex128",
+        "actual_input_dtype": "torch.complex128",
+        "seconds": 0.0008941255509853363,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 9.066728795511708e-15,
+          "exact_error_norm_upper": 9.066728795511711e-15,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 1.4157154068711116e-14,
+          "error_over_Lambda_input_norm_upper": 5.56266639245192e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 9.066728795511708e-15,
+          "exact_error_norm_upper": 9.066728795511711e-15,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 1.4157154068711116e-14,
+          "error_over_Lambda_input_norm_upper": 5.56266639245192e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      }
+    ]
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "probe": "dense_dyadic",
+    "fixture_shape": [
+      4,
+      4
+    ],
+    "fixture_dx": 0.25,
+    "fixture_signed_modes": [
+      0,
+      1,
+      -2,
+      -1
+    ],
+    "original_material_sample_indices": [
+      0,
+      32,
+      64,
+      96
+    ],
+    "angular_count": 12,
+    "coefficient_transfer_seconds": 0.0007543694227933884,
+    "fixture_model_seconds": 0.003215506672859192,
+    "input_sha256": "19b91e4e529fe27533728df1662a256bc3392dbcaff83414148736934da08644",
+    "input_cast_norm_exact_zero": true,
+    "D32_sha256": "f55067684b61286c9a6cea0be850dd41288ddb38418fed99a7b5fed555a9159f",
+    "D64_sha256": "4b4f821a1b5616e65e71738170cbec8242dc7eb50e065837cd038a07a2b9e3dd",
+    "exact_nominal_symbol_difference": {
+      "finite": true,
+      "exact_error_norm_lower": 2.2648866286449337e-06,
+      "exact_error_norm_upper": 2.2648866286449346e-06,
+      "exact_input_norm_lower": 42.730989925345746,
+      "exact_input_norm_upper": 42.73098992534576,
+      "absolute_error_per_input_norm_upper": 5.300337372482739e-08,
+      "error_over_Lambda_input_norm_upper": 1.8347248579665917e-10,
+      "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+    },
+    "scopes": "Exact fixed stored-symbol fixture; no full-grid or uniform-backend inference",
+    "actions": [
+      {
+        "action": "original_low_complex64",
+        "actual_input_dtype": "torch.complex64",
+        "seconds": 0.004571439698338509,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 0.00031777564525063804,
+          "exact_error_norm_upper": 0.00031777564525063814,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 7.436655359630473e-06,
+          "error_over_Lambda_input_norm_upper": 2.5742165997356886e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 0.0003177433999734749,
+          "exact_error_norm_upper": 0.000317743399973475,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 7.435900748580753e-06,
+          "error_over_Lambda_input_norm_upper": 2.5739553892591247e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      },
+      {
+        "action": "physical_high_complex128",
+        "actual_input_dtype": "torch.complex128",
+        "seconds": 0.002082245424389839,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 5.347384556768113e-13,
+          "exact_error_norm_upper": 5.347384556768115e-13,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 1.251406664369442e-14,
+          "error_over_Lambda_input_norm_upper": 4.331775042214349e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 5.347384556768113e-13,
+          "exact_error_norm_upper": 5.347384556768115e-13,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 1.251406664369442e-14,
+          "error_over_Lambda_input_norm_upper": 4.331775042214349e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      }
+    ]
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "probe": "x_nyquist_angle0",
+    "fixture_shape": [
+      4,
+      4
+    ],
+    "fixture_dx": 0.25,
+    "fixture_signed_modes": [
+      0,
+      1,
+      -2,
+      -1
+    ],
+    "original_material_sample_indices": [
+      0,
+      32,
+      64,
+      96
+    ],
+    "angular_count": 12,
+    "coefficient_transfer_seconds": 0.0007543694227933884,
+    "fixture_model_seconds": 0.003215506672859192,
+    "input_sha256": "df10400b8503ff6779fc45f9987e1e5295892cf6e0486f604c690516b18d2e80",
+    "input_cast_norm_exact_zero": true,
+    "D32_sha256": "f55067684b61286c9a6cea0be850dd41288ddb38418fed99a7b5fed555a9159f",
+    "D64_sha256": "4b4f821a1b5616e65e71738170cbec8242dc7eb50e065837cd038a07a2b9e3dd",
+    "exact_nominal_symbol_difference": {
+      "finite": true,
+      "exact_error_norm_lower": 0.0,
+      "exact_error_norm_upper": 0.0,
+      "exact_input_norm_lower": 3.9999999999999996,
+      "exact_input_norm_upper": 4.000000000000001,
+      "absolute_error_per_input_norm_upper": 0.0,
+      "error_over_Lambda_input_norm_upper": 0.0,
+      "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+    },
+    "scopes": "Exact fixed stored-symbol fixture; no full-grid or uniform-backend inference",
+    "actions": [
+      {
+        "action": "original_low_complex64",
+        "actual_input_dtype": "torch.complex64",
+        "seconds": 0.0011204611510038376,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 7.992846332330568e-06,
+          "exact_error_norm_upper": 7.992846332330571e-06,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 1.9982115830826433e-06,
+          "error_over_Lambda_input_norm_upper": 6.916858692791522e-09,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 7.992846332330568e-06,
+          "exact_error_norm_upper": 7.992846332330571e-06,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 1.9982115830826433e-06,
+          "error_over_Lambda_input_norm_upper": 6.916858692791522e-09,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      },
+      {
+        "action": "physical_high_complex128",
+        "actual_input_dtype": "torch.complex128",
+        "seconds": 0.0008789468556642532,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 1.6660378160441525e-14,
+          "exact_error_norm_upper": 1.6660378160441532e-14,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 4.165094540110384e-15,
+          "error_over_Lambda_input_norm_upper": 1.4417577507791626e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 1.6660378160441525e-14,
+          "exact_error_norm_upper": 1.6660378160441532e-14,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 4.165094540110384e-15,
+          "error_over_Lambda_input_norm_upper": 1.4417577507791626e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      }
+    ]
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "probe": "sparse_dyadic",
+    "fixture_shape": [
+      4,
+      4
+    ],
+    "fixture_dx": 0.25,
+    "fixture_signed_modes": [
+      0,
+      1,
+      -2,
+      -1
+    ],
+    "original_material_sample_indices": [
+      0,
+      32,
+      64,
+      96
+    ],
+    "angular_count": 12,
+    "coefficient_transfer_seconds": 0.0007543694227933884,
+    "fixture_model_seconds": 0.003215506672859192,
+    "input_sha256": "431bc227ae882a06aeb18cfed24c37a3fbcdf713a712fd0d9363c44da1c80c2a",
+    "input_cast_norm_exact_zero": true,
+    "D32_sha256": "f55067684b61286c9a6cea0be850dd41288ddb38418fed99a7b5fed555a9159f",
+    "D64_sha256": "4b4f821a1b5616e65e71738170cbec8242dc7eb50e065837cd038a07a2b9e3dd",
+    "exact_nominal_symbol_difference": {
+      "finite": true,
+      "exact_error_norm_lower": 1.0115207513139773e-07,
+      "exact_error_norm_upper": 1.0115207513139776e-07,
+      "exact_input_norm_lower": 0.6404344228724748,
+      "exact_input_norm_upper": 0.640434422872475,
+      "absolute_error_per_input_norm_upper": 1.579429079994026e-07,
+      "error_over_Lambda_input_norm_upper": 5.467232726551843e-10,
+      "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+    },
+    "scopes": "Exact fixed stored-symbol fixture; no full-grid or uniform-backend inference",
+    "actions": [
+      {
+        "action": "original_low_complex64",
+        "actual_input_dtype": "torch.complex64",
+        "seconds": 0.0010766256600618362,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 2.2560451606788613e-06,
+          "exact_error_norm_upper": 2.256045160678862e-06,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 3.5226794190107e-06,
+          "error_over_Lambda_input_norm_upper": 1.2193841717058152e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 2.2621670658118514e-06,
+          "exact_error_norm_upper": 2.2621670658118523e-06,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 3.5322384072760903e-06,
+          "error_over_Lambda_input_norm_upper": 1.222693039076895e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      },
+      {
+        "action": "physical_high_complex128",
+        "actual_input_dtype": "torch.complex128",
+        "seconds": 0.0008651670068502426,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 2.4556941057311793e-15,
+          "exact_error_norm_upper": 2.45569410573118e-15,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 3.834419291075748e-15,
+          "error_over_Lambda_input_norm_upper": 1.3272936975157086e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 2.4556941057311793e-15,
+          "exact_error_norm_upper": 2.45569410573118e-15,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 3.834419291075748e-15,
+          "error_over_Lambda_input_norm_upper": 1.3272936975157086e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      }
+    ]
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "probe": "dense_dyadic",
+    "fixture_shape": [
+      4,
+      4
+    ],
+    "fixture_dx": 0.25,
+    "fixture_signed_modes": [
+      0,
+      1,
+      -2,
+      -1
+    ],
+    "original_material_sample_indices": [
+      0,
+      64,
+      128,
+      192
+    ],
+    "angular_count": 12,
+    "coefficient_transfer_seconds": 0.0009040795266628265,
+    "fixture_model_seconds": 0.003223821520805359,
+    "input_sha256": "19b91e4e529fe27533728df1662a256bc3392dbcaff83414148736934da08644",
+    "input_cast_norm_exact_zero": true,
+    "D32_sha256": "f55067684b61286c9a6cea0be850dd41288ddb38418fed99a7b5fed555a9159f",
+    "D64_sha256": "4b4f821a1b5616e65e71738170cbec8242dc7eb50e065837cd038a07a2b9e3dd",
+    "exact_nominal_symbol_difference": {
+      "finite": true,
+      "exact_error_norm_lower": 2.2648866286449337e-06,
+      "exact_error_norm_upper": 2.2648866286449346e-06,
+      "exact_input_norm_lower": 42.730989925345746,
+      "exact_input_norm_upper": 42.73098992534576,
+      "absolute_error_per_input_norm_upper": 5.300337372482739e-08,
+      "error_over_Lambda_input_norm_upper": 2.0826225685944595e-10,
+      "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+    },
+    "scopes": "Exact fixed stored-symbol fixture; no full-grid or uniform-backend inference",
+    "actions": [
+      {
+        "action": "original_low_complex64",
+        "actual_input_dtype": "torch.complex64",
+        "seconds": 0.0026975832879543304,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 0.00024877727451013245,
+          "exact_error_norm_upper": 0.00024877727451013255,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 5.821940351598809e-06,
+          "error_over_Lambda_input_norm_upper": 2.2875721896870493e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 0.0002488391841623312,
+          "exact_error_norm_upper": 0.0002488391841623313,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 5.8233891748604965e-06,
+          "error_over_Lambda_input_norm_upper": 2.288141465152109e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      },
+      {
+        "action": "physical_high_complex128",
+        "actual_input_dtype": "torch.complex128",
+        "seconds": 0.001047872006893158,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 4.4706292447836174e-13,
+          "exact_error_norm_upper": 4.4706292447836184e-13,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 1.0462264629474169e-14,
+          "error_over_Lambda_input_norm_upper": 4.1108606688076274e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 4.4706292447836174e-13,
+          "exact_error_norm_upper": 4.4706292447836184e-13,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 1.0462264629474169e-14,
+          "error_over_Lambda_input_norm_upper": 4.1108606688076274e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      }
+    ]
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "probe": "x_nyquist_angle0",
+    "fixture_shape": [
+      4,
+      4
+    ],
+    "fixture_dx": 0.25,
+    "fixture_signed_modes": [
+      0,
+      1,
+      -2,
+      -1
+    ],
+    "original_material_sample_indices": [
+      0,
+      64,
+      128,
+      192
+    ],
+    "angular_count": 12,
+    "coefficient_transfer_seconds": 0.0009040795266628265,
+    "fixture_model_seconds": 0.003223821520805359,
+    "input_sha256": "df10400b8503ff6779fc45f9987e1e5295892cf6e0486f604c690516b18d2e80",
+    "input_cast_norm_exact_zero": true,
+    "D32_sha256": "f55067684b61286c9a6cea0be850dd41288ddb38418fed99a7b5fed555a9159f",
+    "D64_sha256": "4b4f821a1b5616e65e71738170cbec8242dc7eb50e065837cd038a07a2b9e3dd",
+    "exact_nominal_symbol_difference": {
+      "finite": true,
+      "exact_error_norm_lower": 0.0,
+      "exact_error_norm_upper": 0.0,
+      "exact_input_norm_lower": 3.9999999999999996,
+      "exact_input_norm_upper": 4.000000000000001,
+      "absolute_error_per_input_norm_upper": 0.0,
+      "error_over_Lambda_input_norm_upper": 0.0,
+      "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+    },
+    "scopes": "Exact fixed stored-symbol fixture; no full-grid or uniform-backend inference",
+    "actions": [
+      {
+        "action": "original_low_complex64",
+        "actual_input_dtype": "torch.complex64",
+        "seconds": 0.0012985412031412125,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 1.1139087645998757e-05,
+          "exact_error_norm_upper": 1.113908764599876e-05,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 2.7847719114996904e-06,
+          "error_over_Lambda_input_norm_upper": 1.0941999393069907e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 1.1139087645998757e-05,
+          "exact_error_norm_upper": 1.113908764599876e-05,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 2.7847719114996904e-06,
+          "error_over_Lambda_input_norm_upper": 1.0941999393069907e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      },
+      {
+        "action": "physical_high_complex128",
+        "actual_input_dtype": "torch.complex128",
+        "seconds": 0.001004273071885109,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 1.2076031266925754e-14,
+          "exact_error_norm_upper": 1.2076031266925757e-14,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 3.0190078167314398e-15,
+          "error_over_Lambda_input_norm_upper": 1.1862365302499351e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 1.2076031266925754e-14,
+          "exact_error_norm_upper": 1.2076031266925757e-14,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 3.0190078167314398e-15,
+          "error_over_Lambda_input_norm_upper": 1.1862365302499351e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      }
+    ]
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "probe": "sparse_dyadic",
+    "fixture_shape": [
+      4,
+      4
+    ],
+    "fixture_dx": 0.25,
+    "fixture_signed_modes": [
+      0,
+      1,
+      -2,
+      -1
+    ],
+    "original_material_sample_indices": [
+      0,
+      64,
+      128,
+      192
+    ],
+    "angular_count": 12,
+    "coefficient_transfer_seconds": 0.0009040795266628265,
+    "fixture_model_seconds": 0.003223821520805359,
+    "input_sha256": "431bc227ae882a06aeb18cfed24c37a3fbcdf713a712fd0d9363c44da1c80c2a",
+    "input_cast_norm_exact_zero": true,
+    "D32_sha256": "f55067684b61286c9a6cea0be850dd41288ddb38418fed99a7b5fed555a9159f",
+    "D64_sha256": "4b4f821a1b5616e65e71738170cbec8242dc7eb50e065837cd038a07a2b9e3dd",
+    "exact_nominal_symbol_difference": {
+      "finite": true,
+      "exact_error_norm_lower": 1.0115207513139773e-07,
+      "exact_error_norm_upper": 1.0115207513139776e-07,
+      "exact_input_norm_lower": 0.6404344228724748,
+      "exact_input_norm_upper": 0.640434422872475,
+      "absolute_error_per_input_norm_upper": 1.579429079994026e-07,
+      "error_over_Lambda_input_norm_upper": 6.205934483655651e-10,
+      "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+    },
+    "scopes": "Exact fixed stored-symbol fixture; no full-grid or uniform-backend inference",
+    "actions": [
+      {
+        "action": "original_low_complex64",
+        "actual_input_dtype": "torch.complex64",
+        "seconds": 0.0013351105153560638,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 2.05012327991219e-06,
+          "exact_error_norm_upper": 2.050123279912191e-06,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 3.20114473347167e-06,
+          "error_over_Lambda_input_norm_upper": 1.2578022489429953e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 2.057015311362887e-06,
+          "exact_error_norm_upper": 2.0570153113628877e-06,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 3.211906227864468e-06,
+          "error_over_Lambda_input_norm_upper": 1.2620306837612387e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      },
+      {
+        "action": "physical_high_complex128",
+        "actual_input_dtype": "torch.complex128",
+        "seconds": 0.0010268203914165497,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 9.066728795511708e-15,
+          "exact_error_norm_upper": 9.066728795511711e-15,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 1.4157154068711116e-14,
+          "error_over_Lambda_input_norm_upper": 5.56266639245192e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 9.066728795511708e-15,
+          "exact_error_norm_upper": 9.066728795511711e-15,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 1.4157154068711116e-14,
+          "error_over_Lambda_input_norm_upper": 5.56266639245192e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      }
+    ]
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "probe": "dense_dyadic",
+    "fixture_shape": [
+      4,
+      4
+    ],
+    "fixture_dx": 0.25,
+    "fixture_signed_modes": [
+      0,
+      1,
+      -2,
+      -1
+    ],
+    "original_material_sample_indices": [
+      0,
+      64,
+      128,
+      192
+    ],
+    "angular_count": 12,
+    "coefficient_transfer_seconds": 0.0008889976888895035,
+    "fixture_model_seconds": 0.0031893812119960785,
+    "input_sha256": "19b91e4e529fe27533728df1662a256bc3392dbcaff83414148736934da08644",
+    "input_cast_norm_exact_zero": true,
+    "D32_sha256": "f55067684b61286c9a6cea0be850dd41288ddb38418fed99a7b5fed555a9159f",
+    "D64_sha256": "4b4f821a1b5616e65e71738170cbec8242dc7eb50e065837cd038a07a2b9e3dd",
+    "exact_nominal_symbol_difference": {
+      "finite": true,
+      "exact_error_norm_lower": 2.2648866286449337e-06,
+      "exact_error_norm_upper": 2.2648866286449346e-06,
+      "exact_input_norm_lower": 42.730989925345746,
+      "exact_input_norm_upper": 42.73098992534576,
+      "absolute_error_per_input_norm_upper": 5.300337372482739e-08,
+      "error_over_Lambda_input_norm_upper": 1.8347248579665917e-10,
+      "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+    },
+    "scopes": "Exact fixed stored-symbol fixture; no full-grid or uniform-backend inference",
+    "actions": [
+      {
+        "action": "original_low_complex64",
+        "actual_input_dtype": "torch.complex64",
+        "seconds": 0.0012310221791267395,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 0.00031777564525063804,
+          "exact_error_norm_upper": 0.00031777564525063814,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 7.436655359630473e-06,
+          "error_over_Lambda_input_norm_upper": 2.5742165997356886e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 0.0003177433999734749,
+          "exact_error_norm_upper": 0.000317743399973475,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 7.435900748580753e-06,
+          "error_over_Lambda_input_norm_upper": 2.5739553892591247e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      },
+      {
+        "action": "physical_high_complex128",
+        "actual_input_dtype": "torch.complex128",
+        "seconds": 0.0009869541972875595,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 5.347384556768113e-13,
+          "exact_error_norm_upper": 5.347384556768115e-13,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 1.251406664369442e-14,
+          "error_over_Lambda_input_norm_upper": 4.331775042214349e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 5.347384556768113e-13,
+          "exact_error_norm_upper": 5.347384556768115e-13,
+          "exact_input_norm_lower": 42.730989925345746,
+          "exact_input_norm_upper": 42.73098992534576,
+          "absolute_error_per_input_norm_upper": 1.251406664369442e-14,
+          "error_over_Lambda_input_norm_upper": 4.331775042214349e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      }
+    ]
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "probe": "x_nyquist_angle0",
+    "fixture_shape": [
+      4,
+      4
+    ],
+    "fixture_dx": 0.25,
+    "fixture_signed_modes": [
+      0,
+      1,
+      -2,
+      -1
+    ],
+    "original_material_sample_indices": [
+      0,
+      64,
+      128,
+      192
+    ],
+    "angular_count": 12,
+    "coefficient_transfer_seconds": 0.0008889976888895035,
+    "fixture_model_seconds": 0.0031893812119960785,
+    "input_sha256": "df10400b8503ff6779fc45f9987e1e5295892cf6e0486f604c690516b18d2e80",
+    "input_cast_norm_exact_zero": true,
+    "D32_sha256": "f55067684b61286c9a6cea0be850dd41288ddb38418fed99a7b5fed555a9159f",
+    "D64_sha256": "4b4f821a1b5616e65e71738170cbec8242dc7eb50e065837cd038a07a2b9e3dd",
+    "exact_nominal_symbol_difference": {
+      "finite": true,
+      "exact_error_norm_lower": 0.0,
+      "exact_error_norm_upper": 0.0,
+      "exact_input_norm_lower": 3.9999999999999996,
+      "exact_input_norm_upper": 4.000000000000001,
+      "absolute_error_per_input_norm_upper": 0.0,
+      "error_over_Lambda_input_norm_upper": 0.0,
+      "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+    },
+    "scopes": "Exact fixed stored-symbol fixture; no full-grid or uniform-backend inference",
+    "actions": [
+      {
+        "action": "original_low_complex64",
+        "actual_input_dtype": "torch.complex64",
+        "seconds": 0.0025430098176002502,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 7.992846332330568e-06,
+          "exact_error_norm_upper": 7.992846332330571e-06,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 1.9982115830826433e-06,
+          "error_over_Lambda_input_norm_upper": 6.916858692791522e-09,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 7.992846332330568e-06,
+          "exact_error_norm_upper": 7.992846332330571e-06,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 1.9982115830826433e-06,
+          "error_over_Lambda_input_norm_upper": 6.916858692791522e-09,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      },
+      {
+        "action": "physical_high_complex128",
+        "actual_input_dtype": "torch.complex128",
+        "seconds": 0.0022588763386011124,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 1.6660378160441525e-14,
+          "exact_error_norm_upper": 1.6660378160441532e-14,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 4.165094540110384e-15,
+          "error_over_Lambda_input_norm_upper": 1.4417577507791626e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 1.6660378160441525e-14,
+          "exact_error_norm_upper": 1.6660378160441532e-14,
+          "exact_input_norm_lower": 3.9999999999999996,
+          "exact_input_norm_upper": 4.000000000000001,
+          "absolute_error_per_input_norm_upper": 4.165094540110384e-15,
+          "error_over_Lambda_input_norm_upper": 1.4417577507791626e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      }
+    ]
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "probe": "sparse_dyadic",
+    "fixture_shape": [
+      4,
+      4
+    ],
+    "fixture_dx": 0.25,
+    "fixture_signed_modes": [
+      0,
+      1,
+      -2,
+      -1
+    ],
+    "original_material_sample_indices": [
+      0,
+      64,
+      128,
+      192
+    ],
+    "angular_count": 12,
+    "coefficient_transfer_seconds": 0.0008889976888895035,
+    "fixture_model_seconds": 0.0031893812119960785,
+    "input_sha256": "431bc227ae882a06aeb18cfed24c37a3fbcdf713a712fd0d9363c44da1c80c2a",
+    "input_cast_norm_exact_zero": true,
+    "D32_sha256": "f55067684b61286c9a6cea0be850dd41288ddb38418fed99a7b5fed555a9159f",
+    "D64_sha256": "4b4f821a1b5616e65e71738170cbec8242dc7eb50e065837cd038a07a2b9e3dd",
+    "exact_nominal_symbol_difference": {
+      "finite": true,
+      "exact_error_norm_lower": 1.0115207513139773e-07,
+      "exact_error_norm_upper": 1.0115207513139776e-07,
+      "exact_input_norm_lower": 0.6404344228724748,
+      "exact_input_norm_upper": 0.640434422872475,
+      "absolute_error_per_input_norm_upper": 1.579429079994026e-07,
+      "error_over_Lambda_input_norm_upper": 5.467232726551843e-10,
+      "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+    },
+    "scopes": "Exact fixed stored-symbol fixture; no full-grid or uniform-backend inference",
+    "actions": [
+      {
+        "action": "original_low_complex64",
+        "actual_input_dtype": "torch.complex64",
+        "seconds": 0.0013137385249137878,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 2.2560451606788613e-06,
+          "exact_error_norm_upper": 2.256045160678862e-06,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 3.5226794190107e-06,
+          "error_over_Lambda_input_norm_upper": 1.2193841717058152e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 2.2621670658118514e-06,
+          "exact_error_norm_upper": 2.2621670658118523e-06,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 3.5322384072760903e-06,
+          "error_over_Lambda_input_norm_upper": 1.222693039076895e-08,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      },
+      {
+        "action": "physical_high_complex128",
+        "actual_input_dtype": "torch.complex128",
+        "seconds": 0.001002814620733261,
+        "matched_exact_nominal_error": {
+          "finite": true,
+          "exact_error_norm_lower": 2.4556941057311793e-15,
+          "exact_error_norm_upper": 2.45569410573118e-15,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 3.834419291075748e-15,
+          "error_over_Lambda_input_norm_upper": 1.3272936975157086e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        },
+        "overall_exact_physical_target_error": {
+          "finite": true,
+          "exact_error_norm_lower": 2.4556941057311793e-15,
+          "exact_error_norm_upper": 2.45569410573118e-15,
+          "exact_input_norm_lower": 0.6404344228724748,
+          "exact_input_norm_upper": 0.640434422872475,
+          "absolute_error_per_input_norm_upper": 3.834419291075748e-15,
+          "error_over_Lambda_input_norm_upper": 1.3272936975157086e-17,
+          "exact_target_scope": "This fixed 4x4 stored-symbol fixture only"
+        }
+      }
+    ]
+  }
+]

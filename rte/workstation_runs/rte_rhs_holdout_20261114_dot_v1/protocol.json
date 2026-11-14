@@ -1,0 +1,58 @@
+{
+  "scope": "heldout positive RHS on TRAIN8 materials; not independent-material confirmation; never use for training or selection",
+  "train_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7
+  ],
+  "source_formula": "q_l(x,y)=exp(k*(cos(2pi(x-cx))+cos(2pi(y-cy))-2))/grid_mean * exp(a*cos(theta_l-angle))/discrete_angle_mean; k=1/(4*pi^2*sigma^2)",
+  "specs": [
+    {
+      "name": "isotropic",
+      "center": [
+        0.173,
+        0.731
+      ],
+      "sigma": 0.08,
+      "angular_kappa": 0.0,
+      "angle": 0.0
+    },
+    {
+      "name": "beam",
+      "center": [
+        0.683,
+        0.227
+      ],
+      "sigma": 0.11,
+      "angular_kappa": 2.0,
+      "angle": 1.0471975511965976
+    }
+  ],
+  "size": 64,
+  "n_angles": 12,
+  "g": 0.65,
+  "eta_scale": 0.0,
+  "input_hash": "0e05a49fb603803c17e4ddf8ce3cafab560e1f71b2b95751e7467d5f83b8be57",
+  "source_hash": "8c92b4f39a890f3ff861fcf6f01be92adf56100995db8513cb01d76fe0703d5c",
+  "parent_train_fingerprint": "e1cdc6ddae56ef024a7a089bb08466007e3182e356f53391b4bfaffeb70d94e8",
+  "minimum": 3.075745359140218e-06,
+  "dtype": "complex128 sources, float32 original coefficient tensors promoted to float64 for A",
+  "budget": {
+    "tol": 1e-05,
+    "maxiter": 100,
+    "restart": 20,
+    "max_restarts": 5
+  },
+  "repeats": [
+    -1,
+    0,
+    1,
+    2
+  ],
+  "timing": "first(-1) includes per-model cache build; 0/1/2 warm; all include independent physical residual verification; shared setup recorded separately; process/model loading excluded"
+}

@@ -1,0 +1,514 @@
+[
+  {
+    "size": 256,
+    "index": 0,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 13
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 13
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 7
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 8
+  },
+  {
+    "size": 256,
+    "index": 1,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 8
+  },
+  {
+    "size": 256,
+    "index": 1,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 8
+  },
+  {
+    "size": 256,
+    "index": 1,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 4
+  },
+  {
+    "size": 256,
+    "index": 1,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 4
+  },
+  {
+    "size": 256,
+    "index": 2,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 4
+  },
+  {
+    "size": 256,
+    "index": 2,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 4
+  },
+  {
+    "size": 256,
+    "index": 2,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 2
+  },
+  {
+    "size": 256,
+    "index": 2,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 2
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 9
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 9
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 5
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 6
+  },
+  {
+    "size": 256,
+    "index": 4,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 20
+  },
+  {
+    "size": 256,
+    "index": 4,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 20
+  },
+  {
+    "size": 256,
+    "index": 4,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 10
+  },
+  {
+    "size": 256,
+    "index": 4,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 11
+  },
+  {
+    "size": 256,
+    "index": 5,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 6
+  },
+  {
+    "size": 256,
+    "index": 5,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 6
+  },
+  {
+    "size": 256,
+    "index": 5,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 3
+  },
+  {
+    "size": 256,
+    "index": 5,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 3
+  },
+  {
+    "size": 256,
+    "index": 6,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 10
+  },
+  {
+    "size": 256,
+    "index": 6,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 10
+  },
+  {
+    "size": 256,
+    "index": 6,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 5
+  },
+  {
+    "size": 256,
+    "index": 6,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 6
+  },
+  {
+    "size": 256,
+    "index": 7,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 11
+  },
+  {
+    "size": 256,
+    "index": 7,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 11
+  },
+  {
+    "size": 256,
+    "index": 7,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 6
+  },
+  {
+    "size": 256,
+    "index": 7,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 7
+  },
+  {
+    "size": 256,
+    "index": 8,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 8
+  },
+  {
+    "size": 256,
+    "index": 8,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 8
+  },
+  {
+    "size": 256,
+    "index": 8,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 4
+  },
+  {
+    "size": 256,
+    "index": 8,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 4
+  },
+  {
+    "size": 256,
+    "index": 9,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 8
+  },
+  {
+    "size": 256,
+    "index": 9,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 8
+  },
+  {
+    "size": 256,
+    "index": 9,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 4
+  },
+  {
+    "size": 256,
+    "index": 9,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 4
+  },
+  {
+    "size": 256,
+    "index": 10,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 3
+  },
+  {
+    "size": 256,
+    "index": 10,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 3
+  },
+  {
+    "size": 256,
+    "index": 10,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 2
+  },
+  {
+    "size": 256,
+    "index": 10,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 2
+  },
+  {
+    "size": 256,
+    "index": 11,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 5
+  },
+  {
+    "size": 256,
+    "index": 11,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 5
+  },
+  {
+    "size": 256,
+    "index": 11,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 3
+  },
+  {
+    "size": 256,
+    "index": 11,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 3
+  },
+  {
+    "size": 256,
+    "index": 12,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 6
+  },
+  {
+    "size": 256,
+    "index": 12,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 6
+  },
+  {
+    "size": 256,
+    "index": 12,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 3
+  },
+  {
+    "size": 256,
+    "index": 12,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 3
+  },
+  {
+    "size": 256,
+    "index": 13,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 9
+  },
+  {
+    "size": 256,
+    "index": 13,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 9
+  },
+  {
+    "size": 256,
+    "index": 13,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 4
+  },
+  {
+    "size": 256,
+    "index": 13,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 4
+  },
+  {
+    "size": 256,
+    "index": 14,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 14
+  },
+  {
+    "size": 256,
+    "index": 14,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 14
+  },
+  {
+    "size": 256,
+    "index": 14,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 7
+  },
+  {
+    "size": 256,
+    "index": 14,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 8
+  },
+  {
+    "size": 256,
+    "index": 15,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 6
+  },
+  {
+    "size": 256,
+    "index": 15,
+    "baseline": "tsa8_reference",
+    "cost_control": "tsa8_reference_phase4_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 6
+  },
+  {
+    "size": 256,
+    "index": 15,
+    "baseline": "tsa16_plain",
+    "cost_control": "tsa16_noop_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 3
+  },
+  {
+    "size": 256,
+    "index": 15,
+    "baseline": "tsa16_reference",
+    "cost_control": "tsa16_reference_cost",
+    "relative_solution_difference": 0.0,
+    "iterations": 3
+  }
+]

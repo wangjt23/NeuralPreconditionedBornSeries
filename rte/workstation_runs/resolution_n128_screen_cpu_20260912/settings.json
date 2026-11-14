@@ -1,0 +1,97 @@
+{
+  "args": {
+    "specs": "rte/resolution_screen_specs.json",
+    "size": 128,
+    "n_angles": 12,
+    "g": 0.65,
+    "selection_count": 0,
+    "count": 4,
+    "seed": 541,
+    "solver_steps": 60,
+    "tol": 1e-05,
+    "repeats": 1,
+    "tuning_repeats": 1,
+    "device": "cpu",
+    "scope": "exploratory resolution/architecture screen, not confirmatory",
+    "output": "rte/workstation_runs/resolution_n128_screen_cpu_20260912"
+  },
+  "specs": [
+    {
+      "label": "nto32_fine",
+      "checkpoint": "rte/workstation_runs/nto4_hss_n32_seed401_20260912/best.pt"
+    },
+    {
+      "label": "ct32_fine",
+      "checkpoint": "rte/workstation_runs/ct4_matched_n32_seed401_20260912/best.pt"
+    },
+    {
+      "label": "hss_compiled4",
+      "mode": "compiled_hss",
+      "depth": 4
+    },
+    {
+      "label": "hss_compiled8",
+      "mode": "compiled_hss",
+      "depth": 8
+    },
+    {
+      "label": "tsa4",
+      "mode": "classical",
+      "family": "tsa",
+      "depth": 4,
+      "scale": 0.0
+    },
+    {
+      "label": "ml_nto_p01",
+      "mode": "multilevel",
+      "pre": 0,
+      "post": 1,
+      "checkpoint": "rte/workstation_runs/nto4_hss_n32_seed401_20260912/best.pt"
+    },
+    {
+      "label": "ml_nto_p02",
+      "mode": "multilevel",
+      "pre": 0,
+      "post": 2,
+      "checkpoint": "rte/workstation_runs/nto4_hss_n32_seed401_20260912/best.pt"
+    },
+    {
+      "label": "ml_nto_p11",
+      "mode": "multilevel",
+      "pre": 1,
+      "post": 1,
+      "checkpoint": "rte/workstation_runs/nto4_hss_n32_seed401_20260912/best.pt"
+    },
+    {
+      "label": "ml_hss_p01",
+      "mode": "multilevel",
+      "pre": 0,
+      "post": 1
+    },
+    {
+      "label": "ml_hss_p02",
+      "mode": "multilevel",
+      "pre": 0,
+      "post": 2
+    },
+    {
+      "label": "ml_hss_p11",
+      "mode": "multilevel",
+      "pre": 1,
+      "post": 1
+    }
+  ],
+  "fingerprints": {
+    "comparison": "ae5d220dd327d9a95cbf1d762dc11c5f75daaebb6cc08dff5e5ae7ca60701c3c"
+  },
+  "checkpoint_sha256": {
+    "rte/workstation_runs/nto4_hss_n32_seed401_20260912/best.pt": "c7cbfeb5644f4b5e8004370785a0f97fb42c8882f8792188609f666855f458c4",
+    "rte/workstation_runs/ct4_matched_n32_seed401_20260912/best.pt": "fb16e9b35e7c15ec07766bfc1d6aafa611025c4c300c415d8da4c2d111efa045"
+  },
+  "torch": "2.5.1",
+  "cuda": "12.4",
+  "timing": "resident process/operator; preparation + first and warmed solve separate; CPU one thread",
+  "scope": "exploratory resolution/architecture screen, not confirmatory",
+  "transfer": "independently generated higher-resolution media, not same material refined",
+  "coarse_operator": "cell-average rediscretization, not Galerkin; all angles, strict coarse spatial band"
+}

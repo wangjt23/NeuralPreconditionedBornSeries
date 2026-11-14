@@ -1,0 +1,85 @@
+{
+  "phase": "direct_full16",
+  "grids": [
+    128,
+    256
+  ],
+  "development_ids": [
+    4,
+    5,
+    6,
+    7
+  ],
+  "development_seed": 4626,
+  "development_parent_sha256": {
+    "64": "bbebfd1c7c4808733628ee8fdecac9e9ce09521d70f7664a5d5391c8af10813a",
+    "128": "9ade993bce700505d134fa197ceeee72327790bc6660e670a95bea8c43052de1",
+    "256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "code_sha256": {
+    "code/direct_segmented_tsa.py": "98eb806b8482990c1727cb80de3a2182c520be01090a512b742feb0417e0d1d1",
+    "code/direct_full_graph.py": "cf29f0b3d4b2dfe773660ac06a33385216719f6fcf363c1a33d44973ab372cd0",
+    "code/direct_screen.py": "00d9dc949871ccb45cf6a479d6d97260a8d6451926c0d8ffdc16acba92edd1c6",
+    "code/test_direct_segmented_tsa.py": "e11f637cdbef0c7d1d8a2dca842b7dfcfc4b160e553e3cd6a32bfaf4e2fb2777",
+    "code/test_direct_full_graph.py": "c81828e50e9c7380cc613be92e53f4164753ff222cc3615fd1cc8d418d94ba19",
+    "code/segmented_tsa.py": "a95ed61b4c282353e48b8dad6f5aebd993a50f130f10d8aaca6e8aa2c883ba29",
+    "code/test_segmented_tsa.py": "de88c075efe33e3a9ebd20f6a70a487a107709976693e2fa3da645c00f5d48ac",
+    "code/graph_classical_v2.py": "cb142084d28b1a0b5236e92b6b5e14f4d7aca3d67b8d7d41e3f65d2d76c0db3e",
+    "code/test_graph_classical_v2.py": "2e2ed3714a8cd91ff60d2aa8e9add45e51fd08c6ab92bd2bea4e23a4a9ccc01a"
+  },
+  "timed_repeats": 3,
+  "warmup_repeats": 1,
+  "soft_seconds": 100,
+  "hard_seconds": 120,
+  "max_full_solves": 160,
+  "operator_checks": 192,
+  "ownership_view_checks": 24,
+  "maxiter": 100,
+  "restart": 25,
+  "tolerance": 1e-05,
+  "error_bound_limit": 0.001,
+  "field_difference_limit": 0.0001,
+  "chunk": 1,
+  "capture_first": false,
+  "training": false,
+  "test9626_touched": false,
+  "primary_workload": "Q1 one RHS per material; recorded setup plus warmed accepted solve; process-cold ranking is not measured",
+  "cost_scope": "Shared material/base/coercivity setup + entire capture constructor including warmups/host binding + original solver + extra residual/error/finite acceptance; field/bitwise QA, copy/profile diagnostics, source IO, interpreter startup excluded",
+  "successful_classical_comparators": [
+    "eager",
+    "full_graph",
+    "segmented",
+    "direct_full",
+    "direct"
+  ],
+  "backend_selection": "Use pre-execution frozen selection direct at both grids; do not reselect from confirmation",
+  "prior_denominator": "For each material take lowest Q1 median total of accuracy/work/bitwise-passing eager/full_graph/segmented; ratio of arithmetic mean selected costs to arithmetic mean these best prior case costs",
+  "gate": "All108 global entry checks before anyfullsolver; allfullfields bitwiseeager and entire statusdict equal; residual<=1e-5, evaluatederror<=1e-3; selectedscreenQ1 savings>=5% at BOTH GRIDS and each individual regression<=10%; only then same16 development confirmation with frozenmapping and identicalgate",
+  "capture_contract": "Explicit warmed nondefault stream + caller waits and synchronization; raw capture(global), no pool hint/private pool; no GC or allocator/global configuration changes; serial; no fallback on uncertain capture failure",
+  "diagnostic_scope": "Context copy setup includes profiling/buffer/stream construction, raw copy uses existing buffer/stream: totals alone are not causal attribution; cProfile collection/cache entries provide measured diagnostic contribution only",
+  "selected_backend_by_grid": {
+    "128": "direct",
+    "256": "direct"
+  },
+  "selection_frozen": true,
+  "selection_sha256": "e1de6b0fb7f929f9bbda092a09b12da50a4a33acc752e4387acd72a0429f30ad",
+  "shard_index": 1,
+  "full_confirmation_ids": [
+    0,
+    1,
+    2,
+    3,
+    4,
+    5,
+    6,
+    7,
+    8,
+    9,
+    10,
+    11,
+    12,
+    13,
+    14,
+    15
+  ]
+}

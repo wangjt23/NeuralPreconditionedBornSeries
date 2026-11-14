@@ -1,0 +1,115 @@
+paired training/validation identity verified; shared ID/phase schedule ce92fcc981576c6bfb3a849e11cef2e579988bad17f85b981a9882d48711cfeb
+cached N64: 0.56s, storage=gpu
+cached N128: 0.73s, storage=gpu
+n64_only step 0: pooled=(0, 8.0625, 5.310164066819701e-06), per_grid={'64': (0, 8.03125, 5.518636462276647e-06), '128': (0, 8.09375, 5.101691671362755e-06)}, best=0, validation=5.16s
+n64_only update 20/1000: N64 loss=-4.17944, train=2.61s
+n64_only update 40/1000: N64 loss=-4.55719, train=4.93s
+n64_only update 60/1000: N64 loss=-4.53560, train=7.23s
+n64_only update 80/1000: N64 loss=-4.56844, train=9.53s
+n64_only update 100/1000: N64 loss=-4.94821, train=11.82s
+n64_only update 120/1000: N64 loss=-3.47829, train=14.13s
+n64_only update 140/1000: N64 loss=-4.26769, train=16.48s
+n64_only update 160/1000: N64 loss=-5.06298, train=18.78s
+n64_only update 180/1000: N64 loss=-5.97187, train=21.09s
+n64_only update 200/1000: N64 loss=-5.19646, train=23.41s
+n64_only step 200: pooled=(0, 8.03125, 5.21687776222618e-06), per_grid={'64': (0, 7.96875, 5.669113464127567e-06), '128': (0, 8.09375, 4.7646420603247946e-06)}, best=200, validation=4.53s
+n64_only update 220/1000: N64 loss=-5.13987, train=25.70s
+n64_only update 240/1000: N64 loss=-3.80263, train=27.99s
+n64_only update 260/1000: N64 loss=-4.47872, train=30.27s
+n64_only update 280/1000: N64 loss=-3.49749, train=32.56s
+n64_only update 300/1000: N64 loss=-3.12989, train=34.90s
+n64_only update 320/1000: N64 loss=-5.17172, train=37.24s
+n64_only update 340/1000: N64 loss=-4.54176, train=39.56s
+n64_only update 360/1000: N64 loss=-4.43139, train=41.89s
+n64_only update 380/1000: N64 loss=-4.13773, train=44.19s
+n64_only update 400/1000: N64 loss=-5.34525, train=46.54s
+n64_only step 400: pooled=(0, 8.03125, 5.15443939802857e-06), per_grid={'64': (0, 7.96875, 5.586193606065742e-06), '128': (0, 8.09375, 4.722685189991396e-06)}, best=400, validation=4.57s
+n64_only update 420/1000: N64 loss=-4.41925, train=48.85s
+n64_only update 440/1000: N64 loss=-4.90747, train=51.15s
+n64_only update 460/1000: N64 loss=-4.00295, train=53.57s
+n64_only update 480/1000: N64 loss=-6.04440, train=56.05s
+n64_only update 500/1000: N64 loss=-4.59844, train=58.49s
+n64_only update 520/1000: N64 loss=-5.33110, train=60.93s
+n64_only update 540/1000: N64 loss=-5.54948, train=63.27s
+n64_only update 560/1000: N64 loss=-4.34819, train=65.59s
+n64_only update 580/1000: N64 loss=-4.41115, train=67.92s
+n64_only update 600/1000: N64 loss=-4.55223, train=70.43s
+n64_only step 600: pooled=(0, 7.9375, 5.504788834132308e-06), per_grid={'64': (0, 7.84375, 6.11967377716175e-06), '128': (0, 8.03125, 4.8899038911028664e-06)}, best=600, validation=5.54s
+n64_only update 620/1000: N64 loss=-5.03158, train=73.05s
+n64_only update 640/1000: N64 loss=-5.68470, train=75.65s
+n64_only update 660/1000: N64 loss=-6.24156, train=78.25s
+n64_only update 680/1000: N64 loss=-5.05456, train=80.83s
+n64_only update 700/1000: N64 loss=-4.71980, train=83.28s
+n64_only update 720/1000: N64 loss=-4.55315, train=85.71s
+n64_only update 740/1000: N64 loss=-5.04276, train=88.17s
+n64_only update 760/1000: N64 loss=-4.21836, train=90.65s
+n64_only update 780/1000: N64 loss=-5.58801, train=93.09s
+n64_only update 800/1000: N64 loss=-3.34686, train=95.53s
+n64_only step 800: pooled=(0, 7.875, 5.826532792733092e-06), per_grid={'64': (0, 7.78125, 6.396320573882759e-06), '128': (0, 7.96875, 5.256745011583426e-06)}, best=800, validation=4.69s
+n64_only update 820/1000: N64 loss=-3.68409, train=97.85s
+n64_only update 840/1000: N64 loss=-4.99726, train=100.15s
+n64_only update 860/1000: N64 loss=-5.64808, train=102.46s
+n64_only update 880/1000: N64 loss=-4.51251, train=104.77s
+n64_only update 900/1000: N64 loss=-4.89884, train=107.08s
+n64_only update 920/1000: N64 loss=-5.46781, train=109.44s
+n64_only update 940/1000: N64 loss=-6.23839, train=111.78s
+n64_only update 960/1000: N64 loss=-4.25076, train=114.11s
+n64_only update 980/1000: N64 loss=-3.04053, train=116.46s
+n64_only update 1000/1000: N64 loss=-4.71002, train=118.80s
+n64_only step 1000: pooled=(0, 7.90625, 5.6509483108815645e-06), per_grid={'64': (0, 7.78125, 6.461268043307385e-06), '128': (0, 8.03125, 4.840628578455743e-06)}, best=800, validation=4.53s
+mixed64_128 step 0: pooled=(0, 8.0625, 5.310164066819701e-06), per_grid={'64': (0, 8.03125, 5.518636462276647e-06), '128': (0, 8.09375, 5.101691671362755e-06)}, best=0, validation=4.61s
+mixed64_128 update 20/1000: N128 loss=-4.10993, train=2.40s
+mixed64_128 update 40/1000: N128 loss=-4.44154, train=4.76s
+mixed64_128 update 60/1000: N128 loss=-4.43042, train=7.17s
+mixed64_128 update 80/1000: N128 loss=-4.50476, train=9.57s
+mixed64_128 update 100/1000: N128 loss=-4.91664, train=11.93s
+mixed64_128 update 120/1000: N128 loss=-3.22060, train=14.30s
+mixed64_128 update 140/1000: N128 loss=-4.20144, train=16.69s
+mixed64_128 update 160/1000: N128 loss=-5.04078, train=19.09s
+mixed64_128 update 180/1000: N128 loss=-5.93979, train=21.50s
+mixed64_128 update 200/1000: N128 loss=-5.16114, train=23.89s
+mixed64_128 step 200: pooled=(0, 8.03125, 5.0572642151511e-06), per_grid={'64': (0, 8.03125, 5.2444450380395135e-06), '128': (0, 8.03125, 4.870083392262687e-06)}, best=200, validation=4.65s
+mixed64_128 update 220/1000: N128 loss=-5.07254, train=26.27s
+mixed64_128 update 240/1000: N128 loss=-3.71722, train=28.62s
+mixed64_128 update 260/1000: N128 loss=-4.37935, train=30.98s
+mixed64_128 update 280/1000: N128 loss=-3.60181, train=33.33s
+mixed64_128 update 300/1000: N128 loss=-2.58502, train=35.70s
+mixed64_128 update 320/1000: N128 loss=-4.70491, train=38.11s
+mixed64_128 update 340/1000: N128 loss=-4.46472, train=40.48s
+mixed64_128 update 360/1000: N128 loss=-4.39233, train=42.84s
+mixed64_128 update 380/1000: N128 loss=-4.09018, train=45.22s
+mixed64_128 update 400/1000: N128 loss=-5.05996, train=47.56s
+mixed64_128 step 400: pooled=(0, 8.03125, 5.011457546513576e-06), per_grid={'64': (0, 8.03125, 5.209757646787306e-06), '128': (0, 8.03125, 4.813157446239846e-06)}, best=400, validation=4.54s
+mixed64_128 update 420/1000: N128 loss=-4.32432, train=50.05s
+mixed64_128 update 440/1000: N128 loss=-4.88428, train=52.52s
+mixed64_128 update 460/1000: N128 loss=-3.37911, train=55.00s
+mixed64_128 update 480/1000: N128 loss=-5.52433, train=57.47s
+mixed64_128 update 500/1000: N128 loss=-4.62514, train=59.93s
+mixed64_128 update 520/1000: N128 loss=-5.32080, train=62.41s
+mixed64_128 update 540/1000: N128 loss=-5.48971, train=64.87s
+mixed64_128 update 560/1000: N128 loss=-4.38171, train=67.32s
+mixed64_128 update 580/1000: N128 loss=-4.35687, train=69.79s
+mixed64_128 update 600/1000: N128 loss=-4.55862, train=72.25s
+mixed64_128 step 600: pooled=(0, 7.90625, 5.611579869480531e-06), per_grid={'64': (0, 7.84375, 6.193585057316062e-06), '128': (0, 7.96875, 5.029574681644999e-06)}, best=600, validation=4.69s
+mixed64_128 update 620/1000: N128 loss=-4.31543, train=74.63s
+mixed64_128 update 640/1000: N128 loss=-5.64123, train=77.00s
+mixed64_128 update 660/1000: N128 loss=-6.22270, train=79.38s
+mixed64_128 update 680/1000: N128 loss=-4.97118, train=81.79s
+mixed64_128 update 700/1000: N128 loss=-4.71437, train=84.14s
+mixed64_128 update 720/1000: N128 loss=-4.54012, train=86.49s
+mixed64_128 update 740/1000: N128 loss=-5.21387, train=88.85s
+mixed64_128 update 760/1000: N128 loss=-4.42082, train=91.18s
+mixed64_128 update 780/1000: N128 loss=-5.59519, train=93.52s
+mixed64_128 update 800/1000: N128 loss=-3.20887, train=95.85s
+mixed64_128 step 800: pooled=(0, 7.875, 5.658945914045437e-06), per_grid={'64': (0, 7.84375, 6.005887943164935e-06), '128': (0, 7.90625, 5.312003884925939e-06)}, best=800, validation=4.42s
+mixed64_128 update 820/1000: N128 loss=-3.48187, train=98.23s
+mixed64_128 update 840/1000: N128 loss=-5.01463, train=100.60s
+mixed64_128 update 860/1000: N128 loss=-5.60269, train=102.95s
+mixed64_128 update 880/1000: N128 loss=-4.46171, train=105.28s
+mixed64_128 update 900/1000: N128 loss=-4.78977, train=107.61s
+mixed64_128 update 920/1000: N128 loss=-4.98032, train=109.94s
+mixed64_128 update 940/1000: N128 loss=-6.22336, train=112.27s
+mixed64_128 update 960/1000: N128 loss=-4.29387, train=114.60s
+mixed64_128 update 980/1000: N128 loss=-3.03318, train=117.00s
+mixed64_128 update 1000/1000: N128 loss=-4.66508, train=119.35s
+mixed64_128 step 1000: pooled=(0, 7.875, 5.721210836584796e-06), per_grid={'64': (0, 7.84375, 6.079968916335617e-06), '128': (0, 7.90625, 5.362452756833975e-06)}, best=800, validation=4.45s

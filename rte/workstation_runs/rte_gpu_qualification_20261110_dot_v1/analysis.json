@@ -1,0 +1,245 @@
+{
+  "status": "Does not clear current GPU speed qualification; no further GPU repetition.",
+  "measured_result": "COMPLETE_PAIR",
+  "scope": "One bounded A6000 run, not an unbiased timing comparison: compact4 paid process-first common initialization; exact used a warm process. This asymmetry favors exact, which still lost. No CPU/GPU denominator mixing.",
+  "compact4_batch": {
+    "setup_seconds": 0.5061526806093752,
+    "online_four_rhs_seconds": 0.3669973735231906,
+    "complete_four_rhs_seconds": 0.8731500541325659,
+    "calls": [
+      4,
+      3,
+      4,
+      3
+    ],
+    "accepted": true
+  },
+  "exact_batch": {
+    "setup_seconds": 0.8489189925603569,
+    "online_four_rhs_seconds": 0.5246383212506771,
+    "complete_four_rhs_seconds": 1.373557313811034,
+    "calls": [
+      2,
+      2,
+      2,
+      2
+    ],
+    "accepted": true
+  },
+  "compact4_setup": {
+    "source_H2D_seconds": 0.02262854389846325,
+    "source_H2D_bytes": 6291456,
+    "physical_acceptance_seconds": 0.3024555998854339,
+    "TSA64_setup_seconds": 0.06439605890773237,
+    "base_setup_seconds": 0.38948020269162953,
+    "factor_seconds": 0.10665213782340288,
+    "capture_seconds": 0.010020340094342828,
+    "total_setup_seconds": 0.5061526806093752,
+    "capture_error": 0.0
+  },
+  "exact_setup": {
+    "source_H2D_seconds": 0.0017789879348129034,
+    "source_H2D_bytes": 6291456,
+    "physical_acceptance_seconds": 0.0057168989442288876,
+    "TSA64_setup_seconds": 0.017932420829311013,
+    "base_setup_seconds": 0.025428307708352804,
+    "factor_seconds": 0.6714139559771866,
+    "capture_qualification_seconds": 0.1520767288748175,
+    "total_setup_seconds": 0.8489189925603569,
+    "capture_error": 0.0,
+    "background_residual": 1.2658992849319116e-12,
+    "output_ownership_pass": true,
+    "factor_bytes": 641832960
+  },
+  "partial_setup": {
+    "completed_modes": [
+      -8,
+      -7,
+      -6,
+      -5,
+      -4,
+      -3,
+      -2,
+      -1,
+      0,
+      1,
+      2,
+      3,
+      4,
+      5,
+      6,
+      7,
+      8
+    ],
+    "common_assembly_seconds": 0.003613444045186043,
+    "profiles": [
+      {
+        "k": -8,
+        "assembly_seconds": 0.0003487651702016592,
+        "LU_seconds": 0.10780965909361839,
+        "total_seconds": 0.1081628161482513
+      },
+      {
+        "k": -7,
+        "assembly_seconds": 0.001042296178638935,
+        "LU_seconds": 0.03600502689369023,
+        "total_seconds": 0.037051742197945714
+      },
+      {
+        "k": -6,
+        "assembly_seconds": 0.0007433029823005199,
+        "LU_seconds": 0.03517144313082099,
+        "total_seconds": 0.0359172138851136
+      },
+      {
+        "k": -5,
+        "assembly_seconds": 0.000629347050562501,
+        "LU_seconds": 0.03413163195364177,
+        "total_seconds": 0.03476291103288531
+      },
+      {
+        "k": -4,
+        "assembly_seconds": 0.0006041040178388357,
+        "LU_seconds": 0.034152555046603084,
+        "total_seconds": 0.034758572932332754
+      },
+      {
+        "k": -3,
+        "assembly_seconds": 0.0005805070977658033,
+        "LU_seconds": 0.03414652799256146,
+        "total_seconds": 0.034729656064882874
+      },
+      {
+        "k": -2,
+        "assembly_seconds": 0.0005643879994750023,
+        "LU_seconds": 0.03411539318040013,
+        "total_seconds": 0.03468188992701471
+      },
+      {
+        "k": -1,
+        "assembly_seconds": 0.000563459936529398,
+        "LU_seconds": 0.03410476096905768,
+        "total_seconds": 0.034670347813516855
+      },
+      {
+        "k": 0,
+        "assembly_seconds": 0.0005708758253604174,
+        "LU_seconds": 0.034159117843955755,
+        "total_seconds": 0.03473207796923816
+      },
+      {
+        "k": 1,
+        "assembly_seconds": 0.0005732181016355753,
+        "LU_seconds": 0.03412642213515937,
+        "total_seconds": 0.034701540134847164
+      },
+      {
+        "k": 2,
+        "assembly_seconds": 0.0005587160121649504,
+        "LU_seconds": 0.03413446107879281,
+        "total_seconds": 0.03469679714180529
+      },
+      {
+        "k": 3,
+        "assembly_seconds": 0.0005576808471232653,
+        "LU_seconds": 0.03413062705658376,
+        "total_seconds": 0.03469030582346022
+      },
+      {
+        "k": 4,
+        "assembly_seconds": 0.0005745699163526297,
+        "LU_seconds": 0.03411821695044637,
+        "total_seconds": 0.03469507396221161
+      },
+      {
+        "k": 5,
+        "assembly_seconds": 0.0005625411868095398,
+        "LU_seconds": 0.034153213957324624,
+        "total_seconds": 0.034717819187790155
+      },
+      {
+        "k": 6,
+        "assembly_seconds": 0.0005573311354964972,
+        "LU_seconds": 0.03411718504503369,
+        "total_seconds": 0.03467626101337373
+      },
+      {
+        "k": 7,
+        "assembly_seconds": 0.0005476779770106077,
+        "LU_seconds": 0.03412946709431708,
+        "total_seconds": 0.03467896091751754
+      },
+      {
+        "k": 8,
+        "assembly_seconds": 0.000544798793271184,
+        "LU_seconds": 0.03414227906614542,
+        "total_seconds": 0.03468921780586243
+      }
+    ],
+    "exact_factor_elapsed_seconds": 0.671361407963559,
+    "total_setup_lower_bound_seconds": 0.6967897156719118,
+    "compact_complete_seconds": 0.8731500541325659
+  },
+  "common_cold_warm_asymmetry_seconds": {
+    "compact4": 0.38948020269162953,
+    "exact": 0.025428307708352804
+  },
+  "observed_total_ratio_unadjusted": 1.5731056847675506,
+  "observed_online_ratio_unadjusted": 1.4295424411736972,
+  "block_assembly_sum_seconds": 0.010123580228537321,
+  "block_LU_sum_seconds": 0.6568479884881526,
+  "inner_calls": [
+    5,
+    5,
+    5,
+    4
+  ],
+  "inner_residuals": [
+    2.4279160010455246e-05,
+    1.1682543657909331e-05,
+    2.8319511502735364e-05,
+    8.882492715001654e-05
+  ],
+  "inner_seconds": 0.33093600277788937,
+  "inner_failures": 0,
+  "outer_attempts": 8,
+  "outer_failures": 0,
+  "ordinary_reference_attempts": 4,
+  "max_original_residual": 9.079992594814956e-06,
+  "max_evaluated_bound": 3.945186266639892e-05,
+  "max_field_difference": 2.647045339192413e-07,
+  "peak_allocated_bytes": 901654016,
+  "peak_reserved_bytes": 1568669696,
+  "wall_seconds": 6.65616802405566,
+  "source_arrays_unchanged": true,
+  "production_hashes_unchanged": true,
+  "cpu_qualification": {
+    "complete": true,
+    "device": "cpu",
+    "affinity": [
+      0
+    ],
+    "grid": 32,
+    "mode_count": 17,
+    "bitwise_equal_to_sealed_implementation": true,
+    "relative_difference": 0.0,
+    "original_background_residual": 2.124318661220874e-14,
+    "output_ownership_pass": true,
+    "partial_setup_stop_pass": true,
+    "partial_stop_stages": [
+      null,
+      -1
+    ],
+    "wall_seconds": 0.38766547408886254,
+    "source_hashes": {
+      "qualify_cpu.py": "bf605de18e9731828e9c97b679c9b74d17fab64c48895e49dc8eb39193733e0f",
+      "qualified_exact_modes.py": "a41bd3ee014d35f4e942539b66f63535d68f8123e499c81798bc887c3f3d6d80"
+    },
+    "sealed_source_sha256": "b560e467e0b81a8293adfa2fc71bd5570ec875a797fea67696083f1430ba3a77",
+    "scope": "Small CPU algebra/output ownership and early-stop qualification only; no GPU initialization or performance inference."
+  },
+  "first_RHS_costs_seconds": {
+    "compact4_inject": 0.6473997477442026,
+    "exact8_inner": 0.9843786554411054
+  }
+}

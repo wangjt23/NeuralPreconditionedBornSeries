@@ -1,0 +1,16 @@
+{
+  "args": {
+    "output": "rte/workstation_runs/tail_frontier_probe_20260926",
+    "validation_parent": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+    "tail_checkpoint": "rte/workstation_runs/tail_direction_pilot_20260926/best.pt",
+    "optical_checkpoint": "rte/workstation_runs/tail_optical_moment_20260926/last.pt",
+    "repeats": 2
+  },
+  "complete": true,
+  "scope": "validation-only trajectory audit; shared analytical initialization and setup excluded",
+  "source_sha256": "38baba57d273c9bf047f2e0fe414f45a3825e78873ffbd1f8fb41df206ebc108",
+  "checkpoint_sha256": {
+    "rte/workstation_runs/tail_direction_pilot_20260926/best.pt": "135aa962f6ebc1a08b1f17c61d85cafed990da68665e1bf12cfedb097ed0775f",
+    "rte/workstation_runs/tail_optical_moment_20260926/last.pt": "48b6db082762994080fc620dd2812f43b742ca43f4e8aa18c04e2f56e58d1323"
+  }
+}

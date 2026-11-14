@@ -1,0 +1,148 @@
+{
+  "study": "original-RHS tolerance weighting vs matched two-step objective on TSA16-zero prefixes",
+  "date_client": "2026-10-22 Asia/Shanghai",
+  "scope": "existing train3626 and reused development4626 only; no9626/test generation",
+  "physical_ids": [
+    4,
+    7,
+    10,
+    12,
+    20,
+    26,
+    28,
+    29,
+    30,
+    36,
+    38,
+    39,
+    40,
+    42,
+    45,
+    50,
+    51,
+    54,
+    56,
+    57,
+    59,
+    60,
+    61,
+    63,
+    64,
+    65,
+    67,
+    71,
+    73,
+    74,
+    75,
+    76,
+    78,
+    79,
+    80,
+    83,
+    88,
+    89,
+    93,
+    95,
+    97,
+    98,
+    100,
+    103,
+    107,
+    111,
+    112,
+    114,
+    116,
+    117,
+    118,
+    119,
+    121,
+    122,
+    124,
+    127
+  ],
+  "warm_start": "rte/workstation_runs/resume_audit_20261002/paired_training/mixed64_128/best.pt",
+  "architecture": {
+    "name": "TailResponseNetwork",
+    "width": 32,
+    "blocks": 4,
+    "modes": 6,
+    "unchanged": true
+  },
+  "shared_training": {
+    "updates_each": 1000,
+    "seed": 41022,
+    "batch": 4,
+    "grids_alternating": [
+      64,
+      128
+    ],
+    "lr": 0.00015,
+    "scheduler": "cosine1000 to0.05initial",
+    "weight_decay": 1e-05,
+    "gradient_clip": 1.0,
+    "teacher_weight": 0.05,
+    "horizon": [
+      0,
+      1,
+      2
+    ],
+    "prefix": "TSA16-zero four-call eligible contexts",
+    "eta": "norm(raw prefix residual)/norm(original RHS), computed BEFORE RMS normalization"
+  },
+  "loss": {
+    "two_step": "mean(log(max(rho_squared,1e-12))) +0.05teacher",
+    "tolerance": "mean(beta*softplus((log(max(rho_squared,1e-12))+2logeta-2logtau)/beta))+0.05teacher",
+    "beta": 1.3862943611198906,
+    "tau": 1e-05,
+    "limitation": "same direction architecture has no new tolerance input; 2-call right-censored smooth log-excess, not full stopping-time consistency"
+  },
+  "diagnostic": {
+    "grid": 128,
+    "ids": "all56, canonical order, phase0, batch4 accumulated",
+    "updates": 0,
+    "gate_total_relative_gradient_difference_min": 0.001,
+    "gate_total_one_minus_cosine_min": 1e-06,
+    "gates_frozen_before_execution": true,
+    "residual_and_total_gradients": true,
+    "finite_required": true
+  },
+  "resources": {
+    "locking_order": [
+      "/home/wjt/codex-schur-sisc-20260925/numerical-transfer.lock",
+      "/home/wjt/codex-schur-sisc-20260925/directional_linux_20260929/numerical.lock"
+    ],
+    "admission": "nonblocking existing locks + controller/job + GPU check; release between stages; no waiting/preemption/deletion",
+    "outer_wall_seconds": {
+      "diagnostic": 120,
+      "training": 900,
+      "benchmark": 600
+    },
+    "inner_wall_seconds": {
+      "diagnostic": 75,
+      "training": 840,
+      "benchmark": 540
+    },
+    "gpu_reserved_gib_max": 14,
+    "cpu_threads": 1
+  },
+  "evaluation": {
+    "primary_checkpoint": "fixed step1000 for both; best secondary only",
+    "solver": "explicit common TSA16-zero neural injection interface; original-RHS true residual tau1e-5;max100 restart25",
+    "classical_controls": "previous frozen selected classical for each grid, plus pure TSA16 and reference_tail",
+    "timing_grids": [
+      64,
+      128,
+      256
+    ],
+    "cohort_per_grid": 16,
+    "warmup": 1,
+    "timing_repeats": 5,
+    "timing_order_seed": 41022,
+    "paired_bootstrap_samples": 10000,
+    "primary_gate": "BOTH N128/N256: zero failures, mean saving>=5%, paired interval lower>0 versus previously frozen classical control",
+    "stricter_guard": "also report both other measured classical controls; no best-classical superiority without all comparisons passing",
+    "no_empty_gate": true,
+    "causal_comparison": "tolerance vs same-budget two_step, conditional on one warm start and sample seed",
+    "generalization": "none: repeatedly reused development media, nested grids, no independent training replication"
+  }
+}

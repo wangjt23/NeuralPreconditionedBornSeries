@@ -1,0 +1,15 @@
+{
+  "mode": "benchmark",
+  "pid": 2411022,
+  "started": 1791107547.6498637,
+  "complete": true,
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/benchmark_adequacy.py",
+    "--output",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/benchmark"
+  ],
+  "returncode": 0,
+  "finished": 1791107745.8426645,
+  "seconds": 198.19280076026917
+}

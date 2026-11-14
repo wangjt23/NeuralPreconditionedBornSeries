@@ -1,0 +1,40 @@
+{
+  "bundle_bytes": 478450,
+  "bundle_sha256": "0b096f9fcab092a142563424bacced4755ad2e96dee77a17315012bb4c4f0325",
+  "deterministic_rebuild_byte_exact": true,
+  "entries": 42,
+  "exclusive_create_verified": true,
+  "forbidden_payloads_absent": true,
+  "fresh_extraction_reproduction": {
+    "artifacts": {
+      "RESULT_AUDIT.json": {
+        "byte_exact": true,
+        "bytes": 14975,
+        "sha256": "c138a3a283a175298b8084821e0a32a89b0fe25366e35d63e4ef3540d9cedd6f"
+      },
+      "RESULT_AUDIT.md": {
+        "byte_exact": true,
+        "bytes": 6413,
+        "sha256": "c68f2bd0aa1300949562dbbb041c8d9f09939f8bc91da8781fe345ce6e5205df"
+      },
+      "SCALAR_ANALYSIS.json": {
+        "byte_exact": true,
+        "bytes": 37680,
+        "sha256": "1aead6cef0a185de2353cbc0b82d24d886a1b116667c19d8574a173596d1e42d"
+      }
+    },
+    "field_action_or_certifier_execution": false,
+    "native_backend_execution": false,
+    "network_or_library_action": false,
+    "standard_library_only": true,
+    "verified_payloads": 41
+  },
+  "local_runtime": "3.9.6 (default, Apr 17 2026, 18:15:52) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "manifest_sha256": "35c133cbb654cffd96f300a90355c013d8284a29938c86081f65d5c082eaf6f0",
+  "no_backend_field_gpu_or_network_execution": true,
+  "private_provenance_payloads": 3,
+  "raw_execution_payloads": 8,
+  "second_runtime": "Python 3.9.6",
+  "sorted_fixed_metadata": true,
+  "zip_crc_and_manifest_verified": true
+}

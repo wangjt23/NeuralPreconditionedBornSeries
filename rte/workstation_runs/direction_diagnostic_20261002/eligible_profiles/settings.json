@@ -1,0 +1,42 @@
+{
+  "complete": true,
+  "scope": "first two eligible IDs per saved prefix, not selected by speed; supplementary synchronized profiles and classical covariance only",
+  "source": {
+    "results": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/results",
+    "output": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/eligible_profiles"
+  },
+  "checkpoint_sha256": "5b1f192ac4d4a2e50b3391f36ac42f60a0685d19af5fe99ff8f6933eee73d82d",
+  "script_sha256": "5728afe325e6d02bb12fc4ce4789c1f955e2da9c2ece5c0ad05356db84ac15e9",
+  "gpu_before": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n2180547, /data1/software/miniconda3/bin/python, 264 MiB\n",
+  "profiling": "perturbs timing; all original end-to-end benchmark and first-two-media profiles retained",
+  "selected_ids": {
+    "64/tsa8_balanced": [
+      0,
+      1
+    ],
+    "64/tsa16_zero": [
+      0,
+      3
+    ],
+    "128/tsa8_balanced": [
+      0,
+      1
+    ],
+    "128/tsa16_zero": [
+      0,
+      3
+    ],
+    "256/tsa8_balanced": [
+      0,
+      1
+    ],
+    "256/tsa16_zero": [
+      0,
+      3
+    ]
+  },
+  "wall_seconds": 16.625142803415656,
+  "profiled_solves": 60,
+  "covariance_checks": 36,
+  "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n2180547, /data1/software/miniconda3/bin/python, 3210 MiB\n"
+}

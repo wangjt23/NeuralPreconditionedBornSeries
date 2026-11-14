@@ -1,0 +1,22 @@
+data:
+  discretization: pseudospectral
+  data_type: transport
+  mesh_size: 16
+  N: 1
+  kernel_g: "0"
+
+operator:
+  boundary_type: periodic
+  domain: [0.0, 1.0, 0.0, 1.0]
+  reference: constant_collision_fft
+
+model:
+  state_channels: 4M
+  loss_type: born_mixed
+  preconditioner_form: direct
+
+inference:
+  preconditioners: [identity, fft_green]
+  tol: 0.000001
+  max_iter: 50
+  restart: 50

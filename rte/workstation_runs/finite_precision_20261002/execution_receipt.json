@@ -1,0 +1,18 @@
+{
+  "independent_final_review_before_execution": {
+    "primitive_driver.py": "d7149407412392cbdbdf548af907ee4348d242e709c6f882b39036f2462027c7",
+    "policy.json": "426fe29b012c7e275a1587e315f0f2f23efe2989f63cf00b13a2a02869f67d08",
+    "PRIMITIVE_PROTOCOL_REVIEW.md": "6e52e283bc1c16264b2b74d98310f1e319cff46cb4ccc646e457fc5e82b95b4c",
+    "PRIMITIVE_IMPLEMENTATION_REVIEW.md": "059e96c467cd36c73491bffd0904b27e1911f571ff3793a67e04147ea59fff1a"
+  },
+  "exit_code": 0,
+  "owned_process_timed_out": false,
+  "process_wall_seconds": 52.0705827716738,
+  "policy_sha256": "426fe29b012c7e275a1587e315f0f2f23efe2989f63cf00b13a2a02869f67d08",
+  "gpu_before": "1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "gpu_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "full_solves": 0,
+  "training": false,
+  "test9626_touched": false,
+  "original_source_exported": false
+}

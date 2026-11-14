@@ -1,0 +1,89 @@
+{
+  "result": "PAID_TWO_SOURCE_ERROR_RESPONSE_DIAGNOSTIC_COMPLETE",
+  "rows": [
+    {
+      "source": 0,
+      "state": "after_coarse",
+      "residual_Q8": 0.9987278690971375,
+      "error_Q8": 0.9424872666753953,
+      "error_shell9to16": 0.9343354538183408,
+      "Q8_error_small_tangential_velocity": 0.31431891974577625,
+      "Q8_error_small_normal_velocity": 0.09967974224310813,
+      "Q8_error_oblique_2_4_8_10": 0.18356019497445392,
+      "residual": 5.1786012451689536e-11,
+      "error_bound": 2.6949669193064197e-08,
+      "response_seconds": 10.097281915834174,
+      "P_cross_ratio": 0.687750171148208,
+      "Q_cross_ratio": 0.0019308809358037414
+    },
+    {
+      "source": 0,
+      "state": "after_classical_2",
+      "residual_Q8": 0.9837248097637802,
+      "error_Q8": 0.9702507556723053,
+      "error_shell9to16": 0.9657767952396302,
+      "Q8_error_small_tangential_velocity": 0.024223306475472918,
+      "Q8_error_small_normal_velocity": 0.004272800259130479,
+      "Q8_error_oblique_2_4_8_10": 0.8880302667669562,
+      "residual": 8.875618318749629e-12,
+      "error_bound": 1.7872927473577858e-09,
+      "response_seconds": 11.310322247911245,
+      "P_cross_ratio": 0.4481893739464506,
+      "Q_cross_ratio": 0.006483871502208394
+    },
+    {
+      "source": 4,
+      "state": "after_coarse",
+      "residual_Q8": 0.9964885306741769,
+      "error_Q8": 0.6729122434881939,
+      "error_shell9to16": 0.6585062297339386,
+      "Q8_error_small_tangential_velocity": 0.2889735027497854,
+      "Q8_error_small_normal_velocity": 0.010161977639257837,
+      "Q8_error_oblique_2_4_8_10": 0.2668222319641711,
+      "residual": 4.513972197512031e-11,
+      "error_bound": 1.827022598563695e-08,
+      "response_seconds": 10.051204832969233,
+      "P_cross_ratio": 0.6997171051190412,
+      "Q_cross_ratio": 0.004792982096886907
+    },
+    {
+      "source": 4,
+      "state": "after_classical_2",
+      "residual_Q8": 0.9768335459750679,
+      "error_Q8": 0.9832914300181804,
+      "error_shell9to16": 0.9728912887322823,
+      "Q8_error_small_tangential_velocity": 0.025956900921469392,
+      "Q8_error_small_normal_velocity": 0.0013464962304130083,
+      "Q8_error_oblique_2_4_8_10": 0.8485892438958932,
+      "residual": 8.101183583195146e-11,
+      "error_bound": 1.3388568216160172e-08,
+      "response_seconds": 10.042577643878758,
+      "P_cross_ratio": 0.12861322505365183,
+      "Q_cross_ratio": 0.0035834846186906613
+    }
+  ],
+  "full_process_wall": {
+    "elapsed_seconds": 59.9,
+    "user_cpu_seconds": 56.69,
+    "system_cpu_seconds": 1.64,
+    "maximum_RSS_KiB": 1047976.0
+  },
+  "exclusive_internal_ledger": {
+    "input_verification_seconds": 0.16533921589143574,
+    "operator_and_TSA_setup_seconds": 0.16069221100769937,
+    "factor_setup_seconds": 1.3063604179769754,
+    "factor_qualification_seconds": 1.4931612741202116,
+    "incumbent_solves_seconds": 9.61313307005912,
+    "incumbent_checks_seconds": 0.1581901351455599,
+    "response_solve_seconds": 41.50138664059341,
+    "response_check_seconds": 0.10767688206396997,
+    "spectral_coupling_seconds": 0.49794516805559397,
+    "tensor_save_and_hash_seconds": 0.6497661171015352,
+    "import_startup_logging_and_other_seconds": 3.495216110954061
+  },
+  "process_envelope_over_internal_seconds": 0.751132757030426,
+  "raw_sha256": "c19730a31009f638cc8bcfb6180ce2de1ca3827d7b43940f6aacd584f032bd1e",
+  "reference_tensor_bytes": 25179774,
+  "max_response_original_residual": 8.101183583195146e-11,
+  "max_response_error_bound": 2.6949669193064197e-08
+}

@@ -1,0 +1,7 @@
+{
+  "size": 16,
+  "source_seed": 3001,
+  "operator": "same float32 pseudo-spectral matrix, promoted for float64 arm",
+  "fixture": "make_case mixed; separate from CT ensemble test media",
+  "exploratory": true
+}

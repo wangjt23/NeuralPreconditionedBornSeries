@@ -1,0 +1,19 @@
+{
+  "mode": "smoke",
+  "pid": 2409091,
+  "started": 1791106717.1932533,
+  "complete": true,
+  "tests_returncode": 0,
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/train_adequacy.py",
+    "--output",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/smoke",
+    "--smoke",
+    "--wall-seconds",
+    "240"
+  ],
+  "returncode": 0,
+  "finished": 1791106769.7196562,
+  "seconds": 52.526402950286865
+}

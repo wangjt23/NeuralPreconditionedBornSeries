@@ -1,0 +1,367 @@
+{
+  "complete": true,
+  "exit_code": 0,
+  "policy_sha256": "426fe29b012c7e275a1587e315f0f2f23efe2989f63cf00b13a2a02869f67d08",
+  "counts": {
+    "full_grid_gpu_H_actions": 72,
+    "fixture_gpu_H_actions": 24,
+    "preconditioner_actions": 8,
+    "numpy_fp64_references": 48,
+    "exact_fixture_cases": 12,
+    "exact_fixture_apply_calls": 24,
+    "full_solves": 0
+  },
+  "contexts": [
+    {
+      "size": 128,
+      "index": 0,
+      "angular_count": 12,
+      "scales": {
+        "angular_count": 12,
+        "scattering_norm_upper": 1.0000000918904959,
+        "scattering_row_sum_upper": 1.0000001005828403,
+        "scattering_column_sum_upper": 1.0000000831981517,
+        "streaming_norm_upper": 549.3114407666874,
+        "ideal_stored_geometry_streaming_upper": 549.3114407666872,
+        "physical_symbol_formation_allowance": 1.2197164184583884e-13,
+        "streaming_absolute_terms_upper": 549.3114407666872,
+        "sigma_t_max": 119.78507995605469,
+        "sigma_s_max": 119.75806427001953,
+        "operator_norm_upper": 788.8545959973894,
+        "coercivity_lower": 0.017008103633554643,
+        "coefficient_bound_arithmetic": "Exact Fraction of stored binary buffers; rational sqrt rounded upward; final scalar conversion outward",
+        "validity": "Exact nominal stored-coefficient operator only; not a global rounded-backend error guarantee"
+      },
+      "prospective_outer_error_budget": {
+        "tolerance": 1e-05,
+        "allocation_fraction": 0.01,
+        "hypothetical_measured_residual_ceiling": 9.899999999999998e-06,
+        "assumed_norm_relative_contract": 8.731326773466413e-11,
+        "assumed_subtraction_relative_contract": 1.1102230246251565e-16,
+        "field_complex_count": 196608,
+        "allowed_outer_absolute_error_per_field_norm": 1.7007057436767327e-09,
+        "assumed_nonfft64_bound": 1.7009989108047494e-12,
+        "equal_forward_inverse_fft64_contract_required": 1.5464858536291096e-12,
+        "derivation": "b<=m*(tau-rho_upper-a)/(1+tau); a=mu_sub,b=epsilon_H+mu_sub*(L+epsilon_H),rho_upper=rho_measured*(1+nu_q)/(1-nu_r); unchanged exact tau with all allowances inside fixed1%reserve",
+        "global_backend_contract_established": false,
+        "empirical_reference_checks_can_certify_this_contract": false
+      },
+      "stored_D32_D64_max_absolute_difference": 4.9092948756879196e-05,
+      "actions": [
+        {
+          "action": "original_low_complex64",
+          "records": 6,
+          "max_observed_absolute_error_per_input_norm": 7.621693105448849e-05,
+          "worst_probe": "unit_complex_random",
+          "max_observed_image_relative_error": 0.00017099533842379882,
+          "max_observed_error_over_Lambda_input_norm": 9.661721113271009e-08,
+          "max_observed_overall_physical_error_per_input_norm": 7.67856359948447e-05,
+          "observed_over_prospective_outer_budget": null,
+          "reference_uncertainty_bound_established": false
+        },
+        {
+          "action": "original_low_native_complex128_cast_shadow",
+          "records": 6,
+          "max_observed_absolute_error_per_input_norm": 1.208198726364125e-13,
+          "worst_probe": "unit_complex_random",
+          "max_observed_image_relative_error": 6.596091572136648e-14,
+          "max_observed_error_over_Lambda_input_norm": 1.5315860901292425e-16,
+          "max_observed_overall_physical_error_per_input_norm": 7.500759372319882e-06,
+          "observed_over_prospective_outer_budget": null,
+          "reference_uncertainty_bound_established": false
+        },
+        {
+          "action": "physical_high_complex128",
+          "records": 6,
+          "max_observed_absolute_error_per_input_norm": 1.2104016190622356e-13,
+          "worst_probe": "unit_complex_random",
+          "max_observed_image_relative_error": 6.602456797840459e-14,
+          "max_observed_error_over_Lambda_input_norm": 1.5343786107145164e-16,
+          "max_observed_overall_physical_error_per_input_norm": 1.2104016190622356e-13,
+          "observed_over_prospective_outer_budget": 7.117054925947888e-05,
+          "reference_uncertainty_bound_established": false
+        }
+      ]
+    },
+    {
+      "size": 128,
+      "index": 3,
+      "angular_count": 12,
+      "scales": {
+        "angular_count": 12,
+        "scattering_norm_upper": 1.0000000918904959,
+        "scattering_row_sum_upper": 1.0000001005828403,
+        "scattering_column_sum_upper": 1.0000000831981517,
+        "streaming_norm_upper": 549.3114407666874,
+        "ideal_stored_geometry_streaming_upper": 549.3114407666872,
+        "physical_symbol_formation_allowance": 1.2197164184583884e-13,
+        "streaming_absolute_terms_upper": 549.3114407666872,
+        "sigma_t_max": 143.78128051757812,
+        "sigma_s_max": 143.6962432861328,
+        "operator_norm_upper": 836.7889777747173,
+        "coercivity_lower": 0.04077052551699245,
+        "coefficient_bound_arithmetic": "Exact Fraction of stored binary buffers; rational sqrt rounded upward; final scalar conversion outward",
+        "validity": "Exact nominal stored-coefficient operator only; not a global rounded-backend error guarantee"
+      },
+      "prospective_outer_error_budget": {
+        "tolerance": 1e-05,
+        "allocation_fraction": 0.01,
+        "hypothetical_measured_residual_ceiling": 9.899999999999998e-06,
+        "assumed_norm_relative_contract": 8.731326773466413e-11,
+        "assumed_subtraction_relative_contract": 1.1102230246251565e-16,
+        "field_complex_count": 196608,
+        "allowed_outer_absolute_error_per_field_norm": 4.076918804332558e-09,
+        "assumed_nonfft64_bound": 1.9800737946398723e-12,
+        "equal_forward_inverse_fft64_contract_required": 3.709133315012397e-12,
+        "derivation": "b<=m*(tau-rho_upper-a)/(1+tau); a=mu_sub,b=epsilon_H+mu_sub*(L+epsilon_H),rho_upper=rho_measured*(1+nu_q)/(1-nu_r); unchanged exact tau with all allowances inside fixed1%reserve",
+        "global_backend_contract_established": false,
+        "empirical_reference_checks_can_certify_this_contract": false
+      },
+      "stored_D32_D64_max_absolute_difference": 4.9092948756879196e-05,
+      "actions": [
+        {
+          "action": "original_low_complex64",
+          "records": 6,
+          "max_observed_absolute_error_per_input_norm": 7.585868448072499e-05,
+          "worst_probe": "unit_complex_random",
+          "max_observed_image_relative_error": 6.804564862831531e-05,
+          "max_observed_error_over_Lambda_input_norm": 9.065449772349641e-08,
+          "max_observed_overall_physical_error_per_input_norm": 7.644157019975207e-05,
+          "observed_over_prospective_outer_budget": null,
+          "reference_uncertainty_bound_established": false
+        },
+        {
+          "action": "original_low_native_complex128_cast_shadow",
+          "records": 6,
+          "max_observed_absolute_error_per_input_norm": 1.2069070065013553e-13,
+          "worst_probe": "unit_complex_random",
+          "max_observed_image_relative_error": 3.395312130943567e-14,
+          "max_observed_error_over_Lambda_input_norm": 1.442307485587223e-16,
+          "max_observed_overall_physical_error_per_input_norm": 7.534036486690612e-06,
+          "observed_over_prospective_outer_budget": null,
+          "reference_uncertainty_bound_established": false
+        },
+        {
+          "action": "physical_high_complex128",
+          "records": 6,
+          "max_observed_absolute_error_per_input_norm": 1.2068129899632295e-13,
+          "worst_probe": "unit_complex_random",
+          "max_observed_image_relative_error": 3.3945970860941237e-14,
+          "max_observed_error_over_Lambda_input_norm": 1.4421951316477917e-16,
+          "max_observed_overall_physical_error_per_input_norm": 1.2068129899632295e-13,
+          "observed_over_prospective_outer_budget": 2.960110436049755e-05,
+          "reference_uncertainty_bound_established": false
+        }
+      ]
+    },
+    {
+      "size": 256,
+      "index": 0,
+      "angular_count": 12,
+      "scales": {
+        "angular_count": 12,
+        "scattering_norm_upper": 1.0000000918904959,
+        "scattering_row_sum_upper": 1.0000001005828403,
+        "scattering_column_sum_upper": 1.0000000831981517,
+        "streaming_norm_upper": 1098.6228815333748,
+        "ideal_stored_geometry_streaming_upper": 1098.6228815333743,
+        "physical_symbol_formation_allowance": 2.4394328369167767e-13,
+        "streaming_absolute_terms_upper": 1098.6228815333743,
+        "sigma_t_max": 119.78507995605469,
+        "sigma_s_max": 119.75806427001953,
+        "operator_norm_upper": 1338.1660367640768,
+        "coercivity_lower": 0.017008103633554643,
+        "coefficient_bound_arithmetic": "Exact Fraction of stored binary buffers; rational sqrt rounded upward; final scalar conversion outward",
+        "validity": "Exact nominal stored-coefficient operator only; not a global rounded-backend error guarantee"
+      },
+      "prospective_outer_error_budget": {
+        "tolerance": 1e-05,
+        "allocation_fraction": 0.01,
+        "hypothetical_measured_residual_ceiling": 9.899999999999998e-06,
+        "assumed_norm_relative_contract": 3.492477419596179e-10,
+        "assumed_subtraction_relative_contract": 1.1102230246251565e-16,
+        "field_complex_count": 786432,
+        "allowed_outer_absolute_error_per_field_norm": 1.7006446696475199e-09,
+        "assumed_nonfft64_bound": 2.0059280154193467e-12,
+        "equal_forward_inverse_fft64_contract_required": 7.730763532162243e-13,
+        "derivation": "b<=m*(tau-rho_upper-a)/(1+tau); a=mu_sub,b=epsilon_H+mu_sub*(L+epsilon_H),rho_upper=rho_measured*(1+nu_q)/(1-nu_r); unchanged exact tau with all allowances inside fixed1%reserve",
+        "global_backend_contract_established": false,
+        "empirical_reference_checks_can_certify_this_contract": false
+      },
+      "stored_D32_D64_max_absolute_difference": 0.0001053657615557313,
+      "actions": [
+        {
+          "action": "original_low_complex64",
+          "records": 6,
+          "max_observed_absolute_error_per_input_norm": 0.00014398523829380706,
+          "worst_probe": "unit_complex_random",
+          "max_observed_image_relative_error": 0.000380238750606516,
+          "max_observed_error_over_Lambda_input_norm": 1.0759893341934528e-07,
+          "max_observed_overall_physical_error_per_input_norm": 0.0001449304410301055,
+          "observed_over_prospective_outer_budget": null,
+          "reference_uncertainty_bound_established": false
+        },
+        {
+          "action": "original_low_native_complex128_cast_shadow",
+          "records": 6,
+          "max_observed_absolute_error_per_input_norm": 2.6131288724856317e-13,
+          "worst_probe": "unit_complex_random",
+          "max_observed_image_relative_error": 8.395371244514521e-14,
+          "max_observed_error_over_Lambda_input_norm": 1.9527687900409142e-16,
+          "max_observed_overall_physical_error_per_input_norm": 1.5010017741666062e-05,
+          "observed_over_prospective_outer_budget": null,
+          "reference_uncertainty_bound_established": false
+        },
+        {
+          "action": "physical_high_complex128",
+          "records": 6,
+          "max_observed_absolute_error_per_input_norm": 2.614384896591421e-13,
+          "worst_probe": "unit_complex_random",
+          "max_observed_image_relative_error": 8.403796983085537e-14,
+          "max_observed_error_over_Lambda_input_norm": 1.95370740608054e-16,
+          "max_observed_overall_physical_error_per_input_norm": 2.614384896591421e-13,
+          "observed_over_prospective_outer_budget": 0.0001537290501215216,
+          "reference_uncertainty_bound_established": false
+        }
+      ]
+    },
+    {
+      "size": 256,
+      "index": 3,
+      "angular_count": 12,
+      "scales": {
+        "angular_count": 12,
+        "scattering_norm_upper": 1.0000000918904959,
+        "scattering_row_sum_upper": 1.0000001005828403,
+        "scattering_column_sum_upper": 1.0000000831981517,
+        "streaming_norm_upper": 1098.6228815333748,
+        "ideal_stored_geometry_streaming_upper": 1098.6228815333743,
+        "physical_symbol_formation_allowance": 2.4394328369167767e-13,
+        "streaming_absolute_terms_upper": 1098.6228815333743,
+        "sigma_t_max": 143.78128051757812,
+        "sigma_s_max": 143.6962432861328,
+        "operator_norm_upper": 1386.1004185414047,
+        "coercivity_lower": 0.04077052551699245,
+        "coefficient_bound_arithmetic": "Exact Fraction of stored binary buffers; rational sqrt rounded upward; final scalar conversion outward",
+        "validity": "Exact nominal stored-coefficient operator only; not a global rounded-backend error guarantee"
+      },
+      "prospective_outer_error_budget": {
+        "tolerance": 1e-05,
+        "allocation_fraction": 0.01,
+        "hypothetical_measured_residual_ceiling": 9.899999999999998e-06,
+        "assumed_norm_relative_contract": 3.492477419596179e-10,
+        "assumed_subtraction_relative_contract": 1.1102230246251565e-16,
+        "field_complex_count": 786432,
+        "allowed_outer_absolute_error_per_field_norm": 4.076857607065467e-09,
+        "assumed_nonfft64_bound": 2.2850028992544697e-12,
+        "equal_forward_inverse_fft64_contract_required": 1.8544000278218546e-12,
+        "derivation": "b<=m*(tau-rho_upper-a)/(1+tau); a=mu_sub,b=epsilon_H+mu_sub*(L+epsilon_H),rho_upper=rho_measured*(1+nu_q)/(1-nu_r); unchanged exact tau with all allowances inside fixed1%reserve",
+        "global_backend_contract_established": false,
+        "empirical_reference_checks_can_certify_this_contract": false
+      },
+      "stored_D32_D64_max_absolute_difference": 0.0001053657615557313,
+      "actions": [
+        {
+          "action": "original_low_complex64",
+          "records": 6,
+          "max_observed_absolute_error_per_input_norm": 0.00014382751077392838,
+          "worst_probe": "unit_complex_random",
+          "max_observed_image_relative_error": 0.0001408760542817274,
+          "max_observed_error_over_Lambda_input_norm": 1.0376413487074643e-07,
+          "max_observed_overall_physical_error_per_input_norm": 0.00014475142895029104,
+          "observed_over_prospective_outer_budget": null,
+          "reference_uncertainty_bound_established": false
+        },
+        {
+          "action": "original_low_native_complex128_cast_shadow",
+          "records": 6,
+          "max_observed_absolute_error_per_input_norm": 2.613638189353445e-13,
+          "worst_probe": "unit_complex_random",
+          "max_observed_image_relative_error": 5.2627697999749486e-14,
+          "max_observed_error_over_Lambda_input_norm": 1.8856052233962816e-16,
+          "max_observed_overall_physical_error_per_input_norm": 1.4966158618715878e-05,
+          "observed_over_prospective_outer_budget": null,
+          "reference_uncertainty_bound_established": false
+        },
+        {
+          "action": "physical_high_complex128",
+          "records": 6,
+          "max_observed_absolute_error_per_input_norm": 2.612032163870285e-13,
+          "worst_probe": "unit_complex_random",
+          "max_observed_image_relative_error": 5.258788978859059e-14,
+          "max_observed_error_over_Lambda_input_norm": 1.8844465587990587e-16,
+          "max_observed_overall_physical_error_per_input_norm": 2.612032163870285e-13,
+          "observed_over_prospective_outer_budget": 6.406974232662573e-05,
+          "reference_uncertainty_bound_established": false
+        }
+      ]
+    }
+  ],
+  "exact_fixture_summary": [
+    {
+      "action": "original_low_complex64",
+      "cases": 12,
+      "max_exact_fixture_error_per_input_norm_upper": 7.436655359630473e-06,
+      "worst": {
+        "size": 128,
+        "index": 3,
+        "probe": "dense_dyadic"
+      },
+      "max_exact_fixture_physical_target_error_per_input_norm_upper": 7.435900748580753e-06,
+      "scope": "Verified finite-input exact4x4 fixture only; no full-grid/global error contract"
+    },
+    {
+      "action": "physical_high_complex128",
+      "cases": 12,
+      "max_exact_fixture_error_per_input_norm_upper": 1.4157154068711116e-14,
+      "worst": {
+        "size": 128,
+        "index": 0,
+        "probe": "sparse_dyadic"
+      },
+      "max_exact_fixture_physical_target_error_per_input_norm_upper": 1.4157154068711116e-14,
+      "scope": "Verified finite-input exact4x4 fixture only; no full-grid/global error contract"
+    }
+  ],
+  "all_ownership_source_checks_passed": true,
+  "all_full_grid_input_cast_norms_zero": true,
+  "input_cast_scope": "All predefined fields originateC64; no nonrepresentableC128 casting test",
+  "process_wall_seconds": 52.0705827716738,
+  "driver_reported_seconds": 50.66211526095867,
+  "peak_allocated_bytes": 361017856,
+  "peak_reserved_bytes": 731906048,
+  "costs": {
+    "parent_load_seconds": 0.2648876868188381,
+    "physical_setup_seconds": 0.2783894520252943,
+    "base_setup_seconds": 0.08631406724452972,
+    "capture_setup_seconds": 0.09737986139953136,
+    "source_api_setup_seconds": 0.0,
+    "probe_setup_seconds": 0.04550394229590893,
+    "explicit_gpu_action_seconds": 0.38321883231401443,
+    "transfers_seconds": 0.5645671579986811,
+    "numpy_reference_seconds": 3.0587479807436466,
+    "exact_reference_seconds": 3.032836891710758,
+    "exact_scalar_accounting_seconds": 0.4496025200933218,
+    "scalar_model_seconds": 3.5121158249676228,
+    "fixture_setup_seconds": 0.11189907789230347,
+    "fixture_model_seconds": 0.012847943231463432,
+    "coefficient_transfer_seconds": 0.07897958345711231,
+    "json_save_seconds": 28.026089096441865
+  },
+  "backend_flags": {
+    "cuda_matmul_allow_tf32": false,
+    "cudnn_allow_tf32": true,
+    "float32_matmul_precision": "highest",
+    "allow_fp16_reduced_precision_reduction": true,
+    "allow_bf16_reduced_precision_reduction": true
+  },
+  "certified_global_contract": false,
+  "certified_full_solver_admission": "NO-GO",
+  "precision_repair_selected": false,
+  "old_complex_entry_failure_preserved": true,
+  "full_solves": 0,
+  "training": false,
+  "test9626_touched": false,
+  "original_source_exported": false,
+  "interpretation": "NumPy comparisons are separately rounded finite engineering evidence; exact4x4 brackets certify only fixture differences; observed ratios do not establish missing global backend assumptions or solver economics"
+}

@@ -1,0 +1,7 @@
+{
+  "checkpoint": "rte/workstation_runs/nto4_hss_n32_seed401_20260912/best.pt",
+  "selected_step": 800,
+  "split": "selection_validation",
+  "device": "cpu",
+  "interpretation": "frozen-weight interventions, not matched retraining"
+}

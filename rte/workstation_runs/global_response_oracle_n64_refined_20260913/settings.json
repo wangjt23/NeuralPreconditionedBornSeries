@@ -1,0 +1,13 @@
+{
+  "args": {
+    "dataset": "rte/workstation_runs/sct4_krylov_n64_seed402_20260912/validation.pt",
+    "count": 2,
+    "output": "rte/workstation_runs/global_response_oracle_n64_refined_20260913"
+  },
+  "fingerprint": "c2390de8c2b47df557d087de49fbe52f38ac311d9b3adc792462b44aaf5248f7",
+  "scope": "oracle diagnostic, no learned model; single sequential timing, not a benchmark",
+  "sources": "8 calibration and 6 held-out periodic translations of each original source; same angular shape",
+  "baseline": "compiled HSS8; first-RHS Krylov span is a simple recycling control, not tuned GCRO-DR",
+  "setup": "2k physical A vectors includes second verification; teacher cost reported separately",
+  "limitations": "same development materials, limited source family; no unseen-material or speedup claim"
+}

@@ -1,0 +1,1053 @@
+{
+  "root": "/Users/hxchen/mgRTE",
+  "head": "0e05cc8930f892c9f3fb580adef4ac4b93c26ce7",
+  "branch": "RTE_born",
+  "remotes": "origin\tgit@github.com:SQC31/mgRTE.git (fetch)\norigin\tgit@github.com:SQC31/mgRTE.git (push)\nrte\tgit@github.com:xlliu2017/rte_pre.git (fetch)\nrte\tgit@github.com:xlliu2017/rte_pre.git (push)\n",
+  "status": " M RTE_mgmodel.py\n M configs/born_precond.yaml\n M configs/default.yaml\n M inference.py\n M readme.md\n M rte_config.py\n M rte_preconditioning.py\n M tests/test_born_preconditioning.py\n M tests/test_smoke.py\n M train.py\n?? ablate_defect_revisions.py\n?? configs/born_unet_precond.yaml\n?? docs/born_failure_architecture_notes.md\n",
+  "items": [
+    {
+      "path": ".gitignore",
+      "bytes": 198,
+      "sha256": "7cb213a2cec331f5d919ab3f74dfe4539dbbb21c61c36d661d327c81095cae52",
+      "source": "/Users/hxchen/mgRTE/.gitignore",
+      "materialized": true
+    },
+    {
+      "path": "RTE_ATFPS_func.py",
+      "bytes": 38360,
+      "sha256": "a3cf869c2099a9b83f69b147d7d413404f9c422629db9480b0ac7a32e26bda04",
+      "source": "/Users/hxchen/mgRTE/RTE_ATFPS_func.py",
+      "materialized": true
+    },
+    {
+      "path": "RTE_datagenerator.py",
+      "bytes": 13890,
+      "sha256": "a6f82f7042e5c765dcddf9b73973fe17137e0d2a821127166ff114d9a9f400d3",
+      "source": "/Users/hxchen/mgRTE/RTE_datagenerator.py",
+      "materialized": true
+    },
+    {
+      "path": "RTE_dataloader.py",
+      "bytes": 4499,
+      "sha256": "de457509f0f5d7d07708bea317a61bcef8e3cc279508e47e362db61691f7f7be",
+      "source": "/Users/hxchen/mgRTE/RTE_dataloader.py",
+      "materialized": true
+    },
+    {
+      "path": "RTE_mgmodel.py",
+      "bytes": 18830,
+      "sha256": "32ab45709fae050b3ab4d5bffecae186140414a8635ec925f7231f3aaaf596a3",
+      "source": "/Users/hxchen/mgRTE/RTE_mgmodel.py",
+      "materialized": true
+    },
+    {
+      "path": "RTE_pseudospectral.py",
+      "bytes": 5629,
+      "sha256": "ffccf0b7f70d19b030c9d09dee3f5a74a952a2464c395a00b78f416dbc8a01c6",
+      "source": "/Users/hxchen/mgRTE/RTE_pseudospectral.py",
+      "materialized": true
+    },
+    {
+      "path": "__init__.py",
+      "bytes": 125,
+      "sha256": "86443517720f5ad49b3799e57c3d951a687a8c394dc319cca474c57b6da4146f",
+      "source": "/Users/hxchen/mgRTE/__init__.py",
+      "materialized": true
+    },
+    {
+      "path": "ablate_defect_revisions.py",
+      "bytes": 6657,
+      "sha256": "96967324dbe29931f80eecf9e87670b8c47e1b554ca32efa678523838fe5be5b",
+      "source": "/Users/hxchen/mgRTE/ablate_defect_revisions.py",
+      "materialized": true
+    },
+    {
+      "path": "environment.yml",
+      "bytes": 171,
+      "sha256": "c26267128220ac68ce50906768cbe5d374dcd078b3e037ed11cf7e61c5f04b88",
+      "source": "/Users/hxchen/mgRTE/environment.yml",
+      "materialized": true
+    },
+    {
+      "path": "gmres.py",
+      "bytes": 12141,
+      "sha256": "ee99358ddbe7ce4f76d4bf1c7c39f630ade337af65da9f67ec7c739baf29612a",
+      "source": "/Users/hxchen/mgRTE/gmres.py",
+      "materialized": true
+    },
+    {
+      "path": "inference.py",
+      "bytes": 9323,
+      "sha256": "2f1c666b3bdcd590fca15d7309dadbac0a67ce3642046f9f395de96818988fd4",
+      "source": "/Users/hxchen/mgRTE/inference.py",
+      "materialized": true
+    },
+    {
+      "path": "plot.py",
+      "bytes": 2806,
+      "sha256": "60e00335dffdc0191c206337a54b56bd7a324f4a41619ced554251ca768c623d",
+      "source": "/Users/hxchen/mgRTE/plot.py",
+      "materialized": true
+    },
+    {
+      "path": "pyproject.toml",
+      "bytes": 380,
+      "sha256": "22920d3073e7a7189030b5e7a869961e0e64f881dfb265bcc496b73d60e7c83a",
+      "source": "/Users/hxchen/mgRTE/pyproject.toml",
+      "materialized": true
+    },
+    {
+      "path": "readme.md",
+      "bytes": 7005,
+      "sha256": "ea1a6104c1c9591c194eebd4ec616cf848a9e0f8f3393ab9366b63dc28ee2172",
+      "source": "/Users/hxchen/mgRTE/readme.md",
+      "materialized": true
+    },
+    {
+      "path": "rte_config.py",
+      "bytes": 3633,
+      "sha256": "3226e1a326dace833e6bb87bc087978fe2233bfd8c3de52ebfaf7e6aeaaf00dc",
+      "source": "/Users/hxchen/mgRTE/rte_config.py",
+      "materialized": true
+    },
+    {
+      "path": "rte_preconditioning.py",
+      "bytes": 7111,
+      "sha256": "4324512cd22c466e607427190514d87df3041c5a1101b056a2656fdb0f9e036f",
+      "source": "/Users/hxchen/mgRTE/rte_preconditioning.py",
+      "materialized": true
+    },
+    {
+      "path": "someplot.ipynb",
+      "bytes": 157288,
+      "sha256": "f4b3f4fa798ae1259b96e814d6c2bc3fafd7c902632cc7f6ab7ad80a1d790424",
+      "source": "/Users/hxchen/mgRTE/someplot.ipynb",
+      "materialized": true
+    },
+    {
+      "path": "test.ipynb",
+      "bytes": 461192,
+      "sha256": "f84954288372a9d24abbff71e102597d16537232f4dbdb58a584b108ae82b293",
+      "source": "/Users/hxchen/mgRTE/test.ipynb",
+      "materialized": true
+    },
+    {
+      "path": "train.py",
+      "bytes": 13838,
+      "sha256": "722c2221a745e301e0a92bf98476f8a79d20b1ae4b7d787c057f1a7580e45ca0",
+      "source": "/Users/hxchen/mgRTE/train.py",
+      "materialized": true
+    },
+    {
+      "path": "utils.py",
+      "bytes": 4315,
+      "sha256": "a61a85818c8e6dc25ed3842297099dde9af75776e5f153eeb55ba00fb7c556ab",
+      "source": "/Users/hxchen/mgRTE/utils.py",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/allI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "bytes": 27088,
+      "sha256": "d78372b313aa190135f328abcf24c4911cc889790d8f64063975592d4c6182b5",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/allI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/allI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "89969763225965ecb4e8ad76060cee84efdf36cee3d779bbc1911163227e55cd",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/allI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "bytes": 24604,
+      "sha256": "3c77f30afac69cc74cdd6ecd6edbde24c9c9a3993e080735e761c2887711ea3b",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "577c0a2c7c25d109fe40cb6d0cbd139033db282eec045c658978bfd24f771d88",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "bytes": 24750,
+      "sha256": "2d40d5570752dd0ba9939ffb2e402671d585d315b775beaf9fd46ed83cd09e19",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "85f1334c383f1e28ddafd8c78db8da8ff3db90767ed4c0181010e1de874110c0",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol1000000_multilevel.png",
+      "bytes": 25624,
+      "sha256": "b3738c7123baf60c5cc9b68ff3a9a8a19b2fde37c73b6a33f10ab6f73e9fcced",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol1000000_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol1000000_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "78e6e1d393a36f2cf52dde86ebea065af72e02ffe413e93f67d21a40452e1d66",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol1000000_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol5_multilevel.png",
+      "bytes": 31136,
+      "sha256": "46e250b9fa266875332bdadc214ddcbe367e93cba0554650731534b136dca15f",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "6aacd6b1708e1e0bdbde0db80a53a3f2643dfa763281e9d8f813011b2101f125",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "bytes": 30505,
+      "sha256": "9c1175556be0d5fb8053900cb3d142a4ce312826118c88141920b279424ba8d0",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "0a85f23db1d0c0b4611af783f498001e8462869a52aa81af8331998410fcc2c4",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol1000000_multilevel.png",
+      "bytes": 27265,
+      "sha256": "0655a3b92c9dbdd834add09c875d6e0c1d6a1bad56d9b739b6757ce3ddd44e92",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol1000000_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol1000000_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "e084e554471254854510ef0b7c6b8fcf3c5660ff28e216de0091a4eb046888de",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol1000000_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "bytes": 33470,
+      "sha256": "4ea1e037c06222e83aa55f853087e195d5823c9f980183e7138123be52ab2a97",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "7afa6af1d728f6137c13ace592394bc39798293056453005f7eec0c1d3baab50",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.png",
+      "bytes": 29860,
+      "sha256": "7c24ce3cb0b2015346a8bbe75c2e6c05bc9693f97b7a5d9136c6f46f9b3d132f",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.txt",
+      "bytes": 1584,
+      "sha256": "684101cee5ed6710500787ebfbf8c2d2603e99d9e8b3343d9999b4d88582ed27",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.png",
+      "bytes": 31242,
+      "sha256": "1e10a32f78b89bad76b1eb541eb729b2f2b78eec52f0694724babf404c33a20a",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.txt",
+      "bytes": 2100,
+      "sha256": "8f0b912a87ecbbbe0f5ec0087d45c6c342a0b982a3ad2a53045697f958c258b6",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol1000000.0_multilevel.png",
+      "bytes": 29190,
+      "sha256": "9c8b8b695b2d98a621fcb4c8901cf1cee5f34e07cccca0a07a688ef6bf8c41c6",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol1000000.0_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol1000000.0_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "47a864b1ba10cec1ff0c74c16b6093bba8b4260298302a5d8f6ad9ad120d685e",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol1000000.0_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol5_multilevel.png",
+      "bytes": 27390,
+      "sha256": "ed2cc06e6b17ec7c580567e2524fd8f305633c8730945a4842ef4551dcc001bc",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "f5c8d523fd2089694b3330e97d737e0544f04570e9e56ca0ea5784a1f8b39720",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "bytes": 27208,
+      "sha256": "9c5bde8cd28e5f165fd317ea8ff4b49fc529616f3cae9d0f2dd6e56a59aa3ce2",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "372eedce4fe42f869288a7e4d1449e61bccd75551d663241e29dcb39e9aa8842",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol1000000.0_multilevel.png",
+      "bytes": 26061,
+      "sha256": "d31db411014c6af493e7cdc204ce1fbac35286fecb60f91b4050e2141066d48c",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol1000000.0_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol1000000.0_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "b4ad117a5d4aa1c906098ea3af22933db47a36c4be8fb0ae7fc23e618c75cdf1",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol1000000.0_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "bytes": 26597,
+      "sha256": "07f0529e60b1034a5e427bbb234f3a72502a7e57b8b0d40a58e40077f27fd01b",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "85aed0aa5d6c9d9da115ef6f0b4d16cf29d5054c62c0f890668a99014f11741b",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d100010000tol5_multilevel.png",
+      "bytes": 24583,
+      "sha256": "ce2b0232a351992f5a5807052f86d0604095d60547ab6c1ecd19d925ad67f304",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d100010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "cc7df70dc5411f4a03c901b08be59f4608105eac62013f5afe7bec5ea345c721",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "bytes": 24928,
+      "sha256": "d5cfd2bde043b7296af2781b5930c1a7fa0fb9e4ef4f97725e0508086d6de5ae",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "5b83b81861b3477f9435fc5113df99ad0e840a00838f0abf62dffd98eb0cc9b5",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "bytes": 23944,
+      "sha256": "3d04abff311440c25e476b66d00fe2e07e7e2107298e48e6231f1d7a3d307332",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "bytes": 2400,
+      "sha256": "d82adf14998992bec88f2240eb2893928dfd8aaee8d8b7eb8386573f3403856d",
+      "source": "/Users/hxchen/mgRTE/val_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "tests/__init__.py",
+      "bytes": 29,
+      "sha256": "6352a52dfb267479727cc8bc2ac5924ff23cadf5abfd3d38cfa810bcd6d0b88a",
+      "source": "/Users/hxchen/mgRTE/tests/__init__.py",
+      "materialized": true
+    },
+    {
+      "path": "tests/test_born_preconditioning.py",
+      "bytes": 6795,
+      "sha256": "a56981776808030e1c7f84252823ff61233ab09a9997d92bcbfaeda02fdc0d11",
+      "source": "/Users/hxchen/mgRTE/tests/test_born_preconditioning.py",
+      "materialized": true
+    },
+    {
+      "path": "tests/test_pseudospectral_rte.py",
+      "bytes": 1969,
+      "sha256": "c9fc4e397835172344dd55f9e80ec21127710347d0d38379e1b72457765e0450",
+      "source": "/Users/hxchen/mgRTE/tests/test_pseudospectral_rte.py",
+      "materialized": true
+    },
+    {
+      "path": "tests/test_smoke.py",
+      "bytes": 5642,
+      "sha256": "0b4f5df1685ffe743fca055f7ad818f10918d0a33e0bf4974d049e2b0df21c20",
+      "source": "/Users/hxchen/mgRTE/tests/test_smoke.py",
+      "materialized": true
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/allI16N1L4batch256epoch1000d200020000tol5_multilevel.pt",
+      "bytes": 9401562,
+      "sha256": "883796eb28fd6b85ae2cca19524ed25e2798a77ee310de97b15b77971efd8e43",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/allI16N1L4batch256epoch1000d200020000tol5_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200010000tol5_multilevel.pt",
+      "bytes": 9402901,
+      "sha256": "5bf6ffabcb4c958d9f172b2fddd4d30086ab1c72d40876df6dc3931da040aa24",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200010000tol5_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200020000tol5_multilevel.pt",
+      "bytes": 9402901,
+      "sha256": "f31e8d50f1434788171a32b0d292cb75f844e305e2d3cace7fe34bf5808bd91b",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200020000tol5_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol1000000.0_multilevel.pt",
+      "bytes": 9405392,
+      "sha256": "14476d3a7cd6a2447e3615476bf281efc6d8f3fcddd3a1531bd96e024dec0e74",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol1000000.0_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol5_multilevel.pt",
+      "bytes": 9402664,
+      "sha256": "647b5f5e9c29230a4a087aa4d6a343150872969b8bb3e25d0b3b6aeed10ebb0c",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol5_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200010000tol5_multilevel.pt",
+      "bytes": 9402664,
+      "sha256": "e760ba28d665c6e122dcb53165caf30a32b5e90c2fca62c08a2f76eeb393d20c",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200010000tol5_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol1000000.0_multilevel.pt",
+      "bytes": 9405392,
+      "sha256": "da4e48c9a801ba88cb491205a556a9c5b5076219901924cf25197f7c2f16254a",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol1000000.0_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol5_multilevel.pt",
+      "bytes": 9402664,
+      "sha256": "a808f75bff0e84f8d4a1d27dfaf3ca9e7453206b7d9bd6f9c86b92102ab7c794",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol5_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.pt",
+      "bytes": 9402491,
+      "sha256": "bdee4a474d14bc787961b2c40e65b5fdd8b651a7abd7e38aaace219722c65296",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.pt",
+      "bytes": 9402491,
+      "sha256": "39d9aed9aec5ad1b3281f5b9a6b0de7e68fdf83267062974e6a0d96949eff906",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol1000000.0_multilevel.pt",
+      "bytes": 9405392,
+      "sha256": "a5bf3bf164c2e24fbbad6cecb4c3690ebaef12a251c400b52141033b1a570a28",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol1000000.0_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol5_multilevel.pt",
+      "bytes": 9402664,
+      "sha256": "8e0322e514c2c807958dadce98b221017869f7d7b08abc6b056f60401e287099",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol5_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200010000tol5_multilevel.pt",
+      "bytes": 9402664,
+      "sha256": "05b7ecdfced3a6007ca08f074c75bcc9b62a3d40f49c47b90c6b128cbb600879",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200010000tol5_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol1000000.0_multilevel.pt",
+      "bytes": 9405392,
+      "sha256": "f0310d03dff8fc1b680e14faefecf60363d9c05cb261239877c9971c0e8b8bfd",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol1000000.0_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol5_multilevel.pt",
+      "bytes": 9402664,
+      "sha256": "76bb815501c3bce570da2a7c746f0a298070d8247489396f05d969e52fcdd211",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol5_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d100010000tol5_multilevel.pt",
+      "bytes": 9402664,
+      "sha256": "060572802a51c24bc78e838551a5cf3e033c7576b5b8fb39513c3cfbef73c22a",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d100010000tol5_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200010000tol5_multilevel.pt",
+      "bytes": 9402664,
+      "sha256": "4af25cad6266db6341009c3030201aa9a7058330069474940c0a9c8057499dd6",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200010000tol5_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "model_precond/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200020000tol5_multilevel.pt",
+      "bytes": 9402664,
+      "sha256": "52645291917ca513fe13e0b638b97ca50842396ec69adb9cc81e398793cb1400",
+      "source": "/Users/hxchen/mgRTE/model_precond/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200020000tol5_multilevel.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/allI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "bytes": 16597,
+      "sha256": "467d824add405b3bb4c6c552c174510e3077952a5ce0fb73f949f363257f6f23",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/allI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/allI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "b9f1039ac5c53b972d75cedc6678a61fa9c979aa1ef7e2d2032e0f8bfbe08952",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/allI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "bytes": 16706,
+      "sha256": "cd04d9df16818f018c2ce9ca2919eda1a86adc5a429de0d311ed71c66283106f",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "9b9c1672396d64e6311a53989e7e48b20a82ed7a471753342c146e56c76d8add",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "bytes": 14746,
+      "sha256": "5a4cac5ad78caa2eb08cd54c2905eca8795a0a79d369f4d0edd9f5cefdfcf145",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "aa26ffc235a1d9e1a10fbd6845fa91d2d12757b49175ffc7fb185c555d113686",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/bufferzoneI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol1000000_multilevel.png",
+      "bytes": 17695,
+      "sha256": "ee660bd868cd6f23094acf762e1ab75fd027c0828df605493ad1bd587ca66019",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol1000000_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol1000000_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "8b4d92de5f9d713324a7ef1d4a6efd8a97e149128cee6934b0619677ade121c0",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol1000000_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol5_multilevel.png",
+      "bytes": 25596,
+      "sha256": "be49b48f0e6f6d9ea28397e32574f6a9b3320cdd7f1e4473bb507c6fde9a3f05",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "70a572622b38c78e7b3723fe9173a2ac2ff54cb278e2791dd0606e21865a6322",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "bytes": 26172,
+      "sha256": "54e49b1d570ca34060fa47ea7eaf00a4e79144af53402fb9b435ba667ea3aa77",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "d219dd5a1e3fbd13bcb61f18e19ed471abe737070b4cbaaaff488fa6849533af",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol1000000_multilevel.png",
+      "bytes": 16323,
+      "sha256": "90ca17cace6ecec2d5e807b9d34932ae4daadd1a558d494b31e17eab12f2e629",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol1000000_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol1000000_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "96cfbce4e2329a947310ad325299955209ab03ced0a6a91f719a0c57fdae42d8",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol1000000_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "bytes": 24462,
+      "sha256": "69b4eb8a53bde73b9e8912095c3285ec140b7334d5065e53518ab71e50356cb7",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "4a71162803680afaaa5f7d267f7cb1726a476551484a39fdf5bd7db84245d761",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.png",
+      "bytes": 25189,
+      "sha256": "e02941d700228ebff415ea01f16457ec6211a9d4b57571e112607dfa23cd7132",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.txt",
+      "bytes": 7920,
+      "sha256": "af041077c2a041aeefaa02e9bc7303aad36874f693be1a2647af3106d08e2ada",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.png",
+      "bytes": 25949,
+      "sha256": "d3366af3fbb99a01974eeef778d204cf93b3f3afe9aab7671b22cf6fce5fa246",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.txt",
+      "bytes": 10536,
+      "sha256": "be31fe032dfcdeef907522237e77e510743f0b3f9f36f11aac0aaade77fc63cc",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol1000000_multilevel.png",
+      "bytes": 17571,
+      "sha256": "083287386713a67d8ee54af52b3017bfefd8d811b3b2dc4b3cc7484f34108f02",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol1000000_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol1000000_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "d7c332b56c9a249e1f9f7c1b42e876b636dd6e3103c1b250df0a978a26965286",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol1000000_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol5_multilevel.png",
+      "bytes": 20098,
+      "sha256": "6431c3b1b19eac80f13c3c4ab6ed1d20ebee4cf8519b901a3ba4d87845e12ce9",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "d0a574e812f1f6f8ca53dfd7f5d17d30fed5f603ee16f800aa179f2fdb18672c",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "bytes": 20243,
+      "sha256": "2b53e873d80d1047d2e83ea21d3ce38e25f36e24874329dcac2483c33a344646",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "1b29efbdae86971dc7b7093b0231057e5711a7275f4b965e8f236a6c727e809e",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol1000000_multilevel.png",
+      "bytes": 15286,
+      "sha256": "eaed88186a70887724cfecbd952fa708c8f998028c4eb71241b2561424e3cbb4",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol1000000_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol1000000_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "873fef0100d5d566c04b5f591cf6d35fd96e73fc4348dbc8db6bb07cc14eca66",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol1000000_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "bytes": 17970,
+      "sha256": "29caf755ece906358fceec05fddd16eb867f25210dd10906978f1650652d502d",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "b925d705aee6efc9946e304fe22455ca1dab5ac3b62cb2ecbb1de05dc37a94df",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/interfaceI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d100010000tol5_multilevel.png",
+      "bytes": 16835,
+      "sha256": "0248a948eda6ce4a2a942fb0653c80bed20c61b121aaeddd34092c69f8f609c1",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d100010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "8e403d260ef7c18b5529a351a1caee3c4f25132f33a0ea97a43790090abcfadc",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d100010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "bytes": 17485,
+      "sha256": "128d93b834b4a14bd0fd8535f235f07fbbe1945e9fb8937b2e7150404e2e81eb",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200010000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "bb40463b954b973a8f1c34c9dca518b9edcd5b9a320d7a9189116915f80f5d49",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200010000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "bytes": 18747,
+      "sha256": "c19b4bc32818b5e3e7324420300fd7ed48607eb978a3380ca4981fbd9187c391",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200020000tol5_multilevel.png",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "bytes": 12000,
+      "sha256": "0d7e1fe06cd0fd6ddee1f3421b49596533bc708567ab1e07f5596fc68196bc47",
+      "source": "/Users/hxchen/mgRTE/train_loss/CosineAnnealingLR_T_max100/lr0.001/transportI16N1L4batch256epoch1000d200020000tol5_multilevel.txt",
+      "materialized": true
+    },
+    {
+      "path": "docs/born_coordinate_atfps_analysis.aux",
+      "bytes": 3862,
+      "sha256": "2de7f31e1e061a126efce5dad035a7d00862740a1ccbec19b89ba2146c0b2eec",
+      "source": "/Users/hxchen/mgRTE/docs/born_coordinate_atfps_analysis.aux",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "docs/born_coordinate_atfps_analysis.log",
+      "bytes": 20552,
+      "sha256": "090c76bda9965c42a7e7e0dc53cecd23d32cfa5137d14b7122a21381d8bd3118",
+      "source": "/Users/hxchen/mgRTE/docs/born_coordinate_atfps_analysis.log",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "docs/born_coordinate_atfps_analysis.out",
+      "bytes": 2225,
+      "sha256": "29f05caeb7e0028fc568b9faf416016337e967dc856b3b81cf478c3f34abc122",
+      "source": "/Users/hxchen/mgRTE/docs/born_coordinate_atfps_analysis.out",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "docs/born_coordinate_atfps_analysis.pdf",
+      "bytes": 226216,
+      "sha256": "3ca51045a78488458307d0d1f067652c0f1c92c71bdf0dd9f94cc8f61210b029",
+      "source": "/Users/hxchen/mgRTE/docs/born_coordinate_atfps_analysis.pdf",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "docs/born_coordinate_atfps_analysis.tex",
+      "bytes": 18112,
+      "sha256": "cbeadcd925bbb8d5844c4db74b7b54e1bd38749bcec75d6027a846b94e6035dc",
+      "source": "/Users/hxchen/mgRTE/docs/born_coordinate_atfps_analysis.tex",
+      "materialized": true
+    },
+    {
+      "path": "docs/born_failure_architecture_notes.md",
+      "bytes": 3257,
+      "sha256": "4d3905d8636f25d939f6877f36a71b61075a3130d1ab7771c4a2c17a3403383f",
+      "source": "/Users/hxchen/mgRTE/docs/born_failure_architecture_notes.md",
+      "materialized": true
+    },
+    {
+      "path": "docs/training_scheme_audit.md",
+      "bytes": 3366,
+      "sha256": "908aa05a0f2697697234ada3462ff330596ac4f9e4beabac77f8aea7210f4a37",
+      "source": "/Users/hxchen/mgRTE/docs/training_scheme_audit.md",
+      "materialized": true
+    },
+    {
+      "path": "configs/born_precond.yaml",
+      "bytes": 878,
+      "sha256": "f8d8736e1bc6c79950e6ce913b75fb7c15b0960cb78782e31816458736a90350",
+      "source": "/Users/hxchen/mgRTE/configs/born_precond.yaml",
+      "materialized": true
+    },
+    {
+      "path": "configs/born_unet_precond.yaml",
+      "bytes": 875,
+      "sha256": "f126652ab19a8fe6b994fbdc7358010b525603891966f7fffee919f9652fa94d",
+      "source": "/Users/hxchen/mgRTE/configs/born_unet_precond.yaml",
+      "materialized": true
+    },
+    {
+      "path": "configs/default.yaml",
+      "bytes": 846,
+      "sha256": "fe796140e54d5053bf8b7d18e2a97ddb572ab9c086ca8ad345a6a388729bc4a9",
+      "source": "/Users/hxchen/mgRTE/configs/default.yaml",
+      "materialized": true
+    },
+    {
+      "path": "configs/pseudospectral_rte.yaml",
+      "bytes": 386,
+      "sha256": "91cbae797f5bb6b045febf6ecba2434933d515ac56bf7a87333ae358e91e7330",
+      "source": "/Users/hxchen/mgRTE/configs/pseudospectral_rte.yaml",
+      "materialized": true
+    },
+    {
+      "path": "discretized_parameters/KappaN1g0.mat",
+      "bytes": 213,
+      "sha256": "0209fa20d56e549ed28d982faeee63fff1f5f81927fbd38398ea29e292b0cafd",
+      "source": "/Users/hxchen/mgRTE/discretized_parameters/KappaN1g0.mat",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "discretized_parameters/KappaN1g02.mat",
+      "bytes": 237,
+      "sha256": "e5cb99f9eaf4feacc2d75f4c4a575b4fbfcdd23692083fbd48e576b17d287780",
+      "source": "/Users/hxchen/mgRTE/discretized_parameters/KappaN1g02.mat",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "discretized_parameters/KappaN2g0.mat",
+      "bytes": 179,
+      "sha256": "e953c65efbf52f98551d1c5d620c3a854ac29a8cc3e092b9c260a5f5a001f05e",
+      "source": "/Users/hxchen/mgRTE/discretized_parameters/KappaN2g0.mat",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "discretized_parameters/KappaN2g02.mat",
+      "bytes": 692,
+      "sha256": "5eb3b6f5d4af3c7fa7bb79a03c4e443e9f4026c43cacc6403677a55df4bc7824",
+      "source": "/Users/hxchen/mgRTE/discretized_parameters/KappaN2g02.mat",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "discretized_parameters/KappaN3g0.mat",
+      "bytes": 186,
+      "sha256": "a9caf6b0a8e22a9ff0ff008fa4e127fb4e439c46c583115b6bb9350ece0dbf58",
+      "source": "/Users/hxchen/mgRTE/discretized_parameters/KappaN3g0.mat",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "discretized_parameters/KappaN3g02.mat",
+      "bytes": 2267,
+      "sha256": "c8be9147cb8d39c932097f123fa69fdf7df023e62296bfed923a218926aeeb1a",
+      "source": "/Users/hxchen/mgRTE/discretized_parameters/KappaN3g02.mat",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "discretized_parameters/KappaN4g0.mat",
+      "bytes": 413,
+      "sha256": "6fb96bb0f28055eeffb5a5e1643fa4829377a1f11bba0975198e7214f7f2cfb6",
+      "source": "/Users/hxchen/mgRTE/discretized_parameters/KappaN4g0.mat",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "discretized_parameters/KappaN4g02.mat",
+      "bytes": 6953,
+      "sha256": "a54cde986612d918c206f32dd45e038c59a5141083db9033d67dc9924fac823e",
+      "source": "/Users/hxchen/mgRTE/discretized_parameters/KappaN4g02.mat",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "discretized_parameters/quadrature2DN1.mat",
+      "bytes": 358,
+      "sha256": "76359bc1426b1f3df741429a0d68b8daee67f244f2e375324a5fd4da7b28861a",
+      "source": "/Users/hxchen/mgRTE/discretized_parameters/quadrature2DN1.mat",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "discretized_parameters/quadrature2DN2.mat",
+      "bytes": 446,
+      "sha256": "b6454c59ce4304e7b972360ad342dc6d868ded803851f85ce8777e24d7c690b1",
+      "source": "/Users/hxchen/mgRTE/discretized_parameters/quadrature2DN2.mat",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "discretized_parameters/quadrature2DN3.mat",
+      "bytes": 559,
+      "sha256": "7f93e510aabfe54e69ec8e87467c9a8522f2df2ce170fa3214e5198f6fc319a4",
+      "source": "/Users/hxchen/mgRTE/discretized_parameters/quadrature2DN3.mat",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "discretized_parameters/quadrature2DN4.mat",
+      "bytes": 729,
+      "sha256": "a06ba9f2a3f64d670b8d7a0891aa5977dd7f86cc9ced15dda9ec1d672cc7514c",
+      "source": "/Users/hxchen/mgRTE/discretized_parameters/quadrature2DN4.mat",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "discretized_parameters/transportN1I2d2tol2.pt",
+      "bytes": 11357,
+      "sha256": "4f2ff3f8b8bd301037c12cd0e320a0bc9b75ab6ecc589426889aea9c570474fc",
+      "source": "/Users/hxchen/mgRTE/discretized_parameters/transportN1I2d2tol2.pt",
+      "materialized": false,
+      "reason": "external binary/large evidence; original retained at source path"
+    },
+    {
+      "path": "outputs/tiny_training_audit_inference.json",
+      "bytes": 853,
+      "sha256": "56a9f675cb5cd9b83dc696a5e4143dce9bafc7b3c645e2d006890ea2a7abc4fb",
+      "source": "/Users/hxchen/mgRTE/outputs/tiny_training_audit_inference.json",
+      "materialized": true
+    }
+  ]
+}

@@ -1,0 +1,45 @@
+{
+  "args": {
+    "checkpoint": "rte/workstation_runs/source_predictor_characteristic_20260926/best.pt",
+    "output": "rte/workstation_runs/source_prediction_train_error_20260926",
+    "device": "cpu",
+    "count": 16,
+    "split": "train",
+    "teacher_bank": "rte/workstation_runs/source_predictor_pilot_20260926/train.pt",
+    "compact": true
+  },
+  "complete": true,
+  "checkpoint_sha256": "62a458ec46f124b04d2dcc2b09ff62eab67a9bcd714fbd9e2e1890e057dfc664",
+  "model": "CharacteristicSourcePredictor",
+  "source_config": {
+    "output": "rte/workstation_runs/source_predictor_characteristic_20260926",
+    "size": 64,
+    "test_sizes": [
+      64,
+      128,
+      256
+    ],
+    "train_count": 128,
+    "val_count": 16,
+    "test_count": 24,
+    "validation_limit": 8,
+    "test_repeats": 3,
+    "epsilon": 0.1,
+    "seed": 2626,
+    "width": 32,
+    "blocks": 4,
+    "modes": 6,
+    "steps": 1000,
+    "supervised_steps": 0,
+    "krylov_steps": 6,
+    "eval_every": 200,
+    "batch_size": 8,
+    "lr": 0.0002,
+    "warm_start": "rte/workstation_runs/source_predictor_terminal6_20260926/best.pt",
+    "reuse_train": "rte/workstation_runs/source_predictor_pilot_20260926/train.pt",
+    "terminal_target": 1e-05,
+    "test_offset": 5000,
+    "validation_repeats": 1
+  },
+  "scope": "training/validation numerical diagnostic, NOT a timing benchmark; teacher substitutions are oracles"
+}

@@ -1,0 +1,42 @@
+{
+  "delivery_complete": true,
+  "arithmetic_receipt": "training_priority_20261004_delivery_arithmetic.json",
+  "remote_final_verification": "training_priority_20261004_final_verification.json",
+  "library_items": [
+    {
+      "file_name": "RTE_Training_Priority_Results_2026_10_04.html",
+      "library_file_id": "libfile_2230cca039848191b76bc55ca6c72b23",
+      "file_id": "file_00000000dcd481fbaf34a71ab0fbd860",
+      "current_version_number": 0,
+      "bytes": 320616,
+      "sha256": "3387c9f92e4f5b4745275a56d414a5f330ad6ee745cb5c577e2c342849292f32",
+      "library_url": "https://chatgpt.com/api/library/files/libfile_2230cca039848191b76bc55ca6c72b23/download",
+      "roundtrip_bytes_equal": true,
+      "identity_and_version_metadata_verified": true
+    },
+    {
+      "file_name": "training_priority_evidence.png",
+      "library_file_id": "libfile_d752e2224cb88191936f535823c8ac74",
+      "file_id": "file_00000000b8b881f5a193ceec41b33de1",
+      "current_version_number": 0,
+      "bytes": 227079,
+      "sha256": "a9820947c20f64b89c60cd38231f9434108a20b36731e4dac05a78e658167e1c",
+      "library_url": "https://chatgpt.com/api/library/files/libfile_d752e2224cb88191936f535823c8ac74/download",
+      "roundtrip_bytes_equal": true,
+      "identity_and_version_metadata_verified": true
+    },
+    {
+      "file_name": "training_priority_evidence.svg",
+      "library_file_id": "libfile_b522695dbcb48191823c1f0520aeda9e",
+      "file_id": "file_0000000072f481fbae59b8457cd9fe55",
+      "current_version_number": 0,
+      "bytes": 126887,
+      "sha256": "e2c4e9c0d92ab9ac7ad2957ca25db2b188bdcec62d3f6418b578b915c22cd7e6",
+      "library_url": "https://chatgpt.com/api/library/files/libfile_b522695dbcb48191823c1f0520aeda9e/download",
+      "roundtrip_bytes_equal": true,
+      "identity_and_version_metadata_verified": true
+    }
+  ],
+  "scientific_work_rerun": false,
+  "remaining_blockers": []
+}

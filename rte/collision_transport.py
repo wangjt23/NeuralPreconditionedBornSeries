@@ -43,6 +43,7 @@ class CollisionTransportPreconditioner(nn.Module):
         self._prepared = None
         self._prepared_signature = None
         self._prepared_filters = None
+        self._prepared_inputs = None
         if self.learned:
             self.shift_net = nn.Sequential(nn.Linear(8, width), nn.SiLU(), nn.Linear(width, depth))
             nn.init.zeros_(self.shift_net[-1].weight)
@@ -61,11 +62,15 @@ class CollisionTransportPreconditioner(nn.Module):
         phase_eigenvalues = torch.fft.fft(kernel).real
         return (self.rte.sigma_t - self.rte.sigma_s * phase_eigenvalues.view(1, -1, 1, 1))
 
-    def _signature(self):
-        values = (self.rte.sigma_t, self.rte.sigma_s, self.rte.phase_matrix,
+    def _cache_inputs(self):
+        return (self.rte.sigma_t, self.rte.sigma_s, self.rte.phase_matrix,
                   self.rte.weights, self.rte.kx, self.rte.ky, self.rte.directions, *self.parameters())
+
+    def _signature(self):
+        values = self._cache_inputs()
         return ((self.rte.dx, self.rte.anisotropy_g, self.shift_factor, self.gain_scale,
-                 self.protect_scalar, self.macro_harmonics, self.stage_factors, self.spatial_gains),
+                 self.protect_scalar, self.macro_harmonics, self.stage_factors, self.spatial_gains,
+                 getattr(self.rte, "setup_generation", 0)),
                 tuple((x.data_ptr(), x._version, str(x.device), x.dtype, tuple(x.shape)) for x in values))
 
     def _fields(self):
@@ -146,6 +151,9 @@ class CollisionTransportPreconditioner(nn.Module):
                 fields[0], self.rte._stream_symbol(fields[0].shape[0], self.rte.complex_dtype, fields[0].device))
             self._prepared = fields, macro
             self._prepared_signature = signature
+            # Keep source tensors alive until refresh: this also prevents
+            # address reuse for direct replacements outside rte.setup().
+            self._prepared_inputs = self._cache_inputs()
         return self._prepared
 
     @torch.no_grad()

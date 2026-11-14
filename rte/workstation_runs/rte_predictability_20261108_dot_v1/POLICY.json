@@ -1,0 +1,11 @@
+{
+  "scope": "Existing RTE project controlled predictability, low-rank controls and harder-structured scenes",
+  "new_neural_training": false,
+  "resources": "One idle existing FWI GPU; one CPU thread; no preemption; stop own worker on competitor",
+  "data": "Existing128 train teacher physical IDs, fixed96/32 split;16 reused development; reserved9626 untouched",
+  "stages": [
+    "observable prefix1 labels and input counterfactuals",
+    "POD/ridge same-space comparison",
+    "bounded hard structured regime screen"
+  ]
+}

@@ -1,0 +1,63 @@
+{
+  "original_ct_failed_media": 27,
+  "corrected_ct_failed_media": 2,
+  "changed_source_loss_indices": [
+    4,
+    7,
+    15,
+    18,
+    19,
+    20,
+    35,
+    36,
+    37,
+    38,
+    39,
+    76,
+    113,
+    119,
+    120,
+    136,
+    146,
+    157,
+    178,
+    179,
+    191,
+    214,
+    218,
+    219,
+    237,
+    238,
+    245,
+    246
+  ],
+  "max_cached_uncached_relative": 6.043622988727293e-07,
+  "n32_timing_status": "shared GPU: another training process observed; do not use as uncontended performance claim",
+  "identity_audit": {
+    "materials": 5440,
+    "overlaps": [],
+    "n16_source_rechecks": 96,
+    "max_source_loss_difference": 103621.04572264478,
+    "max_paired_evaluator_source_difference": 1.7881393432617188e-07,
+    "max_bank_loss_difference": 1.5133991837501526e-09,
+    "original_source_mismatches": [
+      {
+        "seed": 2,
+        "index": 21
+      },
+      {
+        "seed": 2,
+        "index": 24
+      },
+      {
+        "seed": 3,
+        "index": 23
+      },
+      {
+        "seed": 3,
+        "index": 31
+      }
+    ],
+    "scope": "exact stored coefficient tensor equality; no claim of distributional independence or geometry equivalence"
+  }
+}

@@ -1,0 +1,509 @@
+{
+  "snapshots": [
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id0_strong_source.pt",
+      "sha256": "b1d8a830a27b25f52b82f8e9285a07b30a1fdf5ff25b8a47d8c7086acdbbbcc2",
+      "field_sha256": "94cc52f5fe4ba322b57f0298a022b9281b19e7d6c38a3345ab12d61ea545268f",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id0_source_teacher_column.pt",
+      "sha256": "ed003c35539b7dc38a683d92943d66745970b89c48e055d21f974b963cf35842",
+      "field_sha256": "c5949b8c53cf28e5f20e5e9f0e727c04bc51ac8886501c2138a2410dd65b40e6",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id0_source_teacher_column_line.pt",
+      "sha256": "3884b645a8e8f7fe6ee760f26686f6c158b2b3bd86f987dcd1c26f5d6878057c",
+      "field_sha256": "1b4391677e78200111894d2ea87dbecbbdce9777bdc80479cdbeaab65bfa2a55",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id0_source_reference_column.pt",
+      "sha256": "064947cc75d1ca34aa4f339af1af5752f7550893c82a147c6ec85edf7fa82887",
+      "field_sha256": "462313020f9c47544e657362cd31d1c1087f0ac0ca0073e1e18cf140027e8679",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id0_source_reference_column_line.pt",
+      "sha256": "00b03a650c54a36430248faf644272f69bba93f59b1ec3e315a5e02641b178b6",
+      "field_sha256": "4ccf9c6d39a640d15812fcc2451751bbc3237da67dc260d64d15d0566eef9407",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id0_one_strong_action_defect_teacher_column.pt",
+      "sha256": "ed003c35539b7dc38a683d92943d66745970b89c48e055d21f974b963cf35842",
+      "field_sha256": "c5949b8c53cf28e5f20e5e9f0e727c04bc51ac8886501c2138a2410dd65b40e6",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id0_one_strong_action_defect_teacher_column_line.pt",
+      "sha256": "de1e928ea43eb5c9aa18a554a70872e5d82c40dcb09ed79c1eda4b8385c3f66a",
+      "field_sha256": "b033334996b8a03af738ff044f9468c59814a6f3f3f3970a375d1526f4a38267",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id0_one_strong_action_defect_reference_column.pt",
+      "sha256": "064947cc75d1ca34aa4f339af1af5752f7550893c82a147c6ec85edf7fa82887",
+      "field_sha256": "462313020f9c47544e657362cd31d1c1087f0ac0ca0073e1e18cf140027e8679",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id0_one_strong_action_defect_reference_column_line.pt",
+      "sha256": "3621597a949d24ca2ce83a9fefc9ecaaefee8a65d59299debb99c00c22654e67",
+      "field_sha256": "ad65745703e62675c3fca75917c263bf8a27b50feaa11b014362b190d07c7872",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id3_strong_source.pt",
+      "sha256": "93cc442b17a0e99ec5877dad3fae25acd4e0fdc37903e8e186f64f18002639c3",
+      "field_sha256": "1659f41458d69a9cc0ea9043d738c39b2770dea14c5dce7026cdd0ac990d962c",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id3_source_teacher_column.pt",
+      "sha256": "bed7cb2c707cf63034668e0fc9243b14a5634cdda40203e3feabae0165292402",
+      "field_sha256": "cd65e7ae11d7c932ca1f273f2bf8db85565255098463d28cc3e5fb01fb2975d8",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id3_source_teacher_column_line.pt",
+      "sha256": "f9867e760e207c3a458fa18a499e66893b861ed601dddf08c1b947f104ddb23a",
+      "field_sha256": "026b83e3e0b2830ebc0ae828034c1f5dbb5832be647b2a50fe04d7e181d90bdb",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id3_source_reference_column.pt",
+      "sha256": "3956580f75c993198e74123fbfe71fdaf810e342feb5e70799ba3f7cd83c3a89",
+      "field_sha256": "f746316f5b5da43a419f2bf690b27644503f8a7eac8f175228a893cdcea4a166",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id3_source_reference_column_line.pt",
+      "sha256": "2c1423303b89dc62ec41a281c56b0f9859c698443b466ae981dc750987d714a3",
+      "field_sha256": "cc9d46b6e2dab9ebd5dfc8cab99c8aa78542bc25c55ed5172148eb628a325b55",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id3_one_strong_action_defect_teacher_column.pt",
+      "sha256": "bed7cb2c707cf63034668e0fc9243b14a5634cdda40203e3feabae0165292402",
+      "field_sha256": "cd65e7ae11d7c932ca1f273f2bf8db85565255098463d28cc3e5fb01fb2975d8",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id3_one_strong_action_defect_teacher_column_line.pt",
+      "sha256": "c84e7d28a99be440abb8706e6d2430400c0b427e5ab9b91db6a6333bd469771d",
+      "field_sha256": "43f5b1ecd1eb528b6da7032707920d06e1ceccdc72ae15af54f528f44c08640b",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id3_one_strong_action_defect_reference_column.pt",
+      "sha256": "3956580f75c993198e74123fbfe71fdaf810e342feb5e70799ba3f7cd83c3a89",
+      "field_sha256": "f746316f5b5da43a419f2bf690b27644503f8a7eac8f175228a893cdcea4a166",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n128_id3_one_strong_action_defect_reference_column_line.pt",
+      "sha256": "d673fffa1c406494164bd115f53f11d6a4f32a8d69c8268c2717bc5e6fa40cb1",
+      "field_sha256": "5d0af5365b192297146c0e9807dbe24ed26e63f9d777efcfbbd59d81fb03570c",
+      "bytes": 3146972,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        128,
+        128
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id0_strong_source.pt",
+      "sha256": "9a1c7952fab29e29068dc4c6a2f5d637b12781fc1e6cf41e67f79a5b0d240cc8",
+      "field_sha256": "8d8f6a75e24d67c073e237e0afdf84f8ef2d78f88880385e9f9208ee3d732d8c",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id0_source_teacher_column.pt",
+      "sha256": "7d4686da5dbfbf7f26d85ead3f1483b976564f5c0094d1460ea61b9971e5f9d2",
+      "field_sha256": "7d1f9911b58afa464e18142cf46f186623eedcdbf81808c953840879eac12c27",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id0_source_teacher_column_line.pt",
+      "sha256": "fde97e21b55b7de992bd64868442deff35ddc0b3b7c2be5cbd2c014efcb21a75",
+      "field_sha256": "a1b9989b49688d3868eec512f7f6b7506f0ef37f27d19b775ee397d36f628916",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id0_source_reference_column.pt",
+      "sha256": "4bc4c6d0a442dbc26cdcad4d0f689ce033a7303936ef3c4a3be3ad7fe22f877a",
+      "field_sha256": "49b42547dc4a113ba03b1be747e16d3b9fbfe91651ea008986a3c672fabed0d2",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id0_source_reference_column_line.pt",
+      "sha256": "50957f95d42489ad538f19e7a4578d2850a93ec026b7f5aee7073273473d0ed9",
+      "field_sha256": "25995e1e91f9332ea9d45d2665607636d07b9d7f502ac9aa6dc2d70715cc25b5",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id0_one_strong_action_defect_teacher_column.pt",
+      "sha256": "7d4686da5dbfbf7f26d85ead3f1483b976564f5c0094d1460ea61b9971e5f9d2",
+      "field_sha256": "7d1f9911b58afa464e18142cf46f186623eedcdbf81808c953840879eac12c27",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id0_one_strong_action_defect_teacher_column_line.pt",
+      "sha256": "fef4ef7dcf55d38db2dfabfc60d600c8890eb82d8d75d9a600b2d700215a41e6",
+      "field_sha256": "14a1ca92a9d6d25548b5ff5fb33e5a7e57094171b4240bdf44e1eaae58dee188",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id0_one_strong_action_defect_reference_column.pt",
+      "sha256": "4bc4c6d0a442dbc26cdcad4d0f689ce033a7303936ef3c4a3be3ad7fe22f877a",
+      "field_sha256": "49b42547dc4a113ba03b1be747e16d3b9fbfe91651ea008986a3c672fabed0d2",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id0_one_strong_action_defect_reference_column_line.pt",
+      "sha256": "736895cb71150d1217da6b58d765aed9005a53d32350f8f8cf5410a7bb18b78d",
+      "field_sha256": "436cbfd5a20f1057b77a53a3c30a0eeac4858ad4c8032567e2205f53e28268a2",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id3_strong_source.pt",
+      "sha256": "0d94a38e89b727f95299e617da289a591bfa06fbe3e1ea6d5cdb1d850bedcd19",
+      "field_sha256": "937d71bcb27807a44ba6f77b08c4c097205b87f9be3f99013e1a6e2b28abb5f3",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id3_source_teacher_column.pt",
+      "sha256": "52c5da7fb7ef558990b4100e3e2a52d9369b3a5b90f2eb6863861d59816d1a78",
+      "field_sha256": "6171fcaaecf86ef2c6de9127dfe6cac752d54171e7bfb7c70b97b9181993cba6",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id3_source_teacher_column_line.pt",
+      "sha256": "fb6ec617f423bfb79f8ec66cc1073509d1509296e4fc291535baa9fde0f8e344",
+      "field_sha256": "4c8d75fccbf55779b1d17ccd921e06759d20b7fd9dcf8619dcdeb2196e5d792b",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id3_source_reference_column.pt",
+      "sha256": "6b925931824d0422ffd3efafa03deb6bfe450537a9cf68d660d611dcd1fd020c",
+      "field_sha256": "e32ef73e15add642122b410e8e4d56da8b316f8b686eb24ab7a145c6910a0ace",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id3_source_reference_column_line.pt",
+      "sha256": "958556e70f772daa4f056c3cc08776b454bc401c041f3dc1cfffaee2aa08ae7c",
+      "field_sha256": "35987180c8dbb771a574928c9b94aed0fdfddae17d83d1fecf3e3bd6850ac287",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id3_one_strong_action_defect_teacher_column.pt",
+      "sha256": "52c5da7fb7ef558990b4100e3e2a52d9369b3a5b90f2eb6863861d59816d1a78",
+      "field_sha256": "6171fcaaecf86ef2c6de9127dfe6cac752d54171e7bfb7c70b97b9181993cba6",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id3_one_strong_action_defect_teacher_column_line.pt",
+      "sha256": "cbd5bf808fcae074174a84b0aad4e033b0495b1166799fb981c9c4ed91af3b84",
+      "field_sha256": "f37b2b87ece4c876168036652ba898ab3d86445bc8e8bb6824178578508661f3",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id3_one_strong_action_defect_reference_column.pt",
+      "sha256": "6b925931824d0422ffd3efafa03deb6bfe450537a9cf68d660d611dcd1fd020c",
+      "field_sha256": "e32ef73e15add642122b410e8e4d56da8b316f8b686eb24ab7a145c6910a0ace",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    },
+    {
+      "path": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobD/candidates/n256_id3_one_strong_action_defect_reference_column_line.pt",
+      "sha256": "a686c3effab5befd31713dc62b1f35f2b88f9942477781e698d3e5c547f80a5a",
+      "field_sha256": "fc66a851259e192e8b5b8e2d2584c1b800e671f682faf4f68c85d13d88d8284c",
+      "bytes": 12584156,
+      "dtype": "torch.complex128",
+      "shape": [
+        1,
+        12,
+        256,
+        256
+      ],
+      "saved_before_physical_check": true
+    }
+  ],
+  "total_bytes": 283160304
+}

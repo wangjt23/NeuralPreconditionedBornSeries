@@ -1,0 +1,42 @@
+{
+  "selected_variant": "SumStableAlgebraicTSA",
+  "scope": "one isolated summed-precision candidate, all previous48 checks, no adaptive candidate search",
+  "parity_limits": {
+    "torch.complex64": 0.0001,
+    "torch.complex128": 1e-09
+  },
+  "require_finite": true,
+  "require_expected_fft_counts": true,
+  "case_count": 48,
+  "development_ids": [
+    0,
+    3
+  ],
+  "grids": [
+    64,
+    128,
+    256
+  ],
+  "depths": [
+    1,
+    16
+  ],
+  "probe_names": [
+    "existing_physical_source",
+    "deterministic_grazing_nyquist"
+  ],
+  "reserved_seed_touched": false,
+  "full_solves_allowed_only_if_all_48_pass": true,
+  "dtype_policy": "G/scatter/local/R/outerA input dtype; sum and accumulation/output complex128; cast accumulator to input dtype for outerA; original FP32 inverse unchanged",
+  "expected_depth16_transform_calls": {
+    "original": 126,
+    "candidate": 94,
+    "extra_FP64_for_complex64_input": 0
+  },
+  "selection_reason": "Large measured outer accumulation rounding difference; this removes stage/outer addition rounding with no extra FP64 FFT or inverse cache. Native reference action rounding remains.",
+  "code_sha256": {
+    "code/sum_stable_tsa.py": "274c94dd0ca5fa6e36ffd51ab9b0036a2a7df32b40041d3e9200457378460b6b",
+    "code/check_sum_stable_tsa.py": "30acea5481c605ff7fcd1655784638a6e8c6ebfba2368e86d6e8e8dc136ece42",
+    "code/diagnose_precision_final.py": "616de8fc569411e8829fda37b05de5a8641a2fc7148a728d31b75d53f3606cee"
+  }
+}

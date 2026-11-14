@@ -1,0 +1,508 @@
+{
+  "complete": true,
+  "pid": 2233979,
+  "method": "recompute",
+  "n": 128,
+  "k": 0,
+  "source_independent": true,
+  "original_residual_tolerance": 1e-10,
+  "max_repairs": 3,
+  "threads": 1,
+  "cpu_affinity": [
+    0
+  ],
+  "CUDA_disabled": true,
+  "no_physical_source": true,
+  "no_dense_inverse": true,
+  "cost": {
+    "physical_setup_seconds": 0.012247726088389754,
+    "derivative_tree_and_bound_seconds": 0.018236477160826325,
+    "factor_seconds": 2.793175633996725,
+    "reference_read_seconds": 0.006505304016172886,
+    "raw_defect_diagnostic_seconds": 0.12299699103459716
+  },
+  "resource_at_start": [
+    "    PID PSR %CPU COMMAND",
+    "2233979   0 96.8 /data1/software/miniconda3/bin/python -u run_recompute.py recompute",
+    "2224141  17  7.0 [kworker/u144:0-events_power_efficient]",
+    "2233608   6  4.1 [kworker/6:1-inode_switch_wbs]",
+    "2233615   5  3.7 [kworker/5:0-inode_switch_wbs]",
+    "2233619   5  3.5 [kworker/5:1-inode_switch_wbs]",
+    "2233622   7  3.4 [kworker/7:1-inode_switch_wbs]",
+    "2233578  34  3.3 [kworker/34:1-inode_switch_wbs]",
+    "2233627   6  3.3 [kworker/6:2-inode_switch_wbs]",
+    "2233646   6  3.2 [kworker/6:4-inode_switch_wbs]",
+    "2233623   5  3.1 [kworker/5:2-inode_switch_wbs]",
+    "2233636   7  3.1 [kworker/7:4-inode_switch_wbs]",
+    "2233598   0  3.0 [kworker/0:0-inode_switch_wbs]",
+    "2233654   6  3.0 [kworker/6:5-inode_switch_wbs]",
+    "2233518  27  2.9 [kworker/27:1-inode_switch_wbs]",
+    "2233545   8  2.9 [kworker/8:2-inode_switch_wbs]",
+    "2233547  27  2.9 [kworker/27:6-mm_percpu_wq]",
+    "2233534   8  2.9 [kworker/8:1-inode_switch_wbs]",
+    "2233605   4  2.9 [kworker/4:0-mm_percpu_wq]",
+    "2233522  26  2.9 [kworker/26:3-inode_switch_wbs]"
+  ],
+  "rss": {
+    "before_physical": 391557120,
+    "after_physical": 415203328,
+    "after_factor": 435470336,
+    "after_applications": 436019200
+  },
+  "source_hashes": {
+    "operator_green.py": "bffd49c9cc169656ddac5efe61a70836d515ce20a31e7fd48d8c0cb226bb2390",
+    "run_recompute.py": "252b34c4c0b0cfe69f8a8258793df7b6236ca133575a788393b3ac6652ab59bc",
+    "prior_permutation_driver.py": "4507fe32246b091cc30d7e76961d12f08557fdfbf6a4c39f44e111e22d762198"
+  },
+  "plan_sha256": "2987d71ef57cfab88ac257c85780193424f38e0dabc59b9a44110cde9d9c3715",
+  "background": {
+    "axis": 0,
+    "total_sha256": "2f3f2685c7b7e79bf0fd0f4721aeb10a7afda17a0fbfe5d65d69de752ee441c2",
+    "scatter_sha256": "ca41ae0109c4fc04e392ebe57a1f7955d753f6667efa430a49595d92119dbb45",
+    "score": 16470.990234375
+  },
+  "alpha": 0.04996158451422161,
+  "derivative_sha256": "b929406e6df55e68851a75528aa30b8815ef55e7f1ca0449b6fb33aae52140e3",
+  "tree_ranks": [
+    33,
+    14,
+    8,
+    6,
+    6,
+    8,
+    6,
+    6,
+    14,
+    8,
+    6,
+    6,
+    8,
+    6,
+    6
+  ],
+  "model_q_bound": 0.0003381829210819728,
+  "factor_bytes": 7179312,
+  "factor_records": [
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 0,
+      "seconds": 0.01049531507305801
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 8,
+      "seconds": 0.0004996678326278925
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 16,
+      "i": 0,
+      "rank": 6,
+      "Schur_dimension": 72,
+      "column_chunk": 12,
+      "own_seconds": 0.006325172958895564,
+      "Schur_norm": 12.773936831275844
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 16,
+      "seconds": 0.00047367392107844353
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 24,
+      "seconds": 0.0006155171431601048
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 16,
+      "i": 16,
+      "rank": 6,
+      "Schur_dimension": 72,
+      "column_chunk": 12,
+      "own_seconds": 0.005932340864092112,
+      "Schur_norm": 12.700916254175707
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 32,
+      "i": 0,
+      "rank": 8,
+      "Schur_dimension": 96,
+      "column_chunk": 12,
+      "own_seconds": 0.032154665095731616,
+      "Schur_norm": 27.77673174815711
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 32,
+      "seconds": 0.0007502019871026278
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 40,
+      "seconds": 0.0006284979172050953
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 16,
+      "i": 32,
+      "rank": 6,
+      "Schur_dimension": 72,
+      "column_chunk": 12,
+      "own_seconds": 0.00596624705940485,
+      "Schur_norm": 9.678188624719409
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 48,
+      "seconds": 0.0007337180431932211
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 56,
+      "seconds": 0.0006328290328383446
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 16,
+      "i": 48,
+      "rank": 6,
+      "Schur_dimension": 72,
+      "column_chunk": 12,
+      "own_seconds": 0.0059365148190408945,
+      "Schur_norm": 9.146491245641013
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 32,
+      "i": 32,
+      "rank": 8,
+      "Schur_dimension": 96,
+      "column_chunk": 12,
+      "own_seconds": 0.0318336570635438,
+      "Schur_norm": 11.811637520482028
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 64,
+      "i": 0,
+      "rank": 14,
+      "Schur_dimension": 168,
+      "column_chunk": 12,
+      "own_seconds": 0.2250107079744339,
+      "Schur_norm": 56.08148576744898
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 64,
+      "seconds": 0.00048369099386036396
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 72,
+      "seconds": 0.0006332350894808769
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 16,
+      "i": 64,
+      "rank": 6,
+      "Schur_dimension": 72,
+      "column_chunk": 12,
+      "own_seconds": 0.0059763770550489426,
+      "Schur_norm": 9.146491245641013
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 80,
+      "seconds": 0.0006831679493188858
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 88,
+      "seconds": 0.0006197378970682621
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 16,
+      "i": 80,
+      "rank": 6,
+      "Schur_dimension": 72,
+      "column_chunk": 12,
+      "own_seconds": 0.005938437068834901,
+      "Schur_norm": 9.35985638869757
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 32,
+      "i": 64,
+      "rank": 8,
+      "Schur_dimension": 96,
+      "column_chunk": 12,
+      "own_seconds": 0.03177329897880554,
+      "Schur_norm": 11.32522674872302
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 96,
+      "seconds": 0.0008548027835786343
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 104,
+      "seconds": 0.0006037650164216757
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 16,
+      "i": 96,
+      "rank": 6,
+      "Schur_dimension": 72,
+      "column_chunk": 12,
+      "own_seconds": 0.005971722071990371,
+      "Schur_norm": 12.408896467266844
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 112,
+      "seconds": 0.0006641368381679058
+    },
+    {
+      "kind": "leaf",
+      "n": 8,
+      "i": 120,
+      "seconds": 0.0006338150706142187
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 16,
+      "i": 112,
+      "rank": 6,
+      "Schur_dimension": 72,
+      "column_chunk": 12,
+      "own_seconds": 0.005974168190732598,
+      "Schur_norm": 12.773936831275838
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 32,
+      "i": 96,
+      "rank": 8,
+      "Schur_dimension": 96,
+      "column_chunk": 12,
+      "own_seconds": 0.03188838204368949,
+      "Schur_norm": 27.242662105681994
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 64,
+      "i": 64,
+      "rank": 14,
+      "Schur_dimension": 168,
+      "column_chunk": 12,
+      "own_seconds": 0.22557652718387544,
+      "Schur_norm": 55.374990423248505
+    },
+    {
+      "kind": "streamed_Schur",
+      "n": 128,
+      "i": 0,
+      "rank": 33,
+      "Schur_dimension": 396,
+      "column_chunk": 12,
+      "own_seconds": 2.1380733649712056,
+      "Schur_norm": 320.6069141523503
+    }
+  ],
+  "factor_phase_peak_RSS_bytes": 435470336,
+  "probe_sha256": "2255431f70b897ed7c35acd4da84906bca03a89c5af0c9c0447077ab470181c8",
+  "applications": [
+    {
+      "repeat": 0,
+      "checked_inverse_seconds": 0.24513797601684928,
+      "independent_check_seconds": 0.0033340221270918846,
+      "status": {
+        "success": true,
+        "corrections": 1,
+        "residual_trace": [
+          [
+            0.0,
+            7.909636973861025e-08,
+            8.020027748326603e-08,
+            1.8200230031413238e-07,
+            7.909636918266314e-08
+          ],
+          [
+            0.0,
+            8.42640357443986e-15,
+            7.95774652509101e-15,
+            1.9792959495265677e-14,
+            8.448306016397765e-15
+          ]
+        ]
+      },
+      "original_relative": [
+        0.0,
+        8.42640357443986e-15,
+        7.95774652509101e-15,
+        1.9792959495265677e-14,
+        8.448306016397765e-15
+      ],
+      "relative_to_cached": [
+        0.0,
+        1.0621834926361717e-14,
+        5.562331587060877e-15,
+        1.0630500469845872e-14,
+        9.464722115564592e-15
+      ],
+      "zero": true,
+      "tiny": true,
+      "passed": true
+    },
+    {
+      "repeat": 1,
+      "checked_inverse_seconds": 0.24269672809168696,
+      "independent_check_seconds": 0.003160967957228422,
+      "status": {
+        "success": true,
+        "corrections": 1,
+        "residual_trace": [
+          [
+            0.0,
+            7.909636973861025e-08,
+            8.020027748326603e-08,
+            1.8200230031413238e-07,
+            7.909636918266314e-08
+          ],
+          [
+            0.0,
+            8.42640357443986e-15,
+            7.95774652509101e-15,
+            1.9792959495265677e-14,
+            8.448306016397765e-15
+          ]
+        ]
+      },
+      "original_relative": [
+        0.0,
+        8.42640357443986e-15,
+        7.95774652509101e-15,
+        1.9792959495265677e-14,
+        8.448306016397765e-15
+      ],
+      "relative_to_cached": [
+        0.0,
+        1.0621834926361717e-14,
+        5.562331587060877e-15,
+        1.0630500469845872e-14,
+        9.464722115564592e-15
+      ],
+      "zero": true,
+      "tiny": true,
+      "passed": true
+    },
+    {
+      "repeat": 2,
+      "checked_inverse_seconds": 0.24198938207700849,
+      "independent_check_seconds": 0.0031119368504732847,
+      "status": {
+        "success": true,
+        "corrections": 1,
+        "residual_trace": [
+          [
+            0.0,
+            7.909636973861025e-08,
+            8.020027748326603e-08,
+            1.8200230031413238e-07,
+            7.909636918266314e-08
+          ],
+          [
+            0.0,
+            8.42640357443986e-15,
+            7.95774652509101e-15,
+            1.9792959495265677e-14,
+            8.448306016397765e-15
+          ]
+        ]
+      },
+      "original_relative": [
+        0.0,
+        8.42640357443986e-15,
+        7.95774652509101e-15,
+        1.9792959495265677e-14,
+        8.448306016397765e-15
+      ],
+      "relative_to_cached": [
+        0.0,
+        1.0621834926361717e-14,
+        5.562331587060877e-15,
+        1.0630500469845872e-14,
+        9.464722115564592e-15
+      ],
+      "zero": true,
+      "tiny": true,
+      "passed": true
+    }
+  ],
+  "application_phase_peak_RSS_bytes": 436113408,
+  "raw_approximate_relative": [
+    1.781783122438104e-12,
+    1.599562753953366e-12,
+    5.3509295663520325e-12
+  ],
+  "raw_original_relative": [
+    7.909636973861025e-08,
+    8.020027748326603e-08,
+    1.8200230031413238e-07
+  ],
+  "call_count": {
+    "node_visits": 341,
+    "leaf_visits": 256,
+    "leaf_rhs_columns": 768,
+    "seconds": 0.12107918201945722
+  },
+  "counted_vs_uninstrumented_relative": 0.0,
+  "process_seconds": 6.777567309094593,
+  "total_peak_RSS_bytes": 436314112,
+  "current_RSS_end": 436314112,
+  "resource_at_end": [
+    "    PID PSR %CPU COMMAND",
+    "2233979   0 96.9 /data1/software/miniconda3/bin/python -u run_recompute.py recompute",
+    "2224141  17  7.0 [kworker/u144:0-events_power_efficient]",
+    "2233608   6  4.0 [kworker/6:1-inode_switch_wbs]",
+    "2233615   5  3.6 [kworker/5:0-inode_switch_wbs]",
+    "2233619   5  3.4 [kworker/5:1-inode_switch_wbs]",
+    "2233622   7  3.4 [kworker/7:1-inode_switch_wbs]",
+    "2233578  34  3.3 [kworker/34:1-inode_switch_wbs]",
+    "2233627   6  3.2 [kworker/6:2-inode_switch_wbs]",
+    "2233646   6  3.1 [kworker/6:4-inode_switch_wbs]",
+    "2233623   5  3.0 [kworker/5:2-inode_switch_wbs]",
+    "2233636   7  3.0 [kworker/7:4-inode_switch_wbs]",
+    "2233598   0  2.9 [kworker/0:0-inode_switch_wbs]",
+    "2233654   6  2.9 [kworker/6:5-inode_switch_wbs]",
+    "2233518  27  2.9 [kworker/27:1-inode_switch_wbs]",
+    "2233545   8  2.9 [kworker/8:2-inode_switch_wbs]",
+    "2233547  27  2.8 [kworker/27:6-mm_percpu_wq]",
+    "2233534   8  2.8 [kworker/8:1-inode_switch_wbs]",
+    "2233605   4  2.8 [kworker/4:0-mm_percpu_wq]",
+    "2233522  26  2.8 [kworker/26:3-inode_switch_wbs]"
+  ],
+  "production_unchanged": true,
+  "E_unchanged": true
+}

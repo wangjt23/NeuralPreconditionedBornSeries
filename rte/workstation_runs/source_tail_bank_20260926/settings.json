@@ -1,0 +1,17 @@
+{
+  "args": {
+    "teacher_bank": "rte/workstation_runs/source_predictor_pilot_20260926/train.pt",
+    "output": "rte/workstation_runs/source_tail_bank_20260926",
+    "prefix_steps": 4,
+    "g": 0.65,
+    "device": "cuda"
+  },
+  "complete": true,
+  "training_cases": 128,
+  "eligible": 112,
+  "seconds": 13.681705172173679,
+  "scope": "new TRAINING targets only; no trained tail network and no speed claim",
+  "accuracy": "FP32 stored problem promoted unchanged; A(error)=tail RHS checked relative to ORIGINAL source",
+  "prefix": "TSA8 with balanced analytical initialization; four FGMRES steps or earlier physical convergence",
+  "next_design": "one learned search direction inside continuing FGMRES, no restart and no unconditional inference on solved cases"
+}

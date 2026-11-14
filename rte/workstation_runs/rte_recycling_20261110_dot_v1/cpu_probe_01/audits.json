@@ -1,0 +1,72 @@
+[
+  {
+    "repeat": -1,
+    "method": "native",
+    "batch_accepted_seconds": 24.310103892814368,
+    "batch_elapsed_seconds_including_receipt_io": 26.019923401996493,
+    "setup_seconds": 0.6460685860365629,
+    "batch_complete_seconds": 24.95617247885093,
+    "audit_seconds": 0.00010968395508825779,
+    "rank": 0,
+    "rejected": 0,
+    "orthogonality_defect": 0.0,
+    "AU_C_max": 0.0,
+    "bytes": 0
+  },
+  {
+    "repeat": -1,
+    "method": "krylov_init",
+    "batch_accepted_seconds": 24.978642167290673,
+    "batch_elapsed_seconds_including_receipt_io": 25.136427984107286,
+    "setup_seconds": 0.6460685860365629,
+    "batch_complete_seconds": 25.624710753327236,
+    "audit_seconds": 0.13034758204594254,
+    "rank": 15,
+    "rejected": 0,
+    "orthogonality_defect": 2.070334209162435e-14,
+    "AU_C_max": 4.3066189104761123e-13,
+    "bytes": 94371840
+  },
+  {
+    "repeat": -1,
+    "method": "solution_init",
+    "batch_accepted_seconds": 24.07523814914748,
+    "batch_elapsed_seconds_including_receipt_io": 25.18612937699072,
+    "setup_seconds": 0.6460685860365629,
+    "batch_complete_seconds": 24.721306735184044,
+    "audit_seconds": 0.027535164961591363,
+    "rank": 3,
+    "rejected": 0,
+    "orthogonality_defect": 8.043073763569411e-14,
+    "AU_C_max": 4.873799769877796e-13,
+    "bytes": 18874368
+  },
+  {
+    "repeat": -1,
+    "method": "gcro",
+    "batch_accepted_seconds": 25.516850687097758,
+    "batch_elapsed_seconds_including_receipt_io": 26.985076454933733,
+    "setup_seconds": 0.6460685860365629,
+    "batch_complete_seconds": 26.16291927313432,
+    "audit_seconds": 0.13139285589568317,
+    "rank": 15,
+    "rejected": 0,
+    "orthogonality_defect": 1.8054765714192447e-14,
+    "AU_C_max": 4.306837750307016e-13,
+    "bytes": 94371840
+  },
+  {
+    "repeat": -1,
+    "method": "capture_control",
+    "batch_accepted_seconds": 24.605669630225748,
+    "batch_elapsed_seconds_including_receipt_io": 26.194200388155878,
+    "setup_seconds": 0.6460685860365629,
+    "batch_complete_seconds": 25.25173821626231,
+    "audit_seconds": 4.237517714500427e-05,
+    "rank": 0,
+    "rejected": 0,
+    "orthogonality_defect": 0.0,
+    "AU_C_max": 0.0,
+    "bytes": 0
+  }
+]

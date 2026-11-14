@@ -1,0 +1,33 @@
+{
+  "args": {
+    "datasets": [
+      "rte/workstation_runs/sct4_krylov_n64_seed402_20260912/validation.pt",
+      "rte/workstation_runs/sct4_krylov_n128_seed402_20260912/validation.pt"
+    ],
+    "specs": "rte/transport_structure_specs.json",
+    "count": 4,
+    "output": "rte/workstation_runs/transport_structure_audit_20260913"
+  },
+  "specs": [
+    {
+      "label": "hss4",
+      "mode": "compiled_hss",
+      "depth": 4
+    },
+    {
+      "label": "ct64",
+      "checkpoint": "rte/workstation_runs/ct4_krylov_n64_seed402_20260912/best.pt"
+    },
+    {
+      "label": "sct64",
+      "checkpoint": "rte/workstation_runs/sct4_krylov_n64_seed402_20260912/best.pt"
+    },
+    {
+      "label": "nto64",
+      "checkpoint": "rte/workstation_runs/nto4_krylov_n64_seed402_20260912/best.pt"
+    }
+  ],
+  "scope": "development-only structural diagnostic; not additional confirmation or timing",
+  "masks": "strict N32 coarse band; near characteristic iff abs(Omega.k) <= mean(sigma_t)",
+  "commutator": "exact discrete [S,C]; C split into spatial average and variation, not an alias-free Leibniz formula"
+}

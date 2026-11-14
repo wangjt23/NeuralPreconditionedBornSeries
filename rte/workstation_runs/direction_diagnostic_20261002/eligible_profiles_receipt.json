@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/code/profile_eligible_tail.py",
+    "--results",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/results",
+    "--output",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/direction_diagnostic_20261002/eligible_profiles"
+  ],
+  "exit_code": 0,
+  "whole_process_seconds": 21.29478843137622
+}

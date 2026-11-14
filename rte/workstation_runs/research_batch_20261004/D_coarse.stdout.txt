@@ -1,0 +1,1 @@
+{"complete": true, "mode": "coarse", "rows": 16, "counts": {"H": 36, "M": 4, "S": 0, "full_solves": 0, "training_steps": 0, "new_seed_generation": 0}}

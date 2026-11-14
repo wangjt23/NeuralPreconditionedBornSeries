@@ -1,0 +1,46 @@
+test_exact_sqrt_upper_and_outward_coercivity (__main__.ErrorModelTests.test_exact_sqrt_upper_and_outward_coercivity) ... ok
+test_forward_bound_is_monotone_without_fitting (__main__.ErrorModelTests.test_forward_bound_is_monotone_without_fitting) ... ok
+test_noncoercive_context_is_not_admitted (__main__.ErrorModelTests.test_noncoercive_context_is_not_admitted) ... ok
+test_symbol_and_rounding_terms_survive_zero_fft64 (__main__.ErrorModelTests.test_symbol_and_rounding_terms_survive_zero_fft64) ... ok
+test_tolerance_linked_budget_is_safe_and_conditional (__main__.ErrorModelTests.test_tolerance_linked_budget_is_safe_and_conditional) ... ok
+
+----------------------------------------------------------------------
+Ran 5 tests in 0.020s
+
+OK
+
+test_complex_linearity_zero_and_phase (__main__.ExactRationalRTETests.test_complex_linearity_zero_and_phase) ... ok
+test_constant_collision_uses_actual_nonsymmetric_weighted_phase (__main__.ExactRationalRTETests.test_constant_collision_uses_actual_nonsymmetric_weighted_phase) ... ok
+test_dense_dft_matches_independent_butterfly_and_inverse (__main__.ExactRationalRTETests.test_dense_dft_matches_independent_butterfly_and_inverse) ... ok
+test_dft_impulse_constant_and_fourier_basis (__main__.ExactRationalRTETests.test_dft_impulse_constant_and_fourier_basis) ... ok
+test_exact_squared_norm_and_outward_sqrt (__main__.ExactRationalRTETests.test_exact_squared_norm_and_outward_sqrt) ... ok
+test_exact_stored_float_and_complex_pairs (__main__.ExactRationalRTETests.test_exact_stored_float_and_complex_pairs) ... ok
+test_heterogeneous_dense_operator_against_separable_oracle (__main__.ExactRationalRTETests.test_heterogeneous_dense_operator_against_separable_oracle) ... ok
+test_norm_bounds_extreme_dyadics_and_stored_float (__main__.ExactRationalRTETests.test_norm_bounds_extreme_dyadics_and_stored_float) ... ok
+test_nyquist_streaming_preserves_imaginary_response (__main__.ExactRationalRTETests.test_nyquist_streaming_preserves_imaginary_response) ... ok
+test_reject_nonfinite_and_unsupported_coefficients (__main__.ExactRationalRTETests.test_reject_nonfinite_and_unsupported_coefficients) ... ok
+test_rounded_assembled_symbol_is_a_distinct_exact_operator (__main__.ExactRationalRTETests.test_rounded_assembled_symbol_is_a_distinct_exact_operator) ... ok
+test_strict_shapes_and_no_implicit_frequency_broadcast (__main__.ExactRationalRTETests.test_strict_shapes_and_no_implicit_frequency_broadcast) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.204s
+
+OK
+
+test_acceptance_output_encloses_exact_scalar_expression (__main__.IndependentErrorModelAudit.test_acceptance_output_encloses_exact_scalar_expression) ... ok
+test_bad_budget_domain_rejected (__main__.IndependentErrorModelAudit.test_bad_budget_domain_rejected) ... ok
+test_budget_gets_stricter_when_norm_contract_grows (__main__.IndependentErrorModelAudit.test_budget_gets_stricter_when_norm_contract_grows) ... ok
+test_negative_error_contract_and_bad_dot_count_rejected (__main__.IndependentErrorModelAudit.test_negative_error_contract_and_bad_dot_count_rejected) ... ok
+test_negative_scattering_domain_rejected (__main__.IndependentErrorModelAudit.test_negative_scattering_domain_rejected) ... ok
+test_no_slack_at_observed_threshold (__main__.IndependentErrorModelAudit.test_no_slack_at_observed_threshold) ... ok
+test_nonfinite_and_invalid_acceptance_inputs_rejected (__main__.IndependentErrorModelAudit.test_nonfinite_and_invalid_acceptance_inputs_rejected) ... ok
+test_reserved_budget_closes_adversarial_scalar_bound (__main__.IndependentErrorModelAudit.test_reserved_budget_closes_adversarial_scalar_bound) ... ok
+test_signed_nonnormal_angular_coefficients_remain_conservative (__main__.IndependentErrorModelAudit.test_signed_nonnormal_angular_coefficients_remain_conservative) ... ok
+test_solution_error_criterion_is_independent (__main__.IndependentErrorModelAudit.test_solution_error_criterion_is_independent) ... ok
+test_unknown_precision_rejected (__main__.IndependentErrorModelAudit.test_unknown_precision_rejected) ... ok
+test_zero_or_negative_solution_norm_lower_bound_is_not_accepted (__main__.IndependentErrorModelAudit.test_zero_or_negative_solution_norm_lower_bound_is_not_accepted) ... ok
+
+----------------------------------------------------------------------
+Ran 12 tests in 0.095s
+
+OK

@@ -1,0 +1,14 @@
+{
+  "name": "freeze",
+  "pid": 2403550,
+  "returncode": 0,
+  "timeout": false,
+  "external_process_seconds": 6.75300931558013,
+  "hard_seconds": 60,
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/research_batch_20261004/jobA/code/stagewise_driver.py",
+    "freeze"
+  ],
+  "completed_utc": "2026-10-04T08:28:49.875824+00:00"
+}

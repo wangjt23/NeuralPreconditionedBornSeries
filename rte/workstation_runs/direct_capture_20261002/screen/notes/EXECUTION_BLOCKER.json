@@ -1,0 +1,15 @@
+{
+  "operation": "Create local frozen direct-capture staging packet and policy",
+  "result": "failed before process creation",
+  "error": "exec-server connection attempt failed: environment registry request failed (409 Conflict, environment_offline): Environment is not connected.",
+  "selected_environment": "Mac access bridge to authorized FWI",
+  "FWI_internet_outage_established": false,
+  "new_FWI_job_launched": false,
+  "direct_capture_GPU_verified": false,
+  "direct_capture_CPU_tests": "16 local segmented tests passed; direct-full inherited suite and FWI CPU preflight pending",
+  "new_policy_or_staging_packet_created_by_failed_command": false,
+  "original_repository_edits": false,
+  "new_training": false,
+  "reserved_seed_9626_touched": false,
+  "next_step": "Restore selected Mac execution connection, verify local files, freeze policy, refresh FWI jobs/preservation, then bounded CPU and GPU gates on exact FWI host. No alternate compute target or access setting change."
+}

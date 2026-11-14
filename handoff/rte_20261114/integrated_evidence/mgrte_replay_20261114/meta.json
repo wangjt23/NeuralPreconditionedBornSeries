@@ -1,0 +1,23 @@
+{
+  "seed": 146714,
+  "data_sha": "b6bbd50c702a22ce6ac81d21e3b9312b58cd17e37d6a2f1e9ea3f6101803d054",
+  "checkpoints": {
+    "/data/wjt/rte_pre/model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch879d100010000tol5_multilevel.pt": "39d9aed9aec5ad1b3281f5b9a6b0de7e68fdf83267062974e6a0d96949eff906",
+    "/data/wjt/rte_pre/model_precond/CosineAnnealingLR_T_max100/lr0.001/diffusionI16N1L4batch256epoch661d200020000tol5_multilevel.pt": "bdee4a474d14bc787961b2c40e65b5fdd8b651a7abd7e38aaace219722c65296"
+  },
+  "source_hashes": {
+    "RTE_ATFPS_func.py": "a3cf869c2099a9b83f69b147d7d413404f9c422629db9480b0ac7a32e26bda04",
+    "RTE_mgmodel.py": "c26c5026d2a35a8d05136c2e3b835ac0408997f96a02283e5427d195e8c4e2f4",
+    "gmres.py": "ee99358ddbe7ce4f76d4bf1c7c39f630ade337af65da9f67ec7c739baf29612a",
+    "rte_preconditioning.py": "5a560fe0bbd25882dedacb9588d462ee94721c0c838dc3970c86bd00b827e3fe"
+  },
+  "independent_material_solves": true,
+  "materials": "existing saved diffusion first8; not certified heldout",
+  "operator": "original ATFPS FP64 application of saved FP32 coefficients; preconditioners FP32",
+  "stop": {
+    "tol": 1e-06,
+    "maxiter": 200,
+    "restart": 50
+  },
+  "timing": "single GPU process, model loading excluded, per-material setup separately; no precision/speed claim against periodic backend"
+}

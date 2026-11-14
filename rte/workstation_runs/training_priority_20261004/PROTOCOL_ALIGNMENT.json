@@ -1,0 +1,22 @@
+{
+  "training_prefixes": [
+    "TSA8-balanced",
+    "TSA16-zero"
+  ],
+  "train_original_ids": "intersection of eligible original training identities across both prefixes and grids; stop if <16",
+  "training_updates_per_arm": 1000,
+  "same_model_warm_start": "original preserved mixed64/128 selected800",
+  "batch": 4,
+  "lr": 0.00015,
+  "horizon": 2,
+  "cosine_schedule_horizon": 1000,
+  "seed": 41005,
+  "architecture": "unchanged TailResponseNetwork width32 blocks4 modes6",
+  "data": "existing128 accurate training labels and reused16 development labels; no fresh sources or teachers",
+  "selection": "full16 development medium solves atboth64/128 with each arm matched prefix; zero failures then equivalentcalls thenresidual",
+  "wall_cap_seconds": 900,
+  "memory_guard_gib": 14,
+  "interpretation": "prefix contrast includes depth+initializer; one warm-start seed; same IDs/phases/presentations; NOT direct comparison against full112 phase1 data",
+  "benchmark": "joint frozen/continued/lowLR/aligned checkpoints onexisting16 dev media64/128/256, warmup+3repeats, frozen strongestclassical comparator, original-RHS tolerance1e-5; no test generation",
+  "benchmark_wall_cap_seconds": 900
+}

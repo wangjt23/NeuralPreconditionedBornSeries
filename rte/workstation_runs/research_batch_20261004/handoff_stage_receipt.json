@@ -1,0 +1,30 @@
+{
+  "complete": true,
+  "report_bytes": 11328,
+  "report_sha256": "4ee8593cabf69d7d3809b2bbe6d42ed112690373b0ffc9778e7071ae5758c5c6",
+  "new_final_files": 18,
+  "sha256": {
+    "rte/workstation_runs/research_batch_20261004/reports/final/RTE_FWI_Batch_Results_2026_10_04.md": "4ee8593cabf69d7d3809b2bbe6d42ed112690373b0ffc9778e7071ae5758c5c6",
+    "rte/workstation_runs/research_batch_20261004/reports/final/RESULT_AUDIT.json": "c77ad1cdeea8828b66f80589b79dae9ef78c650a4812916c219797a55f2b93f3",
+    "rte/workstation_runs/research_batch_20261004/reports/final/RAW_FILE_HASHES.json": "3d2152286eba25d63071e5f98047716cb8cfa03b146d61d8c69af0299783eeb0",
+    "rte/workstation_runs/research_batch_20261004/reports/final/PRESERVATION.json": "fe54fd63c826d9cf7f15b5399bfb400949c12bbbac5c3469a2f9ed9238e69dff",
+    "rte/workstation_runs/research_batch_20261004/reports/final/IMPLEMENTATION_A_B_RESULT_AUDIT.md": "f4fb3d991bf2743d4e16c5650f859fb5664bb1e8428295b8694fef03618a95ef",
+    "rte/workstation_runs/research_batch_20261004/reports/final/IMPLEMENTATION_A_B_RESULT_AUDIT.json": "7519cd745cf5f4789ec141c096f5d464e7f9bc934e9faf20f8cecab43b342e39",
+    "rte/workstation_runs/research_batch_20261004/reports/final/RESULT_DIRECTION_AUDIT.md": "813e60f7ff5df30f5e042e4287304092a0657d95e2747e92a4a52db71df33eed",
+    "rte/workstation_runs/research_batch_20261004/reports/final/RESULT_DIRECTION_AUDIT.json": "2552e65ce1072cdee40657f4449242b0e635acb0062eefd59f094f29c497b8ae",
+    "rte/workstation_runs/research_batch_20261004/reports/final/INDEPENDENT_DIRECTION_REVIEW.md": "7119f1857c55e07e512bdda21440d68e77d7277a3c69d062cfb4a90fabbe4557",
+    "rte/workstation_runs/research_batch_20261004/reports/final/STAGEWISE_THEORY.md": "fc0299b8a9b54c13d41da45e1fb2daf003a16b3be3d5ac8d5e0041edacea05b8",
+    "rte/workstation_runs/research_batch_20261004/reports/final/STAGEWISE_INDEPENDENT_STAGE_PROOF_REVIEW.md": "183bd04e5a593c22677f7263abce77fb8a8ad6410ef345de6092e12ae5522596",
+    "rte/workstation_runs/research_batch_20261004/reports/final/STAGEWISE_IMPLEMENTATION_CONTRACT.md": "9cf36e7a939f06d81fab4247481eed88f24e0373667c61a0a49f6dd9e0b6b2ac",
+    "rte/workstation_runs/research_batch_20261004/reports/final/STAGEWISE_DEPENDENCY_SEALS.json": "7c96e214f56e17fc7472748284dac6380855fb90c7d5620333ed66920fb493fb",
+    "rte/workstation_runs/research_batch_20261004/code/final/audit_batch.py": "41816bb963af6b4c5e616b8c6fb5e6788506a35d13f81f90db13000839cef890",
+    "rte/workstation_runs/research_batch_20261004/code/final/audit_directions.py": "61f2677d26f6b4dde2b02a1516b8b6741edfcac388ac57c167518c4d9b42eb37",
+    "rte/workstation_runs/research_batch_20261004/code/final/audit_stagewise_results.py": "f5a70b3432b35a9baecfeafecc4b72d639a02adf4ab2f40f3d6937b4950a74be",
+    "rte/workstation_runs/research_batch_20261004/HANDOFF.md": "4ee8593cabf69d7d3809b2bbe6d42ed112690373b0ffc9778e7071ae5758c5c6",
+    "docs/research/RTE_RESEARCH_BATCH_2026_10_04.md": "4ee8593cabf69d7d3809b2bbe6d42ed112690373b0ffc9778e7071ae5758c5c6"
+  },
+  "prior_postrun_preservation_verified": true,
+  "original_tracked_dirty_unchanged": true,
+  "full_solves": 0,
+  "training_steps": 0
+}

@@ -1,0 +1,26 @@
+[
+  {
+    "split": "train",
+    "method": "physical",
+    "physical": 0.12677937746047974,
+    "matched": 0.17826056480407715
+  },
+  {
+    "split": "train",
+    "method": "matched",
+    "physical": 0.2987423539161682,
+    "matched": 0.14729146659374237
+  },
+  {
+    "split": "validation",
+    "method": "physical",
+    "physical": 0.16287042200565338,
+    "matched": 0.20516511797904968
+  },
+  {
+    "split": "validation",
+    "method": "matched",
+    "physical": 0.32372230291366577,
+    "matched": 0.15801560878753662
+  }
+]

@@ -1,0 +1,44 @@
+{
+  "status": "READ_ONLY_STORED_ARRAY_INSPECTION_NO_SOLVER_OR_NEW_DATA",
+  "remote_root": "/data/wjt/NeuralPreconditionedBornSeries",
+  "source_record_root": "rte/workstation_runs/training_priority_20261004/benchmark_joint",
+  "writer": "rte/workstation_runs/training_priority_20261004/code/benchmark_adequacy.py:67-71",
+  "writer_contract": "Saved source=high.source.cpu() alongside a separate neural field; only source and provenance were inspected for this plan.",
+  "development_parent_paths": {
+    "128": "rte/workstation_runs/tail_solver_benchmark_20260926/validation_n128.pt",
+    "256": "rte/workstation_runs/tail_solver_benchmark_20260926/validation_n256.pt"
+  },
+  "development_parent_sha256": {
+    "128": "9ade993bce700505d134fa197ceeee72327790bc6660e670a95bea8c43052de1",
+    "256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "nested_parent_materials_exact": true,
+  "source_parameter_arrays_equal": ["centers", "phases", "amplitudes", "angular_codes", "geometry_base64"],
+  "source_shape256": [1,12,256,256],
+  "source_dtype256": "torch.complex128",
+  "all_source128_equal_E_bank_promoted": true,
+  "all_source256_even_grid_equal_source128": true,
+  "all_stored_grid_and_index_match": true,
+  "all_stored_parent_hashes_match": true,
+  "source_records": [
+    {"id":0,"file256":"neural_field_n256_case0.pt","file256_sha256":"650ea639ca8194850fcace3dbb400d868916f2c85896ca2a8e987bc86cc18d14","source128_sha256":"b95ee7c68a7b29621962b635316e288436a3e9da8f4d6b898510311a61adc3e4","source256_sha256":"d34000fb222dac5966ef9cd08e987ebafea1dd624699c6df11cad96d9f774be4"},
+    {"id":4,"file256":"neural_field_n256_case4.pt","file256_sha256":"c8bb2673949eaddc50c481b8454763ce3bf269dbd9791683fd97382156fb5b03","source128_sha256":"671f3618b79476e3ec295f81f3eca126a6816395ac752dbe063dc71e8dc0fe92","source256_sha256":"748b2810cf18cbdfc9a2b9bd0227821bdb0d30c3173d4648c10da4c8f249e3c9"},
+    {"id":7,"file256":"neural_field_n256_case7.pt","file256_sha256":"115530e66c02a7036a95c99452cba3f88615999e5cd1f330c11201474e4513df","source128_sha256":"296fe23d8b9e6db9b88a970105bf9d9acfd950b48209a3d6866fddba1db4f1c7","source256_sha256":"cdd502702282f0f76caca97a4559f01c1a5d44e9425975dc798cfb85f2d96f50"},
+    {"id":14,"file256":"neural_field_n256_case14.pt","file256_sha256":"921d5e946c896c6b5ad9ca1905b445e490b4173fb0af93568cbf2ba2dda5d0eb","source128_sha256":"edb562bca456bc5641b8ed7492664a4b880056ce665801c98f405af21ab9fa06","source256_sha256":"d376a2a728ed814923bd5b2019749de60ccb2121e14ecaf594d5d86dc2f8304c"}
+  ],
+  "existing_solver_sources": {
+    "E/angular_modes.py": "d152afea90179efa8342a4f12631979951503785330f3aab08d4b7f1fe32a481",
+    "screen_structured.py": "b93a74b53eea92cc0fba3134f0aba4dcb19dc7f68966621e69e8e33408bca8bc",
+    "rte/run_large_angular_spectral_experiments.py": "7a3e61e7fa294094c8e1528ad588d64b5559eb4890ea2c8d8196375fd795970e",
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4",
+    "rte/transport_baselines.py": "05f6984eb24962409ff25e42313e9c1ac740df86b59ef7b498faff715cfd62ec",
+    "rte/benchmark_tail_solver.py": "05424458ec34649a2e592638f2621a7cb4891f280839ae4df55e7da5527b9030",
+    "layered_inverse.py": "aaa026a7ddc59e2b64ed3a6e884ec6f3359f330d9f3cbfa4ce173219a8df4de2",
+    "direct_segmented_tsa.py": "98eb806b8482990c1727cb80de3a2182c520be01090a512b742feb0417e0d1d1"
+  },
+  "old_classical_selection_sha256": "67cf2328721db970470643fdae52c7df7db7a191a2db2f56731ffb5c63fb6a49",
+  "old_N256_selected_classical": "tsa16_zero",
+  "direct_backend_cpu_applicability": "Constructor rejects a non-CUDA prototype; no qualified CPU direct-capture backend.",
+  "new_N256_constructed_material": "Not generated; proposed unchanged continuous construction must pass N128 hash and exact nesting before numerical qualification.",
+  "reserved_seed9626": "Unopened; not authorized by this plan"
+}

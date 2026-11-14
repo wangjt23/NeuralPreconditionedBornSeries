@@ -1,0 +1,66 @@
+[
+  {
+    "source_id": 0,
+    "teacher_seconds": 0.2767272179480642,
+    "teacher_residual": 5.297155675568637e-11,
+    "teacher_iterations": 9,
+    "full_C8_quotient_ratio": 1.4444166087889094e-05,
+    "retained_error_fraction": 0.9999999306134403,
+    "G_defects": {
+      "upwind": {
+        "original_A_relative_defect": 0.4077097771865536
+      },
+      "compact4": {
+        "original_A_relative_defect": 0.6855353973333037
+      }
+    }
+  },
+  {
+    "source_id": 4,
+    "teacher_seconds": 0.18177747610025108,
+    "teacher_residual": 5.1663101260825724e-11,
+    "teacher_iterations": 9,
+    "full_C8_quotient_ratio": 1.798569086882912e-05,
+    "retained_error_fraction": 0.9999997403076267,
+    "G_defects": {
+      "upwind": {
+        "original_A_relative_defect": 0.47045314317718395
+      },
+      "compact4": {
+        "original_A_relative_defect": 0.9760723030005061
+      }
+    }
+  },
+  {
+    "source_id": 7,
+    "teacher_seconds": 0.17872741795144975,
+    "teacher_residual": 5.078895969091519e-11,
+    "teacher_iterations": 9,
+    "full_C8_quotient_ratio": 4.85620859241262e-06,
+    "retained_error_fraction": 0.999999965593852,
+    "G_defects": {
+      "upwind": {
+        "original_A_relative_defect": 0.4224204211333152
+      },
+      "compact4": {
+        "original_A_relative_defect": 0.6664731899401609
+      }
+    }
+  },
+  {
+    "source_id": 14,
+    "teacher_seconds": 0.1768656049389392,
+    "teacher_residual": 6.234929002087892e-11,
+    "teacher_iterations": 9,
+    "full_C8_quotient_ratio": 2.285929002750062e-05,
+    "retained_error_fraction": 0.9999996319702,
+    "G_defects": {
+      "upwind": {
+        "original_A_relative_defect": 0.5052742480777372
+      },
+      "compact4": {
+        "original_A_relative_defect": 1.1502905469906979
+      }
+    }
+  }
+]

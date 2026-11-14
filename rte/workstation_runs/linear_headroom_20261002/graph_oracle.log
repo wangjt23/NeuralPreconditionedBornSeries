@@ -1,0 +1,17 @@
+graph/shallow oracle N64 ID0 complete
+graph/shallow oracle N64 ID3 complete
+graph/shallow oracle N128 ID0 complete
+graph/shallow oracle N128 ID3 complete
+graph/shallow oracle N256 ID0 complete
+graph/shallow oracle N256 ID3 complete
+{
+  "complete": true,
+  "parity_checks": 48,
+  "all_parity_passed": true,
+  "all_bitwise_equal": true,
+  "measured_solves": 72,
+  "wall_seconds": 34.367449935525656,
+  "all_solve_accepted": false,
+  "peak_allocated_bytes": 2035083264,
+  "peak_reserved_bytes": 9009364992
+}

@@ -1,0 +1,452 @@
+{
+  "complete": true,
+  "parity_checks": 48,
+  "all_parity_passed": true,
+  "all_bitwise_equal": true,
+  "measured_solves": 72,
+  "independent_media": 2,
+  "setup_records": [
+    {
+      "size": 64,
+      "index": 0,
+      "physical_setup_seconds": 0.004590876400470734,
+      "base_setup_seconds": {
+        "tsa8": 0.002331649884581566,
+        "tsa16": 0.0022637788206338882,
+        "reference1": 0.00222187303006649,
+        "reference2": 0.0022158734500408173
+      },
+      "graph_setup_seconds": {
+        "tsa8": 0.10883127711713314,
+        "tsa16": 0.1468503102660179
+      }
+    },
+    {
+      "size": 64,
+      "index": 3,
+      "physical_setup_seconds": 0.004586474969983101,
+      "base_setup_seconds": {
+        "tsa8": 0.0022803209722042084,
+        "tsa16": 0.002272937446832657,
+        "reference1": 0.0022397655993700027,
+        "reference2": 0.0022566206753253937
+      },
+      "graph_setup_seconds": {
+        "tsa8": 0.1071530394256115,
+        "tsa16": 0.1442386955022812
+      }
+    },
+    {
+      "size": 128,
+      "index": 0,
+      "physical_setup_seconds": 0.004783429205417633,
+      "base_setup_seconds": {
+        "tsa8": 0.002804633229970932,
+        "tsa16": 0.0027764644473791122,
+        "reference1": 0.0027349870651960373,
+        "reference2": 0.002739362418651581
+      },
+      "graph_setup_seconds": {
+        "tsa8": 0.10795765556395054,
+        "tsa16": 0.1466866172850132
+      }
+    },
+    {
+      "size": 128,
+      "index": 3,
+      "physical_setup_seconds": 0.004676075652241707,
+      "base_setup_seconds": {
+        "tsa8": 0.002724654972553253,
+        "tsa16": 0.0027138423174619675,
+        "reference1": 0.002698151394724846,
+        "reference2": 0.002701515331864357
+      },
+      "graph_setup_seconds": {
+        "tsa8": 0.12289696373045444,
+        "tsa16": 0.1476197335869074
+      }
+    },
+    {
+      "size": 256,
+      "index": 0,
+      "physical_setup_seconds": 0.0053298380225896835,
+      "base_setup_seconds": {
+        "tsa8": 0.00508793443441391,
+        "tsa16": 0.005026726052165031,
+        "reference1": 0.0050221458077430725,
+        "reference2": 0.005012104287743568
+      },
+      "graph_setup_seconds": {
+        "tsa8": 0.11740946397185326,
+        "tsa16": 0.15953534469008446
+      }
+    },
+    {
+      "size": 256,
+      "index": 3,
+      "physical_setup_seconds": 0.005201997235417366,
+      "base_setup_seconds": {
+        "tsa8": 0.005033303052186966,
+        "tsa16": 0.005011867731809616,
+        "reference1": 0.0050124675035476685,
+        "reference2": 0.005015579983592033
+      },
+      "graph_setup_seconds": {
+        "tsa8": 0.17312868312001228,
+        "tsa16": 0.1559716146439314
+      }
+    }
+  ],
+  "application_records": [
+    {
+      "size": 64,
+      "index": 0,
+      "graph_setup_seconds": 0.17873536609113216,
+      "timings": [
+        {
+          "arm": "original",
+          "repeat": 0,
+          "seconds": 0.026800667867064476
+        },
+        {
+          "arm": "graph",
+          "repeat": 0,
+          "seconds": 0.002308506518602371
+        },
+        {
+          "arm": "graph",
+          "repeat": 1,
+          "seconds": 0.0022698957473039627
+        },
+        {
+          "arm": "original",
+          "repeat": 1,
+          "seconds": 0.02674565650522709
+        },
+        {
+          "arm": "original",
+          "repeat": 2,
+          "seconds": 0.026721127331256866
+        },
+        {
+          "arm": "graph",
+          "repeat": 2,
+          "seconds": 0.0022818390280008316
+        },
+        {
+          "arm": "graph",
+          "repeat": 3,
+          "seconds": 0.0022733788937330246
+        },
+        {
+          "arm": "original",
+          "repeat": 3,
+          "seconds": 0.026795919984579086
+        },
+        {
+          "arm": "original",
+          "repeat": 4,
+          "seconds": 0.026713863015174866
+        },
+        {
+          "arm": "graph",
+          "repeat": 4,
+          "seconds": 0.0022786930203437805
+        }
+      ]
+    },
+    {
+      "size": 64,
+      "index": 3,
+      "graph_setup_seconds": 0.1502484790980816,
+      "timings": [
+        {
+          "arm": "original",
+          "repeat": 0,
+          "seconds": 0.026610389351844788
+        },
+        {
+          "arm": "graph",
+          "repeat": 0,
+          "seconds": 0.002289261668920517
+        },
+        {
+          "arm": "graph",
+          "repeat": 1,
+          "seconds": 0.002274937927722931
+        },
+        {
+          "arm": "original",
+          "repeat": 1,
+          "seconds": 0.026722488924860954
+        },
+        {
+          "arm": "original",
+          "repeat": 2,
+          "seconds": 0.026507968083024025
+        },
+        {
+          "arm": "graph",
+          "repeat": 2,
+          "seconds": 0.0022942721843719482
+        },
+        {
+          "arm": "graph",
+          "repeat": 3,
+          "seconds": 0.002262260764837265
+        },
+        {
+          "arm": "original",
+          "repeat": 3,
+          "seconds": 0.026656562462449074
+        },
+        {
+          "arm": "original",
+          "repeat": 4,
+          "seconds": 0.026572484523057938
+        },
+        {
+          "arm": "graph",
+          "repeat": 4,
+          "seconds": 0.002279043197631836
+        }
+      ]
+    },
+    {
+      "size": 128,
+      "index": 0,
+      "graph_setup_seconds": 0.1516547817736864,
+      "timings": [
+        {
+          "arm": "original",
+          "repeat": 0,
+          "seconds": 0.02639140747487545
+        },
+        {
+          "arm": "graph",
+          "repeat": 0,
+          "seconds": 0.004107946529984474
+        },
+        {
+          "arm": "graph",
+          "repeat": 1,
+          "seconds": 0.003999615088105202
+        },
+        {
+          "arm": "original",
+          "repeat": 1,
+          "seconds": 0.027084600180387497
+        },
+        {
+          "arm": "original",
+          "repeat": 2,
+          "seconds": 0.026526708155870438
+        },
+        {
+          "arm": "graph",
+          "repeat": 2,
+          "seconds": 0.004009868949651718
+        },
+        {
+          "arm": "graph",
+          "repeat": 3,
+          "seconds": 0.00398913212120533
+        },
+        {
+          "arm": "original",
+          "repeat": 3,
+          "seconds": 0.02658867835998535
+        },
+        {
+          "arm": "original",
+          "repeat": 4,
+          "seconds": 0.026444213464856148
+        },
+        {
+          "arm": "graph",
+          "repeat": 4,
+          "seconds": 0.004036065191030502
+        }
+      ]
+    },
+    {
+      "size": 128,
+      "index": 3,
+      "graph_setup_seconds": 0.1507732067257166,
+      "timings": [
+        {
+          "arm": "original",
+          "repeat": 0,
+          "seconds": 0.02650892548263073
+        },
+        {
+          "arm": "graph",
+          "repeat": 0,
+          "seconds": 0.004028670489788055
+        },
+        {
+          "arm": "graph",
+          "repeat": 1,
+          "seconds": 0.003994829952716827
+        },
+        {
+          "arm": "original",
+          "repeat": 1,
+          "seconds": 0.026630418375134468
+        },
+        {
+          "arm": "original",
+          "repeat": 2,
+          "seconds": 0.026599615812301636
+        },
+        {
+          "arm": "graph",
+          "repeat": 2,
+          "seconds": 0.0040074121206998825
+        },
+        {
+          "arm": "graph",
+          "repeat": 3,
+          "seconds": 0.003993852064013481
+        },
+        {
+          "arm": "original",
+          "repeat": 3,
+          "seconds": 0.02653852291405201
+        },
+        {
+          "arm": "original",
+          "repeat": 4,
+          "seconds": 0.026505859568715096
+        },
+        {
+          "arm": "graph",
+          "repeat": 4,
+          "seconds": 0.004018865525722504
+        }
+      ]
+    },
+    {
+      "size": 256,
+      "index": 0,
+      "graph_setup_seconds": 0.15705843083560467,
+      "timings": [
+        {
+          "arm": "original",
+          "repeat": 0,
+          "seconds": 0.027123577892780304
+        },
+        {
+          "arm": "graph",
+          "repeat": 0,
+          "seconds": 0.016568686813116074
+        },
+        {
+          "arm": "graph",
+          "repeat": 1,
+          "seconds": 0.016566365957260132
+        },
+        {
+          "arm": "original",
+          "repeat": 1,
+          "seconds": 0.02710423804819584
+        },
+        {
+          "arm": "original",
+          "repeat": 2,
+          "seconds": 0.02709326706826687
+        },
+        {
+          "arm": "graph",
+          "repeat": 2,
+          "seconds": 0.016571398824453354
+        },
+        {
+          "arm": "graph",
+          "repeat": 3,
+          "seconds": 0.016556303948163986
+        },
+        {
+          "arm": "original",
+          "repeat": 3,
+          "seconds": 0.027133898809552193
+        },
+        {
+          "arm": "original",
+          "repeat": 4,
+          "seconds": 0.027046477422118187
+        },
+        {
+          "arm": "graph",
+          "repeat": 4,
+          "seconds": 0.016568591818213463
+        }
+      ]
+    },
+    {
+      "size": 256,
+      "index": 3,
+      "graph_setup_seconds": 0.16137616708874702,
+      "timings": [
+        {
+          "arm": "original",
+          "repeat": 0,
+          "seconds": 0.027222519740462303
+        },
+        {
+          "arm": "graph",
+          "repeat": 0,
+          "seconds": 0.016574712470173836
+        },
+        {
+          "arm": "graph",
+          "repeat": 1,
+          "seconds": 0.016542814671993256
+        },
+        {
+          "arm": "original",
+          "repeat": 1,
+          "seconds": 0.027332628145813942
+        },
+        {
+          "arm": "original",
+          "repeat": 2,
+          "seconds": 0.027298543602228165
+        },
+        {
+          "arm": "graph",
+          "repeat": 2,
+          "seconds": 0.01656527817249298
+        },
+        {
+          "arm": "graph",
+          "repeat": 3,
+          "seconds": 0.016564596444368362
+        },
+        {
+          "arm": "original",
+          "repeat": 3,
+          "seconds": 0.027318047359585762
+        },
+        {
+          "arm": "original",
+          "repeat": 4,
+          "seconds": 0.02730717323720455
+        },
+        {
+          "arm": "graph",
+          "repeat": 4,
+          "seconds": 0.01652689091861248
+        }
+      ]
+    }
+  ],
+  "wall_seconds": 34.367449935525656,
+  "peak_allocated_bytes": 2035083264,
+  "peak_reserved_bytes": 9009364992,
+  "test_touched": false,
+  "training_run": false,
+  "scope": "six grid/media inputs; traditional implementation/shallow frontier oracle, no learned advantage claim",
+  "all_solve_accepted": false,
+  "all_solve_accuracy_passed": false
+}

@@ -1,0 +1,23 @@
+{
+  "args": {
+    "datasets": [
+      "rte/workstation_runs/parity_stiffness_survey_20260919/data_n64.pt",
+      "rte/workstation_runs/parity_stiffness_survey_20260919/data_n128.pt"
+    ],
+    "epsilons": [
+      1.0,
+      0.1
+    ],
+    "coarse_sizes": [
+      8
+    ],
+    "count": 2,
+    "inner_steps": 8,
+    "repeats": 2,
+    "device": "cuda:0",
+    "output": "rte/workstation_runs/parity_multilevel_control_20260919"
+  },
+  "scope": "development control, no learned weights; exact coarse setup cost included",
+  "precision": "FP64 parity/reference arithmetic, unchanged FP64 physical operator; existing full-angle controls FP32",
+  "coarse": "positive additive R0+P(RSP)^-1R; analytic sqrt(t/mean(t)) congruence optional"
+}

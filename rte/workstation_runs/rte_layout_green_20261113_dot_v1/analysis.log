@@ -1,0 +1,130 @@
+{
+  "total_wall": 30.19,
+  "total_cpu": 25.93,
+  "summary": {
+    "original": {
+      "setup_wall_seconds": 0.16753970994614065,
+      "setup_CPU_seconds": 0.16628051,
+      "factor_wall_seconds": 0.10588600696064532,
+      "factor_CPU_seconds": 0.10463196949999998,
+      "rotation_wall_seconds": 0.04883329209405929,
+      "profiled_workload_seconds": 0.2802915427600965,
+      "profiled_workload_including_independent_QA_seconds": 0.2952187469927594,
+      "single": {
+        "mean_wall_seconds": 0.016982010061231755,
+        "first_wall_seconds": 0.018774927593767643,
+        "later_mean_wall_seconds": 0.016085551294963807,
+        "setup_plus_first_seconds": 0.1863146375399083,
+        "setup_plus_three_seconds": 0.2184857401298359
+      },
+      "mixed": {
+        "mean_wall_seconds": 0.02060193421008686,
+        "first_wall_seconds": 0.021313452045433223,
+        "later_mean_wall_seconds": 0.020246175292413682,
+        "setup_plus_first_seconds": 0.18885316199157387,
+        "setup_plus_three_seconds": 0.22934551257640123
+      },
+      "external_peak_bytes_range": [
+        463970304,
+        473169920
+      ],
+      "factor_bytes": 11639552
+    },
+    "packed": {
+      "setup_wall_seconds": 0.1660542202880606,
+      "setup_CPU_seconds": 0.16475336000000018,
+      "factor_wall_seconds": 0.10754209733568132,
+      "factor_CPU_seconds": 0.10626728950000008,
+      "rotation_wall_seconds": 0.04752193088643253,
+      "profiled_workload_seconds": 0.244972491171211,
+      "profiled_workload_including_independent_QA_seconds": 0.25988641066942364,
+      "single": {
+        "mean_wall_seconds": 0.011343800307561953,
+        "first_wall_seconds": 0.013227074989117682,
+        "later_mean_wall_seconds": 0.01040216296678409,
+        "setup_plus_first_seconds": 0.1792812952771783,
+        "setup_plus_three_seconds": 0.20008562121074647
+      },
+      "mixed": {
+        "mean_wall_seconds": 0.014962289986821512,
+        "first_wall_seconds": 0.015594122465699911,
+        "later_mean_wall_seconds": 0.014646373747382313,
+        "setup_plus_first_seconds": 0.18164834275376052,
+        "setup_plus_three_seconds": 0.21094109024852514
+      },
+      "external_peak_bytes_range": [
+        462430208,
+        474796032
+      ],
+      "factor_bytes": 11639552
+    },
+    "angular": {
+      "setup_wall_seconds": 0.12592039606533945,
+      "setup_CPU_seconds": 0.1258732070000006,
+      "factor_wall_seconds": 0.1114335295278579,
+      "factor_CPU_seconds": 0.11138507250000029,
+      "rotation_wall_seconds": 0,
+      "profiled_workload_seconds": 0.19780761632137,
+      "profiled_workload_including_independent_QA_seconds": 0.21304770116694272,
+      "single": {
+        "mean_wall_seconds": 0.011931219060594836,
+        "first_wall_seconds": 0.02150641311891377,
+        "later_mean_wall_seconds": 0.0071436220314353704,
+        "setup_plus_first_seconds": 0.14742680918425322,
+        "setup_plus_three_seconds": 0.16171405324712396
+      },
+      "mixed": {
+        "mean_wall_seconds": 0.012031187691415349,
+        "first_wall_seconds": 0.013544789049774408,
+        "later_mean_wall_seconds": 0.01127438701223582,
+        "setup_plus_first_seconds": 0.13946518511511385,
+        "setup_plus_three_seconds": 0.1620139591395855
+      },
+      "external_peak_bytes_range": [
+        468975616,
+        469024768
+      ],
+      "factor_bytes": 16272584
+    }
+  },
+  "ratios": {
+    "original": {
+      "setup_wall_seconds": 0.9911335070440459,
+      "factor_wall_seconds": 1.015640313791902,
+      "profiled_workload_seconds": 0.873991732889653,
+      "single": {
+        "mean_wall_seconds": 0.6679892584364159,
+        "first_wall_seconds": 0.7045073768225036,
+        "later_mean_wall_seconds": 0.6466774297030704,
+        "setup_plus_first_seconds": 0.9622501894880724,
+        "setup_plus_three_seconds": 0.915783433243034
+      },
+      "mixed": {
+        "mean_wall_seconds": 0.7262565657304091,
+        "first_wall_seconds": 0.7316563470083779,
+        "later_mean_wall_seconds": 0.7234143504067341,
+        "setup_plus_first_seconds": 0.9618496234755401,
+        "setup_plus_three_seconds": 0.9197524201754543
+      }
+    },
+    "angular": {
+      "setup_wall_seconds": 1.3187237769002562,
+      "factor_wall_seconds": 0.9650784444442843,
+      "profiled_workload_seconds": 1.2384381133900029,
+      "single": {
+        "mean_wall_seconds": 0.9507662419028959,
+        "first_wall_seconds": 0.6150293364115265,
+        "later_mean_wall_seconds": 1.456146884732923,
+        "setup_plus_first_seconds": 1.2160698333578766,
+        "setup_plus_three_seconds": 1.2372803550040568
+      },
+      "mixed": {
+        "mean_wall_seconds": 1.2436253486010862,
+        "first_wall_seconds": 1.1513005044519047,
+        "later_mean_wall_seconds": 1.2990838199439985,
+        "setup_plus_first_seconds": 1.3024637123869223,
+        "setup_plus_three_seconds": 1.3019933058162338
+      }
+    }
+  }
+}

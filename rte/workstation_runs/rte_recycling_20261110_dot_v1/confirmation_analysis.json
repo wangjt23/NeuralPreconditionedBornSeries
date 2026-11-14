@@ -1,0 +1,204 @@
+{
+  "complete": true,
+  "scope": "Same-instance CPU confirmation only: every paired batch rebuilds and pays all setup. No source/workload expansion, material generalization or GPU result.",
+  "pairs": [
+    {
+      "repeat": 0,
+      "order": [
+        "compact4_inject",
+        "exact8_inner"
+      ],
+      "compact4": {
+        "repeat": 0,
+        "method": "compact4_inject",
+        "method_order": 0,
+        "physical_setup_seconds": 0.005087040131911635,
+        "tsa_setup_seconds": 0.10872539808042347,
+        "factor_setup_seconds": 2.955374050885439,
+        "setup_seconds": 3.069186489097774,
+        "online_four_rhs_seconds": 17.10418228036724,
+        "batch_complete_seconds": 20.173368769465014,
+        "observed_batch_wall_seconds": 20.187630958855152,
+        "calls": [
+          4,
+          3,
+          4,
+          3
+        ],
+        "inner_calls": [],
+        "accepted": true
+      },
+      "exact8_inner": {
+        "repeat": 0,
+        "method": "exact8_inner",
+        "method_order": 1,
+        "physical_setup_seconds": 0.005007507046684623,
+        "tsa_setup_seconds": 0.12037825211882591,
+        "factor_setup_seconds": 5.242740283953026,
+        "setup_seconds": 5.3681260431185365,
+        "online_four_rhs_seconds": 12.255174548598006,
+        "batch_complete_seconds": 17.623300591716543,
+        "observed_batch_wall_seconds": 17.63747987500392,
+        "calls": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "inner_calls": [
+          5,
+          5,
+          5,
+          4
+        ],
+        "accepted": true
+      },
+      "gain_percent": 12.640765193408487,
+      "observed_wall_gain_percent": 12.632245403379683,
+      "net_saved_seconds": 2.5500681777484715
+    },
+    {
+      "repeat": 1,
+      "order": [
+        "exact8_inner",
+        "compact4_inject"
+      ],
+      "compact4": {
+        "repeat": 1,
+        "method": "compact4_inject",
+        "method_order": 1,
+        "physical_setup_seconds": 0.0049614328891038895,
+        "tsa_setup_seconds": 0.10676839109510183,
+        "factor_setup_seconds": 2.998534174868837,
+        "setup_seconds": 3.1102639988530427,
+        "online_four_rhs_seconds": 17.077184815891087,
+        "batch_complete_seconds": 20.18744881474413,
+        "observed_batch_wall_seconds": 20.201732388930395,
+        "calls": [
+          4,
+          3,
+          4,
+          3
+        ],
+        "inner_calls": [],
+        "accepted": true
+      },
+      "exact8_inner": {
+        "repeat": 1,
+        "method": "exact8_inner",
+        "method_order": 0,
+        "physical_setup_seconds": 0.00495152291841805,
+        "tsa_setup_seconds": 0.09569005598314106,
+        "factor_setup_seconds": 5.14515022886917,
+        "setup_seconds": 5.245791807770729,
+        "online_four_rhs_seconds": 12.253173447214067,
+        "batch_complete_seconds": 17.498965254984796,
+        "observed_batch_wall_seconds": 17.51322151790373,
+        "calls": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "inner_calls": [
+          5,
+          5,
+          5,
+          4
+        ],
+        "accepted": true
+      },
+      "gain_percent": 13.317599387772905,
+      "observed_wall_gain_percent": 13.30831841183998,
+      "net_saved_seconds": 2.6884835597593337
+    },
+    {
+      "repeat": 2,
+      "order": [
+        "compact4_inject",
+        "exact8_inner"
+      ],
+      "compact4": {
+        "repeat": 2,
+        "method": "compact4_inject",
+        "method_order": 0,
+        "physical_setup_seconds": 0.004941072082147002,
+        "tsa_setup_seconds": 0.09584928094409406,
+        "factor_setup_seconds": 2.7213923109229654,
+        "setup_seconds": 2.8221826639492065,
+        "online_four_rhs_seconds": 17.06696622702293,
+        "batch_complete_seconds": 19.889148890972137,
+        "observed_batch_wall_seconds": 19.903407254023477,
+        "calls": [
+          4,
+          3,
+          4,
+          3
+        ],
+        "inner_calls": [],
+        "accepted": true
+      },
+      "exact8_inner": {
+        "repeat": 2,
+        "method": "exact8_inner",
+        "method_order": 1,
+        "physical_setup_seconds": 0.004923711065202951,
+        "tsa_setup_seconds": 0.10812918096780777,
+        "factor_setup_seconds": 5.299437661888078,
+        "setup_seconds": 5.412490553921089,
+        "online_four_rhs_seconds": 12.321397332008928,
+        "batch_complete_seconds": 17.733887885930017,
+        "observed_batch_wall_seconds": 17.748001948930323,
+        "calls": [
+          2,
+          2,
+          2,
+          2
+        ],
+        "inner_calls": [
+          5,
+          5,
+          5,
+          4
+        ],
+        "accepted": true
+      },
+      "gain_percent": 10.836366185686375,
+      "observed_wall_gain_percent": 10.829328253118264,
+      "net_saved_seconds": 2.155261005042121
+    }
+  ],
+  "median_complete_seconds": {
+    "compact4_inject": 20.173368769465014,
+    "exact8_inner": 17.623300591716543
+  },
+  "median_paired_gain_percent": 12.640765193408487,
+  "minimum_paired_gain_percent": 10.836366185686375,
+  "maximum_paired_gain_percent": 13.317599387772905,
+  "median_observed_wall_gain_percent": 12.632245403379683,
+  "attempts": 24,
+  "failures": 0,
+  "reference_attempts": 4,
+  "reference_research_seconds": 24.288081089034677,
+  "wall_seconds": 141.089551046025,
+  "max_original_residual": 9.08037310900606e-06,
+  "max_evaluated_bound": 3.945351606992708e-05,
+  "max_field_difference": 2.648811699917627e-07,
+  "exact_inner_residuals": [
+    2.4279097684396334e-05,
+    1.1682281628714396e-05,
+    2.8319697912347117e-05,
+    8.882624992600656e-05,
+    2.4279097684400234e-05,
+    1.1682281628716578e-05,
+    2.8319697912353605e-05,
+    8.882624992600656e-05,
+    2.4279097684400234e-05,
+    1.1682281628716578e-05,
+    2.8319697912356102e-05,
+    8.882624992600495e-05
+  ],
+  "exact_inner_failures": 0,
+  "production_hashes_unchanged": true,
+  "source_arrays_unchanged": true
+}

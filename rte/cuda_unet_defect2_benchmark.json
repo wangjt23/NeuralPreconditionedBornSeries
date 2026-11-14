@@ -1,0 +1,24 @@
+{
+  "device": "NVIDIA RTX A6000",
+  "torch": "2.5.1",
+  "case": "mixed",
+  "size": 64,
+  "n_angles": 12,
+  "operator_counts": {
+    "circular_convolutions": 25,
+    "scale_gates": 5
+  },
+  "primitive_max_abs": {
+    "circular_conv2d": 0.0,
+    "fused_scale_gate": 7.152557373046875e-07
+  },
+  "primitive_relative_error": {
+    "circular_conv2d": 0.0,
+    "fused_scale_gate": 1.5346380166647577e-07
+  },
+  "model_max_abs": 0.0,
+  "model_relative_error": 0.0,
+  "reference_ms": 29.8004869511351,
+  "cuda_operator_ms": 10.064054736867547,
+  "speedup": 2.961081565064157
+}

@@ -1,0 +1,13 @@
+method,sequence,group,media,failures,mean_iterations,mean_final
+HSS_sequence_0,"(1.0, 1.0, 1.0, 1.0)",selection32,32,0,8.25,6.428199966990178e-06
+HSS_sequence_1,"(0.5, 1.0, 2.0, 4.0)",selection32,32,0,8.28125,6.579616417923262e-06
+HSS_sequence_2,"(4.0, 2.0, 1.0, 0.5)",selection32,32,0,8.46875,6.628013750287209e-06
+HSS_sequence_3,"(0.5, 0.5, 2.0, 2.0)",selection32,32,0,8.46875,6.187988489614327e-06
+HSS_sequence_4,"(2.0, 2.0, 0.5, 0.5)",selection32,32,0,8.3125,7.036535762949825e-06
+HSS_sequence_5,"(0.25, 0.5, 1.0, 2.0)",selection32,32,0,9.9375,7.3807492313449075e-06
+HSS_sequence_6,"(2.0, 1.0, 0.5, 0.25)",selection32,32,0,10.40625,6.95453334742524e-06
+HSS_sequence_7,"(1.0, 2.0, 4.0, 8.0)",selection32,32,0,11.96875,7.534265805020368e-06
+HSS_sequence_8,"(8.0, 4.0, 2.0, 1.0)",selection32,32,0,11.59375,7.781724981725802e-06
+selected_CT,None,selection32,32,0,5.875,6.130308769058956e-06
+HSS_sequence_0,"(1.0, 1.0, 1.0, 1.0)",remaining_validation96,96,0,8.59375,6.527699097110447e-06
+selected_CT,None,remaining_validation96,96,0,6.114583333333333,5.9850977270533195e-06

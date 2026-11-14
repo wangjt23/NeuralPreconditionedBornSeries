@@ -1,0 +1,74 @@
+[
+  {
+    "label": "compiled_hss_d8_s1.0",
+    "group": "compiled_hss",
+    "mode": "compiled_hss",
+    "family": "compiled_hss",
+    "depth": 8,
+    "scale": 1.0
+  },
+  {
+    "label": "hss_d8_s1.0",
+    "group": "hss",
+    "mode": "classical",
+    "family": "hss",
+    "depth": 8,
+    "scale": 1.0
+  },
+  {
+    "label": "tsa_d8_s0.0",
+    "group": "tsa",
+    "mode": "classical",
+    "family": "tsa",
+    "depth": 8,
+    "scale": 0.0
+  },
+  {
+    "label": "dsa_d8_s0.0",
+    "group": "dsa",
+    "mode": "classical",
+    "family": "dsa",
+    "depth": 8,
+    "scale": 0.0
+  },
+  {
+    "label": "dsa_transport_d8_s0.0",
+    "group": "dsa_transport",
+    "mode": "classical",
+    "family": "dsa_transport",
+    "depth": 8,
+    "scale": 0.0
+  },
+  {
+    "label": "reference_d8_s0.03",
+    "group": "reference",
+    "mode": "classical",
+    "family": "reference",
+    "depth": 8,
+    "scale": 0.03
+  },
+  {
+    "label": "sct128_r1",
+    "group": "sct128",
+    "checkpoint": "rte/workstation_runs/sct4_krylov_n128_seed402_20260912/best.pt",
+    "repeats": 1
+  },
+  {
+    "label": "sct128_r2",
+    "group": "sct128",
+    "checkpoint": "rte/workstation_runs/sct4_krylov_n128_seed402_20260912/best.pt",
+    "repeats": 2
+  },
+  {
+    "label": "ct128_r1",
+    "group": "ct128",
+    "checkpoint": "rte/workstation_runs/ct4_krylov_n128_seed402_20260912/best.pt",
+    "repeats": 1
+  },
+  {
+    "label": "ct128_r2",
+    "group": "ct128",
+    "checkpoint": "rte/workstation_runs/ct4_krylov_n128_seed402_20260912/best.pt",
+    "repeats": 2
+  }
+]

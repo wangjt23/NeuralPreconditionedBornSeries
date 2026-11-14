@@ -1,0 +1,3 @@
+run,cases,eligible,median_prefix_relative_residual,median_tail_to_solution_norm,max_tail_equation_defect_original_rhs
+source_tail_bank_20260926,128,112,0.0007807215966525499,2.15159677025065e-05,9.90291358492779e-10
+source_tail_validation_20260926,16,13,0.0008202204597384001,2.2562190477618465e-05,8.571936131745411e-10

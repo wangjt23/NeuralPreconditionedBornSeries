@@ -1,0 +1,12 @@
+{
+  "goal": "Data-learned inexpensive preconditioner proposal at actual prefix1; not analytical compression optimization",
+  "train": "Existing128 physical TRAIN; frozen96 fit and32 internal validation from20261108; no DEV or9626 optimization",
+  "architecture": "Full-C8 direct output, no global POD; material-conditioned width32 3block compact convolution plus full-normal depthwise Fourier mixers; complete12angles; tangent64 internal grid for C16 inputs and C8 outputs",
+  "budget": "Two initialization/draw seeds, each8192 AdamW updates, batch8. Fixed final checkpoint; no validation-selected endpoint",
+  "loss": "Normalized complex direction MSE against existing same-A teacher-minus-prefix1 target, not claimed to optimize exact stopping cost",
+  "data": "Re-gauge saved C16 residual and C8 label to observable phase; complete canonical log material fields compressed to128x64; actual train targets preserved",
+  "evaluation": "Fit/internal error and inference preliminary; then actual original-RHS solve cost vs strongest matched classical. 5ms is a cost reference, not arbitrary exclusion gate. Report setup, preprocess,infer,decode,iterations,failures,original residual and generalization",
+  "restrictions": "No production modification, no Codex restart, no lock or GPU exclusivity, no deletion. Preserve all failures. No new paid resources.",
+  "pro_status": "Existing matching RTE Pro conversation not yet located; no claimed Pro agreement",
+  "hypothesis": "Existing POD96 failure is a fixed output-space failure; learned spatial output avoids that range but may still fail fitting/generalization/cost."
+}

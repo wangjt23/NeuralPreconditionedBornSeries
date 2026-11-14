@@ -1,0 +1,12 @@
+{
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/classical_tsa_algebra_20261002/code/check_frozen_tsa.py",
+    "--output",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/classical_tsa_algebra_20261002/operator_checks",
+    "--device",
+    "cuda"
+  ],
+  "exit_code": 2,
+  "whole_process_seconds": 11.628500398248434
+}

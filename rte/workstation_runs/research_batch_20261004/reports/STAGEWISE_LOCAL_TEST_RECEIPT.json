@@ -1,0 +1,42 @@
+{
+  "command": "PYTHONDONTWRITEBYTECODE=1 /usr/bin/python3 -m unittest -q test_interval_fft test_certified_twiddles test_stagewise_fft_audit",
+  "compile_flags": [
+    "-O2",
+    "-std=c++17",
+    "-fno-fast-math",
+    "-ffp-contract=off",
+    "-shared",
+    "-fPIC"
+  ],
+  "compiler": "Apple clang version 21.0.0 (clang-2100.1.1.101)\nTarget: arm64-apple-darwin25.5.0\nThread model: posix\nInstalledDir: /Library/Developer/CommandLineTools/usr/bin\n",
+  "fullgrid_runs": 0,
+  "gpu_actions": 0,
+  "numpy": "2.0.2",
+  "passed": true,
+  "paused_files_unchanged": {
+    "DEPENDENCY_SEALS.json": true,
+    "IMPLEMENTATION_CONTRACT.md": true,
+    "INDEPENDENT_PROTOCOL_REVIEW.md": true,
+    "INDEPENDENT_STAGE_PROOF_REVIEW.md": true,
+    "THEORY.md": true,
+    "certified_twiddles.py": true,
+    "cpu_interval_primitives.cpp": true,
+    "interval_fft.py": true,
+    "policy_draft.json": true,
+    "prior_hashes.json": true,
+    "stagewise_driver.py": true,
+    "stagewise_fft.py": true,
+    "test_certified_twiddles.py": true,
+    "test_interval_fft.py": true,
+    "test_stagewise_fft_audit.py": true
+  },
+  "paused_files_verified": 15,
+  "paused_manifest_sha256": "dfd2650538c7846706a94a75fa77156d8ad12590429a60c4e64fba470d910630",
+  "python": "3.9.6 (default, Apr 17 2026, 18:15:52) \n[Clang 21.0.0 (clang-2100.1.1.101)]",
+  "remote_actions": 0,
+  "scope": "Local tiny CPU tests only; no SSH/GPU/fullgrid/operator field actions",
+  "stdout": "Ran 30 tests in 13.646s\nOK\n",
+  "tests": 30,
+  "unittest_seconds": 13.646,
+  "working_directory": "deliverables/stagewise_certifier_20261002"
+}

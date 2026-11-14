@@ -1,0 +1,75 @@
+# Independent review of the bounded angular oracle
+
+Source/design review, 2026-10-02. Read `angular_galerkin.py`, `test_angular_galerkin.py`, `oracle_protocol.md`, `math_feasibility.md`, `angular_oracle.py`, the pre-execution `angular_oracle_v2.py` and policies, original/capture solver sources, and graph screen receipts. No GPU work, solve, test execution, code changes, fine teachers, training, or held-out access was performed here. Seed 9626 remains reserved. The root's explicit frozen inputs are **development IDs 0 and 3 at N128/N256**, superseding the protocol's ambiguous “first two media.”
+
+## Source assessment
+
+No serious operator error was found. The implementation projects the supplied original FP64 physical streaming symbol, retains heterogeneous coefficients and the actual weighted phase, and applies the full operator through `physical.A_op(lift(c))`. It retains Gram=Q*Q rather than assuming an exactly orthonormal floating-point basis. `full_adjoint` correctly uses diag(weights) times phase*, and coefficient multiplication commutes with that angular action here because sigma_s is angle-independent. Sign reversal of the actual purely imaginary streaming symbol gives its adjoint, including Nyquist modes. The cached homogeneous inverse is an inner preconditioner, not an inverse of the heterogeneous Aq.
+
+The tests cover direct projected-action equality, adjoints, homogeneous reference inversion, complex linearity, input precision, positive-energy checks, and pointer/version/setup refresh on N8/N16 fixtures. They also mutate phase and weights independently, which avoids silently relying on ideal phase symmetry. These are useful identity checks. They do not establish N128/N256 GPU parity, coarse convergence, physical residual reduction, or cost; the root's actual-case direct-action/adjoint probes remain necessary. Fourier columns generated from angular indices define a permissible approximation basis; they do not replace physical directions in A.
+
+The scalar `coercivity_bound()` returns an **Aq** Euclidean accretivity estimate alpha_q. For the raw AQ least-squares interval, the simplest safe margin is the full physical margin m with sigma_min(AQ)>=m*sqrt(lambda_min(Gram)). If a stronger alpha_q is used instead, the justified bound is sigma_min(AQ)>=alpha_q/sqrt(lambda_max(Gram)); do not silently identify alpha_q with the full-A margin. This distinction is tiny for the default near-orthonormal Q but should be explicit in the formula/receipt. The driver correctly uses the physical margin and Gram minimum.
+
+## Original driver review, superseded before execution
+
+The driver's right-preconditioned CGLS formulas are consistent: C=Pi_AZ A Q Rq and CT=Rq* Q* A* Pi_AZ, with real inner products for projection and scalar recurrences. It independently reconstructs the physical residual and unpreconditioned gradient before the raw-source bracket. The prefix projection correctly gets no coercivity lower bound. Cached tail timing recomputes and bills the original balanced initialization, uses the same graph classical preconditioner, and runs the original uninstrumented safeguarded solver. The source initializer retains the original reference-tail continuation at N128. Its numerical composition is explicit and useful.
+
+Four limits must appear in the result interpretation:
+
+1. **The timed cached proposals are Galerkin and homogeneous-qref only.** CGLS is run after these timers and its proposal is never injected/timed. A negative cached Galerkin result therefore cannot be called a failed optimal-range cost oracle. Its scope is the actual Galerkin/source/prefix compositions.
+2. **The prefix CGLS is projected only.** The raw-source bracket is valid conditionally; there is no raw-prefix range bracket. A capped projected solve or large attained value does not rule out the angular range or joint old-AZ augmentation. If a useful projected proposal is found, its continuation cost has not yet been measured.
+3. **Coarse solve failure does not presently block cached-arm timing.** `coarse_accepted` is recorded but the proposal is still used. Preserve such attainable/underresolved results, and forbid the accurately-verified headroom gate for them. Do not report their timings as those of an exact or converged Galerkin inverse. The final aggregate `all_coarse_accepted` flag is essential; a complete process is not a scientific gate pass.
+4. **Actual inner cost is one acquisition timing per context.** It is not a repeated actual-action whole-solver measurement. Some independent audit work is outside that timer. It is useful component evidence and can show a large budget mismatch, but adding it to a cached solve is an estimate rather than a measured deployment latency. No claim of actual economic success follows from cached arms alone.
+
+The bounded run need not be expanded to resolve these limits. Label and preserve them. A missing/early-converged capture should be treated as no eligible tail opportunity, not a bad range result; the current assert assumes all selected inputs have a nontrivial four-direction captured basis. The policy's 100/1e-8 caps are actual oracle budgets, not guarantees of resolution. Stop at the finite budget and retain partial receipts if it expires.
+
+## Pre-execution v2 assessment
+
+The root preserved v1 and revised the driver/policy before substantive GPU work. V2 adds coarse RHS/absolute residual/correction/useful-image norms and actual cached continuation timings for **attained CGLS range proposals**: `cached_range_tail` and `cached_range_initial`, each with one warmup and three measurements. The frozen maximum is 112 full-solve invocations, including warmups, on the same four physical inputs; 240-second soft/260-second owned-process hard budgets remain. This is a modest, finite expansion within the same oracle question, and no review blocker was found. The root separately reported eight FWI unit tests passing in 1.313 s; this reviewer did not execute them.
+
+V2 resolves the original missing range-continuation measurement. A capped but finite attained LS correction can supply a **positive feasible headroom witness** when its full original-RHS solve passes; it need not be a numerically optimal inverse for that purpose. A negative result from that capped proposal still cannot reject the angular range's optimum. The raw-source versus projected-prefix bracket distinction and the acquisition-versus-deployment cost limitation remain.
+
+The graph baseline is measured twice, before and after CGLS acquisition. Pair each range arm only with its own `timing_block='attained_range'` graph baseline, and each Galerkin/qref arm with the original block. Do not pool all six measured baseline repeats into one denominator: warm state and the intervening acquisition differ. Coarse-failed Galerkin proposals remain underresolved; an attained range witness is a separate arm and does not retroactively certify them. Report each proposal's actual convergence/finite/physical acceptance status.
+
+## Most decisive modest configuration
+
+Keep q=3, modes 0,+1,-1, unchanged complex128 reduced action, the existing same-q mean-material inverse, and a 100-direction inner cap. Use exactly four material/grid pairs and two contexts per pair: original source and residual after the existing four classical directions. Verify a 1e-8 independently recomputed coarse residual. Do not broaden q, media, source family, precision, restart, or inner preconditioner after seeing failures. A slow or capped accurate-inner solve does not itself justify trying another learned architecture.
+
+Freeze the actual composition as well as the correction. At N128, the graph baseline already has reference initialization and a reference-tail insertion. State whether the angular source initializer replaces the original initializer and whether the angular prefix proposal replaces or supplements its existing tail. Replacing the reference proposal at the same boundary is the cleanest modest tail comparison. At N256, the frozen TSA16-zero method has no existing insertion; one extra prefix correction is an explicitly different composition. Any retained initializer, reference tail, additional physical image, or helper is charged. Source and prefix arms answer different questions; report them separately and preserve the full ordered continuation state.
+
+For every context report coarse RHS norm, verified coarse residual, correction norm, ||r-AQ c||/||r||, useful projected image norm, acceptance/rejection, subsequent calls, final original residual, field difference, and full time. If Q*r is nearly zero, report its absolute size and the absolute coarse residual; an arbitrary clamp in a relative denominator cannot create a convergence claim. Coarse residual 1e-8 controls the reduced equation, not full-A inverse accuracy. A large coupling/image norm can amplify its remaining numerical error, so retain the independent physical measurements.
+
+Already-converged prefixes supply no late headroom. Skip unnecessary correction application under the same original stopping rule and keep those cases in whole-solve means; eligible-only timing would bias the comparison. Verify that the cached proposal belongs to the exact source/prefix used by the graph solve. A saved proposal from a numerically different frontier is not the same oracle.
+
+## Raw range bracket and projected caveat
+
+Let B=AQ, t=r-Bc, g=B*t and a=m*sqrt(lambda_min(Gram)). For raw B, the conditional exact-arithmetic bracket is
+
+    sqrt(max(0, ||t||²-||g||²/a²)) <= min_y ||r-By|| <= ||t||.
+
+The useful uncertainty scale is ||g||/(a||r||), not only a relative normal residual against ||B*r||. Compute m and Gram for the current operator/case and independently recompute B, B*, t and g. A loose bracket, nonfinite result, or capped normal-equation solve means the range assessment is incomplete. Ill conditioning can make 100 LS iterations insufficient even when Galerkin converges. Ordinary FP64 margins/gradients give an empirical conditional bracket, not a rigorous rounding enclosure. Squared-normal-equation conditioning is a reason to prefer a bounded LSQR/CGLS implementation with explicit residual/gradient verification over declaring convergence from its recursion alone.
+
+For a prefix, the existing helper may reoptimize the old real AZ coefficients. Its new range operator is J=(I-P_AZ)AQ. Projection can remove rank and invalidate the raw a bound. Without separately verified transversality or a retained singular-value lower bound, a small achieved projected residual demonstrates an attainable correction, but a large one cannot establish that the expanded range is useless. Do not apply the raw bracket to J. P_AZ uses real inner products; J can be real-linear without being complex-linear. Its adjoint and any projected iterative solver must respect that real-stacked convention.
+
+Consequently, an unfavorable **raw** certified/conditional bracket does not rule out joint reoptimization with old AZ. Conversely, a useful raw angular correction does not prove it has useful novelty after AZ projection. Report both quantities. Raw low-angular energy ||Q*r||² is not a range bound: streaming takes Q into additional angular modes.
+
+## Economics against the updated classical competitor
+
+The verified graph receipts give two-media warm means 48.342 ms at N128 and 127.242 ms at N256, compared with 167.379/192.148 ms for the contemporaneous original frozen recipes. Their 5% warm margins are about 2.417/6.362 ms. Use contemporaneous paired graph-classical measurements as the warm denominator, rather than the earlier 135/144 ms sixteen-medium means or the uncompiled TSA16 action. These are two reused media, not a new broad portfolio result.
+
+Single-RHS economics differ. The graph screen estimates mean setup-plus-warm 171.264 ms at N128 versus 174.873 ms original, but 295.281 ms at N256 versus 202.433 ms original. Graph capture/setup erases its N256 warm gain for one RHS. Compare candidate totals with the strongest successful classical total for the explicitly declared number of distinct RHS, and show warm latency separately. Repeating one RHS for timing does not amortize capture, material encoding, coarse factor preparation, or training.
+
+For the cached proposal arm define Bbudget=Tclassical-Tcached, where both are complete original uninstrumented solves with matched setup scope, initialization, projection, acceptance and final physical checks. The cached arm removes only acquisition/inverse-prediction time and still includes copying/lifting and helper work. Bbudget is the inference/setup budget for this proposal and continuation, not a universal minimum solve-time theorem. Measure actual inner solve and coarse preparation separately, then verify a true actual-action full-solve arm when useful; do not estimate end-to-end latency by summing synchronized components.
+
+At q3/N256, the streaming matrix and mean-material inverse alone each contain nine complex128 coefficients per spatial mode, about 9 MiB each; converted coefficient fields and work buffers add storage/traffic. The reduction from twelve to three channels therefore does not imply a fourfold cost reduction. Every coarse Krylov step still requires FFTs, angular coupling, reference application, orthogonalization and scalar synchronization. Accurate adaptive inner GMRES remains nonlinear and cannot be labelled a fixed residual-linear learned map.
+
+## Stopping interpretation
+
+* **Projection/parity or physical accuracy failure:** stop interpretation and retain the failure. Do not change A, tolerances, fields or acceptance.
+* **Coarse or LS cap reached:** stop the bounded run with an underresolved/inconclusive oracle; no range-impossibility conclusion.
+* **Accurate Galerkin poor but raw range useful:** closure/higher-moment Schur information is missing. Learning this same Galerkin inverse is not justified by that gap.
+* **Cached Galerkin and achieved range proposals save no time against graph continuation:** stop the tested q3 one-shot/source composition on this cohort. This does not exclude a different from-start repeated composition or projected-range optimum that was never resolved.
+* **Cached proposal has positive headroom but actual inner action exceeds it:** the classical inverse acquisition/action is too expensive. A cheaper fixed-material representation becomes a conditional research target only if a concrete apply/setup budget can be met; the expensive control itself is not a winning solver.
+* **Actual action passes all gates and saves time:** retain development evidence only, charge setup/offline costs and distinct-source assumptions, and expand conservatively. Two selected media do not establish generalization, statistical superiority, or permission to consume seed 9626.
+
+Apply the existing 10% cached-headroom and 5% actual whole-solve screening margins without reinterpreting them as significance tests. The original FP64 residual 1e-5, final-field/error-bound checks and all failures remain mandatory. No additional q5 solve, teacher, training, or holdout follows automatically from this review.

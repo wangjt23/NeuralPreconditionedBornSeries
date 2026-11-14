@@ -1,0 +1,870 @@
+{
+  "passed": true,
+  "comparisons_checked": 123,
+  "max_interval_error_percent": 1.7763568394002505e-15,
+  "method": "published Torch index RNG; independently recomputed NumPy paired means and linear quantiles; does not repair development reuse/selection or training-seed uncertainty",
+  "wall_seconds": 0.8176021669059992,
+  "checks": [
+    {
+      "family": "benchmark",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "frozen",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "continued_selected",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "continued_selected",
+      "max_interval_error_percent": 2.220446049250313e-16
+    },
+    {
+      "family": "benchmark",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "continued_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "continued_final",
+      "max_interval_error_percent": 4.440892098500626e-16
+    },
+    {
+      "family": "benchmark",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "low_lr1000",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "low_lr1000",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "continued_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "continued_tsa16",
+      "max_interval_error_percent": 1.7763568394002505e-15
+    },
+    {
+      "family": "benchmark",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "frozen",
+      "max_interval_error_percent": 4.440892098500626e-16
+    },
+    {
+      "family": "benchmark",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "continued_selected",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "continued_selected",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "continued_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "continued_final",
+      "max_interval_error_percent": 4.440892098500626e-16
+    },
+    {
+      "family": "benchmark",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "low_lr1000",
+      "max_interval_error_percent": 4.440892098500626e-16
+    },
+    {
+      "family": "benchmark",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "low_lr1000",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "continued_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "continued_tsa16",
+      "max_interval_error_percent": 5.551115123125783e-17
+    },
+    {
+      "family": "benchmark",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "frozen",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "continued_selected",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "continued_selected",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "continued_final",
+      "max_interval_error_percent": 1.7763568394002505e-15
+    },
+    {
+      "family": "benchmark",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "continued_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "low_lr1000",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "low_lr1000",
+      "max_interval_error_percent": 1.1102230246251565e-16
+    },
+    {
+      "family": "benchmark",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "continued_tsa16",
+      "max_interval_error_percent": 1.7763568394002505e-15
+    },
+    {
+      "family": "benchmark",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "continued_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "frozen",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "continued_selected",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "continued_selected",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "continued_final",
+      "max_interval_error_percent": 2.220446049250313e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "continued_final",
+      "max_interval_error_percent": 4.440892098500626e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "low_lr1000",
+      "max_interval_error_percent": 8.881784197001252e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "low_lr1000",
+      "max_interval_error_percent": 4.440892098500626e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "aligned8",
+      "max_interval_error_percent": 2.220446049250313e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "aligned8",
+      "max_interval_error_percent": 4.440892098500626e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "aligned16",
+      "max_interval_error_percent": 2.220446049250313e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "aligned16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "aligned8_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "aligned8_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "aligned16_final",
+      "max_interval_error_percent": 1.7763568394002505e-15
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "aligned16_final",
+      "max_interval_error_percent": 2.220446049250313e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "continued_tsa16",
+      "max_interval_error_percent": 1.7763568394002505e-15
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "continued_tsa16",
+      "max_interval_error_percent": 1.7763568394002505e-15
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "frozen_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "frozen_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "aligned8_tsa16",
+      "max_interval_error_percent": 2.7755575615628914e-17
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "aligned8_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "reference_tail",
+      "candidate": "aligned16_tsa16",
+      "max_interval_error_percent": 1.7763568394002505e-15
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "aligned16_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "aligned8",
+      "max_interval_error_percent": 4.440892098500626e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "aligned16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen_tsa16",
+      "candidate": "aligned8_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen_tsa16",
+      "candidate": "aligned16_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "aligned8_tsa16",
+      "candidate": "aligned16_tsa16",
+      "max_interval_error_percent": 5.551115123125783e-17
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "aligned8",
+      "candidate": "aligned16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen",
+      "candidate": "aligned8_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "frozen_tsa16",
+      "candidate": "aligned16_final",
+      "max_interval_error_percent": 8.881784197001252e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 64,
+      "baseline": "aligned16_tsa16",
+      "candidate": "aligned16_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "frozen",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "continued_selected",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "continued_selected",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "continued_final",
+      "max_interval_error_percent": 4.440892098500626e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "continued_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "low_lr1000",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "low_lr1000",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "aligned8",
+      "max_interval_error_percent": 8.881784197001252e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "aligned8",
+      "max_interval_error_percent": 8.881784197001252e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "aligned16",
+      "max_interval_error_percent": 4.440892098500626e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "aligned16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "aligned8_final",
+      "max_interval_error_percent": 2.220446049250313e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "aligned8_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "aligned16_final",
+      "max_interval_error_percent": 8.881784197001252e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "aligned16_final",
+      "max_interval_error_percent": 8.881784197001252e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "continued_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "continued_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "frozen_tsa16",
+      "max_interval_error_percent": 2.220446049250313e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "frozen_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "aligned8_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "aligned8_tsa16",
+      "max_interval_error_percent": 1.7763568394002505e-15
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "reference_tail",
+      "candidate": "aligned16_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "aligned16_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "aligned8",
+      "max_interval_error_percent": 8.881784197001252e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "aligned16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen_tsa16",
+      "candidate": "aligned8_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen_tsa16",
+      "candidate": "aligned16_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "aligned8_tsa16",
+      "candidate": "aligned16_tsa16",
+      "max_interval_error_percent": 8.881784197001252e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "aligned8",
+      "candidate": "aligned16",
+      "max_interval_error_percent": 5.551115123125783e-17
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen",
+      "candidate": "aligned8_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "frozen_tsa16",
+      "candidate": "aligned16_final",
+      "max_interval_error_percent": 8.881784197001252e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 128,
+      "baseline": "aligned16_tsa16",
+      "candidate": "aligned16_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "frozen",
+      "max_interval_error_percent": 4.440892098500626e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "continued_selected",
+      "max_interval_error_percent": 2.220446049250313e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "continued_selected",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "continued_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "continued_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "low_lr1000",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "low_lr1000",
+      "max_interval_error_percent": 2.220446049250313e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "aligned8",
+      "max_interval_error_percent": 1.7763568394002505e-15
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "aligned8",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "aligned16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "aligned16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "aligned8_final",
+      "max_interval_error_percent": 1.7763568394002505e-15
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "aligned8_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "aligned16_final",
+      "max_interval_error_percent": 2.220446049250313e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "aligned16_final",
+      "max_interval_error_percent": 1.1102230246251565e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "continued_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "continued_tsa16",
+      "max_interval_error_percent": 4.440892098500626e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "frozen_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "frozen_tsa16",
+      "max_interval_error_percent": 8.881784197001252e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "aligned8_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "aligned8_tsa16",
+      "max_interval_error_percent": 8.881784197001252e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "tsa16_zero",
+      "candidate": "aligned16_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "aligned16_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "aligned8",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "aligned16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen_tsa16",
+      "candidate": "aligned8_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen_tsa16",
+      "candidate": "aligned16_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "aligned8_tsa16",
+      "candidate": "aligned16_tsa16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "aligned8",
+      "candidate": "aligned16",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen",
+      "candidate": "aligned8_final",
+      "max_interval_error_percent": 0.0
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "frozen_tsa16",
+      "candidate": "aligned16_final",
+      "max_interval_error_percent": 8.881784197001252e-16
+    },
+    {
+      "family": "benchmark_joint",
+      "grid": 256,
+      "baseline": "aligned16_tsa16",
+      "candidate": "aligned16_final",
+      "max_interval_error_percent": 0.0
+    }
+  ]
+}

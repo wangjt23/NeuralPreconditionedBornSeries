@@ -1,0 +1,13 @@
+{
+  "complete": false,
+  "entry_obstruction": true,
+  "full_solves": 0,
+  "global_entry_checks": 112,
+  "admissibility_records": 108,
+  "wall_seconds": 84.43439773470163,
+  "peak_allocated_bytes": 1117886976,
+  "peak_reserved_bytes": 2009071616,
+  "training": false,
+  "test9626_touched": false,
+  "original_source_exported": false
+}

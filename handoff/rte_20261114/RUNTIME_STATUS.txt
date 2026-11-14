@@ -1,0 +1,17 @@
+Sat Nov 14 03:13:05 UTC 2026
+    PID                  STARTED     ELAPSED COMMAND
+2364964 Sat Nov 14 10:37:20 2026       35:43 /data1/software/miniconda3/bin/python rte/workstation_runs/rte_krylov_window_20261114_dot_v1/train_v2.py --arm O --seed 146501
+2364965 Sat Nov 14 10:37:20 2026       35:43 /data1/software/miniconda3/bin/python rte/workstation_runs/rte_krylov_window_20261114_dot_v1/train_v2.py --arm K --seed 146501
+2364966 Sat Nov 14 10:37:20 2026       35:43 /data1/software/miniconda3/bin/python rte/workstation_runs/rte_krylov_window_20261114_dot_v1/train_v2.py --arm O --seed 146502
+2364967 Sat Nov 14 10:37:20 2026       35:43 /data1/software/miniconda3/bin/python rte/workstation_runs/rte_krylov_window_20261114_dot_v1/train_v2.py --arm K --seed 146502
+2365647 Sat Nov 14 10:39:28 2026       33:35 /data1/software/miniconda3/bin/python rte/workstation_runs/rte_krylov_window_20261114_dot_v1/eval_queue.py
+2366096 Sat Nov 14 10:41:51 2026       31:13 /data1/software/miniconda3/bin/python watch_panels.py
+2367808 Sat Nov 14 11:00:12 2026       12:51 /data1/software/miniconda3/bin/python rte/workstation_runs/rte_endpoint_arnoldi_20261114_dot_v1/watch.py
+pid, process_name, used_gpu_memory [MiB]
+2364965, /data1/software/miniconda3/bin/python, 984 MiB
+2364966, /data1/software/miniconda3/bin/python, 892 MiB
+2364964, /data1/software/miniconda3/bin/python, 880 MiB
+2364967, /data1/software/miniconda3/bin/python, 988 MiB
+2365647, /data1/software/miniconda3/bin/python, 506 MiB
+2366096, /data1/software/miniconda3/bin/python, 360 MiB
+2367808, /data1/software/miniconda3/bin/python, 618 MiB

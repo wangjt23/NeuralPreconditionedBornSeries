@@ -1,0 +1,95 @@
+{
+  "phase": "stagewise_fresh_stored_H_certifier_v1_oct4",
+  "head": "028caea3f35d100225f656e2b1e910c1366aaafe",
+  "development_seed": 4626,
+  "development_ids": [
+    0,
+    3
+  ],
+  "teacher_banks": {
+    "64": {
+      "path": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+      "sha256": "858f73d0066333dd9a4b4366d7ff48dc5f160650e5e326c33b1d28b03079efed"
+    },
+    "128": {
+      "path": "rte/workstation_runs/tail_multiresolution_bank_20260926/validation.pt",
+      "sha256": "58f8e2f069ea1fa1c0c8f490b441c7acfc91a6592d045a7a7a52eea7bf08aeb4"
+    }
+  },
+  "n256_material_parent": {
+    "path": "rte/workstation_runs/resume_audit_20261002/runtime_gate/validation_n256.pt",
+    "sha256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "frozen_capture_code": "rte/workstation_runs/finite_precision_20261002/code",
+  "tau_rational": [
+    1,
+    100000
+  ],
+  "solution_tolerance_rational": [
+    1,
+    1000
+  ],
+  "reserve_rational": [
+    1,
+    100
+  ],
+  "max_reserved_bytes": 1073741824,
+  "max_full_solves": 0,
+  "max_certificates": 8,
+  "max_explicit_H_actions": 2,
+  "max_M_actions": 2,
+  "training": false,
+  "holdout_or_reserved_seed_access": false,
+  "source_export": false,
+  "gate_scope": "Checker engineering only. No new fullsolve comparisons or training. Original priorN256NO_CERTIFICATE preserved",
+  "failed_reserve_status": "NO_CERTIFICATE; never loosen target, reserve or frozen old gate",
+  "native_compile": [
+    "g++",
+    "-O2",
+    "-std=c++17",
+    "-fno-fast-math",
+    "-ffp-contract=off",
+    "-shared",
+    "-fPIC"
+  ],
+  "expected_original_operator": "Captured original pure-imaginary assembled complex128 D64, exact stored promoted phase/weights/t/s/source and candidate bits, mathematical radix2 DFT on last2axes",
+  "cost_policy": "Fresh checker startup/imports, readback/identity hashes, complete baseline and candidate certificate calls and direct paired gates, JSON, fixture generation/operator setup/transfers/persistence all charged. Compiler/tests/prior preservation separately disclosed audit cost. No deployment speed claim from warm kernels",
+  "prior_preservation_hash_count": 576,
+  "freeze_soft_seconds": 50,
+  "freeze_hard_seconds": 60,
+  "check_soft_seconds": 210,
+  "check_hard_seconds": 240,
+  "max_direct_pair_controls": 12,
+  "paired_tolerance_rational": [
+    1,
+    10000
+  ],
+  "new_seed_generation": false,
+  "old_n256_transient_replay": false,
+  "persist_every_fixture_before_check": true,
+  "paired_solver_comparison": false,
+  "planned_cases": [
+    "N64,N128 savedteacherbaseline=self ID0/3",
+    "N256newb=M(storedsource),q=roundedGPUH(b),a=RN((1+2^-20)b) fullaccuracy+directpaired ID0/3",
+    "All6snapshotsdirectpositive and rigorousnegativepairedengineeringcontrols"
+  ],
+  "code_sha256": {
+    "code/batch_gpu_common.py": "d5c77eb7273cfc26bb51619ef49a7760cc69c558e80f895b062ce1aa61ef8ab9",
+    "code/batch_supervisor.py": "52fc35a8e485ca2429c73cdc9e2700a3958e48eafde0a10ba7997b93930fdc8b",
+    "code/certified_twiddles.py": "c1cb5f8744e96013c326114bdbe67819a24088fe2bc31772ae5a875c7d3d18f2",
+    "code/cpu_interval_primitives.cpp": "8a9a2eccfa3b85c4caa33958a1db0c67db2c97ecd340dd1c8f5294fa0608d53a",
+    "code/gpu_direction_jobs.py": "9bc7c683f1ef6377584195c16f9bbf4cd79a418b1c1fd1ab049650cabc122b4e",
+    "code/interval_fft.py": "a150f0680fa98d7f627f9abbbfae1e45d62c5ad6f89b96a9197134743a88ea41",
+    "code/mloc.py": "c73d22314665204b5a6657aa00bbafeb19850a54296ee36a01a4e94cdc920bd0",
+    "code/optimized_job.py": "76b66e4c734cd9e73fb7b98c424ce22cf15d4be7e1cb02eccde52160801ce345",
+    "code/optimized_stagewise.py": "2aebdb5b5fc1bd95cf15101cf5f43d14243ed32de038a00018cb5f6a3c3236f0",
+    "code/stagewise_driver.py": "abe6365c6cf06d7f2b1d76ae2cbe9c4931475e26544d9e2f398baeda015f8990",
+    "code/stagewise_fft.py": "09ba78f81a900db6bd6ed2a225ad2d6c216adae4e6878f4fde9b23ec3738820e",
+    "code/test_batch_prolong.py": "52a8a4b7b9ac0f5b8e187968d0fc006e6a815b214db485bc1acd0045fb080096",
+    "code/test_certified_twiddles.py": "44c765b8f676fc747de7827a9b5559639ae30ccfa20a2fd48439bb085e8cb2f9",
+    "code/test_interval_fft.py": "380cab6f47c6f75b2432f3804c3eaf43dd9dfdf28954a6566e7e2ace10438428",
+    "code/test_mloc.py": "9c072beb9e98d7ec1d0c8d9929d727c948c794b4535daec25ca75c214c2182b2",
+    "code/test_optimized_stagewise.py": "27e892ccef7eb9e960a0bad72cd0936ea9a729bdc9ac5437537c131dfd583eea",
+    "code/test_stagewise_fft_audit.py": "4d59a843c9a704cfde7c3e8400b16bc6ead29733f63d5e8a908352423693a01d"
+  }
+}

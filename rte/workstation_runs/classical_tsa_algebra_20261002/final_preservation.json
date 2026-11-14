@@ -1,0 +1,37 @@
+{
+  "host": "FWI-Standard-PC-i440FX-PIIX-1996",
+  "user": "wjt",
+  "workspace": "/data/wjt/NeuralPreconditionedBornSeries",
+  "branch": "main",
+  "head": "028caea3f35d100225f656e2b1e910c1366aaafe",
+  "original_source_files_verified": 155,
+  "source_mismatches": [],
+  "original_inputs_verified": 7,
+  "input_mismatches": [],
+  "model_mismatches": [],
+  "development_parent_mismatches": [],
+  "executed_code_mismatches": [],
+  "previous_report_mismatches": [],
+  "previous_report_sha256": {
+    "rte/workstation_runs/resume_audit_20261002/HANDOFF.md": "e19da2e11da44456c44e013a7073ee2ef5006da76fb35e3395c867199a6bf248",
+    "docs/research/RTE_RESUME_AUDIT_2026_10_02.md": "e19da2e11da44456c44e013a7073ee2ef5006da76fb35e3395c867199a6bf248",
+    "rte/workstation_runs/direction_diagnostic_20261002/HANDOFF.md": "365b4994e7844ea683f58575043a50726de1448aed7b986bc42c8a79b2721f2e",
+    "docs/research/RTE_DIRECTION_DIAGNOSTIC_2026_10_02.md": "365b4994e7844ea683f58575043a50726de1448aed7b986bc42c8a79b2721f2e"
+  },
+  "report_sha256": {
+    "rte/workstation_runs/classical_tsa_algebra_20261002/HANDOFF.md": "96f6e17b4abc9d24ac5966852a3f417d8625585035b2678c70290f2ce960a914",
+    "rte/workstation_runs/classical_tsa_algebra_20261002/RTE_NEXT_MECHANISM_RECOMMENDATION_2026_10_02.md": "c0bea91bf96b6d76c1bc683b482f82121994648dd0d77678eabba72c975ce3c5",
+    "rte/workstation_runs/classical_tsa_algebra_20261002/verification_note.md": "4d584c3847299595e7bb20593634cb5a97113831a7b184939e93e3a1beb6401f",
+    "rte/workstation_runs/classical_tsa_algebra_20261002/operator_mechanisms.md": "680ab7dd831eddd429027a2a829baa2445894ed27e06c85a1329cd4520a24e7e",
+    "rte/workstation_runs/classical_tsa_algebra_20261002/implementation_mechanisms.md": "3eb2ae6bb0086dfbc6f69e430cbbc8b5834f798c68a00bddfcbcb1c1874da24d",
+    "rte/workstation_runs/classical_tsa_algebra_20261002/literature_mechanisms.md": "afa069e02ddafa22cd8f65fdbe429be51cd422b872a214fa6e018453be0a30f6",
+    "docs/research/RTE_NEXT_MECHANISM_RECOMMENDATION_2026_10_02.md": "c0bea91bf96b6d76c1bc683b482f82121994648dd0d77678eabba72c975ce3c5"
+  },
+  "reserved_seed_test_files": [],
+  "test_generated": false,
+  "gpu_processes_after": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n",
+  "gpu_after": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]\nNVIDIA RTX A6000, 49140 MiB, 37 MiB, 0 %\n",
+  "other_research_processes_by_comm": [],
+  "scientific_gate": "failed;fiveFP32physical-imageparitycasesretained",
+  "gate_changed": false
+}

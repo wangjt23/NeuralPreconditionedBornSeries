@@ -7,6 +7,7 @@ difference substitution. Factorization memory can grow substantially with size.
 
 import argparse
 import json
+import math
 import time
 from pathlib import Path
 
@@ -90,18 +91,31 @@ def main():
     for exact, drop, fill in settings:
         try:
             method = SparseSpectralFactor(rte, drop, fill, exact)
-        except RuntimeError as error:
+        except Exception as error:
             rows.append({"exact": exact, "drop_tol": drop, "fill_factor": fill, "factor_failure": str(error)})
             write_csv(out / "results.csv", rows)
             continue
         for i, q in enumerate(qs):
-            measured_solver(rte, method, q, args)
-            repeats = [measured_solver(rte, method, q, args) for _ in range(3)]
+            common = {"exact": exact, "drop_tol": drop, "fill_factor": fill, "source": i,
+                      "assembly_seconds": method.assembly_seconds, "factor_seconds": method.factor_seconds,
+                      "matrix_nnz": method.matrix.nnz, "factor_nnz": method.factor_nnz}
+            try:
+                measured_solver(rte, method, q, args)
+                repeats = [measured_solver(rte, method, q, args) for _ in range(3)]
+            except Exception as error:
+                # Aggressive incomplete factors can produce nonfinite Krylov
+                # systems.  They are failed controls, not a reason to discard
+                # the remaining fill/drop settings (or the exact-LU control).
+                rows.append({**common, "solve_failure": f"{type(error).__name__}: {error}"})
+                print(exact, drop, fill, rows[-1], flush=True)
+                write_csv(out / "results.csv", rows)
+                continue
             row = repeats[0]
             row["seconds"] = float(np.median([r["seconds"] for r in repeats]))
-            rows.append({"exact": exact, "drop_tol": drop, "fill_factor": fill, "source": i,
-                         "assembly_seconds": method.assembly_seconds, "factor_seconds": method.factor_seconds,
-                         "matrix_nnz": method.matrix.nnz, "factor_nnz": method.factor_nnz,
+            row["converged"] = math.isfinite(row["final"]) and row["final"] <= args.tol
+            if not row["converged"]:
+                row["solve_failure"] = "nonfinite_residual" if not math.isfinite(row["final"]) else "iteration_budget"
+            rows.append({**common,
                          "first_solve_seconds": method.assembly_seconds + method.factor_seconds + row["seconds"], **row})
         print(exact, drop, fill, rows[-1], flush=True)
         write_csv(out / "results.csv", rows)

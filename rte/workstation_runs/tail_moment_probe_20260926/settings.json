@@ -1,0 +1,10 @@
+{
+  "args": {
+    "checkpoint": "rte/workstation_runs/tail_direction_pilot_20260926/best.pt",
+    "output": "rte/workstation_runs/tail_moment_probe_20260926",
+    "validation_parent": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+    "repeats": 1
+  },
+  "complete": true,
+  "scope": "validation only; one measured repeat after warmup; no held-out claim"
+}

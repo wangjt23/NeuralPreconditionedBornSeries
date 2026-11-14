@@ -1,0 +1,326 @@
+[
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 1,
+    "output_owned": true,
+    "output_pointers_distinct_from_static_and_each_other": true,
+    "transpose_same_pointer_shape": true,
+    "transpose_stride_changed": true,
+    "original_sigma_t_stride": [
+      4096,
+      4096,
+      64,
+      1
+    ],
+    "transposed_sigma_t_stride": [
+      4096,
+      4096,
+      1,
+      64
+    ],
+    "transpose_view_rejected": true,
+    "changed_depth_rejected": true,
+    "missing_cache_rejected": true,
+    "restored_action_finite": true,
+    "restored_action_bitwise_equal": true,
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 16,
+    "output_owned": true,
+    "output_pointers_distinct_from_static_and_each_other": true,
+    "transpose_same_pointer_shape": true,
+    "transpose_stride_changed": true,
+    "original_sigma_t_stride": [
+      4096,
+      4096,
+      64,
+      1
+    ],
+    "transposed_sigma_t_stride": [
+      4096,
+      4096,
+      1,
+      64
+    ],
+    "transpose_view_rejected": true,
+    "changed_depth_rejected": true,
+    "missing_cache_rejected": true,
+    "restored_action_finite": true,
+    "restored_action_bitwise_equal": true,
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 1,
+    "output_owned": true,
+    "output_pointers_distinct_from_static_and_each_other": true,
+    "transpose_same_pointer_shape": true,
+    "transpose_stride_changed": true,
+    "original_sigma_t_stride": [
+      4096,
+      4096,
+      64,
+      1
+    ],
+    "transposed_sigma_t_stride": [
+      4096,
+      4096,
+      1,
+      64
+    ],
+    "transpose_view_rejected": true,
+    "changed_depth_rejected": true,
+    "missing_cache_rejected": true,
+    "restored_action_finite": true,
+    "restored_action_bitwise_equal": true,
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 16,
+    "output_owned": true,
+    "output_pointers_distinct_from_static_and_each_other": true,
+    "transpose_same_pointer_shape": true,
+    "transpose_stride_changed": true,
+    "original_sigma_t_stride": [
+      4096,
+      4096,
+      64,
+      1
+    ],
+    "transposed_sigma_t_stride": [
+      4096,
+      4096,
+      1,
+      64
+    ],
+    "transpose_view_rejected": true,
+    "changed_depth_rejected": true,
+    "missing_cache_rejected": true,
+    "restored_action_finite": true,
+    "restored_action_bitwise_equal": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 1,
+    "output_owned": true,
+    "output_pointers_distinct_from_static_and_each_other": true,
+    "transpose_same_pointer_shape": true,
+    "transpose_stride_changed": true,
+    "original_sigma_t_stride": [
+      16384,
+      16384,
+      128,
+      1
+    ],
+    "transposed_sigma_t_stride": [
+      16384,
+      16384,
+      1,
+      128
+    ],
+    "transpose_view_rejected": true,
+    "changed_depth_rejected": true,
+    "missing_cache_rejected": true,
+    "restored_action_finite": true,
+    "restored_action_bitwise_equal": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 16,
+    "output_owned": true,
+    "output_pointers_distinct_from_static_and_each_other": true,
+    "transpose_same_pointer_shape": true,
+    "transpose_stride_changed": true,
+    "original_sigma_t_stride": [
+      16384,
+      16384,
+      128,
+      1
+    ],
+    "transposed_sigma_t_stride": [
+      16384,
+      16384,
+      1,
+      128
+    ],
+    "transpose_view_rejected": true,
+    "changed_depth_rejected": true,
+    "missing_cache_rejected": true,
+    "restored_action_finite": true,
+    "restored_action_bitwise_equal": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 1,
+    "output_owned": true,
+    "output_pointers_distinct_from_static_and_each_other": true,
+    "transpose_same_pointer_shape": true,
+    "transpose_stride_changed": true,
+    "original_sigma_t_stride": [
+      16384,
+      16384,
+      128,
+      1
+    ],
+    "transposed_sigma_t_stride": [
+      16384,
+      16384,
+      1,
+      128
+    ],
+    "transpose_view_rejected": true,
+    "changed_depth_rejected": true,
+    "missing_cache_rejected": true,
+    "restored_action_finite": true,
+    "restored_action_bitwise_equal": true,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 16,
+    "output_owned": true,
+    "output_pointers_distinct_from_static_and_each_other": true,
+    "transpose_same_pointer_shape": true,
+    "transpose_stride_changed": true,
+    "original_sigma_t_stride": [
+      16384,
+      16384,
+      128,
+      1
+    ],
+    "transposed_sigma_t_stride": [
+      16384,
+      16384,
+      1,
+      128
+    ],
+    "transpose_view_rejected": true,
+    "changed_depth_rejected": true,
+    "missing_cache_rejected": true,
+    "restored_action_finite": true,
+    "restored_action_bitwise_equal": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 1,
+    "output_owned": true,
+    "output_pointers_distinct_from_static_and_each_other": true,
+    "transpose_same_pointer_shape": true,
+    "transpose_stride_changed": true,
+    "original_sigma_t_stride": [
+      65536,
+      65536,
+      256,
+      1
+    ],
+    "transposed_sigma_t_stride": [
+      65536,
+      65536,
+      1,
+      256
+    ],
+    "transpose_view_rejected": true,
+    "changed_depth_rejected": true,
+    "missing_cache_rejected": true,
+    "restored_action_finite": true,
+    "restored_action_bitwise_equal": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 16,
+    "output_owned": true,
+    "output_pointers_distinct_from_static_and_each_other": true,
+    "transpose_same_pointer_shape": true,
+    "transpose_stride_changed": true,
+    "original_sigma_t_stride": [
+      65536,
+      65536,
+      256,
+      1
+    ],
+    "transposed_sigma_t_stride": [
+      65536,
+      65536,
+      1,
+      256
+    ],
+    "transpose_view_rejected": true,
+    "changed_depth_rejected": true,
+    "missing_cache_rejected": true,
+    "restored_action_finite": true,
+    "restored_action_bitwise_equal": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 1,
+    "output_owned": true,
+    "output_pointers_distinct_from_static_and_each_other": true,
+    "transpose_same_pointer_shape": true,
+    "transpose_stride_changed": true,
+    "original_sigma_t_stride": [
+      65536,
+      65536,
+      256,
+      1
+    ],
+    "transposed_sigma_t_stride": [
+      65536,
+      65536,
+      1,
+      256
+    ],
+    "transpose_view_rejected": true,
+    "changed_depth_rejected": true,
+    "missing_cache_rejected": true,
+    "restored_action_finite": true,
+    "restored_action_bitwise_equal": true,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 16,
+    "output_owned": true,
+    "output_pointers_distinct_from_static_and_each_other": true,
+    "transpose_same_pointer_shape": true,
+    "transpose_stride_changed": true,
+    "original_sigma_t_stride": [
+      65536,
+      65536,
+      256,
+      1
+    ],
+    "transposed_sigma_t_stride": [
+      65536,
+      65536,
+      1,
+      256
+    ],
+    "transpose_view_rejected": true,
+    "changed_depth_rejected": true,
+    "missing_cache_rejected": true,
+    "restored_action_finite": true,
+    "restored_action_bitwise_equal": true,
+    "passed": true
+  }
+]

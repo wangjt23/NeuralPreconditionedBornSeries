@@ -1,0 +1,16 @@
+{
+  "complete": true,
+  "cases": 48,
+  "scope": "48 saved original-RHS extended-neural fields; existing reused development only; no solves or teachers",
+  "max_true_residual": 9.985011571756997e-06,
+  "failures": 0,
+  "all_original_rhs_exact": true,
+  "coercivity_assumptions_evaluated_all_pass": true,
+  "max_evaluated_relative_solution_error_bound": 0.00023688605765234688,
+  "max_relative_error_vs_saved_teacher": 6.445421372409461e-07,
+  "teacher_comparison_count": 32,
+  "method": "P is actual rounded phase action including quadrature;mu=maxeig((P+P*)/2);m=min(sigma_t-sigma_s*mu);delta=norm(residual)/m;relative_bound=delta/(norm(field)-delta)",
+  "limitations": "exact-arithmetic theorem assumptions, evaluated with ordinary FP64; no directed-rounding enclosure, interval certificate, continuum error or positivity claim",
+  "wall_seconds": 7.374143332242966,
+  "source_sha256": "b9207210d8cabadeca880dd04ff5bebf4d3542a43426644d93d849ccf0a792c2"
+}

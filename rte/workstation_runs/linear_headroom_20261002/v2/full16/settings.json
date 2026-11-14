@@ -1,0 +1,89 @@
+{
+  "complete": true,
+  "scope": "16 existing development media at three nested grids; original recipes and exact-original graph replay",
+  "independent_media": 16,
+  "grids": [
+    64,
+    128,
+    256
+  ],
+  "recipes": {
+    "64": "reference_tail",
+    "128": "reference_tail",
+    "256": "tsa16_zero"
+  },
+  "parity_ids": [
+    0,
+    3
+  ],
+  "warmups": 1,
+  "timed_repeats": 2,
+  "max_full_solves": 288,
+  "max_wall_seconds": 300.0,
+  "test_touched": false,
+  "reserved_seed9626_touched": false,
+  "training_run": false,
+  "policy_sha256": "f08fb914327d23f8975cfad7ec50b93ddf4455959ca7cb45bea6147f30359c72",
+  "runner_sha256": "222c5d34d33f5980337a9f38693bb4b9a1a5210e2f17b22454684968df584de6",
+  "helper_sha256": "cb142084d28b1a0b5236e92b6b5e14f4d7aca3d67b8d7d41e3f65d2d76c0db3e",
+  "deadline_enforcement": "cooperative checks between phases/cases/solves; launcher owns hard process timeout",
+  "accuracy_scope": "unchanged original FP64 A/RHS; stored weighted-phase coercivity estimate without directed rounding; no continuous-error certificate",
+  "precision_scope": "complex64 graph replay, original complex128 native fallback; cached original reference inverse unchanged",
+  "cost_scope": "shared physical/required-base setup charged to both arms; graph warmup/capture extra; Q tables conditional setup-plus-warm estimates, not distinct-RHS experiments or process-cold latency",
+  "wall_seconds": 216.2625128198415,
+  "last_phase": "final preservation and summary",
+  "original_sources_verified_before": 155,
+  "gpu_processes_before": {
+    "returncode": 0,
+    "stdout": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB",
+    "stderr": ""
+  },
+  "verified_development_parent_sha256": {
+    "64": "bbebfd1c7c4808733628ee8fdecac9e9ce09521d70f7664a5d5391c8af10813a",
+    "128": "9ade993bce700505d134fa197ceeee72327790bc6660e670a95bea8c43052de1",
+    "256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "parity_checks": 48,
+  "all_parity_passed": true,
+  "all_parity_bitwise_equal": true,
+  "all_ownership_and_guards_passed": true,
+  "original_sources_verified_after": 155,
+  "full_solve_rows": 288,
+  "measured_solves": 192,
+  "recorded_warmup_solves": 96,
+  "all_solve_accuracy_passed": true,
+  "all_full_solution_bitwise_equal": true,
+  "summaries": [
+    {
+      "size": 64,
+      "independent_media": 16,
+      "original_mean_case_median_seconds": 0.1342053671251051,
+      "graph_mean_case_median_seconds": 0.03332799859344959,
+      "saving_percent": 75.16641896863818
+    },
+    {
+      "size": 128,
+      "independent_media": 16,
+      "original_mean_case_median_seconds": 0.13657969271298498,
+      "graph_mean_case_median_seconds": 0.04084716801298782,
+      "saving_percent": 70.09279549425698
+    },
+    {
+      "size": 256,
+      "independent_media": 16,
+      "original_mean_case_median_seconds": 0.14865086635109037,
+      "graph_mean_case_median_seconds": 0.09680632723029703,
+      "saving_percent": 34.87671507971205
+    }
+  ],
+  "exploratory_warm_headroom_gate_passed": true,
+  "winner_claim_allowed": true,
+  "peak_allocated_bytes": 1151242752,
+  "peak_reserved_bytes": 2409627648,
+  "memory_scope": "whole-process peak includes entry captures/guards and full screen, not isolated one-method memory",
+  "gpu_processes_after": {
+    "returncode": 0,
+    "stdout": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n2185235, /data1/software/miniconda3/bin/python, 1714 MiB",
+    "stderr": ""
+  }
+}

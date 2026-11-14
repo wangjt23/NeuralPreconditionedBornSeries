@@ -1,0 +1,47 @@
+[
+  {
+    "size": 64,
+    "classical": "reference_tail",
+    "neural": "neural_tail",
+    "independent_media": 32,
+    "classical_ms": 133.20970369386487,
+    "neural_ms": 139.57854773616418,
+    "saving_percent": -4.781066142850854,
+    "saving_percent_ci95": [
+      -7.430622586176258,
+      -2.4209266920195227
+    ],
+    "neural_faster_cases": 6,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median"
+  },
+  {
+    "size": 128,
+    "classical": "reference_tail",
+    "neural": "neural_tail",
+    "independent_media": 32,
+    "classical_ms": 134.7126393520739,
+    "neural_ms": 142.5840299925767,
+    "saving_percent": -5.843097335455494,
+    "saving_percent_ci95": [
+      -8.14871548615545,
+      -3.738840969076518
+    ],
+    "neural_faster_cases": 3,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median"
+  },
+  {
+    "size": 256,
+    "classical": "tsa16_zero",
+    "neural": "neural_tail",
+    "independent_media": 32,
+    "classical_ms": 142.96805032063276,
+    "neural_ms": 157.33253280632198,
+    "saving_percent": -10.047337466989426,
+    "saving_percent_ci95": [
+      -12.677847338117601,
+      -7.299425229130983
+    ],
+    "neural_faster_cases": 5,
+    "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median"
+  }
+]

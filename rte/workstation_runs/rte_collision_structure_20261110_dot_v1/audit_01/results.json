@@ -1,0 +1,238 @@
+{
+  "complete": true,
+  "scope": "Structural obstruction audit on actual g=.65. Rank-Ny Woodbury is tested only as a g=0 diagnostic counterfactual, not deployed as an approximation.",
+  "pid": 1263340,
+  "affinity": [
+    0
+  ],
+  "device": "cpu",
+  "threads": 1,
+  "grid": 128,
+  "L": 12,
+  "modes": [
+    0,
+    1,
+    8
+  ],
+  "seed": 20261110,
+  "vectors_per_mode": 3,
+  "structural": {
+    "g": 0.65,
+    "angular_singular_values": [
+      1.0000000393225132,
+      0.6550249551828621,
+      0.6550249276488894,
+      0.43349695147790046,
+      0.43349691224697745,
+      0.2936665006764545,
+      0.29366641785495684,
+      0.20918088108807487,
+      0.20918081920586906,
+      0.16411780650523614,
+      0.16411778363407628,
+      0.149984632845826
+    ],
+    "angular_rank": 12,
+    "angular_inverse_certificate": {
+      "computed_inverse_residual_inf": 9.20022104839922e-16,
+      "conservative_roundoff_allowance": 7.224618861149129e-14,
+      "residual_upper_bound": 7.316621071633121e-14,
+      "invertibility_certified": true
+    },
+    "isotropic_singular_values": [
+      1.0000000298023224,
+      1.2905374829870355e-17,
+      1.109726673535454e-49,
+      2.0014079996508166e-81,
+      1.0395409765644902e-112,
+      1.0856602686733348e-144,
+      4.411113418521631e-177,
+      6.944127233493562e-210,
+      6.846721406257825e-242,
+      6.931946403320944e-274,
+      1.45613168264193e-305,
+      0.0
+    ],
+    "isotropic_rank": 1,
+    "scattering_profile_min": 6.5,
+    "scattering_profile_nonzeros": 128,
+    "collision_rank_product": 1536,
+    "required_reduced_dimension_general": 1536,
+    "proposed_isotropic_reduced_dimension": 128,
+    "offdiagonal_submatrix_singular_values": [
+      0.24008643046904735,
+      0.15687642305773322,
+      0.024641227433155378,
+      0.0031922440416018803,
+      0.00020669731510983844,
+      4.763291975052628e-06
+    ],
+    "offdiagonal_submatrix_rank": 6,
+    "offdiagonal_inverse_certificate": {
+      "computed_inverse_residual_inf": 3.5254459834849454e-13,
+      "conservative_roundoff_allowance": 1.2843244401514258e-10,
+      "residual_upper_bound": 1.2878498861349107e-10,
+      "invertibility_certified": true
+    },
+    "lower_bound_after_any_angular_diagonal_reassignment": 768,
+    "isotropic_omission_spectral_norm": 0.6550249551828624,
+    "isotropic_omission_relative_frobenius": 0.7816279316578925,
+    "stored_circulant_relative_defect": 3.2326598966058603e-07,
+    "angular_fourier_collision_offdiagonal_relative_norm": 2.002870706283028e-07,
+    "angular_fourier_normal_non_nearest_relative_norm": 9.446097960157513e-08,
+    "angular_fourier_tangent_non_nearest_relative_norm": 1.1378799914670236e-07,
+    "boundary": "Periodic Fourier; no special boundary rows.",
+    "spatial_coefficient": "Positive diagonal sigma_s(y), multiplied after full angular scattering.",
+    "docstring_caution": "Class docstring says isotropic, but actual g=.65 branch uses full normalized angular kernel."
+  },
+  "mode_records": [
+    {
+      "k": 0,
+      "assembly_seconds": 0.21501863095909357,
+      "actual_dense_LU_seconds": 0.25155785493552685,
+      "isotropic_dense_LU_seconds": 0.2453469738829881,
+      "isotropic_Woodbury_setup": {
+        "transport_LU_seconds": 0.007240528939291835,
+        "reduced_assembly_seconds": 0.021263479022309184,
+        "reduced_LU_seconds": 0.0004288051277399063,
+        "total_seconds": 0.028933452907949686
+      },
+      "actual_dense_apply_three_rhs_seconds": 0.010667407186701894,
+      "isotropic_dense_apply_three_rhs_seconds": 0.008808293845504522,
+      "isotropic_Woodbury_apply_three_rhs_seconds": 0.003180612111464143,
+      "actual_dense_factor_bytes": 37754880,
+      "isotropic_Woodbury_bytes": 6560448,
+      "vectors": [
+        {
+          "vector": 0,
+          "original_A0_vs_explicit_block_relative_difference": 4.89882753732703e-16,
+          "actual_dense_residual": 6.594065122498627e-14,
+          "isotropic_Woodbury_residual": 1.0801596168996253e-13,
+          "isotropic_Woodbury_vs_isotropic_dense": 2.4007099365924356e-13,
+          "rank1_Woodbury_true_anisotropic_residual": 2.0075304135605596,
+          "rank1_Woodbury_vs_true_dense_relative_difference": 0.38068325659158064
+        },
+        {
+          "vector": 1,
+          "original_A0_vs_explicit_block_relative_difference": 4.68798168250251e-16,
+          "actual_dense_residual": 9.710647811266083e-14,
+          "isotropic_Woodbury_residual": 1.6700837544794166e-13,
+          "isotropic_Woodbury_vs_isotropic_dense": 3.0324766146488763e-13,
+          "rank1_Woodbury_true_anisotropic_residual": 1.9996830002456718,
+          "rank1_Woodbury_vs_true_dense_relative_difference": 0.27868495634044865
+        },
+        {
+          "vector": 2,
+          "original_A0_vs_explicit_block_relative_difference": 4.701297202154936e-16,
+          "actual_dense_residual": 8.601037205263317e-14,
+          "isotropic_Woodbury_residual": 1.6507883999804506e-13,
+          "isotropic_Woodbury_vs_isotropic_dense": 4.4953102107028376e-13,
+          "rank1_Woodbury_true_anisotropic_residual": 1.8839712144883025,
+          "rank1_Woodbury_vs_true_dense_relative_difference": 0.2753349081014887
+        }
+      ]
+    },
+    {
+      "k": 1,
+      "assembly_seconds": 0.1807206799276173,
+      "actual_dense_LU_seconds": 0.24079798394814134,
+      "isotropic_dense_LU_seconds": 0.2388772799167782,
+      "isotropic_Woodbury_setup": {
+        "transport_LU_seconds": 0.0038185028824955225,
+        "reduced_assembly_seconds": 0.009133326122537255,
+        "reduced_LU_seconds": 0.0003895079717040062,
+        "total_seconds": 0.013341901823878288
+      },
+      "actual_dense_apply_three_rhs_seconds": 0.009607616113498807,
+      "isotropic_dense_apply_three_rhs_seconds": 0.008915960090234876,
+      "isotropic_Woodbury_apply_three_rhs_seconds": 0.0019447728991508484,
+      "actual_dense_factor_bytes": 37754880,
+      "isotropic_Woodbury_bytes": 6560448,
+      "vectors": [
+        {
+          "vector": 0,
+          "original_A0_vs_explicit_block_relative_difference": 4.378210325749765e-16,
+          "actual_dense_residual": 3.426179797548648e-14,
+          "isotropic_Woodbury_residual": 1.158249504044884e-13,
+          "isotropic_Woodbury_vs_isotropic_dense": 2.7469348265672444e-13,
+          "rank1_Woodbury_true_anisotropic_residual": 2.0218424027473803,
+          "rank1_Woodbury_vs_true_dense_relative_difference": 1.0383289017712982
+        },
+        {
+          "vector": 1,
+          "original_A0_vs_explicit_block_relative_difference": 4.63514791708144e-16,
+          "actual_dense_residual": 1.9487107332178893e-14,
+          "isotropic_Woodbury_residual": 7.82599742968794e-14,
+          "isotropic_Woodbury_vs_isotropic_dense": 4.5229255007865213e-13,
+          "rank1_Woodbury_true_anisotropic_residual": 1.5171652371957203,
+          "rank1_Woodbury_vs_true_dense_relative_difference": 1.206018906478122
+        },
+        {
+          "vector": 2,
+          "original_A0_vs_explicit_block_relative_difference": 4.527768942078039e-16,
+          "actual_dense_residual": 4.3924359447074317e-14,
+          "isotropic_Woodbury_residual": 1.3949195597321275e-13,
+          "isotropic_Woodbury_vs_isotropic_dense": 3.1525865865990337e-13,
+          "rank1_Woodbury_true_anisotropic_residual": 2.0528914346270857,
+          "rank1_Woodbury_vs_true_dense_relative_difference": 1.051923589791202
+        }
+      ]
+    },
+    {
+      "k": 8,
+      "assembly_seconds": 0.16586902108974755,
+      "actual_dense_LU_seconds": 0.24396651610732079,
+      "isotropic_dense_LU_seconds": 0.23150485311634839,
+      "isotropic_Woodbury_setup": {
+        "transport_LU_seconds": 0.00370554206892848,
+        "reduced_assembly_seconds": 0.008341156877577305,
+        "reduced_LU_seconds": 0.00033728103153407574,
+        "total_seconds": 0.01238434505648911
+      },
+      "actual_dense_apply_three_rhs_seconds": 0.009963855147361755,
+      "isotropic_dense_apply_three_rhs_seconds": 0.00799500197172165,
+      "isotropic_Woodbury_apply_three_rhs_seconds": 0.0017956448718905449,
+      "actual_dense_factor_bytes": 37754880,
+      "isotropic_Woodbury_bytes": 6560448,
+      "vectors": [
+        {
+          "vector": 0,
+          "original_A0_vs_explicit_block_relative_difference": 4.381433780006215e-16,
+          "actual_dense_residual": 3.2105285499983422e-15,
+          "isotropic_Woodbury_residual": 1.486497378782945e-14,
+          "isotropic_Woodbury_vs_isotropic_dense": 2.9022991175956924e-14,
+          "rank1_Woodbury_true_anisotropic_residual": 1.0947438112545882,
+          "rank1_Woodbury_vs_true_dense_relative_difference": 0.9187488793067508
+        },
+        {
+          "vector": 1,
+          "original_A0_vs_explicit_block_relative_difference": 4.454633089272243e-16,
+          "actual_dense_residual": 2.8273643956497033e-15,
+          "isotropic_Woodbury_residual": 1.0377923307133342e-14,
+          "isotropic_Woodbury_vs_isotropic_dense": 1.6215319952006068e-14,
+          "rank1_Woodbury_true_anisotropic_residual": 0.9958140408258898,
+          "rank1_Woodbury_vs_true_dense_relative_difference": 0.8016307379163592
+        },
+        {
+          "vector": 2,
+          "original_A0_vs_explicit_block_relative_difference": 4.530666137502339e-16,
+          "actual_dense_residual": 3.4602283051606946e-15,
+          "isotropic_Woodbury_residual": 1.3820121603878709e-14,
+          "isotropic_Woodbury_vs_isotropic_dense": 2.1066971056019166e-14,
+          "rank1_Woodbury_true_anisotropic_residual": 1.2583074536680388,
+          "rank1_Woodbury_vs_true_dense_relative_difference": 1.0692934879135045
+        }
+      ]
+    }
+  ],
+  "wall_seconds": 2.575179522158578,
+  "source_hash": "21b14d2abcb35c657c43bf6b2cdbdcbcc086c62be33fbeacef94b50dedb16126",
+  "production_hashes": {
+    "rte/models.py": "6cd887b332ed48409bcffa2d2bad6ca9654c97ff7071c13a6443278f583b04d1",
+    "rte/mixed_precision_transport.py": "9c6793ed0bffad5bf803253ac0ada097026c653c02f6498e82fb0974dfc9765a",
+    "rte/workstation_runs/layered_background_20261108_dot_v1/layered_inverse.py": "aaa026a7ddc59e2b64ed3a6e884ec6f3359f330d9f3cbfa4ce173219a8df4de2"
+  },
+  "GPU_used": false,
+  "new_full_PDE_solves": false,
+  "neural_training": false
+}

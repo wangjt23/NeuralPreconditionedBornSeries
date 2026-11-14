@@ -1,0 +1,24 @@
+{
+  "stage": "complete original-Fourier solves",
+  "variants": [
+    "upwind_nyquist_complex64",
+    "compact4_nyquist_complex128"
+  ],
+  "closed": "compact4 complex64 has surrogate residual1.1–15.4, so excluded from full-solve candidate set; initial version retained.",
+  "capture_change": "Use explicit warmed raw CUDA capture like qualified TSA backend; no process-wide garbage-collection/cache-flush side effects. Return fresh output storage.",
+  "ids": [
+    0,
+    4,
+    7,
+    14
+  ],
+  "grids": [
+    128,
+    256
+  ],
+  "warmups": 1,
+  "repeats": 3,
+  "teacher_q": "Existing N128 accurate teachers on actual first-classical-call state. q=V(u_t-x). N256 does not acquire new teacher or claim oracle result.",
+  "oracle_cost": "Pay both incident G and reconstruction G. Known q derived offline from existing teacher; that acquisition reported separately. Full TSA prefix, subsequent work, image/projection and independent acceptance timed.",
+  "decision": "Diagnostic subset only. All failures retained. Existing original residual tol1e-5, bound1e-3, pairedfield1e-4. First promote only if reliable and complete-cost space exists; no training."
+}

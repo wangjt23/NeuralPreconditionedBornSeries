@@ -1,0 +1,71 @@
+{
+  "passed": false,
+  "neural": "mixed64_128",
+  "test_seed": 9626,
+  "test_count": 32,
+  "classical": {
+    "64": {
+      "classical": "reference_tail",
+      "neural": "neural_tail"
+    },
+    "128": {
+      "classical": "reference_tail",
+      "neural": "neural_tail"
+    },
+    "256": {
+      "classical": "tsa16_zero",
+      "neural": "neural_tail"
+    }
+  },
+  "validation_comparisons": [
+    {
+      "size": 64,
+      "classical": "reference_tail",
+      "neural": "mixed64_128",
+      "independent_media": 16,
+      "classical_ms": 133.8180234306492,
+      "neural_ms": 133.9629166177474,
+      "saving_percent": -0.10827628699305869,
+      "saving_percent_ci95": [
+        -3.0723830253437048,
+        2.673130902475427
+      ],
+      "neural_faster_cases": 7,
+      "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+      "failed": 0
+    },
+    {
+      "size": 128,
+      "classical": "reference_tail",
+      "neural": "mixed64_128",
+      "independent_media": 16,
+      "classical_ms": 133.21077782893553,
+      "neural_ms": 134.11443965742365,
+      "saving_percent": -0.6783699061111648,
+      "saving_percent_ci95": [
+        -3.5388959967033555,
+        1.9522683091410125
+      ],
+      "neural_faster_cases": 7,
+      "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+      "failed": 0
+    },
+    {
+      "size": 256,
+      "classical": "tsa16_zero",
+      "neural": "mixed64_128",
+      "independent_media": 16,
+      "classical_ms": 145.74068365618587,
+      "neural_ms": 155.89054278098047,
+      "saving_percent": -6.964327921460112,
+      "saving_percent_ci95": [
+        -10.376912413148984,
+        -2.845705148480687
+      ],
+      "neural_faster_cases": 4,
+      "bootstrap": "paired media bootstrap, 10000 samples; timing repeats first reduced by median",
+      "failed": 0
+    }
+  ],
+  "selection_scope": "fixed mixed-resolution hypothesis; no architecture or checkpoint retuning from test"
+}

@@ -1,0 +1,15 @@
+{
+  "mode": "training",
+  "pid": 2409622,
+  "started": 1791106861.2432504,
+  "complete": true,
+  "command": [
+    "/data1/software/miniconda3/bin/python",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/code/train_adequacy.py",
+    "--output",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/training"
+  ],
+  "returncode": 0,
+  "finished": 1791107515.744634,
+  "seconds": 654.5013835430145
+}

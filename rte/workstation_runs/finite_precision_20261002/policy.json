@@ -1,0 +1,73 @@
+{
+  "phase": "finite_precision_primitives_v1",
+  "grids": [
+    128,
+    256
+  ],
+  "development_ids": [
+    0,
+    3
+  ],
+  "development_seed": 4626,
+  "development_parent_sha256": {
+    "128": "9ade993bce700505d134fa197ceeee72327790bc6660e670a95bea8c43052de1",
+    "256": "fb346212e23752d289a06e7f9086fee94a0ca2fa2b16dc6b840ddd14adc64fa8"
+  },
+  "frozen_complex_policy_sha256": "acd73134c63839726d3b699c60e795b8da90d14709a9529fb94e905ce59ebd93",
+  "code_sha256": {
+    "code/primitive_driver.py": "d7149407412392cbdbdf548af907ee4348d242e709c6f882b39036f2462027c7",
+    "code/error_model.py": "5628afcaa039b0a1fb88d68c4c73ea381fc5c961b0f4481ccbe9f705fa863015",
+    "code/exact_rational_rte.py": "871e53c1e3f0ec66fbbd4458e3d19aaa0539765a47ad96731337580b0134d697",
+    "code/test_error_model.py": "a33445ffc559155bd6fc1e95e2d0442f5826451acf662b91615fe6fb3b466284",
+    "code/test_exact_rational_rte.py": "ed6100247119aa47663a57840b0ae9bf272962a4a14bc7cb09177be56112ebc0",
+    "code/test_error_model_audit.py": "5155a1faf016eeaafa18e0652872ac97c0940a5a04302a6fbc603aa80a6b678c",
+    "code/direct_segmented_tsa.py": "98eb806b8482990c1727cb80de3a2182c520be01090a512b742feb0417e0d1d1",
+    "code/segmented_tsa.py": "a95ed61b4c282353e48b8dad6f5aebd993a50f130f10d8aaca6e8aa2c883ba29"
+  },
+  "strong_factors": {
+    "128": "tsa8",
+    "256": "tsa16"
+  },
+  "full_grid_probe_names": [
+    "source",
+    "mixed",
+    "x_nyquist_angle0",
+    "unit_complex_random",
+    "M_source",
+    "M_random"
+  ],
+  "full_grid_gpu_H_actions": 72,
+  "preconditioner_actions": 8,
+  "numpy_fp64_references": 48,
+  "exact_fixture_cases": 12,
+  "exact_reference_actions": 24,
+  "fixture_gpu_H_actions": 24,
+  "random_seed_rule": "91731+N+ID private CUDA Generator, normalized complex64",
+  "fixture": "4x4 exact roots \u00b11,\u00b1i; original stored angular buffers and material samples; three ex ante binary dyadic fields. This is a separate fixture, not a replacement target.",
+  "source_targets": "NumPy128 nominal fixed actual assembled D32 and D64; low32 reference evaluated at the actual cast64 field; cast error reported separately against original128 input. Exact fixture targets use actual stored assembled symbols.",
+  "max_full_solves": 0,
+  "soft_seconds": 60,
+  "hard_seconds": 75,
+  "max_reserved_bytes": 4294967296,
+  "original_acceptance": {
+    "relative_residual": 1e-05,
+    "relative_solution_error_bound": 0.001,
+    "paired_field_difference": 0.0001
+  },
+  "prospective_outer_error_budget": {
+    "reserve_fraction": 0.01,
+    "measured_residual_ceiling": 9.9e-06,
+    "derived_from_original_accuracy_before_measurement": true,
+    "includes_action_subtraction_norm": true
+  },
+  "diagnostic_decision": "Finite-probe results quantify observed error only; they cannot certify global cuFFT/kernel contracts or admit a full-solver performance study. No threshold adjustment from the frozen5.036e-6 failure. Certified accuracy admission NO-GO while original physical-action/check contracts remain unverified; coordinate-residual and prospective convergence claims additionally need trajectory bounds.",
+  "cost": "Report physical/base/capture construction, mandatory diagnostic acquisition, CPU-reference/exact-fixture time, transfers and owned-process total; future mandatory checks/precision corrections must be charged identically to real and complex arms. No solve-performance claim from primitive timings.",
+  "failure_preservation": "Original complexKrylov8failedrecords and0fullsolves remain unchanged. New primitive policy does not waive old entry cap.",
+  "training": false,
+  "test9626_touched": false,
+  "original_source_exported": false,
+  "git_write": false,
+  "new_package": false,
+  "parameter_sweep": false,
+  "precision_repair": false
+}

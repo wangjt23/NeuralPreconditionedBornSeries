@@ -1,0 +1,138 @@
+{
+  "result": "SHELL_DIRECTION_NO_GO",
+  "summary": [
+    {
+      "method": "one_shot_P8",
+      "complete_four_RHS_seconds": 22.866175475064665,
+      "first_RHS_seconds": 7.872767546912655,
+      "setup_seconds": 3.0994066689163446,
+      "inner_seconds": 3.5235320297069848,
+      "preconditioner_seconds": 14.17824732651934,
+      "remaining_seconds": 2.0649894499219954,
+      "classical_calls": [
+        3,
+        3,
+        3,
+        3
+      ],
+      "A_counts": {
+        "outer_A": 44,
+        "inner_A": 40,
+        "final_A": 4
+      }
+    },
+    {
+      "method": "repeat_P8",
+      "complete_four_RHS_seconds": 29.040547814918682,
+      "first_RHS_seconds": 8.672973062843084,
+      "setup_seconds": 2.8651820060331374,
+      "inner_seconds": 7.1070352657698095,
+      "preconditioner_seconds": 16.62667837785557,
+      "remaining_seconds": 2.441652165260166,
+      "classical_calls": [
+        3,
+        4,
+        3,
+        4
+      ],
+      "A_counts": {
+        "outer_A": 56,
+        "inner_A": 80,
+        "final_A": 4
+      }
+    },
+    {
+      "method": "shell_second",
+      "complete_four_RHS_seconds": 27.467072188854218,
+      "first_RHS_seconds": 10.8815376709681,
+      "setup_seconds": 6.2006634208373725,
+      "inner_seconds": 6.845295442035422,
+      "preconditioner_seconds": 12.066115137422457,
+      "remaining_seconds": 2.354998188558966,
+      "classical_calls": [
+        2,
+        3,
+        2,
+        3
+      ],
+      "A_counts": {
+        "outer_A": 48,
+        "inner_A": 76,
+        "final_A": 4
+      }
+    }
+  ],
+  "checks": {
+    "true_residual": 8.633488740020677e-06,
+    "evaluated_relative_bound": 4.565269662714514e-05,
+    "relative_field_difference": 3.2898723079062536e-07
+  },
+  "states": [
+    {
+      "source": 0,
+      "selection_role": "discovery",
+      "before_source_relative_residual": 2.3731139439896387e-05,
+      "after_source_relative_residual": 3.835780231431263e-06,
+      "shell_norm_reduction": 191.9247684076906,
+      "classical_calls": 2,
+      "second_input_comparison": {
+        "relative_residual_difference": 0.0001210350480224297,
+        "source_normalized_residual_difference": 2.8722993526848627e-09
+      }
+    },
+    {
+      "source": 4,
+      "selection_role": "discovery",
+      "before_source_relative_residual": 7.528893932782878e-05,
+      "after_source_relative_residual": 1.4698314011324676e-05,
+      "shell_norm_reduction": 1268.6732331115008,
+      "classical_calls": 3,
+      "second_input_comparison": {
+        "relative_residual_difference": 8.993396773424711e-10,
+        "source_normalized_residual_difference": 6.771033040255511e-14
+      }
+    },
+    {
+      "source": 7,
+      "selection_role": "not_used_for_support_selection",
+      "before_source_relative_residual": 3.3472816244436076e-05,
+      "after_source_relative_residual": 6.696454072892934e-06,
+      "shell_norm_reduction": 276.9223771521355,
+      "classical_calls": 2,
+      "second_input_comparison": {
+        "relative_residual_difference": 0.00011069516213781215,
+        "source_normalized_residual_difference": 3.705278669410057e-09
+      }
+    },
+    {
+      "source": 14,
+      "selection_role": "not_used_for_support_selection",
+      "before_source_relative_residual": 7.537709342804425e-05,
+      "after_source_relative_residual": 1.5614666412049913e-05,
+      "shell_norm_reduction": 1330.4522834483407,
+      "classical_calls": 3,
+      "second_input_comparison": {
+        "relative_residual_difference": 0.00011830273770340816,
+        "source_normalized_residual_difference": 8.917316081919524e-09
+      }
+    }
+  ],
+  "shell_minus_incumbent_seconds": {
+    "complete_four_RHS_seconds": 4.6008967137895525,
+    "setup_seconds": 3.101256751921028,
+    "inner_seconds": 3.321763412328437,
+    "preconditioner_seconds": -2.112132189096883,
+    "remaining_seconds": 0.2900087386369705
+  },
+  "setup_free_online_penalty_seconds": 1.4996399618685246,
+  "shell_slowdown_pct": 20.120971776879728,
+  "full_process": {
+    "elapsed_seconds": 84.07,
+    "user_cpu_seconds": 76.91,
+    "system_cpu_seconds": 3.74,
+    "maximum_RSS_KiB": 1368752.0
+  },
+  "selection_diagnostic_wall_seconds": 59.9,
+  "combined_error_diagnostic_and_shell_process_wall_seconds": 143.97,
+  "raw_sha256": "b8689101c9d5777f6c0457bff63df84a89e4007a3fca5777a56efd2613704bec"
+}

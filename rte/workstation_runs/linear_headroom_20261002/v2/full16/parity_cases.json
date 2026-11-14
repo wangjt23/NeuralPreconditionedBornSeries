@@ -1,0 +1,866 @@
+[
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 64,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 1,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 3,
+      "ifftn": 3
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex64",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 0.0001,
+    "native128_fallback": false,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "existing_physical_source",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "depth": 16,
+    "input_dtype": "torch.complex128",
+    "probe": "deterministic_grazing_nyquist",
+    "field_relative": 0.0,
+    "image_relative": 0.0,
+    "finite": true,
+    "bitwise_equal": true,
+    "limit": 1e-09,
+    "native128_fallback": true,
+    "capture_fft_counts": {
+      "fftn": 63,
+      "ifftn": 63
+    },
+    "passed": true
+  }
+]

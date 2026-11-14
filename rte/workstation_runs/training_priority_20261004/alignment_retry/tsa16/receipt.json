@@ -1,0 +1,26 @@
+{
+  "arm": "tsa16",
+  "complete": true,
+  "updates": 1000,
+  "selected_step": 1000,
+  "best_score": [
+    0,
+    4.5625,
+    2.811719955260004e-06
+  ],
+  "timing": {
+    "training": 181.75105884298682,
+    "validation": 24.083007477223873,
+    "panel": 11.793396836146712,
+    "checkpoint": 2.5321842283010483
+  },
+  "peak_allocated_bytes": 4654253568,
+  "peak_reserved_bytes": 5278531584,
+  "stopping_reason": "planned budget",
+  "checkpoint_sha256": {
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa16/last.pt": "b966c87ef4df3809b153231ed595ae6dbd06834bdc72cea91696fd490e2ec41f",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa16/step1000.pt": "8d72baa0337a6b5e5ca5a9418c4d6a4fe5db0433a1209998e28fdc875c94d4e3",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa16/best.pt": "ee2cb777fc2945b5779078e6b7dee22b9c7ee4f4e96e0f85719c69b8c2a7f3b9",
+    "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/training_priority_20261004/alignment_retry/tsa16/step0.pt": "e0cc79a17855495846dd015e56b9a4f51d21d757d39fdeeabf70b7e617ef180c"
+  }
+}

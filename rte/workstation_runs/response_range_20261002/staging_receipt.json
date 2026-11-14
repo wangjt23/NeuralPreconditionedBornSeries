@@ -1,0 +1,23 @@
+{
+  "host": "FWI-Standard-PC-i440FX-PIIX-1996",
+  "user": "wjt",
+  "workspace": "/data/wjt/NeuralPreconditionedBornSeries",
+  "files_verified": 191,
+  "code_sha256": {
+    "code/transport_response_range.py": "da661216434aaac695a8bc215e5d785b523ef68a4d85e6d771028a1afb2493bd",
+    "code/test_transport_response_range.py": "2981ae0426791f0652b2fc93950ab7da0ab7b2bd1dc720c9a140a6625b37201a",
+    "code/response_oracle.py": "4723e3d429038b9a584d03929fd17bab805b27ad3e8c2bb0fbd0d6efc708c242",
+    "code/graph_classical_v2.py": "cb142084d28b1a0b5236e92b6b5e14f4d7aca3d67b8d7d41e3f65d2d76c0db3e",
+    "notes/MECHANISM.md": "7310ae483ac128da04d5f8319040291e676b46ec8ed0c3c37b69835e5e0a35f5",
+    "notes/response_protocol_review.md": "e0ec6bd5630e5c4bd4c460e557796bfd7f183a8d52097c66edaa86e99d064180",
+    "notes/HEADROOM_PRIOR.md": "f9f1d3548e2455140d80e3b22edc03b40c0236e8331e343ecc6d08492a103fff",
+    "notes/HEADROOM_PRIOR.json": "1fdae97901a6acf8a7f2c2d75910bfba514b102183dfa85ca9ae6c151f387ecb",
+    "policy.json": "0b856ff1ca431091c3ac1e76e0be4e7288c5615f644bdd0c4d3eae866a5d4bd0",
+    "preservation_policy.json": "a2babff0d7bb9c1a4ccbd647dd9497e41148b898545c0687ed0c79eb249d86f9"
+  },
+  "cpu_tests_exit": 0,
+  "cpu_tests_seconds": 3.489825053140521,
+  "cpu_tests_output": "test_actual_h0_uses_full_angular_phase_weights_geometry_and_nyquist (__main__.TransportResponseRangeTests.test_actual_h0_uses_full_angular_phase_weights_geometry_and_nyquist) ... ok\ntest_frozen_cache_identity_layout_versions_and_setup_are_guarded (__main__.TransportResponseRangeTests.test_frozen_cache_identity_layout_versions_and_setup_are_guarded) ... ok\ntest_heterogeneous_physical_images_and_all_adjoint_identities (__main__.TransportResponseRangeTests.test_heterogeneous_physical_images_and_all_adjoint_identities) ... ok\ntest_homogeneous_full_physical_image_is_q_on_both_stored_precisions (__main__.TransportResponseRangeTests.test_homogeneous_full_physical_image_is_q_on_both_stored_precisions) ... ok\ntest_image_norm_bound_is_positive_conservative_and_not_oblique_claim (__main__.TransportResponseRangeTests.test_image_norm_bound_is_positive_conservative_and_not_oblique_claim) ... ok\ntest_invalid_precision_fields_and_modes_are_rejected (__main__.TransportResponseRangeTests.test_invalid_precision_fields_and_modes_are_rejected) ... ok\ntest_legacy_harmonic_input_reference_is_same_mean_response (__main__.TransportResponseRangeTests.test_legacy_harmonic_input_reference_is_same_mean_response) ... ok\ntest_material_batch_broadcast_and_individual_reference_agree (__main__.TransportResponseRangeTests.test_material_batch_broadcast_and_individual_reference_agree) ... ok\ntest_zero_complex_linearity_and_source_independence (__main__.TransportResponseRangeTests.test_zero_complex_linearity_and_source_independence) ... ok\n\n----------------------------------------------------------------------\nRan 9 tests in 0.187s\n\nOK\n",
+  "gpu_before": "name, memory.total [MiB], memory.used [MiB], utilization.gpu [%]\nNVIDIA RTX A6000, 49140 MiB, 37 MiB, 0 %\n",
+  "gpu_processes_before": "pid, process_name, used_gpu_memory [MiB]\n1314281, /snap/snapd-desktop-integration/391/usr/bin/snapd-desktop-integration, 8 MiB\n"
+}

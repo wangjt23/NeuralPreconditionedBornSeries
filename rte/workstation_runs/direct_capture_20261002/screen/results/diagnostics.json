@@ -1,0 +1,286 @@
+[
+  {
+    "size": 128,
+    "index": 0,
+    "copy_only_graph_setup_seconds": 0.07460060529410839,
+    "copy_only_replay_seconds": [
+      4.523620009422302e-05,
+      4.250742495059967e-05,
+      4.400685429573059e-05,
+      4.195794463157654e-05,
+      4.311278462409973e-05
+    ],
+    "context_profile": [
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method gc.collect>",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 0.069079317,
+        "cumulative_seconds": 0.069079317
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method torch._C._cuda_synchronize>",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 8.312000000000001e-06,
+        "cumulative_seconds": 8.312000000000001e-06
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/graphs.py",
+        "line": 56,
+        "function": "capture_begin",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 0.000545421,
+        "cumulative_seconds": 0.070550003
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/graphs.py",
+        "line": 75,
+        "function": "capture_end",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 0.00012257900000000002,
+        "cumulative_seconds": 0.00012257900000000002
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/memory.py",
+        "line": 180,
+        "function": "empty_cache",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 1.2285e-05,
+        "cumulative_seconds": 0.0007683190000000001
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/__init__.py",
+        "line": 944,
+        "function": "synchronize",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 7.688e-06,
+        "cumulative_seconds": 5.5091000000000005e-05
+      }
+    ],
+    "raw_copy_capture_seconds": 0.00021080300211906433,
+    "diagnostic_only": true,
+    "method_specific_cold_rank": false
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "copy_only_graph_setup_seconds": 0.0631876029074192,
+    "copy_only_replay_seconds": [
+      4.3412670493125916e-05,
+      4.227831959724426e-05,
+      4.276260733604431e-05,
+      4.109181463718414e-05,
+      4.225224256515503e-05
+    ],
+    "context_profile": [
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method gc.collect>",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 0.060860034,
+        "cumulative_seconds": 0.060860034
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method torch._C._cuda_synchronize>",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 5.218000000000001e-06,
+        "cumulative_seconds": 5.218000000000001e-06
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/graphs.py",
+        "line": 56,
+        "function": "capture_begin",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 0.00014760400000000002,
+        "cumulative_seconds": 0.062481804
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/graphs.py",
+        "line": 75,
+        "function": "capture_end",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 5.8507e-05,
+        "cumulative_seconds": 5.8507e-05
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/memory.py",
+        "line": 180,
+        "function": "empty_cache",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 1.0818e-05,
+        "cumulative_seconds": 0.0013164180000000002
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/__init__.py",
+        "line": 944,
+        "function": "synchronize",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 7.5940000000000005e-06,
+        "cumulative_seconds": 4.8273000000000004e-05
+      }
+    ],
+    "raw_copy_capture_seconds": 0.00018084421753883362,
+    "diagnostic_only": true,
+    "method_specific_cold_rank": false
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "copy_only_graph_setup_seconds": 0.06632027961313725,
+    "copy_only_replay_seconds": [
+      5.141459405422211e-05,
+      4.869140684604645e-05,
+      5.09507954120636e-05,
+      5.87906688451767e-05,
+      5.370192229747772e-05
+    ],
+    "context_profile": [
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method gc.collect>",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 0.063838937,
+        "cumulative_seconds": 0.063838937
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method torch._C._cuda_synchronize>",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 5.393000000000001e-06,
+        "cumulative_seconds": 5.393000000000001e-06
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/graphs.py",
+        "line": 56,
+        "function": "capture_begin",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 0.00014684500000000002,
+        "cumulative_seconds": 0.065629671
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/graphs.py",
+        "line": 75,
+        "function": "capture_end",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 6.0178000000000006e-05,
+        "cumulative_seconds": 6.0178000000000006e-05
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/memory.py",
+        "line": 180,
+        "function": "empty_cache",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 1.1777000000000001e-05,
+        "cumulative_seconds": 0.001481766
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/__init__.py",
+        "line": 944,
+        "function": "synchronize",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 7.685e-06,
+        "cumulative_seconds": 4.6635e-05
+      }
+    ],
+    "raw_copy_capture_seconds": 0.0001839417964220047,
+    "diagnostic_only": true,
+    "method_specific_cold_rank": false
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "copy_only_graph_setup_seconds": 0.0885334201157093,
+    "copy_only_replay_seconds": [
+      5.118176341056824e-05,
+      4.8335641622543335e-05,
+      5.1315873861312866e-05,
+      4.853680729866028e-05,
+      5.037151277065277e-05
+    ],
+    "context_profile": [
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method gc.collect>",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 0.078931443,
+        "cumulative_seconds": 0.078931443
+      },
+      {
+        "file": "~",
+        "line": 0,
+        "function": "<built-in method torch._C._cuda_synchronize>",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 7.185000000000001e-06,
+        "cumulative_seconds": 7.185000000000001e-06
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/graphs.py",
+        "line": 56,
+        "function": "capture_begin",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 0.000164797,
+        "cumulative_seconds": 0.08781968400000001
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/graphs.py",
+        "line": 75,
+        "function": "capture_end",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 5.807400000000001e-05,
+        "cumulative_seconds": 5.807400000000001e-05
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/memory.py",
+        "line": 180,
+        "function": "empty_cache",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 1.2776000000000001e-05,
+        "cumulative_seconds": 0.008543644000000001
+      },
+      {
+        "file": "/data1/software/miniconda3/lib/python3.12/site-packages/torch/cuda/__init__.py",
+        "line": 944,
+        "function": "synchronize",
+        "primitive_calls": 1,
+        "total_calls": 1,
+        "internal_seconds": 7.704000000000001e-06,
+        "cumulative_seconds": 5.831500000000001e-05
+      }
+    ],
+    "raw_copy_capture_seconds": 0.00018631108105182648,
+    "diagnostic_only": true,
+    "method_specific_cold_rank": false
+  }
+]

@@ -1,0 +1,1 @@
+{"complete": true, "certificates": 8, "paired_controls": 12, "elapsed_seconds": 166.66191404685378}

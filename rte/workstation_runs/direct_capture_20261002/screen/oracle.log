@@ -1,0 +1,9 @@
+segmented entry N128 ID0 passed
+segmented entry N128 ID3 passed
+segmented entry N256 ID0 passed
+segmented entry N256 ID3 passed
+segmented N128 ID0 complete
+segmented N128 ID3 complete
+segmented N256 ID0 complete
+segmented N256 ID3 complete
+{"complete": true, "wall_seconds": 33.05281986296177, "total_full_solves": 80, "measured_full_solves": 60, "all_accuracy_passed": true, "all_bitwise_full_solutions": true, "all_work_and_residual_equal": true, "all_checks_passed": true, "training": false, "test9626_touched": false, "peak_allocated_bytes": 1130466816, "peak_reserved_bytes": 2055208960, "workload": "Q1primary, recorded setup+warmaccepted estimate, processcoldstartup/IOexcluded; Q16secondaryconditional", "scope": "same original TSA8/TSA16recurrence: eager/contextfullgraph/contextsegmented/directfullgraph/directsegmented; GCprofilediagnosticonly"}

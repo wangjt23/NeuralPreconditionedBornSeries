@@ -1,0 +1,163 @@
+{
+  "result": "PROOF_CONCEPT_MILESTONE_WITH_LAYOUT_COST_OBSTRUCTION",
+  "original_result": "OPERATOR_FIRST_WEIGHTED_CONCEPT_QUALIFIED_ON_PROBES",
+  "complete": true,
+  "no_dense_Green_inverse": true,
+  "no_physical_RHS_or_outer_PDE": true,
+  "source_sha256": "b7b287718541e3c8fe562fb69740eb659ebe311bd7a1edbee21d17e23dc0cb4b",
+  "scalar_diagnostic_sha256": "9baedeecb767627655112321469bae65583e14c0c4f4c61b745e5bbd928f4c61",
+  "coercivity_alpha": 0.04996158451422161,
+  "model_right_defect_bound": 0.0003381829210819728,
+  "model_after3_repairs_bound": 1.307996808397754e-14,
+  "bounds_are_interval_certified": false,
+  "rows": [
+    {
+      "k": 0,
+      "raw_max_original_residual": 1.8200227048152454e-07,
+      "raw_max_approximate_operator_residual": 7.687840362997378e-13,
+      "repaired_max_original_residual": 2.0236460786736e-14,
+      "repairs": 1,
+      "candidate_setup_seconds": 0.24181617586873472,
+      "angular_setup_seconds": 0.0901203250978142,
+      "dense_setup_seconds": 0.24257701099850237,
+      "candidate_probe_batch_seconds": 0.036093599162995815,
+      "angular_probe_batch_seconds": 0.014491494977846742,
+      "dense_probe_batch_seconds": 0.014397490071132779,
+      "candidate_factor_bytes": 34499952,
+      "angular_factor_bytes": 16272584,
+      "dense_factor_bytes": 37754880,
+      "all_controls_and_candidate_pass": true,
+      "original_embedding_bridge": 2.4773170300489817e-16
+    },
+    {
+      "k": 8,
+      "raw_max_original_residual": 2.9193993863973147e-08,
+      "raw_max_approximate_operator_residual": 5.513882257710075e-15,
+      "repaired_max_original_residual": 2.3966511751714623e-15,
+      "repairs": 1,
+      "candidate_setup_seconds": 0.23459572182036936,
+      "angular_setup_seconds": 0.08014423912391067,
+      "dense_setup_seconds": 0.24304186599329114,
+      "candidate_probe_batch_seconds": 0.03667430090717971,
+      "angular_probe_batch_seconds": 0.014231666922569275,
+      "dense_probe_batch_seconds": 0.014003045158460736,
+      "candidate_factor_bytes": 34499952,
+      "angular_factor_bytes": 16272584,
+      "dense_factor_bytes": 37754880,
+      "all_controls_and_candidate_pass": true,
+      "original_embedding_bridge": 2.86994222002279e-16
+    }
+  ],
+  "storage_breakdown": {
+    "W_bytes": 17989632,
+    "ML_MR_Schur_LU_bytes": 13996800,
+    "leaf_LU_bytes": 2359296,
+    "pivots_bytes": 12912,
+    "shared_scalar_tree_bytes": 141312
+  },
+  "root_factor_bytes": 17260848,
+  "factor_vs_angular_ratio": 2.1201274487198836,
+  "scalar_diagnostic": {
+    "complete": true,
+    "pid": 2223147,
+    "scope": "Scalar-only post-run diagnostic; no ideal Green factor or inverse constructed, no solver speed measured",
+    "original_results_sha256": "b7b287718541e3c8fe562fb69740eb659ebe311bd7a1edbee21d17e23dc0cb4b",
+    "plan_sha256": "39dbc12e08808d77ced65ecec4e98d3882f5baab76695a6341f682e203a52388",
+    "source_sha256": "6336717a933f79237faadc3d79da6eb92b8020a2c18f7b053d09f2074839d160",
+    "Cauchy_bridge_relative_corrected": 4.234852656178321e-15,
+    "original_Cauchy_diagnostic_bug": "float32 sign tensor caused scalar2pi coefficient rounding before complex128 promotion; does not affect actual-D construction or solve",
+    "stored_vs_ideal_frequency_2norm": 2.3889873546067975e-05,
+    "actual_scalar": {
+      "ranks": [
+        33,
+        14,
+        8,
+        6,
+        6,
+        8,
+        6,
+        6,
+        14,
+        8,
+        6,
+        6,
+        8,
+        6,
+        6
+      ],
+      "predicted_factor_bytes_including_scalar_tree": 34499952,
+      "row_column_bound_vs_actual_D": 1.6896154592903324e-05,
+      "original_operator_q_bound": 0.0003381829210819728
+    },
+    "ideal_scalar_only": {
+      "ranks": [
+        16,
+        9,
+        8,
+        6,
+        6,
+        8,
+        6,
+        6,
+        9,
+        8,
+        6,
+        6,
+        8,
+        6,
+        6
+      ],
+      "predicted_factor_bytes_including_scalar_tree": 20618080,
+      "row_column_bound_vs_actual_D": 7.62427682299943e-05,
+      "original_operator_q_bound": 0.0015260278266052937
+    },
+    "triangle_q_bound_including_stored_frequency": 0.0008512117427077202,
+    "triangle_q4": 5.249892671819304e-13,
+    "model_bound_is_not_uniform_floating_certificate": true,
+    "elapsed_process_seconds": 2.8038982700090855,
+    "peak_process_RSS_bytes": 415256576
+  },
+  "receipts": {
+    "initial_unit_failure": {
+      "wall": 3.98,
+      "user": 2.84,
+      "sys": 0.34,
+      "maxrss_KiB": 431684,
+      "exit": 1
+    },
+    "completed_two_mode_check": {
+      "wall": 28.62,
+      "user": 4.63,
+      "sys": 1.03,
+      "maxrss_KiB": 619716,
+      "exit": 0
+    },
+    "scalar_only_replay": {
+      "wall": 3.5,
+      "user": 2.87,
+      "sys": 0.32,
+      "maxrss_KiB": 434604,
+      "exit": 0
+    }
+  },
+  "total_numerical_process_wall_seconds": 36.1,
+  "exclusive_wall_ledger": {
+    "unit_test_seconds": 0.018668128876015544,
+    "physical_setup_seconds": 4.874406503047794,
+    "known_derivative_build_and_compression_seconds": 0.016689998796209693,
+    "derivative_proof_checks_seconds": 0.006801363779231906,
+    "both_modes_original_matrix_for_control_seconds": 0.3159531210549176,
+    "both_modes_operator_bridges_seconds": 0.3792641330510378,
+    "both_modes_recursive_operator_factor_seconds": 0.4764118976891041,
+    "both_modes_dense_original_LU_seconds": 0.4856188769917935,
+    "both_modes_existing_angular_band_factor_seconds": 0.17026456422172487,
+    "both_modes_all_probe_repair_and_independent_check_seconds": 0.1499623218551278,
+    "both_modes_case_other_seconds": 17.23021231708117,
+    "main_process_unprofiled_seconds": 3.441684517543763,
+    "main_external_envelope_seconds": 1.054062256012113,
+    "initial_failed_process_seconds": 3.98,
+    "scalar_only_replay_process_seconds": 3.5
+  },
+  "production_unchanged": true,
+  "E_unchanged": true
+}

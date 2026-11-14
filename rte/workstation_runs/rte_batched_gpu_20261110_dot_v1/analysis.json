@@ -1,0 +1,74 @@
+{
+  "result": "NO_GO_FIRST_COMPLETE_PAIR",
+  "whole_research_wall_seconds": 54.663066847017035,
+  "context_initialization_seconds": 0.28425129409879446,
+  "common_neutral_warmup_seconds": 51.228094924008474,
+  "reference_research_seconds": 0.5188347811345011,
+  "methods": {
+    "compact4": {
+      "setup_observed_seconds": 0.09807870001532137,
+      "factor_synchronized_seconds": 0.06349387299269438,
+      "capture_or_qualification_synchronized_seconds": 0.009224058128893375,
+      "first_RHS_observed_seconds": 0.2464355370029807,
+      "complete_four_RHS_observed_seconds": 0.46131288702599704,
+      "online_phase_seconds": 0.36277736024931073,
+      "calls": [
+        4,
+        3,
+        4,
+        3
+      ],
+      "inner_calls": [],
+      "logical_factor_bytes": 302137344,
+      "GPU_allocated_at_entry": 32768000,
+      "peak_GPU_allocated_bytes": 554591232,
+      "peak_GPU_reserved_bytes": 713031680
+    },
+    "batched17": {
+      "setup_observed_seconds": 0.31622533313930035,
+      "factor_synchronized_seconds": 0.1605790399480611,
+      "capture_or_qualification_synchronized_seconds": 0.12862279289402068,
+      "first_RHS_observed_seconds": 0.5956493171397597,
+      "complete_four_RHS_observed_seconds": 1.1198885960038751,
+      "online_phase_seconds": 0.803168100072071,
+      "calls": [
+        2,
+        2,
+        2,
+        2
+      ],
+      "inner_calls": [
+        5,
+        5,
+        5,
+        4
+      ],
+      "logical_factor_bytes": 276427472,
+      "GPU_allocated_at_entry": 49807360,
+      "peak_GPU_allocated_bytes": 816064512,
+      "peak_GPU_reserved_bytes": 1019215872
+    }
+  },
+  "candidate_over_compact_complete_ratio": 2.4276117739168304,
+  "candidate_over_compact_first_ratio": 2.417059342916745,
+  "candidate_online_budget_at_unchanged_setup": 0.1450875538866967,
+  "candidate_required_online_reduction_at_unchanged_setup": 0.8193559307526314,
+  "max_original_A_residual": 9.080176269202662e-06,
+  "max_evaluated_relative_bound": 3.945266074904143e-05,
+  "max_field_difference": 2.6477366566650123e-07,
+  "max_inner_original_projected_residual": 8.882623218617742e-05,
+  "max_independent_original_A0_residual": 3.8599439141975e-12,
+  "max_runtime_original_G_residual": 3.93498536469699e-12,
+  "runtime_max_corrections": 1,
+  "batched_inverse_calls": 19,
+  "logical_mode_inverse_calls": 323,
+  "batched_raw_calls": 38,
+  "batched_original_G_calls": 38,
+  "per_method_base_H2D_bytes": 11408568,
+  "per_method_exact_value_check_D2H_bytes": 398448,
+  "candidate_additional_qualification_H2D_bytes": 417792,
+  "source_sha256": "90e124a5a3a2fe207df6b02f2e0560cc7745597225b5c07c7d6a8e98c0025057",
+  "batched_source_sha256": "b9aed56b4962ba1620bac5ff9693f7d63ce20e1909f8c5083b4065973b84bec7",
+  "production_hashes_unchanged": true,
+  "no_reverse_pair_run": true
+}

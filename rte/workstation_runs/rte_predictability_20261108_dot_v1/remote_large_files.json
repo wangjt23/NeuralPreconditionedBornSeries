@@ -1,0 +1,13 @@
+{
+  "remote_root": "/data/wjt/NeuralPreconditionedBornSeries/rte/workstation_runs/rte_predictability_20261108_dot_v1",
+  "files": {
+    "prepare_01/features.pt": "54162d88aa233f18488111c9ff335cdadf025c5fb3b84d1e26c683025e977b54",
+    "predict_01/model.pt": "412592eaec39027a0b867bce0ab4c575ef7aff1a8ac55f5ac8b3825f9c9791bc",
+    "registered_01/features_no_tangent.pt": "d7487d0a467c9194d5f61885150259f882dc5be82e91948a8a2707992ca1a5bd",
+    "registered_01/features_residual.pt": "e76ae3c1daf09cd27b26a1d0c63305eb62bd350a73e57b24f33990b803ae8c39"
+  },
+  "inputs": [
+    "rte/workstation_runs/tail_multiresolution_bank_20260926/train.pt",
+    "rte/workstation_runs/tail_multiresolution_bank_20260926/validation.pt"
+  ]
+}

@@ -1,0 +1,154 @@
+{
+  "complete": true,
+  "pid": 1264878,
+  "device": "cpu",
+  "affinity": [
+    0
+  ],
+  "nominal_nodes": "arange(L,float32)*2*pi/L",
+  "weights_bitwise_constant": true,
+  "stored_angle_max_error_radians": 2.8811169539011416e-07,
+  "unit_direction_max_norm_error": 2.8362334703047054e-08,
+  "angular_unitarity_defect": 5.652686591778371e-16,
+  "angular_modes": [
+    {
+      "k": 0,
+      "discarded_full_block_relative_frobenius": 1.2637674788877545e-07,
+      "discarded_operator_2norm_upper_bound": 0.00020658221944805334,
+      "original_coercivity_margin": 0.04996158451422161,
+      "conditional_refinement_contraction_bound": 0.0041519889442303065,
+      "conditional_margin_after_band_projection": 0.04975500229477356
+    },
+    {
+      "k": 1,
+      "discarded_full_block_relative_frobenius": 1.263720184744908e-07,
+      "discarded_operator_2norm_upper_bound": 0.00020779172051178958,
+      "original_coercivity_margin": 0.04996158451422161,
+      "conditional_refinement_contraction_bound": 0.00417639960381191,
+      "conditional_margin_after_band_projection": 0.049753792793709825
+    },
+    {
+      "k": 8,
+      "discarded_full_block_relative_frobenius": 1.2622885564509155e-07,
+      "discarded_operator_2norm_upper_bound": 0.00021625822795794344,
+      "original_coercivity_margin": 0.04996158451422161,
+      "conditional_refinement_contraction_bound": 0.004347307457859805,
+      "conditional_margin_after_band_projection": 0.04974532628626367
+    }
+  ],
+  "normal_material_spectra": {
+    "sigma_t": {
+      "nonzero_fourier_coefficients": 128,
+      "above_1e12_relative_coefficients": 128,
+      "cuts": [
+        {
+          "half_bandwidth": 1,
+          "relative_coefficient_tail_l2": 0.2839476893928645,
+          "relative_material_linf": 0.42121259688124585,
+          "max_absolute_material_error": 280.7592513094391
+        },
+        {
+          "half_bandwidth": 2,
+          "relative_coefficient_tail_l2": 0.2839476893928643,
+          "relative_material_linf": 0.4212125841811052,
+          "max_absolute_material_error": 280.7592428441605
+        },
+        {
+          "half_bandwidth": 4,
+          "relative_coefficient_tail_l2": 0.19107858245108,
+          "relative_material_linf": 0.36066796354897085,
+          "max_absolute_material_error": 240.40322670088142
+        },
+        {
+          "half_bandwidth": 8,
+          "relative_coefficient_tail_l2": 0.11597785807724184,
+          "relative_material_linf": 0.2754052729094581,
+          "max_absolute_material_error": 183.5713812959185
+        },
+        {
+          "half_bandwidth": 16,
+          "relative_coefficient_tail_l2": 0.05730614136715807,
+          "relative_material_linf": 0.1718495185120156,
+          "max_absolute_material_error": 114.54629446641155
+        },
+        {
+          "half_bandwidth": 32,
+          "relative_coefficient_tail_l2": 0.016959280635890608,
+          "relative_material_linf": 0.04551166704096573,
+          "max_absolute_material_error": 30.335801110593366
+        },
+        {
+          "half_bandwidth": 48,
+          "relative_coefficient_tail_l2": 0.004144592150051732,
+          "relative_material_linf": 0.008498193609902812,
+          "max_absolute_material_error": 5.664470846943004
+        },
+        {
+          "half_bandwidth": 63,
+          "relative_coefficient_tail_l2": 1.8975441489971434e-08,
+          "relative_material_linf": 1.3323970387147252e-08,
+          "max_absolute_material_error": 8.881092298906879e-06
+        }
+      ]
+    },
+    "sigma_s": {
+      "nonzero_fourier_coefficients": 128,
+      "above_1e12_relative_coefficients": 128,
+      "cuts": [
+        {
+          "half_bandwidth": 1,
+          "relative_coefficient_tail_l2": 0.28396950339657595,
+          "relative_material_linf": 0.42124419607243396,
+          "max_absolute_material_error": 280.7592566822772
+        },
+        {
+          "half_bandwidth": 2,
+          "relative_coefficient_tail_l2": 0.2839695033965757,
+          "relative_material_linf": 0.4212441832172131,
+          "max_absolute_material_error": 280.7592481142725
+        },
+        {
+          "half_bandwidth": 4,
+          "relative_coefficient_tail_l2": 0.19109326211534977,
+          "relative_material_linf": 0.36069502117415625,
+          "max_absolute_material_error": 240.40323161257515
+        },
+        {
+          "half_bandwidth": 8,
+          "relative_coefficient_tail_l2": 0.11598676845579604,
+          "relative_material_linf": 0.27542593470433674,
+          "max_absolute_material_error": 183.57138548044043
+        },
+        {
+          "half_bandwidth": 16,
+          "relative_coefficient_tail_l2": 0.057310544564186626,
+          "relative_material_linf": 0.17186241070442568,
+          "max_absolute_material_error": 114.54629673449972
+        },
+        {
+          "half_bandwidth": 32,
+          "relative_coefficient_tail_l2": 0.016960584148805163,
+          "relative_material_linf": 0.04551507916653515,
+          "max_absolute_material_error": 30.335800264495674
+        },
+        {
+          "half_bandwidth": 48,
+          "relative_coefficient_tail_l2": 0.004144910826635434,
+          "relative_material_linf": 0.008498830552414035,
+          "max_absolute_material_error": 5.664470563183954
+        },
+        {
+          "half_bandwidth": 63,
+          "relative_coefficient_tail_l2": 1.8674414770415616e-08,
+          "relative_material_linf": 1.3112575045109266e-08,
+          "max_absolute_material_error": 8.739531267565326e-06
+        }
+      ]
+    }
+  },
+  "selection": "Angular cyclic block-tridiagonal part plus explicitly retained original-operator defect/refinement. Not bitwise exact. Reject narrow normal-Fourier band as exact representation; the actual layer profiles have broad support.",
+  "scope": "Coordinate/source audit only, no banded solver or performance claim yet.",
+  "wall_seconds": 1.7396327198948711,
+  "source_hash": "b1c8439820d0833dcee73819e2e4149657ea668f8a974409092b6efc4b7889fe",
+  "GPU_used": false
+}

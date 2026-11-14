@@ -1,0 +1,31 @@
+{
+  "args": {
+    "output": "rte/workstation_runs/tail_multiresolution_bank_20260926"
+  },
+  "complete": true,
+  "scope": "paired N128 training and validation teachers and actual TSA8 four-step contexts; no test access or training",
+  "source_sha256": {
+    "rte/prepare_tail_multiresolution.py": "e707854cc8e45f1c9384d3a18cdb58addbce532d87bcc747238d750525dffb11",
+    "rte/train_source_predictor.py": "ca6e0be8adcf1a30e8b8a379b4f52a20650015a7b3fe99e61107aa971c7600d4",
+    "rte/audit_tail_injection.py": "6eb42830f4f5a05d996987dc03862cd440604894ebe406bff795b18b1dc49be9",
+    "rte/augmented_fgmres.py": "21ddfb628d35738ca88844d6c8587b0b8809956ed000bc7a859237d12b6bc742"
+  },
+  "train": {
+    "count": 128,
+    "seed": 3626,
+    "coarse_parent": "rte/workstation_runs/source_predictor_pilot_20260926/train.pt",
+    "coarse_parent_sha256": "44a80f5ed30aa2085119925f55a8b5dea072f2d8c48dcc023c9d29e785db6e96",
+    "nested_material_and_source_parameters_exact": true,
+    "bank_sha256": "c5fcf9241f434552ccc7f00a4d4393b70bfac2c30cab889b80dd6e8a45fac310",
+    "context_sha256": "fe98917ec481a92d1b7437289fe209b358c5e7ad8c7326a7c60d9d9db5f8ce8f"
+  },
+  "validation": {
+    "count": 16,
+    "seed": 4626,
+    "coarse_parent": "rte/workstation_runs/source_tail_validation_20260926/validation.pt",
+    "coarse_parent_sha256": "858f73d0066333dd9a4b4366d7ff48dc5f160650e5e326c33b1d28b03079efed",
+    "nested_material_and_source_parameters_exact": true,
+    "bank_sha256": "58f8e2f069ea1fa1c0c8f490b441c7acfc91a6592d045a7a7a52eea7bf08aeb4",
+    "context_sha256": "63e98424179e1ecba06c25c2c46bb7938e71dca9ed5b979086afca15628fa8da"
+  }
+}

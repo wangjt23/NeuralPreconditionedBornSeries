@@ -1,0 +1,642 @@
+[
+  {
+    "size": 128,
+    "index": 0,
+    "method": "cheap_graph",
+    "repeat": 0,
+    "seconds": 0.0011900458484888077,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "homogeneous_graph",
+    "repeat": 0,
+    "seconds": 0.0018740501254796982,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "response_adjoint",
+    "repeat": 0,
+    "seconds": 0.0011468548327684402,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "response_lift",
+    "repeat": 0,
+    "seconds": 0.00034612417221069336,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "cheap_graph",
+    "repeat": 1,
+    "seconds": 0.001172306016087532,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "homogeneous_graph",
+    "repeat": 1,
+    "seconds": 0.0018424168229103088,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "response_adjoint",
+    "repeat": 1,
+    "seconds": 0.0011253654956817627,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "response_lift",
+    "repeat": 1,
+    "seconds": 0.0003394763916730881,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "cheap_graph",
+    "repeat": 2,
+    "seconds": 0.0011733435094356537,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "homogeneous_graph",
+    "repeat": 2,
+    "seconds": 0.0018430277705192566,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "response_adjoint",
+    "repeat": 2,
+    "seconds": 0.001117520034313202,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "response_lift",
+    "repeat": 2,
+    "seconds": 0.00034106895327568054,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "cheap_graph",
+    "repeat": 3,
+    "seconds": 0.0011871922761201859,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "homogeneous_graph",
+    "repeat": 3,
+    "seconds": 0.0018412303179502487,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "response_adjoint",
+    "repeat": 3,
+    "seconds": 0.00111488439142704,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "response_lift",
+    "repeat": 3,
+    "seconds": 0.000353766605257988,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "cheap_graph",
+    "repeat": 4,
+    "seconds": 0.0011811256408691406,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "homogeneous_graph",
+    "repeat": 4,
+    "seconds": 0.0018838569521903992,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "response_adjoint",
+    "repeat": 4,
+    "seconds": 0.0011359229683876038,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 0,
+    "method": "response_lift",
+    "repeat": 4,
+    "seconds": 0.0003507286310195923,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "cheap_graph",
+    "repeat": 0,
+    "seconds": 0.0011841896921396255,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "homogeneous_graph",
+    "repeat": 0,
+    "seconds": 0.0018597468733787537,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "response_adjoint",
+    "repeat": 0,
+    "seconds": 0.0011873450130224228,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "response_lift",
+    "repeat": 0,
+    "seconds": 0.00036007724702358246,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "cheap_graph",
+    "repeat": 1,
+    "seconds": 0.00118265300989151,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "homogeneous_graph",
+    "repeat": 1,
+    "seconds": 0.0018420536071062088,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "response_adjoint",
+    "repeat": 1,
+    "seconds": 0.0011243242770433426,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "response_lift",
+    "repeat": 1,
+    "seconds": 0.0003505609929561615,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "cheap_graph",
+    "repeat": 2,
+    "seconds": 0.0011862218379974365,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "homogeneous_graph",
+    "repeat": 2,
+    "seconds": 0.001867927610874176,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "response_adjoint",
+    "repeat": 2,
+    "seconds": 0.001134449616074562,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "response_lift",
+    "repeat": 2,
+    "seconds": 0.0003605503588914871,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "cheap_graph",
+    "repeat": 3,
+    "seconds": 0.0011727642267942429,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "homogeneous_graph",
+    "repeat": 3,
+    "seconds": 0.001848289743065834,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "response_adjoint",
+    "repeat": 3,
+    "seconds": 0.00112968310713768,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "response_lift",
+    "repeat": 3,
+    "seconds": 0.000352323055267334,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "cheap_graph",
+    "repeat": 4,
+    "seconds": 0.0011699460446834564,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "homogeneous_graph",
+    "repeat": 4,
+    "seconds": 0.0018376335501670837,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "response_adjoint",
+    "repeat": 4,
+    "seconds": 0.001126529648900032,
+    "finite": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "method": "response_lift",
+    "repeat": 4,
+    "seconds": 0.0003415849059820175,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "cheap_graph",
+    "repeat": 0,
+    "seconds": 0.004128394648432732,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "homogeneous_graph",
+    "repeat": 0,
+    "seconds": 0.006405726075172424,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "response_adjoint",
+    "repeat": 0,
+    "seconds": 0.0019016899168491364,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "response_lift",
+    "repeat": 0,
+    "seconds": 0.0006394069641828537,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "cheap_graph",
+    "repeat": 1,
+    "seconds": 0.004140445962548256,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "homogeneous_graph",
+    "repeat": 1,
+    "seconds": 0.006414290517568588,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "response_adjoint",
+    "repeat": 1,
+    "seconds": 0.0018896758556365967,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "response_lift",
+    "repeat": 1,
+    "seconds": 0.0006379224359989166,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "cheap_graph",
+    "repeat": 2,
+    "seconds": 0.004116803407669067,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "homogeneous_graph",
+    "repeat": 2,
+    "seconds": 0.006403252482414246,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "response_adjoint",
+    "repeat": 2,
+    "seconds": 0.0019082631915807724,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "response_lift",
+    "repeat": 2,
+    "seconds": 0.0006550885736942291,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "cheap_graph",
+    "repeat": 3,
+    "seconds": 0.004148285835981369,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "homogeneous_graph",
+    "repeat": 3,
+    "seconds": 0.006410488858819008,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "response_adjoint",
+    "repeat": 3,
+    "seconds": 0.0019044596701860428,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "response_lift",
+    "repeat": 3,
+    "seconds": 0.000634780153632164,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "cheap_graph",
+    "repeat": 4,
+    "seconds": 0.004127543419599533,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "homogeneous_graph",
+    "repeat": 4,
+    "seconds": 0.006394688040018082,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "response_adjoint",
+    "repeat": 4,
+    "seconds": 0.0019019432365894318,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "method": "response_lift",
+    "repeat": 4,
+    "seconds": 0.0006635468453168869,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "cheap_graph",
+    "repeat": 0,
+    "seconds": 0.004130227491259575,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "homogeneous_graph",
+    "repeat": 0,
+    "seconds": 0.0064219217747449875,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "response_adjoint",
+    "repeat": 0,
+    "seconds": 0.0019007418304681778,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "response_lift",
+    "repeat": 0,
+    "seconds": 0.0006368923932313919,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "cheap_graph",
+    "repeat": 1,
+    "seconds": 0.004106780514121056,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "homogeneous_graph",
+    "repeat": 1,
+    "seconds": 0.006394796073436737,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "response_adjoint",
+    "repeat": 1,
+    "seconds": 0.0019225813448429108,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "response_lift",
+    "repeat": 1,
+    "seconds": 0.0006581172347068787,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "cheap_graph",
+    "repeat": 2,
+    "seconds": 0.004127234220504761,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "homogeneous_graph",
+    "repeat": 2,
+    "seconds": 0.006406698375940323,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "response_adjoint",
+    "repeat": 2,
+    "seconds": 0.0019157640635967255,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "response_lift",
+    "repeat": 2,
+    "seconds": 0.0006392281502485275,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "cheap_graph",
+    "repeat": 3,
+    "seconds": 0.0041106101125478745,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "homogeneous_graph",
+    "repeat": 3,
+    "seconds": 0.006398800760507584,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "response_adjoint",
+    "repeat": 3,
+    "seconds": 0.0019136779010295868,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "response_lift",
+    "repeat": 3,
+    "seconds": 0.0006536263972520828,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "cheap_graph",
+    "repeat": 4,
+    "seconds": 0.004129203036427498,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "homogeneous_graph",
+    "repeat": 4,
+    "seconds": 0.00640304759144783,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "response_adjoint",
+    "repeat": 4,
+    "seconds": 0.001909308135509491,
+    "finite": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "method": "response_lift",
+    "repeat": 4,
+    "seconds": 0.0006392206996679306,
+    "finite": true
+  }
+]

@@ -1,0 +1,5 @@
+[
+  {"label":"hss4","mode":"compiled_hss","depth":4},
+  {"label":"nto32","checkpoint":"rte/workstation_runs/nto4_hss_n32_seed401_20260912/best.pt"},
+  {"label":"nto64_step600","checkpoint":"rte/workstation_runs/nto4_n64_seed402_20260912/selected_step_600.pt"}
+]

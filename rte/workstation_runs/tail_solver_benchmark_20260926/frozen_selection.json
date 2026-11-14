@@ -1,0 +1,14 @@
+{
+  "64": {
+    "classical": "reference_tail",
+    "neural": "neural_tail"
+  },
+  "128": {
+    "classical": "reference_tail",
+    "neural": "neural_tail"
+  },
+  "256": {
+    "classical": "tsa16_zero",
+    "neural": "neural_tail"
+  }
+}

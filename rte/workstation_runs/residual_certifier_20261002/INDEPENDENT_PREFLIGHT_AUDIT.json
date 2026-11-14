@@ -1,0 +1,22 @@
+{
+  "scope": "Local scalar/adversarial CPU tests and static review only; no RTE data, GPU or remote operations",
+  "decision": "GO bounded no-solve certifier validation conditional on FWI compiler/guard/tiny preflight; no full-solver admission",
+  "independent_tests": {
+    "command": "python3 -m unittest -v test_interval_fft_audit",
+    "tests": 7,
+    "failures": 0,
+    "errors": 0,
+    "unittest_seconds": 3.314,
+    "project_imports": false,
+    "gpu_actions": 0
+  },
+  "sha256": {
+    "interval_fft.py": "a150f0680fa98d7f627f9abbbfae1e45d62c5ad6f89b96a9197134743a88ea41",
+    "cpu_interval_primitives.cpp": "8a9a2eccfa3b85c4caa33958a1db0c67db2c97ecd340dd1c8f5294fa0608d53a",
+    "certified_twiddles.py": "c1cb5f8744e96013c326114bdbe67819a24088fe2bc31772ae5a875c7d3d18f2",
+    "certifier_driver.py": "c1b233eaf0a659c644610f96cf8ee35f17c28840baaad4f9bfd7b6cd1bbaf1d3",
+    "policy_draft.json": "9e81c26ef79a88ed0699cc39e1868a8b3e3fbb8f68ae1c7ad4865b130779ebee",
+    "test_interval_fft_audit.py": "2753ff116fab9b3c4a0ebc9d9cf2c9202c564daac1187fe59972e36ce0c4e059",
+    "INDEPENDENT_SOURCE_AND_DRIVER_REVIEW.md": "f10b2b223576e604695310dff713b3a80264691784df0b73dd5dd1327aa7b781"
+  }
+}

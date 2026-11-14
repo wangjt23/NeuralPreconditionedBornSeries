@@ -1,0 +1,16 @@
+{
+  "complete": true,
+  "wall_seconds": 59.96294536627829,
+  "total_full_solves": 160,
+  "measured_full_solves": 120,
+  "all_accuracy_passed": true,
+  "all_bitwise_full_solutions": true,
+  "all_work_and_residual_equal": true,
+  "all_checks_passed": true,
+  "training": false,
+  "test9626_touched": false,
+  "peak_allocated_bytes": 1612899840,
+  "peak_reserved_bytes": 3221225472,
+  "workload": "Q1primary, recorded setup+warmaccepted estimate, processcoldstartup/IOexcluded; Q16secondaryconditional",
+  "scope": "same original TSA8/TSA16recurrence: eager/contextfullgraph/contextsegmented/directfullgraph/directsegmented; GCprofilediagnosticonly"
+}

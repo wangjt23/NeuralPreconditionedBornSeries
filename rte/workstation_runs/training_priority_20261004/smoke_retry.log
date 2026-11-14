@@ -1,0 +1,8 @@
+....                                                                     [100%]
+4 passed in 3.69s
+cached N64: 0.55s, storage=gpu
+cached N128: 0.74s, storage=gpu
+cached N64: 0.03s, storage=gpu
+cached N128: 0.09s, storage=gpu
+smoke update 0: work=7.87500, best=0, training=0.00s
+smoke update 2: work=7.84375, best=2, training=0.45s

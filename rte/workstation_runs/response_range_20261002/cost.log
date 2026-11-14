@@ -1,0 +1,5 @@
+response cost screen N128 ID0 complete
+response cost screen N128 ID3 complete
+response cost screen N256 ID0 complete
+response cost screen N256 ID3 complete
+{"complete": true, "phase": "cost", "wall_seconds": 36.52544790133834, "total_timed_and_warm_solves": 96, "measured_solves": 72, "all_accuracy_passed": true, "all_checks_passed": true, "independent_media": 2, "training": false, "test9626_touched": false, "workload": "primary Q1permedium; current four inputs, offlineacquisition charged separately; conditionalQ16 sensitivity only", "peak_allocated_bytes": 1721286656, "peak_reserved_bytes": 8017412096, "scope": "6 classical arms with fully charged extra acceptance checks before any CGLS acquisition"}

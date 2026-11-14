@@ -1,0 +1,34 @@
+[
+  {
+    "size": 128,
+    "index": 0,
+    "M_source_output_owned": true,
+    "physical_source_exact_promotion": true,
+    "native_angular_count": 12,
+    "passed": true
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "M_source_output_owned": true,
+    "physical_source_exact_promotion": true,
+    "native_angular_count": 12,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "M_source_output_owned": true,
+    "physical_source_exact_promotion": true,
+    "native_angular_count": 12,
+    "passed": true
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "M_source_output_owned": true,
+    "physical_source_exact_promotion": true,
+    "native_angular_count": 12,
+    "passed": true
+  }
+]

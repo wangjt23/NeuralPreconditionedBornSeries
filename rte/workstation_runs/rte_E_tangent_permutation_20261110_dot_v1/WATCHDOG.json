@@ -1,0 +1,15 @@
+{
+  "controller_pid": 1289806,
+  "worker_pid": 1289808,
+  "total_wall_limit_seconds": 240,
+  "RSS_limit_bytes": 4294967296,
+  "poll_seconds": 0.25,
+  "affinity": [
+    0
+  ],
+  "returncode": 0,
+  "stop_reason": null,
+  "elapsed_seconds": 107.40943757304922,
+  "observed_worker_peak_RSS_bytes": 1232494592,
+  "reaped": true
+}

@@ -1,0 +1,82 @@
+[
+  {
+    "size": 128,
+    "index": 0,
+    "seconds": 0.10048225335776806,
+    "initialization_seconds": 0.019383152946829796,
+    "independent_verification_seconds": 0.003224968910217285,
+    "total_diagnostic_seconds": 0.12309037521481514,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 4,
+      "injection_calls": 0,
+      "injection_accepted": 0,
+      "injection_rejected": 0,
+      "true_residual": 0.020758504007461473,
+      "failed": 1
+    },
+    "scope": "four-step truncated diagnostic, not a successful complete solve",
+    "prefix_gap": 1.7802844206561516e-11,
+    "real_AZ_gram_defect": 3.276745251001188e-16
+  },
+  {
+    "size": 128,
+    "index": 3,
+    "seconds": 0.025465691462159157,
+    "initialization_seconds": 0.000871775671839714,
+    "independent_verification_seconds": 0.0024478938430547714,
+    "total_diagnostic_seconds": 0.028785360977053642,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 4,
+      "injection_calls": 0,
+      "injection_accepted": 0,
+      "injection_rejected": 0,
+      "true_residual": 0.0019667573998801095,
+      "failed": 1
+    },
+    "scope": "four-step truncated diagnostic, not a successful complete solve",
+    "prefix_gap": 6.997068929417785e-11,
+    "real_AZ_gram_defect": 3.8768644103991455e-16
+  },
+  {
+    "size": 256,
+    "index": 0,
+    "seconds": 0.09464676305651665,
+    "initialization_seconds": 2.3642554879188538e-05,
+    "independent_verification_seconds": 0.003680836409330368,
+    "total_diagnostic_seconds": 0.0983512420207262,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 4,
+      "injection_calls": 0,
+      "injection_accepted": 0,
+      "injection_rejected": 0,
+      "true_residual": 0.0011072798051388888,
+      "failed": 1
+    },
+    "scope": "four-step truncated diagnostic, not a successful complete solve",
+    "prefix_gap": 0.0,
+    "real_AZ_gram_defect": 7.336875489309004e-16
+  },
+  {
+    "size": 256,
+    "index": 3,
+    "seconds": 0.0928634125739336,
+    "initialization_seconds": 1.693516969680786e-05,
+    "independent_verification_seconds": 0.0036142785102128983,
+    "total_diagnostic_seconds": 0.09649462625384331,
+    "status": {
+      "iterations": 4,
+      "classical_calls": 4,
+      "injection_calls": 0,
+      "injection_accepted": 0,
+      "injection_rejected": 0,
+      "true_residual": 1.666957369490871e-05,
+      "failed": 1
+    },
+    "scope": "four-step truncated diagnostic, not a successful complete solve",
+    "prefix_gap": 0.0,
+    "real_AZ_gram_defect": 6.679991929537281e-16
+  }
+]

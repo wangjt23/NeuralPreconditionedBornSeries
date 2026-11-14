@@ -1,0 +1,37 @@
+{
+  "data_type": "transport",
+  "num_test": 1,
+  "tol": 1e-06,
+  "max_iter": 5,
+  "restart": 5,
+  "results": [
+    {
+      "name": "identity",
+      "iterations": 5,
+      "final_relative_residual": 0.08714411407709122,
+      "history": [
+        1.0,
+        0.9439392685890198,
+        0.5500838160514832,
+        0.34633195400238037,
+        0.30321189761161804,
+        0.08714411407709122
+      ],
+      "final_d_metric_relative_residual": 0.08773620426654816
+    },
+    {
+      "name": "block_jacobi",
+      "iterations": 5,
+      "final_relative_residual": 7.782861757732462e-06,
+      "history": [
+        1.0,
+        0.1527245193719864,
+        0.02036348544061184,
+        0.0024837274104356766,
+        0.00021537463180720806,
+        7.782861757732462e-06
+      ],
+      "final_d_metric_relative_residual": 7.787832146277651e-06
+    }
+  ]
+}
